@@ -1,0 +1,36 @@
+# ============================================================
+# .gitignore — site Ecossistema Pindorama
+# ============================================================
+
+# --- Credenciais e configuração local ---
+config-db.php
+.env
+.env.*
+!.env.example
+
+# --- Backups e importações temporárias (etapa de migração Hostinger) ---
+_backup_*/
+_hostinger_*/
+*.zip
+*.zip:Zone.Identifier
+
+# --- Subprojetos fora do escopo deste repositório ---
+# pindorama-rpg vai virar repositório próprio
+pindorama-rpg/
+# script utilitário de teste de conexão (não pertence ao site)
+dbtest.php
+
+# --- Dados gerados em runtime ---
+data/
+*.log
+
+# --- Ferramentas de IDE / sistema operacional ---
+.claude/settings.local.json
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- PHP / dependências ---
+vendor/
+composer.lock

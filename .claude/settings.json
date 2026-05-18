@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /home/mario/pindorama -maxdepth 4 -type f 2>&1 | head -100; echo \"---\"; find /home/mario -maxdepth 3 -type d -name \"suinda*\" 2>&1)",
+      "Read(//home/mario/**)"
+    ]
+  }
+}
