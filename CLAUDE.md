@@ -32,3 +32,28 @@ Não faça commit prematuro quando:
 - Antes de `git add`, confirme que nenhum arquivo bloqueado por `.gitignore` está sendo forçado.
 - Mensagens de commit em português, no imperativo, prefixadas pelo tipo (`feat:`, `fix:`, `chore:`, `docs:`, `refactor:`, `style:`).
 - Nunca use `--force`, `--no-verify` ou `reset --hard` sem pedido explícito do usuário.
+
+## Uso obrigatório do Context7 MCP para documentação técnica
+
+Este projeto tem o servidor MCP **Context7** configurado em `.mcp.json` (nome do servidor: `context7`). Use-o **sempre** que precisar consultar documentação de linguagem, biblioteca, framework, API, ferramenta, configuração, instalação ou exemplos de implementação atualizados — antes de escrever código que dependa de sintaxe, comportamento ou opções de configuração externas.
+
+Isso inclui especialmente:
+
+- **Stack do projeto:** PHP, MySQL, HTML5, CSS3, JavaScript puro.
+- **Operação:** Git, GitHub Actions, deploy (Hostinger ou outros).
+- **Front-end:** boas práticas de acessibilidade, performance, responsividade.
+- **Qualquer dependência técnica** que venha a ser introduzida no projeto (ex.: bibliotecas JS, ferramentas PHP, frameworks de teste).
+
+Fluxo esperado quando for implementar, corrigir, refatorar ou configurar algo que dependa de referência externa:
+
+1. Identificar a biblioteca/ferramenta no Context7 (`mcp__context7__resolve-library-id`).
+2. Buscar a documentação específica para a tarefa (`mcp__context7__get-library-docs`), focando no tópico exato.
+3. Aplicar a solução com base na documentação retornada, citando brevemente a fonte no fechamento da resposta quando relevante.
+
+Não use conhecimento desatualizado ou suposições sobre APIs quando o Context7 puder confirmar a versão atual — reduzir alucinação e código quebrado é o objetivo dessa regra.
+
+### Configuração técnica do Context7 neste projeto
+
+- Arquivo: `.mcp.json` (versionado, escopo do projeto).
+- Comando: `npx -y @upstash/context7-mcp` (sem autenticação no tier gratuito).
+- Para limites maiores: definir variável de ambiente `CONTEXT7_API_KEY` no ambiente local — **nunca commitar a chave**.
