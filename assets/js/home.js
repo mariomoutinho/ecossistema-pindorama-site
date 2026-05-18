@@ -20,136 +20,106 @@ if (btnMenu && drawer) {
 
 // =========================
 // Serviços (dados + filtro)
+// Preço exibido = valor por sessão do pacote de 10 ("a partir de").
 // =========================
 const services = [
-  // Práticas terapêuticas
+  // ---------- Massagens corporais ----------
   {
-    cat: 'Práticas terapêuticas',
+    cat: 'Massagens corporais',
     title: 'Massagem Ayurvédica',
     duration: '80 min',
-    price: 'R$ 200',
+    priceFrom: 'R$ 160,00',
     desc: 'Cuidado profundo para relaxamento, vitalidade e equilíbrio.',
-    bg: './assets/img/massagem-ayurvedica-bg.png',
-    bgPos: 'center',
-    bgSize: 'cover'
+    bg: './assets/img/massagem-ayurvedica-bg.png'
   },
   {
-    cat: 'Práticas terapêuticas',
+    cat: 'Massagens corporais',
     title: 'Massoterapia (diversas técnicas)',
     duration: '60 min',
-    price: 'R$ 150',
+    priceFrom: 'R$ 120,00',
     desc: 'Atendimento adaptado às necessidades do corpo e do momento.',
-    bg: './assets/img/massoterapia-bg.png',
-    bgPos: 'center',
-    bgSize: 'cover'
+    bg: './assets/img/massoterapia-bg.png'
   },
   {
-    cat: 'Práticas terapêuticas',
+    cat: 'Massagens corporais',
+    title: 'Quick Massage',
+    duration: '20 min',
+    priceFrom: 'R$ 40,00',
+    desc: 'Massagem rápida e revigorante, ideal para alívio imediato de tensões.'
+  },
+  {
+    cat: 'Massagens corporais',
+    title: 'Massagem Relaxante com pedras quentes',
+    duration: '60 min',
+    priceFrom: 'R$ 96,00',
+    desc: 'Calor terapêutico que dissolve tensões profundas e aprofunda o relaxamento.'
+  },
+  {
+    cat: 'Massagens corporais',
+    title: 'Manipulação Vertebral',
+    duration: '50 min',
+    priceFrom: 'R$ 96,00',
+    desc: 'Ajustes precisos para restabelecer mobilidade e aliviar tensões na coluna.'
+  },
+  {
+    cat: 'Massagens corporais',
+    title: 'Liberação Miofascial',
+    duration: '60 min',
+    priceFrom: 'R$ 96,00',
+    desc: 'Técnica para soltar tensões profundas das fáscias e restaurar o equilíbrio corporal.'
+  },
+
+  // ---------- Terapias orientais ----------
+  {
+    cat: 'Terapias orientais',
     title: 'Acupuntura',
     duration: '60 min',
-    price: 'R$ 150',
+    priceFrom: 'R$ 120,00',
     desc: 'Prática integrativa para dores, estresse e regulação do organismo.',
     bg: './assets/img/acupuntura-bg.png',
     bgPos: '75% center',
-    // 👇 isso “aproxima” e remove aquela moldura escura que vem na imagem
     bgSize: '140% auto'
   },
-
-  { cat: 'Práticas terapêuticas', 
-    title: 'Ventosaterapia', 
-    duration: '45 min', 
-    price: 'R$ 80', 
+  {
+    cat: 'Terapias orientais',
+    title: 'Ventosaterapia',
+    duration: '45 min',
+    priceFrom: 'R$ 64,00',
     desc: 'Apoio para tensão muscular, circulação e bem-estar.',
-    bg: './assets/img/ventosaterapia-bg.png',
-
-
-},
-  { cat: 'Práticas terapêuticas', 
-    title: 'Auriculoterapia', 
-    duration: '30 min', 
-    price: 'R$ 70', 
+    bg: './assets/img/ventosaterapia-bg.png'
+  },
+  {
+    cat: 'Terapias orientais',
+    title: 'Moxabustão',
+    duration: '40 min',
+    priceFrom: 'R$ 56,00',
+    desc: 'Calor terapêutico aplicado em pontos energéticos para equilíbrio vital.'
+  },
+  {
+    cat: 'Terapias orientais',
+    title: 'Auriculoterapia',
+    duration: '30 min',
+    priceFrom: 'R$ 56,00',
     desc: 'Estímulos na orelha para apoiar equilíbrio e sintomas.',
-    bg: './assets/img/auriculoterapia-bg.png',
-},
+    bg: './assets/img/auriculoterapia-bg.png'
+  },
 
-  { cat: 'Práticas terapêuticas', 
-    title: 'Reiki', 
-    duration: '40 min', 
-    price: 'R$ 60', 
+  // ---------- Cuidado integrativo ----------
+  {
+    cat: 'Cuidado integrativo',
+    title: 'Reflexologia Podal',
+    duration: '45 min',
+    priceFrom: 'R$ 64,00',
+    desc: 'Massagem nos pés que repercute bem-estar para todo o corpo.'
+  },
+  {
+    cat: 'Cuidado integrativo',
+    title: 'Reiki',
+    duration: '40 min',
+    priceFrom: 'R$ 48,00',
     desc: 'Cuidado energético para acolher emoções e relaxar.',
-    bg: './assets/img/reiki-bg.png',
- },
-
-  // Atividades coletivas
-  { cat: 'Atividades coletivas', 
-    title: 'Dança Circular', 
-    duration: '80 min', 
-    price: 'R$ 40', 
-    desc: 'Movimento e conexão em roda para bem-estar e presença.',
-    bg: './assets/img/danca-circular-bg.png',
-},
-  { cat: 'Atividades coletivas', 
-    title: 'Thai Chi', 
-    duration: '40 min', 
-    price: 'R$ 40', 
-    desc: 'Movimentos suaves para energia, equilíbrio e foco.',
-    bg: './assets/img/thai-chi-bg.png',
-},
-  { cat: 'Atividades coletivas', 
-    title: 'Meditação', 
-    duration: '40 min', 
-    price: 'R$ 20', 
-    desc: 'Prática guiada para tranquilidade e autoconsciência.',
-    bg: './assets/img/meditacao-bg.png',
-},
-
-  { cat: 'Atividades coletivas', 
-    title: 'Automassagem', 
-    duration: '60 min', 
-    price: 'R$ 30', 
-    desc: 'Aprender a cuidar do próprio corpo com técnicas simples.',
-    bg: './assets/img/automassagem-bg.png',
-},
-
-  // Consultorias
-  { cat: 'Consultorias', 
-    title: 'Consulta Terapêutica', 
-    duration: '50 min', 
-    price: 'R$ 120', 
-    desc: 'Escuta e plano de cuidado integrativo.',
-    bg: './assets/img/consulta-terapeutica-bg.png',
-},
-  { cat: 'Consultorias', 
-    title: 'Atendimento em Arteterapia', 
-    duration: '50 min', 
-    price: 'R$ 120', 
-    desc: 'Expressão criativa como caminho de cuidado.',
-    bg: './assets/img/arteterapia-bg.png',
-  },
-  { cat: 'Consultorias', 
-    title: 'Consulta em MTC', 
-    duration: '50 min', 
-    price: 'R$ 120', 
-    desc: 'Avaliação e orientação pela Medicina Tradicional Chinesa.',
-    bg: './assets/img/mtc-bg.png',
-  },
-
-  // Cursos/Oficinas/Workshops
-  { cat: 'Cursos e oficinas', 
-    title: 'Shantala', 
-    duration: '—', 
-    price: 'Consultar', 
-    desc: 'Vivência de toque e vínculo (agenda/formatos sob consulta).',
-    bg: './assets/img/shantala-bg.png',
-},
-
-  { cat: 'Cursos e oficinas', 
-    title: 'SoulCollage (introdução/oficina)', 
-    duration: '—', 
-    price: 'Consultar', 
-    desc: 'Processo criativo e simbólico para autoconhecimento.',
-    bg: './assets/img/soulcollage-bg.png',
-},
+    bg: './assets/img/reiki-bg.png'
+  }
 ];
 
 const categories = ['Todos', ...Array.from(new Set(services.map(s => s.cat)))];
@@ -166,6 +136,7 @@ function renderFilters(active = 'Todos') {
     b.type = 'button';
     b.className = 'chip' + (cat === active ? ' active' : '');
     b.textContent = cat;
+    b.setAttribute('aria-pressed', cat === active ? 'true' : 'false');
 
     b.addEventListener('click', () => {
       renderFilters(cat);
@@ -179,35 +150,43 @@ function renderFilters(active = 'Todos') {
 function renderServices(filter = 'Todos') {
   if (!gridEl) return;
 
-  const list = (filter === 'Todos') ? services : services.filter(s => s.cat === filter);
+  const list = (filter === 'Todos')
+    ? services
+    : services.filter(s => s.cat === filter);
 
   gridEl.innerHTML = list.map(s => {
     const hasBg = !!s.bg;
-
     const bgPos = s.bgPos || 'center';
     const bgSize = s.bgSize || 'cover';
 
-    const style = hasBg
-      ? `style="
-          background-color: rgba(19,45,38,.62);
-          background-image:
-            linear-gradient(180deg, rgba(10,18,15,.78), rgba(10,18,15,.55)),
-            url('${escapeAttr(s.bg)}');
-          background-size: ${escapeAttr(bgSize)};
-          background-position: ${escapeAttr(bgPos)};
-          background-repeat: no-repeat;
-        "`
+    const bgStyle = hasBg
+      ? `style="background-image: url('${escapeAttr(s.bg)}'); background-position: ${escapeAttr(bgPos)}; background-size: ${escapeAttr(bgSize)};"`
       : '';
 
+    const cardClass = 'serviceCard' + (hasBg ? '' : ' serviceCard--noImage');
+
     return `
-      <article class="serviceCard" ${style}>
-        <div class="meta">
-          <span class="badge">${escapeHtml(s.cat)}</span>
-          ${s.duration ? `<span class="badge">${escapeHtml(s.duration)}</span>` : ''}
-          ${s.price ? `<span class="badge price">${escapeHtml(s.price)}</span>` : ''}
+      <article class="${cardClass}" tabindex="0">
+        <div class="serviceCard__bg" ${bgStyle} aria-hidden="true"></div>
+        <div class="serviceCard__overlay" aria-hidden="true"></div>
+
+        <div class="serviceCard__inner">
+          <div class="serviceCard__top">
+            <span class="serviceCard__tag">${escapeHtml(s.cat)}</span>
+            ${s.duration ? `<span class="serviceCard__duration">${escapeHtml(s.duration)}</span>` : ''}
+          </div>
+
+          <div class="serviceCard__body">
+            <h4 class="serviceCard__title">${escapeHtml(s.title)}</h4>
+            <p class="serviceCard__desc">${escapeHtml(s.desc)}</p>
+
+            <div class="serviceCard__price" aria-label="Preço a partir de ${escapeAttr(s.priceFrom)} por sessão">
+              <span class="serviceCard__price-prefix">A partir de</span>
+              <strong class="serviceCard__price-value">${escapeHtml(s.priceFrom)}</strong>
+              <span class="serviceCard__price-suffix">por sessão</span>
+            </div>
+          </div>
         </div>
-        <h4>${escapeHtml(s.title)}</h4>
-        <p>${escapeHtml(s.desc)}</p>
       </article>
     `;
   }).join('');
@@ -224,7 +203,6 @@ function escapeHtml(str){
 }
 
 function escapeAttr(str){
-  // evita quebrar o atributo style (principalmente aspas simples)
   return String(str).replace(/'/g, "\\'");
 }
 
