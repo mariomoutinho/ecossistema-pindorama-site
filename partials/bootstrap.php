@@ -55,7 +55,7 @@ $emailContato = 'contato@coletivopindorama.com';
 $endereco     = 'Espaço Pindorama — Rua Dom Carlos Coelho, 86 — Boa Vista, Recife/PE';
 
 // URLs internas / ecossistema
-$homeUrl     = 'coletivopindorama.php';
+$homeUrl     = 'index.php';
 $terapiasUrl = 'terapias.php';
 $cuidarUrl   = 'cuidar-mais/';
 $rpgUrl      = 'https://pindoramarpg.coletivopindorama.com.br';
