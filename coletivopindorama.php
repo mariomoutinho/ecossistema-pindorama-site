@@ -121,8 +121,7 @@ $endereco = 'Espaço Pindorama — Rua Dom Carlos Coelho, 86 — Boa Vista, Reci
 
       <div class="cta">
         <!-- CTA primário fica no topo -->
-        <a class="btn primary" href="https://wa.me/5581995216450?text=Ol%C3%A1%21+Quero+agendar+um+atendimento."
- target="_blank" rel="noopener">
+        <a class="btn primary" href="<?php echo htmlspecialchars($whatsLink); ?>" target="_blank" rel="noopener">
           Agendar no WhatsApp
         </a>
 
@@ -137,7 +136,7 @@ $endereco = 'Espaço Pindorama — Rua Dom Carlos Coelho, 86 — Boa Vista, Reci
     <div class="drawer" id="drawer">
       <!-- Ações (inclui o "Falar com a gente" que você queria dentro do menu) -->
       <div class="drawerActions">
-        <a class="btn primary" href="SEU_LINK_WHATSAPP" target="_blank" rel="noopener">Agendar no WhatsApp</a>
+        <a class="btn primary" href="<?php echo htmlspecialchars($whatsLink); ?>" target="_blank" rel="noopener">Agendar no WhatsApp</a>
         <a class="btn" href="#contato">Falar com a gente</a>
       </div>
 
