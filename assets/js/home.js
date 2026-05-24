@@ -45,28 +45,32 @@ const services = [
     title: 'Quick Massage',
     duration: '20 min',
     priceFrom: 'R$ 40,00',
-    desc: 'Massagem rápida e revigorante, ideal para alívio imediato de tensões.'
+    desc: 'Massagem rápida e revigorante, ideal para alívio imediato de tensões.',
+    bg: './assets/img/terapias/quick-massage.png'
   },
   {
     cat: 'Massagens corporais',
     title: 'Massagem Relaxante com pedras quentes',
     duration: '60 min',
     priceFrom: 'R$ 96,00',
-    desc: 'Calor terapêutico que dissolve tensões profundas e aprofunda o relaxamento.'
+    desc: 'Calor terapêutico que dissolve tensões profundas e aprofunda o relaxamento.',
+    bg: './assets/img/terapias/pedras-quentes.png'
   },
   {
     cat: 'Massagens corporais',
     title: 'Manipulação Vertebral',
     duration: '50 min',
     priceFrom: 'R$ 96,00',
-    desc: 'Ajustes precisos para restabelecer mobilidade e aliviar tensões na coluna.'
+    desc: 'Ajustes precisos para restabelecer mobilidade e aliviar tensões na coluna.',
+    bg: './assets/img/terapias/manipulacao-vertebral.png'
   },
   {
     cat: 'Massagens corporais',
     title: 'Liberação Miofascial',
     duration: '60 min',
     priceFrom: 'R$ 96,00',
-    desc: 'Técnica para soltar tensões profundas das fáscias e restaurar o equilíbrio corporal.'
+    desc: 'Técnica para soltar tensões profundas das fáscias e restaurar o equilíbrio corporal.',
+    bg: './assets/img/terapias/massagem-relaxante.png'
   },
 
   // ---------- Terapias orientais ----------
@@ -93,7 +97,8 @@ const services = [
     title: 'Moxabustão',
     duration: '40 min',
     priceFrom: 'R$ 56,00',
-    desc: 'Calor terapêutico aplicado em pontos energéticos para equilíbrio vital.'
+    desc: 'Calor terapêutico aplicado em pontos energéticos para equilíbrio vital.',
+    bg: './assets/img/terapias/moxabustao.png'
   },
   {
     cat: 'Terapias orientais',
@@ -110,7 +115,8 @@ const services = [
     title: 'Reflexologia Podal',
     duration: '45 min',
     priceFrom: 'R$ 64,00',
-    desc: 'Massagem nos pés que repercute bem-estar para todo o corpo.'
+    desc: 'Massagem nos pés que repercute bem-estar para todo o corpo.',
+    bg: './assets/img/terapias/reflexologia-podal.png'
   },
   {
     cat: 'Cuidado integrativo',
