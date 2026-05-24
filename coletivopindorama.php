@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
   }
 
-  if (!$db_ok) {
+  if (!$db_ok || !($pdo instanceof PDO)) {
     flash_set('error', 'Banco de dados indisponível. Tente novamente em instantes.');
     header('Location: ' . $_SERVER['PHP_SELF'] . '#contato');
     exit;
@@ -152,26 +152,35 @@ require __DIR__ . '/partials/header.php';
         </div>
       </div>
 
-      <div class="grid ecoGrid">
-        <a class="card ecoCard span4" href="<?= htmlspecialchars($terapiasUrl) ?>">
-          <span class="tag">Terapias</span>
-          <h3>Espaço Pindorama</h3>
-          <p>Atendimentos individuais e práticas integrativas — corpo, energia e expressão.</p>
-          <span class="ecoCta">Ver terapias →</span>
+      <div class="ecosystem-grid">
+        <a class="ecosystem-card ecosystem-card--terapias" href="<?= htmlspecialchars($terapiasUrl) ?>">
+          <span class="ecosystem-card__bg" aria-hidden="true"></span>
+          <span class="ecosystem-card__tag">Terapias</span>
+          <div class="ecosystem-card__content">
+            <h3>Espaço Pindorama</h3>
+            <p>Atendimentos individuais e práticas integrativas para corpo, escuta, energia e expressão.</p>
+            <span class="ecosystem-card__cta">Ver terapias →</span>
+          </div>
         </a>
 
-        <a class="card ecoCard span4" href="<?= htmlspecialchars($cuidarUrl) ?>">
-          <span class="tag">Formação</span>
-          <h3>Cuidar+</h3>
-          <p>Educação popular em saúde no trabalho — oficinas e vivências para organizações.</p>
-          <span class="ecoCta">Conhecer Cuidar+ →</span>
+        <a class="ecosystem-card ecosystem-card--cuidar" href="<?= htmlspecialchars($cuidarUrl) ?>">
+          <span class="ecosystem-card__bg" aria-hidden="true"></span>
+          <span class="ecosystem-card__tag">Formação</span>
+          <div class="ecosystem-card__content">
+            <h3>Cuidar+</h3>
+            <p>Educação popular em saúde no trabalho, oficinas, vivências e cuidado para organizações.</p>
+            <span class="ecosystem-card__cta">Conhecer Cuidar+ →</span>
+          </div>
         </a>
 
-        <a class="card ecoCard span4" href="<?= htmlspecialchars($rpgUrl) ?>" target="_blank" rel="noopener">
-          <span class="tag">Cultura</span>
-          <h3>Pindorama RPG</h3>
-          <p>Mesas e narrativas inspiradas em saberes brasileiros, ancestralidade e imaginação.</p>
-          <span class="ecoCta">Visitar site →</span>
+        <a class="ecosystem-card ecosystem-card--rpg" href="<?= htmlspecialchars($rpgUrl) ?>" target="_blank" rel="noopener">
+          <span class="ecosystem-card__bg" aria-hidden="true"></span>
+          <span class="ecosystem-card__tag">Cultura</span>
+          <div class="ecosystem-card__content">
+            <h3>Pindorama RPG</h3>
+            <p>Mesas, narrativas e experiências inspiradas em saberes brasileiros, ancestralidade e imaginação.</p>
+            <span class="ecosystem-card__cta">Visitar site →</span>
+          </div>
         </a>
       </div>
     </div>

@@ -454,38 +454,140 @@ textarea{ min-height: 120px; resize: vertical; }
 }
 
 /* ============================================================
-   ECOSSISTEMA PINDORAMA — cards de navegação cruzada
+   ECOSSISTEMA PINDORAMA — cards com imagem de fundo
    ============================================================ */
-.ecoGrid{ margin-top: 4px; }
-.ecoCard{
+.ecosystem-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 4px;
+}
+.ecosystem-card{
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  min-height: 170px;
-  cursor: pointer;
+  gap: 10px;
+  min-height: 280px;
+  padding: 26px;
+  border-radius: 24px;
+  overflow: hidden;
+  isolation: isolate;
   text-decoration: none;
+  color: var(--text);
+  background-color: #0f221c;
+  border: 1px solid rgba(244,231,211,.12);
+  box-shadow: 0 14px 40px rgba(0,0,0,.32);
   transition:
-    transform .25s cubic-bezier(.2,.7,.2,1),
-    border-color .25s ease,
-    box-shadow .25s ease,
-    background .25s ease;
+    transform .35s cubic-bezier(.2,.7,.2,1),
+    box-shadow .35s ease,
+    border-color .35s ease;
 }
-.ecoCard:hover,
-.ecoCard:focus-visible{
-  transform: translateY(-3px);
-  border-color: rgba(244,231,211,.30);
-  background: rgba(19,45,38,.78);
-  box-shadow: 0 18px 44px rgba(0,0,0,.32);
+.ecosystem-card::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(5,24,18,.30) 0%,
+    rgba(5,24,18,.62) 55%,
+    rgba(3,16,12,.92) 100%
+  );
+  transition: background .35s ease;
 }
-.ecoCard h3{ font-size: 16px; margin: 4px 0 2px; }
-.ecoCard p{ color: var(--muted); font-size: 13px; line-height: 1.55; }
-.ecoCta{
+.ecosystem-card:hover,
+.ecosystem-card:focus-visible{
+  transform: translateY(-4px);
+  border-color: rgba(244,231,211,.32);
+  box-shadow: 0 22px 54px rgba(0,0,0,.45);
+}
+.ecosystem-card:hover::before,
+.ecosystem-card:focus-visible::before{
+  background: linear-gradient(
+    180deg,
+    rgba(5,24,18,.20) 0%,
+    rgba(5,24,18,.55) 55%,
+    rgba(3,16,12,.90) 100%
+  );
+}
+
+.ecosystem-card__bg{
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  transition: transform 1.2s cubic-bezier(.2,.7,.2,1);
+}
+.ecosystem-card:hover .ecosystem-card__bg,
+.ecosystem-card:focus-visible .ecosystem-card__bg{
+  transform: scale(1.06);
+}
+
+.ecosystem-card--terapias .ecosystem-card__bg{
+  background-image: url("../img/ecossistema/espaco-pindorama-bg.png");
+}
+.ecosystem-card--cuidar .ecosystem-card__bg{
+  background-image: url("../img/ecossistema/cuidar-mais-bg.png");
+}
+.ecosystem-card--rpg .ecosystem-card__bg{
+  background-image: url("../img/ecossistema/pindorama-rpg-bg.png");
+}
+
+.ecosystem-card__tag,
+.ecosystem-card__content{
+  position: relative;
+  z-index: 2;
+}
+.ecosystem-card__tag{
+  align-self: flex-start;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: .9px;
+  color: var(--sand);
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: rgba(244,231,211,.14);
+  border: 1px solid rgba(244,231,211,.26);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.ecosystem-card__content{
   margin-top: auto;
-  padding-top: 8px;
-  font-size: 12.5px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.ecosystem-card__content h3{
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: -.2px;
+  color: var(--text);
+  text-shadow: 0 1px 14px rgba(0,0,0,.6);
+}
+.ecosystem-card__content p{
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: rgba(234,243,239,.90);
+  text-shadow: 0 1px 10px rgba(0,0,0,.6);
+}
+.ecosystem-card__cta{
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 700;
   letter-spacing: .2px;
   color: var(--sand);
-  font-weight: 600;
+}
+
+@media (max-width: 980px){
+  .ecosystem-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 720px){
+  .ecosystem-grid{ grid-template-columns: 1fr; gap: 14px; }
+  .ecosystem-card{ min-height: 240px; padding: 22px; }
+  .ecosystem-card__content h3{ font-size: 18px; }
 }
 
 /* ============================================================
