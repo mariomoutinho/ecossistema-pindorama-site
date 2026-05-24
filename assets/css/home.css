@@ -458,7 +458,7 @@ textarea{ min-height: 120px; resize: vertical; }
    ============================================================ */
 .ecosystem-grid{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 18px;
   margin-top: 4px;
 }
@@ -533,6 +533,9 @@ textarea{ min-height: 120px; resize: vertical; }
 }
 .ecosystem-card--rpg .ecosystem-card__bg{
   background-image: url("../img/ecossistema/pindorama-rpg-bg.png");
+}
+.ecosystem-card--sementeira .ecosystem-card__bg{
+  background-image: url("../img/ecossistema/sementeira-bg.png");
 }
 
 .ecosystem-card__tag,

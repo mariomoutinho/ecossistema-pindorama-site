@@ -182,6 +182,16 @@ require __DIR__ . '/partials/header.php';
             <span class="ecosystem-card__cta">Visitar site →</span>
           </div>
         </a>
+
+        <a class="ecosystem-card ecosystem-card--sementeira" href="<?= htmlspecialchars($gessUrl) ?>">
+          <span class="ecosystem-card__bg" aria-hidden="true"></span>
+          <span class="ecosystem-card__tag">Projetos</span>
+          <div class="ecosystem-card__content">
+            <h3>Sementeira</h3>
+            <p>Espaço de germinação de ideias e projetos do ecossistema Pindorama.</p>
+            <span class="ecosystem-card__cta">Conhecer Sementeira →</span>
+          </div>
+        </a>
       </div>
     </div>
   </section>

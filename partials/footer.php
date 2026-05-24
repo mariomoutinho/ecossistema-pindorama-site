@@ -18,6 +18,8 @@ $pageScripts = $pageScripts ?? [];
       <span class="sep">•</span>
       <a href="<?= htmlspecialchars($rpgUrl) ?>" target="_blank" rel="noopener" class="link">Pindorama RPG</a>
       <span class="sep">•</span>
+      <a href="<?= htmlspecialchars($gessUrl) ?>" class="link">Sementeira</a>
+      <span class="sep">•</span>
       <a href="<?= htmlspecialchars($insta) ?>" target="_blank" rel="noopener" class="link">Instagram</a>
       <span class="sep">•</span>
       <a href="<?= htmlspecialchars($whatsLink) ?>" target="_blank" rel="noopener" class="link">WhatsApp</a>
