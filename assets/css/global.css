@@ -177,14 +177,38 @@ section{ padding: 56px 0; }
 }
 .sep{ opacity:.5; }
 
+.span4{ grid-column: span 4; }
 .span6{ grid-column: span 6; }
 .span12{ grid-column: span 12; }
+
+/* Estado ativo no menu (página atual) */
+.menu a[aria-current="page"],
+.drawer a[aria-current="page"]{
+  color: var(--sand);
+  background: rgba(244,231,211,.08);
+}
+
+/* Foco visível consistente em links e botões */
+a:focus-visible,
+.btn:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 4px var(--focus);
+  border-radius: 999px;
+}
+
+/* Rodapé com atalhos do ecossistema */
+.footLinks{ display:flex; flex-wrap:wrap; gap:8px 6px; align-items:center; }
 .mt0{ margin-top:0; }
 .mb12{ margin-bottom:12px; }
 
+@media (max-width: 980px){
+  .span4{ grid-column: span 6; }
+}
 @media (max-width: 720px){
   .menu{ display:none; }
   .hamb{ display:inline-flex; }
   .sectionHead{ flex-direction: column; align-items:flex-start; }
   .cta{ gap:8px; }
+  .span4{ grid-column: span 12; }
+  .footLinks{ width:100%; }
 }

@@ -1,73 +1,62 @@
 <?php
 // ================================
-// CONFIG BANCO — credenciais carregadas de config-db.php (gitignored).
-// Use config-db.example.php como template ao configurar um ambiente novo.
+// Página principal do Coletivo Pindorama.
+// Bootstrap (DB, sessão, helpers, variáveis globais) está em partials/bootstrap.php.
+// Header e footer também são partials, compartilhados com terapias.php.
 // ================================
-require_once __DIR__ . '/config-db.php';
 
-session_start();
-function flash_set($type, $msg) { $_SESSION['flash'] = ['type'=>$type,'msg'=>$msg]; }
-function flash_get() {
-  if (!isset($_SESSION['flash'])) return null;
-  $f = $_SESSION['flash']; unset($_SESSION['flash']); return $f;
-}
+$activePage      = 'home';
+$pageTitle       = 'Coletivo Pindorama • Saúde Integrativa & Bem-Estar';
+$pageDescription = 'Saúde Integrativa & Bem-Estar em Recife/PE. Terapias, atividades coletivas, formações e a metodologia Cuidar+.';
+$pageScripts     = ['assets/js/home.js'];
 
-$pdo = null;
-$db_ok = false;
-$db_error = null;
+require __DIR__ . '/partials/bootstrap.php';
 
-try {
-  $dsn = "mysql:host=".DB_HOST.";port=".DB_PORT.";dbname=".DB_NAME.";charset=utf8mb4";
-  $pdo = new PDO($dsn, DB_USER, DB_PASS, [
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-  ]);
-  $db_ok = true;
-
-  $pdo->exec("
-    CREATE TABLE IF NOT EXISTS leads (
-      id INT AUTO_INCREMENT PRIMARY KEY,
-      nome VARCHAR(120) NOT NULL,
-      email VARCHAR(160) NULL,
-      telefone VARCHAR(40) NULL,
-      mensagem TEXT NOT NULL,
-      origem VARCHAR(60) DEFAULT 'site',
-      criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-  ");
-
-} catch (Throwable $e) {
-  $db_ok = false;
-  $db_error = $e->getMessage();
-}
-
+// --------------------------------
+// Tratamento do formulário de contato (POST). Mantém comportamento original.
+// Roda antes de qualquer output para permitir header() de redirect.
+// --------------------------------
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $nome = trim($_POST['nome'] ?? '');
-  $email = trim($_POST['email'] ?? '');
+  $nome     = trim($_POST['nome']     ?? '');
+  $email    = trim($_POST['email']    ?? '');
   $telefone = trim($_POST['telefone'] ?? '');
   $mensagem = trim($_POST['mensagem'] ?? '');
-  $origem = 'site';
+  $origem   = 'site';
 
   if ($nome === '' || $mensagem === '') {
     flash_set('error', 'Por favor, preencha seu nome e a mensagem.');
-    header('Location: '.$_SERVER['PHP_SELF'].'#contato');
+    header('Location: ' . $_SERVER['PHP_SELF'] . '#contato');
     exit;
   }
 
+  // Honeypot
   $hp = trim($_POST['website'] ?? '');
   if ($hp !== '') {
     flash_set('success', 'Mensagem recebida. Obrigado!');
-    header('Location: '.$_SERVER['PHP_SELF'].'#contato');
+    header('Location: ' . $_SERVER['PHP_SELF'] . '#contato');
     exit;
   }
 
   if (!$db_ok) {
-    flash_set('error', 'Banco de dados indisponível. Confira a configuração do MySQL no XAMPP.');
-    header('Location: '.$_SERVER['PHP_SELF'].'#contato');
+    flash_set('error', 'Banco de dados indisponível. Tente novamente em instantes.');
+    header('Location: ' . $_SERVER['PHP_SELF'] . '#contato');
     exit;
   }
 
   try {
+    // Garante a existência da tabela apenas no fluxo que precisa dela.
+    $pdo->exec("
+      CREATE TABLE IF NOT EXISTS leads (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        nome VARCHAR(120) NOT NULL,
+        email VARCHAR(160) NULL,
+        telefone VARCHAR(40) NULL,
+        mensagem TEXT NOT NULL,
+        origem VARCHAR(60) DEFAULT 'site',
+        criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    ");
+
     $stmt = $pdo->prepare("INSERT INTO leads (nome,email,telefone,mensagem,origem) VALUES (?,?,?,?,?)");
     $stmt->execute([$nome, $email ?: null, $telefone ?: null, $mensagem, $origem]);
     flash_set('success', 'Recebemos sua mensagem 💛 Em breve a gente te responde.');
@@ -75,81 +64,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     flash_set('error', 'Não foi possível enviar agora. Tente novamente.');
   }
 
-  header('Location: '.$_SERVER['PHP_SELF'].'#contato');
+  header('Location: ' . $_SERVER['PHP_SELF'] . '#contato');
   exit;
 }
 
 $flash = flash_get();
 
-$whatsNumber = '5581995216450';
-$whatsLink = "https://wa.me/{$whatsNumber}?text=".rawurlencode("Olá! Vim pelo site do Coletivo Pindorama e gostaria de agendar um horário.");
-$insta = "https://www.instagram.com/coletivo_pindorama";
-$emailContato = 'contato@coletivopindorama.com';
-$endereco = 'Espaço Pindorama — Rua Dom Carlos Coelho, 86 — Boa Vista, Recife/PE';
-
+require __DIR__ . '/partials/header.php';
 ?>
-<!doctype html>
-<html lang="pt-br">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Coletivo Pindorama • Saúde Integrativa & Bem-Estar</title>
-  <meta name="description" content="Saúde Integrativa & Bem-Estar em Recife/PE. Terapias, atividades coletivas, formações e a metodologia Cuidar+." />
-
-  <link rel="stylesheet" href="assets/css/global.css">
-  <link rel="stylesheet" href="assets/css/home.css">
-</head>
-
-<body>
-<header class="siteHeader">
-  <div class="container">
-    <div class="nav">
-      <a class="brand" href="#topo">
-        <img class="logo" src="./assets/img/logo-pindorama.svg" alt="Coletivo Pindorama">
-        <div>
-          <h1>Coletivo Pindorama</h1>
-          <p>Saúde Integrativa & Bem-Estar</p>
-        </div>
-      </a>
-
-      <nav class="menu" aria-label="Navegação principal">
-        <a href="#servicos">Serviços</a>
-        <a href="/cuidar-mais/">Ir para Cuidar+</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#contato">Contato</a>
-      </nav>
-
-      <div class="cta">
-        <!-- CTA primário fica no topo -->
-        <a class="btn primary" href="<?php echo htmlspecialchars($whatsLink); ?>" target="_blank" rel="noopener">
-          Agendar no WhatsApp
-        </a>
-
-        <!-- Botão do menu (hamburger) -->
-        <button class="btn hamb" id="btnMenu" type="button" aria-expanded="false" aria-controls="drawer">
-          Menu
-        </button>
-      </div>
-    </div>
-
-    <!-- Drawer (mobile) -->
-    <div class="drawer" id="drawer">
-      <!-- Ações (inclui o "Falar com a gente" que você queria dentro do menu) -->
-      <div class="drawerActions">
-        <a class="btn primary" href="<?php echo htmlspecialchars($whatsLink); ?>" target="_blank" rel="noopener">Agendar no WhatsApp</a>
-        <a class="btn" href="#contato">Falar com a gente</a>
-      </div>
-
-      <div class="drawerLinks">
-        <a href="#servicos">Serviços</a>
-        <a href="#cuidar">Cuidar+</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#contato">Contato</a>
-      </div>
-    </div>
-  </div>
-</header>
-
 
 <main id="topo">
   <!-- HERO -->
@@ -170,9 +92,9 @@ $endereco = 'Espaço Pindorama — Rua Dom Carlos Coelho, 86 — Boa Vista, Reci
           </p>
 
           <div class="heroActions">
-            <a class="btn primary" href="<?php echo htmlspecialchars($whatsLink); ?>" target="_blank" rel="noopener">Agendar agora</a>
-            <a class="btn" href="#servicos">Ver serviços</a>
-            <a class="btn" href="#cuidar">Conhecer Cuidar+</a>
+            <a class="btn primary" href="<?= htmlspecialchars($whatsLink) ?>" target="_blank" rel="noopener">Agendar no WhatsApp</a>
+            <a class="btn" href="<?= htmlspecialchars($terapiasUrl) ?>">Ver terapias</a>
+            <a class="btn ghost" href="<?= htmlspecialchars($cuidarUrl) ?>">Conhecer Cuidar+</a>
           </div>
         </div>
       </div>
@@ -188,55 +110,90 @@ $endereco = 'Espaço Pindorama — Rua Dom Carlos Coelho, 86 — Boa Vista, Reci
 
         <div class="mini">
           <div class="miniRow">
-  <span class="dot dotLeaf" aria-hidden="true"></span>
-  <div>
-    <strong>Instagram</strong>
-    <span>
-      <a class="link"
-         href="<?php echo htmlspecialchars($insta); ?>"
-         target="_blank"
-         rel="noopener">
-        <?php echo htmlspecialchars($insta); ?>
-      </a>
-    </span>
-  </div>
-</div>
+            <span class="dot dotLeaf" aria-hidden="true"></span>
+            <div>
+              <strong>Instagram</strong>
+              <span>
+                <a class="link" href="<?= htmlspecialchars($insta) ?>" target="_blank" rel="noopener">
+                  <?= htmlspecialchars($instaHandle) ?>
+                </a>
+              </span>
+            </div>
+          </div>
 
           <div class="miniRow">
             <span class="dot dotLeaf" aria-hidden="true"></span>
             <div>
               <strong>Endereço</strong>
-              <span><?php echo htmlspecialchars($endereco); ?></span>
+              <span><?= htmlspecialchars($endereco) ?></span>
             </div>
           </div>
+
           <div class="mapWrap" aria-label="Mapa do Espaço Pindorama">
-  <iframe
-    title="Mapa - Rua Dom Carlos Coelho, 86"
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade"
-    src="https://www.google.com/maps?q=Rua%20Dom%20Carlos%20Coelho,%2086,%20Boa%20Vista,%20Recife%20PE&output=embed">
-  </iframe>
-</div>
+            <iframe
+              title="Mapa - Rua Dom Carlos Coelho, 86"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Rua%20Dom%20Carlos%20Coelho,%2086,%20Boa%20Vista,%20Recife%20PE&output=embed">
+            </iframe>
+          </div>
         </div>
       </aside>
     </div>
-    
   </div>
 
-  <!-- SERVIÇOS -->
+  <!-- ECOSSISTEMA PINDORAMA -->
+  <section id="ecossistema">
+    <div class="container">
+      <div class="sectionHead">
+        <div>
+          <h2>Ecossistema Pindorama</h2>
+          <p>Frentes que se conversam: cuidado terapêutico, formação e cultura.</p>
+        </div>
+      </div>
+
+      <div class="grid ecoGrid">
+        <a class="card ecoCard span4" href="<?= htmlspecialchars($terapiasUrl) ?>">
+          <span class="tag">Terapias</span>
+          <h3>Espaço Pindorama</h3>
+          <p>Atendimentos individuais e práticas integrativas — corpo, energia e expressão.</p>
+          <span class="ecoCta">Ver terapias →</span>
+        </a>
+
+        <a class="card ecoCard span4" href="<?= htmlspecialchars($cuidarUrl) ?>">
+          <span class="tag">Formação</span>
+          <h3>Cuidar+</h3>
+          <p>Educação popular em saúde no trabalho — oficinas e vivências para organizações.</p>
+          <span class="ecoCta">Conhecer Cuidar+ →</span>
+        </a>
+
+        <a class="card ecoCard span4" href="<?= htmlspecialchars($rpgUrl) ?>" target="_blank" rel="noopener">
+          <span class="tag">Cultura</span>
+          <h3>Pindorama RPG</h3>
+          <p>Mesas e narrativas inspiradas em saberes brasileiros, ancestralidade e imaginação.</p>
+          <span class="ecoCta">Visitar site →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS EM DESTAQUE -->
   <section id="servicos">
     <div class="container">
       <div class="sectionHead">
         <div>
-          <h2>Serviços</h2>
-          <p>Uma seleção dos atendimentos e atividades do Coletivo Pindorama. Use os filtros para explorar.</p>
+          <h2>Serviços em destaque</h2>
+          <p>Uma seleção das nossas terapias. Use os filtros para explorar ou veja o catálogo completo.</p>
         </div>
         <div class="tools" id="serviceFilters" aria-label="Filtros de serviços"></div>
       </div>
 
       <div class="servicesWrap">
         <div class="servicesGrid" id="servicesGrid"></div>
-        <p class="note">Valores e formatos completos podem ser atualizados no catálogo. Agende pelo WhatsApp para combinar horários.</p>
+        <p class="note">
+          Valores e formatos completos podem ser atualizados no catálogo.
+          <a class="link" href="<?= htmlspecialchars($terapiasUrl) ?>">Ver todas as terapias →</a>
+        </p>
       </div>
     </div>
   </section>
@@ -268,6 +225,9 @@ $endereco = 'Espaço Pindorama — Rua Dom Carlos Coelho, 86 — Boa Vista, Reci
           <span class="tag">Exemplo de atividade</span>
           <h3>Oficinas em instituições e organizações</h3>
           <p>Vivências formativas sobre convivência ética, prevenção de violências e fortalecimento de cultura de cuidado — com metodologias ativas, ludicidade e sistematização coletiva.</p>
+          <p style="margin-top:10px;">
+            <a class="link" href="<?= htmlspecialchars($cuidarUrl) ?>">Saiba mais sobre o Cuidar+ →</a>
+          </p>
         </div>
       </div>
     </div>
@@ -299,7 +259,7 @@ $endereco = 'Espaço Pindorama — Rua Dom Carlos Coelho, 86 — Boa Vista, Reci
         <div class="card span12">
           <span class="tag">Onde estamos</span>
           <h3>Espaço Pindorama</h3>
-          <p><?php echo htmlspecialchars($endereco); ?></p>
+          <p><?= htmlspecialchars($endereco) ?></p>
         </div>
       </div>
     </div>
@@ -318,22 +278,25 @@ $endereco = 'Espaço Pindorama — Rua Dom Carlos Coelho, 86 — Boa Vista, Reci
       <div class="contactGrid">
         <div class="card">
           <?php if ($flash): ?>
-            <div class="alert <?php echo htmlspecialchars($flash['type']); ?>">
-              <?php echo htmlspecialchars($flash['msg']); ?>
+            <div class="alert <?= htmlspecialchars($flash['type']) ?>">
+              <?= htmlspecialchars($flash['msg']) ?>
             </div>
           <?php endif; ?>
 
           <?php if (!$db_ok): ?>
             <div class="alert error">
-              <strong>⚠ Banco não conectado.</strong><br>
-              Confirme se o MySQL do XAMPP está ligado e se o banco <code><?php echo htmlspecialchars(DB_NAME); ?></code> existe.
-              <div class="note" style="margin-top:8px;">
-                Detalhe: <?php echo htmlspecialchars($db_error ?? ''); ?>
-              </div>
+              <strong>⚠ Estamos com instabilidade no envio agora.</strong><br>
+              Por favor, fale com a gente diretamente no
+              <a class="link" href="<?= htmlspecialchars($whatsLink) ?>" target="_blank" rel="noopener">WhatsApp</a>.
+              <?php if ($is_dev): ?>
+                <div class="note" style="margin-top:8px;">
+                  [dev] Banco: <code><?= htmlspecialchars(DB_NAME) ?></code> · Detalhe: <?= htmlspecialchars($db_error ?? '') ?>
+                </div>
+              <?php endif; ?>
             </div>
           <?php endif; ?>
 
-          <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>#contato" autocomplete="on">
+          <form method="post" action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>#contato" autocomplete="on">
             <input type="text" name="website" class="honeypot" tabindex="-1" aria-hidden="true">
 
             <div class="field">
@@ -357,7 +320,9 @@ $endereco = 'Espaço Pindorama — Rua Dom Carlos Coelho, 86 — Boa Vista, Reci
             </div>
 
             <button class="btn primary" type="submit">Enviar mensagem</button>
-            <p class="note">Ou, se preferir: <a href="<?php echo htmlspecialchars($whatsLink); ?>" target="_blank" rel="noopener" class="link">abrir WhatsApp</a>.</p>
+            <p class="note">Ou, se preferir:
+              <a href="<?= htmlspecialchars($whatsLink) ?>" target="_blank" rel="noopener" class="link">abrir WhatsApp</a>.
+            </p>
           </form>
         </div>
 
@@ -371,7 +336,7 @@ $endereco = 'Espaço Pindorama — Rua Dom Carlos Coelho, 86 — Boa Vista, Reci
               <span class="dot" aria-hidden="true"></span>
               <div>
                 <strong>WhatsApp</strong>
-                <span><a href="<?php echo htmlspecialchars($whatsLink); ?>" target="_blank" rel="noopener" class="link">(81) 99521-6450</a></span>
+                <span><a href="<?= htmlspecialchars($whatsLink) ?>" target="_blank" rel="noopener" class="link">(81) 99521-6450</a></span>
               </div>
             </div>
 
@@ -379,7 +344,11 @@ $endereco = 'Espaço Pindorama — Rua Dom Carlos Coelho, 86 — Boa Vista, Reci
               <span class="dot dotLeaf" aria-hidden="true"></span>
               <div>
                 <strong>Instagram</strong>
-                <span><?php echo htmlspecialchars($insta); ?></span>
+                <span>
+                  <a href="<?= htmlspecialchars($insta) ?>" target="_blank" rel="noopener" class="link">
+                    <?= htmlspecialchars($instaHandle) ?>
+                  </a>
+                </span>
               </div>
             </div>
 
@@ -387,7 +356,11 @@ $endereco = 'Espaço Pindorama — Rua Dom Carlos Coelho, 86 — Boa Vista, Reci
               <span class="dot dotSand" aria-hidden="true"></span>
               <div>
                 <strong>E-mail</strong>
-                <span><?php echo htmlspecialchars($emailContato); ?></span>
+                <span>
+                  <a href="mailto:<?= htmlspecialchars($emailContato) ?>" class="link">
+                    <?= htmlspecialchars($emailContato) ?>
+                  </a>
+                </span>
               </div>
             </div>
 
@@ -395,21 +368,23 @@ $endereco = 'Espaço Pindorama — Rua Dom Carlos Coelho, 86 — Boa Vista, Reci
               <span class="dot" aria-hidden="true"></span>
               <div>
                 <strong>Endereço</strong>
-                <span><?php echo htmlspecialchars($endereco); ?></span>
+                <span><?= htmlspecialchars($endereco) ?></span>
               </div>
             </div>
           </div>
+
           <div class="mapWrap" aria-label="Mapa do Espaço Pindorama">
-  <iframe
-    title="Mapa - Rua Dom Carlos Coelho, 86"
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade"
-    src="https://www.google.com/maps?q=Rua%20Dom%20Carlos%20Coelho,%2086,%20Boa%20Vista,%20Recife%20PE&output=embed">
-  </iframe>
-</div>
+            <iframe
+              title="Mapa - Rua Dom Carlos Coelho, 86"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Rua%20Dom%20Carlos%20Coelho,%2086,%20Boa%20Vista,%20Recife%20PE&output=embed">
+            </iframe>
+          </div>
+
           <div class="actionsTop">
-            <a class="btn" href="#servicos">Explorar serviços</a>
-            <a class="btn ghost" href="<?php echo htmlspecialchars($whatsLink); ?>" target="_blank" rel="noopener">Agendar</a>
+            <a class="btn" href="<?= htmlspecialchars($terapiasUrl) ?>">Explorar terapias</a>
+            <a class="btn ghost" href="<?= htmlspecialchars($whatsLink) ?>" target="_blank" rel="noopener">Agendar</a>
           </div>
         </div>
       </div>
@@ -417,17 +392,4 @@ $endereco = 'Espaço Pindorama — Rua Dom Carlos Coelho, 86 — Boa Vista, Reci
   </section>
 </main>
 
-<footer class="siteFooter">
-  <div class="container foot">
-    <div>© <?php echo date('Y'); ?> Coletivo Pindorama • Recife/PE</div>
-    <div>
-      <a href="#contato" class="link">Contato</a>
-      <span class="sep">•</span>
-      <a href="<?php echo htmlspecialchars($whatsLink); ?>" target="_blank" rel="noopener" class="link">WhatsApp</a>
-    </div>
-  </div>
-</footer>
-
-<script src="assets/js/home.js"></script>
-</body>
-</html>
+<?php require __DIR__ . '/partials/footer.php'; ?>

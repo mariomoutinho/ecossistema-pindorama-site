@@ -313,6 +313,7 @@
   letter-spacing: -.3px;
   line-height: 1;
 }
+.serviceCard__price-value--sm{ font-size: 15px; letter-spacing: .1px; }
 .serviceCard__price-suffix{
   font-size: 12px;
   color: rgba(244,231,211,.72);
@@ -451,3 +452,57 @@ textarea{ min-height: 120px; resize: vertical; }
   display: block;
   filter: saturate(1.05) contrast(1.05);
 }
+
+/* ============================================================
+   ECOSSISTEMA PINDORAMA — cards de navegação cruzada
+   ============================================================ */
+.ecoGrid{ margin-top: 4px; }
+.ecoCard{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 170px;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    transform .25s cubic-bezier(.2,.7,.2,1),
+    border-color .25s ease,
+    box-shadow .25s ease,
+    background .25s ease;
+}
+.ecoCard:hover,
+.ecoCard:focus-visible{
+  transform: translateY(-3px);
+  border-color: rgba(244,231,211,.30);
+  background: rgba(19,45,38,.78);
+  box-shadow: 0 18px 44px rgba(0,0,0,.32);
+}
+.ecoCard h3{ font-size: 16px; margin: 4px 0 2px; }
+.ecoCard p{ color: var(--muted); font-size: 13px; line-height: 1.55; }
+.ecoCta{
+  margin-top: auto;
+  padding-top: 8px;
+  font-size: 12.5px;
+  letter-spacing: .2px;
+  color: var(--sand);
+  font-weight: 600;
+}
+
+/* ============================================================
+   CTA CARD — bloco de chamada final (terapias.php)
+   ============================================================ */
+.ctaCard{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 22px 24px;
+  background: linear-gradient(135deg, rgba(102,180,143,.16), rgba(244,231,211,.06));
+  border-color: rgba(244,231,211,.22);
+}
+.ctaCard h3{ font-size: 18px; margin: 4px 0 2px; }
+.ctaCard p{ margin: 0; color: var(--muted); font-size: 13.5px; max-width: 60ch; }
+
+/* Hero em coluna única (terapias.php não usa sideCard) */
+.heroGrid--single{ grid-template-columns: 1fr; }
