@@ -1,0 +1,48 @@
+name: Deploy to Hostinger
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    name: FTP deploy → public_html
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Publicar via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: /public_html/
+          # log-level: verbose   # descomente para diagnosticar
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .github/**
+            node_modules/**
+            **/node_modules/**
+            .vscode/**
+            **/.vscode/**
+            .claude/**
+            **/.claude/**
+            README.md
+            CLAUDE.md
+            **/.DS_Store
+            **/Thumbs.db
+            **/*Zone.Identifier*
+            **/*.log
+            **/*.bak
+            # --- arquivos sensíveis que devem permanecer só no servidor ---
+            config-db.php
+            pindoramarpg/config.php
+            # --- artefatos que não pertencem ao deploy ---
+            dbtest.php
+            _backup_*/**
+            _hostinger_*/**
+            *.zip
+            **/*.sql
