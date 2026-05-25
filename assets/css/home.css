@@ -137,7 +137,7 @@
    ============================================================ */
 .therapyCarousel{
   position: relative;
-  min-height: 420px;
+  min-height: 460px;
   border-radius: 26px;
   overflow: hidden;
   isolation: isolate;
@@ -174,13 +174,14 @@
   position: relative;
   z-index: 2;
   width: min(610px, calc(100% - 120px));
-  min-height: 420px;
-  padding: 48px 64px;
+  min-height: 460px;
+  padding: 48px 64px 92px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 16px;
 }
+.therapyCarousel__content > * { flex: 0 0 auto; }
 .therapyCarousel__tag{
   align-self: flex-start;
   font-size: 11px;
@@ -197,17 +198,27 @@
 .therapyCarousel h3{
   margin: 0;
   color: var(--text);
-  font-size: clamp(31px, 4vw, 52px);
-  line-height: .98;
+  font-size: clamp(22px, 2.2vw, 28px);
+  line-height: 1.2;
   letter-spacing: 0;
   text-shadow: 0 16px 38px rgba(0,0,0,.48);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-word;
+  min-height: calc(1.2em * 2);
 }
 .therapyCarousel p{
   margin: 0;
   color: rgba(234,243,239,.88);
-  font-size: 15.5px;
-  line-height: 1.65;
+  font-size: 15px;
+  line-height: 1.6;
   max-width: 56ch;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .therapyCarousel__meta{
   display: flex;
@@ -236,6 +247,9 @@
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 4px;
+}
+.therapyCarousel__actions .btn{
+  flex: 0 1 auto;
 }
 .therapyCarousel__arrow{
   position: absolute;
@@ -269,9 +283,11 @@
   position: absolute;
   z-index: 4;
   left: 64px;
-  bottom: 28px;
+  right: 64px;
+  bottom: 22px;
   display: flex;
   gap: 8px;
+  padding: 6px 0;
 }
 .therapyCarousel__dot{
   width: 9px;
@@ -792,11 +808,11 @@ textarea{ min-height: 120px; resize: vertical; }
   .heroGrid{ grid-template-columns: 1fr; }
   .therapyCarousel,
   .therapyCarousel__content{
-    min-height: 380px;
+    min-height: 440px;
   }
   .therapyCarousel__content{
     width: min(620px, calc(100% - 96px));
-    padding: 42px 54px;
+    padding: 42px 54px 86px;
   }
   .servicesGrid{ grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .serviceCard{ min-height: 320px; }
@@ -808,7 +824,7 @@ textarea{ min-height: 120px; resize: vertical; }
     margin-top: 26px;
   }
   .therapyCarousel{
-    min-height: 500px;
+    min-height: 560px;
     border-radius: 20px;
   }
   .therapyCarousel__shade{
@@ -818,16 +834,19 @@ textarea{ min-height: 120px; resize: vertical; }
   }
   .therapyCarousel__content{
     width: 100%;
-    min-height: 500px;
+    min-height: 560px;
     justify-content: flex-end;
-    padding: 78px 20px 58px;
-    gap: 13px;
+    padding: 78px 20px 78px;
+    gap: 12px;
   }
   .therapyCarousel h3{
-    font-size: clamp(28px, 11vw, 40px);
+    font-size: clamp(18px, 5vw, 22px);
+    line-height: 1.25;
+    min-height: calc(1.25em * 2);
   }
   .therapyCarousel p{
     font-size: 14px;
+    -webkit-line-clamp: 3;
   }
   .therapyCarousel__meta{
     display: grid;
@@ -861,7 +880,7 @@ textarea{ min-height: 120px; resize: vertical; }
   .therapyCarousel__dots{
     left: 20px;
     right: 20px;
-    bottom: 22px;
+    bottom: 18px;
     justify-content: center;
   }
   .servicesGrid{ grid-template-columns: 1fr; gap: 14px; }

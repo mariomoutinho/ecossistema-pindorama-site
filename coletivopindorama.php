@@ -202,20 +202,16 @@ require __DIR__ . '/partials/header.php';
       <div class="sectionHead">
         <div>
           <h2>Serviços em destaque</h2>
-          <p>Uma seleção das nossas terapias. Use os filtros para explorar ou veja o catálogo completo.</p>
+          <p>Uma seleção das nossas terapias. Veja o catálogo completo para conhecer todas as práticas.</p>
         </div>
-        <div class="tools" id="serviceFilters" aria-label="Filtros de serviços"></div>
       </div>
 
       <div class="therapyCarousel" id="therapyCarousel" aria-label="Terapias em destaque"></div>
 
-      <div class="servicesWrap">
-        <div class="servicesGrid" id="servicesGrid"></div>
-        <p class="note">
-          Valores e formatos completos podem ser atualizados no catálogo.
-          <a class="link" href="<?= htmlspecialchars($terapiasUrl) ?>">Ver todas as terapias →</a>
-        </p>
-      </div>
+      <p class="note" style="margin-top:18px;">
+        Valores e formatos completos podem ser atualizados no catálogo.
+        <a class="link" href="<?= htmlspecialchars($terapiasUrl) ?>">Ver todas as terapias →</a>
+      </p>
     </div>
   </section>
 
