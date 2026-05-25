@@ -127,6 +127,187 @@
   box-shadow: 0 8px 22px rgba(244,231,211,.18);
 }
 
+.sectionHead--catalog{
+  align-items: center;
+  margin-top: 34px;
+}
+
+/* ============================================================
+   CARROSSEL DE TERAPIAS EM DESTAQUE
+   ============================================================ */
+.therapyCarousel{
+  position: relative;
+  min-height: 420px;
+  border-radius: 26px;
+  overflow: hidden;
+  isolation: isolate;
+  background: #10231d;
+  border: 1px solid rgba(244,231,211,.16);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.06),
+    0 26px 70px rgba(0,0,0,.34),
+    0 0 44px rgba(102,180,143,.10);
+}
+.therapyCarousel__viewport,
+.therapyCarousel__slide,
+.therapyCarousel__image,
+.therapyCarousel__shade{
+  position: absolute;
+  inset: 0;
+}
+.therapyCarousel__slide{
+  overflow: hidden;
+  animation: carouselReveal .48s cubic-bezier(.2,.7,.2,1) both;
+}
+.therapyCarousel__image{
+  background-repeat: no-repeat;
+  transform: scale(1.02);
+  animation: carouselImageEase 5.1s ease both;
+}
+.therapyCarousel__shade{
+  background:
+    radial-gradient(70% 80% at 18% 22%, rgba(244,231,211,.16), transparent 58%),
+    linear-gradient(90deg, rgba(5,13,10,.94) 0%, rgba(5,13,10,.70) 44%, rgba(5,13,10,.28) 100%),
+    linear-gradient(180deg, rgba(5,13,10,.20), rgba(5,13,10,.72));
+}
+.therapyCarousel__content{
+  position: relative;
+  z-index: 2;
+  width: min(610px, calc(100% - 120px));
+  min-height: 420px;
+  padding: 48px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+.therapyCarousel__tag{
+  align-self: flex-start;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .9px;
+  color: var(--sand);
+  padding: 7px 13px;
+  border-radius: 999px;
+  background: rgba(244,231,211,.12);
+  border: 1px solid rgba(244,231,211,.22);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+}
+.therapyCarousel h3{
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(31px, 4vw, 52px);
+  line-height: .98;
+  letter-spacing: 0;
+  text-shadow: 0 16px 38px rgba(0,0,0,.48);
+}
+.therapyCarousel p{
+  margin: 0;
+  color: rgba(234,243,239,.88);
+  font-size: 15.5px;
+  line-height: 1.65;
+  max-width: 56ch;
+}
+.therapyCarousel__meta{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.therapyCarousel__meta span{
+  min-width: 130px;
+  padding: 11px 14px;
+  border-radius: 15px;
+  background: rgba(234,243,239,.075);
+  border: 1px solid rgba(234,243,239,.13);
+  color: var(--sand);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+}
+.therapyCarousel__meta b{
+  display: block;
+  margin-bottom: 4px;
+  color: rgba(244,231,211,.68);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+}
+.therapyCarousel__actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+.therapyCarousel__arrow{
+  position: absolute;
+  top: 50%;
+  z-index: 4;
+  width: 44px;
+  height: 44px;
+  transform: translateY(-50%);
+  border-radius: 999px;
+  border: 1px solid rgba(244,231,211,.24);
+  background: rgba(7,17,14,.60);
+  color: var(--sand);
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.28);
+  transition: transform .25s ease, background .25s ease, border-color .25s ease;
+}
+.therapyCarousel__arrow:hover,
+.therapyCarousel__arrow:focus-visible{
+  transform: translateY(-50%) scale(1.06);
+  background: rgba(19,45,38,.78);
+  border-color: rgba(244,231,211,.46);
+  outline: none;
+}
+.therapyCarousel__arrow--prev{ left: 18px; }
+.therapyCarousel__arrow--next{ right: 18px; }
+.therapyCarousel__dots{
+  position: absolute;
+  z-index: 4;
+  left: 64px;
+  bottom: 28px;
+  display: flex;
+  gap: 8px;
+}
+.therapyCarousel__dot{
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border-radius: 999px;
+  border: 1px solid rgba(244,231,211,.42);
+  background: rgba(244,231,211,.18);
+  cursor: pointer;
+  transition: width .25s ease, background .25s ease, border-color .25s ease;
+}
+.therapyCarousel__dot.active{
+  width: 28px;
+  background: var(--sand);
+  border-color: var(--sand);
+}
+.therapyCarousel__dot:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 5px var(--focus);
+}
+
+@keyframes carouselReveal{
+  from{
+    opacity: 0;
+    transform: translateX(18px);
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes carouselImageEase{
+  from{ transform: scale(1.08); }
+  to{ transform: scale(1.02); }
+}
+
 /* ============================================================
    GRID DE SERVIÇOS
    ============================================================ */
@@ -609,12 +790,80 @@ textarea{ min-height: 120px; resize: vertical; }
 
 @media (max-width: 980px){
   .heroGrid{ grid-template-columns: 1fr; }
+  .therapyCarousel,
+  .therapyCarousel__content{
+    min-height: 380px;
+  }
+  .therapyCarousel__content{
+    width: min(620px, calc(100% - 96px));
+    padding: 42px 54px;
+  }
   .servicesGrid{ grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .serviceCard{ min-height: 320px; }
   .serviceCard__body{ padding-top: 70px; }
   .contactGrid{ grid-template-columns: 1fr; }
 }
 @media (max-width: 720px){
+  .sectionHead--catalog{
+    margin-top: 26px;
+  }
+  .therapyCarousel{
+    min-height: 500px;
+    border-radius: 20px;
+  }
+  .therapyCarousel__shade{
+    background:
+      linear-gradient(180deg, rgba(5,13,10,.28) 0%, rgba(5,13,10,.72) 38%, rgba(5,13,10,.95) 100%),
+      radial-gradient(80% 45% at 50% 20%, rgba(244,231,211,.12), transparent 64%);
+  }
+  .therapyCarousel__content{
+    width: 100%;
+    min-height: 500px;
+    justify-content: flex-end;
+    padding: 78px 20px 58px;
+    gap: 13px;
+  }
+  .therapyCarousel h3{
+    font-size: clamp(28px, 11vw, 40px);
+  }
+  .therapyCarousel p{
+    font-size: 14px;
+  }
+  .therapyCarousel__meta{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .therapyCarousel__meta span{
+    min-width: 0;
+    padding: 10px 12px;
+  }
+  .therapyCarousel__actions{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .therapyCarousel__actions .btn{
+    justify-content: center;
+    text-align: center;
+  }
+  .therapyCarousel__arrow{
+    top: 20px;
+    width: 40px;
+    height: 40px;
+    transform: none;
+    font-size: 28px;
+  }
+  .therapyCarousel__arrow:hover,
+  .therapyCarousel__arrow:focus-visible{
+    transform: scale(1.04);
+  }
+  .therapyCarousel__arrow--prev{ left: 14px; }
+  .therapyCarousel__arrow--next{ right: 14px; }
+  .therapyCarousel__dots{
+    left: 20px;
+    right: 20px;
+    bottom: 22px;
+    justify-content: center;
+  }
   .servicesGrid{ grid-template-columns: 1fr; gap: 14px; }
   .serviceCard{ min-height: 300px; }
   .serviceCard__body{ padding-top: 60px; }
