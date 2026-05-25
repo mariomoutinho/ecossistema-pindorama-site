@@ -5,7 +5,16 @@
 // (links de WhatsApp, Instagram, e-mail, endereço e URLs internas do ecossistema).
 // ================================
 
-require_once __DIR__ . '/../config-db.php';
+$configDbPath = __DIR__ . '/../config-db.php';
+if (is_file($configDbPath)) {
+  require_once $configDbPath;
+} else {
+  define('DB_HOST', '127.0.0.1');
+  define('DB_PORT', '3306');
+  define('DB_NAME', '');
+  define('DB_USER', '');
+  define('DB_PASS', '');
+}
 
 if (session_status() === PHP_SESSION_NONE) {
   session_start();
