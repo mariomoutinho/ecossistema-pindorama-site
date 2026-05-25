@@ -1,0 +1,153 @@
+/* === Painel de Devoção === */
+.divindade-empty {
+    padding: 12px;
+    color: var(--muted);
+    font-style: italic;
+    text-align: center;
+}
+.divindade-conteudo[hidden] { display: none; }
+
+.divindade-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--purple-light);
+    flex-wrap: wrap;
+}
+.divindade-header h4 {
+    margin: 0;
+    color: var(--purple-dark);
+}
+.divindade-saudacao {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 12px;
+}
+.divindade-energia {
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-transform: capitalize;
+    background: var(--purple-light);
+    color: var(--purple-dark);
+}
+.divindade-energia-expansiva { background: #e7f7ec; color: #1f7a3a; }
+.divindade-energia-retrativa { background: #fbe5ec; color: var(--danger); }
+.divindade-energia-qualquer  { background: rgba(176,123,0,.15); color: #7a5400; }
+
+.divindade-descricao {
+    color: var(--purple-dark);
+    line-height: 1.5;
+    font-size: 13px;
+    margin: 0 0 10px;
+}
+
+.divindade-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 6px 14px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: var(--purple-dark);
+}
+.divindade-info-item strong {
+    color: var(--muted);
+    margin-right: 4px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.divindade-obrigacoes {
+    background: rgba(155, 37, 77, 0.06);
+    border-left: 3px solid var(--danger);
+    padding: 8px 12px;
+    border-radius: 4px;
+    color: var(--purple-dark);
+    font-size: 12px;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.divindade-poderes-bloco {
+    margin-top: 8px;
+}
+.divindade-poderes-label {
+    display: block;
+    color: var(--purple-dark);
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+.divindade-poderes-hint {
+    color: var(--muted);
+    font-weight: 400;
+    font-size: 11px;
+    margin-left: 4px;
+}
+.divindade-poderes-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 8px;
+}
+.divindade-card-poder {
+    background: linear-gradient(180deg, #fff 70%, rgba(105, 67, 111, 0.08));
+    border: 1px solid var(--purple);
+    border-radius: 6px;
+    padding: 8px 10px;
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+.divindade-card-poder:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(59, 29, 67, 0.2);
+}
+.divindade-card-poder-nome {
+    font-weight: 600;
+    color: var(--purple-dark);
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+.divindade-card-poder-resumo {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Página de referência (divindades.php) */
+.divindade-detalhe h2 {
+    color: var(--purple-dark);
+    border-bottom: 2px solid var(--purple-light);
+    padding-bottom: 4px;
+}
+.divindade-detalhe .divindade-saudacao-grande {
+    font-style: italic;
+    color: var(--purple);
+    font-size: 16px;
+    display: block;
+    margin-bottom: 8px;
+}
+.divindade-detalhe .divindade-poder-bloco {
+    margin-top: 8px;
+    padding: 8px 12px;
+    background: rgba(105, 67, 111, 0.05);
+    border-left: 3px solid var(--purple);
+    border-radius: 4px;
+}
+.divindade-detalhe .divindade-poder-bloco h4 {
+    margin: 0 0 4px;
+    color: var(--purple-dark);
+}
+.divindade-detalhe .divindade-poder-bloco p {
+    margin: 0;
+    color: var(--purple-dark);
+    line-height: 1.5;
+    font-size: 13px;
+}

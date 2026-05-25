@@ -1,0 +1,502 @@
+/* ======================================================================
+   painel-facilitador.css — estilos das páginas do Painel do Facilitador
+   (mesas.php, mesa-conteudos.php). Reaproveita o vocabulário visual de
+   home.css/auth.css; usa apenas a paleta roxa/lilás existente.
+   ====================================================================== */
+
+.painel-shell {
+    max-width: 1100px;
+}
+
+.painel-flash {
+    padding: 10px 16px;
+    border-radius: 12px;
+    margin: 0 auto 16px;
+    text-align: center;
+    font-weight: 700;
+    max-width: 720px;
+}
+.painel-flash--success {
+    background: rgba(70, 140, 90, 0.12);
+    color: #1f6b39;
+    border: 1.5px solid rgba(70, 140, 90, 0.4);
+}
+.painel-flash--error {
+    background: rgba(155, 37, 77, 0.10);
+    color: #7a153a;
+    border: 1.5px solid rgba(155, 37, 77, 0.4);
+}
+.painel-flash--info {
+    background: rgba(118, 84, 124, 0.10);
+    color: var(--purple-dark, #2b1232);
+    border: 1.5px solid rgba(118, 84, 124, 0.36);
+}
+
+.painel-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    align-items: start;
+}
+
+.painel-card {
+    background: rgba(255, 253, 253, 0.97);
+    border: 3px solid var(--line, #76547c);
+    border-radius: 16px;
+    padding: 18px 20px;
+    box-shadow: 0 8px 22px rgba(43, 18, 50, 0.16);
+}
+
+.painel-card--wide {
+    grid-column: 1 / -1;
+}
+
+.painel-card h2 {
+    margin: 0 0 12px;
+    color: var(--purple-dark, #2b1232);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.15rem;
+}
+.painel-card h3 {
+    margin: 16px 0 8px;
+    color: var(--purple-dark, #2b1232);
+    font-size: 0.95rem;
+    font-weight: 800;
+}
+
+.painel-empty {
+    color: var(--muted, #76547c);
+    margin: 4px 0 0;
+}
+
+.painel-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+}
+
+.painel-item {
+    border: 1.5px solid rgba(118, 84, 124, 0.22);
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: linear-gradient(135deg, #fff, rgba(245, 235, 250, 0.5));
+}
+.painel-item.is-active {
+    border-color: var(--purple, #76547c);
+    box-shadow: 0 4px 10px rgba(43, 18, 50, 0.14);
+}
+.painel-item a {
+    text-decoration: none;
+    color: var(--purple-dark, #2b1232);
+    display: grid;
+    gap: 2px;
+}
+.painel-item strong { font-family: Georgia, "Times New Roman", serif; }
+.painel-item-meta { font-size: 0.78rem; color: var(--muted, #76547c); }
+.painel-item-desc {
+    margin: 6px 0 0;
+    color: var(--purple-dark, #2b1232);
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.painel-item--row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+.painel-item--row > div:first-child { flex: 1; min-width: 0; }
+
+.painel-item-actions {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.painel-form {
+    display: grid;
+    gap: 10px;
+}
+.painel-form label {
+    display: grid;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--purple-dark, #2b1232);
+    font-weight: 700;
+}
+.painel-form input,
+.painel-form select,
+.painel-form textarea {
+    border: 1.5px solid rgba(118, 84, 124, 0.36);
+    border-radius: 10px;
+    padding: 8px 10px;
+    font: inherit;
+    background: #fff;
+    color: var(--purple-dark, #2b1232);
+}
+.painel-form textarea { resize: vertical; min-height: 70px; }
+
+.painel-form-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+    flex-wrap: wrap;
+}
+
+.painel-form-row {
+    display: flex;
+    gap: 8px;
+    align-items: stretch;
+    flex-wrap: wrap;
+    margin: 6px 0 0;
+}
+.painel-form-row input,
+.painel-form-row select {
+    flex: 1 1 180px;
+    border: 1.5px solid rgba(118, 84, 124, 0.36);
+    border-radius: 10px;
+    padding: 8px 10px;
+    font: inherit;
+    background: #fff;
+    color: var(--purple-dark, #2b1232);
+}
+
+.painel-form-mini { margin-top: 16px; }
+
+.painel-inline-form { display: inline-block; margin: 0; }
+
+.painel-mini-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 10px;
+    border: 1.5px solid var(--purple, #76547c);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--purple-dark, #2b1232);
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    line-height: 1.4;
+}
+.painel-mini-btn:hover { background: var(--purple-light, #f5d6e8); }
+.painel-mini-btn--danger {
+    border-color: #9b254d;
+    color: #7a153a;
+}
+.painel-mini-btn--danger:hover { background: rgba(155, 37, 77, 0.10); }
+
+.home-btn-danger {
+    border-color: #9b254d;
+    color: #7a153a;
+    background: #fff;
+}
+.home-btn-danger:hover { background: rgba(155, 37, 77, 0.10); }
+
+.painel-tipo-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 0 auto 16px;
+    justify-content: center;
+}
+.painel-tipo-tabs a {
+    padding: 6px 14px;
+    border: 1.5px solid rgba(118, 84, 124, 0.36);
+    border-radius: 999px;
+    color: var(--purple-dark, #2b1232);
+    text-decoration: none;
+    font-weight: 700;
+    background: #fff;
+    font-size: 0.85rem;
+}
+.painel-tipo-tabs a.is-active {
+    background: var(--purple-dark, #2b1232);
+    color: #fff;
+    border-color: var(--purple-dark, #2b1232);
+}
+.painel-tipo-tabs a:hover:not(.is-active) {
+    background: var(--purple-light, #f5d6e8);
+}
+
+.painel-vis {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+.painel-vis--privado {
+    background: rgba(155, 37, 77, 0.14);
+    color: #7a153a;
+}
+.painel-vis--participantes {
+    background: rgba(70, 140, 90, 0.14);
+    color: #1f6b39;
+}
+.painel-vis--publico {
+    background: rgba(118, 84, 124, 0.18);
+    color: var(--purple-dark, #2b1232);
+}
+
+/* =====================================================
+   Cards de participantes da mesa (com avatar + nick + email)
+===================================================== */
+.participantes-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 10px;
+}
+.participante-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border: 1.5px solid rgba(118, 84, 124, 0.28);
+    border-radius: 12px;
+    background: linear-gradient(135deg, #fff, rgba(245, 235, 250, 0.45));
+    box-shadow: 0 2px 6px rgba(43, 18, 50, 0.06);
+    position: relative;
+}
+.participante-card--selecionavel { padding: 0; }
+.participante-card--selecionavel:has(input:checked) {
+    border-color: var(--purple, #69436f);
+    background: linear-gradient(135deg, rgba(118, 84, 124, 0.12), rgba(216, 162, 58, 0.10));
+    box-shadow: 0 4px 12px rgba(43, 18, 50, 0.18);
+}
+.participante-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 12px;
+    cursor: pointer;
+}
+.participante-checkbox > input[type="checkbox"] {
+    accent-color: var(--purple, #69436f);
+    width: 18px; height: 18px;
+    flex: 0 0 18px;
+}
+.participante-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--purple, #69436f), var(--purple-dark, #3b1d43));
+    color: #fff7e6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.95rem;
+    letter-spacing: 0.6px;
+    flex: 0 0 44px;
+    border: 1.5px solid rgba(216, 162, 58, 0.45);
+    box-shadow: 0 2px 6px rgba(43, 18, 50, 0.18);
+}
+.participante-avatar img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.participante-avatar.is-empty { font-family: Georgia, "Times New Roman", serif; }
+.participante-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    min-width: 0;
+    flex: 1;
+}
+.participante-info strong {
+    font-family: Georgia, "Times New Roman", serif;
+    color: var(--purple-dark, #2b1232);
+    line-height: 1.15;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.participante-email {
+    color: var(--muted, #91739a);
+    font-size: 0.82rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.participante-papel {
+    display: inline-block;
+    margin-top: 2px;
+    padding: 1px 8px;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    background: rgba(118, 84, 124, 0.14);
+    color: var(--purple-dark, #2b1232);
+    border: 1px solid rgba(118, 84, 124, 0.30);
+    width: max-content;
+}
+.participante-papel--facilitador {
+    background: rgba(216, 162, 58, 0.22);
+    color: #7a4b00;
+    border-color: rgba(216, 162, 58, 0.55);
+}
+.participante-remove { margin-left: auto; }
+
+.participantes-vincular-form .painel-form-actions {
+    margin-top: 10px;
+    justify-content: flex-end;
+}
+.participantes-vincular-email {
+    margin-top: 14px;
+    background: rgba(118, 84, 124, 0.05);
+    border: 1px dashed rgba(118, 84, 124, 0.30);
+    border-radius: 10px;
+    padding: 8px 12px;
+}
+.participantes-vincular-email summary {
+    cursor: pointer;
+    color: var(--purple-dark, #2b1232);
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+.participantes-vincular-email[open] summary { margin-bottom: 8px; }
+
+/* =====================================================
+   Aventuras desta mesa — vínculo mesa↔aventura
+===================================================== */
+.mesa-aventuras-lista {
+    list-style: none;
+    margin: 0 0 14px;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+}
+.mesa-aventura-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 12px 14px;
+    border: 1.5px solid rgba(118, 84, 124, 0.28);
+    border-radius: 12px;
+    background: linear-gradient(135deg, #fff, rgba(245, 235, 250, 0.45));
+    box-shadow: 0 2px 6px rgba(43, 18, 50, 0.06);
+}
+.mesa-aventura-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+    flex: 1;
+}
+.mesa-aventura-titulo {
+    font-family: 'Cordelina', Georgia, "Times New Roman", serif;
+    color: var(--purple-dark, #2b1232);
+    font-size: 1.05rem;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+}
+.mesa-aventura-titulo:hover { color: var(--purple, #69436f); text-decoration: underline; }
+.mesa-aventura-sub {
+    color: var(--muted, #91739a);
+    font-style: italic;
+    font-size: 0.86rem;
+}
+.mesa-aventura-sin {
+    margin: 4px 0 2px;
+    color: var(--purple-dark, #2b1232);
+    font-size: 0.86rem;
+    line-height: 1.4;
+}
+.mesa-aventura-status {
+    align-self: flex-start;
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    background: rgba(118, 84, 124, 0.14);
+    color: var(--purple-dark, #2b1232);
+    border: 1px solid rgba(118, 84, 124, 0.30);
+}
+.mesa-aventura-status--rascunho  { background: rgba(216, 162, 58, 0.18); color: #7a4b00; border-color: rgba(216, 162, 58, 0.45); }
+.mesa-aventura-status--publicada { background: rgba(80, 160, 90, 0.18);  color: #1f5d2c; border-color: rgba(80, 160, 90, 0.50); }
+.mesa-aventura-status--arquivada { background: rgba(118, 84, 124, 0.18); color: var(--purple-dark, #2b1232); border-color: rgba(118, 84, 124, 0.40); }
+.mesa-aventura-remove { margin: 0; flex-shrink: 0; }
+
+@media (max-width: 640px) {
+    .mesa-aventura-item { flex-direction: column; align-items: stretch; }
+    .mesa-aventura-remove { align-self: flex-end; }
+}
+
+/* =====================================================
+   Visão do JOGADOR — lista de mesas vinculadas
+===================================================== */
+.mesa-jogador-lista {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+}
+.mesa-jogador-item {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    border: 1.5px solid rgba(118, 84, 124, 0.28);
+    border-radius: 12px;
+    background: linear-gradient(135deg, #fff, rgba(245, 235, 250, 0.45));
+    box-shadow: 0 2px 6px rgba(43, 18, 50, 0.06);
+}
+.mesa-jogador-info { display: flex; flex-direction: column; gap: 3px; min-width: 0; flex: 1; }
+.mesa-jogador-nome {
+    font-family: 'Cordelina', Georgia, "Times New Roman", serif;
+    color: var(--purple-dark, #2b1232);
+    font-size: 1.1rem;
+    letter-spacing: 0.3px;
+}
+.mesa-jogador-meta { color: var(--muted, #91739a); font-size: 0.85rem; }
+.mesa-jogador-meta strong { color: var(--purple, #69436f); }
+.mesa-jogador-desc {
+    margin: 4px 0 2px;
+    color: var(--purple-dark, #2b1232);
+    font-size: 0.86rem;
+    line-height: 1.4;
+}
+.mesa-jogador-status {
+    align-self: flex-start;
+    display: inline-block;
+    margin-top: 2px;
+    padding: 1px 8px;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    background: rgba(118, 84, 124, 0.14);
+    color: var(--purple-dark, #2b1232);
+    border: 1px solid rgba(118, 84, 124, 0.30);
+}
+.mesa-jogador-status--ativa     { background: rgba(80, 160, 90, 0.18);  color: #1f5d2c; border-color: rgba(80, 160, 90, 0.50); }
+.mesa-jogador-status--rascunho  { background: rgba(216, 162, 58, 0.18); color: #7a4b00; border-color: rgba(216, 162, 58, 0.45); }
+.mesa-jogador-status--arquivada { background: rgba(118, 84, 124, 0.18); color: var(--purple-dark, #2b1232); border-color: rgba(118, 84, 124, 0.40); }
+.mesa-jogador-acoes { flex-shrink: 0; }
+
+@media (max-width: 640px) {
+    .mesa-jogador-item { flex-direction: column; align-items: stretch; }
+    .mesa-jogador-acoes { align-self: flex-end; }
+}

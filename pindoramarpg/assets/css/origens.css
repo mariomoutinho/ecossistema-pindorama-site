@@ -1,0 +1,325 @@
+/* === Painel de Benefícios da Origem na ficha === */
+.origem-panel .panel-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: nowrap;
+    padding: 5px 14px;
+    font-size: 0.95rem;
+}
+.origem-panel-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.origem-contador {
+    font-size: 11px;
+    color: var(--purple-dark);
+    background: var(--purple-light);
+    padding: 1px 7px;
+    border-radius: 8px;
+    line-height: 1.4;
+}
+.origem-panel.origem-panel-recolhido .origem-empty,
+.origem-panel.origem-panel-recolhido .origem-conteudo {
+    display: none !important;
+}
+.origem-empty {
+    padding: 12px;
+    color: var(--muted);
+    font-style: italic;
+    text-align: center;
+}
+.origem-escolhidos-topo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: -4px 0 10px;
+    min-height: 26px;
+}
+
+.origem-conteudo[hidden] { display: none; }
+
+.origem-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--purple-light);
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.origem-header h4 {
+    margin: 0;
+    color: var(--purple-dark);
+}
+.origem-atributos {
+    font-size: 12px;
+    color: var(--purple-dark);
+}
+
+.origem-descricao {
+    color: var(--purple-dark);
+    line-height: 1.5;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.origem-secao {
+    margin-bottom: 10px;
+}
+.origem-secao > strong {
+    display: block;
+    color: var(--purple-dark);
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+.origem-secao ul {
+    margin: 4px 0 0 18px;
+    padding: 0;
+    color: var(--purple-dark);
+    font-size: 13px;
+}
+.origem-secao ul li { padding: 1px 0; }
+
+.origem-opcoes-details {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 8px 10px;
+    background: rgba(255, 255, 255, 0.45);
+}
+.origem-opcoes-details summary {
+    cursor: pointer;
+    font-weight: 800;
+    color: var(--purple-dark);
+    margin-bottom: 8px;
+}
+
+.origem-observacao {
+    padding: 8px 10px;
+    background: rgba(176, 123, 0, 0.08);
+    border-left: 3px solid #b07b00;
+    color: #6c4a00;
+    font-size: 12px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+/* Perícias selecionáveis */
+.origem-pericias-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+.origem-escolhidos-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    min-height: 28px;
+}
+.origem-tag {
+    background: #fff;
+    color: var(--purple-dark);
+    border: 1px solid var(--line);
+    padding: 4px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: inherit;
+}
+.origem-tag:hover {
+    background: var(--purple-light);
+}
+.origem-tag-escolhida {
+    background: var(--purple);
+    color: #fff;
+    border-color: var(--purple-dark);
+    font-weight: 600;
+    border-radius: 999px;
+}
+.origem-tag-escolhida:hover {
+    background: var(--purple-dark);
+}
+.origem-tag-selecionada {
+    border: 1px solid var(--purple-dark);
+    padding: 3px 10px;
+    font-size: 12px;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* Cards de poder */
+.origem-poderes-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 8px;
+}
+.origem-card-poder {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 8px 10px;
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+.origem-card-poder:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(59, 29, 67, 0.2);
+}
+.origem-card-unico {
+    border-color: #b07b00;
+    background: linear-gradient(180deg, #fff 70%, rgba(176, 123, 0, 0.1));
+}
+.origem-card-escolhido {
+    border-color: var(--purple);
+    background: linear-gradient(180deg, #fff 70%, var(--purple-light));
+}
+.origem-card-poder-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+}
+.origem-card-poder-nome {
+    font-weight: 600;
+    color: var(--purple-dark);
+    font-size: 14px;
+    flex: 1 1 auto;
+}
+.origem-tag-unico {
+    background: #b07b00;
+    color: #fff;
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.origem-card-poder-marca {
+    color: #1f7a3a;
+    font-weight: 700;
+}
+.origem-card-poder-resumo {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.origem-vazio {
+    grid-column: 1 / -1;
+    padding: 8px;
+    color: var(--muted);
+    font-style: italic;
+    font-size: 13px;
+}
+
+/* Modal específico (reaproveita estilos do poder-modal-*) */
+.origem-modal-unico {
+    background: rgba(176, 123, 0, 0.12);
+    color: #b07b00;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+.origem-modal-descricao {
+    margin: 0 0 10px;
+    color: var(--purple-dark);
+    line-height: 1.5;
+}
+.origem-modal-prereq {
+    font-size: 13px;
+    color: var(--muted);
+    background: rgba(255, 255, 255, 0.5);
+    border-left: 3px solid var(--line);
+    padding: 6px 10px;
+    border-radius: 4px;
+}
+
+/* === Página de referência (origens.php) === */
+.origem-detalhe h2 {
+    color: var(--purple-dark);
+    border-bottom: 2px solid var(--purple-light);
+    padding-bottom: 4px;
+}
+.origem-detalhe .origem-poder-unico {
+    margin-top: 10px;
+    padding: 10px 12px;
+    background: rgba(176, 123, 0, 0.08);
+    border-left: 3px solid #b07b00;
+    border-radius: 4px;
+}
+.origem-detalhe .origem-poder-unico h3 {
+    margin: 0 0 6px;
+    color: #6c4a00;
+    font-size: 16px;
+}
+.origem-detalhe .origem-poder-unico p {
+    margin: 0;
+    color: var(--purple-dark);
+    line-height: 1.5;
+}
+
+/* =====================================================
+   Garante que o modal de detalhe do poder (origemModal)
+   apareça ACIMA do modal de Origem do entity-picker
+   (anc-picker-backdrop tem z-index: 9990).
+===================================================== */
+#origemModal.poder-modal-backdrop {
+    z-index: 10000;
+}
+
+/* Aviso inline dentro do modal de detalhes (substitui alert()
+   e fica acima do conteúdo do próprio modal). */
+.origem-modal-aviso {
+    margin: 0 0 12px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    background: rgba(155, 37, 77, 0.10);
+    color: #7a153a;
+    border: 1.5px solid rgba(155, 37, 77, 0.4);
+    font-weight: 700;
+}
+.origem-modal-aviso[data-variant="info"] {
+    background: rgba(118, 84, 124, 0.10);
+    color: var(--purple-dark, #2b1232);
+    border-color: rgba(118, 84, 124, 0.36);
+}
+
+/* Toast flutuante (escolha de perícia bloqueada) — fica ACIMA de
+   qualquer modal aberto (z-index > 10000). */
+.origem-aviso-toast {
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    z-index: 10001;
+    max-width: min(420px, calc(100vw - 24px));
+    padding: 10px 16px;
+    background: linear-gradient(135deg, #8b1f2e 0%, #b34935 100%);
+    color: #fff7e6;
+    border-radius: 999px;
+    box-shadow: 0 8px 22px rgba(43, 18, 50, 0.40);
+    font-weight: 700;
+    font-size: 0.92rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 180ms ease, transform 180ms ease;
+}
+.origem-aviso-toast.is-visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}

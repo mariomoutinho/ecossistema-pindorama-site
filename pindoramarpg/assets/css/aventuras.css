@@ -1,0 +1,1439 @@
+/* =====================================================
+   Módulo AVENTURAS — Pindorama RPG
+   Listagem, editor e leitura. Visual de grimório/acervo
+   coerente com a paleta roxa/dourada e cards já usados.
+===================================================== */
+
+/* Fonte temática "Cordelina" — substitui a anterior porque possui
+   suporte adequado aos caracteres do português (ç, â, ê, õ, etc.).
+   Cordelina é um tipo "woodcut" de Samuel de Angelis Albuquerque que
+   homenageia J. Borges e a tradição do Cordel — gratuita para uso
+   pessoal/educacional (uso comercial: samuelangelis@gmail.com).
+   Distribuída em OTF; carregamento direto. */
+@font-face {
+    font-family: 'Cordelina';
+    src: url('../fonts/Cordelina-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+:root {
+    --aventura-titulo-font: 'Cordelina', Georgia, "Times New Roman", serif;
+}
+
+.aventuras-page {
+    color: var(--purple-dark, #3b1d43);
+}
+
+/* ---------- Botões reaproveitáveis ---------- */
+.aventuras-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border: 1.5px solid var(--purple, #69436f);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--purple-dark, #3b1d43);
+    font-weight: 700;
+    font-size: 0.92rem;
+    line-height: 1.1;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.15s ease;
+}
+.aventuras-btn:hover,
+.aventuras-btn:focus-visible {
+    background: var(--purple, #69436f);
+    color: #fff;
+    outline: none;
+    box-shadow: 0 4px 10px rgba(59, 29, 67, 0.20);
+}
+.aventuras-btn--primary {
+    background: linear-gradient(135deg, var(--purple, #69436f) 0%, var(--purple-dark, #3b1d43) 100%);
+    color: #fff7e6;
+    border-color: var(--purple-dark, #3b1d43);
+    box-shadow: 0 3px 10px rgba(43, 18, 50, 0.30);
+}
+.aventuras-btn--primary:hover,
+.aventuras-btn--primary:focus-visible {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+    color: #fff;
+}
+.aventuras-btn--danger {
+    border-color: #7a2030;
+    background: rgba(255, 248, 246, 0.95);
+    color: #7a2030;
+}
+.aventuras-btn--danger:hover,
+.aventuras-btn--danger:focus-visible {
+    background: linear-gradient(135deg, #8b1f2e 0%, #b34935 100%);
+    color: #fff;
+}
+.aventuras-btn--ghost {
+    background: transparent;
+    cursor: pointer;
+}
+.aventuras-btn--lg {
+    padding: 12px 22px;
+    font-size: 1rem;
+}
+
+.aventuras-topbar-actions {
+    margin-top: 8px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* ---------- Estado vazio ---------- */
+.aventuras-empty {
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+}
+.aventuras-empty-card {
+    max-width: 540px;
+    width: 100%;
+    padding: 28px 24px;
+    text-align: center;
+    border: 2px dashed rgba(118, 84, 124, 0.45);
+    border-radius: 18px;
+    background:
+        radial-gradient(circle at top, rgba(245, 220, 180, 0.18), transparent 55%),
+        rgba(255, 252, 247, 0.96);
+    box-shadow: 0 12px 30px rgba(43, 18, 50, 0.18);
+}
+.aventuras-empty-glyph {
+    font-size: 2.4rem;
+    color: var(--purple, #69436f);
+    display: block;
+    margin-bottom: 8px;
+}
+.aventuras-empty-card h2 {
+    margin: 0 0 6px;
+    font-family: var(--aventura-titulo-font);
+    color: var(--purple-dark, #3b1d43);
+}
+.aventuras-empty-card p {
+    margin: 0 0 16px;
+    color: var(--muted, #91739a);
+}
+
+/* ---------- Grid de cards ---------- */
+.aventuras-grid {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 18px;
+}
+
+.aventura-card {
+    display: flex;
+    flex-direction: column;
+    border: 1.5px solid rgba(118, 84, 124, 0.32);
+    border-radius: 16px;
+    overflow: hidden;
+    background: rgba(255, 253, 250, 0.98);
+    box-shadow: 0 6px 18px rgba(43, 18, 50, 0.14);
+    transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.aventura-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(43, 18, 50, 0.22);
+}
+.aventura-card-cover {
+    display: block;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 50% 30%, rgba(245, 220, 180, 0.22), transparent 55%),
+        linear-gradient(160deg, rgba(43, 18, 50, 0.80) 0%, rgba(43, 18, 50, 0.92) 100%);
+    border-bottom: 1.5px solid rgba(118, 84, 124, 0.32);
+}
+.aventura-card-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+.aventura-card.is-no-cover .aventura-card-cover img {
+    object-fit: contain;
+    padding: 18%;
+    opacity: 0.75;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.30));
+}
+.aventura-card-body {
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+.aventura-card-head h3.aventura-card-title {
+    margin: 0;
+    font-family: var(--aventura-titulo-font);
+    color: var(--purple-dark, #3b1d43);
+    font-size: 1.25rem;
+    line-height: 1.15;
+    letter-spacing: 0.4px;
+}
+.aventura-card-subtitle {
+    margin: 4px 0 0;
+    color: var(--muted, #91739a);
+    font-size: 0.9rem;
+    font-style: italic;
+}
+.aventura-card-sinopse {
+    margin: 0;
+    font-size: 0.94rem;
+    color: var(--purple-dark, #3b1d43);
+    line-height: 1.45;
+}
+.aventura-card-meta {
+    margin-top: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+.aventura-meta-tag {
+    display: inline-flex;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: rgba(118, 84, 124, 0.10);
+    color: var(--purple, #69436f);
+    border: 1px solid rgba(118, 84, 124, 0.22);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+.aventura-meta-status--rascunho   { background: rgba(216, 162, 58, 0.18); color: #7a4b00;  border-color: rgba(216, 162, 58, 0.45); }
+.aventura-meta-status--publicada  { background: rgba(80, 160, 90, 0.18);  color: #1f5d2c;  border-color: rgba(80, 160, 90, 0.50); }
+.aventura-meta-status--arquivada  { background: rgba(118, 84, 124, 0.18); color: var(--purple-dark, #3b1d43); border-color: rgba(118, 84, 124, 0.40); }
+.aventura-meta-date {
+    background: transparent;
+    border-color: rgba(118, 84, 124, 0.12);
+    color: var(--muted, #91739a);
+    font-weight: 600;
+}
+
+.aventura-card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+}
+.aventura-card-delete-form {
+    margin: 0;
+    display: inline-flex;
+}
+
+/* ---------- Modal de confirmação visual ---------- */
+.aventuras-confirm-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 9000;
+    background: rgba(15, 5, 25, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    opacity: 0;
+    transition: opacity 160ms ease;
+}
+.aventuras-confirm-backdrop[hidden] { display: none; }
+.aventuras-confirm-backdrop.is-visible { opacity: 1; }
+.aventuras-confirm-card {
+    width: min(420px, 100%);
+    background: rgba(255, 252, 247, 0.99);
+    border: 2px solid #7a2030;
+    border-radius: 16px;
+    box-shadow: 0 18px 40px rgba(43, 18, 50, 0.40);
+    overflow: hidden;
+}
+.aventuras-confirm-card header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, #8b1f2e 0%, #b34935 100%);
+    color: #fff7e6;
+}
+.aventuras-confirm-card header h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    font-family: var(--aventura-titulo-font);
+    letter-spacing: 0.4px;
+}
+.aventuras-confirm-x {
+    background: transparent;
+    border: 0;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 8px;
+}
+.aventuras-confirm-x:hover { background: rgba(255, 255, 255, 0.18); }
+.aventuras-confirm-body {
+    padding: 16px;
+    color: var(--purple-dark, #3b1d43);
+    line-height: 1.45;
+}
+.aventuras-confirm-card footer {
+    padding: 12px 16px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    background: rgba(118, 84, 124, 0.05);
+    border-top: 1px solid rgba(118, 84, 124, 0.18);
+}
+
+/* ---------- Editor (formulário) ---------- */
+.aventura-form {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.aventura-form-grid {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 18px;
+    align-items: start;
+}
+.aventura-form-cover {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.aventura-form-cover-label {
+    font-weight: 800;
+    color: var(--purple, #69436f);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    font-size: 0.78rem;
+}
+.aventura-cover-preview {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1.5px solid rgba(118, 84, 124, 0.32);
+    background:
+        radial-gradient(circle at 50% 30%, rgba(245, 220, 180, 0.18), transparent 55%),
+        linear-gradient(160deg, rgba(43, 18, 50, 0.65) 0%, rgba(43, 18, 50, 0.90) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.aventura-cover-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+.aventura-cover-placeholder {
+    color: rgba(255, 247, 230, 0.75);
+    text-align: center;
+    font-size: 1.8rem;
+    font-family: var(--aventura-titulo-font);
+}
+.aventura-cover-placeholder small {
+    display: block;
+    font-size: 0.8rem;
+    letter-spacing: 0.4px;
+    margin-top: 6px;
+    text-transform: uppercase;
+    opacity: 0.85;
+}
+.aventura-cover-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.aventura-cover-hint {
+    color: var(--muted, #91739a);
+    font-size: 0.8rem;
+}
+
+.aventura-form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.aventura-form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+}
+
+.aventura-form .field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.aventura-form .field > span {
+    color: var(--purple, #69436f);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    font-size: 0.74rem;
+}
+.aventura-form .field > span small {
+    color: var(--muted, #91739a);
+    font-weight: 500;
+    letter-spacing: normal;
+    text-transform: none;
+}
+.aventura-form .field input,
+.aventura-form .field select,
+.aventura-form .field textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1.5px solid rgba(118, 84, 124, 0.42);
+    border-radius: 10px;
+    background: rgba(255, 252, 247, 0.96);
+    color: var(--purple-dark, #3b1d43);
+    font-family: inherit;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    transition: 0.15s ease;
+}
+.aventura-form .field input:focus,
+.aventura-form .field select:focus,
+.aventura-form .field textarea:focus {
+    outline: none;
+    border-color: var(--purple, #69436f);
+    box-shadow: 0 0 0 3px rgba(105, 67, 111, 0.18);
+    background: #fff;
+}
+.aventura-form textarea {
+    resize: vertical;
+    min-height: 90px;
+    font-family: 'Iowan Old Style', Georgia, "Times New Roman", serif;
+}
+
+#aventuraTextoIntegral {
+    min-height: 360px;
+    line-height: 1.55;
+    font-size: 1rem;
+}
+
+.aventura-form-block {
+    border-top: 1px dashed rgba(118, 84, 124, 0.28);
+    padding-top: 14px;
+}
+
+.aventura-form-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding-top: 4px;
+}
+
+/* ---------- Página de leitura ---------- */
+/* Larguras maiores no desktop sem perder centralização.
+   .home-shell impõe width: min(440px, 100%) — aqui sobrescrevemos com
+   um width maior para a tela de leitura ficar confortável no notebook
+   e no monitor grande, mantendo respiro lateral em ambos. */
+.aventura-leitura-shell {
+    width: min(1080px, 100%);
+    max-width: 1080px;
+    gap: 18px;
+}
+.aventura-leitura-hero {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    background: linear-gradient(160deg, rgba(43, 18, 50, 0.85) 0%, rgba(43, 18, 50, 0.95) 100%);
+    box-shadow: 0 16px 36px rgba(43, 18, 50, 0.36);
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+}
+.aventura-leitura-hero.is-no-cover {
+    min-height: 200px;
+}
+
+/* Capa como elemento real — controle preciso de cover/contain por
+   breakpoint, sem corte agressivo em telas pequenas. */
+.aventura-leitura-hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    z-index: 0;
+}
+
+.aventura-leitura-hero-overlay {
+    position: relative;
+    z-index: 1;
+    padding: 30px 28px 26px;
+    background: linear-gradient(180deg,
+        rgba(15, 5, 25, 0.10) 0%,
+        rgba(15, 5, 25, 0.55) 60%,
+        rgba(15, 5, 25, 0.85) 100%);
+    color: #fff7e6;
+    flex: 1;
+    min-height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 6px;
+}
+.aventura-leitura-hero.is-no-cover .aventura-leitura-hero-overlay {
+    background: none;
+}
+.aventura-leitura-back {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255, 247, 230, 0.92);
+    color: var(--purple-dark, #3b1d43);
+    font-size: 1.1rem;
+    font-weight: 800;
+    line-height: 38px;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.30);
+}
+.aventura-leitura-back:hover { filter: brightness(1.08); }
+.aventura-leitura-status {
+    align-self: flex-start;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+.aventura-leitura-title {
+    margin: 0;
+    font-family: var(--aventura-titulo-font);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    line-height: 1.05;
+    letter-spacing: 0.6px;
+    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.55);
+}
+.aventura-leitura-subtitle {
+    margin: 0;
+    font-style: italic;
+    font-size: 1.05rem;
+    opacity: 0.92;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.50);
+}
+.aventura-leitura-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 6px;
+    color: rgba(255, 247, 230, 0.92);
+    font-size: 0.92rem;
+}
+.aventura-leitura-meta strong { color: #ffe2a3; }
+.aventura-leitura-actions {
+    margin-top: 12px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.aventura-leitura-sinopse,
+.aventura-leitura-corpo,
+.aventura-leitura-obs {
+    background: rgba(255, 252, 247, 0.98);
+    border: 1.5px solid rgba(118, 84, 124, 0.30);
+    border-radius: 14px;
+    padding: 20px 22px;
+    box-shadow: 0 8px 22px rgba(43, 18, 50, 0.12);
+}
+.aventura-leitura-sinopse h2,
+.aventura-leitura-corpo h2,
+.aventura-leitura-obs h2 {
+    margin: 0 0 10px;
+    font-family: var(--aventura-titulo-font);
+    color: var(--purple-dark, #3b1d43);
+    border-bottom: 1px solid rgba(118, 84, 124, 0.28);
+    padding-bottom: 6px;
+    font-size: 1.2rem;
+    letter-spacing: 0.4px;
+}
+.aventura-leitura-obs {
+    border-left: 6px solid var(--purple, #69436f);
+    background:
+        repeating-linear-gradient(0deg, rgba(118, 84, 124, 0.04) 0 30px, transparent 30px 31px),
+        rgba(255, 252, 247, 0.98);
+}
+.aventura-leitura-obs h2 small {
+    color: var(--muted, #91739a);
+    font-weight: 600;
+    letter-spacing: 0;
+}
+.aventura-leitura-texto {
+    font-family: 'Iowan Old Style', Georgia, "Times New Roman", serif;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: #2b1232;
+}
+.aventura-leitura-vazio {
+    color: var(--muted, #91739a);
+    font-style: italic;
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 720px) {
+    .aventura-form-grid {
+        grid-template-columns: 1fr;
+    }
+    .aventura-form-cover {
+        max-width: 260px;
+        margin: 0 auto;
+        width: 100%;
+    }
+    .aventuras-topbar-actions {
+        justify-content: center;
+    }
+    .aventura-card-actions {
+        gap: 6px;
+    }
+
+    /* No mobile: capa íntegra (object-fit: contain). A capa deixa de
+       ficar atrás do texto — passa a ocupar o topo do hero, e o overlay
+       de título/metadados desce para logo abaixo da arte. */
+    .aventura-leitura-hero {
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    .aventura-leitura-hero-bg {
+        position: relative;
+        inset: auto;
+        height: auto;
+        max-height: 60vh;
+        object-fit: contain;
+        background: rgba(15, 5, 25, 0.92);
+    }
+    .aventura-leitura-hero-overlay {
+        background: linear-gradient(180deg,
+            rgba(15, 5, 25, 0.85) 0%,
+            rgba(15, 5, 25, 0.92) 100%);
+        padding: 18px 18px 18px;
+        min-height: 0;
+    }
+    /* O botão "Voltar" sai do canto absoluto e entra no fluxo, antes do
+       título, para não pousar em cima da imagem da capa. */
+    .aventura-leitura-back {
+        position: relative;
+        top: auto;
+        left: auto;
+        align-self: flex-start;
+    }
+    /* Mantém o título e meta legíveis em telas estreitas. */
+    .aventura-leitura-meta {
+        gap: 8px 14px;
+        font-size: 0.86rem;
+    }
+    .aventura-leitura-sinopse,
+    .aventura-leitura-corpo,
+    .aventura-leitura-obs {
+        padding: 16px 16px;
+    }
+}
+
+/* =====================================================
+   Composição DESKTOP dedicada (>= 1024 px)
+   Mobile/tablet seguem intactos; aqui montamos um hero
+   em duas colunas (poster + ficha), tipografia maior,
+   ornamentos sutis nos h2 e drop cap no texto integral.
+===================================================== */
+@media (min-width: 1024px) {
+    .aventura-leitura-shell {
+        width: min(1200px, 100%);
+        max-width: 1200px;
+        gap: 26px;
+    }
+
+    /* HERO em grid: poster da capa + painel de identidade.
+       Fundo do hero em gradiente roxo-vinho com pontos quentes,
+       para a capa se sustentar visualmente mesmo se não houver
+       imagem definida. O <img> da capa fica relativo dentro da
+       coluna, não mais "atrás" como background. */
+    .aventura-leitura-hero {
+        display: grid;
+        grid-template-columns: minmax(280px, 340px) 1fr;
+        align-items: stretch;
+        gap: 28px;
+        min-height: 460px;
+        padding: 28px;
+        background:
+            radial-gradient(circle at 80% 10%, rgba(216, 162, 58, 0.20), transparent 55%),
+            radial-gradient(circle at 10% 90%, rgba(122, 32, 48, 0.30), transparent 60%),
+            linear-gradient(135deg, #2b1232 0%, #3b1d43 55%, #6b3a2b 100%);
+        border: 1px solid rgba(216, 162, 58, 0.30);
+    }
+    .aventura-leitura-hero.is-no-cover {
+        grid-template-columns: 1fr;
+    }
+
+    /* Capa vira um poster com proporção 3:4 e sombra dramática. */
+    .aventura-leitura-hero-bg {
+        position: relative;
+        inset: auto;
+        height: auto;
+        width: 100%;
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 12px;
+        border: 1px solid rgba(216, 162, 58, 0.35);
+        box-shadow:
+            0 22px 44px rgba(0, 0, 0, 0.55),
+            0 0 0 1px rgba(216, 162, 58, 0.18);
+    }
+
+    /* Overlay deixa de ser uma "cortina" sobre a imagem — agora é a
+       coluna direita do hero, com transparência e respiro. */
+    .aventura-leitura-hero-overlay {
+        background: transparent;
+        padding: 6px 4px 4px;
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 12px;
+    }
+    .aventura-leitura-back {
+        top: -16px;
+        left: -16px;
+    }
+    .aventura-leitura-status {
+        align-self: flex-start;
+    }
+    .aventura-leitura-title {
+        font-size: clamp(2.4rem, 3.2vw, 3.4rem);
+        line-height: 1.0;
+        letter-spacing: 1px;
+        margin-top: 4px;
+    }
+    .aventura-leitura-subtitle {
+        font-size: 1.15rem;
+        opacity: 0.95;
+    }
+    .aventura-leitura-meta {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px 22px;
+        margin-top: 10px;
+        font-size: 1rem;
+    }
+    .aventura-leitura-meta span {
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: rgba(255, 247, 230, 0.10);
+        border: 1px solid rgba(216, 162, 58, 0.30);
+    }
+    .aventura-leitura-actions {
+        margin-top: 14px;
+    }
+
+    /* Sinopse, corpo e observações ganham padding e tipografia maior. */
+    .aventura-leitura-sinopse,
+    .aventura-leitura-corpo,
+    .aventura-leitura-obs {
+        padding: 28px 34px;
+        border-radius: 16px;
+    }
+    .aventura-leitura-sinopse h2,
+    .aventura-leitura-corpo h2,
+    .aventura-leitura-obs h2 {
+        font-size: 1.55rem;
+        padding-bottom: 8px;
+    }
+    /* Pequeno ornamento ao final do h2 (diamante dourado). */
+    .aventura-leitura-sinopse h2::after,
+    .aventura-leitura-corpo h2::after,
+    .aventura-leitura-obs h2::after {
+        content: "\2756";
+        margin-left: 10px;
+        color: rgba(216, 162, 58, 0.85);
+        font-size: 0.85em;
+        vertical-align: middle;
+    }
+
+    /* Sinopse como bloco de destaque "biblioteca". */
+    .aventura-leitura-sinopse {
+        background:
+            radial-gradient(circle at top right, rgba(216, 162, 58, 0.10), transparent 55%),
+            rgba(255, 252, 247, 0.98);
+        border-left: 6px solid rgba(216, 162, 58, 0.65);
+    }
+    .aventura-leitura-sinopse p {
+        font-size: 1.12rem;
+        line-height: 1.6;
+        font-style: italic;
+        color: var(--purple-dark, #3b1d43);
+        margin: 0;
+    }
+
+    /* Texto integral em coluna confortável + drop cap na primeira letra. */
+    .aventura-leitura-corpo {
+        padding: 32px 48px;
+    }
+    .aventura-leitura-texto {
+        max-width: 70ch;
+        margin: 0 auto;
+        font-size: 1.08rem;
+        line-height: 1.75;
+    }
+    .aventura-leitura-texto::first-letter {
+        font-family: var(--aventura-titulo-font);
+        float: left;
+        font-size: 3.4rem;
+        line-height: 0.95;
+        padding: 4px 10px 0 0;
+        color: var(--purple-dark, #3b1d43);
+        text-shadow: 0 1px 0 rgba(216, 162, 58, 0.45);
+    }
+}
+
+/* Notebook-grande (>= 1366px): respiros levemente maiores. */
+@media (min-width: 1366px) {
+    .aventura-leitura-shell {
+        gap: 30px;
+    }
+    .aventura-leitura-hero {
+        grid-template-columns: minmax(300px, 380px) 1fr;
+        min-height: 520px;
+        padding: 34px;
+        gap: 34px;
+    }
+    .aventura-leitura-corpo {
+        padding: 40px 56px;
+    }
+}
+
+/* O h2 do corpo passa a exibir o título da aventura (em vez do rótulo
+   estático "Texto integral"). Mantemos a fonte Cordelina, cor e o
+   ornamento ❖ já definidos em .aventura-leitura-corpo h2 (base e
+   desktop). Apenas reforçamos a quebra elegante para títulos longos. */
+.aventura-leitura-corpo-title {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    hyphens: auto;
+    line-height: 1.15;
+    /* Em telas pequenas, deixa o tamanho ajustar suavemente entre
+       1.2rem e 1.7rem. Em desktop, a regra existente em
+       .aventura-leitura-corpo h2 (>=1024px) já define 1.55rem. */
+    font-size: clamp(1.2rem, 4.4vw, 1.55rem);
+}
+@media (min-width: 1024px) {
+    .aventura-leitura-corpo-title {
+        font-size: clamp(1.55rem, 2.2vw, 2rem);
+    }
+}
+
+/* =====================================================
+   Seções extras no editor da aventura: Cenas e NPCs
+===================================================== */
+.aventura-secao {
+    margin-top: 26px;
+    border: 1.5px solid rgba(118, 84, 124, 0.30);
+    border-radius: 14px;
+    background: rgba(255, 252, 247, 0.98);
+    padding: 18px 20px;
+    box-shadow: 0 6px 18px rgba(43, 18, 50, 0.10);
+}
+.aventura-secao-head h2 {
+    margin: 0 0 4px;
+    font-family: var(--aventura-titulo-font);
+    color: var(--purple-dark, #3b1d43);
+    font-size: 1.4rem;
+    letter-spacing: 0.4px;
+    word-break: break-word;
+}
+.aventura-secao-head p {
+    margin: 0 0 14px;
+    color: var(--muted, #91739a);
+    font-size: 0.92rem;
+}
+.aventura-secao-body {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.aventura-secao-vazio {
+    color: var(--muted, #91739a);
+    font-style: italic;
+}
+
+/* Cenas */
+.aventura-cenas-lista {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 6px;
+}
+.aventura-cenas-lista li {
+    padding: 10px 12px;
+    border: 1px solid rgba(118, 84, 124, 0.22);
+    border-radius: 10px;
+    background: linear-gradient(135deg, #fff, rgba(245, 235, 250, 0.55));
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    align-items: baseline;
+}
+.aventura-cena-meta {
+    color: var(--muted, #91739a);
+    font-size: 0.86rem;
+}
+
+/* NPCs */
+.aventura-npc-form {
+    background: rgba(118, 84, 124, 0.06);
+    border: 1.5px dashed rgba(118, 84, 124, 0.35);
+    border-radius: 12px;
+    padding: 14px 16px;
+}
+.aventura-npc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+}
+.aventura-npc-grid .field.wide { grid-column: 1 / -1; }
+.aventura-npc-form-actions {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.aventura-npcs-lista {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+}
+.aventura-npc-card {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 12px 14px;
+    border: 1px solid rgba(118, 84, 124, 0.26);
+    border-radius: 12px;
+    background: linear-gradient(135deg, #fff, rgba(245, 235, 250, 0.42));
+}
+.aventura-npc-info { flex: 1; min-width: 0; }
+.aventura-npc-info strong {
+    display: block;
+    font-family: var(--aventura-titulo-font);
+    font-size: 1.1rem;
+    color: var(--purple-dark, #3b1d43);
+}
+.aventura-npc-meta {
+    display: block;
+    font-size: 0.82rem;
+    color: var(--muted, #91739a);
+    margin-top: 2px;
+}
+.aventura-npc-desc {
+    margin: 6px 0 0;
+    font-size: 0.92rem;
+    color: var(--purple-dark, #3b1d43);
+}
+.aventura-npc-delete { margin: 0; }
+
+@media (max-width: 720px) {
+    .aventura-npc-card {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+/* =====================================================
+   Editor de aventura — composição desktop
+   Mobile (<=1023px) mantém o layout estreito já aprovado.
+   Em telas maiores, o shell ganha respiro horizontal e os
+   formulários distribuem melhor seus campos.
+===================================================== */
+@media (min-width: 1024px) {
+    .aventura-editor-shell {
+        width: min(1180px, 100%);
+        max-width: 1180px;
+        /* .home-shell base é align-items: center — sobrescreve para que
+           form, header e painel de cenas ocupem a MESMA largura externa
+           do shell, sem nenhum "encolher" no eixo cruzado. */
+        align-items: stretch;
+    }
+    /* Garantia explícita para filhos diretos: form, painel de cenas,
+       painel de NPCs, flash, modal de confirmação. */
+    .aventura-editor-shell > form.aventura-form,
+    .aventura-editor-shell > .aventura-secao,
+    .aventura-editor-shell > .painel-flash {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    /* Hero do editor (título + subtítulo) — alinhado à esquerda em desktop.
+       padding-left reserva a faixa do .home-back (position:absolute,left:0)
+       para que título e subtítulo não passem por baixo do botão. */
+    .aventura-editor-shell > .home-hero {
+        text-align: left;
+        align-items: flex-start;
+        padding-left: 52px;
+    }
+    .aventura-editor-shell > .home-hero .home-back { left: 0; }
+
+    /* Form em coluna única no desktop: todos os campos compartilham a
+       mesma largura externa (igual à dos textareas dos blocos extras e
+       da seção Cenas da Aventura). A capa fica em um bloco horizontal
+       compacto no topo (preview à esquerda + ações à direita), sem
+       roubar largura dos campos. */
+    .aventura-form-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .aventura-form-cover {
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        gap: 18px;
+        align-items: center;
+    }
+    .aventura-form-cover .aventura-form-cover-label {
+        grid-column: 1 / -1;
+    }
+    .aventura-cover-preview {
+        width: 180px;
+        max-width: 100%;
+        margin: 0;
+    }
+    .aventura-cover-actions {
+        align-self: center;
+    }
+    #aventuraTextoIntegral {
+        min-height: 420px;
+        font-size: 1.02rem;
+        line-height: 1.6;
+    }
+
+    /* Seções extras (Cenas/NPCs) — distribuem bem em desktop. */
+    .aventura-secao {
+        padding: 24px 28px;
+    }
+    .aventura-secao-head h2 {
+        font-size: 1.75rem;
+    }
+    .aventura-npc-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    .aventura-npc-grid .field.wide { grid-column: 1 / -1; }
+}
+@media (min-width: 1366px) {
+    .aventura-editor-shell { max-width: 1280px; width: min(1280px, 100%); }
+    /* Em telas grandes, dá um pouco mais de presença à miniatura da capa,
+       mantendo a coluna única para alinhar tudo. */
+    .aventura-form-cover { grid-template-columns: 220px 1fr; gap: 24px; }
+    .aventura-cover-preview { width: 220px; }
+}
+
+/* =====================================================
+   Painel "Cenas da aventura" — quadro imersivo
+   --aventura-cenas-bg vem do inline style do PHP (capa).
+   Sem capa: fallback gradient temático + glifo decorativo.
+===================================================== */
+.aventura-cenas-painel {
+    position: relative;
+    overflow: hidden;
+    border: 1.5px solid rgba(216, 162, 58, 0.32);
+    background-color: #2b1232;          /* base p/ enquanto carrega */
+    color: #fff7e6;
+    isolation: isolate;
+}
+
+/* Camada da imagem de fundo (capa). object-fit por background-size. */
+.aventura-cenas-painel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--aventura-cenas-bg, none);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+    /* Leve dessaturação + brilho controlado para o texto vencer o fundo. */
+    filter: saturate(0.85) brightness(0.55);
+    transform: scale(1.03); /* esconde bordas duras quando o filtro borra um pouco */
+}
+
+/* Overlay translúcido — gradient vinho→roxo escuro para contraste,
+   mais escurecedor inferior para os botões e a lista de cenas. */
+.aventura-cenas-painel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at top right, rgba(216, 162, 58, 0.20), transparent 55%),
+        linear-gradient(160deg, rgba(43, 18, 50, 0.78) 0%, rgba(43, 18, 50, 0.92) 70%, rgba(15, 5, 25, 0.96) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Fallback sem capa: pinta o ::before com gradient temático. */
+.aventura-cenas-painel.is-no-bg::before {
+    background:
+        radial-gradient(circle at 80% 10%, rgba(216, 162, 58, 0.22), transparent 55%),
+        radial-gradient(circle at 10% 90%, rgba(122, 32, 48, 0.32), transparent 60%),
+        linear-gradient(135deg, #2b1232 0%, #3b1d43 55%, #6b3a2b 100%);
+    filter: none;
+}
+/* Glifo decorativo de cordel no canto, sutil. */
+.aventura-cenas-painel.is-no-bg::after {
+    background:
+        linear-gradient(160deg, rgba(43, 18, 50, 0.55) 0%, rgba(43, 18, 50, 0.78) 100%);
+}
+
+/* Conteúdo em primeiro plano. */
+.aventura-cenas-painel > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Tipografia/labels invertidos para o fundo escuro. */
+.aventura-cenas-painel .aventura-secao-head h2 {
+    color: #fff7e6;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+}
+.aventura-cenas-painel .aventura-secao-head p {
+    color: rgba(255, 247, 230, 0.82);
+}
+.aventura-cenas-painel .aventura-secao-vazio {
+    color: rgba(255, 247, 230, 0.78);
+}
+
+/* Lista de cenas: cards translúcidos sobre o overlay. */
+.aventura-cenas-painel .aventura-cenas-lista li {
+    background: rgba(255, 252, 247, 0.10);
+    border-color: rgba(216, 162, 58, 0.40);
+    color: #fff7e6;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+.aventura-cenas-painel .aventura-cenas-lista li strong {
+    color: #fff7e6;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+}
+.aventura-cenas-painel .aventura-cena-meta {
+    color: rgba(255, 247, 230, 0.78);
+}
+
+/* Botão "Abrir Mesa de Jogo" ganha um pouco mais de presença sobre
+   o fundo escuro — usa âmbar dourado. */
+.aventura-cenas-painel .aventuras-btn--primary {
+    background: linear-gradient(135deg, #d8a23a 0%, #b34935 60%, #8b1f2e 100%);
+    color: #fff7e6;
+    border-color: rgba(216, 162, 58, 0.85);
+    box-shadow:
+        0 6px 18px rgba(216, 162, 58, 0.28),
+        0 2px 8px rgba(43, 18, 50, 0.40);
+    align-self: flex-start;
+}
+.aventura-cenas-painel .aventuras-btn--primary:hover {
+    filter: brightness(1.08);
+}
+
+@media (min-width: 1024px) {
+    .aventura-cenas-painel {
+        padding: 32px 36px;
+        min-height: 240px;
+    }
+    .aventura-cenas-painel .aventura-secao-body {
+        gap: 18px;
+    }
+}
+
+/* =====================================================
+   Cards visuais das cenas da aventura
+   Cada cena vira um quadro com a imagem do cenário no fundo.
+   --cena-cover é injetado pelo PHP a partir de:
+     1) page.mapBackground; 2) primeiro scenery não-oculto.
+===================================================== */
+.aventura-cenas-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+.aventura-cena-card {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1.5px solid rgba(216, 162, 58, 0.45);
+    background-color: rgba(15, 5, 25, 0.85);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.30);
+    isolation: isolate;
+    aspect-ratio: 16 / 9;
+    transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+/* Imagem real do cenário (renderizada como <img>). Posicionada absoluta
+   cobrindo o card, com inset negativo + scale para o blur não revelar
+   bordas duras nas extremidades. Texto fica em camada acima e nítido. */
+.aventura-cena-card-bg {
+    position: absolute;
+    inset: -12px;
+    width: calc(100% + 24px);
+    height: calc(100% + 24px);
+    z-index: 0;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    pointer-events: none;
+    filter: blur(6px) saturate(0.9) brightness(0.72);
+    transform: scale(1.06);
+    transition: transform 240ms ease, filter 240ms ease;
+}
+
+/* ::before fica reservado apenas para o fallback temático (cenas sem
+   imagem). Vai ficar invisível quando o card tem imagem (has-cover). */
+.aventura-cena-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: none;
+    pointer-events: none;
+}
+.aventura-cena-card.has-cover::before {
+    display: none;
+}
+.aventura-cena-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        linear-gradient(180deg, rgba(15, 5, 25, 0.05) 0%, rgba(15, 5, 25, 0.60) 55%, rgba(15, 5, 25, 0.92) 100%);
+    pointer-events: none;
+}
+.aventura-cena-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(216, 162, 58, 0.85);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.42);
+}
+.aventura-cena-card:hover .aventura-cena-card-bg {
+    transform: scale(1.08);
+    filter: blur(3px) saturate(1) brightness(0.85);
+}
+
+/* Fallback sem imagem: gradient temático + glifo "❖" no canto. */
+.aventura-cena-card.is-no-cover::before {
+    background:
+        radial-gradient(circle at 80% 15%, rgba(216, 162, 58, 0.20), transparent 55%),
+        linear-gradient(135deg, #2b1232 0%, #3b1d43 50%, #6b3a2b 100%);
+    filter: none;
+}
+.aventura-cena-card.is-no-cover::after {
+    background: linear-gradient(180deg, rgba(15, 5, 25, 0.10) 0%, rgba(15, 5, 25, 0.80) 100%);
+}
+.aventura-cena-card.is-no-cover .aventura-cena-card-body::before {
+    content: "\2756";
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    font-size: 1.4rem;
+    color: rgba(216, 162, 58, 0.45);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.40);
+}
+
+.aventura-cena-card-link {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    text-decoration: none;
+    color: #fff7e6;
+    padding: 14px 16px;
+    outline: none;
+}
+.aventura-cena-card-link:focus-visible {
+    box-shadow: inset 0 0 0 3px rgba(216, 162, 58, 0.65);
+    border-radius: 14px;
+}
+
+.aventura-cena-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    position: relative;
+}
+.aventura-cena-card-nome {
+    font-family: var(--aventura-titulo-font);
+    font-size: 1.5rem;
+    line-height: 1.05;
+    letter-spacing: 0.4px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.55);
+    word-break: break-word;
+}
+.aventura-cena-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 10px;
+    font-size: 0.84rem;
+    color: rgba(255, 247, 230, 0.92);
+}
+.aventura-cena-card-meta > span {
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: rgba(15, 5, 25, 0.45);
+    border: 1px solid rgba(216, 162, 58, 0.32);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+.aventura-cena-card-tag {
+    text-transform: capitalize;
+    color: #ffe2a3;
+    border-color: rgba(216, 162, 58, 0.65) !important;
+}
+
+@media (min-width: 720px) {
+    .aventura-cenas-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+}
+@media (min-width: 1180px) {
+    .aventura-cenas-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .aventura-cena-card-nome { font-size: 1.7rem; }
+}
+
+/* Campo de imagem do NPC: URL + upload de arquivo lado a lado + preview. */
+.aventura-npc-imagem-field {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.aventura-npc-imagem-field .field-label-line {
+    color: var(--purple, #69436f);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    font-size: 0.74rem;
+}
+.aventura-npc-imagem-inputs {
+    display: flex;
+    gap: 8px;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+.aventura-npc-imagem-url {
+    flex: 1 1 220px;
+    min-width: 0;
+}
+.aventura-npc-imagem-upload {
+    cursor: pointer;
+    flex: 0 0 auto;
+}
+.aventura-npc-imagem-preview {
+    width: 88px;
+    height: 88px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1.5px solid rgba(118, 84, 124, 0.36);
+    background: #fff;
+    box-shadow: inset 0 0 0 1px rgba(216, 162, 58, 0.20);
+}
+.aventura-npc-imagem-preview[hidden] { display: none; }
+.aventura-npc-imagem-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.aventura-npc-imagem-hint {
+    color: var(--muted, #91739a);
+    font-size: 0.78rem;
+}
+
+/* =====================================================
+   Página de leitura — padronização de largura
+   Garante que TODOS os blocos principais (hero, sinopse,
+   cenas, corpo, observações) tenham a mesma largura
+   externa do shell, sem variações por margem/padding.
+===================================================== */
+.aventura-leitura-bloco {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Painel de cenas dentro da leitura ganha o mesmo arredondamento e
+   sombra dos outros blocos para conviver bem entre Sinopse e Corpo. */
+.aventura-leitura-shell .aventura-cenas-painel.aventura-leitura-bloco {
+    margin-top: 0;
+    border-radius: 14px;
+}
+
+/* =====================================================
+   Listagem de aventuras — composição desktop
+   .aventuras-listagem-shell sobrescreve o cap de 440px
+   herdado de .home-shell, e o grid ganha colunas fixas
+   por breakpoint para os cards manterem ~tamanho atual.
+===================================================== */
+@media (min-width: 720px) {
+    /* Tablet: 2 cards por linha. */
+    .aventuras-listagem-shell .aventuras-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+}
+@media (min-width: 1024px) {
+    .aventuras-listagem-shell {
+        width: min(1180px, 100%);
+        max-width: 1180px;
+    }
+    /* Desktop/notebook: 3 cards por linha — cada um ~365px de largura. */
+    .aventuras-listagem-shell .aventuras-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+    }
+    /* Cabeçalho e botão "Nova aventura" alinhados à esquerda em desktop.
+       padding-left reserva a área do .home-back (position:absolute,left:0)
+       para que título e subtítulo não fiquem por baixo dele. */
+    .aventuras-listagem-shell .home-hero {
+        text-align: left;
+        align-items: flex-start;
+        padding-left: 52px;
+    }
+    .aventuras-listagem-shell .aventuras-topbar-actions { justify-content: flex-end; }
+}
+@media (min-width: 1366px) {
+    .aventuras-listagem-shell {
+        max-width: 1280px;
+        width: min(1280px, 100%);
+    }
+}

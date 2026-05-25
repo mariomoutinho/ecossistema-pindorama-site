@@ -1,0 +1,585 @@
+/* ====================================================================
+   Pindorama — Home, Listagem e Referência
+   Aproveita variáveis e fundo definidos em ficha.css
+   ==================================================================== */
+
+/* Fonte temática global do projeto: "Cordelina" (cordel brasileiro,
+   homenagem a J. Borges, de Samuel de Angelis Albuquerque). Definida
+   aqui em home.css por ser o CSS importado em praticamente todas as
+   páginas — assim a fonte fica disponível em catálogos, ficha, modais
+   e aventuras com uma única declaração. Caracteres do português
+   (ç, â, ê, õ, ã) renderizam corretamente. */
+@font-face {
+    font-family: 'Cordelina';
+    src: url('../fonts/Cordelina-Regular.otf') format('opentype');
+    font-display: swap;
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Classe utilitária para títulos em estilo cordel/xilogravura. */
+.titulo-cordel {
+    font-family: 'Cordelina', Georgia, "Times New Roman", serif;
+    letter-spacing: 0.5px;
+}
+
+.home-body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+}
+
+.home-shell {
+    width: min(440px, 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    position: relative;
+}
+
+.home-shell-list,
+.home-shell-ref,
+.home-shell-home {
+    width: min(720px, 100%);
+}
+
+/* ---------- Cabeçalho / hero ---------- */
+
+.home-hero {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+}
+
+.home-hero-compact {
+    gap: 2px;
+    margin-bottom: 4px;
+    position: relative;
+}
+
+.home-logo-frame {
+    width: min(100%, 390px);
+    aspect-ratio: 1 / 1;
+    height: auto;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    margin-bottom: 6px;
+}
+
+.home-logo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    image-rendering: -webkit-optimize-contrast;
+    filter: drop-shadow(0 8px 16px rgba(59, 29, 67, 0.14));
+}
+
+.home-title {
+    font-family: 'Cordelina', Georgia, "Times New Roman", serif;
+    font-size: 2.6rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--purple-dark);
+    letter-spacing: 0.5px;
+}
+
+.home-subtitle {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+}
+
+.home-subtitle span {
+    color: var(--purple);
+}
+
+.home-back {
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.86);
+    border: 1px solid rgba(118, 84, 124, 0.35);
+    color: var(--purple-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: transform 120ms ease, background 120ms ease;
+}
+
+.home-back:hover {
+    transform: translateX(-2px);
+    background: #fff;
+}
+
+/* ---------- Botões grandes (Nova Ficha / Listar / Referência) ---------- */
+
+.home-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+}
+
+.home-btn {
+    display: block;
+    width: 100%;
+    padding: 16px 20px;
+    background: rgba(255, 255, 255, 0.86);
+    border: 1.5px solid var(--purple-dark);
+    border-radius: 999px;
+    color: var(--purple-dark);
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Cordelina', Georgia, "Times New Roman", serif;
+    font-size: 1.25rem;
+    letter-spacing: 0.4px;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(59, 29, 67, 0.08);
+    transition: transform 120ms ease, background 120ms ease, box-shadow 120ms ease;
+}
+
+.home-btn:hover {
+    background: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 29, 67, 0.18);
+}
+
+.home-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 4px rgba(59, 29, 67, 0.18);
+}
+
+.home-btn-ghost {
+    background: transparent;
+    border-color: rgba(118, 84, 124, 0.5);
+    color: var(--purple);
+    font-weight: normal;
+}
+
+/* ---------- Listagem de fichas ---------- */
+
+.home-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.home-card-ficha {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(118, 84, 124, 0.28);
+    border-radius: 14px;
+    text-decoration: none;
+    color: var(--purple-dark);
+    transition: transform 120ms ease, background 120ms ease, box-shadow 120ms ease;
+}
+
+.home-card-ficha:hover {
+    background: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 29, 67, 0.15);
+}
+
+.home-card-thumb {
+    flex: 0 0 auto;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--purple-light);
+    color: var(--purple-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    border: 1.5px solid rgba(118, 84, 124, 0.35);
+}
+
+.home-card-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    background: #ffffff;
+    transform:
+        translate(var(--saved-token-x, 0), var(--saved-token-y, 0))
+        scale(var(--saved-token-scale, 1));
+    transform-origin: center;
+    display: block;
+}
+
+.home-card-info {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.home-card-name {
+    font-size: 1.1rem;
+    color: var(--purple-dark);
+}
+
+.home-card-meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.home-card-player {
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-style: italic;
+}
+
+.home-card-arrow {
+    flex: 0 0 auto;
+    font-size: 1.6rem;
+    color: var(--purple);
+    opacity: 0.55;
+}
+
+.home-empty-state {
+    width: 100%;
+    text-align: center;
+    padding: 30px 20px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 14px;
+    border: 1px dashed rgba(118, 84, 124, 0.4);
+}
+
+.home-empty-state p {
+    margin: 0 0 16px;
+    color: var(--purple-dark);
+}
+
+.home-list-footer {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.home-list-footer .home-btn {
+    flex: 1 1 0;
+    padding: 12px 16px;
+    font-size: 1rem;
+}
+
+/* ---------- Referência: grid de cards ---------- */
+
+.home-grid-ref {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 12px;
+}
+
+.home-card-ref {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(118, 84, 124, 0.28);
+    border-radius: 14px;
+    color: var(--purple-dark);
+    text-decoration: none;
+    transition: transform 120ms ease, background 120ms ease, box-shadow 120ms ease;
+}
+
+.home-card-ref:hover {
+    background: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(59, 29, 67, 0.18);
+}
+
+.home-card-ref strong {
+    font-family: 'Cordelina', Georgia, "Times New Roman", serif;
+    font-size: clamp(1rem, 2.6vw, 1.2rem);
+    letter-spacing: 0.3px;
+    color: var(--purple-dark);
+    line-height: 1.15;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    hyphens: auto;
+}
+
+.home-card-ref span {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+/* ---------- Cards do menu da home com imagem de fundo ----------
+   Cada arquivo deve estar em assets/img/home-buttons/. As imagens têm
+   espaço livre à esquerda (onde fica o texto), por isso fixamos a
+   posição em "center right" e aplicamos um gradiente claro da esquerda
+   para a direita por cima, garantindo contraste do texto. */
+.home-grid-home {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 14px;
+}
+
+.home-card-home {
+    position: relative;
+    min-height: 110px;
+    padding: 16px 18px;
+    justify-content: center;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.6);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center right;
+    border: 1px solid rgba(118, 84, 124, 0.32);
+    box-shadow: 0 2px 8px rgba(59, 29, 67, 0.08);
+    transition: transform 160ms ease, box-shadow 160ms ease,
+                background-size 320ms ease;
+}
+
+.home-card-home::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.92) 0%,
+        rgba(255, 255, 255, 0.78) 35%,
+        rgba(255, 255, 255, 0.45) 65%,
+        rgba(255, 255, 255, 0.18) 100%
+    );
+    pointer-events: none;
+    transition: opacity 160ms ease;
+}
+
+.home-card-home > * {
+    position: relative;
+    z-index: 1;
+}
+
+.home-card-home:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    background-size: 115% auto;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(59, 29, 67, 0.22);
+}
+
+.home-card-home:hover::before {
+    opacity: 0.78;
+}
+
+.home-card-home:focus-visible {
+    outline: 2px solid var(--purple-dark);
+    outline-offset: 2px;
+}
+
+.home-card-home strong {
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7);
+}
+
+.home-card-home span {
+    color: var(--purple-dark);
+    opacity: 0.78;
+}
+
+/* Especificidade dupla (.home-card-home.home-card-XYZ) garante que a
+   imagem prevaleça mesmo no hover, sem disputar com o shorthand
+   `background: #fff` aplicado por .home-card-ref:hover (usado na
+   página de Acervo). */
+.home-card-home.home-card-nova-ficha {
+    background-image: url('../img/home-buttons/nova-ficha-bg.png');
+}
+.home-card-home.home-card-listar-fichas {
+    background-image: url('../img/home-buttons/listar-fichas-bg.png');
+}
+.home-card-home.home-card-campo-batalha {
+    background-image: url('../img/home-buttons/campo-batalha-bg.png');
+}
+.home-card-home.home-card-acervo {
+    background-image: url('../img/home-buttons/acervo-bg.png');
+}
+/* Aventuras — arte temática (exploradores em paisagem mística) seguindo
+   o mesmo padrão de assets/img/home-buttons/<slug>-bg.png dos demais
+   cards. background-color lilás funciona como fallback se o arquivo
+   ainda não tiver sido copiado para o servidor. */
+.home-card-home.home-card-aventuras {
+    background-image: url('../img/home-buttons/aventuras-bg.png');
+    background-color: #c8b6dc;
+}
+
+/* Cards do Facilitador unificados no index. Sem arte dedicada ainda —
+   gradient lilás/dourado coerente com a paleta do projeto serve como
+   base. Para personalizar com uma imagem por card no futuro, é só
+   adicionar background-image: url('../img/home-buttons/<slug>-bg.png')
+   na regra específica. */
+.home-card-home.home-card-minhas-mesas,
+.home-card-home.home-card-participantes,
+.home-card-home.home-card-fichas-participantes,
+.home-card-home.home-card-npcs,
+.home-card-home.home-card-bestiario,
+.home-card-home.home-card-magias-poderes,
+.home-card-home.home-card-narrativas,
+.home-card-home.home-card-mapas-cenas,
+.home-card-home.home-card-conteudos-liberados {
+    background-color: #c8b6dc;
+    background-image: linear-gradient(135deg,
+        rgba(216, 162, 58, 0.18) 0%,
+        rgba(118, 84, 124, 0.22) 100%);
+}
+
+/* Mobile: cards ficam mais largos, mas mantém a leitura */
+@media (max-width: 600px) {
+    .home-grid-home {
+        grid-template-columns: 1fr;
+    }
+    .home-card-home {
+        min-height: 96px;
+    }
+}
+
+/* ---------- Cards do Acervo (referencia.php) com imagem de fundo ----------
+   Cada arquivo deve estar em assets/img/acervo-cards/. As imagens têm
+   espaço livre à esquerda (onde fica o texto), por isso fixamos a posição
+   em "center right" e aplicamos um gradiente claro da esquerda para a
+   direita por cima, garantindo contraste do texto. Os títulos viram
+   caixa-alta para combinar com a estética cordel/xilogravura. */
+.acervo-card-bg {
+    position: relative;
+    min-height: 110px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.6);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center right;
+    transition: transform 160ms ease, box-shadow 160ms ease,
+                background-size 320ms ease, border-color 160ms ease;
+}
+
+.acervo-card-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.92) 0%,
+        rgba(255, 255, 255, 0.78) 35%,
+        rgba(255, 255, 255, 0.45) 65%,
+        rgba(255, 255, 255, 0.18) 100%
+    );
+    pointer-events: none;
+    transition: opacity 160ms ease;
+}
+
+.acervo-card-bg > * {
+    position: relative;
+    z-index: 1;
+}
+
+.acervo-card-bg:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    background-size: 112% auto;
+    border-color: var(--purple-dark);
+}
+.acervo-card-bg:hover::before {
+    opacity: 0.78;
+}
+
+.acervo-card-bg:focus-visible {
+    outline: 2px solid var(--purple-dark);
+    outline-offset: 2px;
+}
+
+.acervo-card-bg strong {
+    text-transform: uppercase;
+    font-size: clamp(0.95rem, 2.4vw, 1.1rem);
+    letter-spacing: 0.6px;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7);
+}
+
+.acervo-card-bg span {
+    color: var(--purple-dark);
+    opacity: 0.82;
+}
+
+/* Especificidade dupla (.acervo-card-bg.acervo-card--xyz) garante que a
+   imagem prevaleça mesmo no hover, sem disputar com o shorthand
+   `background: #fff` aplicado por .home-card-ref:hover. */
+.acervo-card-bg.acervo-card--jogando {
+    background-image: url('../img/acervo-cards/jogando-bg.png');
+}
+.acervo-card-bg.acervo-card--ancestralidades {
+    background-image: url('../img/acervo-cards/ancestralidades-bg.png');
+}
+.acervo-card-bg.acervo-card--origens {
+    background-image: url('../img/acervo-cards/origens-bg.png');
+}
+.acervo-card-bg.acervo-card--classes {
+    background-image: url('../img/acervo-cards/classes-bg.png');
+}
+.acervo-card-bg.acervo-card--divindades {
+    background-image: url('../img/acervo-cards/divindades-bg.png');
+}
+.acervo-card-bg.acervo-card--poderes {
+    background-image: url('../img/acervo-cards/poderes-bg.png');
+}
+.acervo-card-bg.acervo-card--magias {
+    background-image: url('../img/acervo-cards/magias-bg.png');
+}
+.acervo-card-bg.acervo-card--pericias {
+    background-image: url('../img/acervo-cards/pericias-bg.png');
+}
+.acervo-card-bg.acervo-card--equipamentos {
+    background-image: url('../img/acervo-cards/equipamentos-bg.png');
+}
+.acervo-card-bg.acervo-card--bestiario {
+    background-image: url('../img/acervo-cards/bestiario-bg.png');
+}
+
+@media (max-width: 600px) {
+    .acervo-card-bg {
+        min-height: 96px;
+    }
+}
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 600px) {
+    .home-title {
+        font-size: 2.1rem;
+    }
+
+    .home-logo-frame {
+        width: min(100%, 360px);
+        height: auto;
+    }
+
+    .home-back {
+        position: static;
+        margin-bottom: 8px;
+    }
+
+}

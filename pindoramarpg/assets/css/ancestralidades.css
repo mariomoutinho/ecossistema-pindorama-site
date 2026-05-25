@@ -1,0 +1,110 @@
+.ancestralidade-section h3 {
+    margin-top: 28px;
+}
+
+/* Cabeçalho da ancestralidade: imagem + texto.
+   Desktop: texto à esquerda, imagem à direita.
+   Mobile: imagem acima do texto, fundo branco, sem corte. */
+.ancestralidade-cabecalho {
+    display: grid;
+    grid-template-columns: 1fr minmax(220px, 280px);
+    grid-template-areas: "texto figura";
+    gap: 20px;
+    align-items: start;
+    margin-bottom: 14px;
+}
+.ancestralidade-section:not(.tem-imagem) .ancestralidade-cabecalho {
+    grid-template-columns: 1fr;
+    grid-template-areas: "texto";
+}
+
+.ancestralidade-figura {
+    grid-area: figura;
+    margin: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    aspect-ratio: auto;
+    background: transparent;
+}
+.ancestralidade-figura img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.ancestralidade-texto {
+    grid-area: texto;
+}
+.ancestralidade-texto > p {
+    margin: 0 0 12px;
+    line-height: 1.55;
+}
+.ancestralidade-texto > p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 900px) {
+    .ancestralidade-cabecalho {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "figura"
+            "texto";
+    }
+    .ancestralidade-figura {
+        max-width: 100%;
+        width: auto;
+        margin: 0 auto;
+        aspect-ratio: auto;
+    }
+    .ancestralidade-figura img {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+}
+
+.ancestralidade-tracos-lista {
+    display: grid;
+    gap: 14px;
+}
+
+.ancestralidade-traco-card {
+    margin: 0;
+}
+
+.ancestralidade-traco-card h4 {
+    margin: 0 0 8px;
+    color: var(--purple-dark);
+    font-size: 1.1rem;
+}
+
+.ancestralidade-ficha-panel {
+    margin-top: 14px;
+}
+
+.ancestralidade-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.ancestralidade-tag {
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--purple-dark);
+    padding: 6px 12px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.ancestralidade-tag:hover {
+    background: var(--purple-light);
+    transform: translateY(-1px);
+}
+
+.ancestralidade-empty {
+    color: var(--muted);
+    font-style: italic;
+}

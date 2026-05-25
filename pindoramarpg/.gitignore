@@ -1,0 +1,40 @@
+# Uploads de usuário (capas, tokens, imagens de campo de batalha,
+# fotos de perfil, imagens de NPC etc.).
+uploads/**
+!uploads/**/.gitignore
+
+# Estados locais e caches
+data/campo-batalha-state*.json
+data/aventuras/*/cenas.json
+.DS_Store
+Thumbs.db
+
+# Metadados do Windows (NTFS Alternate Data Streams) ao mexer em
+# arquivos pelo WSL/Explorer — nunca devem ir pro repositório nem
+# pra Hostinger.
+*:Zone.Identifier
+**/*:Zone.Identifier
+*Zone.Identifier*
+
+# Ferramentas locais e configurações do editor/agente
+.claude/
+.codex/
+.agents/
+.vscode/
+
+# Build / dependências eventuais
+node_modules/
+vendor/
+
+# Logs e backups locais
+*.log
+*.sql.bak
+*.bak
+
+# Credenciais e segredos — NUNCA subir
+.env
+.env.*
+config.php
+config.local.php
+secrets.*
+!config.example.php

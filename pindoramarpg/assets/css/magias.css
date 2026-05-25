@@ -1,0 +1,237 @@
+.magias-page {
+    width: min(1500px, 96vw);
+    margin: 0 auto;
+}
+
+.magias-layout {
+    display: grid;
+    grid-template-columns: 290px minmax(0, 1fr);
+    gap: 18px;
+    align-items: start;
+    margin-top: 18px;
+}
+
+.magias-filtros {
+    position: sticky;
+    top: 16px;
+    display: grid;
+    gap: 12px;
+    padding: 34px 18px 18px;
+}
+
+.magias-filtros .panel-title {
+    position: absolute;
+    top: -18px;
+    left: 22px;
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    width: auto;
+    margin: 0;
+    padding: 7px 22px;
+    border-radius: 0 0 14px 14px;
+    background: var(--purple, #69436f);
+    color: #ffffff;
+    box-shadow: 0 8px 18px rgba(79, 49, 86, 0.18);
+    z-index: 2;
+}
+
+.magias-filtros label {
+    display: grid;
+    gap: 5px;
+    color: var(--purple-dark);
+    font-weight: 800;
+}
+
+.magias-filtros input,
+.magias-filtros select {
+    width: 100%;
+    min-height: 38px;
+    border: 2px solid var(--line);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--purple-dark);
+    font: inherit;
+    padding: 7px 9px;
+}
+
+.magias-filtros button {
+    min-height: 40px;
+    border: 2px solid var(--purple);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.88);
+    color: var(--purple);
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.magias-filtros button:hover {
+    background: var(--purple);
+    color: #fff;
+}
+
+.magias-content {
+    display: grid;
+    gap: 14px;
+}
+
+.magias-regras {
+    padding: 18px;
+}
+
+.magias-regras summary {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    cursor: pointer;
+    color: var(--purple-dark);
+    font-weight: 900;
+    list-style: none;
+}
+
+.magias-regras summary::-webkit-details-marker,
+.magia-card summary::-webkit-details-marker {
+    display: none;
+}
+
+.magias-regras summary em {
+    color: var(--muted);
+    font-style: normal;
+}
+
+.magias-regras-texto {
+    max-height: 520px;
+    overflow-y: auto;
+    margin-top: 14px;
+    padding-right: 8px;
+}
+
+.magias-regras-texto p {
+    margin: 0 0 10px;
+    color: var(--purple-dark);
+    line-height: 1.55;
+}
+
+.magias-lista-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 14px;
+    padding: 8px 4px;
+}
+
+.magias-lista-header h2 {
+    margin: 0;
+    color: var(--purple-dark);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+}
+
+.magias-lista-header span {
+    color: var(--danger);
+    font-weight: 900;
+}
+
+.magias-lista {
+    display: grid;
+    gap: 10px;
+}
+
+.magia-card {
+    border: 2px solid var(--line);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.76);
+    overflow: hidden;
+}
+
+.magia-card[hidden] {
+    display: none;
+}
+
+.magia-card summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    padding: 13px 16px;
+}
+
+.magia-card summary span {
+    display: grid;
+    gap: 3px;
+}
+
+.magia-card summary strong {
+    color: var(--purple-dark);
+    font-size: 1.1rem;
+}
+
+.magia-card summary small {
+    color: var(--muted);
+    font-weight: 800;
+}
+
+.magia-card summary em {
+    color: var(--purple);
+    font-style: normal;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.magia-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0 16px 12px;
+}
+
+.magia-meta span {
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 4px 9px;
+    background: rgba(255, 255, 255, 0.65);
+    color: var(--purple-dark);
+    font-size: 0.9rem;
+}
+
+.magia-descricao,
+.magia-aprimoramentos {
+    padding: 0 16px 14px;
+    color: var(--purple-dark);
+}
+
+.magia-descricao p {
+    margin: 0 0 10px;
+    line-height: 1.58;
+}
+
+.magia-aprimoramentos h3 {
+    margin: 4px 0 8px;
+    color: var(--purple-dark);
+}
+
+.magia-aprimoramentos ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.magia-aprimoramentos li {
+    margin-bottom: 7px;
+    line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+    .magias-layout {
+        grid-template-columns: 1fr;
+        margin-top: 20px;
+    }
+
+    .magias-filtros {
+        position: static;
+    }
+
+    .magia-card summary {
+        align-items: start;
+        flex-direction: column;
+    }
+}

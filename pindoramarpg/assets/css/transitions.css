@@ -1,0 +1,89 @@
+/* ====================================================================
+   Transições de página — versão minimalista e segura.
+
+   Histórico:
+   Versões anteriores aplicavam `animation: pageEnter 380ms ... both`
+   em `body > main`, com FROM-state = opacity:0 + blur(2px). Em todo
+   cenário onde a animação não rodava por algum motivo (reduced-motion
+   alternado em runtime, motor de animação pausado por bfcache, sleep
+   da aba, frame intermediário capturado no print), a página ficava
+   parecendo um overlay escuro/borrado travado.
+
+   Decisão: descartar o fade-in completo. A página agora aparece
+   instantaneamente. Mantemos o fade-out leve no clique de link
+   (sem `forwards`!) só como feedback discreto.
+   ==================================================================== */
+
+/* Sem fade-in. Garante visibilidade total mesmo se algum estado
+   residual de animação tente aplicar opacity/filter/transform. */
+body > main {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+}
+
+/* ====================================================================
+   Salvaguarda nuclear contra overlays globais.
+
+   Nenhum arquivo do projeto usa body::before / body::after / html::before
+   / html::after hoje (auditado). Esta regra desabilita preventivamente
+   qualquer pseudo-elemento desse tipo que venha a ser introduzido
+   acidentalmente, e zera filter/backdrop-filter no body/html que pudessem
+   escurecer/borrar a página inteira.
+
+   Se algum dia for legítimo usar um desses pseudo-elementos, escopar com
+   um seletor mais específico (ex.: body.com-modal-real-aberto::before).
+   ==================================================================== */
+html::before,
+html::after,
+body::before,
+body::after {
+    display: none !important;
+    content: none !important;
+    pointer-events: none !important;
+}
+
+html,
+body {
+    filter: none !important;
+    backdrop-filter: none !important;
+}
+
+/* Fade-out no clique de link interno (transitions.js adiciona a
+   classe). NUNCA usar `forwards` — sem fill-mode, qualquer estado
+   residual da animação volta naturalmente ao normal. */
+body.page-leaving > main {
+    animation: pageLeave 220ms ease-in;
+}
+
+@keyframes pageLeave {
+    from {
+        opacity: 1;
+        transform: none;
+        filter: none;
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-6px);
+        filter: blur(2px);
+    }
+}
+
+/* Glow no link clicado durante a transição (cosmético, não bloqueia). */
+a.is-leaving {
+    animation: linkFlash 220ms ease-in forwards;
+}
+
+@keyframes linkFlash {
+    from { box-shadow: 0 0 0 0 rgba(105, 67, 111, 0.0); }
+    50%  { box-shadow: 0 0 0 6px rgba(105, 67, 111, 0.18); }
+    to   { box-shadow: 0 0 0 12px rgba(105, 67, 111, 0); }
+}
+
+/* Acessibilidade — sem animação se o usuário pedir reduced-motion. */
+@media (prefers-reduced-motion: reduce) {
+    body.page-leaving > main,
+    a.is-leaving {
+        animation: none;
+    }
+}

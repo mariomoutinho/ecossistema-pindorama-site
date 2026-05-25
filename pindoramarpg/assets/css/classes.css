@@ -1,0 +1,1714 @@
+/* =====================================================
+   PÁGINA CLASSES - PINDORAMA RPG
+   Página introdutória geral das classes
+===================================================== */
+
+/* Classe utilitária para títulos em estilo cordel/xilogravura.
+   A fonte temática "Cordelina" é declarada em home.css (carregada por
+   esta página). Fallback final: Georgia/serif. */
+.titulo-cordel {
+    font-family: 'Cordelina', Georgia, "Times New Roman", serif;
+    letter-spacing: 0.5px;
+}
+
+/* =====================================================
+   CAIXAS DE REGRA / CALLOUTS
+   Para os quadros laterais roxos do material original
+   (ex: "Não Seja Fominha!", "O Propósito do RPG").
+===================================================== */
+.caixa-regra {
+    background: rgba(105, 67, 111, 0.08);
+    border-left: 5px solid var(--purple, #69436f);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 18px 0;
+    color: var(--purple-dark, #3b1d43);
+}
+.caixa-regra .caixa-regra-titulo {
+    font-family: 'Cordelina', Georgia, "Times New Roman", serif;
+    font-size: 1.1rem;
+    margin: 0 0 8px;
+    color: var(--purple-dark, #3b1d43);
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+.caixa-regra p { margin: 0 0 8px; }
+.caixa-regra p:last-child { margin-bottom: 0; }
+.caixa-regra ul { margin: 6px 0 0; padding-left: 22px; }
+.caixa-regra li + li { margin-top: 4px; }
+
+/* =====================================================
+   PLACEHOLDERS DE IMAGEM (artes futuras)
+===================================================== */
+.image-placeholder {
+    margin: 18px 0;
+    padding: 24px;
+    border: 2px dashed rgba(118, 84, 124, 0.5);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.4);
+    text-align: center;
+    color: var(--purple, #69436f);
+    font-style: italic;
+    font-size: 0.92rem;
+}
+.image-placeholder figcaption {
+    margin-top: 6px;
+    font-size: 0.82rem;
+    color: var(--muted, #6f5876);
+}
+
+/* Grid 2×2 para placeholders das 4 áreas (cone/linha/raio/cubo). */
+.areas-figuras-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 18px 0;
+}
+.areas-figuras-grid .image-placeholder {
+    margin: 0;
+}
+@media (max-width: 600px) {
+    .areas-figuras-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =====================================================
+   TABELAS DE REGRAS (responsivas)
+===================================================== */
+.regras-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 14px 0 18px;
+}
+.regras-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(118, 84, 124, 0.28);
+    border-radius: 8px;
+    overflow: hidden;
+    min-width: 480px;
+}
+.regras-table caption {
+    text-align: left;
+    font-family: 'Cordelina', Georgia, "Times New Roman", serif;
+    font-weight: 800;
+    color: var(--purple-dark, #3b1d43);
+    padding: 6px 8px 8px;
+    letter-spacing: 0.4px;
+    caption-side: top;
+}
+.regras-table th,
+.regras-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid rgba(118, 84, 124, 0.18);
+    text-align: left;
+    vertical-align: top;
+    font-size: 0.92rem;
+}
+.regras-table th {
+    background: rgba(105, 67, 111, 0.12);
+    font-weight: 800;
+    color: var(--purple-dark, #3b1d43);
+}
+.regras-table tr:last-child td { border-bottom: none; }
+.regras-table tbody tr:nth-child(even) td {
+    background: rgba(118, 84, 124, 0.06);
+}
+
+/* Fórmula em destaque (ex: "1d20 + Atributo") */
+.formula-destaque {
+    display: block;
+    text-align: center;
+    margin: 8px auto 16px;
+    padding: 10px 14px;
+    font-family: 'Cordelina', Georgia, "Times New Roman", serif;
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
+    color: var(--purple-dark, #3b1d43);
+    background: rgba(105, 67, 111, 0.08);
+    border-radius: 8px;
+    border: 1px solid rgba(118, 84, 124, 0.2);
+    max-width: 480px;
+}
+
+.classes-page {
+    width: min(1440px, 96vw);
+    margin: 0 auto;
+}
+
+/* =====================================================
+   TOPO DA PÁGINA
+===================================================== */
+
+.classes-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+.classes-topbar h1 {
+    margin: 0 0 4px;
+    color: var(--purple-dark, #3b1d43);
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    line-height: 1;
+}
+
+.classes-topbar p {
+    margin: 0;
+    color: var(--muted, #8d6c91);
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.classes-topbar .actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.system-link-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 9px 18px;
+    border: 2px solid var(--purple, #69436f);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.88);
+    color: var(--purple, #69436f);
+    text-decoration: none;
+    font-weight: 900;
+    transition: 0.2s ease;
+}
+
+.system-link-btn:hover {
+    background: var(--purple, #69436f);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+/* =====================================================
+   ESTRUTURA GERAL
+===================================================== */
+
+.classes-layout {
+    display: grid;
+    grid-template-columns: 270px minmax(0, 1fr);
+    gap: 18px;
+    align-items: start;
+}
+
+/* =====================================================
+   MENU LATERAL - DESKTOP
+===================================================== */
+
+.classes-sidebar {
+    position: sticky;
+    top: 16px;
+    max-height: calc(100vh - 32px);
+    overflow-y: auto;
+    padding: 24px 18px;
+    border: 4px solid var(--line, #7b5a82);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.72);
+    box-shadow: 0 16px 34px rgba(79, 49, 86, 0.08);
+}
+
+.classes-sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.classes-sidebar::-webkit-scrollbar-thumb {
+    background: rgba(105, 67, 111, 0.35);
+    border-radius: 999px;
+}
+
+.sidebar-mobile-head {
+    display: block;
+}
+
+.panel-title {
+    display: inline-block;
+    margin: -42px 0 18px;
+    padding: 8px 22px;
+    border-radius: 0 0 14px 14px;
+    background: var(--purple, #69436f);
+    color: #ffffff;
+    font-weight: 900;
+    box-shadow: 0 8px 18px rgba(79, 49, 86, 0.18);
+}
+
+.sidebar-content {
+    display: block;
+}
+
+.mobile-menu-toggle {
+    display: none;
+}
+
+/* ================================================================
+   FIX DO MENU MOBILE — quando aberto, neutraliza filter/transform
+   herdados de transitions.css/animações globais que faziam o
+   conteúdo da sidebar ficar borrado/embaçado e disparavam o bug
+   de "tela trava". Mesma técnica usada em pericias.css.
+   ================================================================ */
+
+body.mobile-menu-open {
+    overflow: hidden;
+}
+
+body.mobile-menu-open,
+body.mobile-menu-open * {
+    filter: none !important;
+    -webkit-filter: none !important;
+}
+
+body.mobile-menu-open .page-wrapper,
+body.mobile-menu-open main {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+body.mobile-menu-open .classes-sidebar {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+}
+
+/* Backdrop real (criado por classes.js quando o menu mobile abre).
+   Funciona melhor que body::before porque é um elemento de verdade
+   com seu próprio listener de clique — confiável em qualquer toque. */
+.mobile-menu-backdrop-real {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 998;
+    background: rgba(24, 12, 30, 0.42);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    cursor: pointer;
+}
+
+.mobile-menu-backdrop-real.is-visible {
+    display: block;
+}
+
+/* Botão X dentro da sidebar (injetado por classes.js) — caminho
+   óbvio de fechar, não depende de cliques externos. */
+.sidebar-close-btn {
+    display: none;             /* só aparece em mobile */
+    background: transparent;
+    border: 1px solid rgba(118, 84, 124, 0.45);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    color: var(--purple-dark, #3b1d43);
+    cursor: pointer;
+    font-size: 1.4rem;
+    line-height: 1;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    transition: background 120ms ease, color 120ms ease;
+    flex-shrink: 0;
+}
+
+.sidebar-close-btn:hover,
+.sidebar-close-btn:focus-visible {
+    background: var(--purple, #69436f);
+    color: #fff;
+    outline: none;
+}
+
+@media (max-width: 980px) {
+    .sidebar-close-btn {
+        display: inline-flex;
+    }
+}
+
+.classes-search {
+    width: 100%;
+    margin-bottom: 14px;
+    padding: 11px 12px;
+    border: 2px solid var(--line, #7b5a82);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--purple-dark, #3b1d43);
+    font: inherit;
+    outline: none;
+}
+
+.classes-search:focus {
+    border-color: var(--purple, #69436f);
+    box-shadow: 0 0 0 3px rgba(105, 67, 111, 0.13);
+}
+
+.classes-toc {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.toc-link {
+    display: block;
+    padding: 9px 10px;
+    border-radius: 10px;
+    color: var(--purple-dark, #3b1d43);
+    text-decoration: none;
+    font-weight: 900;
+    line-height: 1.15;
+    transition: 0.18s ease;
+}
+
+.toc-link:hover,
+.toc-link.active {
+    background: rgba(105, 67, 111, 0.14);
+    color: var(--purple, #69436f);
+}
+
+.toc-level-2 {
+    font-size: 0.98rem;
+}
+
+.toc-level-3 {
+    padding-left: 22px;
+    font-size: 0.88rem;
+    color: var(--muted, #8d6c91);
+}
+
+/* =====================================================
+   CONTEÚDO PRINCIPAL
+===================================================== */
+
+.classes-content {
+    padding: clamp(24px, 3vw, 46px);
+    border: 4px solid var(--line, #7b5a82);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: 0 18px 40px rgba(79, 49, 86, 0.08);
+}
+
+.content-section {
+    scroll-margin-top: 24px;
+    margin-bottom: 36px;
+}
+
+.content-section:last-child {
+    margin-bottom: 0;
+}
+
+.classes-content h2 {
+    margin: 0 0 18px;
+    padding-bottom: 9px;
+    border-bottom: 4px solid var(--line, #7b5a82);
+    color: var(--purple-dark, #3b1d43);
+    font-size: clamp(1.8rem, 2.6vw, 2.45rem);
+    line-height: 1.08;
+}
+
+.classes-content h3 {
+    margin: 0 0 10px;
+    color: var(--purple-dark, #3b1d43);
+    font-size: 1.15rem;
+    line-height: 1.2;
+}
+
+.classes-content p {
+    margin: 0 0 14px;
+    color: var(--purple-dark, #3b1d43);
+    font-size: 1.02rem;
+    line-height: 1.72;
+}
+
+.classes-content strong {
+    color: var(--purple-dark, #3b1d43);
+    font-weight: 900;
+}
+
+.page-note {
+    margin-top: 12px;
+    padding: 12px 16px;
+    border-left: 5px solid var(--purple, #69436f);
+    border-radius: 0 12px 12px 0;
+    background: rgba(105, 67, 111, 0.08);
+}
+
+/* =====================================================
+   CARDS DE INFORMAÇÃO
+===================================================== */
+
+.info-card,
+.example-box {
+    margin: 18px 0;
+    padding: 16px 20px;
+    border-left: 6px solid var(--purple, #69436f);
+    border-radius: 0 16px 16px 0;
+    background: rgba(105, 67, 111, 0.08);
+    color: var(--purple-dark, #3b1d43);
+}
+
+.example-box {
+    font-style: italic;
+}
+
+.example-box p:last-child,
+.info-card p:last-child {
+    margin-bottom: 0;
+}
+
+/* =====================================================
+   TABELAS
+===================================================== */
+
+.classes-table-wrap {
+    width: 100%;
+    margin: 18px 0 24px;
+    overflow-x: auto;
+    border: 3px solid var(--line, #7b5a82);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.92);
+}
+
+.classes-table {
+    width: 100%;
+    min-width: 760px;
+    border-collapse: collapse;
+    color: var(--purple-dark, #3b1d43);
+}
+
+.classes-table th,
+.classes-table td {
+    padding: 12px 14px;
+    border: 1px solid rgba(105, 67, 111, 0.22);
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.25;
+}
+
+.classes-table th {
+    background: rgba(105, 67, 111, 0.17);
+    color: var(--purple-dark, #3b1d43);
+    font-weight: 900;
+}
+
+.classes-table tbody tr:nth-child(even) {
+    background: rgba(105, 67, 111, 0.035);
+}
+
+.classes-table tbody tr:hover {
+    background: rgba(105, 67, 111, 0.09);
+}
+
+.classes-table a {
+    color: var(--purple, #69436f);
+    font-weight: 900;
+    text-decoration: none;
+}
+
+.classes-table a:hover {
+    text-decoration: underline;
+}
+
+.level-table {
+    min-width: 520px;
+}
+
+.level-table th,
+.level-table td {
+    text-align: center;
+}
+
+.level-table th:first-child,
+.level-table td:first-child {
+    text-align: left;
+}
+
+/* =====================================================
+   PATAMARES DE JOGO
+===================================================== */
+
+.patamar-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    margin: 18px 0 4px;
+}
+
+.patamar-card {
+    padding: 18px;
+    border: 2px solid rgba(105, 67, 111, 0.25);
+    border-radius: 18px;
+    background: rgba(105, 67, 111, 0.065);
+}
+
+.patamar-card h3 {
+    margin-bottom: 8px;
+    color: var(--purple, #69436f);
+    font-size: 1.25rem;
+}
+
+.patamar-card p {
+    margin: 0;
+    font-size: 0.96rem;
+    line-height: 1.55;
+}
+
+/* =====================================================
+   LISTA DE REGRAS
+===================================================== */
+
+.rule-list {
+    display: grid;
+    gap: 14px;
+    margin-top: 16px;
+}
+
+.rule-item {
+    padding: 18px 20px;
+    border: 2px solid rgba(105, 67, 111, 0.2);
+    border-left: 6px solid var(--purple, #69436f);
+    border-radius: 0 16px 16px 0;
+    background: rgba(255, 255, 255, 0.72);
+}
+
+.rule-item h3 {
+    color: var(--purple, #69436f);
+}
+
+.rule-item p {
+    margin-bottom: 0;
+}
+
+/* =====================================================
+   CONSULTA DE PÁGINAS
+===================================================== */
+
+.reference-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 18px;
+}
+
+.reference-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 18px;
+    border: 2px solid rgba(105, 67, 111, 0.2);
+    border-radius: 18px;
+    background: rgba(105, 67, 111, 0.055);
+}
+
+.reference-card strong {
+    color: var(--purple, #69436f);
+    font-size: 1.12rem;
+}
+
+.reference-card span {
+    color: var(--purple-dark, #3b1d43);
+    line-height: 1.5;
+}
+
+.reference-card.future-link {
+    border-style: dashed;
+}
+
+/* =====================================================
+   LINKS RELACIONADOS
+===================================================== */
+
+.related-links-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.related-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 14px;
+    border: 2px solid rgba(105, 67, 111, 0.28);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--purple, #69436f);
+    text-decoration: none;
+    font-weight: 900;
+    text-align: center;
+    transition: 0.18s ease;
+}
+
+.related-link:hover {
+    background: var(--purple, #69436f);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+/* =====================================================
+   BUSCA
+===================================================== */
+
+mark.search-hit {
+    padding: 0 3px;
+    border-radius: 4px;
+    background: #f8d8ff;
+    color: var(--purple-dark, #3b1d43);
+}
+
+/* =====================================================
+   BOTÃO VOLTAR AO TOPO, CASO EXISTA
+===================================================== */
+
+.back-to-top {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 30;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    background: var(--purple, #69436f);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 900;
+    box-shadow: 0 10px 24px rgba(79, 49, 86, 0.24);
+}
+
+.back-to-top.visible {
+    display: flex;
+}
+
+/* =====================================================
+   RESPONSIVIDADE - TELAS MÉDIAS
+===================================================== */
+
+@media (max-width: 1180px) {
+    .classes-page {
+        width: min(100%, 94vw);
+    }
+
+    .classes-layout {
+        grid-template-columns: 250px minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    .classes-content {
+        padding: 30px 28px;
+    }
+
+    .patamar-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .reference-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .related-links-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+/* =====================================================
+   TABLET VERTICAL E CELULAR
+   Menu lateral vira painel flutuante
+===================================================== */
+
+@media (max-width: 980px) {
+    .classes-layout {
+        display: block;
+    }
+
+    .classes-page {
+        width: min(100%, 94vw);
+    }
+
+    .classes-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        width: min(86vw, 360px);
+        height: 100vh;
+        max-height: 100vh;
+        margin: 0;
+        padding: 20px;
+        overflow-y: auto;
+        border-radius: 0 22px 22px 0;
+        border-width: 0 4px 0 0;
+        background: rgba(255, 250, 255, 0.98);
+        box-shadow: 18px 0 40px rgba(40, 20, 50, 0.25);
+        transform: translateX(-105%);
+        transition: transform 0.28s ease;
+    }
+
+    .classes-sidebar.is-open {
+        transform: translateX(0);
+    }
+
+    .sidebar-mobile-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+
+    .classes-sidebar .panel-title {
+        margin: 0;
+        padding: 0;
+        border-radius: 0;
+        background: transparent;
+        color: var(--purple-dark, #3b1d43);
+        box-shadow: none;
+        font-size: 1.1rem;
+        font-weight: 900;
+    }
+
+    .mobile-menu-toggle {
+        position: fixed;
+        right: 18px;
+        bottom: 18px;
+        z-index: 1001;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+        width: 56px;
+        height: 56px;
+        padding: 0;
+        border: 3px solid var(--purple, #69436f);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.96);
+        cursor: pointer;
+        box-shadow: 0 12px 30px rgba(50, 20, 60, 0.25);
+        transition: 0.2s ease;
+    }
+
+    .mobile-menu-toggle:hover {
+        transform: translateY(-2px);
+        background: var(--purple, #69436f);
+    }
+
+    .mobile-menu-toggle span {
+        display: block;
+        width: 23px;
+        height: 3px;
+        border-radius: 999px;
+        background: var(--purple, #69436f);
+        transition: 0.2s ease;
+    }
+
+    .mobile-menu-toggle:hover span {
+        background: #ffffff;
+    }
+
+    .mobile-menu-toggle.is-open {
+        background: var(--purple, #69436f);
+    }
+
+    .mobile-menu-toggle.is-open span {
+        background: #ffffff;
+    }
+
+    .mobile-menu-toggle.is-open span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .mobile-menu-toggle.is-open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-menu-toggle.is-open span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .sidebar-content {
+        display: block;
+        padding-top: 4px;
+    }
+
+    .classes-search {
+        width: 100%;
+        min-height: 46px;
+        margin-bottom: 14px;
+        padding: 11px 12px;
+        font-size: 1rem;
+    }
+
+    .classes-toc {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        overflow: visible;
+        padding-bottom: 80px;
+    }
+
+    .toc-link {
+        display: flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 10px 14px;
+        border: 2px solid rgba(105, 67, 111, 0.16);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.78);
+        white-space: normal;
+    }
+
+    .toc-link:hover,
+    .toc-link.active {
+        background: var(--purple, #69436f);
+        color: #ffffff;
+    }
+
+    /* Backdrop antigo (body::before) substituído por .mobile-menu-backdrop-real
+       gerenciado pelo JS — esse é mais confiável para clicks no mobile. */
+
+    .classes-content {
+        padding: 28px 24px;
+        border-width: 3px;
+    }
+
+    .classes-topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 18px;
+    }
+
+    .classes-topbar .actions {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .system-link-btn {
+        width: 100%;
+        min-height: 46px;
+    }
+}
+
+/* =====================================================
+   CELULARES
+===================================================== */
+
+@media (max-width: 720px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .classes-page {
+        width: min(100%, 94vw);
+    }
+
+    .classes-topbar {
+        margin-bottom: 14px;
+        border-radius: 16px;
+    }
+
+    .classes-topbar h1 {
+        font-size: 2rem;
+    }
+
+    .classes-topbar p {
+        font-size: 0.94rem;
+        line-height: 1.45;
+    }
+
+    .classes-sidebar {
+        width: min(88vw, 340px);
+        padding: 18px;
+        border-radius: 0 20px 20px 0;
+    }
+
+    .mobile-menu-toggle {
+        right: 16px;
+        bottom: 16px;
+        width: 54px;
+        height: 54px;
+    }
+
+    .toc-link {
+        min-height: 42px;
+        font-size: 0.95rem;
+        padding: 10px 12px;
+    }
+
+    .classes-content {
+        padding: 22px 18px;
+        border-radius: 16px;
+    }
+
+    .classes-content h2 {
+        margin-bottom: 14px;
+        padding-bottom: 8px;
+        font-size: 1.65rem;
+        line-height: 1.12;
+        border-bottom-width: 3px;
+    }
+
+    .classes-content h3 {
+        font-size: 1.08rem;
+    }
+
+    .classes-content p {
+        font-size: 0.98rem;
+        line-height: 1.65;
+    }
+
+    .content-section {
+        margin-bottom: 32px;
+    }
+
+    .patamar-grid,
+    .reference-grid,
+    .related-links-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .patamar-card,
+    .reference-card,
+    .rule-item,
+    .info-card,
+    .example-box {
+        padding: 15px 16px;
+        border-radius: 14px;
+    }
+
+    .related-link {
+        min-height: 48px;
+        justify-content: flex-start;
+        padding: 12px 16px;
+        font-size: 0.98rem;
+    }
+
+    .related-link::after {
+        content: "→";
+        margin-left: auto;
+        font-weight: 900;
+    }
+
+    .classes-table-wrap {
+        margin: 16px 0 22px;
+        border-width: 2px;
+        border-radius: 14px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .classes-table {
+        min-width: 720px;
+        font-size: 0.92rem;
+    }
+
+    .classes-table th,
+    .classes-table td {
+        padding: 10px 11px;
+    }
+
+    .level-table {
+        min-width: 460px;
+    }
+
+    .classes-table-wrap::after {
+        content: "Arraste para ver a tabela completa →";
+        display: block;
+        padding: 8px 12px;
+        background: rgba(105, 67, 111, 0.08);
+        color: var(--purple, #69436f);
+        font-size: 0.82rem;
+        font-weight: 900;
+        text-align: right;
+    }
+}
+
+/* =====================================================
+   CELULARES PEQUENOS
+===================================================== */
+
+@media (max-width: 480px) {
+    .classes-page {
+        width: min(100%, 92vw);
+    }
+
+    .classes-topbar {
+        padding: 15px;
+    }
+
+    .classes-topbar h1 {
+        font-size: 1.75rem;
+    }
+
+    .classes-topbar p {
+        font-size: 0.9rem;
+    }
+
+    .classes-topbar .actions {
+        grid-template-columns: 1fr;
+    }
+
+    .classes-sidebar {
+        width: min(90vw, 320px);
+        padding: 16px;
+    }
+
+    .mobile-menu-toggle {
+        right: 14px;
+        bottom: 14px;
+        width: 52px;
+        height: 52px;
+    }
+
+    .classes-content {
+        padding: 20px 15px;
+    }
+
+    .classes-content h2 {
+        font-size: 1.45rem;
+    }
+
+    .classes-content p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .classes-table {
+        min-width: 680px;
+        font-size: 0.88rem;
+    }
+
+    .level-table {
+        min-width: 420px;
+    }
+}
+
+/* =====================================================
+   CELULARES MUITO ESTREITOS
+===================================================== */
+
+@media (max-width: 360px) {
+    .classes-content {
+        padding: 18px 13px;
+    }
+
+    .classes-content h2 {
+        font-size: 1.34rem;
+    }
+
+    .classes-content p {
+        font-size: 0.92rem;
+    }
+
+    .system-link-btn {
+        font-size: 0.9rem;
+    }
+}
+
+/* =====================================================
+   IMPRESSÃO
+===================================================== */
+
+@media print {
+    .classes-sidebar,
+    .top-actions,
+    .back-to-top,
+    .mobile-menu-toggle {
+        display: none !important;
+    }
+
+    .classes-page {
+        width: 100%;
+    }
+
+    .classes-layout {
+        display: block;
+    }
+
+    .classes-content {
+        padding: 0;
+        border: none;
+        box-shadow: none;
+        background: #ffffff;
+    }
+
+    .content-section {
+        break-inside: avoid;
+    }
+
+    .classes-table-wrap {
+        overflow: visible;
+    }
+}
+/* =====================================================
+   AJUSTE FINAL MOBILE - BOTÃO FLUTUANTE REAL
+===================================================== */
+
+/* dá respiro no topo da página */
+.classes-page {
+    padding-top: 24px;
+    padding-bottom: 32px;
+}
+
+/* no desktop o botão hambúrguer não aparece */
+.mobile-menu-toggle {
+    display: none;
+}
+
+/* tablet e celular */
+@media (max-width: 980px) {
+    .classes-page {
+        padding-top: 22px;
+        padding-bottom: 90px;
+    }
+
+    /*
+       O menu lateral vira painel oculto à esquerda.
+       O botão NÃO fica mais dentro dele.
+    */
+    .classes-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        width: min(86vw, 360px);
+        height: 100vh;
+        max-height: 100vh;
+        margin: 0;
+        padding: 20px;
+        overflow-y: auto;
+        border-radius: 0 22px 22px 0;
+        border-width: 0 4px 0 0;
+        background: rgba(255, 250, 255, 0.98);
+        box-shadow: 18px 0 40px rgba(40, 20, 50, 0.25);
+        transform: translateX(-105%);
+        transition: transform 0.28s ease;
+    }
+
+    .classes-sidebar.is-open {
+        transform: translateX(0);
+    }
+
+    .sidebar-mobile-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+
+    .classes-sidebar .panel-title {
+        margin: 0;
+        padding: 0;
+        border-radius: 0;
+        background: transparent;
+        color: var(--purple-dark, #3b1d43);
+        box-shadow: none;
+        font-size: 1.1rem;
+        font-weight: 900;
+    }
+
+    /*
+       Botão hambúrguer fixo de verdade.
+       Fica sempre no canto direito da tela durante a rolagem.
+    */
+    .mobile-menu-toggle {
+        position: fixed;
+        right: 18px;
+        bottom: 18px;
+        z-index: 1001;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+        width: 58px;
+        height: 58px;
+        padding: 0;
+        border: 3px solid var(--purple, #69436f);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.98);
+        cursor: pointer;
+        box-shadow: 0 12px 30px rgba(50, 20, 60, 0.28);
+        transition: 0.2s ease;
+    }
+
+    .mobile-menu-toggle span {
+        display: block;
+        width: 24px;
+        height: 3px;
+        border-radius: 999px;
+        background: var(--purple, #69436f);
+        transition: 0.2s ease;
+    }
+
+    .mobile-menu-toggle.is-open {
+        background: var(--purple, #69436f);
+    }
+
+    .mobile-menu-toggle.is-open span {
+        background: #ffffff;
+    }
+
+    .mobile-menu-toggle.is-open span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .mobile-menu-toggle.is-open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-menu-toggle.is-open span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .sidebar-content {
+        display: block;
+    }
+
+    /* Backdrop antigo (body::before) substituído por .mobile-menu-backdrop-real
+       gerenciado pelo JS — esse é mais confiável para clicks no mobile. */
+}
+
+/* celulares */
+@media (max-width: 720px) {
+    .classes-page {
+        padding-top: 20px;
+        padding-bottom: 92px;
+    }
+
+    .classes-sidebar {
+        width: min(88vw, 340px);
+        padding: 18px;
+    }
+
+    .mobile-menu-toggle {
+        right: 16px;
+        bottom: 16px;
+        width: 56px;
+        height: 56px;
+    }
+}
+
+/* celulares pequenos */
+@media (max-width: 480px) {
+    .classes-page {
+        padding-top: 18px;
+        width: min(100%, 92vw);
+    }
+
+    .classes-sidebar {
+        width: min(90vw, 320px);
+        padding: 16px;
+    }
+
+    .mobile-menu-toggle {
+        right: 14px;
+        bottom: 14px;
+        width: 54px;
+        height: 54px;
+    }
+}
+/* =====================================================
+   AJUSTE FINAL - MOBILE/TABLET
+   Botão hambúrguer fixo no topo direito
+   Espaçamento superior da página
+===================================================== */
+
+/* Respiro geral da página */
+body {
+    padding-top: 18px;
+}
+
+.classes-page {
+    padding-top: 18px;
+    padding-bottom: 40px;
+}
+
+/* No desktop o botão não aparece */
+.mobile-menu-toggle {
+    display: none;
+}
+
+/* Tablet e celular */
+@media (max-width: 980px) {
+    body {
+        padding-top: 22px;
+        padding-bottom: 40px;
+    }
+
+    .classes-page {
+        width: min(100%, 94vw);
+        padding-top: 0;
+        padding-bottom: 90px;
+        margin: 0 auto;
+    }
+
+    /*
+       O menu lateral fica escondido à esquerda
+       e abre como painel flutuante.
+    */
+    .classes-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        width: min(86vw, 360px);
+        height: 100vh;
+        max-height: 100vh;
+        margin: 0;
+        padding: 22px 20px;
+        overflow-y: auto;
+        border-radius: 0 22px 22px 0;
+        border-width: 0 4px 0 0;
+        background: rgba(255, 250, 255, 0.98);
+        box-shadow: 18px 0 40px rgba(40, 20, 50, 0.25);
+        transform: translateX(-105%);
+        transition: transform 0.28s ease;
+    }
+
+    .classes-sidebar.is-open {
+        transform: translateX(0);
+    }
+
+    .classes-sidebar .panel-title {
+        margin: 0 0 16px;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+        color: var(--purple-dark, #3b1d43);
+        font-size: 1.15rem;
+        font-weight: 900;
+    }
+
+    .sidebar-mobile-head {
+        display: block;
+        margin-bottom: 12px;
+    }
+
+    .sidebar-content {
+        display: block;
+    }
+
+    /*
+       Botão hambúrguer fixo no topo direito.
+       Ele acompanha a rolagem da tela.
+    */
+    .mobile-menu-toggle {
+        position: fixed;
+        top: 22px;
+        right: 18px;
+        z-index: 1001;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+        width: 54px;
+        height: 54px;
+        padding: 0;
+        border: 3px solid var(--purple, #69436f);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.98);
+        cursor: pointer;
+        box-shadow: 0 10px 28px rgba(50, 20, 60, 0.25);
+        transition: 0.2s ease;
+    }
+
+    .mobile-menu-toggle span {
+        display: block;
+        width: 23px;
+        height: 3px;
+        border-radius: 999px;
+        background: var(--purple, #69436f);
+        transition: 0.2s ease;
+    }
+
+    .mobile-menu-toggle.is-open {
+        background: var(--purple, #69436f);
+    }
+
+    .mobile-menu-toggle.is-open span {
+        background: #ffffff;
+    }
+
+    .mobile-menu-toggle.is-open span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .mobile-menu-toggle.is-open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-menu-toggle.is-open span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Backdrop antigo (body::before) substituído por .mobile-menu-backdrop-real
+       gerenciado pelo JS — esse é mais confiável para clicks no mobile. */
+
+    .classes-topbar {
+        margin-top: 0;
+    }
+}
+
+/* Celular */
+@media (max-width: 720px) {
+    body {
+        padding-top: 20px;
+    }
+
+    .classes-page {
+        width: min(100%, 94vw);
+    }
+
+    .mobile-menu-toggle {
+        top: 20px;
+        right: 14px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .mobile-menu-toggle span {
+        width: 21px;
+    }
+
+    .classes-sidebar {
+        width: min(88vw, 340px);
+        padding: 20px 18px;
+    }
+}
+
+/* Celular pequeno */
+@media (max-width: 480px) {
+    body {
+        padding-top: 18px;
+    }
+
+    .classes-page {
+        width: min(100%, 92vw);
+    }
+
+    .mobile-menu-toggle {
+        top: 18px;
+        right: 12px;
+        width: 48px;
+        height: 48px;
+    }
+
+    .classes-sidebar {
+        width: min(90vw, 320px);
+    }
+}
+.back-to-top-btn {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 999;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 999px;
+    background: var(--accent, #7c3aed);
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 800;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+}
+
+.back-to-top-btn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top-btn:hover {
+    filter: brightness(1.08);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .back-to-top-btn {
+        right: 18px;
+        bottom: 86px;
+        width: 44px;
+        height: 44px;
+        font-size: 1.4rem;
+    }
+}
+
+/* =====================================================
+   MENU MOBILE UNIFICADO
+   Mantém o visual das páginas de referência e evita que o backdrop
+   fique por cima do painel quando transitions.css cria stacking context.
+===================================================== */
+
+.mobile-menu-backdrop-real {
+    background: rgba(24, 12, 30, 0.38);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+@media (max-width: 980px) {
+    body.mobile-menu-open {
+        overflow: hidden;
+    }
+
+    body.mobile-menu-open > main {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        animation: none !important;
+    }
+
+    body.mobile-menu-open .classes-sidebar {
+        z-index: 10010;
+        pointer-events: auto;
+        filter: none !important;
+        -webkit-filter: none !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    body.mobile-menu-open .mobile-menu-backdrop-real {
+        z-index: 10000;
+    }
+
+    .mobile-menu-toggle {
+        z-index: 10020;
+    }
+
+    .sidebar-mobile-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    .sidebar-close-btn {
+        display: inline-flex;
+    }
+}
+
+/* =====================================================
+   HERO DE ILUSTRAÇÃO DA CLASSE
+   Card visual no topo da página de cada classe.
+   Usa fundo lilás escuro radial para valorizar PNGs
+   transparentes em corpo inteiro.
+===================================================== */
+.class-hero {
+    margin: 6px 0 18px;
+    display: grid;
+    grid-template-columns: minmax(220px, 320px) 1fr;
+    align-items: center;
+    gap: 22px;
+}
+.class-hero-tagline {
+    margin: 0;
+    color: var(--purple-dark, #3b1d43);
+    font-size: 1rem;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+.class-illustration-card {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 2px solid rgba(105, 67, 111, 0.40);
+    background:
+        radial-gradient(circle at 50% 30%, rgba(245, 220, 180, 0.18) 0%, transparent 55%),
+        radial-gradient(circle at 50% 75%, rgba(43, 18, 50, 0.55) 0%, rgba(43, 18, 50, 0.92) 100%);
+    box-shadow:
+        0 12px 28px rgba(43, 18, 50, 0.30),
+        inset 0 0 0 1px rgba(216, 162, 58, 0.18);
+    aspect-ratio: 3 / 4;
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.class-illustration-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+    padding: 6px 6px 0;
+    /* PNG transparente: garante que sombra do card não afete o personagem. */
+    filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
+}
+
+.class-illustration-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: rgba(245, 220, 180, 0.65);
+    text-align: center;
+    padding: 20px;
+}
+.class-illustration-glyph {
+    font-size: 3.2rem;
+    line-height: 1;
+    color: rgba(216, 162, 58, 0.78);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+}
+.class-illustration-empty-text {
+    font-size: 0.9rem;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.class-illustration-caption {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 10px;
+    padding: 4px 14px;
+    border-radius: 999px;
+    background: rgba(43, 18, 50, 0.72);
+    color: #f4e8d6;
+    font-family: 'Cordelina', Georgia, "Times New Roman", serif;
+    font-size: 1.05rem;
+    letter-spacing: 0.6px;
+    border: 1px solid rgba(216, 162, 58, 0.45);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 720px) {
+    .class-hero {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+    .class-illustration-card {
+        max-width: 240px;
+        margin: 0 auto;
+    }
+    .class-hero-tagline {
+        text-align: center;
+    }
+}

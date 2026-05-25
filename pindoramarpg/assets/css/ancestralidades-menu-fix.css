@@ -1,0 +1,98 @@
+/* =========================================================
+   FIX CIRÚRGICO DO MENU LATERAL
+   Não altera fontes, títulos, textos, cards ou conteúdo.
+   Serve para Perícias, Ancestralidades, Divindades e páginas
+   que usam classes-sidebar/classes-layout.
+========================================================= */
+
+.classes-page .classes-layout {
+    position: relative;
+}
+
+/* Menu lateral no desktop */
+.classes-page .classes-sidebar {
+    overflow: hidden;
+}
+
+/* Corrige o título "Navegação" sem alterar tipografia global */
+.classes-page .classes-sidebar .sidebar-mobile-head {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    min-height: 42px;
+}
+
+.classes-page .classes-sidebar .sidebar-mobile-head .panel-title {
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+    display: inline-flex;
+    align-items: center;
+    width: auto;
+    max-width: 100%;
+    margin: 0;
+    z-index: 2;
+}
+
+/* Conteúdo interno do menu */
+.classes-page .classes-sidebar .sidebar-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Botão hamburguer */
+.mobile-menu-toggle {
+    z-index: 10020;
+}
+
+/* Mobile: menu lateral acima da página, sem blur travando clique */
+@media (max-width: 900px) {
+    .classes-page .classes-sidebar {
+        position: fixed;
+        top: 14px;
+        left: 14px;
+        bottom: 14px;
+        width: min(420px, calc(100vw - 28px));
+        max-height: none;
+        z-index: 10010;
+        transform: translateX(-120%);
+        transition: transform 0.22s ease;
+        overflow: hidden;
+    }
+
+    .classes-page .classes-sidebar.is-open,
+    .classes-page .classes-sidebar.open,
+    body.sidebar-open .classes-page .classes-sidebar {
+        transform: translateX(0);
+    }
+
+    .classes-page .classes-sidebar .sidebar-content {
+        height: calc(100% - 56px);
+        overflow-y: auto;
+        padding-right: 6px;
+    }
+
+    body.sidebar-open {
+        overflow: hidden;
+    }
+
+    /* Desativa camadas antigas que criavam o roxo desfocado por cima */
+    .sidebar-backdrop,
+    .classes-backdrop,
+    .mobile-sidebar-backdrop,
+    .page-backdrop {
+        display: none !important;
+        pointer-events: none !important;
+    }
+
+    body.sidebar-open .classes-content,
+    body.sidebar-open .classes-topbar,
+    body.sidebar-open .top-actions,
+    body.sidebar-open main,
+    body.sidebar-open .page-wrapper {
+        filter: none !important;
+    }
+}

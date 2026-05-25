@@ -1,0 +1,824 @@
+.bestiario-page {
+    width: min(1500px, 96vw);
+    margin: 0 auto;
+}
+
+.bestiario-layout {
+    display: grid;
+    grid-template-columns: 290px minmax(0, 1fr);
+    gap: 18px;
+    align-items: start;
+    margin-top: 18px;
+}
+
+.bestiario-filtros {
+    position: sticky;
+    top: 16px;
+    display: grid;
+    gap: 12px;
+    padding: 34px 18px 18px;
+}
+
+.bestiario-filtros .panel-title {
+    position: absolute;
+    top: -18px;
+    left: 22px;
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    width: auto;
+    margin: 0;
+    padding: 7px 22px;
+    border-radius: 0 0 14px 14px;
+    background: var(--purple, #69436f);
+    color: #ffffff;
+    box-shadow: 0 8px 18px rgba(79, 49, 86, 0.18);
+    z-index: 2;
+}
+
+.bestiario-filtros label,
+.bestiario-form label {
+    display: grid;
+    gap: 5px;
+    color: var(--purple-dark);
+    font-weight: 800;
+}
+
+.bestiario-filtros input,
+.bestiario-filtros select,
+.bestiario-form input,
+.bestiario-form select,
+.bestiario-form textarea {
+    width: 100%;
+    min-height: 38px;
+    border: 2px solid var(--line);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--purple-dark);
+    font: inherit;
+    padding: 7px 9px;
+}
+
+.bestiario-form textarea {
+    min-height: 110px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.bestiario-filtros button,
+.bestiario-card-actions button,
+.bestiario-form-actions button,
+.bestiario-modal-actions button {
+    min-height: 40px;
+    border: 2px solid var(--purple);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.88);
+    color: var(--purple);
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.bestiario-filtros button:hover,
+.bestiario-card-actions button:hover,
+.bestiario-form-actions button:hover,
+.bestiario-modal-actions button:hover {
+    background: var(--purple);
+    color: #ffffff;
+}
+
+.bestiario-content {
+    display: grid;
+    gap: 16px;
+}
+
+.bestiario-lista-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 14px;
+    padding: 8px 4px;
+}
+
+.bestiario-lista-header h2 {
+    margin: 0;
+    color: var(--purple-dark);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+}
+
+.bestiario-lista-header p {
+    margin: 2px 0 0;
+    color: var(--muted);
+}
+
+.bestiario-lista-header span {
+    color: var(--danger);
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.bestiario-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px;
+}
+
+.bestiario-card {
+    display: grid;
+    gap: 12px;
+    border: 2px solid var(--line);
+    border-radius: 10px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.76);
+}
+
+.bestiario-card-media {
+    display: grid;
+    place-items: center;
+    min-height: 150px;
+    border: 2px dashed rgba(105, 67, 111, 0.25);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.55);
+    color: var(--muted);
+    overflow: hidden;
+}
+
+.bestiario-card-media img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+}
+
+.bestiario-card h3 {
+    margin: 0;
+    color: var(--purple-dark);
+    font-size: 1.25rem;
+}
+
+.bestiario-card small {
+    color: var(--muted);
+    font-weight: 800;
+}
+
+.bestiario-impacto {
+    margin: 0;
+    color: var(--purple-dark);
+    font-style: italic;
+    line-height: 1.45;
+}
+
+.bestiario-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.bestiario-meta span {
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 3px 8px;
+    background: rgba(255, 255, 255, 0.68);
+    color: var(--purple-dark);
+    font-size: 0.85rem;
+    font-weight: 800;
+}
+
+.bestiario-combate {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.bestiario-combate span {
+    border-left: 3px solid var(--purple);
+    padding-left: 8px;
+    color: var(--purple-dark);
+    font-weight: 900;
+}
+
+.bestiario-card-actions {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.bestiario-card-token {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 4px 0 6px;
+}
+
+.bestiario-card-token span {
+    font-style: italic;
+    color: var(--muted);
+}
+
+.bestiario-ficha-token--mini {
+    width: 56px;
+    height: 56px;
+    border-width: 3px;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.bestiario-form-panel {
+    margin-top: 8px;
+}
+
+.bestiario-form-panel summary {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    cursor: pointer;
+    list-style: none;
+    color: var(--purple-dark);
+    font-weight: 900;
+}
+
+.bestiario-form-panel summary::-webkit-details-marker {
+    display: none;
+}
+
+.bestiario-form-panel summary em {
+    color: var(--muted);
+    font-style: normal;
+}
+
+.bestiario-form {
+    display: grid;
+    gap: 16px;
+    margin-top: 18px;
+}
+
+.bestiario-form fieldset {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin: 0;
+    padding: 16px;
+    border: 2px solid rgba(105, 67, 111, 0.22);
+    border-radius: 10px;
+}
+
+.bestiario-form legend {
+    padding: 0 8px;
+    color: var(--purple-dark);
+    font-weight: 900;
+}
+
+.criatura-secao {
+    margin: 0;
+    padding: 0;
+    border: 2px solid rgba(105, 67, 111, 0.22);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.55);
+    transition: background 120ms ease;
+}
+
+.criatura-secao[open] {
+    background: rgba(255, 255, 255, 0.85);
+}
+
+.criatura-secao > summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 14px 18px;
+    color: var(--purple-dark);
+    font-weight: 900;
+    font-size: 1rem;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.criatura-secao > summary::-webkit-details-marker {
+    display: none;
+}
+
+.criatura-secao > summary::after {
+    content: "▸";
+    font-size: 0.9rem;
+    color: var(--purple-dark);
+    transition: transform 160ms ease;
+    flex-shrink: 0;
+}
+
+.criatura-secao[open] > summary::after {
+    transform: rotate(90deg);
+}
+
+.criatura-secao > summary:hover {
+    background: rgba(105, 67, 111, 0.06);
+}
+
+.criatura-secao-conteudo {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding: 0 18px 18px;
+}
+
+.criatura-token-editor {
+    display: grid;
+    grid-template-columns: 160px minmax(0, 1fr);
+    gap: 16px;
+    align-items: start;
+    padding: 0 18px 18px;
+}
+
+.criatura-token-preview {
+    display: grid;
+    justify-items: center;
+    gap: 8px;
+    touch-action: none;
+    cursor: grab;
+}
+
+.criatura-token-preview.is-adjusting {
+    cursor: grabbing;
+}
+
+.criatura-token-frame {
+    display: grid;
+    place-items: center;
+    width: 140px;
+    aspect-ratio: 1;
+    border: 4px solid var(--purple-dark);
+    border-radius: 50%;
+    overflow: hidden;
+    background: #ffffff;
+    box-sizing: border-box;
+    color: var(--muted);
+    font-weight: 900;
+    text-align: center;
+    box-shadow: 0 10px 24px rgba(62, 32, 69, 0.18);
+}
+
+.criatura-token-frame img {
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    background: #ffffff;
+    transform: translate(var(--criatura-token-x, 0), var(--criatura-token-y, 0)) scale(var(--criatura-token-scale, 1));
+    transform-origin: center;
+}
+
+.criatura-token-preview.has-image img {
+    display: block;
+}
+
+.criatura-token-preview.has-image span {
+    display: none;
+}
+
+.criatura-token-fields {
+    display: grid;
+    gap: 12px;
+}
+
+.criatura-token-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 8px;
+}
+
+.criatura-token-actions button {
+    min-height: 40px;
+    border: 2px solid var(--purple);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.88);
+    color: var(--purple);
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.criatura-token-actions button:hover {
+    background: var(--purple);
+    color: #ffffff;
+}
+
+.criatura-token-sliders {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.criatura-token-sliders input[type="range"] {
+    padding: 0;
+    min-height: 28px;
+}
+
+@media (max-width: 700px) {
+    .criatura-secao-conteudo {
+        grid-template-columns: 1fr;
+    }
+
+    .criatura-token-editor,
+    .criatura-token-actions,
+    .criatura-token-sliders {
+        grid-template-columns: 1fr;
+    }
+}
+
+.bestiario-form label:has(textarea) {
+    grid-column: 1 / -1;
+}
+
+.criatura-ataques-fieldset {
+    grid-template-columns: 1fr;
+}
+
+.criatura-ataques-fieldset .criatura-secao-conteudo {
+    grid-template-columns: 1fr;
+}
+
+.criatura-ataques-lista {
+    display: grid;
+    gap: 12px;
+    grid-column: 1 / -1;
+}
+
+.criatura-ataque-row {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr)) auto;
+    gap: 10px;
+    align-items: end;
+    border: 2px solid rgba(105, 67, 111, 0.24);
+    border-radius: 8px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.criatura-ataque-desc {
+    grid-column: 1 / -2;
+}
+
+.criatura-ataque-desc textarea {
+    min-height: 70px;
+}
+
+.criatura-add-ataque,
+.criatura-remover-ataque {
+    min-height: 40px;
+    border: 2px solid var(--purple);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.88);
+    color: var(--purple);
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.criatura-ataque-alcance {
+    font-weight: 700;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 240, 250, 0.96)),
+        rgba(255, 255, 255, 0.92);
+    border: 2px solid rgba(105, 67, 111, 0.32);
+    border-radius: 10px;
+    padding: 9px 12px;
+    color: var(--purple-dark);
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='10' viewBox='0 0 14 10'><path d='M1 2 L7 8 L13 2' fill='none' stroke='%23694b7a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>"),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 240, 250, 0.96));
+    background-repeat: no-repeat, no-repeat;
+    background-position: right 12px center, 0 0;
+    background-size: 12px auto, auto;
+    padding-right: 36px;
+    transition: border-color 120ms ease, box-shadow 120ms ease;
+    cursor: pointer;
+}
+
+.criatura-ataque-alcance:focus {
+    outline: none;
+    border-color: var(--purple);
+    box-shadow: 0 0 0 3px rgba(105, 67, 111, 0.18);
+}
+
+.criatura-ataque-alcance optgroup {
+    font-weight: 900;
+    color: var(--purple-dark);
+    background: rgba(247, 240, 250, 0.95);
+    padding: 4px 0;
+    font-style: normal;
+}
+
+.criatura-ataque-alcance option {
+    font-weight: 600;
+    color: var(--purple-dark);
+    padding: 6px 10px;
+    background: white;
+}
+
+.criatura-add-ataque {
+    justify-self: start;
+}
+
+.criatura-remover-ataque {
+    align-self: stretch;
+    min-width: 96px;
+}
+
+.bestiario-form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.bestiario-form-actions .primary {
+    background: var(--purple);
+    color: #ffffff;
+}
+
+.bestiario-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 12000;
+    display: grid;
+    place-items: center;
+    padding: 18px;
+    background: rgba(24, 12, 30, 0.42);
+}
+
+.bestiario-modal[hidden] {
+    display: none;
+}
+
+.bestiario-modal-card {
+    position: relative;
+    width: min(980px, 100%);
+    max-height: min(88vh, 960px);
+    overflow-y: auto;
+    border: 4px solid var(--line);
+    border-radius: 18px;
+    padding: 24px;
+    background:
+        linear-gradient(rgba(255,255,255,0.94), rgba(255,255,255,0.97)),
+        radial-gradient(circle at top right, rgba(198, 146, 230, 0.22), transparent 34%);
+    box-shadow: 0 18px 45px rgba(24, 12, 30, 0.3);
+}
+
+.bestiario-modal-close {
+    position: sticky;
+    top: 0;
+    float: right;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--purple);
+    color: #ffffff;
+    font-size: 1.8rem;
+    line-height: 1;
+    z-index: 2;
+}
+
+.bestiario-ficha-header {
+    margin-bottom: 16px;
+}
+
+.bestiario-ficha-header--compacta {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 16px;
+    align-items: center;
+}
+
+.bestiario-ficha-token {
+    display: grid;
+    place-items: center;
+    width: 88px;
+    height: 88px;
+    border: 4px solid var(--purple-dark);
+    border-radius: 50%;
+    background: #ffffff;
+    box-sizing: border-box;
+    color: var(--purple-dark);
+    font-size: 2rem;
+    font-weight: 900;
+    overflow: hidden;
+    box-shadow: 0 10px 24px rgba(62, 32, 69, 0.18);
+}
+
+.bestiario-ficha-token img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    background: #ffffff;
+    transform: translate(var(--criatura-token-x, 0), var(--criatura-token-y, 0)) scale(var(--criatura-token-scale, 1));
+    transform-origin: center;
+}
+
+.bestiario-ficha-header h2 {
+    margin: 0;
+    color: var(--purple-dark);
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.bestiario-ficha-grid {
+    display: grid;
+    gap: 14px;
+}
+
+.bestiario-ficha-grid--compacta {
+    grid-template-columns: 1fr;
+}
+
+.bestiario-ficha-bloco {
+    border: 2px solid rgba(105, 67, 111, 0.18);
+    border-radius: 10px;
+    padding: 14px;
+    background: rgba(255, 255, 255, 0.64);
+}
+
+.bestiario-ficha-bloco h3 {
+    margin: 0 0 8px;
+    color: var(--purple-dark);
+}
+
+.bestiario-ficha-bloco p,
+.bestiario-ficha-bloco li,
+.bestiario-ficha-bloco pre {
+    color: var(--purple-dark);
+    line-height: 1.55;
+}
+
+.bestiario-ficha-bloco pre {
+    margin: 0;
+    white-space: pre-wrap;
+    font-family: inherit;
+}
+
+.bestiario-ameaca {
+    border-width: 4px;
+    border-color: var(--purple);
+    background:
+        linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.96)),
+        radial-gradient(circle at top right, rgba(105, 67, 111, 0.16), transparent 40%);
+}
+
+.bestiario-ameaca-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.bestiario-ameaca-grid span {
+    border-left: 3px solid var(--purple);
+    padding: 5px 8px;
+    background: rgba(255, 255, 255, 0.7);
+    color: var(--purple-dark);
+    font-weight: 900;
+}
+
+.bestiario-atributos {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.bestiario-atributo-card {
+    display: grid;
+    justify-items: center;
+    gap: 8px;
+    min-height: 82px;
+    border: 4px solid var(--purple);
+    border-radius: 8px;
+    padding: 8px;
+    color: var(--purple-dark);
+    background: rgba(255, 255, 255, 0.72);
+}
+
+.bestiario-atributo-card span {
+    min-width: 48px;
+    border-radius: 6px;
+    padding: 4px 8px;
+    background: var(--purple);
+    color: #ffffff;
+    text-align: center;
+    font-weight: 900;
+}
+
+.bestiario-atributo-card strong {
+    font-size: 1.55rem;
+}
+
+.bestiario-recursos,
+.bestiario-defesas {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.bestiario-recurso-card,
+.bestiario-defesas span {
+    display: grid;
+    gap: 5px;
+    border: 2px solid var(--line);
+    border-radius: 8px;
+    padding: 9px;
+    background: rgba(255, 255, 255, 0.76);
+    color: var(--purple-dark);
+    font-weight: 900;
+}
+
+.bestiario-recurso-card input {
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid var(--line);
+    background: transparent;
+    color: var(--purple-dark);
+    text-align: center;
+    font: inherit;
+    font-weight: 900;
+}
+
+.bestiario-ameaca h4 {
+    margin: 14px 0 8px;
+    color: var(--purple-dark);
+    font-size: 1.25rem;
+}
+
+.bestiario-ataques-grid {
+    display: grid;
+    gap: 10px;
+}
+
+.bestiario-ataque-card {
+    display: grid;
+    gap: 6px;
+    border: 2px solid rgba(105, 67, 111, 0.28);
+    border-radius: 8px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.72);
+    color: var(--purple-dark);
+}
+
+.bestiario-ataque-card strong {
+    display: block;
+    font-size: 1.08rem;
+}
+
+.bestiario-ataque-card span {
+    color: var(--muted);
+    font-weight: 900;
+}
+
+.bestiario-ataque-card p {
+    margin: 0;
+}
+
+.bestiario-modal-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.bestiario-vazio {
+    grid-column: 1 / -1;
+    padding: 18px;
+    border: 2px dashed rgba(105, 67, 111, 0.28);
+    border-radius: 10px;
+    color: var(--muted);
+    text-align: center;
+    font-weight: 900;
+}
+
+@media (max-width: 900px) {
+    .bestiario-layout {
+        grid-template-columns: 1fr;
+        margin-top: 20px;
+    }
+
+    .bestiario-filtros {
+        position: static;
+    }
+
+    .bestiario-card-actions,
+    .bestiario-form fieldset,
+    .criatura-ataque-row,
+    .bestiario-atributos,
+    .bestiario-recursos,
+    .bestiario-defesas {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 520px) {
+    .bestiario-lista-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .bestiario-modal-card {
+        padding: 18px;
+    }
+}

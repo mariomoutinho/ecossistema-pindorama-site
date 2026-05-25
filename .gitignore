@@ -34,3 +34,18 @@ Thumbs.db
 # --- PHP / dependências ---
 vendor/
 composer.lock
+
+# --- Pindorama RPG (espelho do repo pindoramarpg em pindoramarpg/) ---
+# Credenciais e estado runtime do RPG nunca vão para o repositório.
+pindoramarpg/config.php
+pindoramarpg/config.local.php
+pindoramarpg/.env
+pindoramarpg/.env.*
+pindoramarpg/secrets.*
+pindoramarpg/uploads/
+pindoramarpg/data/campo-batalha-state*.json
+pindoramarpg/data/aventuras/*/cenas.json
+pindoramarpg/*.sql
+pindoramarpg/*.sql.bak
+pindoramarpg/vendor/
+pindoramarpg/node_modules/

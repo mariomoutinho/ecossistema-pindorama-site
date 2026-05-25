@@ -1,0 +1,618 @@
+/* === Campo PP ao lado de Nível === */
+.pp-field {
+    display: block;
+}
+.pp-field input {
+    width: 100%;
+    text-align: center;
+}
+
+/* === Painel de Poderes de Classe === */
+.poderes-panel .panel-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.poderes-ver-todos-btn {
+    background: var(--purple-light);
+    color: var(--purple-dark);
+    border: 1px solid var(--line);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+}
+.poderes-ver-todos-btn:hover {
+    background: var(--purple);
+    color: #fff;
+}
+.poderes-empty {
+    padding: 12px;
+    color: var(--muted);
+    font-style: italic;
+    text-align: center;
+}
+.poderes-grupos {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.poderes-gerais-grupos {
+    gap: 10px;
+}
+.poderes-gerais-panel.poderes-panel-recolhido .poderes-empty,
+.poderes-gerais-panel.poderes-panel-recolhido .poderes-grupos {
+    display: none !important;
+}
+#poderesPanel.poderes-panel-recolhido .poderes-empty,
+#poderesPanel.poderes-panel-recolhido .poderes-grupos {
+    display: none !important;
+}
+.divindade-panel.divindade-panel-recolhido .divindade-empty,
+.divindade-panel.divindade-panel-recolhido .divindade-conteudo {
+    display: none !important;
+}
+.skills-panel.skills-panel-recolhido .skills-scroll,
+.skills-panel.skills-panel-recolhido .skills-header,
+.skills-panel.skills-panel-recolhido #periciasContainer {
+    display: none !important;
+}
+.skills-panel.skills-panel-recolhido {
+    min-height: 0 !important;
+    padding: 18px 18px 8px !important;
+}
+.magias-ficha-panel.magias-panel-recolhido .magias-selecionadas,
+.magias-ficha-panel.magias-panel-recolhido .magias-resumo,
+.magias-ficha-panel.magias-panel-recolhido .magias-filtros-ficha,
+.magias-ficha-panel.magias-panel-recolhido .magias-disponiveis-details {
+    display: none !important;
+}
+.magias-ficha-panel.magias-panel-recolhido {
+    padding: 18px 18px 8px !important;
+}
+.attributes-panel.attributes-panel-recolhido .attributes-section {
+    display: none !important;
+}
+.attributes-panel.attributes-panel-recolhido {
+    padding: 18px 18px 8px !important;
+}
+.attributes-panel .panel-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.magias-panel-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.skills-panel .panel-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* Botão de perícia desabilitado (somente treinadas, quando não treinado) */
+.skill-roll-button.skill-roll-disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: auto;
+}
+.skill-roll-button.skill-roll-disabled:hover {
+    background: transparent !important;
+    color: inherit !important;
+    transform: none !important;
+}
+.divindade-panel .panel-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* Botão-seta para recolher/expandir painéis (origem, poderes gerais, etc.) */
+.painel-toggle-seta {
+    padding: 2px 8px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+}
+.painel-toggle-seta-icone {
+    display: inline-block;
+    transition: transform 0.2s ease;
+    font-size: 14px;
+}
+.painel-toggle-seta[aria-expanded="false"] .painel-toggle-seta-icone {
+    transform: rotate(-90deg);
+}
+.poderes-grupo {
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.poderes-grupo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--purple-light);
+}
+.poderes-grupo-header h4 {
+    margin: 0;
+    color: var(--purple-dark);
+    text-transform: capitalize;
+}
+.poderes-gerais-grupo {
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 8px 12px;
+}
+.poderes-gerais-grupo > summary {
+    cursor: pointer;
+    list-style: none;
+}
+.poderes-gerais-grupo > summary::-webkit-details-marker {
+    display: none;
+}
+.poderes-gerais-grupo > summary::before {
+    content: "+";
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background: var(--purple-light);
+    color: var(--purple-dark);
+    font-weight: 700;
+}
+.poderes-gerais-grupo[open] > summary::before {
+    content: "-";
+}
+.poderes-gerais-grupo[open] > summary {
+    border-bottom: 1px solid var(--purple-light);
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
+.poderes-gerais-grupo .poderes-grupo-header {
+    align-items: center;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+.poderes-gerais-grupo .poderes-grupo-header span {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.poderes-gerais-grupo .poderes-grupo-header strong {
+    color: var(--purple-dark);
+}
+.poderes-gerais-grupo .poderes-grupo-header small {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.25;
+}
+.poderes-gerais-grupo .poderes-grupo-header em {
+    color: var(--danger);
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+}
+.poderes-bloqueados-details {
+    margin-top: 10px;
+}
+.poderes-bloqueados-details summary {
+    color: var(--danger);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+}
+.poderes-opcoes-details {
+    margin-top: 10px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 8px 10px;
+    background: rgba(255, 255, 255, 0.45);
+}
+.poderes-opcoes-details summary {
+    color: var(--purple-dark);
+    cursor: pointer;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+.poderes-opcoes-details .poderes-cards {
+    margin-top: 8px;
+}
+.poderes-cards-bloqueados {
+    margin-top: 8px;
+}
+.poderes-slots-info {
+    font-size: 13px;
+    color: var(--purple-dark);
+}
+.poderes-slots-info strong {
+    color: var(--danger);
+    font-size: 16px;
+}
+.poderes-slots-detalhe {
+    margin-left: 8px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* Adquiridos */
+.poderes-adquiridos-bloco {
+    margin-bottom: 8px;
+    font-size: 12px;
+}
+.poderes-adquiridos-topo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: -4px 0 10px;
+    min-height: 26px;
+}
+.poderes-bloco-label {
+    color: var(--muted);
+    margin-right: 6px;
+}
+.poderes-adquiridos-lista {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+.poderes-tag-adquirido {
+    background: var(--purple);
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.poderes-tag-adquirido:hover {
+    background: var(--purple-dark);
+}
+.poderes-adquiridos-vazio {
+    color: var(--muted);
+    font-size: 12px;
+    font-style: italic;
+}
+
+/* Cards */
+.poderes-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 8px;
+}
+.poderes-vazio {
+    grid-column: 1 / -1;
+    padding: 12px;
+    color: var(--muted);
+    font-style: italic;
+    text-align: center;
+}
+.poder-card {
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 8px 10px;
+    cursor: pointer;
+    background: #fff;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+.poder-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(59, 29, 67, 0.2);
+}
+.poder-card-disponivel {
+    border-color: var(--purple);
+    background: linear-gradient(180deg, #fff 70%, var(--purple-light));
+}
+.poder-card-bloqueado {
+    border-color: var(--danger);
+    background: #fff5f5;
+    opacity: 0.85;
+}
+.poder-card-nome {
+    font-weight: 600;
+    color: var(--purple-dark);
+    font-size: 14px;
+}
+.poder-card-bloqueio {
+    margin-top: 4px;
+    font-size: 11px;
+    color: var(--danger);
+}
+
+/* === Modal === */
+.poder-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(43, 18, 50, 0.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+}
+.poder-modal-backdrop[hidden] {
+    display: none;
+}
+.poder-modal {
+    background: var(--paper);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 480px;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+.poder-modal-grande {
+    max-width: 720px;
+}
+.poder-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--purple-light);
+}
+.poder-modal-header h3 {
+    margin: 0;
+    color: var(--purple-dark);
+}
+.poder-modal-fechar {
+    background: none;
+    border: none;
+    font-size: 22px;
+    color: var(--muted);
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+.poder-modal-fechar:hover {
+    color: var(--purple-dark);
+}
+.poder-modal-body {
+    padding: 14px 16px;
+    overflow-y: auto;
+}
+.poder-modal-descricao {
+    margin: 0 0 12px;
+    color: var(--purple-dark);
+    line-height: 1.5;
+}
+.poder-modal-prereqs {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--purple-light);
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+}
+.poder-modal-prereqs ul {
+    margin: 6px 0 0;
+    padding: 0;
+    list-style: none;
+}
+.poder-modal-prereqs li {
+    padding: 2px 0;
+    font-size: 13px;
+    border-radius: 4px;
+    margin-top: 2px;
+    padding-left: 4px;
+}
+.prereq-marcador {
+    display: inline-block;
+    width: 16px;
+    font-weight: 700;
+}
+.prereq-ok       { color: #1f7a3a; background: rgba(31, 122, 58, 0.08); }
+.prereq-ok       .prereq-marcador { color: #1f7a3a; }
+.prereq-faltando { color: var(--danger); font-weight: 600; background: rgba(155, 37, 77, 0.08); }
+.prereq-faltando .prereq-marcador { color: var(--danger); }
+.prereq-manual   { color: #b07b00; background: rgba(176, 123, 0, 0.08); }
+.prereq-manual   .prereq-marcador { color: #b07b00; }
+.poder-modal-bloqueio {
+    margin-top: 8px;
+    padding: 8px;
+    background: #fff5f5;
+    border-left: 3px solid var(--danger);
+    color: var(--danger);
+    font-size: 13px;
+}
+.poder-modal-footer {
+    padding: 10px 16px;
+    border-top: 1px solid var(--purple-light);
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+.poder-modal-footer button {
+    background: var(--purple);
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+.poder-modal-footer button:hover { background: var(--purple-dark); }
+.poder-modal-footer button:disabled {
+    background: var(--muted);
+    cursor: not-allowed;
+}
+.poder-modal-remover {
+    background: var(--danger) !important;
+}
+.poder-modal-remover:hover {
+    background: #6f1a39 !important;
+}
+
+/* Modal "Ver Todos" */
+.poder-todos-grupo {
+    margin-bottom: 18px;
+}
+.poder-todos-grupo h4 {
+    margin: 0 0 8px;
+    color: var(--purple-dark);
+    text-transform: capitalize;
+    border-bottom: 1px solid var(--purple-light);
+    padding-bottom: 4px;
+}
+.poder-todos-secao h5 {
+    margin: 8px 0 4px;
+    color: var(--muted);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.poder-todos-secao ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+.poder-todos-item {
+    padding: 4px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    border: 1px solid transparent;
+}
+.poder-todos-disp {
+    background: #f1ffe7;
+    color: #1f7a3a;
+    border-color: #1f7a3a;
+}
+.poder-todos-blq {
+    background: #fff5f5;
+    color: var(--danger);
+    border-color: var(--danger);
+}
+.poder-todos-adq {
+    background: var(--purple);
+    color: #fff;
+    border-color: var(--purple-dark);
+}
+.poder-todos-item:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* === Pagina de Poderes === */
+.poderes-page {
+    gap: 16px;
+}
+.poderes-page-regras {
+    position: relative;
+    margin-top: 18px;
+    padding-top: 48px;
+}
+.poderes-page-regras .panel-title {
+    position: absolute;
+    top: -18px;
+    left: 28px;
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    width: auto;
+    margin: 0;
+    padding: 7px 22px;
+    border-radius: 0 0 14px 14px;
+    background: var(--purple, #69436f);
+    color: #ffffff;
+    box-shadow: 0 8px 18px rgba(79, 49, 86, 0.18);
+    z-index: 2;
+}
+.poderes-page-intro {
+    display: grid;
+    gap: 8px;
+    color: var(--purple-dark);
+    line-height: 1.5;
+}
+.poderes-page-intro p {
+    margin: 0;
+}
+.poderes-page-categoria details {
+    display: block;
+}
+.poderes-page-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    list-style: none;
+}
+.poderes-page-summary::-webkit-details-marker {
+    display: none;
+}
+.poderes-page-summary span {
+    display: grid;
+    gap: 4px;
+}
+.poderes-page-summary strong {
+    color: var(--purple-dark);
+    font-size: 20px;
+}
+.poderes-page-summary small {
+    color: var(--muted);
+    font-size: 13px;
+}
+.poderes-page-summary em {
+    color: var(--danger);
+    font-style: normal;
+    font-weight: 700;
+    white-space: nowrap;
+}
+.poderes-page-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 12px;
+    margin-top: 14px;
+}
+.poderes-page-card {
+    background: rgba(255, 255, 255, 0.68);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 12px;
+}
+.poderes-page-card h3 {
+    margin: 0 0 8px;
+    color: var(--purple-dark);
+    font-size: 18px;
+}
+.poderes-page-card p {
+    margin: 0;
+    color: var(--purple-dark);
+    line-height: 1.45;
+}
+.poderes-page-prereq {
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid var(--purple-light);
+    color: var(--danger);
+    display: grid;
+    gap: 2px;
+    font-size: 13px;
+}
