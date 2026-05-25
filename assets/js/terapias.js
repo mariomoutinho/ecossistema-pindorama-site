@@ -29,99 +29,152 @@ const whatsappNumber = '5581995216450';
 
 const therapyDetails = {
   'Massagem Ayurvédica': {
+    category: 'Terapias Integrativas',
     what: 'Massagem corporal de origem indiana, feita com movimentos ritmados, óleo vegetal e abordagem integral do corpo.',
     purpose: 'Ajuda a relaxar profundamente, aliviar tensões, favorecer vitalidade e apoiar equilíbrio físico e emocional.',
     indications: ['Estresse e cansaço', 'Tensões musculares', 'Busca por relaxamento profundo', 'Rotina de autocuidado'],
+    benefits: ['Relaxamento profundo', 'Sensação de vitalidade', 'Melhora da percepção corporal', 'Pausa restauradora para a rotina'],
     duration: '80 min',
-    single: 'R$ 200,00',
-    pack4: { perSession: 'R$ 180,00 por sessão', total: 'Total R$ 720,00' },
-    pack10: { perSession: 'R$ 160,00 por sessão', total: 'Total R$ 1.600,00' },
+    single: 200,
+    pack4: 720,
+    pack10: 1600,
+  },
+  'Massoterapia (diversas técnicas)': {
+    category: 'Terapias Integrativas',
+    what: 'Atendimento corporal que combina diferentes técnicas manuais conforme a necessidade de cada pessoa.',
+    purpose: 'Ajuda a aliviar tensões, soltar a musculatura e oferecer um cuidado direcionado para corpo e rotina.',
+    indications: ['Tensão muscular', 'Dores nas costas e ombros', 'Cansaço físico', 'Necessidade de relaxamento'],
+    benefits: ['Alívio de tensões', 'Mais mobilidade', 'Relaxamento muscular', 'Cuidado personalizado'],
+    duration: '60 min',
+    single: 150,
+    pack4: 540,
+    pack10: 1200,
   },
   'Acupuntura': {
+    category: 'Terapias Integrativas',
     what: 'Técnica da Medicina Tradicional Chinesa que estimula pontos específicos do corpo com agulhas finas e seguras.',
     purpose: 'Ajuda a regular o organismo, aliviar dores, reduzir estresse e apoiar equilíbrio físico e emocional.',
     indications: ['Dores musculares e articulares', 'Ansiedade e estresse', 'Sono irregular', 'Cefaleias e enxaquecas'],
+    benefits: ['Regulação do organismo', 'Apoio ao alívio de dores', 'Redução de tensão', 'Mais equilíbrio corporal'],
     duration: '60 min',
-    single: 'R$ 150',
-    pack4: 'R$ 540',
-    pack10: 'R$ 1.200',
+    single: 150,
+    pack4: 540,
+    pack10: 1200,
   },
-  'Ventosaterapia': {
-    what: 'Uso terapêutico de ventosas para mobilizar tecidos, estimular circulação local e soltar tensões.',
-    purpose: 'Favorece relaxamento muscular, sensação de leveza corporal e recuperação após sobrecarga física.',
-    indications: ['Tensão nas costas e ombros', 'Dores musculares', 'Rigidez corporal', 'Cansaço físico'],
-    duration: '45 min',
-    single: 'R$ 80',
-    pack4: 'R$ 280',
-    pack10: 'R$ 640',
+  'Quick Massage': {
+    category: 'Terapias Integrativas',
+    what: 'Massagem rápida feita em cadeira própria, focada em regiões de maior tensão como costas, ombros, pescoço e braços.',
+    purpose: 'Oferece alívio imediato para tensões do dia a dia em uma sessão objetiva e revigorante.',
+    indications: ['Rotina intensa', 'Tensão em ombros e pescoço', 'Pausas de autocuidado', 'Cansaço no trabalho'],
+    benefits: ['Alívio rápido', 'Mais disposição', 'Relaxamento localizado', 'Praticidade'],
+    duration: '20 min',
+    single: 50,
+    pack4: 200,
+    pack10: 400,
   },
-  'Moxabustão': {
-    what: 'Aplicação de calor terapêutico com moxa em pontos energéticos usados pela Medicina Tradicional Chinesa.',
-    purpose: 'Aquece, tonifica e ajuda a movimentar energia vital em quadros de frio, tensão e baixa vitalidade.',
-    indications: ['Sensação de frio no corpo', 'Cansaço e baixa energia', 'Tensões persistentes', 'Cólicas e desconfortos'],
-    duration: '40 min',
-    single: 'R$ 70',
-    pack4: 'R$ 250',
-    pack10: 'R$ 560',
+  'Massagem Relaxante com Pedras Quentes': {
+    category: 'Terapias Integrativas',
+    what: 'Massagem relaxante associada ao calor das pedras, que ajuda a aprofundar a soltura muscular e o descanso.',
+    purpose: 'Favorece relaxamento intenso, conforto corporal e redução de tensões acumuladas.',
+    indications: ['Tensão muscular', 'Estresse', 'Insônia por agitação', 'Necessidade de relaxamento profundo'],
+    benefits: ['Relaxamento profundo', 'Conforto térmico', 'Soltura muscular', 'Sensação de acolhimento'],
+    duration: '60 min',
+    single: 120,
+    pack4: 430,
+    pack10: 960,
   },
-  'Auriculoterapia': {
-    what: 'Estimulação de pontos reflexos na orelha com sementes, esferas ou outros recursos não invasivos.',
-    purpose: 'Apoia o equilíbrio do corpo e pode complementar cuidados para dores, ansiedade e hábitos de saúde.',
-    indications: ['Ansiedade e estresse', 'Dores e tensões', 'Compulsões e hábitos', 'Apoio ao sono'],
-    duration: '30 min',
-    single: 'R$ 70',
-    pack4: 'R$ 250',
-    pack10: 'R$ 560',
+  'Manipulação Vertebral': {
+    category: 'Terapias Integrativas',
+    what: 'Técnica manual focada em mobilidade da coluna e articulações, realizada com avaliação e cuidado individual.',
+    purpose: 'Ajuda a reduzir rigidez, melhorar mobilidade e aliviar desconfortos relacionados a tensão e postura.',
+    indications: ['Rigidez na coluna', 'Desconfortos posturais', 'Tensão cervical ou lombar', 'Mobilidade reduzida'],
+    benefits: ['Mais mobilidade', 'Alívio de rigidez', 'Melhor consciência postural', 'Sensação de leveza'],
+    duration: '60 min',
+    single: 120,
+    pack4: 430,
+    pack10: 960,
+  },
+  'Liberação Miofascial': {
+    category: 'Terapias Integrativas',
+    what: 'Técnica manual que trabalha fáscias e pontos de tensão para liberar restrições nos tecidos corporais.',
+    purpose: 'Ajuda a soltar tensões profundas, melhorar mobilidade e apoiar recuperação corporal.',
+    indications: ['Tensões persistentes', 'Dor muscular', 'Sobrecarga física', 'Restrição de movimento'],
+    benefits: ['Soltura de fáscias', 'Melhora da mobilidade', 'Redução de desconfortos', 'Recuperação corporal'],
+    duration: '60 min',
+    single: 120,
+    pack4: 430,
+    pack10: 960,
   },
   'Reflexologia Podal': {
+    category: 'Terapias Integrativas',
     what: 'Massagem terapêutica nos pés que trabalha pontos reflexos relacionados a diferentes regiões do corpo.',
     purpose: 'Promove relaxamento profundo, circulação, aterramento e sensação geral de bem-estar.',
     indications: ['Cansaço nas pernas e pés', 'Estresse', 'Tensão corporal', 'Busca por relaxamento'],
+    benefits: ['Relaxamento profundo', 'Sensação de aterramento', 'Alívio para pés cansados', 'Bem-estar geral'],
     duration: '45 min',
-    single: 'R$ 80',
-    pack4: 'R$ 280',
-    pack10: 'R$ 640',
+    single: 80,
+    pack4: 280,
+    pack10: 640,
+  },
+  'Ventosaterapia': {
+    category: 'Terapias Integrativas',
+    what: 'Uso terapêutico de ventosas para mobilizar tecidos, estimular circulação local e soltar tensões.',
+    purpose: 'Favorece relaxamento muscular, sensação de leveza corporal e recuperação após sobrecarga física.',
+    indications: ['Tensão nas costas e ombros', 'Dores musculares', 'Rigidez corporal', 'Cansaço físico'],
+    benefits: ['Soltura muscular', 'Estímulo circulatório local', 'Sensação de leveza', 'Apoio à recuperação'],
+    duration: '45 min',
+    single: 80,
+    pack4: 280,
+    pack10: 640,
+  },
+  'Moxabustão': {
+    category: 'Terapias Integrativas',
+    what: 'Aplicação de calor terapêutico com moxa em pontos energéticos usados pela Medicina Tradicional Chinesa.',
+    purpose: 'Aquece, tonifica e ajuda a movimentar energia vital em quadros de frio, tensão e baixa vitalidade.',
+    indications: ['Sensação de frio no corpo', 'Cansaço e baixa energia', 'Tensões persistentes', 'Cólicas e desconfortos'],
+    benefits: ['Aquecimento terapêutico', 'Mais vitalidade', 'Relaxamento corporal', 'Sensação de conforto'],
+    duration: '40 min',
+    single: 70,
+    pack4: 250,
+    pack10: 560,
+  },
+  'Auriculoterapia': {
+    category: 'Terapias Integrativas',
+    what: 'Estimulação de pontos reflexos na orelha com sementes, esferas ou outros recursos não invasivos.',
+    purpose: 'Apoia o equilíbrio do corpo e pode complementar cuidados para dores, ansiedade e hábitos de saúde.',
+    indications: ['Ansiedade e estresse', 'Dores e tensões', 'Compulsões e hábitos', 'Apoio ao sono'],
+    benefits: ['Apoio à autorregulação', 'Cuidado complementar', 'Praticidade', 'Estímulo contínuo entre sessões'],
+    duration: '30 min',
+    single: 70,
+    pack4: 250,
+    pack10: 560,
   },
   'Reiki': {
+    category: 'Terapias Integrativas',
     what: 'Prática energética de toque suave ou aproximação das mãos para acolhimento, relaxamento e harmonização.',
     purpose: 'Cria um espaço de pausa e presença, apoiando regulação emocional e tranquilidade.',
     indications: ['Ansiedade e agitação', 'Cansaço emocional', 'Estresse', 'Necessidade de acolhimento'],
+    benefits: ['Relaxamento energético', 'Acolhimento emocional', 'Mais tranquilidade', 'Pausa restauradora'],
     duration: '40 min',
-    single: 'R$ 60',
-    pack4: 'R$ 220',
-    pack10: 'R$ 480',
+    single: 60,
+    pack4: 220,
+    pack10: 480,
   },
 };
 
 const services = [
-  // Massagens corporais
-  { cat: 'Massagens corporais', title: 'Massagem Ayurvédica',                duration: '80 min', priceFrom: 'R$ 160,00',     desc: 'Cuidado profundo para relaxamento, vitalidade e equilíbrio.',                              bg: './assets/img/massagem-ayurvedica-bg.png' },
-  { cat: 'Massagens corporais', title: 'Massoterapia (diversas técnicas)',   duration: '60 min', priceFrom: 'R$ 120,00',     desc: 'Atendimento adaptado às necessidades do corpo e do momento.',                              bg: './assets/img/massoterapia-bg.png' },
-  { cat: 'Massagens corporais', title: 'Quick Massage',                       duration: '20 min', priceFrom: 'R$ 40,00',      desc: 'Massagem rápida e revigorante, ideal para alívio imediato de tensões.',                     bg: './assets/img/terapias/quick-massage.png' },
-  { cat: 'Massagens corporais', title: 'Massagem com pedras quentes',         duration: '60 min', priceFrom: 'R$ 96,00',      desc: 'Calor terapêutico que dissolve tensões profundas e aprofunda o relaxamento.',                bg: './assets/img/terapias/pedras-quentes.png' },
-  { cat: 'Massagens corporais', title: 'Manipulação Vertebral',               duration: '50 min', priceFrom: 'R$ 96,00',      desc: 'Ajustes precisos para restabelecer mobilidade e aliviar tensões na coluna.',                 bg: './assets/img/terapias/manipulacao-vertebral.png' },
-  { cat: 'Massagens corporais', title: 'Liberação Miofascial',                duration: '60 min', priceFrom: 'R$ 96,00',      desc: 'Técnica para soltar tensões profundas das fáscias e restaurar o equilíbrio corporal.',       bg: './assets/img/terapias/massagem-relaxante.png' },
-  { cat: 'Massagens corporais', title: 'Shantala (massagem para bebês)',      duration: '40 min', priceFrom: 'Sob consulta',  desc: 'Tradição indiana de toque entre quem cuida e o bebê — vínculo, sono e bem-estar.',         bg: './assets/img/shantala-bg.png' },
-  { cat: 'Massagens corporais', title: 'Oficina de Automassagem',             duration: '60 min', priceFrom: 'Sob consulta',  desc: 'Aprenda gestos simples para cuidar de si no dia a dia.',                                   bg: './assets/img/automassagem-bg.png' },
-
-  // Terapias orientais
-  { cat: 'Terapias orientais',  title: 'Acupuntura',                         duration: '60 min', priceFrom: 'R$ 120,00',     desc: 'Prática integrativa para dores, estresse e regulação do organismo.',                       bg: './assets/img/acupuntura-bg.png', bgPos: '75% center', bgSize: '140% auto' },
-  { cat: 'Terapias orientais',  title: 'Ventosaterapia',                      duration: '45 min', priceFrom: 'R$ 64,00',      desc: 'Apoio para tensão muscular, circulação e bem-estar.',                                      bg: './assets/img/ventosaterapia-bg.png' },
-  { cat: 'Terapias orientais',  title: 'Moxabustão',                          duration: '40 min', priceFrom: 'R$ 56,00',      desc: 'Calor terapêutico aplicado em pontos energéticos para equilíbrio vital.',                    bg: './assets/img/terapias/moxabustao.png' },
-  { cat: 'Terapias orientais',  title: 'Auriculoterapia',                     duration: '30 min', priceFrom: 'R$ 56,00',      desc: 'Estímulos na orelha para apoiar equilíbrio e sintomas.',                                    bg: './assets/img/auriculoterapia-bg.png' },
-  { cat: 'Terapias orientais',  title: 'Consulta em MTC',                     duration: '60 min', priceFrom: 'Sob consulta',  desc: 'Diagnóstico energético e plano de cuidado pela ótica da Medicina Tradicional Chinesa.',    bg: './assets/img/mtc-bg.png' },
-
-  // Cuidado integrativo
-  { cat: 'Cuidado integrativo', title: 'Reflexologia Podal',                  duration: '45 min', priceFrom: 'R$ 64,00',      desc: 'Massagem nos pés que repercute bem-estar para todo o corpo.',                                bg: './assets/img/terapias/reflexologia-podal.png' },
-  { cat: 'Cuidado integrativo', title: 'Reiki',                                duration: '40 min', priceFrom: 'R$ 48,00',      desc: 'Cuidado energético para acolher emoções e relaxar.',                                       bg: './assets/img/reiki-bg.png' },
-  { cat: 'Cuidado integrativo', title: 'Meditação guiada',                     duration: '45 min', priceFrom: 'Sob consulta',  desc: 'Práticas para presença, foco e regulação emocional.',                                       bg: './assets/img/meditacao-bg.png' },
-  { cat: 'Cuidado integrativo', title: 'Consulta Terapêutica',                 duration: '60 min', priceFrom: 'Sob consulta',  desc: 'Escuta qualificada para mapear demandas e construir um caminho de cuidado.',                bg: './assets/img/consulta-terapeutica-bg.png' },
-
-  // Arte e movimento
-  { cat: 'Arte e movimento',    title: 'Arteterapia',                         duration: '60 min', priceFrom: 'Sob consulta',  desc: 'Processos criativos como caminho de expressão e elaboração.',                              bg: './assets/img/arteterapia-bg.png' },
-  { cat: 'Arte e movimento',    title: 'SoulCollage®',                        duration: '90 min', priceFrom: 'Sob consulta',  desc: 'Vivência expressiva com colagens e imagens internas.',                                      bg: './assets/img/soulcollage-bg.png' },
-  { cat: 'Arte e movimento',    title: 'Dança Circular',                      duration: '90 min', priceFrom: 'Sob consulta',  desc: 'Roda de danças tradicionais — corpo, presença e comunidade.',                              bg: './assets/img/danca-circular-bg.png' },
-  { cat: 'Arte e movimento',    title: 'Tai Chi',                             duration: '60 min', priceFrom: 'Sob consulta',  desc: 'Movimentos lentos para equilíbrio, energia e atenção plena.',                                bg: './assets/img/thai-chi-bg.png' },
+  { cat: 'Terapias Integrativas', title: 'Massagem Ayurvédica', duration: '80 min', priceFrom: 'R$ 160,00', desc: 'Cuidado profundo para relaxamento, vitalidade e equilíbrio.', bg: './assets/img/massagem-ayurvedica-bg.png' },
+  { cat: 'Terapias Integrativas', title: 'Massoterapia (diversas técnicas)', duration: '60 min', priceFrom: 'R$ 120,00', desc: 'Atendimento adaptado às necessidades do corpo e do momento.', bg: './assets/img/massoterapia-bg.png' },
+  { cat: 'Terapias Integrativas', title: 'Acupuntura', duration: '60 min', priceFrom: 'R$ 120,00', desc: 'Prática integrativa para dores, estresse e regulação do organismo.', bg: './assets/img/acupuntura-bg.png', bgPos: '75% center', bgSize: '140% auto' },
+  { cat: 'Terapias Integrativas', title: 'Quick Massage', duration: '20 min', priceFrom: 'R$ 40,00', desc: 'Massagem rápida e revigorante, ideal para alívio imediato de tensões.', bg: './assets/img/terapias/quick-massage.png' },
+  { cat: 'Terapias Integrativas', title: 'Massagem Relaxante com Pedras Quentes', duration: '60 min', priceFrom: 'R$ 96,00', desc: 'Calor terapêutico que dissolve tensões profundas e aprofunda o relaxamento.', bg: './assets/img/terapias/pedras-quentes.png' },
+  { cat: 'Terapias Integrativas', title: 'Manipulação Vertebral', duration: '60 min', priceFrom: 'R$ 96,00', desc: 'Ajustes precisos para restabelecer mobilidade e aliviar tensões na coluna.', bg: './assets/img/terapias/manipulacao-vertebral.png' },
+  { cat: 'Terapias Integrativas', title: 'Liberação Miofascial', duration: '60 min', priceFrom: 'R$ 96,00', desc: 'Técnica para soltar tensões profundas das fáscias e restaurar o equilíbrio corporal.', bg: './assets/img/terapias/massagem-relaxante.png' },
+  { cat: 'Terapias Integrativas', title: 'Reflexologia Podal', duration: '45 min', priceFrom: 'R$ 64,00', desc: 'Massagem nos pés que repercute bem-estar para todo o corpo.', bg: './assets/img/terapias/reflexologia-podal.png' },
+  { cat: 'Terapias Integrativas', title: 'Ventosaterapia', duration: '45 min', priceFrom: 'R$ 64,00', desc: 'Apoio para tensão muscular, circulação e bem-estar.', bg: './assets/img/ventosaterapia-bg.png' },
+  { cat: 'Terapias Integrativas', title: 'Moxabustão', duration: '40 min', priceFrom: 'R$ 56,00', desc: 'Calor terapêutico aplicado em pontos energéticos para equilíbrio vital.', bg: './assets/img/terapias/moxabustao.png' },
+  { cat: 'Terapias Integrativas', title: 'Auriculoterapia', duration: '30 min', priceFrom: 'R$ 56,00', desc: 'Estímulos na orelha para apoiar equilíbrio e sintomas.', bg: './assets/img/auriculoterapia-bg.png' },
+  { cat: 'Terapias Integrativas', title: 'Reiki', duration: '40 min', priceFrom: 'R$ 48,00', desc: 'Cuidado energético para acolher emoções e relaxar.', bg: './assets/img/reiki-bg.png' },
 ];
 
 const categories = ['Todos', ...Array.from(new Set(services.map(s => s.cat)))];
@@ -207,13 +260,15 @@ function renderServices(filter = 'Todos') {
 
 function getServiceDetail(service) {
   return therapyDetails[service.title] || {
+    category: service.cat,
     what: service.desc,
     purpose: 'A sessão é conduzida conforme sua necessidade do momento, com escuta e orientação da equipe do Espaço Pindorama.',
     indications: ['Relaxamento e bem-estar', 'Cuidado corporal', 'Escuta terapêutica', 'Construção de rotina de autocuidado'],
+    benefits: ['Mais presença no corpo', 'Relaxamento', 'Bem-estar', 'Autocuidado orientado'],
     duration: service.duration || 'Sob consulta',
-    single: service.priceFrom || 'Sob consulta',
-    pack4: 'Sob consulta',
-    pack10: 'Sob consulta',
+    single: null,
+    pack4: null,
+    pack10: null,
   };
 }
 
@@ -222,15 +277,51 @@ function getWhatsAppLink(serviceName) {
   return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
 }
 
-function renderPriceValue(value) {
-  if (value && typeof value === 'object') {
-    return `
-      <strong>${escapeHtml(value.perSession)}</strong>
-      <em>${escapeHtml(value.total)}</em>
-    `;
-  }
+function formatCurrency(value) {
+  if (typeof value !== 'number') return 'Sob consulta';
+  return value.toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+    minimumFractionDigits: 2,
+  });
+}
 
-  return `<strong>${escapeHtml(value)}</strong>`;
+function formatPerSession(total, sessions) {
+  if (typeof total !== 'number') return 'Sob consulta';
+  return `${formatCurrency(total / sessions).replace(',00', '')}/sessão`;
+}
+
+function getSavings(single, total, sessions) {
+  if (typeof single !== 'number' || typeof total !== 'number') return null;
+  return (single * sessions) - total;
+}
+
+function renderPackagePrice(label, total, sessions, single) {
+  const savings = getSavings(single, total, sessions);
+  const savingsHtml = savings > 0
+    ? `<em>Economia de ${escapeHtml(formatCurrency(savings))}</em>`
+    : `<em>Ideal para continuidade do cuidado</em>`;
+
+  return `
+    <div class="therapyModal__price therapyModal__price--package">
+      <span>${escapeHtml(label)}</span>
+      <strong>${escapeHtml(formatCurrency(total))}</strong>
+      <small>${escapeHtml(formatPerSession(total, sessions))}</small>
+      ${savingsHtml}
+    </div>
+  `;
+}
+
+function renderIconList(items) {
+  return items.map(item => `<li><span aria-hidden="true">+</span>${escapeHtml(item)}</li>`).join('');
+}
+
+function scrollToTherapies() {
+  const section = document.getElementById('catalogo') || gridEl;
+  closeServiceModal();
+  if (section && typeof section.scrollIntoView === 'function') {
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 }
 
 let modalEl = null;
@@ -253,7 +344,10 @@ function ensureServiceModal() {
         <p class="therapyModal__intro"></p>
         <div class="therapyModal__sections"></div>
         <div class="therapyModal__prices"></div>
-        <a class="btn primary therapyModal__cta" target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
+        <div class="therapyModal__actions">
+          <a class="btn primary therapyModal__cta" target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
+          <button class="btn ghost therapyModal__secondary" type="button">Conhecer outras terapias</button>
+        </div>
       </div>
     </section>
   `;
@@ -285,34 +379,50 @@ function openServiceModal(serviceIndex) {
   const sections = modal.querySelector('.therapyModal__sections');
   const prices = modal.querySelector('.therapyModal__prices');
   const cta = modal.querySelector('.therapyModal__cta');
+  const secondary = modal.querySelector('.therapyModal__secondary');
   const dialog = modal.querySelector('.therapyModal__dialog');
 
   hero.style.backgroundImage = service.bg ? `url('${escapeAttr(service.bg)}')` : '';
   hero.style.backgroundPosition = service.bgPos || 'center';
   hero.style.backgroundSize = service.bgSize || 'cover';
 
-  tag.textContent = service.cat;
+  tag.textContent = detail.category || service.cat;
   title.textContent = service.title;
   intro.textContent = detail.what;
   sections.innerHTML = `
     <div class="therapyModal__section">
-      <h4>Para que serve</h4>
+      <h4><span aria-hidden="true">i</span> Para que serve</h4>
       <p>${escapeHtml(detail.purpose)}</p>
     </div>
     <div class="therapyModal__section">
-      <h4>Indicações principais</h4>
+      <h4><span aria-hidden="true">+</span> Indicações principais</h4>
       <ul>
-        ${detail.indications.map(item => `<li>${escapeHtml(item)}</li>`).join('')}
+        ${renderIconList(detail.indications)}
+      </ul>
+    </div>
+    <div class="therapyModal__section therapyModal__section--wide">
+      <h4><span aria-hidden="true">*</span> Benefícios esperados</h4>
+      <ul>
+        ${renderIconList(detail.benefits)}
       </ul>
     </div>
   `;
   prices.innerHTML = `
-    <div class="therapyModal__price"><span>Duração</span>${renderPriceValue(detail.duration)}</div>
-    <div class="therapyModal__price"><span>Valor avulso</span>${renderPriceValue(detail.single)}</div>
-    <div class="therapyModal__price"><span>Pacote 4 sessões</span>${renderPriceValue(detail.pack4)}</div>
-    <div class="therapyModal__price"><span>Pacote 10 sessões</span>${renderPriceValue(detail.pack10)}</div>
+    <div class="therapyModal__price">
+      <span>Duração</span>
+      <strong>${escapeHtml(detail.duration)}</strong>
+      <small>sessão individual</small>
+    </div>
+    <div class="therapyModal__price">
+      <span>Sessão avulsa</span>
+      <strong>${escapeHtml(formatCurrency(detail.single))}</strong>
+      <small>pagamento por sessão</small>
+    </div>
+    ${renderPackagePrice('Pacote 4 sessões', detail.pack4, 4, detail.single)}
+    ${renderPackagePrice('Pacote 10 sessões', detail.pack10, 10, detail.single)}
   `;
   cta.href = getWhatsAppLink(service.title);
+  secondary.onclick = scrollToTherapies;
 
   lastFocusedEl = document.activeElement;
   modal.classList.add('open');

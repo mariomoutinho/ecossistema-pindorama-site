@@ -162,12 +162,13 @@
 }
 .serviceCard:hover,
 .serviceCard:focus-within{
-  transform: translateY(-4px);
-  border-color: rgba(244,231,211,.22);
+  transform: translateY(-6px);
+  border-color: rgba(244,231,211,.34);
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.06),
-    0 22px 50px rgba(0,0,0,.45),
-    0 0 0 1px rgba(102,180,143,.14);
+    inset 0 1px 0 rgba(255,255,255,.08),
+    0 26px 58px rgba(0,0,0,.48),
+    0 0 32px rgba(102,180,143,.18),
+    0 0 0 1px rgba(244,231,211,.12);
 }
 .serviceCard:focus-visible{ outline: none; }
 
@@ -195,6 +196,13 @@
     rgba(8,18,14,.55) 45%,
     rgba(5,13,10,.93) 100%
   );
+  transition: background .35s ease;
+}
+.serviceCard:hover .serviceCard__overlay,
+.serviceCard:focus-within .serviceCard__overlay{
+  background:
+    radial-gradient(80% 60% at 50% 12%, rgba(244,231,211,.16), transparent 62%),
+    linear-gradient(180deg, rgba(8,18,14,.08) 0%, rgba(8,18,14,.45) 42%, rgba(5,13,10,.90) 100%);
 }
 
 /* placeholder elegante para cards sem imagem */
@@ -345,6 +353,9 @@ body.modalOpen{ overflow: hidden; }
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
+.therapyModal.open .therapyModal__backdrop{
+  animation: modalFade .22s ease both;
+}
 .therapyModal__dialog{
   position: relative;
   z-index: 1;
@@ -362,6 +373,9 @@ body.modalOpen{ overflow: hidden; }
     inset 0 1px 0 rgba(255,255,255,.06),
     0 26px 80px rgba(0,0,0,.58);
   outline: none;
+}
+.therapyModal.open .therapyModal__dialog{
+  animation: modalLift .28s cubic-bezier(.2,.7,.2,1) both;
 }
 .therapyModal__close{
   position: absolute;
@@ -440,12 +454,28 @@ body.modalOpen{ overflow: hidden; }
   background: rgba(234,243,239,.055);
   border: 1px solid rgba(234,243,239,.10);
 }
+.therapyModal__section--wide{
+  grid-column: 1 / -1;
+}
 .therapyModal__section h4{
+  display: flex;
+  align-items: center;
+  gap: 7px;
   margin: 0 0 8px;
   color: var(--sand);
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: .8px;
+}
+.therapyModal__section h4 span{
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: rgba(102,180,143,.18);
+  color: rgba(244,231,211,.92);
+  font-size: 11px;
 }
 .therapyModal__section p,
 .therapyModal__section ul{
@@ -455,7 +485,18 @@ body.modalOpen{ overflow: hidden; }
   line-height: 1.55;
 }
 .therapyModal__section ul{
-  padding-left: 18px;
+  padding-left: 0;
+  list-style: none;
+}
+.therapyModal__section li{
+  display: flex;
+  gap: 7px;
+  align-items: flex-start;
+}
+.therapyModal__section li span{
+  color: var(--sand);
+  font-weight: 700;
+  line-height: 1.45;
 }
 .therapyModal__section li + li{ margin-top: 4px; }
 .therapyModal__prices{
@@ -468,6 +509,12 @@ body.modalOpen{ overflow: hidden; }
   border-radius: 15px;
   background: linear-gradient(135deg, rgba(244,231,211,.16), rgba(244,231,211,.06));
   border: 1px solid rgba(244,231,211,.22);
+}
+.therapyModal__price--package{
+  background:
+    radial-gradient(80% 90% at 100% 0%, rgba(102,180,143,.22), transparent 60%),
+    linear-gradient(135deg, rgba(244,231,211,.19), rgba(244,231,211,.07));
+  border-color: rgba(102,180,143,.30);
 }
 .therapyModal__price span{
   display: block;
@@ -483,17 +530,47 @@ body.modalOpen{ overflow: hidden; }
   font-size: 18px;
   line-height: 1.1;
 }
+.therapyModal__price small{
+  display: block;
+  margin-top: 6px;
+  color: rgba(234,243,239,.82);
+  font-size: 12.5px;
+  line-height: 1.25;
+}
 .therapyModal__price em{
   display: block;
   margin-top: 6px;
-  color: rgba(234,243,239,.72);
+  color: rgba(102,180,143,.98);
   font-size: 13px;
   font-style: normal;
+  font-weight: 700;
   line-height: 1.25;
 }
-.therapyModal__cta{
-  justify-self: start;
+.therapyModal__actions{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
   margin-top: 2px;
+}
+.therapyModal__cta,
+.therapyModal__secondary{
+  justify-self: start;
+}
+
+@keyframes modalFade{
+  from{ opacity: 0; }
+  to{ opacity: 1; }
+}
+@keyframes modalLift{
+  from{
+    opacity: 0;
+    transform: translateY(16px) scale(.98);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .contactGrid{
@@ -564,7 +641,12 @@ textarea{ min-height: 120px; resize: vertical; }
   .therapyModal__prices{
     grid-template-columns: 1fr;
   }
-  .therapyModal__cta{
+  .therapyModal__actions{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .therapyModal__cta,
+  .therapyModal__secondary{
     justify-self: stretch;
     text-align: center;
   }
