@@ -132,6 +132,11 @@ const categories = ['Todos', ...Array.from(new Set(services.map(s => s.cat)))];
 
 const filtersEl = document.getElementById('serviceFilters');
 const gridEl = document.getElementById('servicesGrid');
+const carouselEl = document.getElementById('therapyCarousel');
+const whatsappNumber = '5581995216450';
+
+let currentSlide = 0;
+let carouselTimer = null;
 
 function renderFilters(active = 'Todos') {
   if (!filtersEl) return;
@@ -198,6 +203,94 @@ function renderServices(filter = 'Todos') {
   }).join('');
 }
 
+function renderCarousel() {
+  if (!carouselEl || !services.length) return;
+
+  carouselEl.innerHTML = `
+    <div class="therapyCarousel__viewport"></div>
+    <button class="therapyCarousel__arrow therapyCarousel__arrow--prev" type="button" aria-label="Serviço anterior">&lsaquo;</button>
+    <button class="therapyCarousel__arrow therapyCarousel__arrow--next" type="button" aria-label="Próximo serviço">&rsaquo;</button>
+    <div class="therapyCarousel__dots" aria-label="Selecionar terapia em destaque"></div>
+  `;
+
+  carouselEl.querySelector('.therapyCarousel__arrow--prev').addEventListener('click', () => {
+    goToSlide(currentSlide - 1, true);
+  });
+
+  carouselEl.querySelector('.therapyCarousel__arrow--next').addEventListener('click', () => {
+    goToSlide(currentSlide + 1, true);
+  });
+
+  carouselEl.addEventListener('mouseenter', stopCarousel);
+  carouselEl.addEventListener('mouseleave', startCarousel);
+  carouselEl.addEventListener('focusin', stopCarousel);
+  carouselEl.addEventListener('focusout', startCarousel);
+
+  goToSlide(0);
+  startCarousel();
+}
+
+function goToSlide(index, userAction = false) {
+  if (!carouselEl || !services.length) return;
+
+  currentSlide = (index + services.length) % services.length;
+  const service = services[currentSlide];
+  const viewport = carouselEl.querySelector('.therapyCarousel__viewport');
+  const dots = carouselEl.querySelector('.therapyCarousel__dots');
+  const bgPos = service.bgPos || 'center';
+  const bgSize = service.bgSize || 'cover';
+
+  viewport.innerHTML = `
+    <article class="therapyCarousel__slide" aria-live="polite">
+      <div class="therapyCarousel__image" style="background-image: url('${escapeAttr(service.bg)}'); background-position: ${escapeAttr(bgPos)}; background-size: ${escapeAttr(bgSize)};" aria-hidden="true"></div>
+      <div class="therapyCarousel__shade" aria-hidden="true"></div>
+      <div class="therapyCarousel__content">
+        <span class="therapyCarousel__tag">${escapeHtml(service.cat)}</span>
+        <h3>${escapeHtml(service.title)}</h3>
+        <p>${escapeHtml(service.desc)}</p>
+        <div class="therapyCarousel__meta" aria-label="Resumo do serviço">
+          <span><b>Duração</b>${escapeHtml(service.duration)}</span>
+          <span><b>A partir de</b>${escapeHtml(service.priceFrom)}</span>
+        </div>
+        <div class="therapyCarousel__actions">
+          <a class="btn primary therapyCarousel__details" href="terapias.php">Ver terapias</a>
+          <a class="btn therapyCarousel__whats" href="${escapeAttr(getWhatsAppLink(service.title))}" target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
+        </div>
+      </div>
+    </article>
+  `;
+
+  dots.innerHTML = services.map((item, itemIndex) => `
+    <button class="therapyCarousel__dot${itemIndex === currentSlide ? ' active' : ''}" type="button" aria-label="Mostrar ${escapeAttr(item.title)}" aria-current="${itemIndex === currentSlide ? 'true' : 'false'}" data-slide-index="${itemIndex}"></button>
+  `).join('');
+
+  dots.querySelectorAll('.therapyCarousel__dot').forEach(dot => {
+    dot.addEventListener('click', () => {
+      goToSlide(Number(dot.dataset.slideIndex), true);
+    });
+  });
+
+  if (userAction) startCarousel();
+}
+
+function startCarousel() {
+  stopCarousel();
+  carouselTimer = window.setInterval(() => {
+    goToSlide(currentSlide + 1);
+  }, 5000);
+}
+
+function stopCarousel() {
+  if (!carouselTimer) return;
+  window.clearInterval(carouselTimer);
+  carouselTimer = null;
+}
+
+function getWhatsAppLink(serviceName) {
+  const text = `Olá, vim pelo site do Coletivo Pindorama e gostaria de agendar uma sessão de ${serviceName}.`;
+  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+}
+
 function escapeHtml(str){
   return String(str).replace(/[&<>"']/g, (m) => ({
     '&':'&amp;',
@@ -209,8 +302,9 @@ function escapeHtml(str){
 }
 
 function escapeAttr(str){
-  return String(str).replace(/'/g, "\\'");
+  return String(str).replace(/'/g, "\\'").replace(/"/g, '&quot;');
 }
 
 renderFilters('Todos');
+renderCarousel();
 renderServices('Todos');

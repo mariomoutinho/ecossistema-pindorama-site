@@ -207,6 +207,8 @@ require __DIR__ . '/partials/header.php';
         <div class="tools" id="serviceFilters" aria-label="Filtros de serviços"></div>
       </div>
 
+      <div class="therapyCarousel" id="therapyCarousel" aria-label="Terapias em destaque"></div>
+
       <div class="servicesWrap">
         <div class="servicesGrid" id="servicesGrid"></div>
         <p class="note">

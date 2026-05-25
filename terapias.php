@@ -47,16 +47,7 @@ require __DIR__ . '/partials/header.php';
     <div class="container">
       <div class="sectionHead">
         <div>
-          <h2>Serviços em destaque</h2>
-          <p>Conheça algumas terapias do Espaço Pindorama em uma vitrine viva, com detalhes e agendamento rápido.</p>
-        </div>
-      </div>
-
-      <div class="therapyCarousel" id="therapyCarousel" aria-label="Serviços em destaque"></div>
-
-      <div class="sectionHead sectionHead--catalog">
-        <div>
-          <h2>Catálogo completo</h2>
+          <h2>Terapias e práticas</h2>
           <p>Use os filtros para explorar por categoria. Todos os atendimentos são agendados pelo WhatsApp.</p>
         </div>
         <div class="tools" id="serviceFilters" aria-label="Filtros de terapias"></div>
