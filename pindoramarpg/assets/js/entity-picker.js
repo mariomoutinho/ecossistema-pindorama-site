@@ -436,7 +436,13 @@
         btn.addEventListener('focus',      () => previewItem(state, item));
         btn.addEventListener('click',      () => {
             previewItem(state, item);
-            state.confirmBtn.focus();
+            // Um clique já marca visualmente como "selecionado" (mesmo
+            // estilo do pós-confirm), evitando a falsa impressão de que
+            // é preciso clicar duas vezes. O commit real (dispatch
+            // change no <select>) continua acontecendo só no Confirmar.
+            state.listEl.querySelectorAll('.anc-picker-option').forEach(b => {
+                b.classList.toggle('is-selected', b === btn);
+            });
         });
         btn.addEventListener('dblclick',   () => {
             previewItem(state, item);
@@ -627,6 +633,11 @@
 
         state.backdrop.classList.add('is-open');
         state.triggerBtn.setAttribute('aria-expanded', 'true');
+
+        // Reseta a rolagem do painel para o topo a cada abertura, garantindo
+        // que cabeçalho e primeiras opções fiquem visíveis no início.
+        const panelEl = state.backdrop.querySelector('.anc-picker-panel');
+        if (panelEl) panelEl.scrollTop = 0;
 
         bloquearScrollBody();
 
