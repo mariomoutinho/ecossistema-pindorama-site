@@ -483,6 +483,14 @@ body.modalOpen{ overflow: hidden; }
   font-size: 18px;
   line-height: 1.1;
 }
+.therapyModal__price em{
+  display: block;
+  margin-top: 6px;
+  color: rgba(234,243,239,.72);
+  font-size: 13px;
+  font-style: normal;
+  line-height: 1.25;
+}
 .therapyModal__cta{
   justify-self: start;
   margin-top: 2px;

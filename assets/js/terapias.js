@@ -28,6 +28,15 @@ if (btnMenu && drawer) {
 const whatsappNumber = '5581995216450';
 
 const therapyDetails = {
+  'Massagem Ayurvédica': {
+    what: 'Massagem corporal de origem indiana, feita com movimentos ritmados, óleo vegetal e abordagem integral do corpo.',
+    purpose: 'Ajuda a relaxar profundamente, aliviar tensões, favorecer vitalidade e apoiar equilíbrio físico e emocional.',
+    indications: ['Estresse e cansaço', 'Tensões musculares', 'Busca por relaxamento profundo', 'Rotina de autocuidado'],
+    duration: '80 min',
+    single: 'R$ 200,00',
+    pack4: { perSession: 'R$ 180,00 por sessão', total: 'Total R$ 720,00' },
+    pack10: { perSession: 'R$ 160,00 por sessão', total: 'Total R$ 1.600,00' },
+  },
   'Acupuntura': {
     what: 'Técnica da Medicina Tradicional Chinesa que estimula pontos específicos do corpo com agulhas finas e seguras.',
     purpose: 'Ajuda a regular o organismo, aliviar dores, reduzir estresse e apoiar equilíbrio físico e emocional.',
@@ -213,6 +222,17 @@ function getWhatsAppLink(serviceName) {
   return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
 }
 
+function renderPriceValue(value) {
+  if (value && typeof value === 'object') {
+    return `
+      <strong>${escapeHtml(value.perSession)}</strong>
+      <em>${escapeHtml(value.total)}</em>
+    `;
+  }
+
+  return `<strong>${escapeHtml(value)}</strong>`;
+}
+
 let modalEl = null;
 let lastFocusedEl = null;
 
@@ -287,10 +307,10 @@ function openServiceModal(serviceIndex) {
     </div>
   `;
   prices.innerHTML = `
-    <div class="therapyModal__price"><span>Duração</span><strong>${escapeHtml(detail.duration)}</strong></div>
-    <div class="therapyModal__price"><span>Valor avulso</span><strong>${escapeHtml(detail.single)}</strong></div>
-    <div class="therapyModal__price"><span>Pacote 4 sessões</span><strong>${escapeHtml(detail.pack4)}</strong></div>
-    <div class="therapyModal__price"><span>Pacote 10 sessões</span><strong>${escapeHtml(detail.pack10)}</strong></div>
+    <div class="therapyModal__price"><span>Duração</span>${renderPriceValue(detail.duration)}</div>
+    <div class="therapyModal__price"><span>Valor avulso</span>${renderPriceValue(detail.single)}</div>
+    <div class="therapyModal__price"><span>Pacote 4 sessões</span>${renderPriceValue(detail.pack4)}</div>
+    <div class="therapyModal__price"><span>Pacote 10 sessões</span>${renderPriceValue(detail.pack10)}</div>
   `;
   cta.href = getWhatsAppLink(service.title);
 
