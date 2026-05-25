@@ -25,6 +25,65 @@ if (btnMenu && drawer) {
 }
 
 // ---- Catálogo completo ----
+const whatsappNumber = '5581995216450';
+
+const therapyDetails = {
+  'Acupuntura': {
+    what: 'Técnica da Medicina Tradicional Chinesa que estimula pontos específicos do corpo com agulhas finas e seguras.',
+    purpose: 'Ajuda a regular o organismo, aliviar dores, reduzir estresse e apoiar equilíbrio físico e emocional.',
+    indications: ['Dores musculares e articulares', 'Ansiedade e estresse', 'Sono irregular', 'Cefaleias e enxaquecas'],
+    duration: '60 min',
+    single: 'R$ 150',
+    pack4: 'R$ 540',
+    pack10: 'R$ 1.200',
+  },
+  'Ventosaterapia': {
+    what: 'Uso terapêutico de ventosas para mobilizar tecidos, estimular circulação local e soltar tensões.',
+    purpose: 'Favorece relaxamento muscular, sensação de leveza corporal e recuperação após sobrecarga física.',
+    indications: ['Tensão nas costas e ombros', 'Dores musculares', 'Rigidez corporal', 'Cansaço físico'],
+    duration: '45 min',
+    single: 'R$ 80',
+    pack4: 'R$ 280',
+    pack10: 'R$ 640',
+  },
+  'Moxabustão': {
+    what: 'Aplicação de calor terapêutico com moxa em pontos energéticos usados pela Medicina Tradicional Chinesa.',
+    purpose: 'Aquece, tonifica e ajuda a movimentar energia vital em quadros de frio, tensão e baixa vitalidade.',
+    indications: ['Sensação de frio no corpo', 'Cansaço e baixa energia', 'Tensões persistentes', 'Cólicas e desconfortos'],
+    duration: '40 min',
+    single: 'R$ 70',
+    pack4: 'R$ 250',
+    pack10: 'R$ 560',
+  },
+  'Auriculoterapia': {
+    what: 'Estimulação de pontos reflexos na orelha com sementes, esferas ou outros recursos não invasivos.',
+    purpose: 'Apoia o equilíbrio do corpo e pode complementar cuidados para dores, ansiedade e hábitos de saúde.',
+    indications: ['Ansiedade e estresse', 'Dores e tensões', 'Compulsões e hábitos', 'Apoio ao sono'],
+    duration: '30 min',
+    single: 'R$ 70',
+    pack4: 'R$ 250',
+    pack10: 'R$ 560',
+  },
+  'Reflexologia Podal': {
+    what: 'Massagem terapêutica nos pés que trabalha pontos reflexos relacionados a diferentes regiões do corpo.',
+    purpose: 'Promove relaxamento profundo, circulação, aterramento e sensação geral de bem-estar.',
+    indications: ['Cansaço nas pernas e pés', 'Estresse', 'Tensão corporal', 'Busca por relaxamento'],
+    duration: '45 min',
+    single: 'R$ 80',
+    pack4: 'R$ 280',
+    pack10: 'R$ 640',
+  },
+  'Reiki': {
+    what: 'Prática energética de toque suave ou aproximação das mãos para acolhimento, relaxamento e harmonização.',
+    purpose: 'Cria um espaço de pausa e presença, apoiando regulação emocional e tranquilidade.',
+    indications: ['Ansiedade e agitação', 'Cansaço emocional', 'Estresse', 'Necessidade de acolhimento'],
+    duration: '40 min',
+    single: 'R$ 60',
+    pack4: 'R$ 220',
+    pack10: 'R$ 480',
+  },
+};
+
 const services = [
   // Massagens corporais
   { cat: 'Massagens corporais', title: 'Massagem Ayurvédica',                duration: '80 min', priceFrom: 'R$ 160,00',     desc: 'Cuidado profundo para relaxamento, vitalidade e equilíbrio.',                              bg: './assets/img/massagem-ayurvedica-bg.png' },
@@ -106,7 +165,7 @@ function renderServices(filter = 'Todos') {
          </div>`;
 
     return `
-      <article class="${cardClass}" tabindex="0">
+      <article class="${cardClass}" tabindex="0" role="button" aria-label="Ver detalhes de ${escapeAttr(s.title)}" data-service-index="${services.indexOf(s)}">
         <div class="serviceCard__bg" ${bgStyle} aria-hidden="true"></div>
         <div class="serviceCard__overlay" aria-hidden="true"></div>
 
@@ -125,6 +184,131 @@ function renderServices(filter = 'Todos') {
       </article>
     `;
   }).join('');
+
+  gridEl.querySelectorAll('.serviceCard').forEach(card => {
+    card.addEventListener('click', () => openServiceModal(Number(card.dataset.serviceIndex)));
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openServiceModal(Number(card.dataset.serviceIndex));
+      }
+    });
+  });
+}
+
+function getServiceDetail(service) {
+  return therapyDetails[service.title] || {
+    what: service.desc,
+    purpose: 'A sessão é conduzida conforme sua necessidade do momento, com escuta e orientação da equipe do Espaço Pindorama.',
+    indications: ['Relaxamento e bem-estar', 'Cuidado corporal', 'Escuta terapêutica', 'Construção de rotina de autocuidado'],
+    duration: service.duration || 'Sob consulta',
+    single: service.priceFrom || 'Sob consulta',
+    pack4: 'Sob consulta',
+    pack10: 'Sob consulta',
+  };
+}
+
+function getWhatsAppLink(serviceName) {
+  const text = `Olá, vim pelo site do Coletivo Pindorama e gostaria de agendar uma sessão de ${serviceName}.`;
+  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+}
+
+let modalEl = null;
+let lastFocusedEl = null;
+
+function ensureServiceModal() {
+  if (modalEl) return modalEl;
+
+  modalEl = document.createElement('div');
+  modalEl.className = 'therapyModal';
+  modalEl.setAttribute('aria-hidden', 'true');
+  modalEl.innerHTML = `
+    <div class="therapyModal__backdrop" data-modal-close></div>
+    <section class="therapyModal__dialog" role="dialog" aria-modal="true" aria-labelledby="therapyModalTitle" tabindex="-1">
+      <button class="therapyModal__close" type="button" aria-label="Fechar detalhes" data-modal-close>&times;</button>
+      <div class="therapyModal__hero" aria-hidden="true"></div>
+      <div class="therapyModal__content">
+        <span class="therapyModal__tag"></span>
+        <h3 id="therapyModalTitle"></h3>
+        <p class="therapyModal__intro"></p>
+        <div class="therapyModal__sections"></div>
+        <div class="therapyModal__prices"></div>
+        <a class="btn primary therapyModal__cta" target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
+      </div>
+    </section>
+  `;
+
+  modalEl.addEventListener('click', (event) => {
+    if (event.target.closest('[data-modal-close]')) closeServiceModal();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && modalEl.classList.contains('open')) {
+      closeServiceModal();
+    }
+  });
+
+  document.body.appendChild(modalEl);
+  return modalEl;
+}
+
+function openServiceModal(serviceIndex) {
+  const service = services[serviceIndex];
+  if (!service) return;
+
+  const detail = getServiceDetail(service);
+  const modal = ensureServiceModal();
+  const hero = modal.querySelector('.therapyModal__hero');
+  const tag = modal.querySelector('.therapyModal__tag');
+  const title = modal.querySelector('#therapyModalTitle');
+  const intro = modal.querySelector('.therapyModal__intro');
+  const sections = modal.querySelector('.therapyModal__sections');
+  const prices = modal.querySelector('.therapyModal__prices');
+  const cta = modal.querySelector('.therapyModal__cta');
+  const dialog = modal.querySelector('.therapyModal__dialog');
+
+  hero.style.backgroundImage = service.bg ? `url('${escapeAttr(service.bg)}')` : '';
+  hero.style.backgroundPosition = service.bgPos || 'center';
+  hero.style.backgroundSize = service.bgSize || 'cover';
+
+  tag.textContent = service.cat;
+  title.textContent = service.title;
+  intro.textContent = detail.what;
+  sections.innerHTML = `
+    <div class="therapyModal__section">
+      <h4>Para que serve</h4>
+      <p>${escapeHtml(detail.purpose)}</p>
+    </div>
+    <div class="therapyModal__section">
+      <h4>Indicações principais</h4>
+      <ul>
+        ${detail.indications.map(item => `<li>${escapeHtml(item)}</li>`).join('')}
+      </ul>
+    </div>
+  `;
+  prices.innerHTML = `
+    <div class="therapyModal__price"><span>Duração</span><strong>${escapeHtml(detail.duration)}</strong></div>
+    <div class="therapyModal__price"><span>Valor avulso</span><strong>${escapeHtml(detail.single)}</strong></div>
+    <div class="therapyModal__price"><span>Pacote 4 sessões</span><strong>${escapeHtml(detail.pack4)}</strong></div>
+    <div class="therapyModal__price"><span>Pacote 10 sessões</span><strong>${escapeHtml(detail.pack10)}</strong></div>
+  `;
+  cta.href = getWhatsAppLink(service.title);
+
+  lastFocusedEl = document.activeElement;
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('modalOpen');
+  requestAnimationFrame(() => dialog.focus());
+}
+
+function closeServiceModal() {
+  if (!modalEl) return;
+  modalEl.classList.remove('open');
+  modalEl.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('modalOpen');
+  if (lastFocusedEl && typeof lastFocusedEl.focus === 'function') {
+    lastFocusedEl.focus();
+  }
 }
 
 function escapeHtml(str){
