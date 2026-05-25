@@ -18,7 +18,7 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ./
+          server-dir: ../
           local-dir: ./
           # log-level: verbose   # descomente para diagnosticar
           exclude: |
@@ -49,8 +49,8 @@ jobs:
             **/*.sql
 
       # Remove uma publicação antiga feita dentro de public_html/public_html.
-      # A conta FTP correta já abre na pasta pública, então o conteúdo do
-      # repositório deve ficar diretamente em ./.
+      # Esta conta FTP está abrindo dentro da pasta duplicada; o deploy acima
+      # publica um nível acima, na raiz pública real do domínio.
       - name: Remover public_html duplicado
         if: always()
         env:
@@ -60,34 +60,21 @@ jobs:
         run: |
           set +e
           sudo apt-get update -qq && sudo apt-get install -y -qq lftp >/dev/null
-          FTP_ROOT="$(
-            lftp -u "$FTP_USER","$FTP_PASSWORD" "ftp://$FTP_HOST" <<'EOF' | tail -n 1 | tr -d '\r'
-              set ftp:ssl-allow no
-              set ftp:passive-mode true
-              set net:timeout 30
-              pwd
-              bye
-          EOF
-          )"
-
-          if [ "$FTP_ROOT" = "/public_html" ]; then
-            DUPLICATE_DIR="public_html"
-          else
-            DUPLICATE_DIR="public_html/public_html"
-          fi
-
-          lftp -u "$FTP_USER","$FTP_PASSWORD" "ftp://$FTP_HOST" <<EOF
+          lftp -u "$FTP_USER","$FTP_PASSWORD" "ftp://$FTP_HOST" <<'EOF'
             set ftp:ssl-allow no
             set ftp:passive-mode true
             set net:timeout 30
             set cmd:fail-exit no
             echo "--- raiz FTP detectada ---"
             pwd
-            echo "--- removendo duplicacao se existir: ${DUPLICATE_DIR} ---"
-            cls -la ${DUPLICATE_DIR}
-            rm -r ${DUPLICATE_DIR}
+            echo "--- subindo para a raiz publica real ---"
+            cd ..
+            pwd
+            echo "--- removendo duplicacao se existir: public_html ---"
+            cls -la public_html
+            rm -r public_html
             echo "--- apos limpeza ---"
-            cls -la ${DUPLICATE_DIR}
+            cls -la public_html
             bye
           EOF
           exit 0
