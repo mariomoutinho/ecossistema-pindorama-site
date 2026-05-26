@@ -23,7 +23,7 @@ $divindadesFicha = $dadosDivindades['divindades'] ?? [];
     <link rel="stylesheet" href="assets/css/ancestralidades.css?v=20260430" />
     <link rel="stylesheet" href="assets/css/origens.css?v=20260513b" />
     <link rel="stylesheet" href="assets/css/divindades.css?v=20260430j" />
-    <link rel="stylesheet" href="assets/css/ancestralidade-picker.css?v=20260513c" />
+    <link rel="stylesheet" href="assets/css/ancestralidade-picker.css?v=20260526b" />
     <link rel="stylesheet" href="assets/css/transitions.css?v=20260508u" />
 </head>
 <body class="ficha-page">
@@ -572,13 +572,16 @@ $divindadesFicha = $dadosDivindades['divindades'] ?? [];
                     </section>
                     </div><!-- /#origemPanelHost -->
 
-                    <!-- Host oculto da seção rica de Devoção, mesmo padrão.
-                         A "aba Devoção" (panel-title + botão recolher) foi
-                         removida: a divindade selecionada exibe direto
-                         seus dados na tela principal do picker, sem
-                         camada extra de accordion. -->
+                    <!-- Host oculto da seção rica de Devoção, mesmo padrão. -->
                     <div id="divindadePanelHost" hidden>
-                    <section class="panel divindade-panel" id="divindadePanel">
+                    <section class="panel divindade-panel divindade-panel-recolhido" id="divindadePanel">
+                        <div class="panel-title">
+                            Devoção
+                            <button type="button" class="poderes-ver-todos-btn painel-toggle-seta" id="divindadeRecolherBtn" aria-expanded="false" aria-label="Expandir seção" aria-controls="divindadeEmpty divindadeConteudo">
+                                <span class="painel-toggle-seta-icone" aria-hidden="true">&#9662;</span>
+                            </button>
+                        </div>
+
                         <div class="poderes-adquiridos-topo">
                             <span class="poderes-bloco-label">Adquiridos:</span>
                             <div class="poderes-adquiridos-lista" id="divindadeAdquiridos"></div>
@@ -596,12 +599,6 @@ $divindadesFicha = $dadosDivindades['divindades'] ?? [];
                                 </div>
                                 <span class="divindade-energia" id="divindadeEnergiaTag"></span>
                             </header>
-
-                            <div class="divindade-acoes">
-                                <button type="button" class="divindade-remover-btn" id="divindadeRemoverBtn">
-                                    Remover devoção
-                                </button>
-                            </div>
 
                             <p class="divindade-descricao" id="divindadeDescricao"></p>
 
@@ -902,7 +899,7 @@ $divindadesFicha = $dadosDivindades['divindades'] ?? [];
     <script src="assets/js/ancestralidades-ficha.js?v=20260508s"></script>
     <script src="assets/js/origens.js?v=20260430x"></script>
     <script src="assets/js/divindades.js?v=20260430j"></script>
-    <script src="assets/js/entity-picker.js?v=20260509a"></script>
+    <script src="assets/js/entity-picker.js?v=20260526c"></script>
 
     <script>
     /* Auto-carrega ficha se ?id=N estiver na URL (vem da página fichas.php) */

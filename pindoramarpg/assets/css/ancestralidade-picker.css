@@ -130,17 +130,9 @@
         0 20px 60px rgba(15, 5, 25, 0.6),
         inset 0 0 0 1px rgba(255, 255, 255, 0.04);
     color: var(--purple-light);
-    overflow-y: auto;
-    overflow-x: hidden;
-    overscroll-behavior: contain;
-    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
     transform: scale(0.96);
     transition: transform 180ms ease;
-}
-.anc-picker-panel::-webkit-scrollbar { width: 8px; }
-.anc-picker-panel::-webkit-scrollbar-thumb {
-    background: rgba(233, 216, 241, 0.22);
-    border-radius: 4px;
 }
 
 .anc-picker-backdrop.is-open .anc-picker-panel {
@@ -155,11 +147,7 @@
     justify-content: space-between;
     padding: 18px 22px 12px;
     border-bottom: 1px solid rgba(233, 216, 241, 0.18);
-    position: sticky;
-    top: 0;
-    z-index: 6;
-    background: var(--purple-dark);
-    backdrop-filter: blur(2px);
+    position: relative;
 }
 
 .anc-picker-title {
@@ -266,17 +254,13 @@
     border-color: var(--pink-light);
 }
 
-.anc-picker-option.is-selected .anc-picker-radio::after,
-.anc-picker-option.is-preview .anc-picker-radio::after {
+.anc-picker-option.is-selected .anc-picker-radio::after {
     content: "";
     position: absolute;
     inset: 2px;
     border-radius: 50%;
     background: var(--pink-light);
     box-shadow: 0 0 6px rgba(248, 216, 255, 0.7);
-}
-.anc-picker-option.is-preview:not(.is-selected) .anc-picker-radio::after {
-    opacity: 0.78;
 }
 
 /* Painel de preview (direita) — texto à esquerda + imagem retrato à direita */
@@ -345,6 +329,23 @@
     object-position: center bottom;
     padding: 8px 8px 0;
     filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.40));
+}
+
+/* Variante de background temático aplicado ao painel direito inteiro
+   (ex.: divindade Axumewá). A imagem + gradiente são definidos via
+   style inline pelo entity-picker; aqui só configuramos cover/posição
+   e garantimos que o texto continue legível sobre a imagem. */
+.anc-picker-preview.anc-picker-preview--bg-cover {
+    background-size: cover;
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-color: #2d0c37;
+}
+.anc-picker-preview.anc-picker-preview--bg-cover .anc-picker-preview-text {
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.55);
+}
+.anc-picker-preview.anc-picker-preview--bg-cover .anc-picker-preview-summary {
+    color: rgba(255, 255, 255, 0.95);
 }
 
 .anc-picker-preview-image .placeholder {
@@ -461,10 +462,6 @@
     gap: 10px;
     padding: 12px 22px 18px;
     border-top: 1px solid rgba(233, 216, 241, 0.18);
-    position: sticky;
-    bottom: 0;
-    z-index: 6;
-    background: var(--purple-dark);
 }
 
 .anc-picker-btn {
@@ -504,62 +501,25 @@
 /* ---------- Responsivo ---------- */
 
 @media (max-width: 720px) {
-    .anc-picker-backdrop {
-        align-items: flex-start;
-        padding: 12px 0;
-    }
-
-    /* Mobile-first: o painel é o ÚNICO scroller. Header e footer ficam
-       sticky no topo/base do painel; body, preview e extras (Devoção/
-       Origem) fluem juntos no mesmo scroll, sem containers aninhados.
-       Scroll aninhado (extras/preview com overflow próprio) era o que
-       prendia o final do conteúdo de Devoção atrás do footer sticky. */
-    .anc-picker-panel {
-        max-height: calc(100vh - 24px);
-        max-height: calc(100dvh - 24px);
-        display: flex;
-        flex-direction: column;
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
-
     .anc-picker-body {
         grid-template-columns: 1fr;
-        min-height: 0;            /* libera o flex parent para encolher */
-        /* No mobile o body NÃO deve esticar para preencher o panel:
-           se esticar, ele empurra .anc-picker-extras (Devoção) para
-           fora da área visível do scroll. flex:0 0 auto = altura
-           natural, e o panel rola normal pelo conteúdo abaixo. */
-        flex: 0 0 auto;
     }
 
     .anc-picker-list {
         border-right: none;
         border-bottom: 1px solid rgba(233, 216, 241, 0.16);
-        max-height: 32vh;          /* lista ainda rola dentro de si */
-    }
-
-    /* Slot embarcado (Devoção/Origem) — SEM scroll próprio. O conteúdo
-       flui no scroll único do painel; padding-bottom dá folga para o
-       footer sticky não cobrir o último poder divino. */
-    .anc-picker-extras {
-        max-height: none;
-        overflow: visible;
-        padding-bottom: 24px;
+        max-height: 32vh;
     }
 
     /* No mobile o preview vira pilha vertical com flex (não grid).
        Isto evita qualquer auto-placement do grid colocar imagem e
-       texto na mesma célula. Sem overflow próprio: rola junto com
-       o painel. */
+       texto na mesma célula. */
     .anc-picker-preview {
         display: flex;
         flex-direction: column;
         align-items: stretch;
         gap: 14px;
         padding: 18px;
-        overflow: visible;
-        max-height: none;
     }
 
     .anc-picker-preview-empty {
@@ -599,8 +559,7 @@
     }
 
     .anc-picker-panel {
-        max-height: calc(100vh - 16px);
-        max-height: calc(100dvh - 16px);
+        max-height: 92vh;
     }
 }
 

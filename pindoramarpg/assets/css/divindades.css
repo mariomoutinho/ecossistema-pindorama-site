@@ -90,66 +90,35 @@
 }
 .divindade-poderes-lista {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 8px;
 }
-/* Botão de poder divino: só o nome aparece — descrição/regras completas
-   abrem no modal de detalhes ao clicar. Substitui o antigo "card" com
-   resumo de 3 linhas, que sobrecarregava a tela principal. */
 .divindade-card-poder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
     background: linear-gradient(180deg, #fff 70%, rgba(105, 67, 111, 0.08));
     border: 1px solid var(--purple);
-    border-radius: 8px;
-    padding: 10px 12px;
-    min-height: 44px;
+    border-radius: 6px;
+    padding: 8px 10px;
     cursor: pointer;
-    font-family: inherit;
-    transition: transform 0.1s, box-shadow 0.1s, background 0.1s;
-    width: 100%;
+    transition: transform 0.1s, box-shadow 0.1s;
 }
-.divindade-card-poder:hover,
-.divindade-card-poder:focus-visible {
+.divindade-card-poder:hover {
     transform: translateY(-1px);
     box-shadow: 0 2px 6px rgba(59, 29, 67, 0.2);
-    background: linear-gradient(180deg, #fff 50%, rgba(105, 67, 111, 0.14));
-    outline: none;
 }
 .divindade-card-poder-nome {
     font-weight: 600;
     color: var(--purple-dark);
     font-size: 14px;
-    line-height: 1.25;
+    margin-bottom: 4px;
 }
-
-/* Botão "Remover devoção": destaque sutil de ação destrutiva, alinhado
-   à direita da seção. Aparece só quando há divindade selecionada
-   (#divindadeConteudo não está hidden). */
-.divindade-acoes {
-    display: flex;
-    justify-content: flex-end;
-    margin: 4px 0 10px;
-}
-.divindade-remover-btn {
-    background: transparent;
-    color: var(--danger);
-    border: 1px solid var(--danger);
-    border-radius: 999px;
-    padding: 6px 14px;
-    font-family: inherit;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.12s ease, color 0.12s ease;
-}
-.divindade-remover-btn:hover,
-.divindade-remover-btn:focus-visible {
-    background: var(--danger);
-    color: #fff;
-    outline: none;
+.divindade-card-poder-resumo {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 /* Página de referência (divindades.php) */

@@ -629,24 +629,6 @@
         atualizarPainel();
     }
 
-    /**
-     * Remove em lote todos os poderes adquiridos da categoria 'divinos'.
-     * Usado quando a divindade é trocada/limpa: as Devoções concedidas
-     * pela divindade anterior não fazem sentido sem ela. Não devolve PP
-     * (poderes divinos não custam PP).
-     * Retorna o número de poderes removidos.
-     */
-    function removerTodosDivinos() {
-        if (!estadoAtual || !Array.isArray(estadoAtual.adquiridos)) return 0;
-        const antes = estadoAtual.adquiridos.length;
-        estadoAtual.adquiridos = estadoAtual.adquiridos.filter(p => {
-            return (p.categoria || '') !== 'divinos';
-        });
-        const removidos = antes - estadoAtual.adquiridos.length;
-        if (removidos > 0) atualizarPainel();
-        return removidos;
-    }
-
     function abrirModalTodos() {
         const modal = document.getElementById('poderesTodosModal');
         const body = document.getElementById('poderesTodosBody');
@@ -839,6 +821,5 @@
         aplicarPoderesDeFicha,
         atualizarPainel,
         abrirModalPoder,
-        removerTodosDivinos,
     };
 })();

@@ -78,15 +78,11 @@
         const lista = document.getElementById('divindadePoderesLista');
         if (lista) {
             const poderes = divindadeAtual.poderes || [];
-            // Lista de Poderes Divinos como botões — só o nome aparece
-            // na tela principal. Descrição/regras completas só no modal
-            // que abre ao clicar (PoderesPindorama.abrirModalPoder).
             lista.innerHTML = poderes.map(p => `
-                <button type="button" class="divindade-card-poder"
-                        data-poder-id="${escaparHtml(p.id)}"
-                        title="Ver detalhes do poder">
-                    <span class="divindade-card-poder-nome">${escaparHtml(p.nome)}</span>
-                </button>
+                <div class="divindade-card-poder" data-poder-id="${escaparHtml(p.id)}">
+                    <div class="divindade-card-poder-nome">${escaparHtml(p.nome)}</div>
+                    <div class="divindade-card-poder-resumo">${escaparHtml(p.descricao)}</div>
+                </div>
             `).join('');
 
             lista.querySelectorAll('.divindade-card-poder').forEach(card => {
@@ -141,26 +137,9 @@
         const itens = Array.from(adquiridos).map(el => {
             const id = el.dataset.poderId || '';
             const nome = nomesPorId[id] || el.textContent.trim() || id;
-            return `<button type="button"
-                            class="ancestralidade-tag origem-resumo-tag divindade-resumo-tag"
-                            data-poder-id="${escaparHtml(id)}"
-                            title="Ver detalhes do poder">${escaparHtml(nome)}</button>`;
+            return `<span class="ancestralidade-tag origem-resumo-tag divindade-resumo-tag">${escaparHtml(nome)}</span>`;
         });
         tags.innerHTML = itens.join('');
-
-        // Clique no chip de resumo abre o modal de detalhes do poder
-        // (mesmo modal usado pelo painel de Poderes). Delegamos ao
-        // PoderesPindorama, que cuida de buscar descrição/regras/etc.
-        tags.querySelectorAll('.divindade-resumo-tag').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const pid = btn.dataset.poderId;
-                if (!pid) return;
-                if (window.PoderesPindorama &&
-                    typeof window.PoderesPindorama.abrirModalPoder === 'function') {
-                    window.PoderesPindorama.abrirModalPoder('geral', 'divinos', pid, true);
-                }
-            });
-        });
     }
 
     function init() {
@@ -174,8 +153,15 @@
             if (sel.value) carregarDivindade(sel.value);
         }
 
-        // (O accordion "Devoção" foi removido — o painel agora exibe
-        // todo o conteúdo direto na tela principal do picker.)
+        const recolherBtn = document.getElementById('divindadeRecolherBtn');
+        const painel = document.getElementById('divindadePanel');
+        if (recolherBtn && painel) {
+            recolherBtn.addEventListener('click', () => {
+                const recolhido = painel.classList.toggle('divindade-panel-recolhido');
+                recolherBtn.setAttribute('aria-expanded', String(!recolhido));
+                recolherBtn.setAttribute('aria-label', recolhido ? 'Expandir seção' : 'Recolher seção');
+            });
+        }
 
         // Botão "editar" do resumo no topo da ficha — dispara o trigger
         // do entity-picker da divindade, que abre o modal já com o painel
@@ -186,25 +172,6 @@
                 const field = document.getElementById('divindadeSelect')?.parentElement;
                 const trigger = field?.querySelector('.anc-picker-trigger');
                 if (trigger) trigger.click();
-            });
-        }
-
-        // Botão "Remover devoção": limpa a divindade selecionada E todos
-        // os poderes divinos concedidos por ela. Estado consistente em
-        // vez de divindade vazia com poderes órfãos.
-        const removerBtn = document.getElementById('divindadeRemoverBtn');
-        if (removerBtn) {
-            removerBtn.addEventListener('click', () => {
-                if (window.PoderesPindorama &&
-                    typeof window.PoderesPindorama.removerTodosDivinos === 'function') {
-                    window.PoderesPindorama.removerTodosDivinos();
-                }
-                const sel = document.getElementById('divindadeSelect');
-                if (sel && sel.value !== '') {
-                    sel.value = '';
-                    sel.dispatchEvent(new Event('input',  { bubbles: true }));
-                    sel.dispatchEvent(new Event('change', { bubbles: true }));
-                }
             });
         }
 

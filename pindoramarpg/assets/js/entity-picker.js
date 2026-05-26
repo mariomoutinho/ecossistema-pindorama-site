@@ -436,13 +436,7 @@
         btn.addEventListener('focus',      () => previewItem(state, item));
         btn.addEventListener('click',      () => {
             previewItem(state, item);
-            // Um clique já marca visualmente como "selecionado" (mesmo
-            // estilo do pós-confirm), evitando a falsa impressão de que
-            // é preciso clicar duas vezes. O commit real (dispatch
-            // change no <select>) continua acontecendo só no Confirmar.
-            state.listEl.querySelectorAll('.anc-picker-option').forEach(b => {
-                b.classList.toggle('is-selected', b === btn);
-            });
+            state.confirmBtn.focus();
         });
         btn.addEventListener('dblclick',   () => {
             previewItem(state, item);
@@ -466,6 +460,11 @@
 
     function renderizarPreview(state, item) {
         const el = state.previewEl;
+
+        // Reset do background-image inline (aplicado abaixo apenas para
+        // itens com imagemFit === 'background', ex.: divindade Axumewá).
+        el.style.backgroundImage = '';
+        el.classList.remove('anc-picker-preview--bg-cover');
 
         if (item._none) {
             el.innerHTML = '<div class="anc-picker-preview-empty">Limpa a seleção.</div>';
@@ -508,9 +507,12 @@
         if (Array.isArray(item.imagemFallbacks)) {
             for (const u of item.imagemFallbacks) if (u) imgChain.push(u);
         }
+        const modoBg = item.imagemFit === 'background' && imgChain.length > 0;
         const fitClass = item.imagemFit === 'contain' ? ' anc-picker-preview-image--contain' : '';
 
-        const imgHtml = imgChain.length
+        // No modo background, a imagem é aplicada ao painel inteiro abaixo
+        // (não rendera o card lateral). Caso contrário, mantém o <img> retrato.
+        const imgHtml = (!modoBg && imgChain.length)
             ? `<div class="anc-picker-preview-image${fitClass}">
                    <img class="anc-picker-preview-img-el"
                         src="${escapeHtml(imgChain[0])}"
@@ -527,7 +529,35 @@
             ${imgHtml}
         `;
 
-        el.classList.toggle('anc-picker-preview-no-image', !temImg);
+        // No modo background o painel inteiro recebe a imagem; o layout
+        // colapsa para uma única coluna (sem card lateral) — reusa
+        // anc-picker-preview-no-image que já cobre essa configuração.
+        el.classList.toggle('anc-picker-preview-no-image', !temImg || modoBg);
+        if (modoBg) {
+            el.classList.add('anc-picker-preview--bg-cover');
+            const aplicarBg = (url) => {
+                el.style.backgroundImage =
+                    "linear-gradient(90deg, rgba(45, 12, 55, 0.88) 0%, rgba(45, 12, 55, 0.58) 48%, rgba(45, 12, 55, 0.22) 100%), " +
+                    "url('" + url.replace(/'/g, "\\'") + "')";
+            };
+            aplicarBg(imgChain[0]);
+            // Preflight: se a URL primária 404, tenta os fallbacks em ordem.
+            // CSS sozinho não detecta falha de background-image, então usa
+            // <img> em memória pra disparar onerror sem poluir o DOM.
+            const tryChain = (idx) => {
+                if (idx >= imgChain.length) return;
+                const url = imgChain[idx];
+                const probe = new Image();
+                probe.onerror = () => {
+                    if (idx + 1 < imgChain.length) {
+                        aplicarBg(imgChain[idx + 1]);
+                        tryChain(idx + 1);
+                    }
+                };
+                probe.src = url;
+            };
+            tryChain(0);
+        }
 
         // Vincula a cadeia de fallback de imagem (PNG → WebP → placeholder).
         const imgEl = el.querySelector('.anc-picker-preview-img-el');
@@ -633,11 +663,6 @@
 
         state.backdrop.classList.add('is-open');
         state.triggerBtn.setAttribute('aria-expanded', 'true');
-
-        // Reseta a rolagem do painel para o topo a cada abertura, garantindo
-        // que cabeçalho e primeiras opções fiquem visíveis no início.
-        const panelEl = state.backdrop.querySelector('.anc-picker-panel');
-        if (panelEl) panelEl.scrollTop = 0;
 
         bloquearScrollBody();
 
@@ -859,16 +884,18 @@
                         }),
                     });
                 }
+                // Convenção: o id no JSON já é a forma normalizada (minúsculo,
+                // sem acento/apóstrofo, hífen preservado). Caminho previsível:
+                // assets/img/divindades/backgrounds/{id}-bg.webp; fallback
+                // assets/img/divindades/backgrounds/default-bg.webp quando
+                // a imagem da divindade não existir.
                 return {
                     id: d.id,
                     nome: d.nome,
                     descricao: d.descricao,
-                    // Convenção: assets/img/divindades/<id>.webp como
-                    // formato principal e .png como fallback. Se nenhum
-                    // existir, o picker mostra o placeholder "?". Ver
-                    // assets/img/divindades/README.md.
-                    imagem: 'assets/img/divindades/' + d.id + '.webp',
-                    imagemFallbacks: ['assets/img/divindades/' + d.id + '.png'],
+                    imagem: 'assets/img/divindades/backgrounds/' + d.id + '-bg.webp',
+                    imagemFallbacks: ['assets/img/divindades/backgrounds/default-bg.webp'],
+                    imagemFit: 'background',
                     gruposTags: grupos,
                 };
             });
