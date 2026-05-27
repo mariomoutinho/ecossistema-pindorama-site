@@ -1,0 +1,435 @@
+[
+  {
+    "codigo": "VG20",
+    "nome": "Baihui",
+    "meridiano": "Vaso Governador",
+    "categoria": ["ponto de reunião do Yang", "ponto do mar da medula"],
+    "localizacao": "No vértice do crânio, no ponto médio entre os ápices das duas orelhas.",
+    "acoes_energeticas": ["clareia a mente", "eleva o Yang", "acalma o Shen", "fortalece o cérebro"],
+    "sintomas_relacionados": ["dor de cabeça", "tontura", "ansiedade", "insônia", "fadiga mental"],
+    "sindromes_relacionadas": ["deficiência de Yang", "vento interno", "deficiência de Qi", "shen agitado"],
+    "indicacoes_terapeuticas": ["enxaqueca", "vertigem", "perda de memória", "prolapsos"],
+    "contraindicacoes": [],
+    "combinacoes": [
+      {"com": "F3",  "objetivo": "acalmar vento interno e tontura"},
+      {"com": "PC6", "objetivo": "acalmar o Shen em insônia"}
+    ],
+    "observacoes_clinicas": "Ponto-chave para elevar o Qi e o Shen. Usado em sangrias suaves em casos de calor extremo.",
+    "coordenadas_mapa": {"vista": "frente", "x": 100, "y": 24, "lado": "central"},
+    "regiao_afetada": ["cabeça"],
+    "peso_base": 9
+  },
+  {
+    "codigo": "EX-HN3",
+    "nome": "Yintang",
+    "meridiano": "Ponto extraordinário",
+    "categoria": ["ponto extra", "ponto Shen"],
+    "localizacao": "No ponto médio entre as duas sobrancelhas (glabela).",
+    "acoes_energeticas": ["acalma o Shen", "abre os orifícios", "alivia o vento"],
+    "sintomas_relacionados": ["ansiedade", "insônia", "agitação", "dor de cabeça frontal", "sinusite"],
+    "sindromes_relacionadas": ["calor no coração", "estagnação de Qi", "vento-calor"],
+    "indicacoes_terapeuticas": ["insônia leve", "estresse", "congestão nasal"],
+    "contraindicacoes": [],
+    "combinacoes": [
+      {"com": "VG20", "objetivo": "acalmar mente e elevar Yang"},
+      {"com": "PC6",  "objetivo": "ansiedade aguda"}
+    ],
+    "observacoes_clinicas": "Excelente em quadros de ansiedade aguda e cefaleia tensional.",
+    "coordenadas_mapa": {"vista": "frente", "x": 100, "y": 60, "lado": "central"},
+    "regiao_afetada": ["cabeça"],
+    "peso_base": 8
+  },
+  {
+    "codigo": "IG20",
+    "nome": "Yingxiang",
+    "meridiano": "Intestino Grosso",
+    "categoria": ["ponto local"],
+    "localizacao": "No sulco nasolabial, ao lado da asa do nariz.",
+    "acoes_energeticas": ["expele vento", "abre o nariz", "alivia congestão"],
+    "sintomas_relacionados": ["congestão nasal", "rinite", "sinusite", "anosmia"],
+    "sindromes_relacionadas": ["vento-frio", "vento-calor", "calor nos Pulmões"],
+    "indicacoes_terapeuticas": ["resfriado comum", "rinite alérgica", "sinusite crônica"],
+    "contraindicacoes": [],
+    "combinacoes": [
+      {"com": "IG4", "objetivo": "liberar exterior e desobstruir nariz"}
+    ],
+    "observacoes_clinicas": "Quase sempre usado bilateralmente.",
+    "coordenadas_mapa": {"vista": "frente", "x": 94, "y": 78, "lado": "bilateral"},
+    "regiao_afetada": ["face"],
+    "peso_base": 7
+  },
+  {
+    "codigo": "VC22",
+    "nome": "Tiantu",
+    "meridiano": "Vaso Concepção",
+    "categoria": ["ponto janela do céu"],
+    "localizacao": "Na fossa supraesternal, acima da borda superior do esterno.",
+    "acoes_energeticas": ["desobstrui a garganta", "desce o Qi rebelde do Pulmão", "transforma fleuma"],
+    "sintomas_relacionados": ["tosse", "asma", "rouquidão", "globus histericus"],
+    "sindromes_relacionadas": ["fleuma nos Pulmões", "Qi rebelde", "calor nos Pulmões"],
+    "indicacoes_terapeuticas": ["asma", "bronquite", "afonia"],
+    "contraindicacoes": ["puncionar com extrema cautela — risco de pneumotórax e lesão da traqueia"],
+    "combinacoes": [
+      {"com": "P7", "objetivo": "tosse de origem externa"}
+    ],
+    "observacoes_clinicas": "Ponto delicado: técnica específica de inserção é obrigatória.",
+    "coordenadas_mapa": {"vista": "frente", "x": 100, "y": 132, "lado": "central"},
+    "regiao_afetada": ["pescoço", "tórax"],
+    "peso_base": 7
+  },
+  {
+    "codigo": "P7",
+    "nome": "Lieque",
+    "meridiano": "Pulmão",
+    "categoria": ["ponto luo", "ponto de confluência (Ren Mai)"],
+    "localizacao": "1,5 cun acima da prega do punho, na borda radial do antebraço.",
+    "acoes_energeticas": ["libera o exterior", "estimula a descida do Qi do Pulmão", "abre o Ren Mai"],
+    "sintomas_relacionados": ["tosse", "dor de garganta", "dor de cabeça occipital", "asma"],
+    "sindromes_relacionadas": ["vento-frio", "vento-calor", "deficiência de Qi do Pulmão"],
+    "indicacoes_terapeuticas": ["gripe", "rinite", "cefaleia"],
+    "contraindicacoes": [],
+    "combinacoes": [
+      {"com": "IG4", "objetivo": "liberar o exterior em quadros gripais"}
+    ],
+    "observacoes_clinicas": "Combina com R6 para abrir o Ren Mai em quadros ginecológicos.",
+    "coordenadas_mapa": {"vista": "frente", "x": 56, "y": 222, "lado": "bilateral"},
+    "regiao_afetada": ["braço", "tórax"],
+    "peso_base": 7
+  },
+  {
+    "codigo": "PC6",
+    "nome": "Neiguan",
+    "meridiano": "Pericárdio",
+    "categoria": ["ponto luo", "ponto de confluência (Yin Wei Mai)"],
+    "localizacao": "2 cun acima da prega do punho, entre os tendões do palmar longo e flexor radial do carpo.",
+    "acoes_energeticas": ["acalma o Shen", "regula o coração", "move o Qi do tórax", "harmoniza o estômago"],
+    "sintomas_relacionados": ["náusea", "vômito", "ansiedade", "palpitação", "insônia", "dor torácica"],
+    "sindromes_relacionadas": ["estagnação de Qi do Fígado invadindo o Estômago", "calor no coração", "fleuma obstruindo"],
+    "indicacoes_terapeuticas": ["enjoo de movimento", "ansiedade aguda", "refluxo"],
+    "contraindicacoes": [],
+    "combinacoes": [
+      {"com": "BP4", "objetivo": "abrir Chong Mai e harmonizar Estômago"},
+      {"com": "C7",  "objetivo": "acalmar Shen em insônia"}
+    ],
+    "observacoes_clinicas": "Um dos pontos mais versáteis. Eficaz contra náusea por qualquer causa.",
+    "coordenadas_mapa": {"vista": "frente", "x": 58, "y": 215, "lado": "bilateral"},
+    "regiao_afetada": ["braço", "tórax"],
+    "peso_base": 9
+  },
+  {
+    "codigo": "C7",
+    "nome": "Shenmen",
+    "meridiano": "Coração",
+    "categoria": ["ponto shu", "ponto yuan (fonte)"],
+    "localizacao": "Na prega do punho, na depressão proximal ao osso pisiforme, lado ulnar.",
+    "acoes_energeticas": ["acalma o Shen", "nutre o Yin do Coração", "esfria o calor do Coração"],
+    "sintomas_relacionados": ["insônia", "ansiedade", "palpitação", "esquecimento"],
+    "sindromes_relacionadas": ["deficiência de Yin do Coração", "deficiência de Qi do Coração", "calor no Coração"],
+    "indicacoes_terapeuticas": ["insônia crônica", "transtorno de ansiedade"],
+    "contraindicacoes": [],
+    "combinacoes": [
+      {"com": "PC6", "objetivo": "potencializar acalmar Shen"},
+      {"com": "BP6", "objetivo": "nutrir Yin e acalmar Shen"}
+    ],
+    "observacoes_clinicas": "Tonificação leve para deficiência; dispersão moderada para calor.",
+    "coordenadas_mapa": {"vista": "frente", "x": 62, "y": 232, "lado": "bilateral"},
+    "regiao_afetada": ["mão", "tórax"],
+    "peso_base": 9
+  },
+  {
+    "codigo": "IG4",
+    "nome": "Hegu",
+    "meridiano": "Intestino Grosso",
+    "categoria": ["ponto yuan (fonte)", "ponto de comando da face"],
+    "localizacao": "No dorso da mão, entre o 1º e 2º metacarpos, no ventre do músculo interósseo.",
+    "acoes_energeticas": ["libera o exterior", "move o Qi e o Sangue", "alivia a dor", "comanda a face"],
+    "sintomas_relacionados": ["dor de cabeça", "dor facial", "dor de dente", "tensão", "constipação", "febre"],
+    "sindromes_relacionadas": ["estagnação de Qi", "vento-calor", "vento-frio", "calor no Yangming"],
+    "indicacoes_terapeuticas": ["cefaleia", "odontalgia", "resfriado", "constipação"],
+    "contraindicacoes": ["evitar em gestantes — pode induzir contrações"],
+    "combinacoes": [
+      {"com": "F3", "objetivo": "as 'Quatro Portas' — move Qi e Sangue em todo o corpo"},
+      {"com": "IG11", "objetivo": "liberar calor em quadros gripais"}
+    ],
+    "observacoes_clinicas": "Ponto-mestre para dor e face. Combina com F3 para regulação geral.",
+    "coordenadas_mapa": {"vista": "frente", "x": 50, "y": 244, "lado": "bilateral"},
+    "regiao_afetada": ["mão", "face", "cabeça"],
+    "peso_base": 10
+  },
+  {
+    "codigo": "IG11",
+    "nome": "Quchi",
+    "meridiano": "Intestino Grosso",
+    "categoria": ["ponto he (mar)"],
+    "localizacao": "Na depressão lateral à prega do cotovelo, com o braço flexionado a 90°.",
+    "acoes_energeticas": ["esfria o calor", "elimina vento", "harmoniza Qi e Sangue", "alivia prurido"],
+    "sintomas_relacionados": ["febre", "prurido", "urticária", "hipertensão", "dor no cotovelo"],
+    "sindromes_relacionadas": ["vento-calor", "calor no Sangue", "calor no Yangming"],
+    "indicacoes_terapeuticas": ["alergias cutâneas", "hipertensão leve", "epicondilite"],
+    "contraindicacoes": [],
+    "combinacoes": [
+      {"com": "IG4", "objetivo": "esfriar calor e liberar exterior"}
+    ],
+    "observacoes_clinicas": "Excelente para condições inflamatórias e dermatológicas.",
+    "coordenadas_mapa": {"vista": "frente", "x": 56, "y": 196, "lado": "bilateral"},
+    "regiao_afetada": ["braço"],
+    "peso_base": 8
+  },
+  {
+    "codigo": "TA5",
+    "nome": "Waiguan",
+    "meridiano": "Triplo Aquecedor",
+    "categoria": ["ponto luo", "ponto de confluência (Yang Wei Mai)"],
+    "localizacao": "2 cun acima da prega do punho, entre rádio e ulna, lado dorsal do antebraço.",
+    "acoes_energeticas": ["libera o exterior", "expele vento-calor", "ativa colaterais"],
+    "sintomas_relacionados": ["dor de cabeça temporal", "febre", "zumbido", "dor no ombro"],
+    "sindromes_relacionadas": ["vento-calor", "estagnação de Qi nos canais", "calor no Shaoyang"],
+    "indicacoes_terapeuticas": ["resfriado", "enxaqueca", "rigidez de pescoço"],
+    "contraindicacoes": [],
+    "combinacoes": [
+      {"com": "VB41", "objetivo": "abrir Yang Wei e Dai Mai"}
+    ],
+    "observacoes_clinicas": "Pareia com VB41 para tratar lateralidade (Shaoyang).",
+    "coordenadas_mapa": {"vista": "frente", "x": 144, "y": 217, "lado": "bilateral"},
+    "regiao_afetada": ["braço"],
+    "peso_base": 7
+  },
+  {
+    "codigo": "VC6",
+    "nome": "Qihai",
+    "meridiano": "Vaso Concepção",
+    "categoria": ["ponto do mar do Qi"],
+    "localizacao": "1,5 cun abaixo do umbigo, na linha média anterior.",
+    "acoes_energeticas": ["tonifica o Qi original", "fortalece o Yang", "regula o útero"],
+    "sintomas_relacionados": ["fadiga", "fraqueza", "diarreia crônica", "amenorreia", "frio nos membros"],
+    "sindromes_relacionadas": ["deficiência de Qi", "deficiência de Yang", "frio no útero"],
+    "indicacoes_terapeuticas": ["astenia", "infertilidade por frio", "diarreia crônica"],
+    "contraindicacoes": ["evitar agulhamento profundo em gestantes"],
+    "combinacoes": [
+      {"com": "VC4", "objetivo": "tonificar Yuan Qi e Yang do Rim"},
+      {"com": "E36", "objetivo": "tonificar Qi geral"}
+    ],
+    "observacoes_clinicas": "Ideal para moxa em casos de deficiência e frio.",
+    "coordenadas_mapa": {"vista": "frente", "x": 100, "y": 244, "lado": "central"},
+    "regiao_afetada": ["abdomen"],
+    "peso_base": 8
+  },
+  {
+    "codigo": "VC4",
+    "nome": "Guanyuan",
+    "meridiano": "Vaso Concepção",
+    "categoria": ["ponto mu do Intestino Delgado", "ponto do Yuan Qi"],
+    "localizacao": "3 cun abaixo do umbigo, na linha média anterior.",
+    "acoes_energeticas": ["nutre o Yin do Rim", "tonifica o Yang do Rim", "fortalece o Yuan Qi", "regula o útero"],
+    "sintomas_relacionados": ["fadiga crônica", "lombalgia por deficiência", "menstruação irregular", "impotência"],
+    "sindromes_relacionadas": ["deficiência de Yin do Rim", "deficiência de Yang do Rim", "deficiência de Yuan Qi"],
+    "indicacoes_terapeuticas": ["infertilidade", "exaustão", "incontinência"],
+    "contraindicacoes": ["evitar em gestantes"],
+    "combinacoes": [
+      {"com": "BP6", "objetivo": "nutrir Yin do Rim e regular menstruação"},
+      {"com": "R3",  "objetivo": "tonificar essência do Rim"}
+    ],
+    "observacoes_clinicas": "Ponto profundo de tonificação. Moxa é frequentemente preferida.",
+    "coordenadas_mapa": {"vista": "frente", "x": 100, "y": 258, "lado": "central"},
+    "regiao_afetada": ["abdomen"],
+    "peso_base": 9
+  },
+  {
+    "codigo": "E36",
+    "nome": "Zusanli",
+    "meridiano": "Estômago",
+    "categoria": ["ponto he (mar)", "ponto de comando do abdomen"],
+    "localizacao": "3 cun abaixo do joelho, 1 dedo lateral à crista da tíbia.",
+    "acoes_energeticas": ["tonifica Qi e Sangue", "harmoniza o Estômago", "fortalece o Baço", "eleva o Qi"],
+    "sintomas_relacionados": ["fadiga", "digestão fraca", "distensão abdominal", "fraqueza muscular", "imunidade baixa"],
+    "sindromes_relacionadas": ["deficiência de Qi do Baço", "deficiência de Sangue", "Qi rebelde do Estômago"],
+    "indicacoes_terapeuticas": ["astenia", "imunodeficiência", "gastrite", "constipação por deficiência"],
+    "contraindicacoes": [],
+    "combinacoes": [
+      {"com": "BP6", "objetivo": "tonificar Qi e Sangue"},
+      {"com": "VC6", "objetivo": "tonificação geral"}
+    ],
+    "observacoes_clinicas": "Ponto-mãe da tonificação geral. Reverenciado como ponto de longevidade.",
+    "coordenadas_mapa": {"vista": "frente", "x": 86, "y": 338, "lado": "bilateral"},
+    "regiao_afetada": ["perna", "abdomen"],
+    "peso_base": 10
+  },
+  {
+    "codigo": "BP6",
+    "nome": "Sanyinjiao",
+    "meridiano": "Baço",
+    "categoria": ["ponto de cruzamento dos 3 Yin do pé"],
+    "localizacao": "3 cun acima do ápice do maléolo medial, na borda posterior da tíbia.",
+    "acoes_energeticas": ["nutre Sangue e Yin", "harmoniza Baço/Fígado/Rim", "move o Sangue", "regula menstruação"],
+    "sintomas_relacionados": ["insônia", "menstruação irregular", "dismenorreia", "fadiga", "edema"],
+    "sindromes_relacionadas": ["deficiência de Sangue", "estagnação de Sangue", "deficiência de Yin do Rim", "umidade-frio"],
+    "indicacoes_terapeuticas": ["TPM", "menopausa", "insônia por deficiência de Yin"],
+    "contraindicacoes": ["evitar em gestantes — pode induzir contrações"],
+    "combinacoes": [
+      {"com": "VC4", "objetivo": "regular o útero"},
+      {"com": "C7",  "objetivo": "nutrir Yin e acalmar Shen"}
+    ],
+    "observacoes_clinicas": "Cruza Baço/Fígado/Rim — extremamente versátil em quadros ginecológicos.",
+    "coordenadas_mapa": {"vista": "frente", "x": 88, "y": 398, "lado": "bilateral"},
+    "regiao_afetada": ["perna", "abdomen"],
+    "peso_base": 10
+  },
+  {
+    "codigo": "F3",
+    "nome": "Taichong",
+    "meridiano": "Fígado",
+    "categoria": ["ponto yuan (fonte)", "ponto shu"],
+    "localizacao": "No dorso do pé, na depressão proximal entre o 1º e 2º metatarsos.",
+    "acoes_energeticas": ["move o Qi do Fígado", "subjuga o Yang ascendente", "extingue vento interno", "acalma o Shen"],
+    "sintomas_relacionados": ["irritabilidade", "dor de cabeça", "tensão", "TPM", "hipertensão", "vertigem"],
+    "sindromes_relacionadas": ["estagnação de Qi do Fígado", "Yang do Fígado ascendente", "vento interno"],
+    "indicacoes_terapeuticas": ["estresse", "enxaqueca", "hipertensão"],
+    "contraindicacoes": [],
+    "combinacoes": [
+      {"com": "IG4", "objetivo": "as 'Quatro Portas' — regulação geral"},
+      {"com": "VG20", "objetivo": "subjugar Yang ascendente"}
+    ],
+    "observacoes_clinicas": "Primeira escolha em estagnação de Qi do Fígado por estresse emocional.",
+    "coordenadas_mapa": {"vista": "frente", "x": 88, "y": 458, "lado": "bilateral"},
+    "regiao_afetada": ["pé", "cabeça"],
+    "peso_base": 10
+  },
+  {
+    "codigo": "R3",
+    "nome": "Taixi",
+    "meridiano": "Rim",
+    "categoria": ["ponto yuan (fonte)", "ponto shu"],
+    "localizacao": "Na depressão entre o ápice do maléolo medial e o tendão de Aquiles.",
+    "acoes_energeticas": ["nutre o Yin do Rim", "tonifica o Yang do Rim", "fortalece a essência", "beneficia lombo e joelhos"],
+    "sintomas_relacionados": ["lombalgia crônica", "tinitus", "fadiga", "suor noturno", "esquecimento"],
+    "sindromes_relacionadas": ["deficiência de Yin do Rim", "deficiência de Yang do Rim", "deficiência de essência"],
+    "indicacoes_terapeuticas": ["menopausa", "envelhecimento precoce", "lombalgia"],
+    "contraindicacoes": [],
+    "combinacoes": [
+      {"com": "VC4", "objetivo": "tonificar essência e Yuan Qi"},
+      {"com": "B23", "objetivo": "tonificar Rim em lombalgia crônica"}
+    ],
+    "observacoes_clinicas": "Tonificação delicada; combina muito bem com moxa.",
+    "coordenadas_mapa": {"vista": "frente", "x": 88, "y": 432, "lado": "bilateral"},
+    "regiao_afetada": ["pé", "lombar"],
+    "peso_base": 9
+  },
+  {
+    "codigo": "VB34",
+    "nome": "Yanglingquan",
+    "meridiano": "Vesícula Biliar",
+    "categoria": ["ponto he (mar)", "ponto de influência dos tendões"],
+    "localizacao": "Na depressão anterior e inferior à cabeça da fíbula.",
+    "acoes_energeticas": ["relaxa os tendões", "esfria calor do Fígado/VB", "harmoniza Fígado e Vesícula"],
+    "sintomas_relacionados": ["espasmos musculares", "rigidez articular", "ciática", "amargor na boca", "dor lateral"],
+    "sindromes_relacionadas": ["calor no Fígado/VB", "estagnação de Qi do Fígado", "umidade-calor no Shaoyang"],
+    "indicacoes_terapeuticas": ["tendinite", "lesões musculares", "ciatalgia"],
+    "contraindicacoes": [],
+    "combinacoes": [
+      {"com": "F3",  "objetivo": "relaxar tendões e mover Qi do Fígado"},
+      {"com": "VB30", "objetivo": "ciatalgia"}
+    ],
+    "observacoes_clinicas": "Ponto de influência dos tendões — chave em quadros músculo-esqueléticos.",
+    "coordenadas_mapa": {"vista": "perfil", "x": 100, "y": 358, "lado": "bilateral"},
+    "regiao_afetada": ["perna"],
+    "peso_base": 9
+  },
+  {
+    "codigo": "VB20",
+    "nome": "Fengchi",
+    "meridiano": "Vesícula Biliar",
+    "categoria": ["ponto de cruzamento Yang Wei/Yang Qiao"],
+    "localizacao": "Na nuca, na depressão entre o trapézio e o esternocleidomastoideo, na linha occipital.",
+    "acoes_energeticas": ["expele vento externo", "extingue vento interno", "clareia a cabeça e os olhos", "alivia dor"],
+    "sintomas_relacionados": ["dor de cabeça occipital", "tontura", "rigidez de pescoço", "olhos vermelhos", "resfriado"],
+    "sindromes_relacionadas": ["vento-frio", "vento-calor", "Yang do Fígado ascendente", "vento interno"],
+    "indicacoes_terapeuticas": ["enxaqueca", "torcicolo", "hipertensão", "vertigem"],
+    "contraindicacoes": ["puncionar em direção ao nariz oposto — risco se profundidade exceder limites seguros"],
+    "combinacoes": [
+      {"com": "VG20", "objetivo": "elevar Yang e clarear a cabeça"},
+      {"com": "TA5",  "objetivo": "liberar vento externo"}
+    ],
+    "observacoes_clinicas": "Ponto-mestre para problemas da cabeça e cervical alta.",
+    "coordenadas_mapa": {"vista": "costas", "x": 88, "y": 88, "lado": "bilateral"},
+    "regiao_afetada": ["cabeça", "pescoço"],
+    "peso_base": 9
+  },
+  {
+    "codigo": "VG14",
+    "nome": "Dazhui",
+    "meridiano": "Vaso Governador",
+    "categoria": ["ponto de reunião dos Yang"],
+    "localizacao": "Abaixo do processo espinhoso de C7, na linha média posterior.",
+    "acoes_energeticas": ["esfria o calor", "expele vento externo", "fortalece Yang", "regula o Qi defensivo"],
+    "sintomas_relacionados": ["febre", "rigidez cervical", "tosse", "resfriado", "alergias"],
+    "sindromes_relacionadas": ["vento-calor", "calor pleno", "deficiência de Wei Qi"],
+    "indicacoes_terapeuticas": ["resfriado", "asma alérgica", "imunidade baixa"],
+    "contraindicacoes": [],
+    "combinacoes": [
+      {"com": "IG4", "objetivo": "esfriar calor e liberar exterior"},
+      {"com": "B12", "objetivo": "fortalecer Wei Qi"}
+    ],
+    "observacoes_clinicas": "Ponto-âncora para fortalecer imunidade e tratar febres.",
+    "coordenadas_mapa": {"vista": "costas", "x": 100, "y": 120, "lado": "central"},
+    "regiao_afetada": ["pescoço", "tórax"],
+    "peso_base": 8
+  },
+  {
+    "codigo": "B23",
+    "nome": "Shenshu",
+    "meridiano": "Bexiga",
+    "categoria": ["ponto shu de Rim (dorsal)"],
+    "localizacao": "1,5 cun lateral à linha média, ao nível de L2.",
+    "acoes_energeticas": ["tonifica o Rim", "fortalece lombo e joelhos", "nutre essência"],
+    "sintomas_relacionados": ["lombalgia crônica", "fraqueza dos joelhos", "fadiga", "tinitus", "incontinência"],
+    "sindromes_relacionadas": ["deficiência de Yang do Rim", "deficiência de Yin do Rim", "deficiência de essência"],
+    "indicacoes_terapeuticas": ["lombalgia crônica", "incontinência urinária", "menopausa"],
+    "contraindicacoes": [],
+    "combinacoes": [
+      {"com": "R3",  "objetivo": "tonificar Rim"},
+      {"com": "VC4", "objetivo": "tonificar essência e Yuan Qi"}
+    ],
+    "observacoes_clinicas": "Excelente com moxa para deficiência de Yang do Rim.",
+    "coordenadas_mapa": {"vista": "costas", "x": 88, "y": 258, "lado": "bilateral"},
+    "regiao_afetada": ["lombar"],
+    "peso_base": 9
+  },
+  {
+    "codigo": "B40",
+    "nome": "Weizhong",
+    "meridiano": "Bexiga",
+    "categoria": ["ponto he (mar)", "ponto de comando do dorso"],
+    "localizacao": "No centro da fossa poplítea, entre os tendões do bíceps femoral e semitendíneo.",
+    "acoes_energeticas": ["esfria o calor", "esfria o Sangue", "alivia dor lombar", "ativa colaterais"],
+    "sintomas_relacionados": ["dor lombar aguda", "rigidez do dorso", "ciática", "calor cutâneo"],
+    "sindromes_relacionadas": ["estagnação de Qi e Sangue na coluna", "calor no Sangue", "umidade-calor"],
+    "indicacoes_terapeuticas": ["lombalgia aguda", "ciatalgia", "dermatites por calor"],
+    "contraindicacoes": [],
+    "combinacoes": [
+      {"com": "B23", "objetivo": "lombalgia crônica e aguda"}
+    ],
+    "observacoes_clinicas": "Ponto-mestre para dor lombar — clássico das 'Quatro Portas Posteriores'.",
+    "coordenadas_mapa": {"vista": "costas", "x": 88, "y": 372, "lado": "bilateral"},
+    "regiao_afetada": ["perna", "lombar"],
+    "peso_base": 9
+  },
+  {
+    "codigo": "B60",
+    "nome": "Kunlun",
+    "meridiano": "Bexiga",
+    "categoria": ["ponto jing (rio)"],
+    "localizacao": "Na depressão entre o ápice do maléolo lateral e o tendão de Aquiles.",
+    "acoes_energeticas": ["ativa o canal da Bexiga", "alivia dor", "induz o trabalho de parto", "esfria calor"],
+    "sintomas_relacionados": ["dor lombar", "dor cervical", "dor no calcâneo", "rigidez occipital"],
+    "sindromes_relacionadas": ["estagnação no canal da Bexiga", "vento-frio invadindo o canal"],
+    "indicacoes_terapeuticas": ["lombalgia", "tendinite do Aquiles", "torcicolo"],
+    "contraindicacoes": ["evitar em gestantes — pode induzir parto"],
+    "combinacoes": [
+      {"com": "B40", "objetivo": "dor ao longo do canal da Bexiga"}
+    ],
+    "observacoes_clinicas": "Conhecido como o 'aspirina' do canal da Bexiga.",
+    "coordenadas_mapa": {"vista": "costas", "x": 88, "y": 442, "lado": "bilateral"},
+    "regiao_afetada": ["pé", "lombar"],
+    "peso_base": 8
+  }
+]

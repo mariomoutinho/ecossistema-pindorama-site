@@ -1,0 +1,401 @@
+/* ============================================================
+   Acupuntura — módulo experimental
+   Reaproveita tokens de assets/css/global.css (paleta floresta + areia + brasa).
+   Tudo aqui é namespaced com .acup-* para ficar 100% isolado e removível.
+   ============================================================ */
+
+.acup-shell {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 22px 20px 80px;
+  display: grid;
+  gap: 22px;
+}
+
+.acup-head h1 {
+  margin: 0 0 6px;
+  font-size: clamp(24px, 3vw, 32px);
+  letter-spacing: -.4px;
+}
+.acup-head p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; max-width: 70ch; }
+
+.acup-disclaimer {
+  background: rgba(196, 106, 74, .10);
+  border: 1px solid rgba(196, 106, 74, .35);
+  color: var(--clay2);
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-size: 13px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.acup-disclaimer strong { color: var(--text); }
+.acup-disclaimer::before { content: '⚠'; font-size: 18px; line-height: 1; }
+
+.acup-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 360px) 1fr;
+  gap: 22px;
+}
+@media (max-width: 980px) { .acup-grid { grid-template-columns: 1fr; } }
+
+/* ----------------- Painel da ficha ----------------- */
+.acup-card {
+  background: rgba(19, 45, 38, .72);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, .28);
+}
+.acup-card h2 { margin: 0 0 6px; font-size: 17px; }
+.acup-card p.acup-card__sub { margin: 0 0 12px; color: var(--muted); font-size: 12px; }
+
+.acup-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
+.acup-field label {
+  font-size: 11px;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.acup-field input,
+.acup-field textarea,
+.acup-field select {
+  background: rgba(7, 17, 14, .55);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--text);
+  font-size: 13px;
+  padding: 9px 11px;
+  font-family: inherit;
+}
+.acup-field input:focus, .acup-field textarea:focus, .acup-field select:focus {
+  outline: none;
+  border-color: rgba(102, 180, 143, .55);
+  box-shadow: 0 0 0 3px rgba(102, 180, 143, .25);
+}
+.acup-field textarea { min-height: 70px; resize: vertical; }
+.acup-field--row { display: flex; gap: 10px; }
+.acup-field--row > * { flex: 1; }
+
+.acup-fieldset {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  background: rgba(7, 17, 14, .35);
+}
+.acup-fieldset > legend {
+  font-size: 11px;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0 6px;
+}
+.acup-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+.acup-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(234, 243, 239, .04);
+  color: var(--muted);
+  font-size: 12px;
+  cursor: pointer;
+  user-select: none;
+  transition: background .15s, border-color .15s, color .15s;
+}
+.acup-chip input { position: absolute; opacity: 0; pointer-events: none; }
+.acup-chip:hover { background: rgba(234, 243, 239, .08); color: var(--text); }
+.acup-chip:has(input:checked) {
+  background: rgba(102, 180, 143, .18);
+  border-color: rgba(102, 180, 143, .45);
+  color: var(--text);
+}
+.acup-chip--clay:has(input:checked) {
+  background: rgba(196, 106, 74, .18);
+  border-color: rgba(196, 106, 74, .45);
+  color: var(--clay2);
+}
+
+.acup-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(234, 243, 239, .06);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+.acup-btn:hover { background: rgba(234, 243, 239, .12); }
+.acup-btn--primary {
+  background: linear-gradient(135deg, var(--leaf), var(--leaf2));
+  color: #052015;
+  border-color: rgba(102, 180, 143, .45);
+  box-shadow: 0 14px 38px rgba(62, 142, 106, .25);
+}
+.acup-btn--ghost { background: transparent; color: var(--sand); border-color: rgba(244, 231, 211, .3); }
+.acup-btn--sm { padding: 7px 12px; font-size: 12px; }
+
+.acup-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* ----------------- Painel do mapa ----------------- */
+.acup-map-panel { display: grid; gap: 16px; }
+
+.acup-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+}
+.acup-toolbar__group { display: inline-flex; gap: 4px; padding: 4px; border: 1px solid var(--line); border-radius: 999px; background: rgba(7, 17, 14, .45); }
+.acup-toolbar__btn {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: inherit;
+}
+.acup-toolbar__btn:hover { color: var(--text); }
+.acup-toolbar__btn.is-active {
+  background: linear-gradient(135deg, var(--leaf), var(--leaf2));
+  color: #052015;
+}
+
+.acup-zoom { display: inline-flex; gap: 4px; align-items: center; }
+.acup-zoom__btn {
+  width: 32px; height: 32px;
+  border: 1px solid var(--line);
+  background: rgba(234, 243, 239, .04);
+  color: var(--text);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: inherit;
+}
+.acup-zoom__btn:hover { background: rgba(234, 243, 239, .1); }
+.acup-zoom__val { font-size: 11px; color: var(--muted); min-width: 42px; text-align: center; }
+
+/* ----------------- Mapa SVG ----------------- */
+.acup-map {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background:
+    radial-gradient(600px 300px at 50% 0%, rgba(102, 180, 143, .08), transparent 70%),
+    rgba(7, 17, 14, .55);
+  padding: 16px;
+  overflow: auto;
+  position: relative;
+  min-height: 320px;
+}
+.acup-map__scroller {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  justify-content: center;
+  transform-origin: top center;
+  transition: transform .2s ease;
+}
+.acup-figure {
+  flex: 0 0 auto;
+  text-align: center;
+}
+.acup-figure__label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.acup-figure svg {
+  display: block;
+  width: 220px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Silhueta */
+.acup-silhouette {
+  fill: rgba(234, 243, 239, .04);
+  stroke: rgba(234, 243, 239, .22);
+  stroke-width: 1.2;
+}
+
+/* Regiões */
+.acup-region {
+  fill: transparent;
+  stroke: transparent;
+  pointer-events: none;
+  transition: fill .25s ease, stroke .25s ease;
+}
+.acup-region.is-active {
+  fill: rgba(196, 106, 74, .12);
+  stroke: rgba(196, 106, 74, .4);
+  stroke-dasharray: 3 3;
+  animation: acup-region-pulse 2.4s ease-in-out infinite;
+}
+@keyframes acup-region-pulse {
+  0%, 100% { fill-opacity: .12; }
+  50%      { fill-opacity: .28; }
+}
+
+/* Pontos */
+.acup-point {
+  cursor: pointer;
+  transition: r .2s ease, fill .2s ease, stroke-width .2s ease;
+  fill: rgba(244, 231, 211, .55);
+  stroke: rgba(7, 17, 14, .9);
+  stroke-width: .8;
+}
+.acup-point:hover, .acup-point:focus { stroke-width: 1.4; }
+
+/* Relevância 1..5 */
+.acup-point--r1 { fill: rgba(244, 231, 211, .55); r: 2.2; }
+.acup-point--r2 { fill: rgba(102, 180, 143, .8);  r: 2.8; }
+.acup-point--r3 { fill: rgba(102, 180, 143, 1);   r: 3.4; }
+.acup-point--r4 { fill: rgba(224, 138, 107, .95); r: 4.0; }
+.acup-point--r5 {
+  fill: var(--clay2);
+  r: 4.6;
+  filter: drop-shadow(0 0 6px rgba(224, 138, 107, .65));
+  animation: acup-point-pulse 1.6s ease-in-out infinite;
+}
+@keyframes acup-point-pulse {
+  0%, 100% { r: 4.4; opacity: 1; }
+  50%      { r: 5.4; opacity: .85; }
+}
+.acup-point--descartado {
+  fill: rgba(120, 120, 120, .45);
+  stroke: rgba(196, 106, 74, .6);
+  stroke-dasharray: 1.5 1.5;
+}
+
+/* ----------------- Lista de recomendações ----------------- */
+.acup-recs { display: grid; gap: 10px; }
+.acup-rec {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(7, 17, 14, .35);
+  position: relative;
+}
+.acup-rec--r5 { border-color: rgba(196, 106, 74, .5); background: linear-gradient(135deg, rgba(196, 106, 74, .12), rgba(7, 17, 14, .45)); }
+.acup-rec--r4 { border-color: rgba(224, 138, 107, .35); }
+.acup-rec--r3 { border-color: rgba(102, 180, 143, .4); }
+.acup-rec--descartado { opacity: .55; background: rgba(196, 106, 74, .06); }
+.acup-rec__code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--leaf2);
+  letter-spacing: .5px;
+  text-align: center;
+  padding: 6px 8px;
+  border-radius: 10px;
+  background: rgba(102, 180, 143, .12);
+  border: 1px solid rgba(102, 180, 143, .35);
+}
+.acup-rec--r5 .acup-rec__code { color: var(--clay2); background: rgba(196, 106, 74, .18); border-color: rgba(196, 106, 74, .45); }
+.acup-rec__body strong { display: block; font-size: 14px; }
+.acup-rec__body .acup-rec__meridiano { color: var(--muted); font-size: 12px; margin-top: 2px; }
+.acup-rec__body .acup-rec__motivos { color: var(--muted); font-size: 12px; margin-top: 6px; line-height: 1.4; }
+.acup-rec__body .acup-rec__descartado { color: var(--clay2); font-size: 12px; margin-top: 6px; }
+.acup-rec__score {
+  font-size: 11px;
+  color: var(--muted);
+  text-align: right;
+  white-space: nowrap;
+}
+.acup-rec__score strong { color: var(--text); display: block; font-size: 14px; }
+
+/* Detalhe expandível */
+.acup-rec__details {
+  grid-column: 1 / -1;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--line);
+  font-size: 12px;
+  display: grid;
+  gap: 8px;
+}
+.acup-rec__details dt { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .6px; }
+.acup-rec__details dd { margin: 2px 0 0; color: var(--text); }
+
+/* ----------------- Tooltip do mapa ----------------- */
+.acup-tooltip {
+  position: fixed;
+  z-index: 90;
+  pointer-events: none;
+  background: #07110E;
+  border: 1px solid rgba(102, 180, 143, .4);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 12px;
+  color: var(--text);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .55);
+  max-width: 240px;
+  opacity: 0;
+  transition: opacity .12s ease;
+}
+.acup-tooltip.is-visible { opacity: 1; }
+.acup-tooltip strong { display: block; color: var(--leaf2); font-size: 13px; margin-bottom: 2px; }
+.acup-tooltip__meta { color: var(--muted); font-size: 11px; margin-top: 4px; }
+
+/* ----------------- Legenda ----------------- */
+.acup-legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 11px; color: var(--muted); }
+.acup-legend__item { display: inline-flex; align-items: center; gap: 6px; }
+.acup-legend__dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; border: 1px solid rgba(7, 17, 14, .9); }
+
+/* Header próprio leve da página */
+.acup-topbar {
+  background: rgba(14, 28, 23, .82);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.acup-topbar__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.acup-topbar a { color: var(--text); text-decoration: none; }
+.acup-topbar__brand { display: flex; gap: 10px; align-items: center; font-size: 13px; }
+.acup-topbar__brand img { width: 36px; height: 36px; }
+.acup-topbar__brand span { color: var(--muted); font-size: 11px; display: block; }
+.acup-topbar__nav { display: flex; gap: 12px; font-size: 12px; color: var(--muted); }
+.acup-topbar__nav a:hover { color: var(--sand); }
+
+@media (max-width: 600px) {
+  .acup-rec { grid-template-columns: 54px 1fr; }
+  .acup-rec__score { grid-column: 1 / -1; text-align: left; }
+  .acup-figure svg { width: 180px; }
+}
