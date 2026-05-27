@@ -78,3 +78,45 @@ function acup_meridianos(): array {
   sort($out, SORT_STRING | SORT_FLAG_CASE);
   return $out;
 }
+
+/**
+ * Lista de pontos para autocomplete: ['IG4 — Hegu', ...] (label legível).
+ * O value retornado é o código (IG4), usado tanto na recomendação
+ * (sinergia com pontos já utilizados) quanto na exibição.
+ */
+function acup_pontos_para_autocomplete(): array {
+  $out = [];
+  foreach (acup_pontos() as $p) {
+    $codigo = (string)($p['codigo'] ?? '');
+    $nome   = (string)($p['nome']   ?? '');
+    if ($codigo === '') continue;
+    $out[] = ['value' => $codigo, 'label' => $codigo . ' — ' . $nome];
+  }
+  usort($out, fn($a, $b) => strcmp($a['label'], $b['label']));
+  return $out;
+}
+
+/**
+ * Práticas associadas à acupuntura no Espaço Pindorama.
+ * Lista curada — não derivada da base de pontos.
+ */
+function acup_praticas(): array {
+  $lista = [
+    'Acupuntura tradicional (agulha filiforme)',
+    'Auriculoterapia',
+    'Cromoterapia',
+    'Cupping/Ventosaterapia',
+    'Eletroacupuntura',
+    'Escalpoacupuntura',
+    'Esfera/Cristal aderente',
+    'Magnetoterapia',
+    'Massagem Tui Ná',
+    'Moxabustão direta',
+    'Moxabustão indireta',
+    'Sangria/Microsangria',
+    'Sementes de mostarda',
+    'Shiatsu',
+  ];
+  sort($lista, SORT_STRING | SORT_FLAG_CASE);
+  return $lista;
+}

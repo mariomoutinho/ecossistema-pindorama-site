@@ -19,17 +19,28 @@ require_once __DIR__ . '/lib/pontos.php';
 require_once __DIR__ . '/lib/recomendacao.php';
 
 // Filtros vindos do POST
+function _post_array(string $k): array {
+  return (isset($_POST[$k]) && is_array($_POST[$k])) ? array_values(array_filter(array_map('strval', $_POST[$k]), fn($v) => $v !== '')) : [];
+}
 $filtros = [
-  'paciente'   => trim((string)($_POST['paciente'] ?? '')),
-  'idade'      => trim((string)($_POST['idade']    ?? '')),
-  'queixa'     => trim((string)($_POST['queixa']   ?? '')),
-  'sintomas'   => isset($_POST['sintomas'])   && is_array($_POST['sintomas'])   ? $_POST['sintomas']   : [],
-  'sindromes'  => isset($_POST['sindromes'])  && is_array($_POST['sindromes'])  ? $_POST['sindromes']  : [],
-  'acoes'      => isset($_POST['acoes'])      && is_array($_POST['acoes'])      ? $_POST['acoes']      : [],
-  'regioes'    => isset($_POST['regioes'])    && is_array($_POST['regioes'])    ? $_POST['regioes']    : [],
-  'restricoes' => isset($_POST['restricoes']) && is_array($_POST['restricoes']) ? $_POST['restricoes'] : [],
+  'paciente'         => trim((string)($_POST['paciente'] ?? '')),
+  'idade'            => trim((string)($_POST['idade']    ?? '')),
+  'queixa'           => trim((string)($_POST['queixa']   ?? '')),
+  'sintomas'         => _post_array('sintomas'),
+  'sindromes'        => _post_array('sindromes'),
+  'acoes'            => _post_array('acoes'),
+  'regioes'          => _post_array('regioes'),
+  'meridianos'       => _post_array('meridianos'),
+  'categorias'       => _post_array('categorias'),
+  'pontos_utilizados'=> _post_array('pontos_utilizados'),
+  'praticas'         => _post_array('praticas'),
+  'restricoes'       => _post_array('restricoes'),
 ];
-$temFiltro = (bool)($filtros['sintomas'] || $filtros['sindromes'] || $filtros['acoes'] || $filtros['regioes']);
+$temFiltro = (bool)(
+  $filtros['sintomas'] || $filtros['sindromes'] || $filtros['acoes'] ||
+  $filtros['regioes']  || $filtros['meridianos'] || $filtros['categorias'] ||
+  $filtros['pontos_utilizados']
+);
 
 $resultados = $temFiltro ? rec_calcular($filtros) : [];
 // Mapa codigo->resultado para anotar os pontos no SVG
@@ -38,17 +49,21 @@ foreach ($resultados as $r) {
   $mapaScore[strtolower($r['ponto']['codigo'])] = $r;
 }
 
-$catSintomas  = acup_catalogo('sintomas_relacionados');
-$catSindromes = acup_catalogo('sindromes_relacionadas');
-$catAcoes     = acup_catalogo('acoes_energeticas');
-$regioes      = acup_regioes();
-$catRegioes   = array_column($regioes, 'nome', 'id');
-
-$selSint = array_map('mb_strtolower', $filtros['sintomas']);
-$selSind = array_map('mb_strtolower', $filtros['sindromes']);
-$selAcoe = array_map('mb_strtolower', $filtros['acoes']);
-$selRegi = $filtros['regioes'];
-$selRest = $filtros['restricoes'];
+$catSintomas    = acup_catalogo('sintomas_relacionados');
+$catSindromes   = acup_catalogo('sindromes_relacionadas');
+$catAcoes       = acup_catalogo('acoes_energeticas');
+$catMeridianos  = acup_meridianos();
+$catCategorias  = acup_catalogo('categoria');
+$catPraticas    = acup_praticas();
+$catPontos      = acup_pontos_para_autocomplete();
+$regioes        = acup_regioes();
+$catRegioes     = []; // {value: id, label: nome}
+foreach ($regioes as $r) $catRegioes[] = ['value' => $r['id'], 'label' => $r['nome']];
+$catRestricoes  = [
+  ['value' => 'gestante',    'label' => 'Gestante'],
+  ['value' => 'hipertensao', 'label' => 'Hipertensão grave'],
+  ['value' => 'marcapasso',  'label' => 'Marca-passo'],
+];
 
 // Quais regiões estão "ativas" no mapa: top 5 pontos não-descartados acendem
 // suas regiões. Casa nomes com acento ("cabeça") aos IDs sem acento ("cabeca").
@@ -229,75 +244,35 @@ $pageTitle = 'Acupuntura — Mapa interativo (experimental) • Pindorama';
           <textarea id="queixa" name="queixa" rows="2" placeholder="Em uma frase: o que trouxe a pessoa hoje."><?= htmlspecialchars($filtros['queixa']) ?></textarea>
         </div>
 
-        <fieldset class="acup-fieldset">
-          <legend>Sintomas (<?= count($catSintomas) ?>)</legend>
-          <div class="acup-chips">
-            <?php foreach ($catSintomas as $s):
-              $checked = in_array(mb_strtolower($s), $selSint, true);
-            ?>
-              <label class="acup-chip">
-                <input type="checkbox" name="sintomas[]" value="<?= htmlspecialchars($s) ?>" <?= $checked ? 'checked' : '' ?>>
-                <?= htmlspecialchars($s) ?>
-              </label>
-            <?php endforeach; ?>
-          </div>
-        </fieldset>
+        <?php
+          // Helper para imprimir um container .acup-ac padronizado.
+          // $options: array de strings OU array de {value,label}
+          $renderAc = function (string $name, string $label, string $placeholder, array $options, array $selected, string $modifier = '') {
+            // Contagem total (excluindo já selecionados — info útil pro usuário)
+            $total = count($options);
+            $optsJson = htmlspecialchars(json_encode(array_values($options), JSON_UNESCAPED_UNICODE), ENT_QUOTES);
+            $selJson  = htmlspecialchars(json_encode(array_values($selected), JSON_UNESCAPED_UNICODE), ENT_QUOTES);
+            $cls = 'acup-ac' . ($modifier ? ' ' . $modifier : '');
+            echo '<div class="acup-field">'
+               . '<label>' . htmlspecialchars($label) . ' <span style="color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0;">· ' . $total . ' opções</span></label>'
+               . '<div class="' . $cls . '"'
+               . ' data-name="' . htmlspecialchars($name) . '"'
+               . ' data-placeholder="' . htmlspecialchars($placeholder) . '"'
+               . ' data-options="' . $optsJson . '"'
+               . ' data-selected="' . $selJson . '"></div>'
+               . '</div>';
+          };
+        ?>
 
-        <fieldset class="acup-fieldset">
-          <legend>Síndromes suspeitas (<?= count($catSindromes) ?>)</legend>
-          <div class="acup-chips">
-            <?php foreach ($catSindromes as $s):
-              $checked = in_array(mb_strtolower($s), $selSind, true);
-            ?>
-              <label class="acup-chip">
-                <input type="checkbox" name="sindromes[]" value="<?= htmlspecialchars($s) ?>" <?= $checked ? 'checked' : '' ?>>
-                <?= htmlspecialchars($s) ?>
-              </label>
-            <?php endforeach; ?>
-          </div>
-        </fieldset>
-
-        <fieldset class="acup-fieldset">
-          <legend>Ações energéticas desejadas (<?= count($catAcoes) ?>)</legend>
-          <div class="acup-chips">
-            <?php foreach ($catAcoes as $s):
-              $checked = in_array(mb_strtolower($s), $selAcoe, true);
-            ?>
-              <label class="acup-chip">
-                <input type="checkbox" name="acoes[]" value="<?= htmlspecialchars($s) ?>" <?= $checked ? 'checked' : '' ?>>
-                <?= htmlspecialchars($s) ?>
-              </label>
-            <?php endforeach; ?>
-          </div>
-        </fieldset>
-
-        <fieldset class="acup-fieldset">
-          <legend>Foco anatômico (opcional)</legend>
-          <div class="acup-chips">
-            <?php foreach ($catRegioes as $id => $nome):
-              $checked = in_array($id, $selRegi, true);
-            ?>
-              <label class="acup-chip">
-                <input type="checkbox" name="regioes[]" value="<?= htmlspecialchars($id) ?>" <?= $checked ? 'checked' : '' ?>>
-                <?= htmlspecialchars($nome) ?>
-              </label>
-            <?php endforeach; ?>
-          </div>
-        </fieldset>
-
-        <fieldset class="acup-fieldset">
-          <legend>Restrições</legend>
-          <div class="acup-chips">
-            <?php foreach (['gestante' => 'Gestante', 'hipertensao' => 'Hipertensão grave', 'marcapasso' => 'Marca-passo'] as $k => $lbl):
-              $checked = in_array($k, $selRest, true);
-            ?>
-              <label class="acup-chip acup-chip--clay">
-                <input type="checkbox" name="restricoes[]" value="<?= $k ?>" <?= $checked ? 'checked' : '' ?>>
-                <?= htmlspecialchars($lbl) ?>
-              </label>
-            <?php endforeach; ?>
-          </div>
-        </fieldset>
+        <?php $renderAc('sintomas',          'Sintomas',                'Buscar ou selecionar sintomas...',     $catSintomas,   $filtros['sintomas']); ?>
+        <?php $renderAc('sindromes',         'Síndromes suspeitas',      'Buscar síndromes suspeitas...',        $catSindromes,  $filtros['sindromes']); ?>
+        <?php $renderAc('acoes',             'Ações energéticas',        'Buscar ações energéticas...',          $catAcoes,      $filtros['acoes']); ?>
+        <?php $renderAc('meridianos',        'Meridianos',               'Buscar meridianos...',                 $catMeridianos, $filtros['meridianos']); ?>
+        <?php $renderAc('categorias',        'Categorias de pontos',     'Buscar categorias...',                 $catCategorias, $filtros['categorias']); ?>
+        <?php $renderAc('regioes',           'Foco anatômico',           'Selecionar regiões corporais...',      $catRegioes,    $filtros['regioes']); ?>
+        <?php $renderAc('pontos_utilizados', 'Pontos já utilizados',     'Buscar pontos já utilizados...',       $catPontos,     $filtros['pontos_utilizados']); ?>
+        <?php $renderAc('praticas',          'Práticas associadas',      'Buscar práticas associadas...',        $catPraticas,   $filtros['praticas']); ?>
+        <?php $renderAc('restricoes',        'Restrições clínicas',      'Selecionar restrições...',             $catRestricoes, $filtros['restricoes'], 'acup-ac--clay'); ?>
 
         <div class="acup-actions">
           <button type="submit" class="acup-btn acup-btn--primary">Sugerir pontos</button>
@@ -435,6 +410,7 @@ $pageTitle = 'Acupuntura — Mapa interativo (experimental) • Pindorama';
 
 </main>
 
+<script src="assets/autocomplete.js" defer></script>
 <script src="assets/acupuntura.js" defer></script>
 </body>
 </html>

@@ -67,11 +67,17 @@ function rec_contraindicado(array $ponto, array $restricoes): ?string {
 }
 
 function rec_calcular(array $filtros): array {
-  $sintomas  = $filtros['sintomas']   ?? [];
-  $sindromes = $filtros['sindromes']  ?? [];
-  $acoes     = $filtros['acoes']      ?? [];
-  $regioes   = $filtros['regioes']    ?? [];
-  $restr     = $filtros['restricoes'] ?? [];
+  $sintomas    = $filtros['sintomas']            ?? [];
+  $sindromes   = $filtros['sindromes']           ?? [];
+  $acoes       = $filtros['acoes']               ?? [];
+  $regioes     = $filtros['regioes']             ?? [];
+  $restr       = $filtros['restricoes']          ?? [];
+  $meridianos  = $filtros['meridianos']          ?? [];
+  $categorias  = $filtros['categorias']          ?? [];
+  $pontosUsados= $filtros['pontos_utilizados']   ?? [];
+
+  // Códigos dos pontos já utilizados pela terapeuta nesta sessão clínica.
+  $usadosSet = array_flip(array_map('strtoupper', array_map('strval', $pontosUsados)));
 
   $resultados = [];
   foreach (acup_pontos() as $p) {
@@ -82,11 +88,40 @@ function rec_calcular(array $filtros): array {
     $hitSind = rec_intersect($p['sindromes_relacionadas']  ?? [], $sindromes);
     $hitAcoe = rec_intersect($p['acoes_energeticas']       ?? [], $acoes);
     $hitRegi = rec_intersect($p['regiao_afetada']          ?? [], $regioes);
+    $hitMeri = rec_intersect([$p['meridiano'] ?? ''], $meridianos);
+    $hitCate = rec_intersect($p['categoria']               ?? [], $categorias);
 
     if ($hitSint) { $score += 35 * count($hitSint); $motivos[] = 'sintomas: ' . implode(', ', $hitSint); }
     if ($hitSind) { $score += 28 * count($hitSind); $motivos[] = 'síndromes: ' . implode(', ', $hitSind); }
     if ($hitAcoe) { $score += 22 * count($hitAcoe); $motivos[] = 'ações: ' . implode(', ', $hitAcoe); }
     if ($hitRegi) { $score += 18 * count($hitRegi); $motivos[] = 'região: ' . implode(', ', $hitRegi); }
+    if ($hitMeri) { $score += 15 * count($hitMeri); $motivos[] = 'meridiano: ' . implode(', ', $hitMeri); }
+    if ($hitCate) { $score += 12 * count($hitCate); $motivos[] = 'categoria: ' . implode(', ', $hitCate); }
+
+    // Sinergia com pontos já utilizados: se o ponto atual aparece como
+    // combinação clássica de algum ponto já usado, +25 pts e motiva.
+    if ($pontosUsados) {
+      $codAtual = strtoupper((string)($p['codigo'] ?? ''));
+      $combos = [];
+      foreach (acup_pontos() as $pu) {
+        $codPU = strtoupper((string)($pu['codigo'] ?? ''));
+        if (!isset($usadosSet[$codPU])) continue;
+        foreach (($pu['combinacoes'] ?? []) as $c) {
+          if (strtoupper((string)($c['com'] ?? '')) === $codAtual) {
+            $combos[] = $codPU . ' (' . ($c['objetivo'] ?? '') . ')';
+          }
+        }
+      }
+      if ($combos) {
+        $score += 25 * count($combos);
+        $motivos[] = 'combina com: ' . implode('; ', $combos);
+      }
+      // Evita recomendar pontos que já estão na lista de "utilizados"
+      if (isset($usadosSet[strtoupper((string)($p['codigo'] ?? ''))])) {
+        $score -= 30;
+        $motivos[] = 'já utilizado';
+      }
+    }
 
     $contra = rec_contraindicado($p, $restr);
     $descartado = false;
