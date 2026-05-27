@@ -17,6 +17,17 @@ foreach (['terapeutas', 'agendamentos', 'evolucoes', 'lembretes', 'notificacoes'
   store_bootstrap($tbl);
 }
 
+// Sincroniza terapeutas novos do seed sem sobrescrever os existentes.
+// Só roda quando o seed muda (compara mtime com marcador em data/).
+$seedTerapPath = store_seed_path('terapeutas');
+$markerPath    = TERAP_DATA_DIR . '/.terapeutas-seed.mtime';
+$seedMtime     = is_file($seedTerapPath) ? (string)filemtime($seedTerapPath) : '';
+$markerMtime   = is_file($markerPath) ? trim((string)@file_get_contents($markerPath)) : '';
+if ($seedMtime !== '' && $seedMtime !== $markerMtime) {
+  store_seed_upsert('terapeutas', 'email');
+  @file_put_contents($markerPath, $seedMtime);
+}
+
 // Base para links internos da área restrita (relativa)
 $terapeutasBase = 'index.php';
 

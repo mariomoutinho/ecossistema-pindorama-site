@@ -20,5 +20,16 @@
     "ativo": true,
     "papel": "terapeuta",
     "criado_em": "2026-05-27T00:00:00-03:00"
+  },
+  {
+    "id": 3,
+    "nome": "P. Koilthy",
+    "email": "p.koilthy@gmail.com",
+    "senha_hash": "$2y$10$TdAm3FU72srMEaTLrN.M3upMMU/WOHuDaS.ERGntjm346k2w9W9cS",
+    "telefone": "",
+    "especialidade": "Terapeuta",
+    "ativo": true,
+    "papel": "terapeuta",
+    "criado_em": "2026-05-27T00:00:00-03:00"
   }
 ]

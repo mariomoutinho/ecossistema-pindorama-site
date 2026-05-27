@@ -45,6 +45,43 @@ function store_bootstrap(string $table): void {
   file_put_contents($path, json_encode([], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE), LOCK_EX);
 }
 
+/**
+ * Aplica entradas novas do seed a uma tabela já existente, identificando
+ * duplicatas por uma chave (e-mail, por padrão). Útil para introduzir novos
+ * terapeutas em produção sem precisar mexer no JSON manualmente.
+ *
+ * Não sobrescreve registros existentes: se a chave já estiver presente,
+ * ignora a entrada do seed.
+ */
+function store_seed_upsert(string $table, string $chave = 'email'): int {
+  $seedPath = store_seed_path($table);
+  if (!is_file($seedPath)) return 0;
+
+  $seed = json_decode((string)@file_get_contents($seedPath), true);
+  if (!is_array($seed)) return 0;
+
+  $existentes = store_all($table);
+  $chavesExistentes = [];
+  foreach ($existentes as $r) {
+    if (!empty($r[$chave])) $chavesExistentes[strtolower((string)$r[$chave])] = true;
+  }
+
+  $adicionados = 0;
+  foreach ($seed as $entrada) {
+    if (empty($entrada[$chave])) continue;
+    $k = strtolower((string)$entrada[$chave]);
+    if (isset($chavesExistentes[$k])) continue;
+
+    // Garante id único — não confia no id do seed para evitar colisão.
+    unset($entrada['id']);
+    store_insert($table, $entrada);
+    $chavesExistentes[$k] = true;
+    $adicionados++;
+  }
+
+  return $adicionados;
+}
+
 function store_all(string $table): array {
   store_bootstrap($table);
   $raw = @file_get_contents(store_path($table));
