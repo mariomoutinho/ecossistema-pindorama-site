@@ -444,9 +444,161 @@
   line-height: 1.3;
 }
 .terap-week__event strong { display: block; font-size: 12px; }
-.terap-week__event small { color: var(--muted); font-size: 10px; }
+.terap-week__event small { color: var(--muted); font-size: 10px; display: block; }
 .terap-week__event--sand { background: linear-gradient(135deg, rgba(244, 231, 211, .22), rgba(244, 231, 211, .08)); border-color: rgba(244, 231, 211, .35); }
 .terap-week__event--clay { background: linear-gradient(135deg, rgba(196, 106, 74, .22), rgba(196, 106, 74, .08)); border-color: rgba(196, 106, 74, .35); }
+
+/* Variantes por status */
+.terap-week__event--realizado {
+  background: linear-gradient(135deg, rgba(244, 231, 211, .28), rgba(244, 231, 211, .10));
+  border-color: rgba(244, 231, 211, .45);
+}
+.terap-week__event--cancelado {
+  background: repeating-linear-gradient(135deg, rgba(196, 106, 74, .12) 0 8px, rgba(196, 106, 74, .04) 8px 16px);
+  border-color: rgba(196, 106, 74, .35);
+  text-decoration: line-through;
+  opacity: .78;
+}
+.terap-week__event__badge {
+  display: inline-block;
+  margin-top: 3px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  text-decoration: none;
+  background: rgba(244, 231, 211, .14);
+  color: var(--sand);
+}
+.terap-week__event--cancelado .terap-week__event__badge {
+  background: rgba(196, 106, 74, .25);
+  color: var(--clay2);
+}
+
+/* ----------------- Filtros de status ----------------- */
+.terap-filters {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  background: rgba(7, 17, 14, .45);
+  padding: 4px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  margin-bottom: 18px;
+}
+.terap-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+  transition: background .15s ease, color .15s ease;
+}
+.terap-filter:hover { background: rgba(234, 243, 239, .06); color: var(--text); }
+.terap-filter.is-active {
+  background: linear-gradient(135deg, var(--leaf), var(--leaf2));
+  color: #052015;
+  box-shadow: 0 6px 18px rgba(62, 142, 106, .25);
+}
+.terap-filter span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  font-size: 10px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, .22);
+  color: inherit;
+}
+
+/* ----------------- Badges de status ----------------- */
+.terap-tooltip__status {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  border: 1px solid transparent;
+}
+.terap-tooltip__status--agendado  { background: rgba(102, 180, 143, .18); color: var(--leaf2); border-color: rgba(102, 180, 143, .35); }
+.terap-tooltip__status--realizado { background: rgba(244, 231, 211, .14); color: var(--sand);  border-color: rgba(244, 231, 211, .35); }
+.terap-tooltip__status--cancelado { background: rgba(196, 106, 74, .18);  color: var(--clay2); border-color: rgba(196, 106, 74, .35);  }
+
+.terap-row--cancelado td { opacity: .65; }
+.terap-row--cancelado td:nth-child(5) { text-decoration: line-through; }
+
+/* ----------------- Tooltip rico (hover/focus/touch) ----------------- */
+.terap-tooltip-host {
+  position: relative;
+  display: block;
+}
+.terap-tooltip {
+  position: absolute;
+  z-index: 80;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  width: 280px;
+  max-width: 88vw;
+  padding: 14px;
+  background: #0E1C17;
+  border: 1px solid rgba(102, 180, 143, .35);
+  border-radius: 14px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .55);
+  color: var(--text);
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .15s ease, transform .15s ease, visibility 0s linear .15s;
+  text-decoration: none;
+  white-space: normal;
+  text-align: left;
+}
+.terap-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: rgba(102, 180, 143, .55);
+}
+.terap-tooltip-host:hover .terap-tooltip,
+.terap-tooltip-host:focus-within .terap-tooltip,
+.terap-tooltip-host.is-touched .terap-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+  transition-delay: 0s, 0s, 0s;
+}
+.terap-tooltip__head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(234, 243, 239, .12);
+}
+.terap-tooltip__head strong { font-size: 14px; color: var(--text); }
+.terap-tooltip__list { display: grid; gap: 6px; margin: 0; }
+.terap-tooltip__list > div { display: grid; grid-template-columns: 90px 1fr; gap: 8px; }
+.terap-tooltip__list dt { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .5px; margin: 0; }
+.terap-tooltip__list dd { margin: 0; color: var(--text); font-size: 12px; }
 
 /* ----------------- Login ----------------- */
 .terap-body--auth {
@@ -496,4 +648,17 @@
   .terap-topbar__userMeta { display: none; }
   .terap-main { padding: 18px; }
   .terap-week { grid-template-columns: 50px repeat(7, minmax(80px, 1fr)); overflow-x: auto; }
+
+  /* Tooltip se adapta ao mobile: ancora à esquerda do bloco, ocupa quase a tela */
+  .terap-tooltip {
+    width: 260px;
+    left: 0;
+    transform: translateX(0) translateY(4px);
+  }
+  .terap-tooltip-host:hover .terap-tooltip,
+  .terap-tooltip-host:focus-within .terap-tooltip,
+  .terap-tooltip-host.is-touched .terap-tooltip {
+    transform: translateX(0) translateY(0);
+  }
+  .terap-tooltip::after { left: 18px; transform: none; }
 }

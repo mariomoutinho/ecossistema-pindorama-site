@@ -2,9 +2,12 @@
 // ================================
 // Agenda do Espaço Pindorama.
 // - Lista visão semanal (segunda a domingo).
-// - Cria/edita atendimentos com validação de conflito por sala+horário.
-// - Cancela atendimentos (e remove lembretes correspondentes).
+// - Cria/edita/marca-realizado/cancela atendimentos.
+// - Cancelamento NUNCA apaga: o registro fica com status="cancelado".
+// - Apenas atendimentos com status "agendado" ou "realizado" bloqueiam horários;
+//   "cancelado" é sempre ignorado pela checagem de conflito.
 // - Ao salvar, enfileira automaticamente os 3 lembretes de WhatsApp.
+// - Hover/touch em cada bloco mostra tooltip com dados do atendimento.
 // ================================
 require_once __DIR__ . '/bootstrap.php';
 auth_require_login('login.php');
@@ -25,26 +28,32 @@ function ha_conflito(array $todos, string $data, string $hi, string $hf, string 
   $hfNew = strtotime($data . ' ' . $hf);
   foreach ($todos as $a) {
     if ($ignorarId !== null && (int)$a['id'] === $ignorarId) continue;
+    // Cancelados nunca bloqueiam horário.
     if (($a['status'] ?? '') === 'cancelado') continue;
     if (($a['data'] ?? '') !== $data) continue;
     if (($a['sala'] ?? '') !== $sala) continue;
     $hiE = strtotime($data . ' ' . substr($a['hora_inicio'] ?? '', 0, 5));
     $hfE = strtotime($data . ' ' . substr($a['hora_fim']    ?? '', 0, 5));
     if ($hiE === false || $hfE === false) continue;
-    // overlap: começa antes do outro terminar e termina depois do outro começar
     if ($hiNew < $hfE && $hfNew > $hiE) return true;
   }
   return false;
 }
+function status_label(string $s): string {
+  return [
+    'agendado'  => 'Agendado',
+    'realizado' => 'Realizado',
+    'cancelado' => 'Cancelado',
+  ][$s] ?? ucfirst($s);
+}
 
 // ----------- estado -----------
 $erros   = [];
-$avisoOk = null;
 $editarId = isset($_GET['editar']) ? (int)$_GET['editar'] : 0;
 $mostrarForm = isset($_GET['novo']) || $editarId > 0;
 $registroEdit = $editarId ? store_find('agendamentos', $editarId) : null;
 
-// ----------- POST: salvar / cancelar -----------
+// ----------- POST: salvar / cancelar / realizar -----------
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if (!auth_csrf_check($_POST['csrf'] ?? null)) {
     $erros[] = 'Sessão expirada. Recarregue a página.';
@@ -55,11 +64,51 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $id = (int)($_POST['id'] ?? 0);
       $atend = store_find('agendamentos', $id);
       if ($atend) {
-        store_update('agendamentos', $id, ['status' => 'cancelado']);
+        $motivo = trim((string)($_POST['motivo'] ?? ''));
+        store_update('agendamentos', $id, [
+          'status'          => 'cancelado',
+          'cancelado_em'    => date('c'),
+          'cancelado_por'   => (int)$terapeutaLogado['id'],
+          'motivo_cancel'   => $motivo,
+        ]);
         whats_remover_de_atendimento($id);
-        flash_set('success', 'Atendimento cancelado e lembretes removidos.');
+        flash_set('success', 'Atendimento cancelado. Histórico preservado e lembretes removidos.');
       } else {
         flash_set('error', 'Atendimento não encontrado.');
+      }
+      header('Location: agenda.php');
+      exit;
+    }
+
+    if ($acao === 'realizar') {
+      $id = (int)($_POST['id'] ?? 0);
+      $atend = store_find('agendamentos', $id);
+      if ($atend) {
+        store_update('agendamentos', $id, [
+          'status'        => 'realizado',
+          'realizado_em'  => date('c'),
+          'realizado_por' => (int)$terapeutaLogado['id'],
+        ]);
+        flash_set('success', 'Atendimento marcado como realizado.');
+      } else {
+        flash_set('error', 'Atendimento não encontrado.');
+      }
+      header('Location: agenda.php');
+      exit;
+    }
+
+    if ($acao === 'reativar') {
+      $id = (int)($_POST['id'] ?? 0);
+      $atend = store_find('agendamentos', $id);
+      if ($atend) {
+        // Checa conflito antes de reativar
+        if (ha_conflito(store_all('agendamentos'), $atend['data'], $atend['hora_inicio'], $atend['hora_fim'], $atend['sala'], $id)) {
+          flash_set('error', 'Não foi possível reativar: já existe outro atendimento ativo nesse horário/sala.');
+        } else {
+          store_update('agendamentos', $id, ['status' => 'agendado']);
+          whats_enfileirar_para_atendimento(array_merge($atend, ['status' => 'agendado']), store_find('terapeutas', (int)$atend['terapeuta_id']));
+          flash_set('success', 'Atendimento reativado.');
+        }
       }
       header('Location: agenda.php');
       exit;
@@ -105,14 +154,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           'terapeuta_id' => $terapId,
           'paciente'     => $paciente,
           'observacoes'  => $observacoes,
-          'status'       => 'agendado',
         ];
+        if (!$id) {
+          $payload['status'] = 'agendado';
+        }
 
         if ($id) {
           $atualizado = store_update('agendamentos', $id, $payload);
-          // Regenera lembretes (remove antigos e cria de novo)
           whats_remover_de_atendimento($id);
-          whats_enfileirar_para_atendimento($atualizado, store_find('terapeutas', $terapId));
+          if (($atualizado['status'] ?? 'agendado') !== 'cancelado') {
+            whats_enfileirar_para_atendimento($atualizado, store_find('terapeutas', $terapId));
+          }
           flash_set('success', 'Atendimento atualizado.');
         } else {
           $criado = store_insert('agendamentos', $payload);
@@ -123,7 +175,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header('Location: agenda.php');
         exit;
       } else {
-        // Repopular form com os valores enviados
         $registroEdit = [
           'id'           => $id,
           'data'         => $data,
@@ -151,13 +202,32 @@ for ($i = 0; $i < 7; $i++) {
 $prevSemana = date('Y-m-d', strtotime('-7 day', strtotime($inicio)));
 $nextSemana = date('Y-m-d', strtotime('+7 day', strtotime($inicio)));
 
-// Eventos da semana
+// Filtro de status (padrão: ativos = agendado+realizado, cancelados ficam escondidos)
+$filtroStatus = $_GET['status'] ?? 'ativos';
+if (!in_array($filtroStatus, ['ativos', 'cancelados', 'todos'], true)) $filtroStatus = 'ativos';
+
+function evento_passa_filtro(array $a, string $filtro): bool {
+  $s = $a['status'] ?? 'agendado';
+  if ($filtro === 'todos')      return true;
+  if ($filtro === 'cancelados') return $s === 'cancelado';
+  // ativos
+  return $s !== 'cancelado';
+}
+
 $todosAtend = store_all('agendamentos');
 $eventosPorDia = array_fill_keys($diasSem, []);
 foreach ($todosAtend as $a) {
-  if (($a['status'] ?? '') === 'cancelado') continue;
+  if (!evento_passa_filtro($a, $filtroStatus)) continue;
   $d = $a['data'] ?? '';
   if (isset($eventosPorDia[$d])) $eventosPorDia[$d][] = $a;
+}
+
+$contagens = ['ativos' => 0, 'cancelados' => 0, 'todos' => 0];
+foreach ($todosAtend as $a) {
+  $s = $a['status'] ?? 'agendado';
+  $contagens['todos']++;
+  if ($s === 'cancelado') $contagens['cancelados']++;
+  else                    $contagens['ativos']++;
 }
 
 $terapeutasAtivos = store_where('terapeutas', fn($r) => !empty($r['ativo']));
@@ -169,19 +239,62 @@ require __DIR__ . '/partials/header.php';
 
 $horasGrade = range(7, 21); // 07h–21h
 $diasLabel  = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'];
+
+// helper para montar a string do tooltip (escapado)
+function tooltip_render(array $e, array $salas, callable $nomeT): string {
+  $tNome = $nomeT((int)($e['terapeuta_id'] ?? 0));
+  $status = $e['status'] ?? 'agendado';
+  $obs = trim((string)($e['observacoes'] ?? ''));
+  $sala = $salas[$e['sala'] ?? ''] ?? ($e['sala'] ?? '—');
+
+  $h  = '<div class="terap-tooltip__head">';
+  $h .= '<strong>' . htmlspecialchars($e['paciente'] ?? '—') . '</strong>';
+  $h .= '<span class="terap-tooltip__status terap-tooltip__status--' . htmlspecialchars($status) . '">' . htmlspecialchars(status_label($status)) . '</span>';
+  $h .= '</div>';
+  $h .= '<dl class="terap-tooltip__list">';
+  $h .= '<div><dt>Terapeuta</dt><dd>' . htmlspecialchars($tNome) . '</dd></div>';
+  $h .= '<div><dt>Data</dt><dd>' . htmlspecialchars(date('d/m/Y', strtotime($e['data']))) . '</dd></div>';
+  $h .= '<div><dt>Horário</dt><dd>' . htmlspecialchars(substr($e['hora_inicio'], 0, 5)) . ' – ' . htmlspecialchars(substr($e['hora_fim'], 0, 5)) . '</dd></div>';
+  $h .= '<div><dt>Sala</dt><dd>' . htmlspecialchars($sala) . '</dd></div>';
+  if ($obs !== '') {
+    $h .= '<div><dt>Observações</dt><dd>' . nl2br(htmlspecialchars($obs)) . '</dd></div>';
+  }
+  if ($status === 'cancelado' && !empty($e['motivo_cancel'])) {
+    $h .= '<div><dt>Motivo</dt><dd>' . htmlspecialchars($e['motivo_cancel']) . '</dd></div>';
+  }
+  $h .= '</dl>';
+  return $h;
+}
+$nomeTerap = function (int $id): string {
+  $t = store_find('terapeutas', $id);
+  return $t['nome'] ?? '—';
+};
 ?>
 
 <div class="terap-page-head">
   <div>
     <h1>Agenda do espaço</h1>
-    <p>Visão semanal · começa na segunda · marcações bloqueiam choque de horários por sala.</p>
+    <p>Visão semanal · começa na segunda · marcações bloqueiam choque de horários por sala (cancelados nunca bloqueiam).</p>
   </div>
   <div style="display:flex;gap:8px;flex-wrap:wrap;">
-    <a class="terap-btn" href="agenda.php?semana=<?= htmlspecialchars($prevSemana) ?>">← Semana</a>
-    <a class="terap-btn" href="agenda.php">Hoje</a>
-    <a class="terap-btn" href="agenda.php?semana=<?= htmlspecialchars($nextSemana) ?>">Semana →</a>
+    <a class="terap-btn" href="agenda.php?semana=<?= htmlspecialchars($prevSemana) ?>&status=<?= htmlspecialchars($filtroStatus) ?>">← Semana</a>
+    <a class="terap-btn" href="agenda.php?status=<?= htmlspecialchars($filtroStatus) ?>">Hoje</a>
+    <a class="terap-btn" href="agenda.php?semana=<?= htmlspecialchars($nextSemana) ?>&status=<?= htmlspecialchars($filtroStatus) ?>">Semana →</a>
     <a class="terap-btn terap-btn--primary" href="agenda.php?novo=1">+ Novo atendimento</a>
   </div>
+</div>
+
+<!-- FILTROS DE STATUS -->
+<div class="terap-filters" role="group" aria-label="Filtrar por status">
+  <a class="terap-filter <?= $filtroStatus === 'ativos' ? 'is-active' : '' ?>" href="agenda.php?status=ativos&semana=<?= htmlspecialchars($inicio) ?>">
+    Ativos <span><?= $contagens['ativos'] ?></span>
+  </a>
+  <a class="terap-filter <?= $filtroStatus === 'cancelados' ? 'is-active' : '' ?>" href="agenda.php?status=cancelados&semana=<?= htmlspecialchars($inicio) ?>">
+    Cancelados <span><?= $contagens['cancelados'] ?></span>
+  </a>
+  <a class="terap-filter <?= $filtroStatus === 'todos' ? 'is-active' : '' ?>" href="agenda.php?status=todos&semana=<?= htmlspecialchars($inicio) ?>">
+    Todos <span><?= $contagens['todos'] ?></span>
+  </a>
 </div>
 
 <?php if ($flash): ?>
@@ -268,7 +381,7 @@ $diasLabel  = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'];
 <!-- VISÃO SEMANAL -->
 <section class="terap-card terap-span-12">
   <h2>Semana de <?= htmlspecialchars(fmt_data_pt($inicio)) ?></h2>
-  <p style="margin-bottom:14px;">Cada coluna é um dia; cada bloco colorido é um atendimento. Clique para editar.</p>
+  <p style="margin-bottom:14px;">Passe o mouse (ou toque, no celular) sobre um bloco para ver os detalhes do atendimento.</p>
 
   <div class="terap-week" role="table" aria-label="Agenda semanal">
     <div class="terap-week__hourHead">Hora</div>
@@ -292,15 +405,26 @@ $diasLabel  = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'];
         <div class="terap-week__cell">
           <?php foreach ($eventos as $e):
             $mine = (int)($e['terapeuta_id'] ?? 0) === (int)$terapeutaLogado['id'];
-            $cls = $mine ? '' : ' terap-week__event--sand';
+            $status = $e['status'] ?? 'agendado';
+            $cls = ' terap-week__event--' . htmlspecialchars($status);
+            if ($status === 'agendado' && !$mine) $cls .= ' terap-week__event--sand';
             $tNome = store_find('terapeutas', (int)$e['terapeuta_id']);
             $tNomeStr = $tNome['nome'] ?? '—';
+            $tipId = 'tip-' . (int)$e['id'];
           ?>
-            <a class="terap-week__event<?= $cls ?>" href="agenda.php?editar=<?= (int)$e['id'] ?>" title="Editar">
-              <strong><?= htmlspecialchars(substr($e['hora_inicio'], 0, 5)) ?>–<?= htmlspecialchars(substr($e['hora_fim'], 0, 5)) ?></strong>
-              <?= htmlspecialchars($e['paciente'] ?? '—') ?>
-              <small><?= htmlspecialchars($salasDisponiveis[$e['sala'] ?? ''] ?? '') ?> · <?= htmlspecialchars(explode(' ', $tNomeStr)[0]) ?></small>
-            </a>
+            <span class="terap-tooltip-host">
+              <a class="terap-week__event<?= $cls ?>"
+                 href="agenda.php?editar=<?= (int)$e['id'] ?>"
+                 aria-describedby="<?= $tipId ?>">
+                <strong><?= htmlspecialchars(substr($e['hora_inicio'], 0, 5)) ?>–<?= htmlspecialchars(substr($e['hora_fim'], 0, 5)) ?></strong>
+                <?= htmlspecialchars($e['paciente'] ?? '—') ?>
+                <small><?= htmlspecialchars($salasDisponiveis[$e['sala'] ?? ''] ?? '') ?> · <?= htmlspecialchars(explode(' ', $tNomeStr)[0]) ?></small>
+                <?php if ($status !== 'agendado'): ?>
+                  <em class="terap-week__event__badge"><?= htmlspecialchars(status_label($status)) ?></em>
+                <?php endif; ?>
+              </a>
+              <div class="terap-tooltip" id="<?= $tipId ?>" role="tooltip"><?= tooltip_render($e, $salasDisponiveis, $nomeTerap) ?></div>
+            </span>
           <?php endforeach; ?>
         </div>
       <?php endforeach; ?>
@@ -311,7 +435,7 @@ $diasLabel  = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'];
 <!-- LISTA DETALHADA DA SEMANA -->
 <section class="terap-card terap-span-12" style="margin-top:18px;">
   <h2>Atendimentos da semana</h2>
-  <p style="margin-bottom:12px;">Lista completa para edição/cancelamento.</p>
+  <p style="margin-bottom:12px;">Lista completa para editar, marcar como realizado ou cancelar.</p>
 
   <?php
     $atendSemana = [];
@@ -322,7 +446,7 @@ $diasLabel  = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'];
   ?>
 
   <?php if (!$atendSemana): ?>
-    <div class="terap-alert terap-alert--info">Nenhum atendimento ativo nesta semana.</div>
+    <div class="terap-alert terap-alert--info">Nenhum atendimento nessa semana para esse filtro.</div>
   <?php else: ?>
     <table class="terap-table">
       <thead>
@@ -332,6 +456,7 @@ $diasLabel  = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'];
           <th>Sala</th>
           <th>Terapeuta</th>
           <th>Paciente</th>
+          <th>Status</th>
           <th>Ações</th>
         </tr>
       </thead>
@@ -339,22 +464,46 @@ $diasLabel  = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'];
         <?php foreach ($atendSemana as $e):
           $tNome = store_find('terapeutas', (int)$e['terapeuta_id']);
           $tNomeStr = $tNome['nome'] ?? '—';
+          $status = $e['status'] ?? 'agendado';
         ?>
-          <tr>
+          <tr class="terap-row--<?= htmlspecialchars($status) ?>">
             <td><?= htmlspecialchars(date('d/m', strtotime($e['data']))) ?> <span style="color:var(--muted)"><?= htmlspecialchars($diasLabel[(int)date('N', strtotime($e['data'])) - 1] ?? '') ?></span></td>
             <td><?= htmlspecialchars(substr($e['hora_inicio'], 0, 5)) ?>–<?= htmlspecialchars(substr($e['hora_fim'], 0, 5)) ?></td>
             <td><?= htmlspecialchars($salasDisponiveis[$e['sala'] ?? ''] ?? '') ?></td>
             <td><?= htmlspecialchars($tNomeStr) ?></td>
             <td><?= htmlspecialchars($e['paciente'] ?? '') ?></td>
+            <td>
+              <span class="terap-tooltip__status terap-tooltip__status--<?= htmlspecialchars($status) ?>">
+                <?= htmlspecialchars(status_label($status)) ?>
+              </span>
+            </td>
             <td style="white-space:nowrap;">
-              <a class="terap-btn terap-btn--sm" href="agenda.php?editar=<?= (int)$e['id'] ?>">Editar</a>
-              <a class="terap-btn terap-btn--sm" href="evolucoes.php?nova=1&atendimento_id=<?= (int)$e['id'] ?>">Evolução</a>
-              <form method="post" action="agenda.php" style="display:inline" onsubmit="return confirm('Cancelar este atendimento?');">
-                <input type="hidden" name="csrf" value="<?= htmlspecialchars(auth_csrf_token()) ?>">
-                <input type="hidden" name="acao" value="cancelar">
-                <input type="hidden" name="id" value="<?= (int)$e['id'] ?>">
-                <button class="terap-btn terap-btn--sm terap-btn--danger" type="submit">Cancelar</button>
-              </form>
+              <?php if ($status !== 'cancelado'): ?>
+                <a class="terap-btn terap-btn--sm" href="agenda.php?editar=<?= (int)$e['id'] ?>">Editar</a>
+                <a class="terap-btn terap-btn--sm" href="evolucoes.php?nova=1&atendimento_id=<?= (int)$e['id'] ?>">Evolução</a>
+                <?php if ($status === 'agendado'): ?>
+                  <form method="post" action="agenda.php" style="display:inline">
+                    <input type="hidden" name="csrf" value="<?= htmlspecialchars(auth_csrf_token()) ?>">
+                    <input type="hidden" name="acao" value="realizar">
+                    <input type="hidden" name="id" value="<?= (int)$e['id'] ?>">
+                    <button class="terap-btn terap-btn--sm" type="submit" title="Marcar como realizado">✓ Realizado</button>
+                  </form>
+                <?php endif; ?>
+                <form method="post" action="agenda.php" style="display:inline" onsubmit="var m=prompt('Cancelar este atendimento?\nMotivo (opcional):'); if(m===null) return false; this.motivo.value = m; return true;">
+                  <input type="hidden" name="csrf" value="<?= htmlspecialchars(auth_csrf_token()) ?>">
+                  <input type="hidden" name="acao" value="cancelar">
+                  <input type="hidden" name="id" value="<?= (int)$e['id'] ?>">
+                  <input type="hidden" name="motivo" value="">
+                  <button class="terap-btn terap-btn--sm terap-btn--danger" type="submit">Cancelar</button>
+                </form>
+              <?php else: ?>
+                <form method="post" action="agenda.php" style="display:inline" onsubmit="return confirm('Reativar este atendimento? Se houver conflito de horário, a operação será bloqueada.');">
+                  <input type="hidden" name="csrf" value="<?= htmlspecialchars(auth_csrf_token()) ?>">
+                  <input type="hidden" name="acao" value="reativar">
+                  <input type="hidden" name="id" value="<?= (int)$e['id'] ?>">
+                  <button class="terap-btn terap-btn--sm" type="submit">Reativar</button>
+                </form>
+              <?php endif; ?>
             </td>
           </tr>
         <?php endforeach; ?>
@@ -362,5 +511,37 @@ $diasLabel  = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'];
     </table>
   <?php endif; ?>
 </section>
+
+<script>
+// Tooltip: em telas touch, abrir/fechar no tap (não atrapalha clique pra editar).
+(function () {
+  var hosts = document.querySelectorAll('.terap-tooltip-host');
+  if (!hosts.length) return;
+
+  var isTouch = window.matchMedia('(hover: none)').matches;
+  if (!isTouch) return;
+
+  function closeAll(except) {
+    hosts.forEach(function (h) { if (h !== except) h.classList.remove('is-touched'); });
+  }
+
+  hosts.forEach(function (host) {
+    var link = host.querySelector('.terap-week__event');
+    if (!link) return;
+    link.addEventListener('click', function (ev) {
+      // Primeiro toque: só abre o tooltip. Segundo toque: navega.
+      if (!host.classList.contains('is-touched')) {
+        ev.preventDefault();
+        closeAll(host);
+        host.classList.add('is-touched');
+      }
+    });
+  });
+
+  document.addEventListener('click', function (ev) {
+    if (!ev.target.closest('.terap-tooltip-host')) closeAll(null);
+  }, true);
+})();
+</script>
 
 <?php require __DIR__ . '/partials/footer.php'; ?>

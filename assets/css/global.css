@@ -61,6 +61,18 @@ a{ color: inherit; text-decoration: none; }
   border-color: rgba(244,231,211,.22);
   color: var(--sand);
 }
+.btn.btn--terapeutas{
+  gap: 8px;
+  border-color: rgba(102,180,143,.45);
+  color: var(--leaf2);
+  background: rgba(102,180,143,.10);
+  font-weight: 600;
+}
+.btn.btn--terapeutas:hover{
+  background: rgba(102,180,143,.18);
+  border-color: rgba(102,180,143,.65);
+  color: var(--text);
+}
 
 .link{ color: var(--sand); text-decoration: underline; }
 
@@ -209,6 +221,7 @@ a:focus-visible,
   .hamb{ display:inline-flex; }
   .sectionHead{ flex-direction: column; align-items:flex-start; }
   .cta{ gap:8px; }
+  .cta .btn--terapeutas{ display:none; } /* aparece dentro do drawer no mobile */
   .span4{ grid-column: span 12; }
   .footLinks{ width:100%; }
 }

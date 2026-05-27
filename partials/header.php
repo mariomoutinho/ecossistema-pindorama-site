@@ -53,6 +53,9 @@ $homePrefix = ($active === 'home') ? '' : htmlspecialchars($homeUrl);
       </nav>
 
       <div class="cta">
+        <a class="btn ghost btn--terapeutas" href="terapeutas/" title="Acesso restrito da equipe de terapeutas">
+          <span aria-hidden="true">◐</span> Área dos terapeutas
+        </a>
         <a class="btn primary" href="<?= htmlspecialchars($whatsLink) ?>" target="_blank" rel="noopener">
           Agendar no WhatsApp
         </a>
@@ -66,6 +69,7 @@ $homePrefix = ($active === 'home') ? '' : htmlspecialchars($homeUrl);
       <div class="drawerActions">
         <a class="btn primary" href="<?= htmlspecialchars($whatsLink) ?>" target="_blank" rel="noopener">Agendar no WhatsApp</a>
         <a class="btn" href="<?= $homePrefix ?>#contato">Falar com a gente</a>
+        <a class="btn ghost btn--terapeutas" href="terapeutas/"><span aria-hidden="true">◐</span> Área dos terapeutas</a>
       </div>
 
       <div class="drawerLinks">
@@ -76,6 +80,7 @@ $homePrefix = ($active === 'home') ? '' : htmlspecialchars($homeUrl);
         <a href="<?= htmlspecialchars($gessUrl) ?>"<?= $active === 'gess' ? ' aria-current="page"' : '' ?>>Sementeira</a>
         <a href="<?= $homePrefix ?>#sobre">Sobre</a>
         <a href="<?= $homePrefix ?>#contato">Contato</a>
+        <a href="terapeutas/">Área dos terapeutas</a>
       </div>
     </div>
   </div>
