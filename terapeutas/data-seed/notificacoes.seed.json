@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "tipo": "aviso",
+    "titulo": "Bem-vinda(o) ao Espaço Pindorama",
+    "mensagem": "Esta é sua área restrita. Use a Agenda para marcar atendimentos e a Evolução para registrar as sessões. Os lembretes de WhatsApp são programados automaticamente.",
+    "criado_em": "2026-05-27T08:00:00-03:00",
+    "fixada": true
+  },
+  {
+    "id": 2,
+    "tipo": "aviso",
+    "titulo": "Reunião de cuidado coletivo",
+    "mensagem": "Lembrando: toda primeira segunda do mês, às 19h, no salão coletivo. Espaço para troca, supervisão e cuidado entre nós.",
+    "criado_em": "2026-05-27T08:00:00-03:00",
+    "fixada": false
+  }
+]

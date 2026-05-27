@@ -23,6 +23,8 @@ $pageScripts = $pageScripts ?? [];
       <a href="<?= htmlspecialchars($insta) ?>" target="_blank" rel="noopener" class="link">Instagram</a>
       <span class="sep">•</span>
       <a href="<?= htmlspecialchars($whatsLink) ?>" target="_blank" rel="noopener" class="link">WhatsApp</a>
+      <span class="sep">•</span>
+      <a href="terapeutas/" class="link">Área dos terapeutas</a>
     </nav>
   </div>
 </footer>

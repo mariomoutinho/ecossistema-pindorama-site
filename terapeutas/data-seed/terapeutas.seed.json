@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "nome": "Coordenação Pindorama",
+    "email": "admin@pindorama.local",
+    "senha_hash": "$2y$10$I6o6AszNKdfW4wp9nTGmqurCmV9.sLBvzE9fpWZovgXMm6pakdPlu",
+    "telefone": "5581995216450",
+    "especialidade": "Coordenação do Espaço",
+    "ativo": true,
+    "papel": "admin",
+    "criado_em": "2026-05-27T00:00:00-03:00"
+  },
+  {
+    "id": 2,
+    "nome": "Terapeuta Exemplo",
+    "email": "terapeuta@pindorama.local",
+    "senha_hash": "$2y$10$8/bu2eN4T1wSouAP.UrKQ.bWSZxL7I6Huqr1kl3aHZAwwNcyP3pRe",
+    "telefone": "5581900000000",
+    "especialidade": "Massoterapia",
+    "ativo": true,
+    "papel": "terapeuta",
+    "criado_em": "2026-05-27T00:00:00-03:00"
+  }
+]
