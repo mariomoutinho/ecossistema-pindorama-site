@@ -80,6 +80,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       exit;
     }
 
+    if ($acao === 'excluir') {
+      $id = (int)($_POST['id'] ?? 0);
+      $atend = store_find('agendamentos', $id);
+      if ($atend) {
+        // Exclusão definitiva: remove o registro e qualquer lembrete vinculado.
+        whats_remover_de_atendimento($id);
+        store_delete('agendamentos', $id);
+        flash_set('success', 'Atendimento excluído definitivamente.');
+      } else {
+        flash_set('error', 'Atendimento não encontrado.');
+      }
+      header('Location: agenda.php');
+      exit;
+    }
+
     if ($acao === 'realizar') {
       $id = (int)($_POST['id'] ?? 0);
       $atend = store_find('agendamentos', $id);
@@ -306,10 +321,18 @@ $nomeTerap = function (int $id): string {
 
 <?php if ($mostrarForm):
   $csrf = auth_csrf_token();
-  $valData    = $registroEdit['data']         ?? date('Y-m-d');
-  $valHi      = $registroEdit['hora_inicio']  ?? '09:00';
-  $valHf      = $registroEdit['hora_fim']     ?? '10:00';
-  $valSala    = $registroEdit['sala']         ?? 'sala-1';
+
+  // Pré-preenchimento via querystring (clique em célula vazia da grade).
+  // Só vale para "novo" — em edição prevalecem os valores do registro.
+  $getData = isset($_GET['data']) && preg_match('/^\d{4}-\d{2}-\d{2}$/', $_GET['data']) ? $_GET['data'] : null;
+  $getHi   = isset($_GET['hora_inicio']) && preg_match('/^\d{2}:\d{2}$/', $_GET['hora_inicio']) ? $_GET['hora_inicio'] : null;
+  $getSala = isset($_GET['sala']) && isset($salasDisponiveis[$_GET['sala']]) ? $_GET['sala'] : null;
+  $getHf   = $getHi ? date('H:i', strtotime($getHi) + 3600) : null;
+
+  $valData    = $registroEdit['data']         ?? $getData ?? date('Y-m-d');
+  $valHi      = $registroEdit['hora_inicio']  ?? $getHi   ?? '09:00';
+  $valHf      = $registroEdit['hora_fim']     ?? $getHf   ?? '10:00';
+  $valSala    = $registroEdit['sala']         ?? $getSala ?? 'sala-1';
   $valTerap   = (int)($registroEdit['terapeuta_id'] ?? $terapeutaLogado['id']);
   $valPaciente= $registroEdit['paciente']     ?? '';
   $valObs     = $registroEdit['observacoes']  ?? '';
@@ -401,7 +424,19 @@ $nomeTerap = function (int $id): string {
           $eh = (int)substr($e['hora_inicio'] ?? '', 0, 2);
           return $eh === $h;
         });
+        $celulaVazia = empty($eventos);
+        $novoHref = 'agenda.php?novo=1'
+                  . '&data=' . urlencode($d)
+                  . '&hora_inicio=' . urlencode(sprintf('%02d:00', $h));
       ?>
+        <?php if ($celulaVazia): ?>
+          <a class="terap-week__cell terap-week__cell--empty"
+             href="<?= htmlspecialchars($novoHref) ?>"
+             title="Marcar atendimento neste horário"
+             aria-label="Marcar atendimento em <?= htmlspecialchars(date('d/m', strtotime($d))) ?> às <?= sprintf('%02d:00', $h) ?>">
+            <span class="terap-week__cell__plus" aria-hidden="true">+</span>
+          </a>
+        <?php else: ?>
         <div class="terap-week__cell">
           <?php foreach ($eventos as $e):
             $mine = (int)($e['terapeuta_id'] ?? 0) === (int)$terapeutaLogado['id'];
@@ -427,6 +462,7 @@ $nomeTerap = function (int $id): string {
             </span>
           <?php endforeach; ?>
         </div>
+        <?php endif; ?>
       <?php endforeach; ?>
     <?php endforeach; ?>
   </div>
@@ -504,6 +540,13 @@ $nomeTerap = function (int $id): string {
                   <button class="terap-btn terap-btn--sm" type="submit">Reativar</button>
                 </form>
               <?php endif; ?>
+              <form method="post" action="agenda.php" style="display:inline"
+                    onsubmit="return confirm('Excluir DEFINITIVAMENTE este atendimento de <?= htmlspecialchars($e['paciente'] ?? '—', ENT_QUOTES) ?>?\nO registro será apagado e não poderá ser recuperado.\n\nSe quiser manter o histórico, use \'Cancelar\' em vez de \'Excluir\'.');">
+                <input type="hidden" name="csrf" value="<?= htmlspecialchars(auth_csrf_token()) ?>">
+                <input type="hidden" name="acao" value="excluir">
+                <input type="hidden" name="id" value="<?= (int)$e['id'] ?>">
+                <button class="terap-btn terap-btn--sm terap-btn--danger" type="submit" title="Excluir definitivamente">🗑 Excluir</button>
+              </form>
             </td>
           </tr>
         <?php endforeach; ?>

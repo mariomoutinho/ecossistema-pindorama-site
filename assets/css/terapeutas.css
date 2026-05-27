@@ -433,6 +433,30 @@
   flex-direction: column;
   gap: 4px;
 }
+.terap-week__cell--empty {
+  align-items: center;
+  justify-content: center;
+  color: rgba(234, 243, 239, .18);
+  text-decoration: none;
+  transition: background .15s ease, color .15s ease;
+}
+.terap-week__cell--empty:hover,
+.terap-week__cell--empty:focus-visible {
+  background: rgba(102, 180, 143, .10);
+  color: var(--leaf2);
+  outline: none;
+}
+.terap-week__cell__plus {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1;
+  opacity: 0;
+  transition: opacity .15s ease;
+}
+.terap-week__cell--empty:hover .terap-week__cell__plus,
+.terap-week__cell--empty:focus-visible .terap-week__cell__plus {
+  opacity: 1;
+}
 .terap-week__event {
   display: block;
   padding: 6px 8px;
