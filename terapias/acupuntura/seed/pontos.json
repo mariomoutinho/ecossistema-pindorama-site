@@ -2609,17 +2609,48 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "Canto medial do olho, 0,1 cun acima",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "acoes_energeticas": [
+            "dispersa vento",
+            "clareia visão",
+            "beneficia os olhos"
+        ],
+        "sintomas_relacionados": [
+            "visão turva",
+            "lacrimejamento",
+            "fotofobia",
+            "conjuntivite",
+            "dor ocular"
+        ],
+        "sindromes_relacionadas": [
+            "vento-calor nos olhos",
+            "deficiência de sangue do Fígado"
+        ],
+        "indicacoes_terapeuticas": [
+            "conjuntivite",
+            "miopia",
+            "glaucoma (suporte)",
+            "cataratas (suporte)"
+        ],
+        "contraindicacoes": [
+            "agulhar com extrema cautela pela proximidade ao globo ocular"
+        ],
+        "combinacoes": [
+            {
+                "com": "VG23",
+                "objetivo": "potencializar ação local nos olhos"
+            },
+            {
+                "com": "BP6",
+                "objetivo": "nutrir sangue para os olhos"
+            }
+        ],
+        "observacoes_clinicas": "Ponto de reunião dos canais Yangming, Taiyang, Yang Qiao e Yin Qiao. Não fazer moxa direta.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "B2",
@@ -2627,17 +2658,45 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "Extremidade medial da sobrancelha",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "clareia visão",
+            "alivia dor"
+        ],
+        "sintomas_relacionados": [
+            "cefaleia frontal",
+            "dor supraorbital",
+            "lacrimejamento",
+            "visão turva",
+            "espasmo palpebral"
+        ],
+        "sindromes_relacionadas": [
+            "vento externo invadindo a cabeça",
+            "ascensão de Yang do Fígado"
+        ],
+        "indicacoes_terapeuticas": [
+            "cefaleia frontal",
+            "sinusite frontal",
+            "neuralgia do trigêmeo (1º ramo)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "IG4",
+                "objetivo": "cefaleia frontal e dor supraorbital"
+            },
+            {
+                "com": "VB14",
+                "objetivo": "dor frontal local"
+            }
+        ],
+        "observacoes_clinicas": "Útil em técnicas de agulhamento subcutâneo da sobrancelha em direção a B1 ou Yuyao.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "B3",
@@ -2645,17 +2704,32 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "0,5 cun acima da linha de implantação anterior, vertical de B2",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "clareia a mente"
+        ],
+        "sintomas_relacionados": [
+            "cefaleia",
+            "vertigem",
+            "congestão nasal"
+        ],
+        "sindromes_relacionadas": [
+            "vento externo",
+            "vento interno"
+        ],
+        "indicacoes_terapeuticas": [
+            "rinite",
+            "cefaleia frontal"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "cabeça"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "B4",
@@ -2663,17 +2737,31 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "0,5 cun acima da linha de implantação, 1,5 cun lateral à linha média",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "abre as cavidades nasais"
+        ],
+        "sintomas_relacionados": [
+            "cefaleia",
+            "congestão nasal",
+            "hiposmia"
+        ],
+        "sindromes_relacionadas": [
+            "vento-calor obstruindo o nariz"
+        ],
+        "indicacoes_terapeuticas": [
+            "rinite",
+            "sinusite"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "cabeça"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "B5",
@@ -2681,17 +2769,31 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "1 cun acima da linha de implantação, 1,5 cun lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "acalma o shen"
+        ],
+        "sintomas_relacionados": [
+            "cefaleia",
+            "tontura",
+            "convulsão"
+        ],
+        "sindromes_relacionadas": [
+            "vento interno"
+        ],
+        "indicacoes_terapeuticas": [
+            "epilepsia (suporte)",
+            "cefaleia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "cabeça"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "B6",
@@ -2699,17 +2801,31 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "2,5 cun acima da linha de implantação, 1,5 cun lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "abre as cavidades nasais"
+        ],
+        "sintomas_relacionados": [
+            "cefaleia",
+            "vertigem",
+            "congestão nasal"
+        ],
+        "sindromes_relacionadas": [
+            "vento externo"
+        ],
+        "indicacoes_terapeuticas": [
+            "rinite",
+            "cefaleia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "cabeça"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "B7",
@@ -2717,17 +2833,43 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "4 cun acima da linha de implantação, 1,5 cun lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "abre as cavidades nasais",
+            "clareia a cabeça"
+        ],
+        "sintomas_relacionados": [
+            "congestão nasal",
+            "rinorreia",
+            "anosmia",
+            "cefaleia"
+        ],
+        "sindromes_relacionadas": [
+            "vento-frio no nariz",
+            "vento-calor no nariz"
+        ],
+        "indicacoes_terapeuticas": [
+            "rinite crônica",
+            "sinusite"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
+        "combinacoes": [
+            {
+                "com": "IG20",
+                "objetivo": "rinite e sinusite"
+            },
+            {
+                "com": "IG4",
+                "objetivo": "liberar vento na cabeça"
+            }
+        ],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "B8",
@@ -2735,17 +2877,31 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "5,5 cun acima da linha de implantação, 1,5 cun lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia a visão",
+            "acalma o shen"
+        ],
+        "sintomas_relacionados": [
+            "vertigem",
+            "zumbido",
+            "transtornos mentais"
+        ],
+        "sindromes_relacionadas": [
+            "vento interno",
+            "ascensão de Yang"
+        ],
+        "indicacoes_terapeuticas": [
+            "vertigem"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "cabeça"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "B9",
@@ -2753,17 +2909,37 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "2,5 cun lateral ao centro da protuberância occipital",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "beneficia olhos e nariz",
+            "alivia rigidez occipital"
+        ],
+        "sintomas_relacionados": [
+            "cefaleia occipital",
+            "congestão nasal",
+            "rigidez cervical"
+        ],
+        "sindromes_relacionadas": [
+            "vento externo no Taiyang"
+        ],
+        "indicacoes_terapeuticas": [
+            "cefaleia occipital"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
+        "combinacoes": [
+            {
+                "com": "VB20",
+                "objetivo": "cefaleia occipital"
+            }
+        ],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "cabeça",
+            "pescoço"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "B10",
@@ -2771,17 +2947,47 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "1,3 cun lateral à linha média posterior, na borda lateral do trapézio",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "relaxa tendões",
+            "acalma o shen",
+            "clareia a cabeça"
+        ],
+        "sintomas_relacionados": [
+            "cefaleia occipital",
+            "rigidez cervical",
+            "dor cervical",
+            "insônia",
+            "vertigem"
+        ],
+        "sindromes_relacionadas": [
+            "vento externo invadindo o Taiyang",
+            "ascensão de Yang"
+        ],
+        "indicacoes_terapeuticas": [
+            "cervicalgia",
+            "torcicolo",
+            "cefaleia tensional",
+            "insônia"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VB20",
+                "objetivo": "cervicalgia e cefaleia occipital"
+            },
+            {
+                "com": "ID3",
+                "objetivo": "torcicolo"
+            }
+        ],
+        "observacoes_clinicas": "Ponto-janela do céu (Tian You Wu).",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "pescoço"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "B11",
@@ -2791,17 +2997,45 @@
             "influência dos ossos"
         ],
         "localizacao": "1,5 cun lateral ao processo espinhoso de T1",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "fortalece ossos",
+            "beneficia pescoço e ombros"
+        ],
+        "sintomas_relacionados": [
+            "rigidez cervical",
+            "dor escapular",
+            "tosse",
+            "calafrios"
+        ],
+        "sindromes_relacionadas": [
+            "vento-frio invadindo o Taiyang",
+            "deficiência de ossos"
+        ],
+        "indicacoes_terapeuticas": [
+            "cervicalgia",
+            "dor escapular",
+            "osteoporose (suporte)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "B40",
+                "objetivo": "dor dorsal alta"
+            },
+            {
+                "com": "VB39",
+                "objetivo": "fortalecer ossos"
+            }
+        ],
+        "observacoes_clinicas": "Ponto de reunião dos ossos (oito influências).",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "costas",
+            "pescoço"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "B12",
@@ -2809,17 +3043,46 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "1,5 cun lateral ao processo espinhoso de T2",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "libera o exterior",
+            "fortalece o Wei Qi"
+        ],
+        "sintomas_relacionados": [
+            "febre",
+            "calafrios",
+            "tosse",
+            "dor dorsal alta",
+            "rigidez cervical"
+        ],
+        "sindromes_relacionadas": [
+            "vento-frio invadindo o Wei Qi",
+            "vento-calor"
+        ],
+        "indicacoes_terapeuticas": [
+            "resfriado e gripe",
+            "asma",
+            "bronquite",
+            "urticária"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "IG4",
+                "objetivo": "liberar o exterior em quadros gripais"
+            },
+            {
+                "com": "P7",
+                "objetivo": "tosse por vento"
+            }
+        ],
+        "observacoes_clinicas": "Conhecido como \"Porta do Vento\" — bastante usado em moxa para prevenir resfriados.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "costas"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "B13",
@@ -2829,17 +3092,50 @@
             "shu dorsal do Pulmão"
         ],
         "localizacao": "1,5 cun lateral ao processo espinhoso de T3",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "tonifica o Pulmão",
+            "dispersa vento",
+            "descende o Qi rebelde",
+            "regula o Wei Qi"
+        ],
+        "sintomas_relacionados": [
+            "tosse",
+            "asma",
+            "dispneia",
+            "dor torácica",
+            "suor noturno"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de Qi do Pulmão",
+            "vento-frio no Pulmão",
+            "vento-calor no Pulmão",
+            "fleuma-umidade no Pulmão"
+        ],
+        "indicacoes_terapeuticas": [
+            "bronquite",
+            "asma",
+            "tuberculose pulmonar (suporte)",
+            "tosse crônica"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VC17",
+                "objetivo": "tonificar Qi do Pulmão"
+            },
+            {
+                "com": "P7",
+                "objetivo": "tosse crônica"
+            }
+        ],
+        "observacoes_clinicas": "Shu dorsal do Pulmão. Profundidade de agulhamento limitada pelo pulmão subjacente.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "costas",
+            "tórax"
+        ],
+        "peso_base": 8,
+        "dados_completos": true
     },
     {
         "codigo": "B14",
@@ -2849,17 +3145,42 @@
             "shu dorsal do Pericárdio"
         ],
         "localizacao": "1,5 cun lateral ao processo espinhoso de T4",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o Coração",
+            "abre o tórax",
+            "harmoniza o estômago"
+        ],
+        "sintomas_relacionados": [
+            "palpitação",
+            "angina",
+            "opressão torácica",
+            "vômito",
+            "ansiedade"
+        ],
+        "sindromes_relacionadas": [
+            "estase de sangue no Coração",
+            "estagnação de Qi no tórax"
+        ],
+        "indicacoes_terapeuticas": [
+            "angina pectoris",
+            "arritmias",
+            "ansiedade"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "PC6",
+                "objetivo": "angina e palpitação"
+            }
+        ],
+        "observacoes_clinicas": "Shu dorsal do Pericárdio.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "costas",
+            "tórax"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "B15",
@@ -2869,17 +3190,53 @@
             "shu dorsal do Coração"
         ],
         "localizacao": "1,5 cun lateral ao processo espinhoso de T5",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "tonifica o Coração",
+            "acalma o shen",
+            "regula o sangue"
+        ],
+        "sintomas_relacionados": [
+            "palpitação",
+            "insônia",
+            "ansiedade",
+            "dor pré-cordial",
+            "perda de memória",
+            "tristeza"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de Qi do Coração",
+            "deficiência de sangue do Coração",
+            "fogo do Coração"
+        ],
+        "indicacoes_terapeuticas": [
+            "ansiedade",
+            "insônia",
+            "palpitações",
+            "depressão"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "C7",
+                "objetivo": "acalmar o shen"
+            },
+            {
+                "com": "PC6",
+                "objetivo": "palpitações"
+            },
+            {
+                "com": "VG14",
+                "objetivo": "transtornos do shen"
+            }
+        ],
+        "observacoes_clinicas": "Shu dorsal do Coração. Profundidade limitada pelo pulmão.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "costas",
+            "tórax"
+        ],
+        "peso_base": 8,
+        "dados_completos": true
     },
     {
         "codigo": "B16",
@@ -2887,17 +3244,30 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "1,5 cun lateral ao processo espinhoso de T6",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o Coração",
+            "harmoniza o diafragma"
+        ],
+        "sintomas_relacionados": [
+            "dor pré-cordial",
+            "soluço",
+            "dor abdominal"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no diafragma"
+        ],
+        "indicacoes_terapeuticas": [
+            "soluço persistente"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "costas"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "B17",
@@ -2907,17 +3277,51 @@
             "influência do Sangue"
         ],
         "localizacao": "1,5 cun lateral ao processo espinhoso de T7",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula e tonifica o sangue",
+            "dispersa estagnação de sangue",
+            "harmoniza o diafragma",
+            "descende o Qi rebelde"
+        ],
+        "sintomas_relacionados": [
+            "hemorragia",
+            "anemia",
+            "suor noturno",
+            "soluços",
+            "dificuldade de deglutir",
+            "urticária crônica",
+            "prurido"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de sangue",
+            "estagnação de sangue",
+            "calor no sangue"
+        ],
+        "indicacoes_terapeuticas": [
+            "anemia",
+            "distúrbios menstruais",
+            "urticária crônica",
+            "dermatites",
+            "soluço"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "BP6",
+                "objetivo": "tonificar e mover sangue"
+            },
+            {
+                "com": "BP10",
+                "objetivo": "afecções de pele por calor no sangue"
+            }
+        ],
+        "observacoes_clinicas": "Ponto de reunião do Sangue (oito influências). Útil moxa para tonificar sangue em deficiência.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "costas"
+        ],
+        "peso_base": 8,
+        "dados_completos": true
     },
     {
         "codigo": "B18",
@@ -2927,17 +3331,51 @@
             "shu dorsal do Fígado"
         ],
         "localizacao": "1,5 cun lateral ao processo espinhoso de T9",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o Fígado",
+            "harmoniza o shen",
+            "beneficia os olhos",
+            "refresca calor"
+        ],
+        "sintomas_relacionados": [
+            "hipocondralgia",
+            "irritabilidade",
+            "vertigem",
+            "visão turva",
+            "icterícia",
+            "sangramento",
+            "raiva contida"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação de Qi do Fígado",
+            "fogo do Fígado",
+            "ascensão de Yang do Fígado"
+        ],
+        "indicacoes_terapeuticas": [
+            "hepatite (suporte)",
+            "distúrbios menstruais",
+            "problemas oculares",
+            "irritabilidade",
+            "depressão"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "F3",
+                "objetivo": "estagnação de Qi do Fígado"
+            },
+            {
+                "com": "VB34",
+                "objetivo": "drenar Fígado e VB"
+            }
+        ],
+        "observacoes_clinicas": "Shu dorsal do Fígado. Profundidade limitada por causa do fígado subjacente.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "costas"
+        ],
+        "peso_base": 8,
+        "dados_completos": true
     },
     {
         "codigo": "B19",
@@ -2947,17 +3385,43 @@
             "shu dorsal da Vesícula Biliar"
         ],
         "localizacao": "1,5 cun lateral ao processo espinhoso de T10",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula a Vesícula Biliar",
+            "drena calor-umidade",
+            "harmoniza o Shaoyang"
+        ],
+        "sintomas_relacionados": [
+            "boca amarga",
+            "icterícia",
+            "dor hipocondrial",
+            "vômito biliar"
+        ],
+        "sindromes_relacionadas": [
+            "calor-umidade na Vesícula Biliar"
+        ],
+        "indicacoes_terapeuticas": [
+            "colecistite",
+            "icterícia",
+            "hepatite (suporte)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VB34",
+                "objetivo": "drenar VB"
+            },
+            {
+                "com": "B18",
+                "objetivo": "Shaoyang e Fígado"
+            }
+        ],
+        "observacoes_clinicas": "Shu dorsal da Vesícula Biliar.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "costas"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "B20",
@@ -2967,17 +3431,55 @@
             "shu dorsal do Baço"
         ],
         "localizacao": "1,5 cun lateral ao processo espinhoso de T11",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "tonifica o Baço",
+            "resolve umidade",
+            "ergue o Qi",
+            "sustenta o sangue"
+        ],
+        "sintomas_relacionados": [
+            "cansaço",
+            "falta de apetite",
+            "fezes amolecidas",
+            "distensão abdominal",
+            "edema",
+            "sangramentos crônicos"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de Qi do Baço",
+            "deficiência de Yang do Baço",
+            "umidade no Baço"
+        ],
+        "indicacoes_terapeuticas": [
+            "dispepsia",
+            "diarreia crônica",
+            "fadiga",
+            "prolapsos",
+            "sangramentos uterinos crônicos"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VC12",
+                "objetivo": "tonificar centro"
+            },
+            {
+                "com": "E36",
+                "objetivo": "tonificar Qi geral"
+            },
+            {
+                "com": "BP6",
+                "objetivo": "Baço e umidade"
+            }
+        ],
+        "observacoes_clinicas": "Shu dorsal do Baço. Excelente em moxa para deficiência de Yang.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "costas",
+            "abdome"
+        ],
+        "peso_base": 8,
+        "dados_completos": true
     },
     {
         "codigo": "B21",
@@ -2987,17 +3489,46 @@
             "shu dorsal do Estômago"
         ],
         "localizacao": "1,5 cun lateral ao processo espinhoso de T12",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "harmoniza o Estômago",
+            "fortalece o Baço",
+            "alivia dor epigástrica"
+        ],
+        "sintomas_relacionados": [
+            "dor epigástrica",
+            "distensão",
+            "vômito",
+            "eructação",
+            "falta de apetite"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação de alimento",
+            "deficiência de Estômago"
+        ],
+        "indicacoes_terapeuticas": [
+            "gastrite",
+            "úlcera péptica",
+            "dispepsia"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "E36",
+                "objetivo": "fortalecer Estômago"
+            },
+            {
+                "com": "VC12",
+                "objetivo": "centro digestivo"
+            }
+        ],
+        "observacoes_clinicas": "Shu dorsal do Estômago.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "costas",
+            "abdome"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "B22",
@@ -3007,17 +3538,40 @@
             "shu dorsal do Triplo Aquecedor"
         ],
         "localizacao": "1,5 cun lateral ao processo espinhoso de L1",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o Triplo Aquecedor",
+            "transforma umidade",
+            "regula as águas"
+        ],
+        "sintomas_relacionados": [
+            "edema",
+            "distensão abdominal",
+            "retenção urinária",
+            "lombalgia"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no TA inferior"
+        ],
+        "indicacoes_terapeuticas": [
+            "edema",
+            "ascite (suporte)",
+            "retenção urinária"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "BP9",
+                "objetivo": "resolver edema"
+            }
+        ],
+        "observacoes_clinicas": "Shu dorsal do Triplo Aquecedor.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "costas",
+            "lombar"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "B23",
@@ -3079,17 +3633,31 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "1,5 cun lateral ao processo espinhoso de L3",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "tonifica o Qi",
+            "fortalece a lombar"
+        ],
+        "sintomas_relacionados": [
+            "lombalgia",
+            "distensão abdominal",
+            "hemorroidas",
+            "irregularidade menstrual"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de Qi"
+        ],
+        "indicacoes_terapeuticas": [
+            "lombalgia crônica"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "lombar"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "B25",
@@ -3099,17 +3667,47 @@
             "shu dorsal do Intestino Grosso"
         ],
         "localizacao": "1,5 cun lateral ao processo espinhoso de L4",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o Intestino Grosso",
+            "resolve umidade",
+            "alivia lombalgia"
+        ],
+        "sintomas_relacionados": [
+            "lombalgia",
+            "ciática",
+            "constipação",
+            "diarreia",
+            "distensão abdominal"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no Intestino Grosso",
+            "vento-frio na lombar"
+        ],
+        "indicacoes_terapeuticas": [
+            "ciática",
+            "hérnia de disco lombar (suporte)",
+            "constipação crônica",
+            "lombalgia"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "B40",
+                "objetivo": "lombociatalgia"
+            },
+            {
+                "com": "VB30",
+                "objetivo": "ciática"
+            }
+        ],
+        "observacoes_clinicas": "Shu dorsal do Intestino Grosso.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "lombar",
+            "membro inferior"
+        ],
+        "peso_base": 8,
+        "dados_completos": true
     },
     {
         "codigo": "B26",
@@ -3117,17 +3715,30 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "1,5 cun lateral ao processo espinhoso de L5",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "tonifica essência",
+            "fortalece a lombar"
+        ],
+        "sintomas_relacionados": [
+            "lombalgia",
+            "diarreia",
+            "incontinência urinária"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de Rim"
+        ],
+        "indicacoes_terapeuticas": [
+            "lombalgia crônica"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "lombar"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "B27",
@@ -3137,17 +3748,33 @@
             "shu dorsal do Intestino Delgado"
         ],
         "localizacao": "1,5 cun lateral à linha média, no nível do 1º forame sacral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "separa puro e turvo",
+            "transforma umidade",
+            "regula os intestinos"
+        ],
+        "sintomas_relacionados": [
+            "dor sacral",
+            "disúria",
+            "diarreia",
+            "leucorreia"
+        ],
+        "sindromes_relacionadas": [
+            "calor-umidade no TA inferior"
+        ],
+        "indicacoes_terapeuticas": [
+            "cistite",
+            "diarreia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Shu dorsal do Intestino Delgado.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "sacral"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "B28",
@@ -3157,17 +3784,39 @@
             "shu dorsal da Bexiga"
         ],
         "localizacao": "1,5 cun lateral à linha média, no nível do 2º forame sacral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula a Bexiga",
+            "resolve calor-umidade",
+            "alivia a lombar"
+        ],
+        "sintomas_relacionados": [
+            "disúria",
+            "retenção urinária",
+            "incontinência",
+            "sacralgia"
+        ],
+        "sindromes_relacionadas": [
+            "calor-umidade na Bexiga"
+        ],
+        "indicacoes_terapeuticas": [
+            "cistite",
+            "prostatite",
+            "incontinência urinária"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VC3",
+                "objetivo": "regular Bexiga"
+            }
+        ],
+        "observacoes_clinicas": "Shu dorsal da Bexiga.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "sacral"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "B29",
@@ -3175,17 +3824,30 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "1,5 cun lateral à linha média, no nível do 3º forame sacral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "fortalece lombar e joelhos"
+        ],
+        "sintomas_relacionados": [
+            "lombalgia",
+            "dor sacral",
+            "rigidez lombar"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de Rim"
+        ],
+        "indicacoes_terapeuticas": [
+            "lombalgia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "sacral",
+            "lombar"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "B30",
@@ -3193,17 +3855,31 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "1,5 cun lateral à linha média, no nível do 4º forame sacral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o TA inferior"
+        ],
+        "sintomas_relacionados": [
+            "lombalgia",
+            "leucorreia",
+            "disúria",
+            "dor anal"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no TA inferior"
+        ],
+        "indicacoes_terapeuticas": [
+            "hemorroidas",
+            "leucorreia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "sacral"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "B31",
@@ -3211,17 +3887,40 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "1º forame sacral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o TA inferior",
+            "regula a menstruação",
+            "fortalece a lombar"
+        ],
+        "sintomas_relacionados": [
+            "lombalgia",
+            "irregularidade menstrual",
+            "leucorreia",
+            "infertilidade"
+        ],
+        "sindromes_relacionadas": [
+            "estase no útero",
+            "frio-umidade na pelve"
+        ],
+        "indicacoes_terapeuticas": [
+            "dismenorreia",
+            "infertilidade"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VC4",
+                "objetivo": "regular útero"
+            }
+        ],
+        "observacoes_clinicas": "Primeiro dos oito forames sacrais (Ba Liao).",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "sacral",
+            "abdome"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "B32",
@@ -3229,17 +3928,53 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "2º forame sacral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula a menstruação",
+            "beneficia o útero",
+            "alivia sacralgia",
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "dismenorreia",
+            "irregularidade menstrual",
+            "lombalgia",
+            "ciática",
+            "retenção urinária"
+        ],
+        "sindromes_relacionadas": [
+            "estase no útero",
+            "frio-umidade na pelve",
+            "estagnação no Taiyang"
+        ],
+        "indicacoes_terapeuticas": [
+            "dismenorreia",
+            "infertilidade",
+            "ciática",
+            "lombalgia aguda"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VC4",
+                "objetivo": "regular útero e Chong Mai"
+            },
+            {
+                "com": "BP6",
+                "objetivo": "ginecologia"
+            },
+            {
+                "com": "VB30",
+                "objetivo": "ciática"
+            }
+        ],
+        "observacoes_clinicas": "Segundo foramen sacral — o mais utilizado clinicamente entre os Ba Liao.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "sacral",
+            "abdome"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "B33",
@@ -3247,17 +3982,29 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "3º forame sacral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o TA inferior"
+        ],
+        "sintomas_relacionados": [
+            "dor sacral",
+            "leucorreia",
+            "constipação"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no TA inferior"
+        ],
+        "indicacoes_terapeuticas": [
+            "leucorreia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Terceiro foramen sacral.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "sacral"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "B34",
@@ -3265,17 +4012,30 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "4º forame sacral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o TA inferior",
+            "dispersa frio na pelve"
+        ],
+        "sintomas_relacionados": [
+            "dor sacral",
+            "diarreia",
+            "dor abdominal baixa"
+        ],
+        "sindromes_relacionadas": [
+            "frio-umidade no TA inferior"
+        ],
+        "indicacoes_terapeuticas": [
+            "diarreia crônica"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Quarto foramen sacral.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "sacral"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "B35",
@@ -3283,17 +4043,32 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "0,5 cun lateral à ponta do cóccix",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o TA inferior",
+            "dispersa frio-umidade"
+        ],
+        "sintomas_relacionados": [
+            "hemorroidas",
+            "diarreia crônica",
+            "leucorreia",
+            "impotência"
+        ],
+        "sindromes_relacionadas": [
+            "frio-umidade no TA inferior"
+        ],
+        "indicacoes_terapeuticas": [
+            "hemorroidas",
+            "prolapso anal"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "sacral"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "B36",
@@ -3301,17 +4076,37 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "Centro da prega glútea",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "relaxa tendões",
+            "ativa o canal",
+            "alivia lombociatalgia"
+        ],
+        "sintomas_relacionados": [
+            "ciática",
+            "lombalgia",
+            "dor glútea"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal Taiyang"
+        ],
+        "indicacoes_terapeuticas": [
+            "ciática"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VB30",
+                "objetivo": "ciática"
+            }
+        ],
+        "observacoes_clinicas": "Ponto local sobre o nervo isquiático.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "glúteo",
+            "membro inferior"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "B37",
@@ -3319,17 +4114,30 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "6 cun abaixo de B36, na linha entre B36 e B40",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "relaxa tendões",
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "ciática",
+            "dor na coxa posterior",
+            "lombalgia"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal Taiyang"
+        ],
+        "indicacoes_terapeuticas": [
+            "ciática"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "membro inferior"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "B38",
@@ -3337,17 +4145,28 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "1 cun acima de B39, medial ao tendão do bíceps femoral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "relaxa tendões"
+        ],
+        "sintomas_relacionados": [
+            "rigidez do joelho",
+            "dor poplítea"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor poplítea"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "joelho"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "B39",
@@ -3357,17 +4176,38 @@
             "he inferior do Triplo Aquecedor"
         ],
         "localizacao": "Prega poplítea, medial ao tendão do bíceps femoral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o Triplo Aquecedor",
+            "abre a via das águas"
+        ],
+        "sintomas_relacionados": [
+            "edema",
+            "disúria",
+            "lombalgia",
+            "cãibras na panturrilha"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no TA inferior"
+        ],
+        "indicacoes_terapeuticas": [
+            "edema",
+            "retenção urinária"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VC3",
+                "objetivo": "regular Bexiga"
+            }
+        ],
+        "observacoes_clinicas": "He inferior do Triplo Aquecedor — usado quando se quer atuar no TA via membro inferior.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "joelho",
+            "panturrilha"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "B40",
@@ -3427,17 +4267,29 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "3 cun lateral ao processo espinhoso de T2",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "beneficia ombros e escápula"
+        ],
+        "sintomas_relacionados": [
+            "rigidez cervical",
+            "dor escapular"
+        ],
+        "sindromes_relacionadas": [
+            "vento-frio no Taiyang"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor escapular"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Linha externa (Wai Shu) paralela a B12.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "costas"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "B42",
@@ -3445,17 +4297,38 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "3 cun lateral ao processo espinhoso de T3",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "tonifica o Pulmão",
+            "beneficia o Po"
+        ],
+        "sintomas_relacionados": [
+            "tosse",
+            "dispneia",
+            "suor",
+            "tristeza"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de Pulmão",
+            "Po desarmonizado"
+        ],
+        "indicacoes_terapeuticas": [
+            "bronquite",
+            "tristeza crônica"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "B13",
+                "objetivo": "Pulmão e Po"
+            }
+        ],
+        "observacoes_clinicas": "Linha externa do shu do Pulmão — atua sobre o aspecto mental/Po.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "costas"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "B43",
@@ -3463,17 +4336,47 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "3 cun lateral ao processo espinhoso de T4",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "tonifica Yin e Yang",
+            "fortalece o Pulmão",
+            "nutre a essência",
+            "tonifica grande vazio"
+        ],
+        "sintomas_relacionados": [
+            "dispneia crônica",
+            "sudorese noturna",
+            "fadiga extrema",
+            "emissão noturna",
+            "tosse com expectoração"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência extrema de Qi e essência",
+            "deficiência de Pulmão e Rim"
+        ],
+        "indicacoes_terapeuticas": [
+            "fadiga crônica",
+            "convalescença",
+            "dispneia crônica",
+            "tuberculose (suporte)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VC4",
+                "objetivo": "tonificar essência"
+            },
+            {
+                "com": "E36",
+                "objetivo": "tonificar Qi geral"
+            }
+        ],
+        "observacoes_clinicas": "Gao Huang Shu — ponto clássico para tratar deficiências profundas, especialmente em moxa.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "costas"
+        ],
+        "peso_base": 8,
+        "dados_completos": true
     },
     {
         "codigo": "B44",
@@ -3481,17 +4384,38 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "3 cun lateral ao processo espinhoso de T5",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o Coração",
+            "acalma o shen",
+            "abre o tórax"
+        ],
+        "sintomas_relacionados": [
+            "insônia",
+            "palpitação",
+            "opressão torácica",
+            "tristeza"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de sangue do Coração"
+        ],
+        "indicacoes_terapeuticas": [
+            "insônia",
+            "ansiedade"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "B15",
+                "objetivo": "Coração e shen"
+            }
+        ],
+        "observacoes_clinicas": "Linha externa do shu do Coração.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "costas"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "B45",
@@ -3499,17 +4423,29 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "3 cun lateral ao processo espinhoso de T6",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "abre o tórax",
+            "descende o Qi rebelde"
+        ],
+        "sintomas_relacionados": [
+            "dispneia",
+            "tosse"
+        ],
+        "sindromes_relacionadas": [
+            "Qi rebelde do Pulmão"
+        ],
+        "indicacoes_terapeuticas": [
+            "tosse"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "costas"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "B46",
@@ -3517,17 +4453,31 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "3 cun lateral ao processo espinhoso de T7",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "harmoniza o diafragma",
+            "descende o Qi rebelde"
+        ],
+        "sintomas_relacionados": [
+            "soluço",
+            "vômito",
+            "eructação",
+            "distensão"
+        ],
+        "sindromes_relacionadas": [
+            "Qi rebelde do Estômago"
+        ],
+        "indicacoes_terapeuticas": [
+            "soluço persistente"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Linha externa do ponto de reunião do sangue (B17).",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "costas"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "B47",
@@ -3535,17 +4485,44 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "3 cun lateral ao processo espinhoso de T9",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o Fígado",
+            "acalma o shen e o Hun",
+            "espalha o Qi do Fígado"
+        ],
+        "sintomas_relacionados": [
+            "hipocondralgia",
+            "opressão torácica",
+            "irritabilidade",
+            "depressão",
+            "insônia com sonhos vívidos"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação de Qi do Fígado",
+            "Hun não enraizado"
+        ],
+        "indicacoes_terapeuticas": [
+            "depressão",
+            "transtornos do sono com sonhos perturbadores"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "F3",
+                "objetivo": "espalhar Qi do Fígado"
+            },
+            {
+                "com": "B18",
+                "objetivo": "Fígado e Hun"
+            }
+        ],
+        "observacoes_clinicas": "Linha externa do shu do Fígado — aspecto mental/Hun.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "costas"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "B48",
@@ -3553,17 +4530,30 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "3 cun lateral ao processo espinhoso de T10",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "harmoniza a Vesícula Biliar",
+            "drena calor-umidade"
+        ],
+        "sintomas_relacionados": [
+            "icterícia",
+            "distensão hipocondrial",
+            "boca amarga"
+        ],
+        "sindromes_relacionadas": [
+            "calor-umidade na VB"
+        ],
+        "indicacoes_terapeuticas": [
+            "icterícia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "costas"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "B49",
@@ -3571,17 +4561,36 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "3 cun lateral ao processo espinhoso de T11",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "tonifica o Baço",
+            "harmoniza o Estômago"
+        ],
+        "sintomas_relacionados": [
+            "distensão abdominal",
+            "falta de apetite",
+            "diarreia",
+            "vômito"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de Qi do Baço"
+        ],
+        "indicacoes_terapeuticas": [
+            "dispepsia"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "B20",
+                "objetivo": "Baço e digestivo"
+            }
+        ],
+        "observacoes_clinicas": "Linha externa do shu do Baço — atua sobre Yi (intelecto).",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "costas"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "B50",
@@ -3589,17 +4598,28 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "3 cun lateral ao processo espinhoso de T12",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "harmoniza o Estômago"
+        ],
+        "sintomas_relacionados": [
+            "distensão epigástrica",
+            "vômito"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação de alimento"
+        ],
+        "indicacoes_terapeuticas": [
+            "dispepsia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "costas"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "B51",
@@ -3607,17 +4627,29 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "3 cun lateral ao processo espinhoso de L1",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o Triplo Aquecedor"
+        ],
+        "sintomas_relacionados": [
+            "distensão abdominal",
+            "constipação",
+            "dor lombar"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no TA"
+        ],
+        "indicacoes_terapeuticas": [
+            "constipação"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "lombar"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "B52",
@@ -3625,17 +4657,45 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "3 cun lateral ao processo espinhoso de L2",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "tonifica o Rim",
+            "fortalece a essência",
+            "beneficia a lombar"
+        ],
+        "sintomas_relacionados": [
+            "lombalgia crônica",
+            "emissão noturna",
+            "impotência",
+            "edema",
+            "disúria"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de Rim",
+            "deficiência de essência"
+        ],
+        "indicacoes_terapeuticas": [
+            "lombalgia crônica",
+            "impotência",
+            "infertilidade"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "B23",
+                "objetivo": "tonificar Rim"
+            },
+            {
+                "com": "VC4",
+                "objetivo": "essência e útero/sêmen"
+            }
+        ],
+        "observacoes_clinicas": "Zhi Shi — \"Sala da Vontade\" (Zhi). Atua tanto sobre o Rim quanto sobre o aspecto mental da força de vontade.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "lombar"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "B53",
@@ -3643,17 +4703,29 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "3 cun lateral à linha média, no nível do 2º forame sacral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula a Bexiga e o TA inferior"
+        ],
+        "sintomas_relacionados": [
+            "dor lombar e sacral",
+            "distensão abdominal",
+            "retenção urinária"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no TA inferior"
+        ],
+        "indicacoes_terapeuticas": [
+            "retenção urinária"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "sacral"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "B54",
@@ -3661,17 +4733,40 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "3 cun lateral ao hiato sacral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal",
+            "alivia lombociatalgia",
+            "regula a Bexiga"
+        ],
+        "sintomas_relacionados": [
+            "ciática",
+            "lombalgia",
+            "hemorroidas",
+            "disúria"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal Taiyang"
+        ],
+        "indicacoes_terapeuticas": [
+            "ciática",
+            "lombalgia aguda",
+            "hemorroidas"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VB30",
+                "objetivo": "ciática profunda"
+            }
+        ],
+        "observacoes_clinicas": "Ponto local potente para ciática.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "sacral",
+            "glúteo"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "B55",
@@ -3679,17 +4774,28 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "2 cun distal a B40, entre as cabeças do gastrocnêmio",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "dor lombar e perna",
+            "cãibras"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor de perna"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "panturrilha"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "B56",
@@ -3697,17 +4803,27 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "Centro do ventre do gastrocnêmio, 5 cun distal a B40",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "relaxa tendões"
+        ],
+        "sintomas_relacionados": [
+            "cãibra na panturrilha"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "cãibras"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "panturrilha"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "B57",
@@ -3715,17 +4831,38 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "Depressão entre as duas cabeças do gastrocnêmio, ao contrair a panturrilha",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "relaxa tendões",
+            "ativa o canal",
+            "beneficia o ânus"
+        ],
+        "sintomas_relacionados": [
+            "cãibras na panturrilha",
+            "lombalgia",
+            "hemorroidas"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal Taiyang"
+        ],
+        "indicacoes_terapeuticas": [
+            "hemorroidas",
+            "cãibras",
+            "lombalgia aguda"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "B40",
+                "objetivo": "lombociatalgia e cãibras"
+            }
+        ],
+        "observacoes_clinicas": "Eficaz em pontas de uso direto para hemorroidas; também ponto local clássico para cãibras.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "panturrilha"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "B58",
@@ -3735,17 +4872,39 @@
             "luo"
         ],
         "localizacao": "7 cun acima de B60, na borda lateral da panturrilha",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "conecta com o canal do Rim"
+        ],
+        "sintomas_relacionados": [
+            "cefaleia",
+            "congestão nasal",
+            "lombalgia",
+            "hemorroidas",
+            "fraqueza dos membros inferiores"
+        ],
+        "sindromes_relacionadas": [
+            "vento externo",
+            "deficiência de Bexiga e Rim"
+        ],
+        "indicacoes_terapeuticas": [
+            "cefaleia crônica",
+            "fraqueza dos membros inferiores"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "R3",
+                "objetivo": "Bexiga-Rim, par yuan-luo"
+            }
+        ],
+        "observacoes_clinicas": "Ponto Luo da Bexiga — pareia com R3 (yuan do Rim).",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "panturrilha"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "B59",
@@ -3753,17 +4912,31 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "3 cun acima de B60",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "relaxa tendões",
+            "dispersa vento",
+            "alivia dor aguda"
+        ],
+        "sintomas_relacionados": [
+            "dor maleolar",
+            "lombalgia",
+            "paralisia dos membros inferiores"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor de tornozelo"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Ponto Xi (fenda) do Yang Qiao Mai.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "tornozelo"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "B60",
@@ -3823,17 +4996,28 @@
         "meridiano": "Bexiga",
         "categoria": [],
         "localizacao": "1,5 cun distal a B60, na borda lateral do calcâneo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "dor no calcanhar",
+            "fraqueza dos membros inferiores"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "talalgia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "pé"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "B62",
@@ -3843,17 +5027,43 @@
             "confluência com Yang Qiao"
         ],
         "localizacao": "0,5 cun abaixo do maléolo lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "abre o Yang Qiao Mai",
+            "dispersa vento interno e externo",
+            "acalma o shen"
+        ],
+        "sintomas_relacionados": [
+            "epilepsia",
+            "cefaleia",
+            "insônia",
+            "lombalgia",
+            "paralisia"
+        ],
+        "sindromes_relacionadas": [
+            "vento interno",
+            "desarmonia do Yang Qiao",
+            "ascensão de Yang"
+        ],
+        "indicacoes_terapeuticas": [
+            "epilepsia (suporte)",
+            "AVC (suporte)",
+            "insônia"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "ID3",
+                "objetivo": "abrir Du Mai + Yang Qiao, par mestre-acoplado"
+            }
+        ],
+        "observacoes_clinicas": "Ponto de confluência (mestre) do Yang Qiao Mai. Pareia com ID3 nos oito vasos.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "pé",
+            "tornozelo"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "B63",
@@ -3863,17 +5073,31 @@
             "xi (fenda)"
         ],
         "localizacao": "Anterior a B62, na depressão do cuboide",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "relaxa tendões",
+            "alivia dor aguda",
+            "acalma o shen"
+        ],
+        "sintomas_relacionados": [
+            "lombalgia aguda",
+            "dor maleolar",
+            "convulsão infantil"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação aguda no canal Taiyang"
+        ],
+        "indicacoes_terapeuticas": [
+            "lombalgia aguda"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Ponto Xi (fenda) da Bexiga — útil em quadros agudos.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "pé"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "B64",
@@ -3883,17 +5107,34 @@
             "yuan (fonte)"
         ],
         "localizacao": "Borda lateral do pé, proximal à tuberosidade do 5º metatarso",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "clareia calor",
+            "acalma o shen"
+        ],
+        "sintomas_relacionados": [
+            "cefaleia",
+            "vertigem",
+            "epilepsia",
+            "dor cervical",
+            "lombalgia"
+        ],
+        "sindromes_relacionadas": [
+            "vento interno",
+            "vento externo"
+        ],
+        "indicacoes_terapeuticas": [
+            "cefaleia crônica"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Ponto Yuan (fonte) da Bexiga.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "pé"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "B65",
@@ -3903,17 +5144,31 @@
             "shu (arroio)"
         ],
         "localizacao": "Borda lateral do pé, distal à articulação MTF do 5º artelho",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "clareia calor"
+        ],
+        "sintomas_relacionados": [
+            "cefaleia",
+            "vertigem",
+            "dor cervical",
+            "lombalgia"
+        ],
+        "sindromes_relacionadas": [
+            "vento externo"
+        ],
+        "indicacoes_terapeuticas": [
+            "cefaleia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Ponto Shu (arroio) da Bexiga.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "pé"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "B66",
@@ -3923,17 +5178,29 @@
             "ying (fonte)"
         ],
         "localizacao": "Borda lateral do pé, distal à articulação MTF do 5º artelho (ying)",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor",
+            "dispersa vento"
+        ],
+        "sintomas_relacionados": [
+            "cefaleia",
+            "vertigem"
+        ],
+        "sindromes_relacionadas": [
+            "vento-calor"
+        ],
+        "indicacoes_terapeuticas": [
+            "cefaleia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Ponto Ying (fonte) da Bexiga.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "pé"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "B67",
@@ -3943,17 +5210,41 @@
             "jing (poço)"
         ],
         "localizacao": "Canto ungueal lateral do 5º artelho",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "acoes_energeticas": [
+            "dispersa vento",
+            "clareia a cabeça e os olhos",
+            "vira o feto"
+        ],
+        "sintomas_relacionados": [
+            "cefaleia",
+            "congestão nasal",
+            "apresentação pélvica fetal",
+            "parto prolongado"
+        ],
+        "sindromes_relacionadas": [
+            "vento-calor na cabeça",
+            "apresentação pélvica"
+        ],
+        "indicacoes_terapeuticas": [
+            "versão de apresentação pélvica (moxa indireta)",
+            "cefaleia"
+        ],
+        "contraindicacoes": [
+            "evitar em gestantes fora dos protocolos de versão fetal ou trabalho de parto — pode induzir contrações"
+        ],
+        "combinacoes": [
+            {
+                "com": "BP6",
+                "objetivo": "ginecologia e parto (uso restrito)"
+            }
+        ],
+        "observacoes_clinicas": "Ponto Jing-poço da Bexiga. Uso clássico em moxa indireta para versão de apresentação pélvica entre 28-34 semanas, sob acompanhamento obstétrico.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "pé"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "R1",
