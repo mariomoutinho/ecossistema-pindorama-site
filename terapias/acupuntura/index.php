@@ -65,116 +65,18 @@ $catRestricoes  = [
   ['value' => 'marcapasso',  'label' => 'Marca-passo'],
 ];
 
-// Quais regiões estão "ativas" no mapa: top 5 pontos não-descartados acendem
-// suas regiões. Casa nomes com acento ("cabeça") aos IDs sem acento ("cabeca").
-$regioesAtivas = [];
-$topAtivos = 0;
+// Filtro de exibição por meridiano (querystring ?meridiano=...). Permite ao
+// terapeuta focar a lista em um meridiano específico mantendo os filtros do POST.
+$meridianoVisualizado = isset($_POST['meridiano_view']) ? trim((string)$_POST['meridiano_view']) : '';
+
+// Distribuição de pontos não-descartados por meridiano (para os chips de filtro)
+$contagemMeridiano = [];
 foreach ($resultados as $r) {
-  if ($topAtivos >= 5) break;
   if ($r['descartado']) continue;
-  foreach (($r['ponto']['regiao_afetada'] ?? []) as $reg) {
-    $regioesAtivas[rec_normaliza((string)$reg)] = true;
-  }
-  $topAtivos++;
+  $m = $r['ponto']['meridiano'] ?? '?';
+  $contagemMeridiano[$m] = ($contagemMeridiano[$m] ?? 0) + 1;
 }
-
-function svg_region_path(array $regiao, string $vista): ?string {
-  $vistas = $regiao['vistas'] ?? [];
-  return $vistas[$vista]['d'] ?? null;
-}
-
-function svg_pontos_da_vista(string $vista, array $mapaScore): string {
-  $html = '';
-  foreach (acup_pontos() as $p) {
-    $cm = $p['coordenadas_mapa'] ?? [];
-    if (($cm['vista'] ?? '') !== $vista) continue;
-
-    $cx = (float)($cm['x'] ?? 0);
-    $cy = (float)($cm['y'] ?? 0);
-    $lado = $cm['lado'] ?? 'central';
-
-    $r   = $mapaScore[strtolower($p['codigo'])] ?? null;
-    $rel = $r ? rec_relevancia($r['score']) : 0;
-    $descartado = $r && $r['descartado'];
-
-    $cls = 'acup-point';
-    if ($descartado)       $cls .= ' acup-point--descartado';
-    elseif ($rel > 0)      $cls .= ' acup-point--r' . $rel;
-    else                   $cls .= ' acup-point--r1';
-
-    $motivos = $r ? htmlspecialchars(implode(' • ', $r['motivos']), ENT_QUOTES) : '';
-    $dataAttrs = sprintf(
-      'data-codigo="%s" data-nome="%s" data-meridiano="%s" data-score="%d" data-descartado="%s" data-motivos="%s"',
-      htmlspecialchars($p['codigo'], ENT_QUOTES),
-      htmlspecialchars($p['nome'], ENT_QUOTES),
-      htmlspecialchars($p['meridiano'], ENT_QUOTES),
-      $r ? $r['score'] : 0,
-      $descartado ? '1' : '0',
-      $motivos
-    );
-
-    // bilateral = espelha no eixo x=100
-    $coords = [];
-    if ($lado === 'bilateral') {
-      $coords[] = [$cx, $cy];
-      $coords[] = [200 - $cx, $cy];
-    } else {
-      $coords[] = [$cx, $cy];
-    }
-    foreach ($coords as $c) {
-      $html .= sprintf(
-        '<circle class="%s" cx="%.2f" cy="%.2f" %s tabindex="0" focusable="true"></circle>',
-        $cls, $c[0], $c[1], $dataAttrs
-      );
-    }
-  }
-  return $html;
-}
-
-function svg_silhueta(string $vista): string {
-  // Silhueta minimalista — vertical, viewBox 0 0 200 500.
-  $vista = $vista; // unused for now (mesmo desenho nas 3 vistas), placeholder.
-  return <<<SVG
-<!-- cabeça -->
-<ellipse class="acup-silhouette" cx="100" cy="50" rx="28" ry="40" />
-<!-- pescoço -->
-<rect class="acup-silhouette" x="90" y="86" width="20" height="22" rx="4" />
-<!-- tronco -->
-<path class="acup-silhouette" d="M 62 110 Q 64 105 70 105 L 130 105 Q 136 105 138 110 L 138 200 L 62 200 Z" />
-<!-- abdomen -->
-<path class="acup-silhouette" d="M 70 200 L 130 200 L 128 290 L 72 290 Z" />
-<!-- braços -->
-<path class="acup-silhouette" d="M 40 130 L 64 110 L 70 270 L 46 280 Z" />
-<path class="acup-silhouette" d="M 160 130 L 136 110 L 130 270 L 154 280 Z" />
-<!-- mãos -->
-<ellipse class="acup-silhouette" cx="50" cy="290" rx="14" ry="14" />
-<ellipse class="acup-silhouette" cx="150" cy="290" rx="14" ry="14" />
-<!-- quadril -->
-<path class="acup-silhouette" d="M 72 286 L 128 286 L 132 310 L 68 310 Z" />
-<!-- pernas -->
-<path class="acup-silhouette" d="M 72 310 L 100 310 L 96 460 L 76 460 Z" />
-<path class="acup-silhouette" d="M 100 310 L 128 310 L 124 460 L 104 460 Z" />
-<!-- pés -->
-<ellipse class="acup-silhouette" cx="86" cy="470" rx="16" ry="10" />
-<ellipse class="acup-silhouette" cx="114" cy="470" rx="16" ry="10" />
-SVG;
-}
-
-function svg_regioes(string $vista, array $regioes, array $ativas): string {
-  $html = '';
-  foreach ($regioes as $reg) {
-    $d = svg_region_path($reg, $vista);
-    if (!$d) continue;
-    $cls = 'acup-region';
-    // Comparação por id normalizado e por nome normalizado — o ponto
-    // pode referir-se à região tanto pelo id ("cabeca") quanto pelo nome ("cabeça").
-    $idNorm   = rec_normaliza((string)$reg['id']);
-    $nomeNorm = rec_normaliza((string)($reg['nome'] ?? ''));
-    if (!empty($ativas[$idNorm]) || !empty($ativas[$nomeNorm])) $cls .= ' is-active';
-    $html .= sprintf('<path class="%s" data-regiao="%s" d="%s" />', $cls, htmlspecialchars($reg['id']), $d);
-  }
-  return $html;
-}
+uksort($contagemMeridiano, fn($a, $b) => strcmp($a, $b));
 
 $pageTitle = 'Acupuntura — Mapa interativo (experimental) • Pindorama';
 ?><!doctype html>
@@ -228,7 +130,7 @@ $pageTitle = 'Acupuntura — Mapa interativo (experimental) • Pindorama';
       <h2 id="ficha-h2">Ficha</h2>
       <p class="acup-card__sub">Os campos não são obrigatórios — só os que ajudarem na avaliação.</p>
 
-      <form method="post" action="">
+      <form method="post" action="" id="ficha-form">
         <div class="acup-field">
           <label for="paciente">Paciente (identificação)</label>
           <input id="paciente" name="paciente" maxlength="80" value="<?= htmlspecialchars($filtros['paciente']) ?>" placeholder="Ex.: Maria S. (não use nome completo)">
@@ -281,65 +183,66 @@ $pageTitle = 'Acupuntura — Mapa interativo (experimental) • Pindorama';
       </form>
     </aside>
 
-    <!-- ============ MAPA + RECOMENDAÇÕES ============ -->
-    <section class="acup-map-panel">
+    <!-- ============ RESULTADOS ============ -->
+    <section class="acup-results-panel" aria-labelledby="rec-h2">
 
-      <div class="acup-toolbar" role="toolbar" aria-label="Ferramentas do mapa">
-        <div class="acup-toolbar__group" aria-label="Vista">
-          <button type="button" class="acup-toolbar__btn is-active" data-acup-view-toggle="todas">Todas</button>
-          <button type="button" class="acup-toolbar__btn" data-acup-view-toggle="frente">Frente</button>
-          <button type="button" class="acup-toolbar__btn" data-acup-view-toggle="costas">Costas</button>
-          <button type="button" class="acup-toolbar__btn" data-acup-view-toggle="perfil">Perfil</button>
-        </div>
-
-        <div class="acup-zoom" aria-label="Zoom">
-          <button type="button" class="acup-zoom__btn" data-acup-zoom="out" aria-label="Diminuir zoom">−</button>
-          <span class="acup-zoom__val" data-acup-zoom-val>100%</span>
-          <button type="button" class="acup-zoom__btn" data-acup-zoom="in"  aria-label="Aumentar zoom">+</button>
-          <button type="button" class="acup-zoom__btn" data-acup-zoom="reset" aria-label="Resetar zoom">⟳</button>
-        </div>
-      </div>
-
-      <div class="acup-map" id="acup-map">
-        <div class="acup-map__scroller">
-          <?php foreach (['frente' => 'Frente', 'costas' => 'Costas', 'perfil' => 'Perfil'] as $vista => $label): ?>
-            <figure class="acup-figure" data-acup-vista="<?= $vista ?>">
-              <figcaption class="acup-figure__label"><?= $label ?></figcaption>
-              <svg viewBox="0 0 200 500" xmlns="http://www.w3.org/2000/svg" aria-label="Silhueta vista <?= $vista ?>">
-                <?= svg_silhueta($vista) ?>
-                <?= svg_regioes($vista, $regioes, $regioesAtivas) ?>
-                <?= svg_pontos_da_vista($vista, $mapaScore) ?>
-              </svg>
-            </figure>
-          <?php endforeach; ?>
-        </div>
-      </div>
-
-      <div class="acup-legend" aria-label="Legenda de relevância">
-        <span class="acup-legend__item"><span class="acup-legend__dot" style="background: var(--clay2);"></span> Alta relevância (pulsa)</span>
-        <span class="acup-legend__item"><span class="acup-legend__dot" style="background: rgba(224, 138, 107, .95);"></span> Boa</span>
-        <span class="acup-legend__item"><span class="acup-legend__dot" style="background: var(--leaf2);"></span> Sugerido</span>
-        <span class="acup-legend__item"><span class="acup-legend__dot" style="background: rgba(244, 231, 211, .55);"></span> Base</span>
-        <span class="acup-legend__item"><span class="acup-legend__dot" style="background: rgba(120,120,120,.45); border-style: dashed;"></span> Descartado por restrição</span>
-      </div>
-
-      <!-- ============ RECOMENDAÇÕES ============ -->
-      <div class="acup-card" aria-labelledby="rec-h2">
-        <h2 id="rec-h2">Pontos sugeridos
-          <?php if ($temFiltro): ?>
-            <span style="font-size:.7em;color:var(--muted);font-weight:400;">· <?= count(array_filter($resultados, fn($r) => !$r['descartado'])) ?> ativos</span>
+      <div class="acup-card">
+        <h2 id="rec-h2" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+          Pontos sugeridos
+          <?php if ($temFiltro):
+            $totalAtivos = count(array_filter($resultados, fn($r) => !$r['descartado']));
+            $totalDesc   = count(array_filter($resultados, fn($r) =>  $r['descartado']));
+          ?>
+            <span style="font-size:.65em;color:var(--muted);font-weight:400;">
+              · <?= $totalAtivos ?> ativos<?= $totalDesc ? " · {$totalDesc} descartados" : '' ?>
+            </span>
+          <?php else: ?>
+            <span style="font-size:.55em;color:var(--muted);font-weight:400;">
+              · base com <?= count(acup_pontos()) ?> pontos · <?= count(array_filter(acup_pontos(), fn($p) => !empty($p['dados_completos']))) ?> com dados clínicos completos
+            </span>
           <?php endif; ?>
         </h2>
 
         <?php if (!$temFiltro): ?>
-          <p class="acup-card__sub">Marque pelo menos um sintoma, síndrome, ação ou região na ficha para ver sugestões. Todos os pontos da base já aparecem no mapa como pontos-base.</p>
+          <p class="acup-card__sub">
+            Marque pelo menos um sintoma, síndrome, ação energética ou meridiano na ficha
+            ao lado para ver sugestões ranqueadas. A base contém os 361 pontos canônicos
+            dos 14 meridianos principais e ~20 pontos extraordinários.
+          </p>
+          <div class="acup-disclaimer">
+            <div>
+              <strong>Ferramenta experimental de apoio à decisão clínica.</strong>
+              Não substitui avaliação direta nem julgamento profissional. As recomendações
+              partem de uma base estruturada e podem conter pontos com dados clínicos
+              parciais — marcados como esqueleto na lista.
+            </div>
+          </div>
         <?php else:
-          // Separa: top ativos + todos os descartados (que merecem visibilidade
-          // mesmo se cortados pelo slice — são alertas clínicos).
-          $ativos     = array_filter($resultados, fn($r) => !$r['descartado']);
-          $descartados= array_filter($resultados, fn($r) =>  $r['descartado']);
-          $exibir = array_merge(array_slice($ativos, 0, 12), $descartados);
+          // Separa ativos e descartados; aplica filtro por meridiano se houver.
+          $ativos      = array_values(array_filter($resultados, fn($r) => !$r['descartado']));
+          $descartados = array_values(array_filter($resultados, fn($r) =>  $r['descartado']));
+          if ($meridianoVisualizado !== '') {
+            $ativos = array_values(array_filter($ativos, fn($r) => ($r['ponto']['meridiano'] ?? '') === $meridianoVisualizado));
+          }
+          // Limita exibição a 30 ativos (suficiente para inspecionar; resto fica disponível na base).
+          $exibir = array_merge(array_slice($ativos, 0, 30), $descartados);
         ?>
+
+          <?php if (count($contagemMeridiano) > 1): ?>
+            <div class="acup-filter-bar" role="group" aria-label="Filtrar por meridiano">
+              <button type="submit" form="ficha-form" name="meridiano_view" value=""
+                      class="acup-filter <?= $meridianoVisualizado === '' ? 'is-active' : '' ?>">
+                Todos <span><?= array_sum($contagemMeridiano) ?></span>
+              </button>
+              <?php foreach ($contagemMeridiano as $m => $n): ?>
+                <button type="submit" form="ficha-form" name="meridiano_view" value="<?= htmlspecialchars($m) ?>"
+                        class="acup-filter <?= $meridianoVisualizado === $m ? 'is-active' : '' ?>">
+                  <?= htmlspecialchars($m) ?> <span><?= $n ?></span>
+                </button>
+              <?php endforeach; ?>
+            </div>
+          <?php endif; ?>
+
           <?php if ($descartados): ?>
             <div class="acup-disclaimer" style="margin-bottom:12px;">
               <div>
@@ -349,18 +252,31 @@ $pageTitle = 'Acupuntura — Mapa interativo (experimental) • Pindorama';
             </div>
           <?php endif; ?>
 
+          <?php if (!$exibir): ?>
+            <p class="acup-card__sub">Nenhum ponto corresponde aos critérios selecionados neste meridiano.</p>
+          <?php endif; ?>
+
           <div class="acup-recs">
             <?php foreach ($exibir as $r):
               $p = $r['ponto'];
               $rel = $r['descartado'] ? 0 : rec_relevancia($r['score']);
               $relCls = $r['descartado'] ? 'acup-rec--descartado' : 'acup-rec--r' . $rel;
+              $esqueleto = empty($p['dados_completos']);
             ?>
-              <details class="acup-rec <?= $relCls ?>" data-rec-codigo="<?= htmlspecialchars($p['codigo']) ?>">
-                <summary style="list-style:none; cursor:pointer; display:contents;">
+              <details class="acup-rec <?= $relCls ?> <?= $esqueleto ? 'acup-rec--esqueleto' : '' ?>" data-rec-codigo="<?= htmlspecialchars($p['codigo']) ?>">
+                <summary>
                   <span class="acup-rec__code"><?= htmlspecialchars($p['codigo']) ?></span>
                   <div class="acup-rec__body">
                     <strong><?= htmlspecialchars($p['nome']) ?></strong>
-                    <div class="acup-rec__meridiano"><?= htmlspecialchars($p['meridiano']) ?> · <?= htmlspecialchars(implode(' / ', $p['categoria'] ?? [])) ?></div>
+                    <div class="acup-rec__meridiano">
+                      <?= htmlspecialchars($p['meridiano']) ?>
+                      <?php if (!empty($p['categoria'])): ?>
+                        <span style="color:var(--muted);">· <?= htmlspecialchars(implode(' / ', $p['categoria'])) ?></span>
+                      <?php endif; ?>
+                      <?php if ($esqueleto): ?>
+                        <span class="acup-rec__esqueleto-tag" title="Sem dados clínicos completos">esqueleto</span>
+                      <?php endif; ?>
+                    </div>
                     <?php if ($r['descartado']): ?>
                       <div class="acup-rec__descartado">⚠ Descartado: <?= htmlspecialchars((string)$r['descartado_por']) ?></div>
                     <?php elseif ($r['motivos']): ?>
@@ -369,29 +285,43 @@ $pageTitle = 'Acupuntura — Mapa interativo (experimental) • Pindorama';
                   </div>
                   <div class="acup-rec__score">
                     <strong><?= max(0, $r['score']) ?></strong>
-                    relevância <?= $rel ?: '—' ?>/5
+                    <span>relevância <?= $rel ?: '—' ?>/5</span>
                   </div>
                 </summary>
                 <dl class="acup-rec__details">
-                  <div><dt>Localização</dt><dd><?= htmlspecialchars($p['localizacao'] ?? '—') ?></dd></div>
+                  <?php if (!empty($p['localizacao'])): ?>
+                    <div><dt>Localização</dt><dd><?= htmlspecialchars($p['localizacao']) ?></dd></div>
+                  <?php endif; ?>
                   <?php if (!empty($p['acoes_energeticas'])): ?>
                     <div><dt>Ações energéticas</dt><dd><?= htmlspecialchars(implode(', ', $p['acoes_energeticas'])) ?></dd></div>
                   <?php endif; ?>
+                  <?php if (!empty($p['sintomas_relacionados'])): ?>
+                    <div><dt>Sintomas relacionados</dt><dd><?= htmlspecialchars(implode(', ', $p['sintomas_relacionados'])) ?></dd></div>
+                  <?php endif; ?>
+                  <?php if (!empty($p['sindromes_relacionadas'])): ?>
+                    <div><dt>Síndromes relacionadas</dt><dd><?= htmlspecialchars(implode(', ', $p['sindromes_relacionadas'])) ?></dd></div>
+                  <?php endif; ?>
                   <?php if (!empty($p['indicacoes_terapeuticas'])): ?>
-                    <div><dt>Indicações</dt><dd><?= htmlspecialchars(implode(', ', $p['indicacoes_terapeuticas'])) ?></dd></div>
+                    <div><dt>Indicações terapêuticas</dt><dd><?= htmlspecialchars(implode(', ', $p['indicacoes_terapeuticas'])) ?></dd></div>
                   <?php endif; ?>
                   <?php if (!empty($p['combinacoes'])): ?>
                     <div><dt>Combinações</dt><dd>
                       <?php foreach ($p['combinacoes'] as $i => $c): ?>
-                        <?= $i > 0 ? '; ' : '' ?><strong><?= htmlspecialchars($c['com']) ?></strong> — <?= htmlspecialchars($c['objetivo']) ?>
+                        <?= $i > 0 ? '; ' : '' ?><strong><?= htmlspecialchars($c['com'] ?? '') ?></strong> — <?= htmlspecialchars($c['objetivo'] ?? '') ?>
                       <?php endforeach; ?>
                     </dd></div>
                   <?php endif; ?>
                   <?php if (!empty($p['contraindicacoes'])): ?>
-                    <div><dt>Contraindicações</dt><dd style="color:var(--clay2);"><?= htmlspecialchars(implode('; ', $p['contraindicacoes'])) ?></dd></div>
+                    <div><dt>⚠ Contraindicações</dt><dd style="color:var(--clay2);"><?= htmlspecialchars(implode('; ', $p['contraindicacoes'])) ?></dd></div>
                   <?php endif; ?>
                   <?php if (!empty($p['observacoes_clinicas'])): ?>
                     <div><dt>Observação clínica</dt><dd><?= htmlspecialchars($p['observacoes_clinicas']) ?></dd></div>
+                  <?php endif; ?>
+                  <?php if ($esqueleto): ?>
+                    <div><dt>Status</dt><dd style="color:var(--muted);">
+                      Esqueleto — código, nome, meridiano e localização padrão.
+                      Sintomas/síndromes/ações ainda não modelados nesta base.
+                    </dd></div>
                   <?php endif; ?>
                 </dl>
               </details>

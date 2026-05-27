@@ -272,159 +272,104 @@
 
 .acup-actions { display: flex; gap: 8px; flex-wrap: wrap; }
 
-/* ----------------- Painel do mapa ----------------- */
-.acup-map-panel { display: grid; gap: 16px; }
+/* ----------------- Painel de resultados ----------------- */
+.acup-results-panel { display: grid; gap: 16px; }
 
-.acup-toolbar {
+/* Barra de filtro por meridiano */
+.acup-filter-bar {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  align-items: center;
-  justify-content: space-between;
+  gap: 6px;
+  margin: 6px 0 14px;
+  padding: 4px;
+  background: rgba(7, 17, 14, .35);
+  border: 1px solid var(--line);
+  border-radius: 999px;
 }
-.acup-toolbar__group { display: inline-flex; gap: 4px; padding: 4px; border: 1px solid var(--line); border-radius: 999px; background: rgba(7, 17, 14, .45); }
-.acup-toolbar__btn {
-  border: 0;
-  background: transparent;
-  color: var(--muted);
+.acup-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
   font-size: 12px;
   font-weight: 600;
-  padding: 6px 12px;
+  border: 0;
   border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
   cursor: pointer;
   font-family: inherit;
 }
-.acup-toolbar__btn:hover { color: var(--text); }
-.acup-toolbar__btn.is-active {
+.acup-filter:hover { background: rgba(234, 243, 239, .06); color: var(--text); }
+.acup-filter.is-active {
   background: linear-gradient(135deg, var(--leaf), var(--leaf2));
   color: #052015;
+  box-shadow: 0 6px 18px rgba(62, 142, 106, .25);
 }
-
-.acup-zoom { display: inline-flex; gap: 4px; align-items: center; }
-.acup-zoom__btn {
-  width: 32px; height: 32px;
-  border: 1px solid var(--line);
-  background: rgba(234, 243, 239, .04);
-  color: var(--text);
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 14px;
-  font-family: inherit;
-}
-.acup-zoom__btn:hover { background: rgba(234, 243, 239, .1); }
-.acup-zoom__val { font-size: 11px; color: var(--muted); min-width: 42px; text-align: center; }
-
-/* ----------------- Mapa SVG ----------------- */
-.acup-map {
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  background:
-    radial-gradient(600px 300px at 50% 0%, rgba(102, 180, 143, .08), transparent 70%),
-    rgba(7, 17, 14, .55);
-  padding: 16px;
-  overflow: auto;
-  position: relative;
-  min-height: 320px;
-}
-.acup-map__scroller {
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
+.acup-filter span {
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  transform-origin: top center;
-  transition: transform .2s ease;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  font-size: 10px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, .22);
+  color: inherit;
 }
-.acup-figure {
-  flex: 0 0 auto;
-  text-align: center;
-}
-.acup-figure__label {
-  font-size: 11px;
+
+/* Tag visual para pontos sem dados clínicos completos */
+.acup-rec__esqueleto-tag {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 6px;
+  font-size: 9px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: .8px;
+  letter-spacing: .6px;
+  border-radius: 999px;
+  background: rgba(234, 243, 239, .08);
   color: var(--muted);
-  margin-bottom: 6px;
-}
-.acup-figure svg {
-  display: block;
-  width: 220px;
-  max-width: 100%;
-  height: auto;
-}
-
-/* Silhueta */
-.acup-silhouette {
-  fill: rgba(234, 243, 239, .04);
-  stroke: rgba(234, 243, 239, .22);
-  stroke-width: 1.2;
-}
-
-/* Regiões */
-.acup-region {
-  fill: transparent;
-  stroke: transparent;
-  pointer-events: none;
-  transition: fill .25s ease, stroke .25s ease;
-}
-.acup-region.is-active {
-  fill: rgba(196, 106, 74, .12);
-  stroke: rgba(196, 106, 74, .4);
-  stroke-dasharray: 3 3;
-  animation: acup-region-pulse 2.4s ease-in-out infinite;
-}
-@keyframes acup-region-pulse {
-  0%, 100% { fill-opacity: .12; }
-  50%      { fill-opacity: .28; }
-}
-
-/* Pontos */
-.acup-point {
-  cursor: pointer;
-  transition: r .2s ease, fill .2s ease, stroke-width .2s ease;
-  fill: rgba(244, 231, 211, .55);
-  stroke: rgba(7, 17, 14, .9);
-  stroke-width: .8;
-}
-.acup-point:hover, .acup-point:focus { stroke-width: 1.4; }
-
-/* Relevância 1..5 */
-.acup-point--r1 { fill: rgba(244, 231, 211, .55); r: 2.2; }
-.acup-point--r2 { fill: rgba(102, 180, 143, .8);  r: 2.8; }
-.acup-point--r3 { fill: rgba(102, 180, 143, 1);   r: 3.4; }
-.acup-point--r4 { fill: rgba(224, 138, 107, .95); r: 4.0; }
-.acup-point--r5 {
-  fill: var(--clay2);
-  r: 4.6;
-  filter: drop-shadow(0 0 6px rgba(224, 138, 107, .65));
-  animation: acup-point-pulse 1.6s ease-in-out infinite;
-}
-@keyframes acup-point-pulse {
-  0%, 100% { r: 4.4; opacity: 1; }
-  50%      { r: 5.4; opacity: .85; }
-}
-.acup-point--descartado {
-  fill: rgba(120, 120, 120, .45);
-  stroke: rgba(196, 106, 74, .6);
-  stroke-dasharray: 1.5 1.5;
+  border: 1px solid var(--line);
 }
 
 /* ----------------- Lista de recomendações ----------------- */
 .acup-recs { display: grid; gap: 10px; }
 .acup-rec {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(7, 17, 14, .35);
+  position: relative;
+  overflow: hidden;
+}
+.acup-rec > summary {
+  list-style: none;
+  cursor: pointer;
   display: grid;
   grid-template-columns: 64px 1fr auto;
   gap: 14px;
   align-items: flex-start;
   padding: 14px;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  background: rgba(7, 17, 14, .35);
-  position: relative;
 }
+.acup-rec > summary::-webkit-details-marker { display: none; }
+.acup-rec > summary::after {
+  content: '▾';
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  color: var(--muted);
+  font-size: 11px;
+  transition: transform .2s ease;
+  pointer-events: none;
+}
+.acup-rec[open] > summary::after { transform: rotate(180deg); }
+.acup-rec:hover { border-color: rgba(234, 243, 239, .22); }
 .acup-rec--r5 { border-color: rgba(196, 106, 74, .5); background: linear-gradient(135deg, rgba(196, 106, 74, .12), rgba(7, 17, 14, .45)); }
 .acup-rec--r4 { border-color: rgba(224, 138, 107, .35); }
 .acup-rec--r3 { border-color: rgba(102, 180, 143, .4); }
-.acup-rec--descartado { opacity: .55; background: rgba(196, 106, 74, .06); }
+.acup-rec--descartado { opacity: .65; background: rgba(196, 106, 74, .06); }
+.acup-rec--esqueleto { background: rgba(7, 17, 14, .25); }
 .acup-rec__code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
   font-weight: 700;
@@ -447,46 +392,29 @@
   color: var(--muted);
   text-align: right;
   white-space: nowrap;
+  padding-right: 18px;
 }
-.acup-rec__score strong { color: var(--text); display: block; font-size: 14px; }
+.acup-rec__score strong { color: var(--text); display: block; font-size: 16px; line-height: 1.1; }
 
 /* Detalhe expandível */
 .acup-rec__details {
-  grid-column: 1 / -1;
-  margin-top: 12px;
-  padding-top: 12px;
+  margin: 0;
+  padding: 0 14px 14px;
   border-top: 1px dashed var(--line);
   font-size: 12px;
   display: grid;
-  gap: 8px;
+  gap: 10px;
+  padding-top: 14px;
 }
-.acup-rec__details dt { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .6px; }
-.acup-rec__details dd { margin: 2px 0 0; color: var(--text); }
+.acup-rec__details > div { display: grid; grid-template-columns: 160px 1fr; gap: 10px; }
+.acup-rec__details dt { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .6px; margin: 0; }
+.acup-rec__details dd { margin: 0; color: var(--text); line-height: 1.5; }
 
-/* ----------------- Tooltip do mapa ----------------- */
-.acup-tooltip {
-  position: fixed;
-  z-index: 90;
-  pointer-events: none;
-  background: #07110E;
-  border: 1px solid rgba(102, 180, 143, .4);
-  border-radius: 12px;
-  padding: 10px 12px;
-  font-size: 12px;
-  color: var(--text);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, .55);
-  max-width: 240px;
-  opacity: 0;
-  transition: opacity .12s ease;
+@media (max-width: 640px) {
+  .acup-rec > summary { grid-template-columns: 54px 1fr; }
+  .acup-rec__score { grid-column: 1 / -1; text-align: left; padding-right: 0; }
+  .acup-rec__details > div { grid-template-columns: 1fr; gap: 2px; }
 }
-.acup-tooltip.is-visible { opacity: 1; }
-.acup-tooltip strong { display: block; color: var(--leaf2); font-size: 13px; margin-bottom: 2px; }
-.acup-tooltip__meta { color: var(--muted); font-size: 11px; margin-top: 4px; }
-
-/* ----------------- Legenda ----------------- */
-.acup-legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 11px; color: var(--muted); }
-.acup-legend__item { display: inline-flex; align-items: center; gap: 6px; }
-.acup-legend__dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; border: 1px solid rgba(7, 17, 14, .9); }
 
 /* Header próprio leve da página */
 .acup-topbar {
