@@ -2989,17 +2989,44 @@
             "jing (poço)"
         ],
         "localizacao": "Canto ungueal medial do hálux",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "estanca hemorragia",
+            "regula o sangue",
+            "acalma o shen"
+        ],
+        "sintomas_relacionados": [
+            "hemorragia uterina",
+            "menorragia",
+            "metrorragia",
+            "fezes com sangue",
+            "pesadelos"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de Baço não sustentando o sangue",
+            "calor no sangue"
+        ],
+        "indicacoes_terapeuticas": [
+            "sangramentos uterinos por deficiência (moxa)",
+            "pesadelos"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "B20",
+                "objetivo": "tonificar Baço para sustentar sangue"
+            },
+            {
+                "com": "BP10",
+                "objetivo": "regular sangue"
+            }
+        ],
+        "observacoes_clinicas": "Yinbai — ponto Jing-poço do Baço. Moxa direta clássica em hemorragias uterinas por deficiência.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "pé"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "BP2",
@@ -3009,17 +3036,28 @@
             "ying (fonte)"
         ],
         "localizacao": "Depressão distal à articulação metatarsofalângica do hálux, medial",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor do Baço"
+        ],
+        "sintomas_relacionados": [
+            "distensão abdominal",
+            "febre"
+        ],
+        "sindromes_relacionadas": [
+            "calor-umidade no Baço"
+        ],
+        "indicacoes_terapeuticas": [
+            "dispepsia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Dadu — ponto Ying (fonte) do Baço.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "pé"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "BP3",
@@ -3030,17 +3068,38 @@
             "shu (arroio)"
         ],
         "localizacao": "Depressão proximal à articulação metatarsofalângica do hálux, medial",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "tonifica o Baço",
+            "transforma umidade"
+        ],
+        "sintomas_relacionados": [
+            "distensão abdominal",
+            "diarreia",
+            "fadiga",
+            "dor articular por umidade"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de Qi do Baço",
+            "umidade"
+        ],
+        "indicacoes_terapeuticas": [
+            "fadiga crônica",
+            "diarreia crônica"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "E36",
+                "objetivo": "tonificar centro"
+            }
+        ],
+        "observacoes_clinicas": "Taibai — ponto Yuan (fonte) e Shu (arroio) do Baço.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "pé"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "BP4",
@@ -3051,17 +3110,55 @@
             "confluência com Chong Mai"
         ],
         "localizacao": "Borda inferior da base do 1º metatarso",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "abre o Chong Mai",
+            "fortalece o Baço",
+            "harmoniza o Estômago",
+            "regula a menstruação"
+        ],
+        "sintomas_relacionados": [
+            "dor abdominal",
+            "diarreia",
+            "distensão",
+            "irregularidade menstrual",
+            "dismenorreia",
+            "hemorragia uterina",
+            "ataques de pânico",
+            "palpitação"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de Qi do Baço",
+            "estagnação no Chong Mai",
+            "Qi rebelde no Chong Mai"
+        ],
+        "indicacoes_terapeuticas": [
+            "síndrome do intestino irritável",
+            "dismenorreia",
+            "ataques de pânico",
+            "endometriose (suporte)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "PC6",
+                "objetivo": "abrir Chong Mai + Yin Wei, par mestre-acoplado"
+            },
+            {
+                "com": "VC12",
+                "objetivo": "Jiao médio"
+            },
+            {
+                "com": "BP6",
+                "objetivo": "ginecologia"
+            }
+        ],
+        "observacoes_clinicas": "Gongsun — ponto Luo do Baço e confluência (mestre) do Chong Mai. Pareia com PC6.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "pé"
+        ],
+        "peso_base": 8,
+        "dados_completos": true
     },
     {
         "codigo": "BP5",
@@ -3071,17 +3168,29 @@
             "jing (rio)"
         ],
         "localizacao": "Depressão antero-inferior do maléolo medial",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "transforma umidade",
+            "fortalece o Baço"
+        ],
+        "sintomas_relacionados": [
+            "dor no tornozelo medial",
+            "distensão abdominal"
+        ],
+        "sindromes_relacionadas": [
+            "umidade-Bi"
+        ],
+        "indicacoes_terapeuticas": [
+            "entorse de tornozelo medial"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Shangqiu — ponto Jing-rio do Baço.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "tornozelo"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "BP6",
@@ -3148,17 +3257,28 @@
         "meridiano": "Baço",
         "categoria": [],
         "localizacao": "6 cun acima do maléolo medial, na borda posterior da tíbia",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "transforma umidade"
+        ],
+        "sintomas_relacionados": [
+            "dor na perna medial",
+            "dormência"
+        ],
+        "sindromes_relacionadas": [
+            "umidade-Bi"
+        ],
+        "indicacoes_terapeuticas": [
+            "dormência da perna"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Lougu.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "panturrilha"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "BP8",
@@ -3168,17 +3288,42 @@
             "xi (fenda)"
         ],
         "localizacao": "3 cun abaixo de BP9, na borda posterior da tíbia",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula a menstruação",
+            "alivia dor menstrual aguda"
+        ],
+        "sintomas_relacionados": [
+            "dismenorreia aguda",
+            "irregularidade menstrual",
+            "metrorragia",
+            "infertilidade"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação aguda no útero",
+            "estase de sangue"
+        ],
+        "indicacoes_terapeuticas": [
+            "dismenorreia (especialmente aguda)",
+            "endometriose (suporte)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "BP6",
+                "objetivo": "ginecologia"
+            },
+            {
+                "com": "VC4",
+                "objetivo": "útero"
+            }
+        ],
+        "observacoes_clinicas": "Diji — ponto Xi (fenda) do Baço. Bastante eficaz em quadros menstruais agudos.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "panturrilha"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "BP9",
@@ -3188,17 +3333,53 @@
             "he (mar)"
         ],
         "localizacao": "Depressão posteroinferior do côndilo medial da tíbia",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "resolve umidade",
+            "regula a Bexiga e o TA inferior",
+            "beneficia o joelho"
+        ],
+        "sintomas_relacionados": [
+            "edema",
+            "ascite",
+            "disúria",
+            "retenção urinária",
+            "leucorreia",
+            "edema do joelho",
+            "diarreia"
+        ],
+        "sindromes_relacionadas": [
+            "umidade-fleuma",
+            "calor-umidade no TA inferior"
+        ],
+        "indicacoes_terapeuticas": [
+            "edema dos membros inferiores",
+            "edema do joelho",
+            "ascite (suporte)",
+            "leucorreia"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "BP6",
+                "objetivo": "umidade"
+            },
+            {
+                "com": "VC9",
+                "objetivo": "edema"
+            },
+            {
+                "com": "R7",
+                "objetivo": "resolver edema crônico"
+            }
+        ],
+        "observacoes_clinicas": "Yinlingquan — ponto He-mar do Baço. Ponto principal para resolver umidade em todo o corpo.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "joelho",
+            "panturrilha"
+        ],
+        "peso_base": 8,
+        "dados_completos": true
     },
     {
         "codigo": "BP10",
@@ -3206,17 +3387,55 @@
         "meridiano": "Baço",
         "categoria": [],
         "localizacao": "2 cun acima do canto medial superior da patela",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o sangue",
+            "tonifica e resfria o sangue",
+            "dispersa vento na pele"
+        ],
+        "sintomas_relacionados": [
+            "irregularidade menstrual",
+            "dismenorreia",
+            "metrorragia",
+            "urticária",
+            "prurido",
+            "eczema",
+            "dermatite"
+        ],
+        "sindromes_relacionadas": [
+            "calor no sangue",
+            "vento na pele",
+            "deficiência de sangue"
+        ],
+        "indicacoes_terapeuticas": [
+            "dismenorreia",
+            "irregularidade menstrual",
+            "urticária",
+            "eczema atópico",
+            "dermatites"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "B17",
+                "objetivo": "regular sangue"
+            },
+            {
+                "com": "VB31",
+                "objetivo": "prurido"
+            },
+            {
+                "com": "IG11",
+                "objetivo": "afecções de pele"
+            }
+        ],
+        "observacoes_clinicas": "Xuehai — \"Mar do Sangue\". 2 cun acima da patela, na borda medial do quadríceps.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "joelho",
+            "membro inferior"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "BP11",
@@ -3224,17 +3443,30 @@
         "meridiano": "Baço",
         "categoria": [],
         "localizacao": "6 cun acima de BP10, na linha entre BP10 e BP12",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "disúria",
+            "dor inguinal"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no TA inferior"
+        ],
+        "indicacoes_terapeuticas": [
+            "disúria"
+        ],
+        "contraindicacoes": [
+            "evitar a artéria femoral"
+        ],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Jimen.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "membro inferior"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "BP12",
@@ -3242,17 +3474,30 @@
         "meridiano": "Baço",
         "categoria": [],
         "localizacao": "Lateral da artéria femoral, na prega inguinal",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "regula o TA inferior"
+        ],
+        "sintomas_relacionados": [
+            "dor abdominal baixa",
+            "hérnia"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no TA inferior"
+        ],
+        "indicacoes_terapeuticas": [
+            "hérnia inguinal (suporte)"
+        ],
+        "contraindicacoes": [
+            "evitar a artéria femoral"
+        ],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Chongmen — ponto de reunião com o Fígado.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "abdome"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "BP13",
@@ -3260,17 +3505,28 @@
         "meridiano": "Baço",
         "categoria": [],
         "localizacao": "4 cun lateral à linha média, 0,7 cun acima de BP12",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o TA inferior"
+        ],
+        "sintomas_relacionados": [
+            "dor abdominal",
+            "hérnia"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no TA inferior"
+        ],
+        "indicacoes_terapeuticas": [
+            "hérnia inguinal (suporte)"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Fushe.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "abdome"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "BP14",
@@ -3278,17 +3534,29 @@
         "meridiano": "Baço",
         "categoria": [],
         "localizacao": "4 cun lateral à linha média, 1,3 cun abaixo de BP15",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula intestinos"
+        ],
+        "sintomas_relacionados": [
+            "dor abdominal",
+            "constipação",
+            "diarreia"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no IG"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor abdominal"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Fujie.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "abdome"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "BP15",
@@ -3296,17 +3564,40 @@
         "meridiano": "Baço",
         "categoria": [],
         "localizacao": "4 cun lateral ao umbigo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula intestinos",
+            "transforma estagnação"
+        ],
+        "sintomas_relacionados": [
+            "constipação",
+            "diarreia",
+            "dor abdominal periumbilical"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no IG"
+        ],
+        "indicacoes_terapeuticas": [
+            "constipação",
+            "síndrome do intestino irritável"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "E25",
+                "objetivo": "regular IG"
+            },
+            {
+                "com": "TA6",
+                "objetivo": "constipação"
+            }
+        ],
+        "observacoes_clinicas": "Daheng — lateral ao umbigo. Bom para todo tipo de constipação.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "abdome"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "BP16",
@@ -3314,17 +3605,28 @@
         "meridiano": "Baço",
         "categoria": [],
         "localizacao": "4 cun lateral à linha média, 3 cun acima do umbigo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula intestinos"
+        ],
+        "sintomas_relacionados": [
+            "dor abdominal",
+            "constipação"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor abdominal"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Fuai.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "abdome"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "BP17",
@@ -3332,17 +3634,30 @@
         "meridiano": "Baço",
         "categoria": [],
         "localizacao": "5º espaço intercostal, 6 cun lateral à linha média anterior",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "regula o tórax"
+        ],
+        "sintomas_relacionados": [
+            "dor torácica lateral",
+            "tosse"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no tórax"
+        ],
+        "indicacoes_terapeuticas": [
+            "neuralgia intercostal"
+        ],
+        "contraindicacoes": [
+            "risco de pneumotórax"
+        ],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Shidou.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "tórax"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "BP18",
@@ -3350,17 +3665,32 @@
         "meridiano": "Baço",
         "categoria": [],
         "localizacao": "4º espaço intercostal, 6 cun lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "regula o tórax",
+            "regula as mamas"
+        ],
+        "sintomas_relacionados": [
+            "dor torácica",
+            "mastite",
+            "tosse"
+        ],
+        "sindromes_relacionadas": [
+            "estase nas mamas"
+        ],
+        "indicacoes_terapeuticas": [
+            "mastite"
+        ],
+        "contraindicacoes": [
+            "risco de pneumotórax"
+        ],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Tianxi.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "tórax"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "BP19",
@@ -3368,17 +3698,30 @@
         "meridiano": "Baço",
         "categoria": [],
         "localizacao": "3º espaço intercostal, 6 cun lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "regula o tórax"
+        ],
+        "sintomas_relacionados": [
+            "dor torácica",
+            "tosse"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no tórax"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor torácica lateral"
+        ],
+        "contraindicacoes": [
+            "risco de pneumotórax"
+        ],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Xiongxiang.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "tórax"
+        ],
+        "peso_base": 3,
+        "dados_completos": true
     },
     {
         "codigo": "BP20",
@@ -3386,17 +3729,30 @@
         "meridiano": "Baço",
         "categoria": [],
         "localizacao": "2º espaço intercostal, 6 cun lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "regula o tórax"
+        ],
+        "sintomas_relacionados": [
+            "dor torácica",
+            "tosse"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no tórax"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor torácica lateral"
+        ],
+        "contraindicacoes": [
+            "risco de pneumotórax"
+        ],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Zhourong.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "tórax"
+        ],
+        "peso_base": 3,
+        "dados_completos": true
     },
     {
         "codigo": "BP21",
@@ -3406,17 +3762,35 @@
             "grande luo do Baço"
         ],
         "localizacao": "6º espaço intercostal, na linha axilar média",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "regula o sangue",
+            "abre o tórax",
+            "ativa o grande Luo do Baço"
+        ],
+        "sintomas_relacionados": [
+            "dor generalizada do corpo",
+            "fadiga generalizada",
+            "dispneia",
+            "dor torácica lateral"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no grande Luo"
+        ],
+        "indicacoes_terapeuticas": [
+            "fibromialgia (suporte)",
+            "dor generalizada inespecífica"
+        ],
+        "contraindicacoes": [
+            "risco de pneumotórax — punção oblíqua superficial"
+        ],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Dabao — \"Grande Envoltório\". Grande Luo do Baço. Linha média axilar, 6º espaço intercostal.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "tórax"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "C1",
@@ -7153,17 +7527,49 @@
             "jing (poço)"
         ],
         "localizacao": "Planta do pé, no terço anterior em depressão ao curvar os artelhos",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "descende o Yang ascendente",
+            "restabelece a consciência",
+            "clareia calor"
+        ],
+        "sintomas_relacionados": [
+            "coma",
+            "AVC",
+            "hipertensão",
+            "vertigem",
+            "afasia",
+            "convulsão",
+            "psicose"
+        ],
+        "sindromes_relacionadas": [
+            "ascensão de Yang com Yin esgotado",
+            "fechamento súbito",
+            "vento interno"
+        ],
+        "indicacoes_terapeuticas": [
+            "AVC agudo",
+            "hipertensão (suporte)",
+            "psicose (suporte)",
+            "convalescença com queda do Yang"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VG20",
+                "objetivo": "descer Yang"
+            },
+            {
+                "com": "VG26",
+                "objetivo": "ressuscitação"
+            }
+        ],
+        "observacoes_clinicas": "Yongquan — \"Fonte Borbulhante\". Único ponto Jing-poço de um meridiano Yin no pé. Excelente em moxa indireta na sola para enraizar o Qi.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "pé"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "R2",
@@ -7173,17 +7579,36 @@
             "ying (fonte)"
         ],
         "localizacao": "Borda inferior do tubérculo navicular, na junção pele plantar/dorsal",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor por deficiência de Yin",
+            "fortalece o Rim"
+        ],
+        "sintomas_relacionados": [
+            "suor noturno",
+            "sintomas de menopausa",
+            "irregularidade menstrual"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de Yin do Rim",
+            "calor por deficiência"
+        ],
+        "indicacoes_terapeuticas": [
+            "sintomas de menopausa"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "R3",
+                "objetivo": "Rim e Yin"
+            }
+        ],
+        "observacoes_clinicas": "Rangu — ponto Ying (fonte) do Rim.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "pé"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "R3",
@@ -7250,17 +7675,38 @@
             "luo"
         ],
         "localizacao": "Posterior e inferior ao maléolo medial, na borda do tendão de Aquiles",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "fortalece o Rim",
+            "acalma o shen"
+        ],
+        "sintomas_relacionados": [
+            "medo",
+            "ansiedade",
+            "lombalgia",
+            "asma com deficiência de Rim",
+            "incontinência urinária"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de Rim"
+        ],
+        "indicacoes_terapeuticas": [
+            "medo crônico",
+            "asma com deficiência"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "B58",
+                "objetivo": "Bexiga-Rim, par yuan-luo"
+            }
+        ],
+        "observacoes_clinicas": "Dazhong — ponto Luo do Rim. Pareia com B58.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "pé"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "R5",
@@ -7270,17 +7716,30 @@
             "xi (fenda)"
         ],
         "localizacao": "1 cun distal a R3",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula a menstruação",
+            "transforma umidade"
+        ],
+        "sintomas_relacionados": [
+            "amenorreia",
+            "irregularidade menstrual",
+            "disúria"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no útero"
+        ],
+        "indicacoes_terapeuticas": [
+            "amenorreia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Shuiquan — ponto Xi (fenda) do Rim.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "pé"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "R6",
@@ -7290,17 +7749,54 @@
             "confluência com Yin Qiao"
         ],
         "localizacao": "1 cun abaixo do maléolo medial",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "nutre o Yin do Rim",
+            "abre o Yin Qiao Mai",
+            "beneficia a garganta",
+            "acalma o shen"
+        ],
+        "sintomas_relacionados": [
+            "secura na garganta",
+            "insônia (especialmente por deficiência de Yin)",
+            "olhos secos",
+            "menopausa",
+            "irregularidade menstrual",
+            "constipação seca",
+            "fogachos"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de Yin do Rim",
+            "calor por deficiência",
+            "desarmonia do Yin Qiao"
+        ],
+        "indicacoes_terapeuticas": [
+            "insônia por deficiência de Yin",
+            "sintomas de menopausa",
+            "epilepsia noturna (suporte)",
+            "infertilidade"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "P7",
+                "objetivo": "abrir Yin Qiao + Ren Mai, par mestre-acoplado"
+            },
+            {
+                "com": "R3",
+                "objetivo": "Yin do Rim"
+            },
+            {
+                "com": "F8",
+                "objetivo": "Yin do Fígado e útero"
+            }
+        ],
+        "observacoes_clinicas": "Zhaohai — ponto de confluência (mestre) do Yin Qiao Mai. Pareia com P7. Ponto central para nutrir Yin e tratar a insônia por deficiência.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "pé"
+        ],
+        "peso_base": 8,
+        "dados_completos": true
     },
     {
         "codigo": "R7",
@@ -7310,17 +7806,47 @@
             "jing (rio)"
         ],
         "localizacao": "2 cun acima de R3, na borda anterior do tendão de Aquiles",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "fortalece o Rim",
+            "regula a transpiração",
+            "resolve umidade",
+            "regula as águas"
+        ],
+        "sintomas_relacionados": [
+            "edema",
+            "suor espontâneo",
+            "ausência de suor em quadros gripais",
+            "diarreia",
+            "lombalgia"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de Yang do Rim",
+            "desarmonia do Wei Qi"
+        ],
+        "indicacoes_terapeuticas": [
+            "edema",
+            "hiperidrose",
+            "anidrose",
+            "diarreia matinal"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "IG4",
+                "objetivo": "regular suor (par clássico)"
+            },
+            {
+                "com": "BP9",
+                "objetivo": "edema"
+            }
+        ],
+        "observacoes_clinicas": "Fuliu — ponto Jing-rio (metal) do Rim. Ponto principal para regular a transpiração e o metabolismo da água.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "panturrilha"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "R8",
@@ -7330,17 +7856,31 @@
             "xi do Yin Qiao"
         ],
         "localizacao": "2 cun acima de R3, na borda medial da tíbia, 0,5 cun anterior a R7",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula a menstruação",
+            "estanca hemorragia"
+        ],
+        "sintomas_relacionados": [
+            "irregularidade menstrual",
+            "metrorragia",
+            "leucorreia"
+        ],
+        "sindromes_relacionadas": [
+            "calor no sangue",
+            "desarmonia do Yin Qiao"
+        ],
+        "indicacoes_terapeuticas": [
+            "metrorragia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Jiaoxin — ponto Xi (fenda) do Yin Qiao Mai.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "panturrilha"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "R9",
@@ -7350,17 +7890,38 @@
             "xi do Yin Wei"
         ],
         "localizacao": "5 cun acima de R3, no ventre medial do gastrocnêmio",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "acalma o shen",
+            "transforma fleuma",
+            "desintoxica"
+        ],
+        "sintomas_relacionados": [
+            "agitação mental",
+            "ataques de pânico",
+            "epilepsia infantil",
+            "vômito gravídico"
+        ],
+        "sindromes_relacionadas": [
+            "fleuma-fogo perturbando o shen"
+        ],
+        "indicacoes_terapeuticas": [
+            "hiperêmese gravídica",
+            "transtornos psiquiátricos (suporte)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "PC6",
+                "objetivo": "shen e Jiao médio"
+            }
+        ],
+        "observacoes_clinicas": "Zhubin — ponto Xi (fenda) do Yin Wei Mai. Tradicionalmente moxado em mulheres gestantes para fortalecer o feto.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "panturrilha"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "R10",
@@ -7370,17 +7931,30 @@
             "he (mar)"
         ],
         "localizacao": "Prega poplítea, medial ao tendão do semitendíneo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o TA inferior",
+            "transforma umidade"
+        ],
+        "sintomas_relacionados": [
+            "disúria",
+            "dor genital",
+            "leucorreia"
+        ],
+        "sindromes_relacionadas": [
+            "calor-umidade no TA inferior"
+        ],
+        "indicacoes_terapeuticas": [
+            "uretrite"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Yingu — ponto He-mar do Rim.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "joelho"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "R11",
@@ -7388,17 +7962,30 @@
         "meridiano": "Rim",
         "categoria": [],
         "localizacao": "5 cun abaixo do umbigo, 0,5 cun lateral à linha média",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o TA inferior",
+            "beneficia o sêmen"
+        ],
+        "sintomas_relacionados": [
+            "impotência",
+            "irregularidade menstrual",
+            "disúria"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de Rim"
+        ],
+        "indicacoes_terapeuticas": [
+            "impotência"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Henggu.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "abdome"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "R12",
@@ -7406,17 +7993,31 @@
         "meridiano": "Rim",
         "categoria": [],
         "localizacao": "4 cun abaixo do umbigo, 0,5 cun lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "tonifica o Rim",
+            "beneficia o sêmen"
+        ],
+        "sintomas_relacionados": [
+            "emissão noturna",
+            "impotência",
+            "leucorreia"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de Rim"
+        ],
+        "indicacoes_terapeuticas": [
+            "impotência",
+            "emissão noturna"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Dahe.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "abdome"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "R13",
@@ -7424,17 +8025,40 @@
         "meridiano": "Rim",
         "categoria": [],
         "localizacao": "3 cun abaixo do umbigo, 0,5 cun lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "tonifica o Rim",
+            "regula o Chong Mai",
+            "regula a menstruação"
+        ],
+        "sintomas_relacionados": [
+            "irregularidade menstrual",
+            "infertilidade",
+            "dor abdominal baixa"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência do Chong e Ren"
+        ],
+        "indicacoes_terapeuticas": [
+            "infertilidade"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VC4",
+                "objetivo": "Chong-Ren"
+            },
+            {
+                "com": "BP6",
+                "objetivo": "ginecologia"
+            }
+        ],
+        "observacoes_clinicas": "Qixue — ponto de reunião com o Chong Mai.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "abdome"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "R14",
@@ -7442,17 +8066,30 @@
         "meridiano": "Rim",
         "categoria": [],
         "localizacao": "2 cun abaixo do umbigo, 0,5 cun lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o útero",
+            "transforma estagnação"
+        ],
+        "sintomas_relacionados": [
+            "dismenorreia",
+            "metrorragia",
+            "dor abdominal baixa"
+        ],
+        "sindromes_relacionadas": [
+            "estase de sangue no útero"
+        ],
+        "indicacoes_terapeuticas": [
+            "dismenorreia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Siman.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "abdome"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "R15",
@@ -7460,17 +8097,28 @@
         "meridiano": "Rim",
         "categoria": [],
         "localizacao": "1 cun abaixo do umbigo, 0,5 cun lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o útero"
+        ],
+        "sintomas_relacionados": [
+            "dismenorreia",
+            "constipação"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no TA inferior"
+        ],
+        "indicacoes_terapeuticas": [
+            "dismenorreia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Zhongzhu (abdome).",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "abdome"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "R16",
@@ -7478,17 +8126,29 @@
         "meridiano": "Rim",
         "categoria": [],
         "localizacao": "0,5 cun lateral ao umbigo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula intestinos"
+        ],
+        "sintomas_relacionados": [
+            "dor abdominal",
+            "constipação",
+            "diarreia"
+        ],
+        "sindromes_relacionadas": [
+            "frio no Jiao médio"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor abdominal por frio"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Huangshu — lateral ao umbigo.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "abdome"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "R17",
@@ -7496,17 +8156,28 @@
         "meridiano": "Rim",
         "categoria": [],
         "localizacao": "2 cun acima do umbigo, 0,5 cun lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "harmoniza o Estômago"
+        ],
+        "sintomas_relacionados": [
+            "dor abdominal",
+            "constipação"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no Estômago"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor abdominal"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Shangqu.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "abdome"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "R18",
@@ -7514,17 +8185,28 @@
         "meridiano": "Rim",
         "categoria": [],
         "localizacao": "3 cun acima do umbigo, 0,5 cun lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "harmoniza o Estômago"
+        ],
+        "sintomas_relacionados": [
+            "dor abdominal",
+            "vômito"
+        ],
+        "sindromes_relacionadas": [
+            "Qi rebelde do Estômago"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor abdominal"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Shiguan.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "abdome"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "R19",
@@ -7532,17 +8214,28 @@
         "meridiano": "Rim",
         "categoria": [],
         "localizacao": "4 cun acima do umbigo, 0,5 cun lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "harmoniza o Estômago"
+        ],
+        "sintomas_relacionados": [
+            "dor abdominal",
+            "vômito"
+        ],
+        "sindromes_relacionadas": [
+            "Qi rebelde do Estômago"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor abdominal"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Yindu.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "abdome"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "R20",
@@ -7550,17 +8243,28 @@
         "meridiano": "Rim",
         "categoria": [],
         "localizacao": "5 cun acima do umbigo, 0,5 cun lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "harmoniza o Estômago"
+        ],
+        "sintomas_relacionados": [
+            "dor abdominal",
+            "distensão"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no Estômago"
+        ],
+        "indicacoes_terapeuticas": [
+            "dispepsia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Tonggu (abdome).",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "abdome"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "R21",
@@ -7568,17 +8272,30 @@
         "meridiano": "Rim",
         "categoria": [],
         "localizacao": "6 cun acima do umbigo, 0,5 cun lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "harmoniza o Estômago",
+            "descende Qi rebelde"
+        ],
+        "sintomas_relacionados": [
+            "vômito",
+            "dor epigástrica",
+            "hiperêmese gravídica"
+        ],
+        "sindromes_relacionadas": [
+            "Qi rebelde do Estômago"
+        ],
+        "indicacoes_terapeuticas": [
+            "vômito gravídico (suporte)"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Youmen.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "abdome"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "R22",
@@ -7586,17 +8303,30 @@
         "meridiano": "Rim",
         "categoria": [],
         "localizacao": "5º espaço intercostal, 2 cun lateral à linha média anterior",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "descende Qi rebelde"
+        ],
+        "sintomas_relacionados": [
+            "tosse",
+            "opressão torácica"
+        ],
+        "sindromes_relacionadas": [
+            "Qi rebelde do Pulmão"
+        ],
+        "indicacoes_terapeuticas": [
+            "tosse"
+        ],
+        "contraindicacoes": [
+            "risco de pneumotórax"
+        ],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Bulang.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "tórax"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "R23",
@@ -7604,17 +8334,33 @@
         "meridiano": "Rim",
         "categoria": [],
         "localizacao": "4º espaço intercostal, 2 cun lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "descende Qi rebelde",
+            "abre o tórax",
+            "regula as mamas"
+        ],
+        "sintomas_relacionados": [
+            "tosse",
+            "asma",
+            "mastite"
+        ],
+        "sindromes_relacionadas": [
+            "Qi rebelde do Pulmão"
+        ],
+        "indicacoes_terapeuticas": [
+            "mastite"
+        ],
+        "contraindicacoes": [
+            "risco de pneumotórax"
+        ],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Shenfeng.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "tórax"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "R24",
@@ -7622,17 +8368,32 @@
         "meridiano": "Rim",
         "categoria": [],
         "localizacao": "3º espaço intercostal, 2 cun lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "descende Qi rebelde",
+            "abre o tórax"
+        ],
+        "sintomas_relacionados": [
+            "tosse",
+            "dispneia",
+            "dor torácica"
+        ],
+        "sindromes_relacionadas": [
+            "Qi rebelde do Pulmão"
+        ],
+        "indicacoes_terapeuticas": [
+            "tosse"
+        ],
+        "contraindicacoes": [
+            "risco de pneumotórax"
+        ],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Lingxu.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "tórax"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "R25",
@@ -7640,17 +8401,30 @@
         "meridiano": "Rim",
         "categoria": [],
         "localizacao": "2º espaço intercostal, 2 cun lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "descende Qi rebelde"
+        ],
+        "sintomas_relacionados": [
+            "tosse",
+            "asma"
+        ],
+        "sindromes_relacionadas": [
+            "Qi rebelde do Pulmão"
+        ],
+        "indicacoes_terapeuticas": [
+            "asma"
+        ],
+        "contraindicacoes": [
+            "risco de pneumotórax"
+        ],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Shencang.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "tórax"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "R26",
@@ -7658,17 +8432,30 @@
         "meridiano": "Rim",
         "categoria": [],
         "localizacao": "1º espaço intercostal, 2 cun lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "descende Qi rebelde"
+        ],
+        "sintomas_relacionados": [
+            "tosse",
+            "asma"
+        ],
+        "sindromes_relacionadas": [
+            "Qi rebelde do Pulmão"
+        ],
+        "indicacoes_terapeuticas": [
+            "asma"
+        ],
+        "contraindicacoes": [
+            "risco de pneumotórax"
+        ],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Yuzhong.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "tórax"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "R27",
@@ -7676,17 +8463,32 @@
         "meridiano": "Rim",
         "categoria": [],
         "localizacao": "Borda inferior da clavícula, 2 cun lateral à linha média",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "descende Qi rebelde",
+            "abre o tórax"
+        ],
+        "sintomas_relacionados": [
+            "tosse",
+            "asma",
+            "dispneia"
+        ],
+        "sindromes_relacionadas": [
+            "Qi rebelde do Pulmão"
+        ],
+        "indicacoes_terapeuticas": [
+            "asma crônica"
+        ],
+        "contraindicacoes": [
+            "risco de pneumotórax"
+        ],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Shufu — abaixo da clavícula.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "tórax"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "PC1",
@@ -10626,17 +11428,35 @@
             "jing (poço)"
         ],
         "localizacao": "Canto ungueal lateral do hálux",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o útero",
+            "estanca hemorragia",
+            "restabelece a consciência"
+        ],
+        "sintomas_relacionados": [
+            "metrorragia",
+            "prolapso uterino",
+            "hérnia inguinal",
+            "coma",
+            "convulsão infantil"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de Baço não sustentando",
+            "estagnação no canal do Fígado"
+        ],
+        "indicacoes_terapeuticas": [
+            "sangramentos uterinos",
+            "hérnia (moxa)"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Dadun — ponto Jing-poço do Fígado.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "pé"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "F2",
@@ -10646,17 +11466,55 @@
             "ying (fonte)"
         ],
         "localizacao": "Depressão distal entre 1º e 2º artelhos",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia fogo do Fígado",
+            "acalma vento interno",
+            "drena calor do sangue"
+        ],
+        "sintomas_relacionados": [
+            "enxaqueca",
+            "olhos vermelhos",
+            "irritabilidade",
+            "raiva",
+            "insônia agitada",
+            "hipertensão",
+            "metrorragia por calor",
+            "convulsão",
+            "dor genital"
+        ],
+        "sindromes_relacionadas": [
+            "fogo do Fígado",
+            "ascensão de Yang",
+            "calor no sangue"
+        ],
+        "indicacoes_terapeuticas": [
+            "enxaqueca por fogo do Fígado",
+            "hipertensão por ascensão de Yang",
+            "irritabilidade aguda",
+            "epistaxe"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "F3",
+                "objetivo": "drenar Fígado"
+            },
+            {
+                "com": "VB20",
+                "objetivo": "ascensão de Yang"
+            },
+            {
+                "com": "F8",
+                "objetivo": "Yin/Yang do Fígado"
+            }
+        ],
+        "observacoes_clinicas": "Xingjian — ponto Ying (fonte) do Fígado. Ponto de dispersão; excelente para drenar excesso/fogo.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "pé"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "F3",
@@ -10724,17 +11582,31 @@
             "jing (rio)"
         ],
         "localizacao": "1 cun anterior ao maléolo medial, medial ao tendão tibial anterior",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "espalha Qi do Fígado",
+            "drena calor-umidade"
+        ],
+        "sintomas_relacionados": [
+            "dor inguinal",
+            "hérnia",
+            "icterícia"
+        ],
+        "sindromes_relacionadas": [
+            "calor-umidade no Fígado e VB"
+        ],
+        "indicacoes_terapeuticas": [
+            "hérnia (suporte)"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Zhongfeng — ponto Jing-rio do Fígado.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "pé",
+            "tornozelo"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "F5",
@@ -10744,17 +11616,38 @@
             "luo"
         ],
         "localizacao": "5 cun acima do maléolo medial, na face medial da tíbia",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "espalha Qi do Fígado",
+            "beneficia os órgãos genitais"
+        ],
+        "sintomas_relacionados": [
+            "prurido genital",
+            "leucorreia",
+            "dor testicular",
+            "depressão"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação de Qi do Fígado",
+            "calor-umidade no TA inferior"
+        ],
+        "indicacoes_terapeuticas": [
+            "candidíase vaginal",
+            "depressão por estagnação"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "F3",
+                "objetivo": "Fígado-VB, par yuan-luo"
+            }
+        ],
+        "observacoes_clinicas": "Ligou — ponto Luo do Fígado. Pareia com VB40.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "panturrilha"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "F6",
@@ -10764,17 +11657,31 @@
             "xi (fenda)"
         ],
         "localizacao": "7 cun acima do maléolo medial, na face medial da tíbia",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "alivia dor aguda do Fígado",
+            "estanca hemorragia"
+        ],
+        "sintomas_relacionados": [
+            "dor hipocondrial aguda",
+            "metrorragia",
+            "hérnia aguda"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação aguda de Qi do Fígado"
+        ],
+        "indicacoes_terapeuticas": [
+            "cólica hepática (suporte)",
+            "metrorragia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Zhongdu — ponto Xi (fenda) do Fígado.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "panturrilha"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "F7",
@@ -10782,17 +11689,29 @@
         "meridiano": "Fígado",
         "categoria": [],
         "localizacao": "1 cun posterior a BP9",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "relaxa tendões",
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "dor medial do joelho",
+            "rigidez do joelho"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor medial do joelho"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Xiguan.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "joelho"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "F8",
@@ -10802,17 +11721,55 @@
             "he (mar)"
         ],
         "localizacao": "Borda medial da prega poplítea, com o joelho flexionado",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "nutre o Yin e o sangue do Fígado",
+            "beneficia o útero",
+            "alivia dor menstrual",
+            "transforma umidade"
+        ],
+        "sintomas_relacionados": [
+            "dismenorreia",
+            "irregularidade menstrual",
+            "infertilidade",
+            "leucorreia",
+            "prurido genital",
+            "dor medial do joelho",
+            "olhos secos"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de sangue do Fígado",
+            "deficiência de Yin do Fígado",
+            "calor-umidade no TA inferior"
+        ],
+        "indicacoes_terapeuticas": [
+            "dismenorreia por deficiência",
+            "infertilidade",
+            "endometriose (suporte)",
+            "menopausa",
+            "leucorreia"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "BP6",
+                "objetivo": "ginecologia"
+            },
+            {
+                "com": "R3",
+                "objetivo": "Yin/essência"
+            },
+            {
+                "com": "R6",
+                "objetivo": "Yin"
+            }
+        ],
+        "observacoes_clinicas": "Ququan — ponto He-mar do Fígado e ponto-chave para nutrir o sangue do Fígado e o útero.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "joelho"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "F9",
@@ -10820,17 +11777,28 @@
         "meridiano": "Fígado",
         "categoria": [],
         "localizacao": "4 cun acima de F8, entre vasto medial e sartório",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o útero"
+        ],
+        "sintomas_relacionados": [
+            "irregularidade menstrual",
+            "dor lombossacral"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "dismenorreia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Yinbao.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "membro inferior"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "F10",
@@ -10838,17 +11806,30 @@
         "meridiano": "Fígado",
         "categoria": [],
         "localizacao": "3 cun abaixo de F11",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "regula o TA inferior"
+        ],
+        "sintomas_relacionados": [
+            "dor abdominal baixa",
+            "disúria"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no TA inferior"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor inguinal"
+        ],
+        "contraindicacoes": [
+            "evitar a artéria femoral"
+        ],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Wuli.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "membro inferior"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "F11",
@@ -10856,17 +11837,30 @@
         "meridiano": "Fígado",
         "categoria": [],
         "localizacao": "2 cun abaixo de F12, no sulco inguinal",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "regula o TA inferior"
+        ],
+        "sintomas_relacionados": [
+            "dor inguinal",
+            "irregularidade menstrual"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no TA inferior"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor inguinal"
+        ],
+        "contraindicacoes": [
+            "evitar a artéria femoral"
+        ],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Yinlian.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "membro inferior"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "F12",
@@ -10874,17 +11868,30 @@
         "meridiano": "Fígado",
         "categoria": [],
         "localizacao": "Lateral à artéria femoral, ao nível de VC2",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "regula o canal"
+        ],
+        "sintomas_relacionados": [
+            "dor inguinal",
+            "hérnia"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal do Fígado"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor inguinal"
+        ],
+        "contraindicacoes": [
+            "evitar a artéria femoral"
+        ],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Jimai.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "abdome"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "F13",
@@ -10895,17 +11902,48 @@
             "influência dos Zang"
         ],
         "localizacao": "Extremidade livre da 11ª costela",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "harmoniza o Fígado e o Baço",
+            "tonifica o Baço",
+            "alivia distensão"
+        ],
+        "sintomas_relacionados": [
+            "distensão abdominal",
+            "hipocondralgia",
+            "diarreia",
+            "vômito",
+            "fadiga"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação de Qi do Fígado invadindo o Baço"
+        ],
+        "indicacoes_terapeuticas": [
+            "síndrome do intestino irritável",
+            "dispepsia funcional",
+            "hepatite (suporte)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "F14",
+                "objetivo": "Fígado (par mu-mu)"
+            },
+            {
+                "com": "B20",
+                "objetivo": "Baço"
+            },
+            {
+                "com": "F3",
+                "objetivo": "Fígado"
+            }
+        ],
+        "observacoes_clinicas": "Zhangmen — ponto Mu do Baço e reunião dos órgãos Zang (uma das oito influências). Ponto de eleição para harmonizar Fígado/Baço.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "abdome"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "F14",
@@ -10915,17 +11953,63 @@
             "mu do Fígado"
         ],
         "localizacao": "6º espaço intercostal, na linha mamilar",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "acoes_energeticas": [
+            "espalha o Qi do Fígado",
+            "ativa o sangue",
+            "harmoniza o Estômago e diafragma"
+        ],
+        "sintomas_relacionados": [
+            "hipocondralgia",
+            "irritabilidade",
+            "depressão",
+            "soluço",
+            "vômito",
+            "azia",
+            "mastite",
+            "neuralgia intercostal",
+            "menstruação irregular"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação de Qi do Fígado",
+            "estagnação de Qi do Fígado invadindo o Estômago",
+            "estase de sangue no Fígado"
+        ],
+        "indicacoes_terapeuticas": [
+            "depressão por estagnação",
+            "neuralgia intercostal",
+            "mastite",
+            "hepatite (suporte)",
+            "refluxo gastroesofágico"
+        ],
+        "contraindicacoes": [
+            "risco de pneumotórax — punção oblíqua superficial"
+        ],
+        "combinacoes": [
+            {
+                "com": "F3",
+                "objetivo": "Fígado yuan + mu"
+            },
+            {
+                "com": "F13",
+                "objetivo": "par mu-mu Fígado-Baço"
+            },
+            {
+                "com": "VB24",
+                "objetivo": "Fígado-VB locais"
+            },
+            {
+                "com": "PC6",
+                "objetivo": "tórax/diafragma"
+            }
+        ],
+        "observacoes_clinicas": "Qimen — ponto Mu do Fígado. 6º espaço intercostal, na linha do mamilo. Ponto-chave para estagnação de Qi do Fígado.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "tórax",
+            "abdome"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "VC1",
