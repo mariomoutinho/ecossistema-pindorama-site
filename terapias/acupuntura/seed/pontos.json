@@ -7349,17 +7349,45 @@
         "meridiano": "Vesícula Biliar",
         "categoria": [],
         "localizacao": "Canto lateral do olho, 0,5 cun lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "clareia visão",
+            "drena calor do Fígado"
+        ],
+        "sintomas_relacionados": [
+            "cefaleia temporal",
+            "olhos vermelhos",
+            "lacrimejamento",
+            "visão turva",
+            "enxaqueca"
+        ],
+        "sindromes_relacionadas": [
+            "vento-calor nos olhos",
+            "ascensão de Yang do Fígado"
+        ],
+        "indicacoes_terapeuticas": [
+            "enxaqueca",
+            "conjuntivite",
+            "neuralgia do trigêmeo (1º ramo)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "F3",
+                "objetivo": "ascensão de Yang"
+            },
+            {
+                "com": "VB20",
+                "objetivo": "enxaqueca"
+            }
+        ],
+        "observacoes_clinicas": "Canto externo do olho. Punção subcutânea superficial.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "VB2",
@@ -7367,17 +7395,45 @@
         "meridiano": "Vesícula Biliar",
         "categoria": [],
         "localizacao": "Anterior à incisura intertrágica, com a boca aberta",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "abre os ouvidos",
+            "dispersa vento"
+        ],
+        "sintomas_relacionados": [
+            "zumbido",
+            "surdez",
+            "dor de ouvido",
+            "DTM",
+            "dor dental"
+        ],
+        "sindromes_relacionadas": [
+            "vento externo no ouvido",
+            "fogo da VB no ouvido"
+        ],
+        "indicacoes_terapeuticas": [
+            "zumbido",
+            "surdez",
+            "otite",
+            "DTM"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "TA17",
+                "objetivo": "ouvidos"
+            },
+            {
+                "com": "TA21",
+                "objetivo": "ouvidos"
+            }
+        ],
+        "observacoes_clinicas": "Anterior ao trágus, boca entreaberta. Trio com TA21 e ID19 na região auricular.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "VB3",
@@ -7385,17 +7441,33 @@
         "meridiano": "Vesícula Biliar",
         "categoria": [],
         "localizacao": "Acima do arco zigomático, vertical de E7",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "cefaleia",
+            "dor de ouvido",
+            "trismo",
+            "paralisia facial",
+            "dor dental"
+        ],
+        "sindromes_relacionadas": [
+            "vento externo na face"
+        ],
+        "indicacoes_terapeuticas": [
+            "paralisia facial",
+            "DTM"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "cabeça"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "VB4",
@@ -7403,17 +7475,31 @@
         "meridiano": "Vesícula Biliar",
         "categoria": [],
         "localizacao": "1/4 superior da curva entre VB3 e VB6",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "alivia dor"
+        ],
+        "sintomas_relacionados": [
+            "enxaqueca",
+            "cefaleia temporal",
+            "vertigem"
+        ],
+        "sindromes_relacionadas": [
+            "ascensão de Yang",
+            "vento externo"
+        ],
+        "indicacoes_terapeuticas": [
+            "enxaqueca"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "cabeça"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "VB5",
@@ -7421,17 +7507,29 @@
         "meridiano": "Vesícula Biliar",
         "categoria": [],
         "localizacao": "Meio da curva entre VB3 e VB6",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "alivia dor"
+        ],
+        "sintomas_relacionados": [
+            "enxaqueca",
+            "cefaleia temporal"
+        ],
+        "sindromes_relacionadas": [
+            "ascensão de Yang"
+        ],
+        "indicacoes_terapeuticas": [
+            "enxaqueca"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "cabeça"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "VB6",
@@ -7439,17 +7537,29 @@
         "meridiano": "Vesícula Biliar",
         "categoria": [],
         "localizacao": "3/4 da curva entre VB3 e VB6",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "alivia dor"
+        ],
+        "sintomas_relacionados": [
+            "enxaqueca",
+            "cefaleia temporal"
+        ],
+        "sindromes_relacionadas": [
+            "ascensão de Yang"
+        ],
+        "indicacoes_terapeuticas": [
+            "enxaqueca"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "cabeça"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "VB7",
@@ -7457,17 +7567,30 @@
         "meridiano": "Vesícula Biliar",
         "categoria": [],
         "localizacao": "1 cun anterior ao ápice da orelha",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "alivia dor"
+        ],
+        "sintomas_relacionados": [
+            "enxaqueca",
+            "dor temporal",
+            "DTM"
+        ],
+        "sindromes_relacionadas": [
+            "vento externo"
+        ],
+        "indicacoes_terapeuticas": [
+            "enxaqueca"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "cabeça"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "VB8",
@@ -7475,17 +7598,49 @@
         "meridiano": "Vesícula Biliar",
         "categoria": [],
         "localizacao": "1,5 cun acima do ápice da orelha",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "harmoniza o Estômago",
+            "alivia dor temporal"
+        ],
+        "sintomas_relacionados": [
+            "enxaqueca",
+            "cefaleia temporal",
+            "vertigem",
+            "vômito",
+            "cinetose"
+        ],
+        "sindromes_relacionadas": [
+            "ascensão de Yang do Fígado",
+            "fleuma na cabeça"
+        ],
+        "indicacoes_terapeuticas": [
+            "enxaqueca",
+            "cefaleia tensional temporal",
+            "labirintite (suporte)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VB20",
+                "objetivo": "enxaqueca"
+            },
+            {
+                "com": "F3",
+                "objetivo": "ascensão de Yang"
+            },
+            {
+                "com": "E8",
+                "objetivo": "cefaleia temporal"
+            }
+        ],
+        "observacoes_clinicas": "Ponto local clássico para enxaqueca. 1,5 cun acima do ápice do pavilhão auricular.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "VB9",
@@ -7493,17 +7648,28 @@
         "meridiano": "Vesícula Biliar",
         "categoria": [],
         "localizacao": "0,5 cun posterior a VB8",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento"
+        ],
+        "sintomas_relacionados": [
+            "cefaleia",
+            "convulsão"
+        ],
+        "sindromes_relacionadas": [
+            "vento interno"
+        ],
+        "indicacoes_terapeuticas": [
+            "epilepsia (suporte)"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "cabeça"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "VB10",
@@ -7511,17 +7677,28 @@
         "meridiano": "Vesícula Biliar",
         "categoria": [],
         "localizacao": "Posterior à orelha, na curva entre VB9 e VB12",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento"
+        ],
+        "sintomas_relacionados": [
+            "cefaleia",
+            "rigidez cervical"
+        ],
+        "sindromes_relacionadas": [
+            "vento externo"
+        ],
+        "indicacoes_terapeuticas": [
+            "cefaleia occipital"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "cabeça"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "VB11",
@@ -7529,17 +7706,30 @@
         "meridiano": "Vesícula Biliar",
         "categoria": [],
         "localizacao": "Posterior à orelha, na curva entre VB10 e VB12",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "abre os ouvidos"
+        ],
+        "sintomas_relacionados": [
+            "cefaleia",
+            "zumbido",
+            "surdez"
+        ],
+        "sindromes_relacionadas": [
+            "vento externo"
+        ],
+        "indicacoes_terapeuticas": [
+            "cefaleia, zumbido"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "cabeça"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "VB12",
@@ -7547,17 +7737,43 @@
         "meridiano": "Vesícula Biliar",
         "categoria": [],
         "localizacao": "Atrás e abaixo do processo mastoide",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "acalma o shen"
+        ],
+        "sintomas_relacionados": [
+            "cefaleia occipital",
+            "insônia",
+            "ranger de dentes",
+            "dor cervical"
+        ],
+        "sindromes_relacionadas": [
+            "vento externo no Shaoyang",
+            "Shen inquieto"
+        ],
+        "indicacoes_terapeuticas": [
+            "insônia",
+            "cervicalgia"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VG20",
+                "objetivo": "insônia"
+            },
+            {
+                "com": "B62",
+                "objetivo": "insônia"
+            }
+        ],
+        "observacoes_clinicas": "Atrás do processo mastóideo. Útil para insônia associada a tensão cervical.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça",
+            "pescoço"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "VB13",
@@ -7565,17 +7781,42 @@
         "meridiano": "Vesícula Biliar",
         "categoria": [],
         "localizacao": "0,5 cun dentro da linha do cabelo, 3 cun lateral à linha média",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "acalma o shen",
+            "dispersa vento"
+        ],
+        "sintomas_relacionados": [
+            "agitação mental",
+            "insônia",
+            "ansiedade",
+            "cefaleia"
+        ],
+        "sindromes_relacionadas": [
+            "ascensão de Yang",
+            "fleuma-fogo perturbando o shen"
+        ],
+        "indicacoes_terapeuticas": [
+            "ansiedade",
+            "transtornos psiquiátricos (suporte)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VG24",
+                "objetivo": "shen"
+            },
+            {
+                "com": "VB18",
+                "objetivo": "transtornos mentais"
+            }
+        ],
+        "observacoes_clinicas": "\"Shen Raiz\" — ponto importante para distúrbios mentais e emocionais.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "VB14",
@@ -7583,17 +7824,43 @@
         "meridiano": "Vesícula Biliar",
         "categoria": [],
         "localizacao": "1 cun acima da sobrancelha, vertical da pupila",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "ativa o canal",
+            "alivia dor frontal"
+        ],
+        "sintomas_relacionados": [
+            "cefaleia frontal",
+            "paralisia facial",
+            "tique palpebral",
+            "ptose palpebral"
+        ],
+        "sindromes_relacionadas": [
+            "vento externo na face",
+            "deficiência de sangue do Fígado"
+        ],
+        "indicacoes_terapeuticas": [
+            "paralisia facial periférica (acometimento frontal)",
+            "cefaleia frontal"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "IG4",
+                "objetivo": "paralisia facial"
+            },
+            {
+                "com": "B2",
+                "objetivo": "cefaleia frontal"
+            }
+        ],
+        "observacoes_clinicas": "Frontal, 1 cun acima da sobrancelha sobre a pupila. Subcutâneo em direção à sobrancelha.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "VB15",
@@ -7601,17 +7868,30 @@
         "meridiano": "Vesícula Biliar",
         "categoria": [],
         "localizacao": "0,5 cun dentro da linha do cabelo, vertical da pupila",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "clareia visão"
+        ],
+        "sintomas_relacionados": [
+            "cefaleia",
+            "lacrimejamento",
+            "visão turva"
+        ],
+        "sindromes_relacionadas": [
+            "vento externo nos olhos"
+        ],
+        "indicacoes_terapeuticas": [
+            "cefaleia frontal"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "cabeça"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "VB16",
@@ -7619,17 +7899,29 @@
         "meridiano": "Vesícula Biliar",
         "categoria": [],
         "localizacao": "1,5 cun atrás de VB15",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "clareia visão"
+        ],
+        "sintomas_relacionados": [
+            "cefaleia",
+            "visão turva"
+        ],
+        "sindromes_relacionadas": [
+            "vento externo"
+        ],
+        "indicacoes_terapeuticas": [
+            "cefaleia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "VB17",
@@ -7637,17 +7929,28 @@
         "meridiano": "Vesícula Biliar",
         "categoria": [],
         "localizacao": "1 cun atrás de VB16",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento"
+        ],
+        "sintomas_relacionados": [
+            "cefaleia",
+            "vertigem"
+        ],
+        "sindromes_relacionadas": [
+            "vento externo"
+        ],
+        "indicacoes_terapeuticas": [
+            "cefaleia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "VB18",
@@ -7655,17 +7958,30 @@
         "meridiano": "Vesícula Biliar",
         "categoria": [],
         "localizacao": "1,5 cun atrás de VB17",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "acalma o shen"
+        ],
+        "sintomas_relacionados": [
+            "cefaleia",
+            "agitação mental",
+            "epilepsia"
+        ],
+        "sindromes_relacionadas": [
+            "vento interno"
+        ],
+        "indicacoes_terapeuticas": [
+            "epilepsia (suporte)"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "cabeça"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "VB19",
@@ -7673,17 +7989,29 @@
         "meridiano": "Vesícula Biliar",
         "categoria": [],
         "localizacao": "Lateral à protuberância occipital, ao nível de VG17",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "clareia visão"
+        ],
+        "sintomas_relacionados": [
+            "cefaleia occipital",
+            "vertigem"
+        ],
+        "sindromes_relacionadas": [
+            "vento interno"
+        ],
+        "indicacoes_terapeuticas": [
+            "cefaleia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "VB20",
@@ -7751,17 +8079,55 @@
         "meridiano": "Vesícula Biliar",
         "categoria": [],
         "localizacao": "Meio do trapézio, entre C7 e acrômio",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "acoes_energeticas": [
+            "regula o Qi",
+            "descende o Qi rebelde",
+            "ativa o canal",
+            "promove a descida do leite"
+        ],
+        "sintomas_relacionados": [
+            "cervicalgia",
+            "dor escapular",
+            "dor de ombro",
+            "rigidez de pescoço",
+            "mastite",
+            "agalactia",
+            "trabalho de parto difícil"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação de Qi no Shaoyang",
+            "estase no tórax"
+        ],
+        "indicacoes_terapeuticas": [
+            "cervicalgia crônica",
+            "dor escapular",
+            "mastite",
+            "agalactia",
+            "indução de parto"
+        ],
+        "contraindicacoes": [
+            "evitar em gestantes — pode induzir contrações",
+            "risco de pneumotórax: punção rasa e oblíqua"
+        ],
+        "combinacoes": [
+            {
+                "com": "IG4",
+                "objetivo": "indução de parto e descida do leite"
+            },
+            {
+                "com": "VB20",
+                "objetivo": "cervicalgia"
+            }
+        ],
+        "observacoes_clinicas": "Jianjing. Ponto Carrefour do Shaoyang. Vetor descendente importante. Cuidado com o ápice pulmonar.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "pescoço",
+            "tórax",
+            "costas"
+        ],
+        "peso_base": 8,
+        "dados_completos": true
     },
     {
         "codigo": "VB22",
@@ -7769,17 +8135,30 @@
         "meridiano": "Vesícula Biliar",
         "categoria": [],
         "localizacao": "4º espaço intercostal, na linha axilar média",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "regula o Qi do tórax"
+        ],
+        "sintomas_relacionados": [
+            "dor hipocondrial",
+            "dor torácica lateral"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação de Qi do Fígado"
+        ],
+        "indicacoes_terapeuticas": [
+            "neuralgia intercostal"
+        ],
+        "contraindicacoes": [
+            "risco de pneumotórax"
+        ],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Linha média axilar, no 4º espaço intercostal.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "tórax"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "VB23",
@@ -7787,17 +8166,30 @@
         "meridiano": "Vesícula Biliar",
         "categoria": [],
         "localizacao": "4º espaço intercostal, 1 cun anterior a VB22",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "regula o Qi do tórax"
+        ],
+        "sintomas_relacionados": [
+            "dor hipocondrial",
+            "dispneia"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação de Qi do Fígado"
+        ],
+        "indicacoes_terapeuticas": [
+            "neuralgia intercostal"
+        ],
+        "contraindicacoes": [
+            "risco de pneumotórax"
+        ],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "tórax"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "VB24",
@@ -7807,17 +8199,49 @@
             "mu da Vesícula Biliar"
         ],
         "localizacao": "7º espaço intercostal, na linha mamilar",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "espalha o Qi do Fígado",
+            "harmoniza o Estômago",
+            "drena calor-umidade",
+            "beneficia a VB"
+        ],
+        "sintomas_relacionados": [
+            "hipocondralgia",
+            "icterícia",
+            "vômito",
+            "azia",
+            "boca amarga",
+            "soluço"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação de Qi do Fígado invadindo o Estômago",
+            "calor-umidade na VB"
+        ],
+        "indicacoes_terapeuticas": [
+            "colecistite",
+            "hepatite (suporte)",
+            "refluxo gastroesofágico",
+            "icterícia"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "F14",
+                "objetivo": "Fígado e VB"
+            },
+            {
+                "com": "E36",
+                "objetivo": "harmonizar Estômago"
+            }
+        ],
+        "observacoes_clinicas": "Ponto Mu da Vesícula Biliar. 7º espaço intercostal, linha mamilar.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "tórax",
+            "abdome"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "VB25",
@@ -7827,17 +8251,40 @@
             "mu do Rim"
         ],
         "localizacao": "Extremidade livre da 12ª costela",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "fortalece a lombar",
+            "regula as águas",
+            "regula os intestinos"
+        ],
+        "sintomas_relacionados": [
+            "lombalgia",
+            "dor hipocondrial",
+            "diarreia",
+            "distensão abdominal"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de Rim",
+            "estagnação no TA inferior"
+        ],
+        "indicacoes_terapeuticas": [
+            "lombalgia",
+            "cálculo renal (suporte)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "B23",
+                "objetivo": "Rim e lombar"
+            }
+        ],
+        "observacoes_clinicas": "Ponto Mu do Rim. Borda inferior livre da 12ª costela.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "lombar",
+            "abdome"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "VB26",
@@ -7845,17 +8292,43 @@
         "meridiano": "Vesícula Biliar",
         "categoria": [],
         "localizacao": "Vertical de F13, ao nível do umbigo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o Dai Mai (vaso cintura)",
+            "regula menstruação",
+            "transforma umidade"
+        ],
+        "sintomas_relacionados": [
+            "leucorreia",
+            "irregularidade menstrual",
+            "dor lombar irradiando para a pelve",
+            "hérnia"
+        ],
+        "sindromes_relacionadas": [
+            "umidade no Dai Mai",
+            "estagnação no TA inferior"
+        ],
+        "indicacoes_terapeuticas": [
+            "leucorreia crônica",
+            "dismenorreia"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VB41",
+                "objetivo": "abrir Dai Mai"
+            },
+            {
+                "com": "BP6",
+                "objetivo": "ginecologia"
+            }
+        ],
+        "observacoes_clinicas": "Daimai. Ponto de reunião com o Vaso Cintura (Dai Mai).",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "abdome"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "VB27",
@@ -7863,17 +8336,30 @@
         "meridiano": "Vesícula Biliar",
         "categoria": [],
         "localizacao": "3 cun abaixo do umbigo, vertical da espinha ilíaca antero-superior",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o Dai Mai",
+            "regula o TA inferior"
+        ],
+        "sintomas_relacionados": [
+            "leucorreia",
+            "dor abdominal",
+            "irregularidade menstrual"
+        ],
+        "sindromes_relacionadas": [
+            "umidade no Dai Mai"
+        ],
+        "indicacoes_terapeuticas": [
+            "leucorreia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Ponto de reunião com Dai Mai.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "abdome"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "VB28",
@@ -7881,17 +8367,28 @@
         "meridiano": "Vesícula Biliar",
         "categoria": [],
         "localizacao": "0,5 cun antero-inferior a VB27",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o Dai Mai"
+        ],
+        "sintomas_relacionados": [
+            "leucorreia",
+            "dor abdominal baixa"
+        ],
+        "sindromes_relacionadas": [
+            "umidade no Dai Mai"
+        ],
+        "indicacoes_terapeuticas": [
+            "leucorreia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Ponto de reunião com Dai Mai.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "abdome"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "VB29",
@@ -7899,17 +8396,34 @@
         "meridiano": "Vesícula Biliar",
         "categoria": [],
         "localizacao": "Depressão entre espinha ilíaca antero-superior e trocânter maior",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal",
+            "alivia dor no quadril"
+        ],
+        "sintomas_relacionados": [
+            "dor no quadril",
+            "fraqueza dos membros inferiores"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor de quadril"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
+        "combinacoes": [
+            {
+                "com": "VB30",
+                "objetivo": "dor de quadril"
+            }
+        ],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "membro inferior"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "VB30",
@@ -7917,17 +8431,51 @@
         "meridiano": "Vesícula Biliar",
         "categoria": [],
         "localizacao": "1/3 lateral da linha entre o sacro e o trocânter maior",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal",
+            "alivia lombociatalgia",
+            "relaxa tendões"
+        ],
+        "sintomas_relacionados": [
+            "ciática",
+            "dor no quadril",
+            "lombalgia",
+            "paralisia dos membros inferiores",
+            "atrofia muscular"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal Shaoyang",
+            "vento-frio-umidade no quadril"
+        ],
+        "indicacoes_terapeuticas": [
+            "ciática",
+            "artrose de quadril",
+            "hérnia de disco lombar (suporte)",
+            "sequelas de AVC com hemiparesia"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "B40",
+                "objetivo": "lombociatalgia"
+            },
+            {
+                "com": "VB34",
+                "objetivo": "ciática"
+            },
+            {
+                "com": "VB29",
+                "objetivo": "dor de quadril"
+            }
+        ],
+        "observacoes_clinicas": "Huantiao. Ponto local clássico para ciática — agulhamento profundo (3-4 cun) atingindo o nervo isquiático.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "glúteo",
+            "membro inferior"
+        ],
+        "peso_base": 8,
+        "dados_completos": true
     },
     {
         "codigo": "VB31",
@@ -7935,17 +8483,45 @@
         "meridiano": "Vesícula Biliar",
         "categoria": [],
         "localizacao": "Lateral da coxa, na ponta do dedo médio com o braço estendido ao lado",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "ativa o canal",
+            "relaxa tendões"
+        ],
+        "sintomas_relacionados": [
+            "prurido generalizado",
+            "urticária",
+            "fraqueza dos membros inferiores",
+            "lombociatalgia"
+        ],
+        "sindromes_relacionadas": [
+            "vento na pele",
+            "estagnação no canal Shaoyang"
+        ],
+        "indicacoes_terapeuticas": [
+            "urticária",
+            "prurido",
+            "ciática",
+            "hemiparesia"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "BP10",
+                "objetivo": "prurido"
+            },
+            {
+                "com": "VB34",
+                "objetivo": "membros inferiores"
+            }
+        ],
+        "observacoes_clinicas": "Fengshi — \"Mercado do Vento\". Ponto de eleição para prurido e urticária.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "membro inferior"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "VB32",
@@ -7953,17 +8529,28 @@
         "meridiano": "Vesícula Biliar",
         "categoria": [],
         "localizacao": "2 cun distal a VB31",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "dor lateral da coxa",
+            "fraqueza muscular"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor da coxa"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "membro inferior"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "VB33",
@@ -7971,17 +8558,29 @@
         "meridiano": "Vesícula Biliar",
         "categoria": [],
         "localizacao": "3 cun acima de VB34, na depressão lateral ao côndilo femoral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal",
+            "alivia dor no joelho"
+        ],
+        "sintomas_relacionados": [
+            "dor lateral do joelho",
+            "rigidez do joelho"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal Shaoyang"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor lateral do joelho (síndrome do trato iliotibial)"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "joelho"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "VB34",
@@ -8046,17 +8645,30 @@
             "xi do Yang Wei"
         ],
         "localizacao": "7 cun acima do maléolo lateral, na borda posterior da fíbula",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "dor lateral da perna",
+            "ansiedade",
+            "palpitação"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no Shaoyang"
+        ],
+        "indicacoes_terapeuticas": [
+            "transtornos psicossomáticos"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Ponto Xi (fenda) do Yang Wei Mai.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "panturrilha"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "VB36",
@@ -8066,17 +8678,29 @@
             "xi (fenda)"
         ],
         "localizacao": "7 cun acima do maléolo lateral, na borda anterior da fíbula",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal",
+            "dispersa vento"
+        ],
+        "sintomas_relacionados": [
+            "dor lateral da perna",
+            "dor no pescoço"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "raiva, irritabilidade aguda"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Ponto Xi (fenda) da Vesícula Biliar — bom para crises agudas de raiva e dor.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "panturrilha"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "VB37",
@@ -8086,17 +8710,43 @@
             "luo"
         ],
         "localizacao": "5 cun acima do maléolo lateral, na borda anterior da fíbula",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor do Fígado",
+            "beneficia os olhos"
+        ],
+        "sintomas_relacionados": [
+            "visão turva",
+            "olhos vermelhos",
+            "cegueira noturna",
+            "miopia"
+        ],
+        "sindromes_relacionadas": [
+            "calor no Fígado e VB",
+            "deficiência de sangue do Fígado"
+        ],
+        "indicacoes_terapeuticas": [
+            "distúrbios visuais",
+            "miopia",
+            "glaucoma (suporte)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "F3",
+                "objetivo": "Fígado e olhos"
+            },
+            {
+                "com": "VB1",
+                "objetivo": "olhos"
+            }
+        ],
+        "observacoes_clinicas": "Guangming — \"Brilho Claro\". Ponto Luo da VB, pareia com F3 (yuan do Fígado).",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "panturrilha"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "VB38",
@@ -8106,17 +8756,30 @@
             "jing (rio)"
         ],
         "localizacao": "4 cun acima do maléolo lateral, na borda anterior da fíbula",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor do Shaoyang",
+            "alivia dor hipocondrial"
+        ],
+        "sintomas_relacionados": [
+            "enxaqueca",
+            "hipocondralgia",
+            "dor lateral do corpo"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no Shaoyang"
+        ],
+        "indicacoes_terapeuticas": [
+            "enxaqueca"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Ponto Jing-rio da VB.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "tornozelo"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "VB39",
@@ -8126,17 +8789,49 @@
             "influência da medula"
         ],
         "localizacao": "3 cun acima do maléolo lateral, na borda posterior da fíbula",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "nutre a medula",
+            "fortalece ossos",
+            "relaxa tendões",
+            "dispersa vento na cabeça"
+        ],
+        "sintomas_relacionados": [
+            "cervicalgia",
+            "torcicolo",
+            "rigidez do pescoço",
+            "fraqueza dos membros inferiores",
+            "atrofia muscular",
+            "AVC sequela"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de medula",
+            "vento no Shaoyang"
+        ],
+        "indicacoes_terapeuticas": [
+            "torcicolo",
+            "cervicalgia crônica",
+            "sequelas de AVC",
+            "osteoporose (suporte)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VB34",
+                "objetivo": "tendões"
+            },
+            {
+                "com": "B11",
+                "objetivo": "ossos"
+            }
+        ],
+        "observacoes_clinicas": "Xuanzhong. Ponto de reunião da medula (uma das oito influências).",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "tornozelo",
+            "panturrilha"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "VB40",
@@ -8146,17 +8841,38 @@
             "yuan (fonte)"
         ],
         "localizacao": "Depressão antero-inferior do maléolo lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "espalha o Qi do Fígado",
+            "ativa o canal",
+            "alivia dor"
+        ],
+        "sintomas_relacionados": [
+            "entorse de tornozelo lateral",
+            "dor de tornozelo",
+            "hipocondralgia",
+            "edema do tornozelo"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal Shaoyang"
+        ],
+        "indicacoes_terapeuticas": [
+            "entorse de tornozelo",
+            "dor de tornozelo crônica"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "E41",
+                "objetivo": "entorse de tornozelo"
+            }
+        ],
+        "observacoes_clinicas": "Qiuxu. Ponto Yuan (fonte) da VB. Ponto local mais usado em lesões do tornozelo lateral.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "tornozelo"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "VB41",
@@ -8167,17 +8883,48 @@
             "confluência com Dai Mai"
         ],
         "localizacao": "Depressão distal entre 4º e 5º metatarsos no dorso do pé",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "abre o Dai Mai",
+            "espalha o Qi do Fígado",
+            "dispersa vento",
+            "regula menstruação"
+        ],
+        "sintomas_relacionados": [
+            "enxaqueca",
+            "hipocondralgia",
+            "irregularidade menstrual",
+            "leucorreia",
+            "dor no dorso do pé",
+            "mastite"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação de Qi do Fígado",
+            "umidade no Dai Mai"
+        ],
+        "indicacoes_terapeuticas": [
+            "enxaqueca crônica",
+            "leucorreia",
+            "dismenorreia",
+            "mastite"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "TA5",
+                "objetivo": "abrir Dai Mai + Yang Wei, par mestre-acoplado"
+            },
+            {
+                "com": "F3",
+                "objetivo": "Fígado"
+            }
+        ],
+        "observacoes_clinicas": "Foot-Linqi. Ponto de confluência (mestre) do Dai Mai. Pareia com TA5.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "pé"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "VB42",
@@ -8185,17 +8932,30 @@
         "meridiano": "Vesícula Biliar",
         "categoria": [],
         "localizacao": "Depressão entre 4º e 5º metatarsos, 1 cun proximal a VB43",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal",
+            "regula as mamas"
+        ],
+        "sintomas_relacionados": [
+            "dor no dorso do pé",
+            "mastite",
+            "dor hipocondrial"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação de Qi do Fígado"
+        ],
+        "indicacoes_terapeuticas": [
+            "mastite"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "pé"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "VB43",
@@ -8205,17 +8965,33 @@
             "ying (fonte)"
         ],
         "localizacao": "Depressão distal entre 4º e 5º artelhos",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor do Fígado e VB",
+            "beneficia os ouvidos"
+        ],
+        "sintomas_relacionados": [
+            "zumbido",
+            "surdez",
+            "hipocondralgia",
+            "olhos vermelhos",
+            "febre"
+        ],
+        "sindromes_relacionadas": [
+            "calor no Shaoyang"
+        ],
+        "indicacoes_terapeuticas": [
+            "zumbido por calor",
+            "hipertensão (suporte)"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Ponto Ying (fonte) da VB.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "pé"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "VB44",
@@ -8225,17 +9001,35 @@
             "jing (poço)"
         ],
         "localizacao": "Canto ungueal lateral do 4º artelho",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor",
+            "acalma o shen",
+            "restabelece a consciência"
+        ],
+        "sintomas_relacionados": [
+            "cefaleia",
+            "olhos vermelhos",
+            "insônia",
+            "sonhos excessivos",
+            "coma"
+        ],
+        "sindromes_relacionadas": [
+            "fogo do Fígado/VB",
+            "ascensão de Yang"
+        ],
+        "indicacoes_terapeuticas": [
+            "enxaqueca refratária (sangria)",
+            "ressuscitação (sangria)"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Ponto Jing-poço da VB. Sangria útil em quadros agudos de calor.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "pé"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "F1",
