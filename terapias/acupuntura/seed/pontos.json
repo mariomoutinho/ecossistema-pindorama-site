@@ -7,17 +7,49 @@
             "mu do Pulmão"
         ],
         "localizacao": "1º espaço intercostal, 6 cun lateral à linha média anterior",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "acoes_energeticas": [
+            "descende o Qi rebelde do Pulmão",
+            "abre o tórax",
+            "transforma fleuma"
+        ],
+        "sintomas_relacionados": [
+            "tosse",
+            "dispneia",
+            "asma",
+            "opressão torácica",
+            "dor torácica anterior",
+            "dor escapular"
+        ],
+        "sindromes_relacionadas": [
+            "fleuma-calor no Pulmão",
+            "estagnação de Qi no tórax",
+            "Qi rebelde do Pulmão"
+        ],
+        "indicacoes_terapeuticas": [
+            "asma",
+            "bronquite",
+            "pneumonia (suporte)"
+        ],
+        "contraindicacoes": [
+            "risco de pneumotórax — punção oblíqua lateral, evitar profundidade medial"
+        ],
+        "combinacoes": [
+            {
+                "com": "B13",
+                "objetivo": "Pulmão (par mu-shu)"
+            },
+            {
+                "com": "VC17",
+                "objetivo": "Qi do tórax"
+            }
+        ],
+        "observacoes_clinicas": "Zhongfu — ponto Mu do Pulmão. 1º espaço intercostal, 6 cun lateral à linha média anterior. Sempre obliquar a punção lateralmente para evitar pneumotórax.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "tórax"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "P2",
@@ -25,17 +57,39 @@
         "meridiano": "Pulmão",
         "categoria": [],
         "localizacao": "Depressão infraclavicular, 6 cun lateral à linha média anterior",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "acoes_energeticas": [
+            "descende o Qi rebelde do Pulmão",
+            "abre o tórax"
+        ],
+        "sintomas_relacionados": [
+            "tosse",
+            "asma",
+            "dor torácica anterior",
+            "dor de ombro"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal do Pulmão"
+        ],
+        "indicacoes_terapeuticas": [
+            "tosse",
+            "dor periarticular do ombro"
+        ],
+        "contraindicacoes": [
+            "risco de pneumotórax"
+        ],
+        "combinacoes": [
+            {
+                "com": "P1",
+                "objetivo": "Pulmão local"
+            }
+        ],
+        "observacoes_clinicas": "Yunmen. Depressão infraclavicular.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "tórax"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "P3",
@@ -43,17 +97,33 @@
         "meridiano": "Pulmão",
         "categoria": [],
         "localizacao": "3 cun abaixo da prega axilar, na borda lateral do bíceps braquial",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "descende o Qi rebelde do Pulmão",
+            "acalma o shen"
+        ],
+        "sintomas_relacionados": [
+            "asma",
+            "epistaxe",
+            "tristeza",
+            "agitação mental"
+        ],
+        "sindromes_relacionadas": [
+            "Qi rebelde do Pulmão",
+            "Po desarmonizado"
+        ],
+        "indicacoes_terapeuticas": [
+            "epistaxe",
+            "transtornos psicossomáticos respiratórios"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Tianfu — ponto janela do céu. Útil em afecções emocionais do Pulmão (Po).",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "braço"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "P4",
@@ -61,17 +131,29 @@
         "meridiano": "Pulmão",
         "categoria": [],
         "localizacao": "4 cun abaixo da prega axilar, na borda lateral do bíceps braquial",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "descende o Qi rebelde do Pulmão"
+        ],
+        "sintomas_relacionados": [
+            "tosse",
+            "opressão torácica",
+            "dor no braço"
+        ],
+        "sindromes_relacionadas": [
+            "Qi rebelde do Pulmão"
+        ],
+        "indicacoes_terapeuticas": [
+            "tosse"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "braço"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "P5",
@@ -81,17 +163,47 @@
             "he (mar)"
         ],
         "localizacao": "Prega do cotovelo, lateral ao tendão do bíceps",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor do Pulmão",
+            "descende o Qi rebelde",
+            "drena fleuma-calor",
+            "relaxa tendões"
+        ],
+        "sintomas_relacionados": [
+            "tosse com expectoração amarela",
+            "asma",
+            "dor de garganta",
+            "hemoptise",
+            "febre",
+            "dor no cotovelo"
+        ],
+        "sindromes_relacionadas": [
+            "calor no Pulmão",
+            "fleuma-calor no Pulmão"
+        ],
+        "indicacoes_terapeuticas": [
+            "pneumonia (suporte)",
+            "bronquite com expectoração purulenta",
+            "epicondilite (suporte local)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "P7",
+                "objetivo": "Pulmão"
+            },
+            {
+                "com": "VC17",
+                "objetivo": "Qi do tórax"
+            }
+        ],
+        "observacoes_clinicas": "Chize — ponto He-mar (água) do Pulmão. Ponto de dispersão; excelente para drenar excesso e calor.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "braço"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "P6",
@@ -101,17 +213,40 @@
             "xi (fenda)"
         ],
         "localizacao": "7 cun acima da prega do punho, na borda radial do antebraço",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor do Pulmão",
+            "estanca hemorragia",
+            "alivia dor aguda no tórax"
+        ],
+        "sintomas_relacionados": [
+            "hemoptise",
+            "epistaxe",
+            "asma aguda",
+            "dor torácica aguda",
+            "dor de garganta intensa"
+        ],
+        "sindromes_relacionadas": [
+            "calor invadindo o Xue do Pulmão",
+            "Qi rebelde agudo"
+        ],
+        "indicacoes_terapeuticas": [
+            "hemoptise",
+            "epistaxe"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "P5",
+                "objetivo": "calor agudo no Pulmão"
+            }
+        ],
+        "observacoes_clinicas": "Kongzui — ponto Xi (fenda) do Pulmão. Indicado em quadros agudos, especialmente sangramentos.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "braço"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "P7",
@@ -172,17 +307,30 @@
             "jing (rio)"
         ],
         "localizacao": "1 cun acima da prega do punho, na borda radial",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "descende o Qi rebelde",
+            "harmoniza a garganta"
+        ],
+        "sintomas_relacionados": [
+            "tosse",
+            "asma",
+            "dor de garganta"
+        ],
+        "sindromes_relacionadas": [
+            "Qi rebelde do Pulmão"
+        ],
+        "indicacoes_terapeuticas": [
+            "tosse seca"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Jingqu — ponto Jing-rio (metal) do Pulmão.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "punho"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "P9",
@@ -194,17 +342,49 @@
             "influência dos vasos"
         ],
         "localizacao": "Prega radial do punho, lateral à artéria radial",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "acoes_energeticas": [
+            "tonifica o Pulmão",
+            "tonifica os vasos sanguíneos",
+            "transforma fleuma",
+            "fortalece o Qi"
+        ],
+        "sintomas_relacionados": [
+            "tosse crônica",
+            "dispneia",
+            "fadiga",
+            "suor espontâneo",
+            "voz fraca",
+            "doenças vasculares periféricas"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de Qi do Pulmão",
+            "deficiência de Yin do Pulmão"
+        ],
+        "indicacoes_terapeuticas": [
+            "bronquite crônica",
+            "asma crônica",
+            "convalescença respiratória"
+        ],
+        "contraindicacoes": [
+            "evitar a artéria radial"
+        ],
+        "combinacoes": [
+            {
+                "com": "P7",
+                "objetivo": "Pulmão"
+            },
+            {
+                "com": "B13",
+                "objetivo": "shu do Pulmão"
+            }
+        ],
+        "observacoes_clinicas": "Taiyuan — ponto Yuan (fonte) e Shu (arroio) do Pulmão; também reunião dos vasos sanguíneos (uma das oito influências). Ponto principal para tonificar Qi do Pulmão.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "punho"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "P10",
@@ -214,17 +394,32 @@
             "ying (fonte)"
         ],
         "localizacao": "Meio do 1º metacarpo, na borda da pele palmar/dorsal",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor do Pulmão",
+            "beneficia a garganta"
+        ],
+        "sintomas_relacionados": [
+            "dor de garganta",
+            "afonia",
+            "febre",
+            "tosse"
+        ],
+        "sindromes_relacionadas": [
+            "calor no Pulmão"
+        ],
+        "indicacoes_terapeuticas": [
+            "faringite aguda",
+            "rouquidão"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Yuji — ponto Ying (fonte). Excelente para drenar calor agudo na garganta.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "mão"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "P11",
@@ -234,17 +429,44 @@
             "jing (poço)"
         ],
         "localizacao": "Canto ungueal radial do polegar",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor",
+            "restabelece a consciência",
+            "beneficia a garganta"
+        ],
+        "sintomas_relacionados": [
+            "dor de garganta aguda",
+            "febre alta",
+            "epistaxe",
+            "coma",
+            "convulsão infantil"
+        ],
+        "sindromes_relacionadas": [
+            "calor extremo no Pulmão",
+            "fechamento súbito"
+        ],
+        "indicacoes_terapeuticas": [
+            "amigdalite aguda (sangria)",
+            "ressuscitação"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "IG1",
+                "objetivo": "calor agudo no Yangming"
+            },
+            {
+                "com": "VG26",
+                "objetivo": "ressuscitação"
+            }
+        ],
+        "observacoes_clinicas": "Shaoshang — ponto Jing-poço do Pulmão. Tradicionalmente usado por sangria em quadros agudos de calor.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "mão"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "IG1",
@@ -2919,17 +3141,35 @@
         "meridiano": "Coração",
         "categoria": [],
         "localizacao": "No centro da fossa axilar",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "regula o Coração",
+            "ativa o canal",
+            "alivia dor torácica"
+        ],
+        "sintomas_relacionados": [
+            "dor pré-cordial",
+            "dor torácica",
+            "dor no membro superior",
+            "secura na boca"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação de Qi e sangue no Coração"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor torácica anterior",
+            "angina (suporte)"
+        ],
+        "contraindicacoes": [
+            "evitar a artéria axilar"
+        ],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Jiquan — ápice da axila. Punção oblíqua lateral à artéria axilar.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "braço"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "C2",
@@ -2937,17 +3177,28 @@
         "meridiano": "Coração",
         "categoria": [],
         "localizacao": "3 cun acima de C3, na borda medial do bíceps",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "dor no braço medial",
+            "dor pré-cordial"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal do Coração"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor no membro superior"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "braço"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "C3",
@@ -2957,17 +3208,34 @@
             "he (mar)"
         ],
         "localizacao": "Borda medial da prega do cotovelo flexionado",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "transforma fleuma",
+            "acalma o shen",
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "dor no cotovelo medial",
+            "tremor da mão",
+            "transtornos mentais",
+            "epilepsia"
+        ],
+        "sindromes_relacionadas": [
+            "fleuma-fogo perturbando o shen",
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor medial do cotovelo",
+            "epilepsia (suporte)"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Shaohai — ponto He-mar do Coração.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "braço"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "C4",
@@ -2977,17 +3245,30 @@
             "jing (rio)"
         ],
         "localizacao": "1,5 cun acima da prega do punho, lado ulnar",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "acalma o shen",
+            "beneficia a voz"
+        ],
+        "sintomas_relacionados": [
+            "palpitação",
+            "rouquidão repentina",
+            "ansiedade"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação de Qi do Coração"
+        ],
+        "indicacoes_terapeuticas": [
+            "rouquidão emocional"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Lingdao — ponto Jing-rio do Coração.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "braço"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "C5",
@@ -2997,17 +3278,46 @@
             "luo"
         ],
         "localizacao": "1 cun acima da prega do punho, lado ulnar",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "acalma o shen",
+            "beneficia a voz",
+            "regula o ritmo cardíaco"
+        ],
+        "sintomas_relacionados": [
+            "palpitação",
+            "arritmia",
+            "afasia",
+            "rouquidão",
+            "ansiedade"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de Qi do Coração",
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "arritmias (suporte)",
+            "afasia pós-AVC",
+            "rouquidão"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "ID7",
+                "objetivo": "Coração-ID (par yuan-luo)"
+            },
+            {
+                "com": "VC23",
+                "objetivo": "afasia"
+            }
+        ],
+        "observacoes_clinicas": "Tongli — ponto Luo do Coração. Pareia com ID7.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "braço",
+            "punho"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "C6",
@@ -3017,17 +3327,40 @@
             "xi (fenda)"
         ],
         "localizacao": "0,5 cun acima da prega do punho, lado ulnar",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor do Coração",
+            "estanca hemorragia",
+            "alivia suor noturno"
+        ],
+        "sintomas_relacionados": [
+            "suor noturno",
+            "palpitação aguda",
+            "hematêmese",
+            "epistaxe",
+            "ataques de pânico"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de Yin do Coração",
+            "calor invadindo o Xue do Coração"
+        ],
+        "indicacoes_terapeuticas": [
+            "sudorese noturna por deficiência de Yin",
+            "pânico agudo"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "C7",
+                "objetivo": "Coração e suor"
+            }
+        ],
+        "observacoes_clinicas": "Yinxi — ponto Xi (fenda) do Coração. Indicado em quadros agudos.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "punho"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "C7",
@@ -3091,17 +3424,33 @@
             "ying (fonte)"
         ],
         "localizacao": "Palma, entre 4º e 5º metacarpos, na linha do dedo mínimo flexionado",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor do Coração",
+            "acalma o shen"
+        ],
+        "sintomas_relacionados": [
+            "palpitação",
+            "ansiedade",
+            "agitação mental",
+            "úlceras na boca",
+            "urina turva"
+        ],
+        "sindromes_relacionadas": [
+            "fogo do Coração"
+        ],
+        "indicacoes_terapeuticas": [
+            "estomatite",
+            "cistite por calor"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Shaofu — ponto Ying (fonte) do Coração.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "mão"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "C9",
@@ -3111,17 +3460,41 @@
             "jing (poço)"
         ],
         "localizacao": "Canto ungueal radial do dedo mínimo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor",
+            "restabelece a consciência"
+        ],
+        "sintomas_relacionados": [
+            "palpitação aguda",
+            "dor pré-cordial intensa",
+            "ansiedade súbita",
+            "AVC",
+            "coma",
+            "febre alta"
+        ],
+        "sindromes_relacionadas": [
+            "fechamento súbito",
+            "vento interno"
+        ],
+        "indicacoes_terapeuticas": [
+            "AVC agudo (sangria)",
+            "ressuscitação",
+            "angina aguda"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "PC9",
+                "objetivo": "ressuscitação cardíaca"
+            }
+        ],
+        "observacoes_clinicas": "Shaochong — ponto Jing-poço do Coração. Sangria útil em emergências cardíacas e quadros de fechamento.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "mão"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "ID1",
@@ -6674,17 +7047,32 @@
         "meridiano": "Pericárdio",
         "categoria": [],
         "localizacao": "4º espaço intercostal, 1 cun lateral ao mamilo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "abre o tórax",
+            "regula o Coração"
+        ],
+        "sintomas_relacionados": [
+            "dor torácica",
+            "opressão torácica",
+            "mastite"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no tórax"
+        ],
+        "indicacoes_terapeuticas": [
+            "mastite"
+        ],
+        "contraindicacoes": [
+            "risco de pneumotórax — punção oblíqua superficial"
+        ],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Tianchi. 4º espaço intercostal, 1 cun lateral ao mamilo.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "tórax"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "PC2",
@@ -6692,17 +7080,28 @@
         "meridiano": "Pericárdio",
         "categoria": [],
         "localizacao": "2 cun abaixo da prega axilar, entre as cabeças do bíceps",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o Qi do Coração"
+        ],
+        "sintomas_relacionados": [
+            "dor pré-cordial",
+            "tosse"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação de Qi no Coração"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor torácica"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "braço"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "PC3",
@@ -6712,17 +7111,44 @@
             "he (mar)"
         ],
         "localizacao": "Prega do cotovelo, medial ao tendão do bíceps",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor",
+            "resfria o sangue",
+            "harmoniza o Estômago"
+        ],
+        "sintomas_relacionados": [
+            "dor pré-cordial aguda",
+            "vômito",
+            "febre alta",
+            "tremor da mão",
+            "hematêmese"
+        ],
+        "sindromes_relacionadas": [
+            "calor invadindo o Xue do Coração",
+            "calor no Estômago"
+        ],
+        "indicacoes_terapeuticas": [
+            "gastroenterite aguda",
+            "intoxicação alimentar (suporte por sangria)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "E36",
+                "objetivo": "Estômago"
+            },
+            {
+                "com": "VC12",
+                "objetivo": "Jiao médio"
+            }
+        ],
+        "observacoes_clinicas": "Quze — ponto He-mar do Pericárdio. Sangria nesta região é técnica clássica em quadros agudos.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "braço"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "PC4",
@@ -6732,17 +7158,46 @@
             "xi (fenda)"
         ],
         "localizacao": "5 cun acima da prega do punho, entre os tendões palmar longo e flexor radial",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o sangue",
+            "alivia dor aguda",
+            "acalma o shen"
+        ],
+        "sintomas_relacionados": [
+            "dor pré-cordial aguda",
+            "palpitação",
+            "ansiedade súbita",
+            "hemoptise",
+            "epistaxe",
+            "hematêmese"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação de sangue no Coração",
+            "calor invadindo o Xue do Coração"
+        ],
+        "indicacoes_terapeuticas": [
+            "angina aguda",
+            "ataques de pânico",
+            "hemorragias por calor"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "PC6",
+                "objetivo": "Coração e Pericárdio agudos"
+            },
+            {
+                "com": "C7",
+                "objetivo": "shen"
+            }
+        ],
+        "observacoes_clinicas": "Ximen — ponto Xi (fenda) do Pericárdio. Ponto principal em quadros cardíacos agudos.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "braço"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "PC5",
@@ -6752,17 +7207,41 @@
             "jing (rio)"
         ],
         "localizacao": "3 cun acima da prega do punho, entre os mesmos tendões",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "transforma fleuma",
+            "acalma o shen",
+            "abre o tórax"
+        ],
+        "sintomas_relacionados": [
+            "opressão torácica",
+            "palpitação",
+            "ansiedade",
+            "epilepsia",
+            "agitação mental",
+            "vômito"
+        ],
+        "sindromes_relacionadas": [
+            "fleuma obstruindo o Coração",
+            "fleuma-fogo perturbando o shen"
+        ],
+        "indicacoes_terapeuticas": [
+            "epilepsia (suporte)",
+            "transtornos psiquiátricos"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "PC6",
+                "objetivo": "tórax e shen"
+            }
+        ],
+        "observacoes_clinicas": "Jianshi — ponto Jing-rio do Pericárdio.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "braço"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "PC6",
@@ -6831,17 +7310,46 @@
             "shu (arroio)"
         ],
         "localizacao": "Centro da prega do punho, entre os mesmos tendões",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor do Coração",
+            "acalma o shen",
+            "harmoniza o Estômago"
+        ],
+        "sintomas_relacionados": [
+            "palpitação",
+            "ansiedade",
+            "insônia",
+            "dor no punho",
+            "halitose",
+            "estomatite"
+        ],
+        "sindromes_relacionadas": [
+            "fogo do Coração",
+            "calor no Estômago"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor de punho (síndrome do túnel do carpo)",
+            "estomatite",
+            "ansiedade"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "C7",
+                "objetivo": "shen"
+            },
+            {
+                "com": "PC6",
+                "objetivo": "punho"
+            }
+        ],
+        "observacoes_clinicas": "Daling — ponto Yuan (fonte) e Shu (arroio) do Pericárdio.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "punho"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "PC8",
@@ -6851,17 +7359,45 @@
             "ying (fonte)"
         ],
         "localizacao": "Palma, entre 2º e 3º metacarpos, com o punho fechado na altura do dedo médio",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor do Coração",
+            "drena fogo",
+            "harmoniza o Estômago"
+        ],
+        "sintomas_relacionados": [
+            "úlceras na boca",
+            "halitose",
+            "palpitação",
+            "agitação mental",
+            "calor nas palmas das mãos"
+        ],
+        "sindromes_relacionadas": [
+            "fogo do Coração",
+            "calor no Estômago"
+        ],
+        "indicacoes_terapeuticas": [
+            "estomatite",
+            "halitose",
+            "hiperidrose palmar"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "E44",
+                "objetivo": "fogo Yangming"
+            },
+            {
+                "com": "VG26",
+                "objetivo": "shen"
+            }
+        ],
+        "observacoes_clinicas": "Laogong — ponto Ying (fonte) do Pericárdio, no centro da palma. Excelente para drenar fogo do Coração.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "mão"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "PC9",
@@ -6871,17 +7407,45 @@
             "jing (poço)"
         ],
         "localizacao": "Centro da ponta do dedo médio",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "restabelece a consciência",
+            "clareia calor",
+            "acalma o shen"
+        ],
+        "sintomas_relacionados": [
+            "coma",
+            "AVC",
+            "convulsão",
+            "dor pré-cordial intensa",
+            "rigidez da língua",
+            "febre alta"
+        ],
+        "sindromes_relacionadas": [
+            "fechamento súbito",
+            "vento interno"
+        ],
+        "indicacoes_terapeuticas": [
+            "AVC agudo (sangria)",
+            "ressuscitação"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "C9",
+                "objetivo": "ressuscitação cardíaca"
+            },
+            {
+                "com": "VG26",
+                "objetivo": "shen e consciência"
+            }
+        ],
+        "observacoes_clinicas": "Zhongchong — ponto Jing-poço do Pericárdio. Sangria útil em emergências.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "mão"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "TA1",
