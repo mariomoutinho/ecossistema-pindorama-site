@@ -9346,17 +9346,47 @@
         "meridiano": "Vaso Concepção",
         "categoria": [],
         "localizacao": "Centro do períneo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o TA inferior",
+            "restabelece a consciência",
+            "beneficia os órgãos genitais e o ânus"
+        ],
+        "sintomas_relacionados": [
+            "impotência",
+            "hemorroidas",
+            "prolapso anal",
+            "constipação",
+            "afogamento (ressuscitação)",
+            "coma"
+        ],
+        "sindromes_relacionadas": [
+            "frio no útero",
+            "estagnação no TA inferior"
+        ],
+        "indicacoes_terapeuticas": [
+            "hemorroidas",
+            "prolapso anal",
+            "ressuscitação em afogamento"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VG1",
+                "objetivo": "TA inferior e ânus"
+            },
+            {
+                "com": "VG20",
+                "objetivo": "ressuscitação"
+            }
+        ],
+        "observacoes_clinicas": "Huiyin — períneo. Ponto de reunião do Du Mai, Ren Mai e Chong Mai. Uso clínico em condições delicadas — ambiente reservado, sempre em decúbito lateral ou com paciente bem orientado.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "sacral",
+            "abdome"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "VC2",
@@ -9364,17 +9394,43 @@
         "meridiano": "Vaso Concepção",
         "categoria": [],
         "localizacao": "Borda superior da sínfise púbica, na linha média",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o útero",
+            "transforma umidade",
+            "beneficia a Bexiga"
+        ],
+        "sintomas_relacionados": [
+            "irregularidade menstrual",
+            "disúria",
+            "leucorreia",
+            "impotência"
+        ],
+        "sindromes_relacionadas": [
+            "calor-umidade no TA inferior",
+            "frio no útero"
+        ],
+        "indicacoes_terapeuticas": [
+            "cistite",
+            "leucorreia"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VC3",
+                "objetivo": "Bexiga"
+            },
+            {
+                "com": "BP6",
+                "objetivo": "ginecologia"
+            }
+        ],
+        "observacoes_clinicas": "Qugu. Borda superior do púbis.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "abdome"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "VC3",
@@ -9384,17 +9440,49 @@
             "mu da Bexiga"
         ],
         "localizacao": "4 cun abaixo do umbigo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "acoes_energeticas": [
+            "regula a Bexiga",
+            "transforma calor-umidade",
+            "regula o útero"
+        ],
+        "sintomas_relacionados": [
+            "disúria",
+            "retenção urinária",
+            "incontinência urinária",
+            "dismenorreia",
+            "leucorreia",
+            "infertilidade"
+        ],
+        "sindromes_relacionadas": [
+            "calor-umidade na Bexiga",
+            "frio no útero"
+        ],
+        "indicacoes_terapeuticas": [
+            "cistite",
+            "retenção urinária",
+            "incontinência",
+            "infertilidade"
+        ],
+        "contraindicacoes": [
+            "evitar agulhamento profundo em gestantes"
+        ],
+        "combinacoes": [
+            {
+                "com": "B28",
+                "objetivo": "Bexiga (par mu-shu)"
+            },
+            {
+                "com": "BP6",
+                "objetivo": "TA inferior"
+            }
+        ],
+        "observacoes_clinicas": "Zhongji. Ponto Mu da Bexiga. Esvaziar a bexiga antes do agulhamento.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "abdome"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "VC4",
@@ -9461,17 +9549,40 @@
             "mu do Triplo Aquecedor"
         ],
         "localizacao": "2 cun abaixo do umbigo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "acoes_energeticas": [
+            "regula o TA",
+            "transforma umidade",
+            "promove a transformação dos líquidos"
+        ],
+        "sintomas_relacionados": [
+            "edema",
+            "disúria",
+            "irregularidade menstrual",
+            "diarreia"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação de água no TA inferior"
+        ],
+        "indicacoes_terapeuticas": [
+            "edema",
+            "retenção urinária"
+        ],
+        "contraindicacoes": [
+            "evitar agulhamento profundo em gestantes"
+        ],
+        "combinacoes": [
+            {
+                "com": "BP9",
+                "objetivo": "edema"
+            }
+        ],
+        "observacoes_clinicas": "Shimen. Ponto Mu do Triplo Aquecedor.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "abdome"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "VC6",
@@ -9535,17 +9646,32 @@
         "meridiano": "Vaso Concepção",
         "categoria": [],
         "localizacao": "1 cun abaixo do umbigo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "regula o útero",
+            "regula o Chong Mai"
+        ],
+        "sintomas_relacionados": [
+            "irregularidade menstrual",
+            "leucorreia",
+            "dor abdominal periumbilical"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no Chong Mai"
+        ],
+        "indicacoes_terapeuticas": [
+            "irregularidade menstrual"
+        ],
+        "contraindicacoes": [
+            "evitar agulhamento profundo em gestantes"
+        ],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Yinjiao — não confundir com VG28.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "abdome"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "VC8",
@@ -9553,17 +9679,49 @@
         "meridiano": "Vaso Concepção",
         "categoria": [],
         "localizacao": "Centro do umbigo (não puncionar — usar moxa indireta)",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "acoes_energeticas": [
+            "tonifica o Yang",
+            "recupera o colapso",
+            "resgata do choque",
+            "fortalece o Baço"
+        ],
+        "sintomas_relacionados": [
+            "diarreia crônica",
+            "diarreia matinal",
+            "colapso por deficiência de Yang",
+            "frio nas extremidades",
+            "prolapso anal",
+            "fadiga extrema"
+        ],
+        "sindromes_relacionadas": [
+            "colapso de Yang",
+            "deficiência de Yang do Baço e Rim"
+        ],
+        "indicacoes_terapeuticas": [
+            "choque por colapso de Yang (moxa)",
+            "diarreia matinal",
+            "incontinência fecal"
+        ],
+        "contraindicacoes": [
+            "agulhamento contraindicado — punção do umbigo não é praticada"
+        ],
+        "combinacoes": [
+            {
+                "com": "VG4",
+                "objetivo": "tonificar Yang em colapso"
+            },
+            {
+                "com": "E36",
+                "objetivo": "tonificar centro"
+            }
+        ],
+        "observacoes_clinicas": "Shenque — umbigo. Não se agulha. Uso clássico em moxa indireta sobre sal (Yan Ge Jiu) para recuperar Yang em colapso.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "abdome"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "VC9",
@@ -9571,17 +9729,37 @@
         "meridiano": "Vaso Concepção",
         "categoria": [],
         "localizacao": "1 cun acima do umbigo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula as águas",
+            "transforma umidade"
+        ],
+        "sintomas_relacionados": [
+            "edema",
+            "ascite",
+            "diarreia",
+            "retenção urinária"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação de água no Jiao médio"
+        ],
+        "indicacoes_terapeuticas": [
+            "edema",
+            "ascite (suporte)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "BP9",
+                "objetivo": "edema"
+            }
+        ],
+        "observacoes_clinicas": "Shuifen — \"Separador de Águas\". Especialmente eficaz em moxa para edema.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "abdome"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "VC10",
@@ -9589,17 +9767,30 @@
         "meridiano": "Vaso Concepção",
         "categoria": [],
         "localizacao": "2 cun acima do umbigo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "harmoniza o Estômago",
+            "transforma estagnação alimentar"
+        ],
+        "sintomas_relacionados": [
+            "distensão epigástrica",
+            "vômito",
+            "dispepsia"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação de alimento"
+        ],
+        "indicacoes_terapeuticas": [
+            "dispepsia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "abdome"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "VC11",
@@ -9607,17 +9798,29 @@
         "meridiano": "Vaso Concepção",
         "categoria": [],
         "localizacao": "3 cun acima do umbigo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "harmoniza o Estômago"
+        ],
+        "sintomas_relacionados": [
+            "distensão epigástrica",
+            "vômito",
+            "diarreia"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no Estômago"
+        ],
+        "indicacoes_terapeuticas": [
+            "dispepsia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "abdome"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "VC12",
@@ -9628,17 +9831,57 @@
             "influência dos Fu"
         ],
         "localizacao": "4 cun acima do umbigo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "harmoniza o Estômago",
+            "fortalece o Baço",
+            "transforma umidade e fleuma",
+            "descende o Qi rebelde"
+        ],
+        "sintomas_relacionados": [
+            "dor epigástrica",
+            "distensão",
+            "vômito",
+            "azia",
+            "refluxo",
+            "diarreia",
+            "anorexia",
+            "fadiga"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de Qi do Baço e Estômago",
+            "estagnação de alimento",
+            "fleuma-umidade",
+            "Qi rebelde do Estômago"
+        ],
+        "indicacoes_terapeuticas": [
+            "gastrite",
+            "úlcera péptica",
+            "refluxo gastroesofágico",
+            "dispepsia crônica",
+            "anorexia"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "E36",
+                "objetivo": "tonificar centro digestivo"
+            },
+            {
+                "com": "BP6",
+                "objetivo": "Baço e umidade"
+            },
+            {
+                "com": "E25",
+                "objetivo": "regular intestinos"
+            }
+        ],
+        "observacoes_clinicas": "Zhongwan — ponto Mu do Estômago e reunião dos órgãos Fu (uma das oito influências). Ponto central de toda terapia digestiva.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "abdome"
+        ],
+        "peso_base": 8,
+        "dados_completos": true
     },
     {
         "codigo": "VC13",
@@ -9646,17 +9889,31 @@
         "meridiano": "Vaso Concepção",
         "categoria": [],
         "localizacao": "5 cun acima do umbigo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "harmoniza o Estômago",
+            "descende o Qi rebelde"
+        ],
+        "sintomas_relacionados": [
+            "azia",
+            "refluxo",
+            "vômito",
+            "distensão epigástrica alta"
+        ],
+        "sindromes_relacionadas": [
+            "Qi rebelde do Estômago"
+        ],
+        "indicacoes_terapeuticas": [
+            "refluxo gastroesofágico"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "abdome"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "VC14",
@@ -9666,17 +9923,48 @@
             "mu do Coração"
         ],
         "localizacao": "6 cun acima do umbigo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o Coração",
+            "acalma o shen",
+            "harmoniza o Estômago"
+        ],
+        "sintomas_relacionados": [
+            "palpitação",
+            "ansiedade",
+            "opressão torácica",
+            "dor pré-cordial",
+            "soluço",
+            "vômito"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no tórax",
+            "fogo do Coração",
+            "Qi rebelde do Estômago"
+        ],
+        "indicacoes_terapeuticas": [
+            "angina",
+            "ansiedade",
+            "transtornos psiquiátricos (suporte)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "B15",
+                "objetivo": "Coração e shen"
+            },
+            {
+                "com": "PC6",
+                "objetivo": "tórax"
+            }
+        ],
+        "observacoes_clinicas": "Juque — ponto Mu do Coração.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "abdome",
+            "tórax"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "VC15",
@@ -9686,17 +9974,42 @@
             "luo do Ren Mai"
         ],
         "localizacao": "7 cun acima do umbigo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o Coração",
+            "acalma o shen",
+            "abre o tórax"
+        ],
+        "sintomas_relacionados": [
+            "palpitação",
+            "ansiedade",
+            "insônia",
+            "epilepsia"
+        ],
+        "sindromes_relacionadas": [
+            "fleuma-fogo perturbando o shen"
+        ],
+        "indicacoes_terapeuticas": [
+            "epilepsia (suporte)",
+            "transtornos psiquiátricos"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VC14",
+                "objetivo": "Coração"
+            },
+            {
+                "com": "PC6",
+                "objetivo": "shen"
+            }
+        ],
+        "observacoes_clinicas": "Jiuwei. Ponto Luo do Vaso Concepção. Punção subxifoide cautelosa.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "tórax"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "VC16",
@@ -9704,17 +10017,28 @@
         "meridiano": "Vaso Concepção",
         "categoria": [],
         "localizacao": "Linha média, no centro do esterno ao nível do 5º espaço intercostal",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o Qi do tórax"
+        ],
+        "sintomas_relacionados": [
+            "dor torácica",
+            "opressão torácica"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no tórax"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor torácica"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "tórax"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "VC17",
@@ -9725,17 +10049,57 @@
             "influência do Qi"
         ],
         "localizacao": "Linha média, ao nível do 4º espaço intercostal (entre os mamilos)",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o Qi",
+            "descende o Qi rebelde",
+            "abre o tórax",
+            "tonifica o Qi",
+            "promove a lactação"
+        ],
+        "sintomas_relacionados": [
+            "opressão torácica",
+            "dispneia",
+            "asma",
+            "tosse",
+            "palpitação",
+            "agalactia",
+            "mastite",
+            "dor torácica anterior"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação de Qi no tórax",
+            "deficiência de Qi",
+            "Qi rebelde do Pulmão"
+        ],
+        "indicacoes_terapeuticas": [
+            "asma",
+            "ataques de pânico",
+            "agalactia",
+            "mastite",
+            "angina"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "PC6",
+                "objetivo": "tórax e shen"
+            },
+            {
+                "com": "P7",
+                "objetivo": "Qi do Pulmão"
+            },
+            {
+                "com": "E18",
+                "objetivo": "lactação"
+            }
+        ],
+        "observacoes_clinicas": "Tanzhong (Shanzhong) — ponto Mu do Pericárdio e reunião do Qi (uma das oito influências). Ponto central para qualquer estagnação no \"mar do Qi superior\".",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "tórax"
+        ],
+        "peso_base": 8,
+        "dados_completos": true
     },
     {
         "codigo": "VC18",
@@ -9743,17 +10107,30 @@
         "meridiano": "Vaso Concepção",
         "categoria": [],
         "localizacao": "Linha média, ao nível do 3º espaço intercostal",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "abre o tórax",
+            "descende o Qi rebelde"
+        ],
+        "sintomas_relacionados": [
+            "tosse",
+            "dor torácica",
+            "dificuldade de deglutir"
+        ],
+        "sindromes_relacionadas": [
+            "Qi rebelde do Pulmão"
+        ],
+        "indicacoes_terapeuticas": [
+            "tosse"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "tórax"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "VC19",
@@ -9761,17 +10138,28 @@
         "meridiano": "Vaso Concepção",
         "categoria": [],
         "localizacao": "Linha média, ao nível do 2º espaço intercostal",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "descende o Qi rebelde do Pulmão"
+        ],
+        "sintomas_relacionados": [
+            "tosse",
+            "dispneia"
+        ],
+        "sindromes_relacionadas": [
+            "Qi rebelde do Pulmão"
+        ],
+        "indicacoes_terapeuticas": [
+            "bronquite"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "tórax"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "VC20",
@@ -9779,17 +10167,30 @@
         "meridiano": "Vaso Concepção",
         "categoria": [],
         "localizacao": "Linha média, ao nível do 1º espaço intercostal",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "descende o Qi rebelde",
+            "beneficia a garganta"
+        ],
+        "sintomas_relacionados": [
+            "tosse",
+            "dispneia",
+            "dor de garganta"
+        ],
+        "sindromes_relacionadas": [
+            "Qi rebelde do Pulmão"
+        ],
+        "indicacoes_terapeuticas": [
+            "tosse"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "tórax"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "VC21",
@@ -9797,17 +10198,30 @@
         "meridiano": "Vaso Concepção",
         "categoria": [],
         "localizacao": "Linha média, no ângulo de Louis (manúbrio do esterno)",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "descende o Qi rebelde",
+            "beneficia a garganta"
+        ],
+        "sintomas_relacionados": [
+            "tosse",
+            "dispneia",
+            "dor torácica anterior"
+        ],
+        "sindromes_relacionadas": [
+            "Qi rebelde do Pulmão"
+        ],
+        "indicacoes_terapeuticas": [
+            "tosse"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "tórax"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "VC22",
@@ -9867,17 +10281,47 @@
         "meridiano": "Vaso Concepção",
         "categoria": [],
         "localizacao": "Linha média, acima da maçã de Adão, na borda superior do osso hioide",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "beneficia a fala",
+            "transforma fleuma na garganta",
+            "descende o Qi rebelde"
+        ],
+        "sintomas_relacionados": [
+            "afasia",
+            "afonia",
+            "gagueira",
+            "salivação excessiva",
+            "dificuldade de deglutir",
+            "rigidez da língua",
+            "globo histérico"
+        ],
+        "sindromes_relacionadas": [
+            "fleuma obstruindo a garganta",
+            "vento interno no Du Mai"
+        ],
+        "indicacoes_terapeuticas": [
+            "afasia pós-AVC",
+            "disfagia",
+            "gagueira"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VG15",
+                "objetivo": "afasia"
+            },
+            {
+                "com": "VG16",
+                "objetivo": "vento e fala"
+            }
+        ],
+        "observacoes_clinicas": "Lianquan — acima do osso hióide. Punção em direção à raiz da língua.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "pescoço"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "VC24",
@@ -9885,17 +10329,42 @@
         "meridiano": "Vaso Concepção",
         "categoria": [],
         "localizacao": "Linha média, no sulco mentoniano",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "ativa o canal",
+            "beneficia a face"
+        ],
+        "sintomas_relacionados": [
+            "paralisia facial",
+            "desvio da boca",
+            "salivação excessiva",
+            "dor dental inferior",
+            "epilepsia"
+        ],
+        "sindromes_relacionadas": [
+            "vento externo na face"
+        ],
+        "indicacoes_terapeuticas": [
+            "paralisia facial periférica (acometimento do queixo)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "E4",
+                "objetivo": "paralisia facial"
+            },
+            {
+                "com": "IG4",
+                "objetivo": "vento na face"
+            }
+        ],
+        "observacoes_clinicas": "Chengjiang — depressão central abaixo do lábio inferior.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "VG1",
