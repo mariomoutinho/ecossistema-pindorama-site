@@ -9905,17 +9905,46 @@
             "luo do Du Mai"
         ],
         "localizacao": "Meio do caminho entre cóccix e ânus",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "beneficia o ânus",
+            "regula o TA inferior",
+            "acalma o shen"
+        ],
+        "sintomas_relacionados": [
+            "hemorroidas",
+            "prolapso anal",
+            "diarreia",
+            "constipação",
+            "dor coccígea",
+            "convulsão infantil"
+        ],
+        "sindromes_relacionadas": [
+            "calor-umidade no TA inferior",
+            "vento interno"
+        ],
+        "indicacoes_terapeuticas": [
+            "hemorroidas crônicas",
+            "prolapso anal",
+            "fissura anal"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VG20",
+                "objetivo": "prolapsos (uso clássico de elevação do Qi)"
+            },
+            {
+                "com": "B57",
+                "objetivo": "hemorroidas"
+            }
+        ],
+        "observacoes_clinicas": "Changqiang. Ponto Luo do Du Mai. Conecta com o Vaso Concepção. Útil em moxa para prolapso anal.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "sacral"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "VG2",
@@ -9923,17 +9952,31 @@
         "meridiano": "Vaso Governador",
         "categoria": [],
         "localizacao": "Hiato sacral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o TA inferior",
+            "fortalece a lombar"
+        ],
+        "sintomas_relacionados": [
+            "lombalgia",
+            "dor sacral",
+            "irregularidade menstrual",
+            "hemorroidas"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de Rim"
+        ],
+        "indicacoes_terapeuticas": [
+            "lombalgia sacral"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Yaoshu. Sobre o hiato sacral.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "sacral"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "VG3",
@@ -9941,17 +9984,42 @@
         "meridiano": "Vaso Governador",
         "categoria": [],
         "localizacao": "Abaixo do processo espinhoso de L4",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "fortalece a lombar",
+            "dispersa frio-umidade"
+        ],
+        "sintomas_relacionados": [
+            "lombalgia",
+            "rigidez lombar",
+            "ciática",
+            "fraqueza dos membros inferiores"
+        ],
+        "sindromes_relacionadas": [
+            "frio-umidade na lombar",
+            "deficiência de Rim Yang"
+        ],
+        "indicacoes_terapeuticas": [
+            "lombalgia crônica",
+            "hérnia de disco lombar (suporte)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "B23",
+                "objetivo": "lombar e Rim"
+            },
+            {
+                "com": "VG4",
+                "objetivo": "Yang lombar"
+            }
+        ],
+        "observacoes_clinicas": "Yaoyangguan. Sob L4. Excelente em moxa para frio na lombar.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "lombar"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "VG4",
@@ -9959,17 +10027,55 @@
         "meridiano": "Vaso Governador",
         "categoria": [],
         "localizacao": "Abaixo do processo espinhoso de L2",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "tonifica o Yang do Rim",
+            "fortalece o Mingmen (fogo essencial)",
+            "fortalece a lombar",
+            "beneficia a essência"
+        ],
+        "sintomas_relacionados": [
+            "lombalgia crônica",
+            "frieza dos membros",
+            "impotência",
+            "infertilidade",
+            "diarreia matinal",
+            "emissão noturna",
+            "fadiga crônica",
+            "menstruação tardia"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de Yang do Rim",
+            "deficiência do Mingmen"
+        ],
+        "indicacoes_terapeuticas": [
+            "impotência",
+            "infertilidade por frio uterino",
+            "lombalgia crônica",
+            "fadiga crônica",
+            "diarreia matinal"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "B23",
+                "objetivo": "tonificar Rim"
+            },
+            {
+                "com": "VC4",
+                "objetivo": "essência e útero/sêmen"
+            },
+            {
+                "com": "VG14",
+                "objetivo": "fortalecer Yang em todo o Du Mai"
+            }
+        ],
+        "observacoes_clinicas": "Mingmen — \"Portal da Vida\". Sob L2. Moxa de cone ou bastão é a forma clássica de uso, especialmente em quadros de frio interno e deficiência de Yang.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "lombar"
+        ],
+        "peso_base": 8,
+        "dados_completos": true
     },
     {
         "codigo": "VG5",
@@ -9977,17 +10083,30 @@
         "meridiano": "Vaso Governador",
         "categoria": [],
         "localizacao": "Abaixo do processo espinhoso de L1",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "fortalece a lombar",
+            "regula intestinos"
+        ],
+        "sintomas_relacionados": [
+            "lombalgia",
+            "diarreia",
+            "constipação"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de Yang"
+        ],
+        "indicacoes_terapeuticas": [
+            "lombalgia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "lombar"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "VG6",
@@ -9995,17 +10114,29 @@
         "meridiano": "Vaso Governador",
         "categoria": [],
         "localizacao": "Abaixo do processo espinhoso de T11",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "fortalece o Baço",
+            "regula a coluna"
+        ],
+        "sintomas_relacionados": [
+            "dor torácica posterior",
+            "diarreia"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de Baço"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor dorsal média"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "costas"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "VG7",
@@ -10013,17 +10144,27 @@
         "meridiano": "Vaso Governador",
         "categoria": [],
         "localizacao": "Abaixo do processo espinhoso de T10",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula a coluna"
+        ],
+        "sintomas_relacionados": [
+            "dor torácica posterior"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor dorsal"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "costas"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "VG8",
@@ -10031,17 +10172,39 @@
         "meridiano": "Vaso Governador",
         "categoria": [],
         "localizacao": "Abaixo do processo espinhoso de T9",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "acalma o vento interno",
+            "relaxa tendões"
+        ],
+        "sintomas_relacionados": [
+            "convulsão",
+            "epilepsia",
+            "espasmos musculares",
+            "opistótono",
+            "icterícia"
+        ],
+        "sindromes_relacionadas": [
+            "vento interno",
+            "calor no Fígado gerando vento"
+        ],
+        "indicacoes_terapeuticas": [
+            "epilepsia (suporte)",
+            "convulsões"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "F3",
+                "objetivo": "extinguir vento"
+            }
+        ],
+        "observacoes_clinicas": "Jinsuo — \"Espasmo Muscular\". Útil em quadros convulsivos.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "costas"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "VG9",
@@ -10049,17 +10212,45 @@
         "meridiano": "Vaso Governador",
         "categoria": [],
         "localizacao": "Abaixo do processo espinhoso de T7",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o diafragma",
+            "harmoniza o Fígado e VB",
+            "abre o tórax"
+        ],
+        "sintomas_relacionados": [
+            "hipocondralgia",
+            "icterícia",
+            "dispneia",
+            "tosse",
+            "dor torácica"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação de Qi do Fígado",
+            "calor-umidade no Fígado e VB"
+        ],
+        "indicacoes_terapeuticas": [
+            "icterícia",
+            "hepatite (suporte)",
+            "dispneia"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "B18",
+                "objetivo": "Fígado"
+            },
+            {
+                "com": "B19",
+                "objetivo": "VB"
+            }
+        ],
+        "observacoes_clinicas": "Zhiyang — \"Atingir o Yang\". Sob T7, na altura do diafragma.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "costas"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "VG10",
@@ -10067,17 +10258,32 @@
         "meridiano": "Vaso Governador",
         "categoria": [],
         "localizacao": "Abaixo do processo espinhoso de T6",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "acalma o shen",
+            "abre o tórax"
+        ],
+        "sintomas_relacionados": [
+            "tosse",
+            "asma",
+            "transtornos mentais",
+            "furúnculos dorsais"
+        ],
+        "sindromes_relacionadas": [
+            "calor no sangue",
+            "fleuma-calor"
+        ],
+        "indicacoes_terapeuticas": [
+            "furunculose"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Lingtai. Tradicionalmente usado em moxa para furúnculos.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "costas"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "VG11",
@@ -10085,17 +10291,40 @@
         "meridiano": "Vaso Governador",
         "categoria": [],
         "localizacao": "Abaixo do processo espinhoso de T5",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "acalma o shen",
+            "regula o Coração"
+        ],
+        "sintomas_relacionados": [
+            "palpitação",
+            "ansiedade",
+            "insônia",
+            "tristeza",
+            "agitação mental"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de sangue do Coração",
+            "fogo do Coração"
+        ],
+        "indicacoes_terapeuticas": [
+            "ansiedade",
+            "insônia",
+            "transtornos mentais"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "B15",
+                "objetivo": "Coração e shen"
+            }
+        ],
+        "observacoes_clinicas": "Shendao — \"Caminho do Shen\". Sob T5, na altura do shu dorsal do Coração.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "costas"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "VG12",
@@ -10103,17 +10332,40 @@
         "meridiano": "Vaso Governador",
         "categoria": [],
         "localizacao": "Abaixo do processo espinhoso de T3",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "libera o exterior",
+            "fortalece o Pulmão"
+        ],
+        "sintomas_relacionados": [
+            "tosse",
+            "asma",
+            "febre",
+            "calafrios",
+            "dor escapular"
+        ],
+        "sindromes_relacionadas": [
+            "vento-frio invadindo o Pulmão"
+        ],
+        "indicacoes_terapeuticas": [
+            "asma",
+            "bronquite",
+            "tosse crônica"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "B13",
+                "objetivo": "Pulmão"
+            }
+        ],
+        "observacoes_clinicas": "Shenzhu — \"Pilar do Corpo\". Indicado em moxa para fortalecer crianças com infecções respiratórias frequentes.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "costas"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "VG13",
@@ -10121,17 +10373,42 @@
         "meridiano": "Vaso Governador",
         "categoria": [],
         "localizacao": "Abaixo do processo espinhoso de T1",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "libera o exterior",
+            "regula o Du Mai"
+        ],
+        "sintomas_relacionados": [
+            "febre",
+            "calafrios",
+            "rigidez cervical e dorsal",
+            "cefaleia"
+        ],
+        "sindromes_relacionadas": [
+            "vento-frio invadindo o Taiyang"
+        ],
+        "indicacoes_terapeuticas": [
+            "gripe e resfriados",
+            "febre persistente"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VG14",
+                "objetivo": "liberar exterior"
+            },
+            {
+                "com": "IG4",
+                "objetivo": "vento-frio"
+            }
+        ],
+        "observacoes_clinicas": "Sob T1.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "costas"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "VG14",
@@ -10195,17 +10472,48 @@
         "meridiano": "Vaso Governador",
         "categoria": [],
         "localizacao": "Abaixo do processo espinhoso de C1, na linha média posterior",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "acoes_energeticas": [
+            "beneficia a fala",
+            "acalma o vento",
+            "abre as cavidades"
+        ],
+        "sintomas_relacionados": [
+            "mutismo",
+            "afasia",
+            "rigidez cervical",
+            "epilepsia",
+            "convulsão",
+            "surdez"
+        ],
+        "sindromes_relacionadas": [
+            "vento interno",
+            "vento externo no Du Mai"
+        ],
+        "indicacoes_terapeuticas": [
+            "afasia pós-AVC",
+            "mutismo histérico",
+            "gagueira"
+        ],
+        "contraindicacoes": [
+            "puncionar em direção ao queixo, profundidade limitada — risco medular"
+        ],
+        "combinacoes": [
+            {
+                "com": "VG16",
+                "objetivo": "afasia"
+            },
+            {
+                "com": "VC23",
+                "objetivo": "fala"
+            }
+        ],
+        "observacoes_clinicas": "Yamen — \"Porta do Mutismo\". Localiza-se na linha posterior do cabelo, 0,5 cun acima. Punção segue regras estritas pela proximidade do bulbo.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "pescoço"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "VG16",
@@ -10213,17 +10521,50 @@
         "meridiano": "Vaso Governador",
         "categoria": [],
         "localizacao": "1 cun acima da linha posterior do cabelo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "acoes_energeticas": [
+            "acalma o vento (interno e externo)",
+            "beneficia a fala e a mente",
+            "abre as cavidades"
+        ],
+        "sintomas_relacionados": [
+            "cefaleia occipital",
+            "rigidez cervical",
+            "vertigem",
+            "afasia",
+            "transtornos mentais",
+            "AVC"
+        ],
+        "sindromes_relacionadas": [
+            "vento interno",
+            "vento externo no Taiyang",
+            "vento no shen"
+        ],
+        "indicacoes_terapeuticas": [
+            "AVC (suporte agudo e sequela)",
+            "cefaleia",
+            "tonturas por vento"
+        ],
+        "contraindicacoes": [
+            "puncionar em direção ao queixo, profundidade limitada — risco medular"
+        ],
+        "combinacoes": [
+            {
+                "com": "VB20",
+                "objetivo": "vento na cabeça"
+            },
+            {
+                "com": "VG20",
+                "objetivo": "Du Mai e shen"
+            }
+        ],
+        "observacoes_clinicas": "Fengfu — \"Palácio do Vento\". Ponto crucial para qualquer quadro de vento. Punção subocupital cautelosa.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça",
+            "pescoço"
+        ],
+        "peso_base": 8,
+        "dados_completos": true
     },
     {
         "codigo": "VG17",
@@ -10231,17 +10572,30 @@
         "meridiano": "Vaso Governador",
         "categoria": [],
         "localizacao": "2,5 cun acima da linha posterior do cabelo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "beneficia os olhos"
+        ],
+        "sintomas_relacionados": [
+            "cefaleia occipital",
+            "tontura",
+            "visão turva"
+        ],
+        "sindromes_relacionadas": [
+            "vento externo no Taiyang"
+        ],
+        "indicacoes_terapeuticas": [
+            "cefaleia occipital"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "cabeça"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "VG18",
@@ -10249,17 +10603,29 @@
         "meridiano": "Vaso Governador",
         "categoria": [],
         "localizacao": "4 cun acima da linha posterior do cabelo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "clareia a cabeça"
+        ],
+        "sintomas_relacionados": [
+            "cefaleia no vértice",
+            "agitação mental"
+        ],
+        "sindromes_relacionadas": [
+            "ascensão de Yang"
+        ],
+        "indicacoes_terapeuticas": [
+            "cefaleia no vértice"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "VG19",
@@ -10267,17 +10633,30 @@
         "meridiano": "Vaso Governador",
         "categoria": [],
         "localizacao": "5,5 cun acima da linha posterior do cabelo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "acalma o shen",
+            "dispersa vento"
+        ],
+        "sintomas_relacionados": [
+            "cefaleia",
+            "vertigem",
+            "insônia"
+        ],
+        "sindromes_relacionadas": [
+            "ascensão de Yang"
+        ],
+        "indicacoes_terapeuticas": [
+            "cefaleia no vértice"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "VG20",
@@ -10343,17 +10722,29 @@
         "meridiano": "Vaso Governador",
         "categoria": [],
         "localizacao": "1,5 cun anterior a VG20",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "clareia a cabeça"
+        ],
+        "sintomas_relacionados": [
+            "cefaleia no vértice",
+            "vertigem"
+        ],
+        "sindromes_relacionadas": [
+            "ascensão de Yang"
+        ],
+        "indicacoes_terapeuticas": [
+            "cefaleia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "VG22",
@@ -10361,17 +10752,32 @@
         "meridiano": "Vaso Governador",
         "categoria": [],
         "localizacao": "2 cun anterior a VG21",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "abre o nariz"
+        ],
+        "sintomas_relacionados": [
+            "cefaleia frontal",
+            "rinite",
+            "congestão nasal"
+        ],
+        "sindromes_relacionadas": [
+            "vento externo"
+        ],
+        "indicacoes_terapeuticas": [
+            "rinite"
+        ],
+        "contraindicacoes": [
+            "em crianças com fontanela aberta, palpar com cautela"
+        ],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Xinhui — sobre fontanela bregmática anterior.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "cabeça"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "VG23",
@@ -10379,17 +10785,45 @@
         "meridiano": "Vaso Governador",
         "categoria": [],
         "localizacao": "1 cun dentro da linha anterior do cabelo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "abre o nariz",
+            "clareia a cabeça"
+        ],
+        "sintomas_relacionados": [
+            "congestão nasal",
+            "rinite",
+            "sinusite",
+            "epistaxe",
+            "cefaleia frontal"
+        ],
+        "sindromes_relacionadas": [
+            "vento-calor no nariz",
+            "vento-frio no nariz"
+        ],
+        "indicacoes_terapeuticas": [
+            "rinite crônica",
+            "sinusite",
+            "epistaxe"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "IG20",
+                "objetivo": "rinite"
+            },
+            {
+                "com": "B2",
+                "objetivo": "cefaleia frontal e rinite"
+            }
+        ],
+        "observacoes_clinicas": "Shangxing — \"Estrela Superior\". Subcutâneo em direção à frente para rinite.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "VG24",
@@ -10397,17 +10831,51 @@
         "meridiano": "Vaso Governador",
         "categoria": [],
         "localizacao": "0,5 cun dentro da linha anterior do cabelo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "acalma o shen",
+            "dispersa vento"
+        ],
+        "sintomas_relacionados": [
+            "insônia",
+            "ansiedade",
+            "agitação mental",
+            "rinite",
+            "cefaleia frontal",
+            "epilepsia"
+        ],
+        "sindromes_relacionadas": [
+            "Shen perturbado",
+            "ascensão de Yang",
+            "vento externo"
+        ],
+        "indicacoes_terapeuticas": [
+            "insônia",
+            "ansiedade",
+            "transtornos psiquiátricos (suporte)",
+            "rinite"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VG20",
+                "objetivo": "shen"
+            },
+            {
+                "com": "B15",
+                "objetivo": "Coração e shen"
+            },
+            {
+                "com": "EX-HN3 Yintang",
+                "objetivo": "shen e ansiedade"
+            }
+        ],
+        "observacoes_clinicas": "Shenting — \"Pátio do Shen\". Ponto-chave para distúrbios mentais e emocionais.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "VG25",
@@ -10415,17 +10883,40 @@
         "meridiano": "Vaso Governador",
         "categoria": [],
         "localizacao": "Ponta do nariz",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "restabelece a consciência",
+            "clareia calor",
+            "abre o nariz"
+        ],
+        "sintomas_relacionados": [
+            "coma",
+            "desmaio",
+            "epistaxe",
+            "rinite",
+            "rosácea"
+        ],
+        "sindromes_relacionadas": [
+            "calor no Pulmão",
+            "fechamento súbito"
+        ],
+        "indicacoes_terapeuticas": [
+            "epistaxe",
+            "ressuscitação (sangria)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VG26",
+                "objetivo": "ressuscitação"
+            }
+        ],
+        "observacoes_clinicas": "Suliao — ponta do nariz. Sangria útil em quadros agudos.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "cabeça"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "VG26",
@@ -10433,17 +10924,49 @@
         "meridiano": "Vaso Governador",
         "categoria": [],
         "localizacao": "1/3 superior do sulco filtral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "restabelece a consciência",
+            "acalma o vento e o shen",
+            "beneficia a coluna"
+        ],
+        "sintomas_relacionados": [
+            "desmaio",
+            "coma",
+            "choque",
+            "convulsão",
+            "epilepsia",
+            "lombalgia aguda",
+            "AVC com perda de consciência",
+            "histeria"
+        ],
+        "sindromes_relacionadas": [
+            "fechamento súbito",
+            "vento interno agudo",
+            "estagnação aguda no Du Mai"
+        ],
+        "indicacoes_terapeuticas": [
+            "ressuscitação em desmaios e choque",
+            "lombalgia aguda",
+            "AVC agudo (suporte)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "PC6",
+                "objetivo": "ressuscitação"
+            },
+            {
+                "com": "VG20",
+                "objetivo": "AVC e shen"
+            }
+        ],
+        "observacoes_clinicas": "Renzhong (Shuigou) — \"Centro do Homem\". Filtro nasal. Pressão forte com a unha é a manobra clássica para ressuscitação. Também ponto distal potente para lombalgia aguda.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 8,
+        "dados_completos": true
     },
     {
         "codigo": "VG27",
@@ -10451,17 +10974,30 @@
         "meridiano": "Vaso Governador",
         "categoria": [],
         "localizacao": "Linha média, no tubérculo do lábio superior",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor",
+            "beneficia a boca"
+        ],
+        "sintomas_relacionados": [
+            "úlceras orais",
+            "salivação excessiva",
+            "dor dental"
+        ],
+        "sindromes_relacionadas": [
+            "calor no Estômago"
+        ],
+        "indicacoes_terapeuticas": [
+            "úlceras na boca"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "VG28",
@@ -10469,17 +11005,32 @@
         "meridiano": "Vaso Governador",
         "categoria": [],
         "localizacao": "No frênulo do lábio superior",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor",
+            "beneficia a boca e o nariz"
+        ],
+        "sintomas_relacionados": [
+            "gengivite",
+            "estomatite",
+            "dor dental",
+            "epistaxe"
+        ],
+        "sindromes_relacionadas": [
+            "calor no Estômago"
+        ],
+        "indicacoes_terapeuticas": [
+            "gengivite",
+            "estomatite"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Yinjiao — no freio do lábio superior. Punção delicada.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "cabeça"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "EX-HN1",
