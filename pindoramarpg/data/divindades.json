@@ -1,0 +1,343 @@
+{
+    "introducao": [
+        "O mundo de Pindorama é um lugar de magia e mistério. Os deuses possuem cada um sua própria origem, função e visão do mundo; seus seguidores, seus rituais, seus símbolos e os seus planos.",
+        "Em Pindorama, você pode trabalhar a serviço dos deuses, cumprindo seus desígnios. Um personagem que serve a uma divindade é chamado devoto e, em troca de seguir certas obrigações, recebe poderes."
+    ],
+    "regras": {
+        "escolha": "Você pode optar por se tornar devoto durante a construção de seu personagem ou ao alcançar um novo nível. A escolha é irrevogável, sendo permitida apenas uma devoção ao longo da jornada (com supervisão do mestre).",
+        "requisitos": "A condição para ser devoto é ter sua raça ou classe listadas na seção 'Devotos' do deus. Mameluques e sacerdotes são exceção — eles podem ser devotos de qualquer divindade.",
+        "poderes": "Ao se tornar devoto, você escolhe um poder da lista do seu deus e passa a seguir as Obrigações & Restrições. Cada poder de classe que adquire pode ser trocado por um poder do seu deus.",
+        "punicao": "Se violar essas obrigações, perde todos os seus PM e só pode recuperá-los no próximo dia. Se violar novamente na mesma aventura, só pode recuperá-los após realizar uma penitência.",
+        "multiclasse": "No caso de classes com listas de devoções permitidas, a classe com menos opções determina a que deve ser seguida. Se não houver devoções compatíveis, a multiclasse não pode ser feita."
+    },
+    "divindades": [
+        {
+            "id": "aelohim",
+            "nome": "Aelohim",
+            "saudacao": "Shalom Adonai!",
+            "descricao": "Aelohim, a divindade central dos povos caucazis, personifica-se como um sábio ancião conhecido como o Juiz, ou o Pai. Como julgador implacável, sedento por sangue e vingança, este deus se revela como um agente cruel na execução de limpezas étnicas.",
+            "crencas": "Oprimir e explorar todas as outras raças e deuses. Dominar todas as terras. Exterminar a diversidade. Esvaziar as identidades. Semear a culpa, o medo e o arrependimento. Manter o ciclo de sofrimento e servidão.",
+            "simbolo": "A cabeça de um leão",
+            "energia": "retrativa",
+            "energia_opcoes": null,
+            "arma_preferida": "Chicote e Espada",
+            "devotos": { "racas": ["Povos Caucazis"], "classes": ["Guerreiros", "Inquisidores"] },
+            "poderes": ["divinos-armas-da-ambicao", "divinos-coragem-inabalavel", "divinos-espada-da-justica", "divinos-imposicao-da-ordem"],
+            "obrigacoes": "Servos de Aelohim são imperativos intransigentes. Não podem estabelecer alianças com outras divindades, tampouco aceitar qualquer manifestação de fé em uma divindade que não seja Yéxua ou Ruach-Hakodechi. É terminantemente proibido acatar ordens de qualquer entidade que não faça parte de sua religião, sendo fundamental seguir, de maneira estrita, a hierarquia de sua ordem, mesmo que tal obediência conduza a uma morte inevitável."
+        },
+        {
+            "id": "anhanga",
+            "nome": "Anhangá",
+            "saudacao": "Aîubã Ekopuku!",
+            "descricao": "Orientando as almas que partiram pelos labirintos do pós-vida com sua presença imponente, está Anhangá, Deus das entranhas sombrias do submundo, que reina ao lado da misteriosa Micê. Sua figura mais conhecida é a de um veado de coloração branca, cujos olhos ardem em chamas e chifres pontiagudos cortam o ar.",
+            "crencas": "Impor a justiça divina impiedosamente. Combater aqueles que se voltam contra os indefesos. Impor a autoridade pelo medo. Jamais oferecer clemência, perdão ou redenção.",
+            "simbolo": "A cabeça de um veado branco",
+            "energia": "retrativa",
+            "energia_opcoes": null,
+            "arma_preferida": "Foice",
+            "devotos": {
+                "racas": ["Arajubás", "Curinqueãs", "Floratas", "Goiazis", "Iakarés", "Kai'porahs", "Muiraquitãs", "Oiáras", "Sacis", "Humanos"],
+                "classes": ["Caçadores", "Inquisidores", "Rústicos", "Xamãs"]
+            },
+            "poderes": ["divinos-aura-aterrorizante", "divinos-morte-definitiva", "divinos-olhar-amedrontador", "divinos-sacrificio"],
+            "obrigacoes": "Jamais causar mal a criaturas indefesas ou permitir que alguém que o fez continue vivo (podem caçar animais indefesos se antes fizerem uma oferenda com tabaco e aguardente)."
+        },
+        {
+            "id": "anhum",
+            "nome": "Anhum",
+            "saudacao": "Onhe'engaporang!",
+            "descricao": "Anhum emergiu harmonizando os sons em palavras e cânticos, esculpindo o vento em formas tangíveis e pintando a luz com uma paleta de cores vibrantes. Reverenciado como Deus da arte, Anhum brindou os seres vivos com o dom da expressão em toda sua manifestação artística.",
+            "crencas": "Reverenciar as melodias da natureza como expressões divinas. Enaltecer a diversidade artística e a criatividade. Aceitar as emoções como instrumentos sagrados. Promover as expressões artísticas.",
+            "simbolo": "Taré (uma flauta com penas penduradas)",
+            "energia": "qualquer",
+            "energia_opcoes": ["expansiva", "retrativa"],
+            "arma_preferida": "Zarabatana",
+            "devotos": {
+                "racas": ["Arajubás", "Curinqueãs", "Floratas", "Goiazis", "Kai'porahs", "Oiáras", "Sacis", "Humanos"],
+                "classes": ["Brincantes", "Fanfarrões", "Xamãs"]
+            },
+            "poderes": ["divinos-artista-mistico", "divinos-centelha-magica", "divinos-devoto-das-artes", "divinos-inspiracao-magica"],
+            "obrigacoes": "Devotos de Anhum nunca devem proibir que alguém se expresse ou deixar que outros o façam. Jamais poderão recusar um pedido de ajuda de alguém que possa estar privado de liberdade. Devotos de Anhum são proibidos de matar seres dotados de algum dom artístico (treinados em Atuação)."
+        },
+        {
+            "id": "axumewa",
+            "nome": "Axumewá",
+            "saudacao": "Ora Iê, Iê Ó!",
+            "descricao": "Axumewá, Senhora das águas doces, revela-se como a deusa que acaricia os rios, córregos, lagos, cascatas e cachoeiras. Dona da fertilidade e protetora das gestações. Personifica o próprio amor, uma cura que flui através das águas que ela governa.",
+            "crencas": "Cultivar a beleza, a alegria e o amor em si mesmo e nos outros. Abominar a crueldade. Respeitar a gestação e o nascimento de toda e qualquer vida.",
+            "simbolo": "Abebé de Ouro (leque redondo esculpido com uma coroa de folhas na borda e um espelho no centro)",
+            "energia": "expansiva",
+            "energia_opcoes": null,
+            "arma_preferida": "Leque",
+            "devotos": {
+                "racas": ["Todas as raças"],
+                "classes": ["Brincantes", "Fanfarrões", "Feiticeiros", "Malandros", "Sacerdotes"]
+            },
+            "poderes": ["divinos-abebe", "divinos-cura-amavel", "divinos-encanto-de-axumewa", "divinos-jogo-de-buzios"],
+            "obrigacoes": "Toda vez que um devoto de Axumewá olha para sua própria imagem ele deve usar uma ação completa para agradecer a sua Deusa pela sua beleza. Os devotos também devem exibir seu charme a todos: a primeira ação de um servo de Axumewá deve ser algum teste ou magia envolvendo carisma. Só podem usar ações ofensivas em própria defesa ou defesa de outros, depois de todas as formas de convencimento falharem."
+        },
+        {
+            "id": "caaporia",
+            "nome": "Caaporiã",
+            "saudacao": "R'ako Tatá Nhãîmbîara",
+            "descricao": "A Divindade da Natureza personifica a bondade intrínseca ao mundo natural, a pureza das plantas e animais. Caaporiã é a principal divindade dos xamãs e é igualmente reverenciada por comunidades rústicas. Pode se revelar como um majestoso animal ou como uma criatura híbrida.",
+            "crencas": "Honrar os seres da natureza. Salvaguardar a vida selvagem. Fomentar a coexistência harmônica entre a natureza e a sociedade. Enfrentar desafios contra monstros, seres mortos-vivos e outras entidades que desestabilizam a harmonia natural.",
+            "simbolo": "Uma árvore ou animais",
+            "energia": "expansiva",
+            "energia_opcoes": null,
+            "arma_preferida": "Bordão",
+            "devotos": {
+                "racas": ["Candangos", "Curinqueãs", "Floratas", "Goiazis", "Iakarés", "Kai'porahs", "Sacis", "Humanos"],
+                "classes": ["Caçadores", "Inquisidores", "Rústicos", "Xamãs"]
+            },
+            "poderes": ["divinos-eco-da-natureza", "divinos-repouso-natural", "divinos-toque-verde", "divinos-vinculo-selvagem", "divinos-voz-da-natureza"],
+            "obrigacoes": "Devotos de Caaporiã estão proibidos de utilizar armaduras e escudos confeccionados em metal. Somente é permitido o uso de armaduras acolchoadas, de couro, gibões de pele e escudos leves. Devotos de Caaporiã não podem repousar em comunidades maiores do que uma aldeia (não perdem seus poderes, mas também não recuperam pontos de vida ou mana)."
+        },
+        {
+            "id": "exus",
+            "nome": "Ex'us",
+            "saudacao": "Laroye!",
+            "descricao": "Ex'us, o terceiro Deus a surgir do tecido da existência, despertou com uma voracidade insaciável. O Incriado dividiu-o em fragmentos. A chave do Orum foi confiada a Ex'us, tornando-o o guardião que abre e fecha todos os caminhos.",
+            "crencas": "Liberdade de expressão. Harmonia entre os diferentes pontos de vista. Mudança como parte da existência viva inteligente. Proteger a comunicação entre seres e o plano divino. Combater fanatismo, censura e opressão. Promover a astúcia e a irreverência.",
+            "simbolo": "Ogó (bastão de madeira em formato fálico), uma chave, ou um tridente",
+            "energia": "retrativa",
+            "energia_opcoes": null,
+            "arma_preferida": "Tridente",
+            "devotos": {
+                "racas": ["Arajubás", "Candangos", "Orumerês", "Sacis", "Unhabás"],
+                "classes": ["Brincantes", "Malandros", "Fanfarrões"]
+            },
+            "poderes": ["divinos-encruzilhada", "divinos-chave-de-exus", "divinos-tridente-de-ex-us", "divinos-mensageiro-do-divino"],
+            "obrigacoes": "Devotos de Ex'us nunca podem omitir uma informação quando solicitados, nem falar mentiras, ou aceitar que alguém minta na frente deles, mas ainda podem omitir fatos ou passar informações imprecisas. Você deve sempre provocar, enganar ou desafiar aqueles que se acham superiores, autoritários ou tirânicos."
+        },
+        {
+            "id": "guianala",
+            "nome": "Guianalá",
+            "saudacao": "Èpao Èpa Bàbá!",
+            "descricao": "Guianalá é reverenciado como um velho curvado pelo peso dos anos, caminhando devagar, apoiado em seu opaxorô, cajado símbolo da ligação entre o Orum e o Aiyê. Deus da Paz, traz consigo a serenidade e harmonia aos corações atribulados.",
+            "crencas": "Ensinar a solucionar conflitos com humildade e fraternidade, evitando a violência. Propagar a harmonia e a compreensão em todas as esferas da vida. Buscar a sabedoria por meio do autoconhecimento e do respeito ao próximo.",
+            "simbolo": "Pomba branca",
+            "energia": "expansiva",
+            "energia_opcoes": null,
+            "arma_preferida": "Armas não letais",
+            "devotos": { "racas": ["Todas as raças"], "classes": ["Todas as classes"] },
+            "poderes": ["divinos-ataque-piedoso", "divinos-aura-de-serenidade", "divinos-benevolencia", "divinos-manto-redentor"],
+            "obrigacoes": "Devotos de Guianalá não podem causar dano letal ou impor condições negativas a criaturas, exceto enfeitiçado, fascinado e pasmo. Em combate, só podem recorrer a ações como ataques de dano não letal, proteger ou curar — ou fugir, render-se ou aceitar a morte. A única exceção se dá pelo Manto da Redenção, onde a culpa do agressor se volta contra si."
+        },
+        {
+            "id": "gumede",
+            "nome": "Gumedé",
+            "saudacao": "Oh Iyè!",
+            "descricao": "Gumedé teve a tarefa de civilizar o mundo, ensinando aos seres os segredos da dominação do fogo, inventando a forja e a metalurgia. Deus da criatividade em todas as atividades, o guerreiro, o agricultor e o ferreiro do Orum.",
+            "crencas": "Devotos de Gumedé valorizam os segredos da transformação, prontidão para a ação e capacidade de tomar decisões. Tudo pode ser moldado para promover o progresso e o desenvolvimento das sociedades.",
+            "simbolo": "Espada e Bigorna",
+            "energia": "qualquer",
+            "energia_opcoes": ["expansiva", "retrativa"],
+            "arma_preferida": "Marreta",
+            "devotos": {
+                "racas": ["Orumerês", "Muiraquitãs", "Humanos", "Unhabás"],
+                "classes": ["Artífices", "Guerreiros", "Rústicos", "Inquisidores"]
+            },
+            "poderes": ["divinos-artesao-dos-minerios", "divinos-calor-da-fornalha", "divinos-invocar-arma", "divinos-mestre-das-armas", "divinos-runas-ardentes"],
+            "obrigacoes": "As magias de cura dos seguidores de Gumedé sempre têm o efeito reduzido pela metade e 50% de chance de falharem. Os juramentos feitos pelos devotos de Gumedé devem ser cumpridos."
+        },
+        {
+            "id": "iacyr",
+            "nome": "Iacyr",
+            "saudacao": "Airequecê Me'eng Ara Pytunybo!",
+            "descricao": "Iacyr, a deusa dos sonhos, soberana das noites, reina com suavidade sobre o descanso do mundo. Quando o Sol mergulha no horizonte, é ela que assume o trono celestial. Protetora dos caçadores que se aventuram nas sombras da noite.",
+            "crencas": "Reverenciar a noite, a lua e as estrelas. Agradecer o descanso tranquilo. Louvar os sonhos vindouros e suas revelações.",
+            "simbolo": "As fases da lua em torno do sol",
+            "energia": "expansiva",
+            "energia_opcoes": null,
+            "arma_preferida": "Espada curta",
+            "devotos": {
+                "racas": ["Floratas", "Candangos", "Iakarés", "Goiazis", "Kai'porahs", "Sacis", "Humanos"],
+                "classes": ["Brincantes", "Caçadores", "Fanfarrões", "Feiticeiros", "Malandros", "Xamãs"]
+            },
+            "poderes": ["divinos-magia-lunar", "divinos-repouso-ideal", "divinos-veu-da-noite", "divinos-visao-na-escuridao"],
+            "obrigacoes": "Uma devota de Iacyr deve banhar-se da luz da lua todos os dias. Em noites sem luar ela deve portar o talismã da pedra da lua que recebe ao se tornar devota ou perde todos seus poderes."
+        },
+        {
+            "id": "kiantomere",
+            "nome": "Kiantomerê",
+            "saudacao": "Arroboboi!",
+            "descricao": "Kiantomerê é o guardião supremo da metamorfose, visualizado através da imagem imponente de um unhabá, uma cobra gigante ou um híbrido destes. Senhor dos opostos e da harmoniosa união entre eles. Deus do dinheiro e das fortunas.",
+            "crencas": "Honrar todos os ciclos de transformação. Enaltecer a beleza de tudo aquilo que é transitório. Rejeitar o conservadorismo das culturas. Ser irreverente a tudo que não se transforme.",
+            "simbolo": "Cobras destilando um Arco-íris",
+            "energia": "qualquer",
+            "energia_opcoes": ["expansiva", "retrativa"],
+            "arma_preferida": "Punhal",
+            "devotos": {
+                "racas": ["Orumerês", "Unhabás", "Goiazis"],
+                "classes": ["Arcanistas", "Artífices", "Brincantes", "Fanfarrões", "Feiticeiros", "Malandros"]
+            },
+            "poderes": ["divinos-amigo-das-cobras", "divinos-bencao-da-transicao", "divinos-dominio-das-transformacoes", "divinos-senhor-das-fortunas", "divinos-jogo-de-buzios"],
+            "obrigacoes": "Devotos de Kiantomerê não podem repetir uma mesma ação contra um mesmo alvo durante a cena, tendo sempre que variar entre ataques de corpo a corpo, ataques a distância, magias ou testes de perícias."
+        },
+        {
+            "id": "kuaracyr",
+            "nome": "Kuaracyr",
+            "saudacao": "Kûarasyr Ybaka Ma'enan Opá!",
+            "descricao": "Kuaracyr, o glorioso deus sol, emana luz e calor para todos os seres que habitam as vastas terras de Pindorama. Como guardião do dia, vigia e cuida de todos os seres durante as horas diurnas.",
+            "crencas": "Valorizar a luz e o calor que emana do sol e mantém a vida. Agir com justiça e equidade, refletindo o sol que banha a todos por igual. Iluminar o caminho dos perdidos. Nutrir a esperança constante.",
+            "simbolo": "Sol com um olho no centro",
+            "energia": "expansiva",
+            "energia_opcoes": null,
+            "arma_preferida": "Cimitarra",
+            "devotos": {
+                "racas": ["Arajubás", "Candangos", "Curinqueãs", "Floratas", "Goiazis", "Iakarés", "Muiraquitãs", "Humanos"],
+                "classes": ["Arcanistas", "Cangaceiros", "Caçadores", "Guerreiros", "Rústicos", "Inquisidores"]
+            },
+            "poderes": ["divinos-convocacao-solar", "divinos-morador-do-sertao", "divinos-lamina-solar", "divinos-resplendor-solar"],
+            "obrigacoes": "Os devotos de Kuaracyr não podem passar nenhum dia sem ser tocado pela luz solar. Devotos de Kuaracyr sempre devem ser benevolentes com seres honestos."
+        },
+        {
+            "id": "mice",
+            "nome": "Micê",
+            "saudacao": "Nemarangatuete! Orému Camiarú!",
+            "descricao": "Micê era uma criatura da mata destemida e forte que se destacava por sua dedicação ao estudo das artes mágicas. Ao se deparar com Anhangá, ao contrário dos outros, não foi levada à insanidade ou à morte — daí surgiu uma paixão avassaladora que a elevou à condição de Deusa, reinando junto de seu amado no submundo.",
+            "crencas": "Abraçar a morte e os que nela vivem. Propagar os rituais de sacrifícios. Propagar os ensinamentos dos feitiços das trevas e da necromancia. Rogar maldições sobre aqueles que se porem em seu caminho. Oferecer sua vida em honra de sua Deusa.",
+            "simbolo": "Crânio de osso negro",
+            "energia": "retrativa",
+            "energia_opcoes": null,
+            "arma_preferida": "Gadanho",
+            "devotos": {
+                "racas": ["Floratas", "Iakarés", "Muiraquitãs", "Sacis", "Humanos"],
+                "classes": ["Arcanistas", "Brincantes", "Caçadores", "Cangaceiros", "Feiticeiros", "Malandros", "Xamãs"]
+            },
+            "poderes": ["divinos-colheita-da-morte", "divinos-necrovinculo", "divinos-dominio-das-maldicoes", "divinos-sacrificio", "divinos-toque-obscuro"],
+            "obrigacoes": "Uma vez por semana os devotos de Micê devem oferecer uma vida em sacrifício para sua Deusa. O dano que leva à morte da criatura deve ser realizado pelo devoto. Devotos de Micê não podem permitir que uma criatura morta seja ressuscitada."
+        },
+        {
+            "id": "mondja",
+            "nome": "Mondjá",
+            "saudacao": "Odoyá!",
+            "descricao": "A Grande Matriarca da vida, a Deusa do Mar, é a senhora dos mares que envolvem Pindorama. Das lágrimas da divindade, a vida de todas as criaturas marinhas floresceu. Aqueles que subestimam Mondjá ignoram seu imenso poder, manifestado nas ondas, tornados e redemoinhos do mar.",
+            "crencas": "Reverenciar os mares, o oceano e os seres que ali habitam. Promover harmonia entre o oceano e o mundo seco. Proteger os seres marinhos e os seres do mundo seco que se aventuram sobre as ondas. Demandar respeito ao mar e seu poder. Proteger todos os seres maternos.",
+            "simbolo": "Abebé. Um leque em forma de concha com um espelho no centro",
+            "energia": "expansiva",
+            "energia_opcoes": null,
+            "arma_preferida": "Rede, Tridente",
+            "devotos": {
+                "racas": ["Candangos", "Oiáras", "Orumerês", "Unhabás"],
+                "classes": ["Brincantes", "Fanfarrões", "Xamãs"]
+            },
+            "poderes": ["divinos-abebe", "divinos-anfibio", "divinos-canto-da-sereia", "divinos-controlar-mare", "divinos-mae-dos-peixes"],
+            "obrigacoes": "Devotos de Mondjá só podem usar armaduras leves. O devoto também não pode se afastar dos mares por mais de um mês."
+        },
+        {
+            "id": "namburuk",
+            "nome": "Namburuk",
+            "saudacao": "Saluba!",
+            "descricao": "Deusa dos pântanos e das águas estagnadas, é a mais velha entre as Deusas, cultuada como a grande avó. Senhora da passagem da vida e morte, da sabedoria e mistérios. Detém o poder de curar e adoecer.",
+            "crencas": "Os devotos de Namburuk veem nela a avó de todas as criaturas. Ela tem o poder de influenciar o destino conforme as ações de cada um. Buscam honrar Namburuk seguindo seus ensinamentos de harmonia entre água e terra, cuidando dos enfermos e necessitados, mantendo o equilíbrio entre vida e morte.",
+            "simbolo": "Um bastão de hastes de palmeira (Ibiri) e um jarro de barro com água",
+            "energia": "qualquer",
+            "energia_opcoes": ["expansiva", "retrativa"],
+            "arma_preferida": "Bastão",
+            "devotos": {
+                "racas": ["Floratas", "Kai'porahs", "Iakarés", "Orumerês", "Unhabás"],
+                "classes": ["Fanfarrões", "Feiticeiros"]
+            },
+            "poderes": ["divinos-bencao-dos-mortos", "divinos-manipulacao-da-vida", "divinos-negar-a-morte", "divinos-senhora-da-vida-e-da-morte"],
+            "obrigacoes": "Namburuk acolhe exclusivamente devotas do sexo feminino. São proibidas de saquear sepulcros, tumbas ou templos consagrados. Em combate, seu primeiro ato deve ser gastar uma ação de movimento em oração, consagrando e pedindo permissão para que sua deusa receba as vidas que possam ser tiradas. Não podem usar itens de metal."
+        },
+        {
+            "id": "odessi",
+            "nome": "Odéssi",
+            "saudacao": "Òké Aro!",
+            "descricao": "Odéssi carrega consigo o domínio sobre a arte de caçar e alimentar-se, usando dos instrumentos fornecidos pelo seu irmão Gumedé. Descobridor de caminhos, senhor da intuição, conhecedor profundo dos habitantes da mata.",
+            "crencas": "Honrar e respeitar a natureza. Buscar o aprimoramento da intuição. Celebrar os recursos que a natureza oferece.",
+            "simbolo": "Arco e Flecha de madeira e folhas",
+            "energia": "qualquer",
+            "energia_opcoes": ["expansiva", "retrativa"],
+            "arma_preferida": "Arco e flecha",
+            "devotos": {
+                "racas": ["Kai'porahs", "Iakarés", "Orumerês", "Unhabás"],
+                "classes": ["Caçadores", "Guerreiros", "Rústicos", "Xamãs"]
+            },
+            "poderes": ["divinos-tiro-certeiro", "divinos-mira-direcionada", "divinos-tiro-distante", "divinos-rei-da-mata", "divinos-arqueiro"],
+            "obrigacoes": "Uma vez por semana, deve oferecer um animal caçado apenas por você (você não pode retirar materiais dele) para seu Deus em um ritual de consagração."
+        },
+        {
+            "id": "ruach-hakodechi",
+            "nome": "Ruach-Hakodechi",
+            "saudacao": "Bo'u U'mle'u et Nafshenu!",
+            "descricao": "Ruach-Hakodechi surgiu como uma centelha brilhante, simbolizando a própria essência mágica que permeia o cosmos. Conhecido como A Luz, o Espírito Divino, aquele que governa o livre arbítrio, a liberdade, a luz e a vida.",
+            "crencas": "Respeitar o livre-arbítrio de cada criatura viva. Reverenciar a verdade como o caminho para a luz. Repudiar a falta de liberdade dos corpos e mente. Celebrar a vida com uma dádiva e a morte como uma parte dela.",
+            "simbolo": "Cristal brilhante",
+            "energia": "expansiva",
+            "energia_opcoes": null,
+            "arma_preferida": "Espada Longa",
+            "devotos": { "racas": ["Todas as raças"], "classes": ["Todas as classes"] },
+            "poderes": ["divinos-brilho-eterno", "divinos-coragem-inabalavel", "divinos-dom-da-veracidade", "divinos-liberdade-divina", "divinos-oracao-milagrosa"],
+            "obrigacoes": "Os seguidores são orientados a buscar, sempre que possível, soluções pacíficas. O uso de ações ofensivas é permitido apenas em legítima defesa. É estritamente vedado interferir na vontade alheia, a menos que essas vontades possam impactar diretamente na sua própria."
+        },
+        {
+            "id": "sain",
+            "nome": "Sãin",
+            "saudacao": "Kossi Euê Kossi Orixá!",
+            "descricao": "Sãin, o grande Deus das folhas, é detentor dos segredos das plantas sagradas. Sem suas folhas, nenhuma cerimônia pode acontecer, pois é ele quem desperta o poder do sangue verde. Seu auxiliar Aroni protege com terror quem ousa adentrar sem permissão.",
+            "crencas": "Reverenciar a floresta e seus segredos. Preservar o poder da natureza para evitar consequências desastrosas. Combater todo aquele que desejar destruir a natureza e seu equilíbrio.",
+            "simbolo": "Adó (saco de couro onde leva pós medicinais e mágicos)",
+            "energia": "qualquer",
+            "energia_opcoes": ["expansiva", "retrativa"],
+            "arma_preferida": "Bordão",
+            "devotos": {
+                "racas": ["Floratas", "Kai'porahs", "Unhabás"],
+                "classes": ["Xamãs", "Artífices", "Brincantes", "Sacis", "Curandeiros"]
+            },
+            "poderes": ["divinos-couraca-florestal", "divinos-ervas-medicinais", "divinos-firme-como-um-troco", "divinos-toque-verde"],
+            "obrigacoes": "Seguidores de Sãin não podem repousar em qualquer localidade maior que uma aldeia (mantêm seus poderes, mas não recuperam pontos de vida ou mana). Os filhos de Sãin devem se opor a qualquer um que deseje destruir a vida dos seres das florestas por qualquer motivo que não seja a própria sobrevivência."
+        },
+        {
+            "id": "tessa",
+            "nome": "Tessã",
+            "saudacao": "Epahey!",
+            "descricao": "Tessã, A Deusa dos Ventos e dos Redemoinhos, representa a força inerente ao mundo natural, a fúria das tempestades e raios. Divindade principal dos viajantes, também é cultuada por povos nômades. Pode se manifestar como uma mulher de cabelos vermelhos, um pássaro gigante ou uma criatura alada.",
+            "crencas": "Reverenciar os seres do ar. Proteger a liberdade de movimento. Promover mudança entre os povos e as culturas. Combater tiranos, opressores e outras criaturas que impedem o fluxo natural.",
+            "simbolo": "Para nômades e adoradores de pássaros, o respectivo pássaro. Para outros, um raio ou uma pena.",
+            "energia": "expansiva",
+            "energia_opcoes": null,
+            "arma_preferida": "Foice",
+            "devotos": {
+                "racas": ["Arajubás", "Candangos", "Orumerês", "Sacis", "Unhabás"],
+                "classes": ["Brincantes", "Caçadores", "Rústicos", "Feiticeiros", "Guerreiros", "Inquisidores", "Lutadores", "Xamãs"]
+            },
+            "poderes": ["divinos-coragem-inabalavel", "divinos-liberdade-divina", "divinos-voo-de-tessa", "divinos-olhos-da-tempestade", "divinos-senhora-dos-ventos"],
+            "obrigacoes": "Devotos de Tessã não aceitam a escravidão de si ou de qualquer espécie viva ou morta e deverão se opor veementemente, à custa de sua própria vida se for necessário. Devotos de Tessã não podem ficar mais de um mês no mesmo lugar (não perdem seus poderes, mas também não recuperam pontos de vida ou mana)."
+        },
+        {
+            "id": "tumpa",
+            "nome": "Tumpã",
+            "saudacao": "Tumpã Nomanõi, Oikobé Anhẽ.",
+            "descricao": "Tumpã, conhecido como o Espírito do Trovão ou Deus da Justiça, é reverenciado pelos Pindorins como a primeira reverberação no silêncio da Grande Noite-vazia. Como líder incontestável, ocupa a posição de supremacia entre os deuses. Entre os povos unhabás, é reverenciado como Nangô, Deus Guerreiro da justiça.",
+            "crencas": "Lutar para estabelecer a lei e ordem. Intervir em face da justiça. Defender os oprimidos. Extinguir o mal e revelar a mentira.",
+            "simbolo": "Machado de lâmina dupla",
+            "energia": "expansiva",
+            "energia_opcoes": null,
+            "arma_preferida": "Machado",
+            "devotos": {
+                "racas": ["Candangos", "Curinqueãs", "Goiazis", "Iakarés", "Kai'porahs", "Muiraquitãs", "Oiáras", "Orumerês", "Sacis", "Unhabás", "Humanos"],
+                "classes": ["Guerreiros", "Cangaceiros", "Caçadores", "Inquisidores", "Rústicos"]
+            },
+            "poderes": ["divinos-coragem-inabalavel", "divinos-ira-divina", "divinos-lamina-do-trovao", "divinos-corrigir-injustica"],
+            "obrigacoes": "Devotos de Tumpã não podem recusar pedidos de ajuda de pessoas inocentes. Os devotos devem cumprir as ordens de superiores na hierarquia. Nunca devem mentir e sempre devem intervir em condições de injustiça."
+        },
+        {
+            "id": "yexua",
+            "nome": "Yéxua",
+            "saudacao": "Shalom Lach, Yéxua!",
+            "descricao": "Yéxua surge como a divindade portadora da redenção, compaixão e curas milagrosas. Vestiu-se da mortalidade percorrendo a terra para realizar feitos miraculosos. Ao término de sua peregrinação, sacrificou sua existência terrena em oferenda para libertar a humanidade da ira de Aelohim.",
+            "crencas": "Semear a cura para todos os males. Enaltecer a fé na vida eterna após a morte. Enaltecer o amor, a paz, a caridade, a compaixão e o perdão.",
+            "simbolo": "Uma cruz de madeira",
+            "energia": "expansiva",
+            "energia_opcoes": null,
+            "arma_preferida": "Nenhuma",
+            "devotos": { "racas": ["Todas as raças"], "classes": ["Inquisidores"] },
+            "poderes": ["divinos-aura-de-serenidade", "divinos-bencao-do-sacrificio", "divinos-benevolencia", "divinos-cura-milagrosa"],
+            "obrigacoes": "Devotos de Yéxua não podem infligir qualquer tipo de dano, redução de PV ou imposição de condições adversas a criaturas, exceto enfeitiçado, fascinado ou pasmo. Em combate, têm permissão apenas para executar ações que visem proteger ou curar, ou então optar por fugir, render-se ou aceitar passivamente a morte."
+        }
+    ]
+}

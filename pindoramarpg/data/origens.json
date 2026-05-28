@@ -1,0 +1,335 @@
+{
+    "introducao": [
+        "Enquanto sua raça lista habilidades ganhas ao nascimento e sua classe relata como você se tornou um ser excepcional, sua origem revela o que você fazia antes de se aventurar. É aquilo que preenchia os dias antes de conquistar o primeiro nível em uma classe.",
+        "Cada origem que você verá a seguir é propositalmente superficial e genérica, apenas uma ideia que pode dar início à sua história. Pode ser adotada de imediato para um jogo rápido, ou enriquecida com quantos detalhes sua imaginação permitir."
+    ],
+    "regras": {
+        "modificadores": "Sua origem modifica seus atributos. Ao escolhê-la você tem +2 pontos para somar nos atributos listados (podendo ser +1 em cada). Adicionalmente você pode optar por até -2 pontos em 1 ou 2 atributos diferentes dos listados; se fizer isso, ganha +1 ou +2 para distribuir nos atributos restantes.",
+        "itens": "Você adiciona todos os itens listados na seção \"itens\" da sua origem no começo do jogo.",
+        "beneficios": "Cada origem possui uma lista de benefícios que inclui perícias e poderes gerais. Você escolhe dois benefícios da lista — duas perícias, dois poderes ou uma perícia e um poder.",
+        "poder_unico": "Cada origem traz consigo uma habilidade única, exclusiva. Apenas personagens que compartilham a mesma origem podem adotá-la. Pode ser selecionada como uma das duas vantagens."
+    },
+    "origens": [
+        {
+            "id": "amigo-dos-animais",
+            "nome": "Amigo dos Animais",
+            "descricao": "Você pode ter sido cavalariço no estábulo de um castelo, criador de gado em uma fazenda, ginete de Boiaderus, ou mesmo domador de aves do transporte dos ventos de Cearina, um defensor dos animais no Jardim Atlântico — Ou então nada disso: desde criança você tem facilidade em lidar com animais, sempre conversou com eles, sentiu ser capaz de compreendê-los.",
+            "atributos": ["car", "sab"],
+            "itens": ["Cão de caça, cavalo ou pônei (escolha um)"],
+            "pericias": ["Adestramento", "Cavalgar"],
+            "poderes": ["origem-amigo-especial"]
+        },
+        {
+            "id": "amnesico",
+            "nome": "Amnésico",
+            "descricao": "A maior parte das suas lembranças se dissipou no vazio. No melhor dos casos, você lembra apenas do seu próprio nome; na pior das hipóteses, nem isso. Talvez possua alguns objetos pessoais, mas sua origem é um enigma para você.",
+            "atributos": ["for", "des", "con", "int", "sab", "car"],
+            "itens": ["Um ou mais itens (somando até M$ 500), aprovados pelo mestre, que podem ser uma pista misteriosa do seu passado"],
+            "pericias": [],
+            "poderes": ["origem-lembrancas-graduais"],
+            "observacao": "Em vez de dois benefícios de uma lista, você recebe uma perícia e um poder escolhidos pelo mestre, somados ao poder Lembranças Graduais."
+        },
+        {
+            "id": "aristocrata",
+            "nome": "Aristocrata",
+            "descricao": "Sua linhagem nasceu na nobreza, garantindo-lhe uma educação refinada em uma variedade de disciplinas, como política mercantil, torneios de cavalaria ou até mesmo mistérios arcanos. Você ainda sente a pressão de cumprir as expectativas da sua família como nobre?",
+            "atributos": ["car", "int"],
+            "itens": ["Joia de família no valor de M$ 300", "Traje da corte"],
+            "pericias": ["Diplomacia", "Enganação", "Nobreza"],
+            "poderes": ["origem-sangue-azul"]
+        },
+        {
+            "id": "artesao",
+            "nome": "Artesão",
+            "descricao": "Desde um alfaiate habilidoso que costura trajes para a nobreza a um armeiro que forja armas letais, você foi ensinado por um parente, mentor ou guilda a criar objetos essenciais na sociedade civilizada.",
+            "atributos": ["for", "int"],
+            "itens": ["Instrumentos de ofício (qualquer)", "Um item que você possa fabricar de até M$ 50"],
+            "pericias": ["Ofício", "Vontade"],
+            "poderes": ["origem-frutos-do-trabalho", "destino-sortudo"]
+        },
+        {
+            "id": "artista",
+            "nome": "Artista",
+            "descricao": "Muitos dizem que você tem um \"dom\" natural, uma habilidade inata. Será isso verdade? Ou será que você simplesmente sentiu uma paixão ardente por uma forma particular de arte e treinou incansavelmente para aprimorá-la?",
+            "atributos": ["car", "des"],
+            "itens": ["Estojo de disfarces ou um instrumento musical a sua escolha"],
+            "pericias": ["Atuação", "Enganação"],
+            "poderes": ["origem-dom-artistico", "destino-sortudo", "destino-torcida"]
+        },
+        {
+            "id": "assistente-de-laboratorio",
+            "nome": "Assistente de Laboratório",
+            "descricao": "Sua trajetória incluiu o papel de assistente de um alquimista, inventor ou tzolkiner. Suas tarefas envolviam anotar minuciosamente experimentos, realizar a limpeza do laboratório, organizar ferramentas, buscar ingredientes raros nos mercados e, ocasionalmente, até mesmo recapturar criaturas antinaturais.",
+            "atributos": ["int"],
+            "itens": ["Instrumentos de Ofício (alquimista)"],
+            "pericias": ["Ofício (alquimista)", "Misticismo"],
+            "poderes": ["origem-esse-cheiro", "destino-veneficio"],
+            "observacao": "Você também pode escolher um poder do Caos Primordial à sua escolha."
+        },
+        {
+            "id": "batedor",
+            "nome": "Batedor",
+            "descricao": "Seja liderando caravanas através dos reinos, rastreando inimigos nos campos de batalha ou orientando exploradores nas vastidões do Grande Verde, você adquiriu a habilidade de encontrar rotas seguras e guiar os outros com segurança.",
+            "atributos": ["des", "sab"],
+            "itens": ["Barraca", "Equipamento de viagem", "Uma arma simples ou marcial de ataque à distância"],
+            "pericias": ["Furtividade", "Percepção", "Sobrevivência"],
+            "poderes": ["origem-a-prova-de-tudo", "combate-estilo-de-disparo", "destino-sentidos-apurados"]
+        },
+        {
+            "id": "capanga",
+            "nome": "Capanga",
+            "descricao": "Agilidade e destreza são qualidades essenciais no mundo do crime, mas não são as únicas; ocasionalmente, é necessário aplicar força física. Devido à sua estatura, força ou aparência intimidadora, você acabou se envolvendo como um elemento muscular para algum criminoso.",
+            "atributos": ["for", "des"],
+            "itens": ["Tatuagem ou outro adereço de sua gangue (+1 em Intimidação)", "Uma arma simples corpo a corpo"],
+            "pericias": ["Luta", "Intimidação"],
+            "poderes": ["origem-confissao"],
+            "observacao": "Você também pode escolher um poder de combate à sua escolha."
+        },
+        {
+            "id": "charlatao",
+            "nome": "Charlatão",
+            "descricao": "Você sempre demonstrou um talento excepcional para resolver problemas por meio da comunicação, seja de maneira sincera ou nem tanto. Após um breve diálogo, você consegue discernir o que as pessoas mais desejam ou temem.",
+            "atributos": ["car"],
+            "itens": ["Estojo de disfarces", "Joia falsificada (valor aparente de M$ 100, sem valor real)"],
+            "pericias": ["Enganação", "Jogatina"],
+            "poderes": ["origem-alpinista-social", "destino-aparencia-inofensiva", "destino-sortudo"]
+        },
+        {
+            "id": "circense",
+            "nome": "Circense",
+            "descricao": "Você se dedicou ao treinamento em acrobacia, malabarismo, ilusionismo ou outra habilidade circense. Pode ter adquirido essas habilidades de forma autodidata, durante suas brincadeiras de infância.",
+            "atributos": ["car", "des"],
+            "itens": ["Três bolas coloridas para malabarismo (+1 em Atuação)"],
+            "pericias": ["Acrobacia", "Atuação", "Reflexos"],
+            "poderes": ["destino-acrobatico", "destino-torcida", "origem-truque-de-magica"]
+        },
+        {
+            "id": "criminoso",
+            "nome": "Criminoso",
+            "descricao": "Praticar o bem é louvável, mas, como você aprendeu, nem sempre sacia a fome. Por necessidade, ambição, ou simplesmente por falta de outra opção, você viveu uma vida como fora da lei durante a maior parte de sua juventude.",
+            "atributos": ["car", "des"],
+            "itens": ["Estojo de disfarces ou gazua"],
+            "pericias": ["Enganação", "Furtividade", "Ladinagem"],
+            "poderes": ["origem-punguista", "destino-veneficio"]
+        },
+        {
+            "id": "curandeiro",
+            "nome": "Curandeiro",
+            "descricao": "Talvez você tenha atuado como auxiliar do curandeiro da sua vila, observando-o tratar doenças e ferimentos sem depender de magia. Ou talvez tenha recebido um estudo formal e refinado em medicina.",
+            "atributos": ["sab"],
+            "itens": ["Bálsamo restaurador x2", "Maleta de medicamentos"],
+            "pericias": ["Cura", "Vontade"],
+            "poderes": ["destino-pratica-medica", "origem-medico-de-campo", "destino-veneficio"]
+        },
+        {
+            "id": "eremita",
+            "nome": "Eremita",
+            "descricao": "Grande parte de sua vida transcorreu em reclusão, distante da convivência social. Desde a infância, você foi excluído, ou foi atraído pelos apelos dos deuses, levando-o a buscar o isolamento a fim de meditar sobre seu propósito.",
+            "atributos": ["int", "sab"],
+            "itens": ["Barraca", "Equipamento de viagem"],
+            "pericias": ["Misticismo", "Religião", "Sobrevivência"],
+            "poderes": ["origem-busca-interior", "destino-lobo-solitario"]
+        },
+        {
+            "id": "escravo",
+            "nome": "Escravo",
+            "descricao": "Você viu a luz do mundo como um escravo, nascido em meio a um povo derrotado em guerra, ou foi capturado nas sombras de uma rua obscura para, posteriormente, despertar em uma jaula de algum mercado clandestino.",
+            "atributos": ["con", "des", "for"],
+            "itens": ["Algemas", "Uma ferramenta pesada (mesmas estatísticas de uma maça)"],
+            "pericias": ["Atletismo", "Fortitude", "Furtividade"],
+            "poderes": ["origem-desejo-de-liberdade", "combate-vitalidade-aprimorada"]
+        },
+        {
+            "id": "estudioso",
+            "nome": "Estudioso",
+            "descricao": "Não importa se o seu amor por um determinado assunto é inato, se testemunhou um evento extraordinário que acendeu sua curiosidade ou se foi compelido a estudar por influência familiar. Uma parte considerável de sua vida foi dedicada a folhear páginas de livros e pergaminhos.",
+            "atributos": ["int"],
+            "itens": ["Coleção de livros (+1 em Conhecimento, Guerra, Misticismo ou Nobreza, a sua escolha)"],
+            "pericias": ["Conhecimento", "Guerra", "Misticismo"],
+            "poderes": ["destino-aparencia-inofensiva", "origem-palpite-fundamentado"]
+        },
+        {
+            "id": "fazendeiro",
+            "nome": "Fazendeiro",
+            "descricao": "Uma grande parcela da população de Pindorama nunca experimentou outra forma de existência. Em algum lugar no território perigoso que separa os ermos das cidades, você passou anos árduos trabalhando em campos e fazendas.",
+            "atributos": ["car", "des", "int"],
+            "itens": ["Carroça", "Uma ferramenta agrícola (mesmas estatísticas de uma lança)", "10 rações de viagem", "Um animal não combativo (galinha, porco ou ovelha)"],
+            "pericias": ["Adestramento", "Cavalgar", "Ofício (fazendeiro)", "Sobrevivência"],
+            "poderes": ["origem-agua-no-feijao", "combate-ginete"]
+        },
+        {
+            "id": "forasteiro",
+            "nome": "Forasteiro",
+            "descricao": "Você chegou de terras distantes, trazendo consigo uma cultura nativa que é quase ou completamente desconhecida em Pindorama, tornando-o uma figura exótica, com costumes peculiares.",
+            "atributos": ["des", "sab"],
+            "itens": ["Equipamento de viagem", "Instrumento musical exótico (+1 em uma perícia de Carisma aprovada pelo mestre)", "Traje estrangeiro"],
+            "pericias": ["Cavalgar", "Pilotagem", "Sobrevivência"],
+            "poderes": ["origem-cultura-exotica", "destino-lobo-solitario"]
+        },
+        {
+            "id": "guarda",
+            "nome": "Guarda",
+            "descricao": "Você desempenhou o papel de agente da lei em uma vila ou cidade, uma ocupação que estava longe de ser tão glamorosa ou emocionante quanto aparentava. Carrega consigo uma arma de qualidade que \"esqueceu\" de devolver.",
+            "atributos": ["for", "int", "sab"],
+            "itens": ["Apito", "Insígnia da milícia", "Uma arma marcial"],
+            "pericias": ["Investigação", "Luta", "Percepção"],
+            "poderes": ["origem-detetive", "destino-detective"],
+            "observacao": "Você também pode escolher um poder de combate à sua escolha."
+        },
+        {
+            "id": "herdeiro",
+            "nome": "Herdeiro",
+            "descricao": "Você faz parte de uma linhagem com raízes profundas em nobreza, comércio, magia, erudição, artes furtivas ou em qualquer outra atividade que é uma tradição em sua família.",
+            "atributos": ["car", "int"],
+            "itens": ["Um símbolo de sua herança, como anel de sinete ou manto cerimonial"],
+            "pericias": ["Misticismo", "Nobreza", "Ofício"],
+            "poderes": ["origem-heranca"]
+        },
+        {
+            "id": "heroi-camponese",
+            "nome": "Herói Camponês",
+            "descricao": "Quando o povoado foi alvo de um ataque implacável de gabirus, você ergueu seu forcado corajosamente para expulsá-los. Você era o herói local, adorado pelo povo, mas o destino lhe reservava feitos ainda maiores.",
+            "atributos": ["for", "des", "con", "int", "sab", "car"],
+            "itens": ["Instrumentos de ofício ou uma arma simples", "Traje de plebeu"],
+            "pericias": ["Adestramento", "Ofício"],
+            "poderes": ["origem-coracao-heroico", "destino-sortudo", "destino-torcida"]
+        },
+        {
+            "id": "lutador-de-rua",
+            "nome": "Lutador de Rua",
+            "descricao": "As competições nas arenas ou mesmo os torneios clandestinos nos bairros periféricos das grandes cidades representam um entretenimento de grande popularidade em Pindorama. Sua entrada nesse mundo glamoroso pode ter raízes na tradição de sua família, na admiração por um gladiador renomado, ou na busca por fama e riqueza.",
+            "atributos": ["car", "con", "for"],
+            "itens": ["Uma arma marcial ou exótica", "Um item sem valor recebido de um admirador"],
+            "pericias": ["Atuação", "Luta"],
+            "poderes": ["origem-pao-e-circo", "destino-torcida"],
+            "observacao": "Você também pode escolher um poder de combate à sua escolha."
+        },
+        {
+            "id": "marujo",
+            "nome": "Marujo",
+            "descricao": "Você desempenhou o papel de tripulante em diferentes tipos de embarcações, seja em um barco pesqueiro, uma galé pirata, uma caravela de exploração ou até mesmo em um navio voador de Cearina.",
+            "atributos": ["car", "des", "for"],
+            "itens": ["M$ 2d6 (seu último salário)", "Corda"],
+            "pericias": ["Atletismo", "Jogatina", "Pilotagem"],
+            "poderes": ["destino-acrobatico", "origem-passagem-de-navio"]
+        },
+        {
+            "id": "mateiro",
+            "nome": "Mateiro",
+            "descricao": "Em Pindorama, nem todos desfrutam da comodidade de viver em cidades bem abastecidas por fazendeiros, mineiros ou pescadores. Muitas comunidades ainda dependem da caça para obter seu sustento.",
+            "atributos": ["des", "for", "sab"],
+            "itens": ["Arco curto", "Barraca", "Equipamento de viagem", "20 flechas"],
+            "pericias": ["Atletismo", "Furtividade", "Sobrevivência"],
+            "poderes": ["destino-lobo-solitario", "destino-sentidos-apurados", "origem-vendedor-de-carcacas"]
+        },
+        {
+            "id": "membro-de-guilda",
+            "nome": "Membro de Guilda",
+            "descricao": "Você foi, ou ainda é, um membro ativo em uma influente guilda — uma associação de artesãos, mercadores, feiticeiros, criminosos ou até aventureiros.",
+            "atributos": ["for", "des", "con", "int", "sab", "car"],
+            "itens": ["Gazua ou instrumentos de ofício"],
+            "pericias": ["Diplomacia", "Enganação", "Misticismo", "Ofício"],
+            "poderes": ["destino-expertise-em-pericia", "origem-rede-de-contatos"]
+        },
+        {
+            "id": "mercador",
+            "nome": "Mercador",
+            "descricao": "Em conformidade com uma tradição de família, você seguiu os passos de seus antecessores, assumindo o papel de comerciante, seja herdando um estabelecimento comercial ou ingressando como jovem empregado.",
+            "atributos": ["car", "int", "sab"],
+            "itens": ["Carroça", "Montaria", "Mercadorias para vender no valor de M$ 100"],
+            "pericias": ["Diplomacia", "Intuição", "Ofício"],
+            "poderes": ["origem-negociacao", "combate-proficiencia-ampliada", "destino-sortudo"]
+        },
+        {
+            "id": "minerador",
+            "nome": "Minerador",
+            "descricao": "Ser aventureiro é amplamente considerada a profissão mais perigosa de todas, mas ser mineiro talvez seja a segunda mais arriscada. Você desceu às profundezas da terra em busca de metais essenciais para a civilização ou riquezas em gemas preciosas.",
+            "atributos": ["con", "for", "int"],
+            "itens": ["Gemas preciosas no valor de M$ 100", "Picareta"],
+            "pericias": ["Atletismo", "Fortitude", "Ofício (minerador)"],
+            "poderes": ["combate-ataque-poderoso", "origem-escavador", "destino-sentidos-apurados"]
+        },
+        {
+            "id": "nomade",
+            "nome": "Nômade",
+            "descricao": "Pelo que se recorda, você nunca teve um lar fixo. Sua família estava sempre em movimento, fazendo parte de uma grande caravana comercial, de uma peregrinação religiosa ou pertencendo a um povo nômade que nunca aderiu à agricultura.",
+            "atributos": ["des", "sab"],
+            "itens": ["Bordão", "Equipamento de viagem"],
+            "pericias": ["Cavalgar", "Pilotagem", "Sobrevivência"],
+            "poderes": ["destino-lobo-solitario", "origem-mochileiro", "destino-sentidos-apurados"]
+        },
+        {
+            "id": "pivete",
+            "nome": "Pivete",
+            "descricao": "Sua infância foi vivida nas ruas, como uma criança desamparada. Você nunca conheceu seus pais, tendo sido abandonado por eles ou fugido para escapar de maus-tratos.",
+            "atributos": ["des"],
+            "itens": ["Gazua", "Traje de plebeu", "Um animal urbano (cão, gato, rato ou pombo)"],
+            "pericias": ["Furtividade", "Iniciativa", "Ladinagem"],
+            "poderes": ["destino-acrobatico", "destino-aparencia-inofensiva", "origem-quebra-galho"]
+        },
+        {
+            "id": "refugiado",
+            "nome": "Refugiado",
+            "descricao": "Neste mundo devastado por inúmeras guerras e tragédias, você conseguiu sobreviver a algumas delas. Embora traumas e privações possam ter moldado você de maneira amarga, sombria e endurecida, também o transformaram em um sobrevivente resiliente.",
+            "atributos": ["con", "des", "sab"],
+            "itens": ["Um item estrangeiro de até M$ 100"],
+            "pericias": ["Fortitude", "Reflexos", "Vontade"],
+            "poderes": ["origem-estoico", "destino-determinacao"]
+        },
+        {
+            "id": "religioso",
+            "nome": "Religioso",
+            "descricao": "Neste cenário de religiões diversas e templos misteriosos, muitos embarcam na jornada espiritual desde bem novos, uma escolha que pode despertar respeito ou desconfiança, dependendo do deus que seguem.",
+            "atributos": ["int", "sab"],
+            "itens": ["Símbolo sagrado", "Traje de sacerdote"],
+            "pericias": ["Cura", "Religião", "Vontade"],
+            "poderes": ["destino-pratica-medica", "origem-membro-da-igreja", "destino-determinacao"]
+        },
+        {
+            "id": "seguidor",
+            "nome": "Seguidor",
+            "descricao": "Você não nasceu herói, mas passou um tempo significativo na companhia de um. Talvez tenha sido escudeiro de um cavaleiro devoto de Aelohim, mensageiro de um habilidoso gatuno ou criado de um virtuoso aventureiro.",
+            "atributos": ["for", "des", "con", "int", "sab", "car"],
+            "itens": ["Um item recebido de seu mestre de até M$ 100"],
+            "pericias": ["Adestramento", "Ofício"],
+            "poderes": ["origem-antigo-mestre", "combate-proficiencia-ampliada", "destino-determinacao"]
+        },
+        {
+            "id": "selvagem",
+            "nome": "Selvagem",
+            "descricao": "Você teve uma origem incomum, nascendo em uma tribo rústica ou de uma maneira ainda mais exótica. Foi separado de seus pais verdadeiros em algum local remoto, encontrando sobrevivência e cuidado nas mãos de um eremita, através da criação por animais ou pela pura benevolência dos deuses.",
+            "atributos": ["con", "des", "sab"],
+            "itens": ["Uma arma simples", "Um pequeno animal de estimação como um pássaro ou esquilo"],
+            "pericias": ["Percepção", "Reflexos", "Sobrevivência"],
+            "poderes": ["destino-lobo-solitario", "origem-vida-rustica", "combate-vitalidade-aprimorada"]
+        },
+        {
+            "id": "soldado",
+            "nome": "Soldado",
+            "descricao": "Lusília. Pampas. Aliança Florim. Em Pindorama, as forças militares se estendem por vastas direções. Quando jovem, você se alistou voluntariamente (ou foi convocado) como soldado em um grande exército.",
+            "atributos": ["con", "for", "sab"],
+            "itens": ["Uma arma marcial", "Um uniforme militar", "Uma insígnia de seu exército"],
+            "pericias": ["Fortitude", "Guerra", "Luta", "Pontaria"],
+            "poderes": ["origem-influencia-militar"],
+            "observacao": "Você também pode escolher um poder de combate à sua escolha."
+        },
+        {
+            "id": "taverneiro",
+            "nome": "Taverneiro",
+            "descricao": "Não é raro que heróis aposentados encontrem refúgio como proprietários de tavernas ou estalagens, mas a vida pode dar voltas surpreendentes. Você foi dono, filho de dono ou funcionário de um estabelecimento frequentado por aventureiros.",
+            "atributos": ["car", "for", "sab"],
+            "itens": ["Rolo de macarrão ou martelo de carne (mesmas estatísticas de uma clava)", "Uma panela", "Um avental", "Uma caneca", "Um pano sujo"],
+            "pericias": ["Diplomacia", "Jogatina", "Ofício (cozinheiro)"],
+            "poderes": ["origem-gororoba", "combate-proficiencia-ampliada", "combate-vitalidade-aprimorada"]
+        },
+        {
+            "id": "trabalhador",
+            "nome": "Trabalhador",
+            "descricao": "Nenhum glamour aqui, apenas árduo trabalho físico. De origens humildes e com poucas oportunidades na vida, você se dedicou ao labor duro desde tenra idade.",
+            "atributos": ["con", "for"],
+            "itens": ["Uma ferramenta pesada (mesmas estatísticas de uma maça ou lança, a sua escolha)"],
+            "pericias": ["Atletismo", "Fortitude"],
+            "poderes": ["destino-atletico", "origem-esforcado"]
+        }
+    ]
+}

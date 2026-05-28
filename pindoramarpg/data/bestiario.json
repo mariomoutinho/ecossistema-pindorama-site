@@ -1,0 +1,259 @@
+{
+  "filtros": {
+    "tipos": ["animal", "monstro", "planta", "espírito", "morto-vivo", "humanoide", "construto", "outro"],
+    "tamanhos": ["Minúsculo", "Pequeno", "Médio", "Grande", "Enorme", "Colossal"],
+    "biomas": ["Amazônia", "Cerrado", "Caatinga", "Pantanal", "Mata Atlântica", "Pampas", "Manguezal", "Restinga", "Litoral", "Campos Rupestres", "Rios", "Cavernas", "Ilhas", "Zona Urbana Colonial", "Zona Urbana Tradicional", "Outro"],
+    "papeisTaticos": ["brutamontes", "controlador", "emboscador", "conjurador", "suporte", "perseguidor", "enxame", "chefe", "elite", "sentinela", "predador", "guardião", "outro"]
+  },
+  "criaturas": [
+    {
+      "id": "xique-xique-andante",
+      "nome": "Xique-Xique Andante",
+      "nomeAlternativo": "",
+      "fraseImpacto": "A seca que cria espinhos para caçar.",
+      "nd": 3,
+      "tipo": "planta",
+      "tamanho": "Médio",
+      "bioma": "Caatinga",
+      "habitat": "Lajedos, veredas secas, arredores de cacimbas, trilhas de animais, cercas abandonadas, ruínas de pedra e manchas densas de vegetação espinhosa.",
+      "papelTatico": "emboscador/controlador",
+      "imagem": "assets/img/bestiario/xique-xique-andante.png",
+      "pvMax": 55,
+      "defesa": 18,
+      "deslocamento": "6m",
+      "iniciativa": "+5",
+      "percepcao": "+8",
+      "sentidos": "percepção às cegas 3m, visão na penumbra",
+      "fortitude": "+8",
+      "reflexos": "+5",
+      "vontade": "+4",
+      "ataques": [
+        {
+          "nome": "Gravetos espinhosos",
+          "alcance": "corpo a corpo",
+          "quantidadeAtaques": 2,
+          "teste": "+10",
+          "bonusAtaque": 10,
+          "dano": "1d8+4 perfuração cada",
+          "danoFormula": "1d8+4"
+        }
+      ],
+      "habilidades": [
+        "Camuflagem da Caatinga. Em terreno de vegetação seca, pedregoso ou espinhoso, o Xique-Xique Andante recebe +5 em Furtividade. Se permanecer imóvel, pode ser confundido com vegetação comum; criaturas distraídas sofrem -5 em Percepção para notá-lo.",
+        "Corpo Espinhoso. Uma criatura que acerte o Xique-Xique Andante com um ataque desarmado, ou que o agarre, sofre 1d6 pontos de dano de perfuração.",
+        "Laço de Raízes. Se o Xique-Xique Andante acertar os dois ataques de gravetos espinhosos no mesmo alvo em sua rodada, pode fazer uma manobra agarrar como ação livre contra esse alvo, com +10.",
+        "Rajada de Espinhos (padrão). O Xique-Xique Andante dispara uma nuvem de espinhos em um cone de 4,5m. Criaturas na área sofrem 2d6+2 pontos de dano de perfuração. Reflexos CD 15 reduz à metade.",
+        "Vulnerabilidade a Fogo. O Xique-Xique Andante sofre +50% de dano de fogo."
+      ],
+      "atributos": {
+        "forca": "+4",
+        "destreza": "+1",
+        "constituicao": "+3",
+        "inteligencia": "-3",
+        "sabedoria": "+2",
+        "carisma": "-2"
+      },
+      "pericias": ["Furtividade +9", "Sobrevivência +8"],
+      "vulnerabilidades": ["Fogo (+50% de dano)"],
+      "resistencias": [],
+      "imunidades": [],
+      "conceito": "Uma ameaça vegetal da Caatinga, nascida da combinação entre a rusticidade do xique-xique, a agressividade de plantas espinhosas e a força espiritual da terra castigada pela seca. O Xique-Xique Andante cumpre o papel de emboscadora/controladora de território, excelente para encontros em trilhas, lajedos, cacimbas, ruínas sertanejas e arredores de fontes d'água.",
+      "descricao": "À primeira vista, parece apenas um agrupamento de cactos retorcidos. Quando se move, porém, revela uma forma quase humanoide, com braços de ramos espinhosos, tronco grosso e uma base de raízes que se arrastam sobre a terra rachada. Seus espinhos são longos, esbranquiçados e secos como agulhas de osso. Em silêncio quase total, ele permanece imóvel até que a presa se aproxime demais.",
+      "origemInspiracao": "O Xique-Xique Andante nasce em regiões onde a seca prolongada, sangue derramado e antigos pactos com a terra se misturam. Alguns pajés e rezadores dizem que ele é a resposta da própria Caatinga à ganância de quem toma mais água do que precisa. Outros afirmam que surge onde mortos sem descanso foram deixados ao relento, fertilizando com dor as raízes do sertão.\n\nInspirações principais:\n- xique-xique e mandacaru;\n- paisagem espinhosa da Caatinga;\n- escassez de água;\n- territorialidade natural;\n- imaginação sertaneja sobre a terra viva e vingativa.",
+      "comportamento": "O Xique-Xique Andante é paciente, territorial e oportunista. Ele evita combate aberto até poder atacar em vantagem. Prefere surpreender viajantes cansados, caçadores isolados ou grupos distraídos montando acampamento.\n\nEle não caça por fome no sentido animal, mas por instinto territorial. Quando um alvo cai, a criatura fincará pequenas raízes no corpo e o deixará ressecar lentamente no chão, alimentando o solo.",
+      "sinaisPresenca": [
+        "manchas de solo revirado como se raízes grossas tivessem se arrastado",
+        "espinhos grandes fincados em troncos, couro ou pedra",
+        "pequenos animais encontrados mortos e ressecados",
+        "silêncio incomum de aves na área",
+        "círculos de vegetação espinhosa mais densa em torno de uma fonte d'água",
+        "sensação de estar sendo observado mesmo em terreno aberto"
+      ],
+      "fichaCompleta": "Xique-Xique Andante - ND 3\nPlanta Média\n\nIniciativa +5\nSentidos percepção às cegas 3m, visão na penumbra; Percepção +8\n\nDefesa 18\nFort +8, Ref +5, Von +4\nPontos de Vida 55\nDeslocamento 6m\n\nAtaques:\nGravetos espinhosos\nAlcance: corpo a corpo\nQuantidade: 2 ataques\nTeste: +10\nDano: 1d8+4 perfuração cada\n\nAtributos:\nFor +4, Des +1, Con +3, Int -3, Sab +2, Car -2\n\nPerícias:\nFurtividade +9, Sobrevivência +8",
+      "taticasCombate": "- Começa o combate escondido, tentando surpreender.\n- Se houver dois ou mais inimigos agrupados, abre com Rajada de Espinhos.\n- Depois foca em um alvo por vez com os dois gaviões, tentando usar Laço de Raízes para agarrar combatentes mais frágeis ou impedir conjuradores e arqueiros de recuar.\n- Prefere lutar em terreno difícil, entre pedras e vegetação espinhosa.\n- Evita oponentes com fogo evidente.\n- Se sofrer muito dano de fogo, pode recuar para cobertura vegetal.\n- Contra grupos despreparados, tenta separar um membro do restante e neutralizá-lo rapidamente.",
+      "usoCampanha": "O Xique-Xique Andante funciona muito bem como:\n- ameaça de viagem no sertão;\n- guardião natural de cacimbas, olhos d'água ou ruínas;\n- criatura associada a maldições da seca;\n- obstáculo em missões de escolta, travessia ou busca por recursos;\n- encontro temático para mostrar que a Caatinga é viva, hostil e sagrada.\n\nEle também combina com aventuras em que o grupo precise decidir entre destruir a criatura ou compreender por que a terra a criou.",
+      "ganchosAventura": [
+        "A cacimba fechada. Um povoado sertanejo perdeu acesso à única fonte d'água da região. Quem se aproxima da cacimba não volta.",
+        "O caminho das boiadas. Viajantes e animais estão sendo encontrados secos e perfurados. Os tropeiros pedem escolta armada.",
+        "A vingança da terra. Um coronel mandou cercar a única vereda de uma comunidade tradicional; depois disso, surgiram xique-xiques andantes defendendo o lugar.",
+        "Raízes em ruínas. Sob uma antiga capela de pedra há um ninho dessas criaturas, alimentado por restos de uma guerra esquecida.",
+        "Colheita proibida. Um alquimista quer espinhos raros da criatura para fabricar venenos e remédios, mas a coleta atrai a ira de espíritos locais."
+      ],
+      "tesouroRecompensas": "O monstro em si raramente carrega tesouro, mas seu corpo pode render:\n- espinhos grandes úteis como matéria-prima alquímica ou artesanal;\n- seiva resinosa com valor para curandeiros, alquimistas ou envenenadores;\n- fibras resistentes para cordas, talismãs ou componentes rituais.\n\nNa toca ou arredores podem ser encontrados:\n- cantis, facas, moedas e bugigangas de vítimas anteriores;\n- mapas, bilhetes ou relíquias presas entre os espinhos;\n- pequenas reservas de água protegidas pela criatura.",
+      "variacoesND": "ND 1 - Broto Espinhoso\nVersão menor, usada em pares ou bandos pequenos. Defesa 16, PV 22. 1 ataque de graveto +7 (1d6+2). Rajada de Espinhos causa 1d6+1, CD 13. Sem percepção às cegas ou com versão reduzida.\n\nND 5 - Mandacaru-Mor\nVersão maior e mais antiga, quase um totem vivo da seca. Defesa 20, PV 90+. Gravetos mais fortes e área maior de espinhos. Pode agarrar mais facilmente e controlar melhor o terreno. Excelente como guardião de local sagrado ou encontro principal da Caatinga.",
+      "comparacaoEquilibrio": "Para ND 3, o Xique-Xique Andante foi pensado com:\n- Defesa 18: boa, mas não excessiva para seu ND.\n- PV 55: um pouco acima da média de uma ameaça leve, compensado por deslocamento baixo e vulnerabilidade a fogo.\n- Ataque +10: adequado para ameaçar personagens do nível correspondente sem tornar os acertos automáticos.\n- Dano por rodada: consistente, com pico moderado entre dois ataques ou Rajada de Espinhos em grupo.\n- CD 15: coerente para uma habilidade especial de ND 3.\n- Complexidade tática média: suficiente para ser interessante em mesa sem travar o combate.",
+      "registroConsistencia": "Nicho: ameaça vegetal territorial da Caatinga.\nPapel tático: emboscador/controlador.\nDiferencial: criatura-planta que protege fontes de água e controla terreno com espinhos, agarrões e camuflagem.",
+      "notasDesign": "O Xique-Xique Andante foi construído para representar a Caatinga como ambiente vivo, defensivo e perigoso. Sua baixa mobilidade é compensada por furtividade, controle de terreno, dois ataques e uma habilidade em cone. A vulnerabilidade a fogo cria uma fraqueza temática e mecânica clara.",
+      "token": {
+        "id": "xique-xique-andante",
+        "nome": "Xique-Xique Andante",
+        "nd": 3,
+        "tipo": "planta",
+        "tamanho": "Médio",
+        "imagem": "assets/img/bestiario/xique-xique-andante.png",
+        "pvMax": 55,
+        "defesa": 18,
+        "deslocamento": "6m",
+        "ataquesPrincipais": [
+          {
+            "nome": "Gravetos espinhosos",
+            "teste": "+10",
+            "dano": "1d8+4 perfuração cada",
+            "quantidadeAtaques": 2,
+            "bonusAtaque": 10,
+            "danoFormula": "1d8+4",
+            "alcance": "corpo a corpo"
+          }
+        ],
+        "habilidadesPrincipais": ["Camuflagem da Caatinga", "Corpo Espinhoso", "Laço de Raízes", "Rajada de Espinhos", "Vulnerabilidade a Fogo"],
+        "bioma": "Caatinga",
+        "papelTatico": "emboscador/controlador"
+      }
+    },
+    {
+      "id": "boitata",
+      "nome": "Boitatá",
+      "nomeAlternativo": "Mboitatá",
+      "fraseImpacto": "A chama que rasteja onde a terra foi ferida.",
+      "nd": 20,
+      "tipo": "monstro",
+      "tamanho": "Colossal",
+      "bioma": "Cerrado",
+      "habitat": "Campos queimados, veredas secas, matas carbonizadas, trilhas de caçadores, ruínas tomadas por capim alto, áreas de fronteira agrícola, aldeias abandonadas após incêndios e clareiras onde animais morreram queimados.",
+      "papelTatico": "chefe/guardião/controlador",
+      "imagem": "assets/img/bestiario/boitata.png",
+      "pvMax": 680,
+      "defesa": 48,
+      "deslocamento": "18m, escalar 12m, natação 12m",
+      "iniciativa": "+28",
+      "percepcao": "+32",
+      "sentidos": "visão no escuro, faro, percepção às cegas 18m",
+      "fortitude": "+31",
+      "reflexos": "+28",
+      "vontade": "+30",
+      "ataques": [
+        {
+          "nome": "Mordida incandescente",
+          "alcance": "corpo a corpo",
+          "quantidadeAtaques": 1,
+          "teste": "+39",
+          "bonusAtaque": 39,
+          "dano": "4d12+22 perfuração mais 4d10 fogo",
+          "danoFormula": "4d12+22"
+        },
+        {
+          "nome": "Cauda flamejante",
+          "alcance": "corpo a corpo",
+          "quantidadeAtaques": 1,
+          "teste": "+37",
+          "bonusAtaque": 37,
+          "dano": "4d10+22 impacto mais 4d10 fogo. Se acertar uma criatura Grande ou menor, o Boitatá pode fazer uma manobra derrubar como ação livre, usando o mesmo bônus do ataque.",
+          "danoFormula": "4d10+22"
+        },
+        {
+          "nome": "Constrictar em brasa",
+          "alcance": "corpo a corpo",
+          "quantidadeAtaques": 1,
+          "teste": "+39",
+          "bonusAtaque": 39,
+          "dano": "6d10+22 impacto mais 6d10 fogo. Usável apenas contra uma criatura agarrada pelo Boitatá.",
+          "danoFormula": "6d10+22"
+        }
+      ],
+      "habilidades": [
+        "Corpo de Fogo Vivo. Uma criatura que acerte o Boitatá com ataque corpo a corpo sofre 4d10 pontos de dano de fogo. Armas naturais ou ataques desarmados sofrem esse dano normalmente. Além disso, qualquer criatura que comece seu turno agarrada pelo Boitatá sofre 6d10 pontos de dano de fogo.",
+        "Aura de Brasa Antiga. Criaturas a até 9m do Boitatá sofrem 3d10 pontos de dano de fogo no início de seus turnos. Criaturas que tenham causado dano de fogo a vegetação, animais indefesos, comunidades ou áreas sagradas nas últimas 24 horas sofrem 6d10 pontos de dano de fogo em vez disso. Uma criatura pode reduzir esse dano à metade com um teste de Reflexos CD 42.",
+        "Olhar do Fogo Errante. Como ação padrão, o Boitatá fixa seus olhos em criaturas à sua escolha em um cone de 18m. As criaturas afetadas devem fazer um teste de Vontade CD 42. Em caso de falha, ficam fascinadas por 1 rodada e ofuscadas até o fim da cena. Se falharem por 10 ou mais, ficam cegas por 1 rodada em vez de fascinadas. Uma criatura que passe no teste fica imune ao Olhar do Fogo Errante do mesmo Boitatá até o fim da cena.",
+        "Rastro de Queimada. Sempre que o Boitatá se desloca pelo chão, ele pode deixar um rastro ardente nos espaços por onde passou. O rastro dura 3 rodadas. Criaturas que entrem no rastro ou comecem seu turno nele sofrem 4d10 pontos de dano de fogo e devem passar em um teste de Reflexos CD 42 ou ficam em chamas. O Boitatá pode escolher não queimar vegetação natural com essa habilidade. Contra construções, acampamentos, paliçadas, máquinas de guerra e objetos inflamáveis, o dano é dobrado.",
+        "Bote do Clarão. Como ação completa, o Boitatá se move até o dobro de seu deslocamento em linha reta ou sinuosa e faz um ataque de mordida contra até três criaturas diferentes ao longo do trajeto. Cada criatura atingida sofre o dano da mordida e deve fazer um teste de Fortitude CD 42. Em caso de falha, fica atordoada por 1 rodada pelo impacto e pelo clarão. Depois de usar Bote do Clarão, o Boitatá não pode usá-lo novamente por 1d4 rodadas.",
+        "Guardião dos Campos Feridos. Enquanto estiver em área queimada, campo aberto, mata em regeneração ou território natural que esteja protegendo, o Boitatá recebe +2 na Defesa, testes de resistência e rolagens de dano. Se estiver defendendo uma área incendiada injustamente, profanada ou devastada, esse bônus aumenta para +4.",
+        "Engolir Labareda. Sempre que o Boitatá seria alvo de dano de fogo, ele recupera pontos de vida iguais à metade do dano que seria causado. Efeitos de fogo mágico, alquímico ou divino também ativam esta habilidade.",
+        "Ira contra Incendiários. Contra criaturas que tenham usado fogo de forma destrutiva ou predatória na cena atual, o Boitatá recebe +2 em testes de ataque e causa +2d10 pontos de dano de fogo. Essa habilidade não se aplica a personagens que usem fogo para proteção, sobrevivência, rituais legítimos ou combate contra ameaças naturais, a critério do mestre.",
+        "Serpente Imortal da Cinza. A primeira vez que o Boitatá seria reduzido a 0 PV, ele se desfaz em uma explosão de brasas. Criaturas a até 18m sofrem 10d10 pontos de dano de fogo; Reflexos CD 42 reduz à metade. No início do próximo turno do Boitatá, ele retorna em um espaço de cinzas, fogo, vegetação queimada ou terra carbonizada a até 36m, com 170 PV. Esta habilidade não funciona se o Boitatá for reduzido a 0 PV por dano de frio ou enquanto estiver completamente submerso em água corrente, chuva torrencial ou terreno consagrado à restauração da natureza."
+      ],
+      "atributos": {
+        "forca": "34",
+        "destreza": "22",
+        "constituicao": "32",
+        "inteligencia": "10",
+        "sabedoria": "28",
+        "carisma": "24"
+      },
+      "pericias": ["Atletismo +35", "Furtividade +24 em áreas queimadas ou com fumaça", "Intimidação +32", "Sobrevivência +34"],
+      "vulnerabilidades": ["frio"],
+      "resistencias": ["redução de dano 15", "resistência a frio 10"],
+      "imunidades": ["fogo", "veneno", "medo"],
+      "conceito": "O Boitatá é uma serpente colossal de fogo vivo, olhos incandescentes e escamas como brasas sob cinza. Ele vaga por campos queimados, bordas de mata, capoeiras, veredas e regiões devastadas por incêndios, perseguindo caçadores cruéis, incendiários, saqueadores de terra e criaturas profanadoras.\n\nComo ameaça de ND 20, funciona melhor como chefe mítico territorial: uma força da natureza que não precisa ser má, mas é perigosa, implacável e difícil de negociar quando entende que os personagens feriram a terra.",
+      "descricao": "À distância, parece uma linha de fogo se movendo contra o vento. De perto, revela-se uma serpente gigantesca, sem carne visível, formada por ossos brilhantes, brasa líquida e labaredas verdes, azuis e douradas. Seus olhos são faróis que hipnotizam e cegam. Onde passa, o capim não necessariamente queima; às vezes apenas se curva, como se reconhecesse um antigo guardião.\n\nQuando irritado, o Boitatá não ruge. Ele estala como lenha seca, assovia como vento em queimada e deixa no ar um cheiro de chuva chegando.",
+      "origemInspiracao": "Inspirado no Boitatá/Mboitatá do folclore brasileiro, frequentemente descrito como uma serpente de fogo associada à proteção dos campos, matas e animais contra incêndios e violações da natureza.\n\nEm Pindorama RPG, o Boitatá é tratado como uma entidade ígnea guardiã, nascida do acúmulo de mortes causadas por queimadas injustas, guerras, secas extremas ou destruição predatória. Ele não representa apenas o fogo destrutivo, mas também o fogo que purifica, denuncia e impede que a terra seja violentada novamente.\n\nBiomas principais: Cerrado, Pantanal, Pampas, Mata Atlântica em regeneração, bordas da Amazônia e campos de altitude. O Boitatá é especialmente apropriado para aventuras no Cerrado, onde o fogo pode ter papel natural e ritual, mas também pode ser usado de forma criminosa e devastadora.",
+      "comportamento": "O Boitatá não caça por fome. Ele caça por juízo.\n\nEle observa antes de atacar. Pode seguir um grupo por noites inteiras, surgindo como pequenos fogos-fátuos entre árvores ou como olhos brilhantes no capim. Ataca sem piedade quem incendeia matas por ganância, mata filhotes, profana nascentes ou usa fogo para expulsar comunidades tradicionais.\n\nPersonagens respeitosos, xamãs, guardiões da mata, druidas, devotos de divindades ligadas à natureza ou viajantes que combatem incêndios podem conseguir sua atenção sem iniciar combate.",
+      "sinaisPresenca": [
+        "Capim carbonizado formando trilhas sinuosas.",
+        "Animais silvestres observando em silêncio, sem fugir.",
+        "Cinzas subindo em espiral mesmo sem vento.",
+        "Olhos luminosos vistos entre árvores queimadas.",
+        "Fogueiras que mudam de cor quando alguém mente.",
+        "Pegadas de caçadores queimadas por dentro, mas intactas por fora.",
+        "Cheiro de chuva em plena seca."
+      ],
+      "fichaCompleta": "Boitatá, serpente de fogo errante\nND 20 | Criatura colossal | Monstro\n\nIniciativa +28\nPercepção +32; visão no escuro, faro, percepção às cegas 18m\n\nDefesa 48\nFortitude +31, Reflexos +28, Vontade +30\nPontos de Vida 680\nResistências redução de dano 15; imunidade a fogo, veneno e medo; resistência a frio 10\nVulnerabilidade frio\n\nDeslocamento 18m, escalar 12m, natação 12m\n\nAtaques\nMordida incandescente +39 corpo a corpo\nDano: 4d12+22 perfuração mais 4d10 fogo.\n\nCauda flamejante +37 corpo a corpo\nDano: 4d10+22 impacto mais 4d10 fogo.\nSe acertar uma criatura Grande ou menor, o Boitatá pode fazer uma manobra derrubar como ação livre, usando o mesmo bônus do ataque.\n\nConstrictar em brasa +39 corpo a corpo\nUsável apenas contra uma criatura agarrada pelo Boitatá.\nDano: 6d10+22 impacto mais 6d10 fogo.\n\nAtributos sugeridos\nFor 34, Des 22, Con 32, Int 10, Sab 28, Car 24\n\nPerícias\nAtletismo +35\nFurtividade +24 em áreas queimadas ou com fumaça\nIntimidação +32\nSobrevivência +34",
+      "taticasCombate": "O Boitatá não luta parado. Ele transforma o campo de batalha em território hostil.\n\nNa primeira rodada, tende a usar Olhar do Fogo Errante para desorganizar conjuradores, arqueiros e líderes. Depois, usa Rastro de Queimada para separar o grupo e forçar movimento. Contra alvos frágeis ou isolados, usa Bote do Clarão.\n\nContra combatentes corpo a corpo, ele prefere agarrar com mordida ou manobras, depois usar Constrictar em Brasa. Contra grupos que dependem de dano de fogo, torna-se extremamente perigoso por causa de Engolir Labareda.\n\nO Boitatá deve usar o terreno: capim alto, fumaça, troncos queimados, ravinas secas, rios rasos, áreas de cinza e construções inflamáveis. Ele não precisa vencer rapidamente; sua força está em gastar recursos, dividir o grupo e punir escolhas ruins de posicionamento.",
+      "usoCampanha": "O Boitatá funciona melhor como:\n- Guardião de uma região devastada por incêndios.\n- Juiz mítico contra fazendeiros, bandeirantes, caçadores ou invasores.\n- Ameaça incompreendida que os heróis precisam acalmar, não matar.\n- Protetor de um segredo escondido sob cinzas.\n- Manifestação da vingança de animais, povos ou espíritos mortos pelo fogo.\n- Chefe final de uma campanha sobre expansão predatória e desequilíbrio natural.\n\nEle não deve aparecer como monstro aleatório. Em ND 20, o Boitatá é um evento. Sua chegada muda a paisagem, a política local e o comportamento de comunidades inteiras.",
+      "ganchosAventura": [
+        "A queimada que voltou andando. Uma área de Cerrado queimado começa a se mover durante a noite. Vilas próximas culpam uma maldição, mas o Boitatá está seguindo os responsáveis por um incêndio criminoso.",
+        "O acordo das cinzas. Uma comunidade tradicional sabe como apaziguar o Boitatá, mas seus anciões foram capturados por invasores. Sem o ritual, a serpente destruirá tudo ao redor.",
+        "O falso guardião. Um culto usa o nome do Boitatá para justificar execuções e incêndios. O verdadeiro Boitatá desperta, furioso tanto com o culto quanto com quem permitiu a profanação.",
+        "A estrada proibida. Uma nova rota comercial corta campos sagrados. Toda caravana que passa à noite desaparece em chamas verdes. Os heróis devem descobrir se a estrada pode ser purificada ou se precisa ser abandonada.",
+        "Chuva contra fogo. O único modo de impedir que o Boitatá renasça é conduzi-lo até uma tempestade sagrada, mas forças interessadas na destruição da mata tentam impedir o ritual."
+      ],
+      "tesouroRecompensas": "O Boitatá não acumula tesouro comum. Recompensas adequadas incluem:\n- Escama de brasa fria: componente raro para itens de resistência a fogo.\n- Olho vitrificado de Boitatá: foco ritual para magias de luz, fogo ou revelação.\n- Cinza viva: pode ser usada para purificar solo amaldiçoado ou fortalecer rituais naturais.\n- Benção do Guardião dos Campos: personagens que apaziguam o Boitatá, em vez de matá-lo, podem receber auxílio narrativo de espíritos da mata, animais ou comunidades protegidas por ele.\n- Acesso a território sagrado: o verdadeiro prêmio pode ser passagem segura por uma região que ninguém mais consegue atravessar.",
+      "variacoesND": "Boitatá Jovem - ND 14\nUse para campanhas intermediárias. Reduza PV para cerca de 360, Defesa para 39, ataques para +30, CDs para 34 e dano das habilidades em cerca de 40%. Remova Serpente Imortal da Cinza ou faça com que retorne com apenas 60 PV.\n\nBoitatá Ancião - ND 23\nUse como ameaça lendária de campanha. Aumente PV para cerca de 850, Defesa para 52, ataques para +43, CDs para 46. A aura aumenta para 12m, o rastro dura 5 rodadas e Serpente Imortal da Cinza pode ativar duas vezes, desde que haja terra queimada suficiente.\n\nBoitatá Corrompido - ND 21\nVersão enlouquecida por magia, mineração, necromancia ou incêndios repetidos. Perde o discernimento de Ira contra Incendiários e passa a atacar qualquer criatura civilizada. Pode causar dano de trevas junto ao fogo, mas deixa de poder escolher preservar vegetação natural com Rastro de Queimada.",
+      "comparacaoEquilibrio": "Para ND 20, o Boitatá foi construído como chefe solo ou ameaça central de cena.\n\nDefesa 48: alta, adequada para uma criatura mítica resistente, mas ainda atingível por personagens especializados de nível alto.\nPV 680: valor robusto para chefe, compensando o fato de enfrentar grupos inteiros.\nAtaque +39: perigoso contra a linha de frente, sem tornar todos os ataques automaticamente certeiros.\nCD 42: alta o bastante para ameaçar personagens experientes, mas ainda permite resistência de heróis otimizados.\nDano por rodada: elevado quando o grupo permanece próximo, usa fogo ou ignora o terreno. Moderado se os personagens se espalham, usam frio, água, controle e mobilidade.\nComplexidade: alta, mas concentrada em temas claros: fogo, movimento, punição territorial e renascimento.\n\nO ponto mais perigoso da ficha é a combinação de Aura de Brasa Antiga, Rastro de Queimada e Serpente Imortal da Cinza. Por isso, o mestre deve oferecer contrajogo visível: água corrente, chuva, terreno limpo, dano de frio, negociação, rituais de reparação e proteção de áreas naturais.",
+      "registroConsistencia": "Nicho no bestiário: chefe mítico elemental/guardião territorial.\nFunção tática: controle de campo, dano contínuo, punição contra fogo e pressão em área.\nDiferencial: não é apenas uma serpente flamejante; é uma entidade julgadora ligada ao uso moral do fogo.\nBiomas associados: Cerrado, Pantanal, Pampas, Mata Atlântica e campos queimados.\nEvita sobreposição com: dragões, elementais genéricos de fogo, serpentes venenosas gigantes e espíritos comuns da mata.",
+      "notasDesign": "O Boitatá deve ser vencido tanto por força quanto por entendimento. Em combate direto, ele é brutal. Em campanha, é mais interessante quando os personagens podem descobrir por que ele despertou, quem provocou sua ira e como reparar o dano.\n\nA ficha favorece uma leitura de mesa simples: ele olha, queima, rasteja, divide o campo, pune incendiários e renasce das cinzas.\n\nPara reforçar o tom mítico, recomendo que o mestre descreva suas habilidades como fenômenos naturais: vento quente, clarões no horizonte, animais fugindo antes da batalha, fumaça que forma rostos e fogo que se recusa a consumir plantas inocentes.",
+      "token": {
+        "id": "boitata",
+        "nome": "Boitatá",
+        "nd": 20,
+        "tipo": "monstro",
+        "tamanho": "Colossal",
+        "imagem": "assets/img/bestiario/boitata.png",
+        "pvMax": 680,
+        "defesa": 48,
+        "deslocamento": "18m, escalar 12m, natação 12m",
+        "ataquesPrincipais": [
+          {
+            "nome": "Mordida incandescente",
+            "teste": "+39",
+            "dano": "4d12+22 perfuração mais 4d10 fogo",
+            "quantidadeAtaques": 1,
+            "bonusAtaque": 39,
+            "danoFormula": "4d12+22",
+            "alcance": "corpo a corpo"
+          },
+          {
+            "nome": "Cauda flamejante",
+            "teste": "+37",
+            "dano": "4d10+22 impacto mais 4d10 fogo",
+            "quantidadeAtaques": 1,
+            "bonusAtaque": 37,
+            "danoFormula": "4d10+22",
+            "alcance": "corpo a corpo"
+          },
+          {
+            "nome": "Constrictar em brasa",
+            "teste": "+39",
+            "dano": "6d10+22 impacto mais 6d10 fogo",
+            "quantidadeAtaques": 1,
+            "bonusAtaque": 39,
+            "danoFormula": "6d10+22",
+            "alcance": "corpo a corpo"
+          }
+        ],
+        "habilidadesPrincipais": ["Corpo de Fogo Vivo", "Aura de Brasa Antiga", "Olhar do Fogo Errante", "Rastro de Queimada", "Bote do Clarão", "Guardião dos Campos Feridos", "Engolir Labareda", "Ira contra Incendiários", "Serpente Imortal da Cinza"],
+        "bioma": "Cerrado",
+        "papelTatico": "chefe/guardião/controlador"
+      }
+    }
+  ]
+}

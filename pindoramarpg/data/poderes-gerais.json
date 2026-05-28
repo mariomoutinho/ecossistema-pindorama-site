@@ -1,0 +1,2256 @@
+{
+  "introducao": [
+    "Poderes universais estão disponíveis para escolha por qualquer personagem, independentemente de sua classe, e seguem todas as regras estabelecidas para poderes.",
+    "Durante a criação de personagem, certas ancestralidades e origens oferecem acesso a poderes universais. Além disso, sempre que um personagem adquire um novo poder de classe, pode trocá-lo por um poder universal."
+  ],
+  "categorias": [
+    {
+      "id": "combate",
+      "nome": "Poderes de Combate",
+      "descricao": "Poderes que aprimoram características relacionadas a situações de combate.",
+      "poderes": [
+        {
+          "id": "combate-acuidade-com-arma",
+          "nome": "Acuidade com Arma",
+          "categoria": "combate",
+          "descricao": "Ao utilizar uma arma corpo a corpo leve ou uma arma de arremesso, você tem a opção de usar sua Destreza nos testes de ataque e rolagens de dano, em vez de Força.",
+          "prerequisito_texto": "Des 1",
+          "prerequisitos": [
+            {
+              "tipo": "atributo",
+              "atributo": "des",
+              "valor": 1,
+              "texto": "Des 1"
+            }
+          ]
+        },
+        {
+          "id": "combate-agarrar-aprimorado",
+          "nome": "Agarrar Aprimorado",
+          "categoria": "combate",
+          "descricao": "Receba um bônus de +2 em testes de ataque ao realizar a manobra agarrar. Ao agarrar uma criatura, é possível gastar 1 PM para realizar um ataque adicional contra ela.",
+          "prerequisito_texto": "Estilo Desarmado",
+          "prerequisitos": [
+            {
+              "tipo": "poder",
+              "id": "combate-estilo-desarmado",
+              "texto": "Estilo Desarmado"
+            }
+          ]
+        },
+        {
+          "id": "combate-analisar-o-adversario",
+          "nome": "Analisar o Adversário",
+          "categoria": "combate",
+          "descricao": "Sempre que você erra um ataque, obtém um bônus cumulativo de +2 em testes de ataque contra o mesmo alvo até o final da cena.",
+          "prerequisito_texto": "Int 1",
+          "prerequisitos": [
+            {
+              "tipo": "atributo",
+              "atributo": "int",
+              "valor": 1,
+              "texto": "Int 1"
+            }
+          ]
+        },
+        {
+          "id": "combate-ansia-de-sangue",
+          "nome": "Ânsia de Sangue",
+          "categoria": "combate",
+          "descricao": "Sempre que aniquila um inimigo, reduzindo seus PV a 0, você recupera 5 PV e 1 PM.",
+          "prerequisito_texto": "",
+          "prerequisitos": []
+        },
+        {
+          "id": "combate-arma-predileta",
+          "nome": "Arma Predileta",
+          "categoria": "combate",
+          "descricao": "Selecione uma arma. Receba um bônus de +2 em testes de ataque com essa arma. Esta habilidade pode ser escolhida novamente para armas diferentes.",
+          "prerequisito_texto": "Proficiência com a arma",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Proficiência com a arma"
+            }
+          ]
+        },
+        {
+          "id": "combate-arma-secundaria-grande",
+          "nome": "Arma Secundária Grande",
+          "categoria": "combate",
+          "descricao": "Com este poder, é possível empunhar duas armas de uma mão, utilizando o Estilo de Duas Armas.",
+          "prerequisito_texto": "Estilo de Duas Armas",
+          "prerequisitos": [
+            {
+              "tipo": "poder",
+              "id": "combate-estilo-de-duas-armas",
+              "texto": "Estilo de Duas Armas"
+            }
+          ]
+        },
+        {
+          "id": "combate-arremesso-potente",
+          "nome": "Arremesso Potente",
+          "categoria": "combate",
+          "descricao": "Ao utilizar uma arma de arremesso, é permitido utilizar a Força em vez de Destreza nos testes de ataque. Se você possuir o poder Ataque Poderoso, também pode empregá-lo com armas de arremesso.",
+          "prerequisito_texto": "For 1, Estilo de Arremesso",
+          "prerequisitos": [
+            {
+              "tipo": "atributo",
+              "atributo": "for",
+              "valor": 1,
+              "texto": "For 1"
+            },
+            {
+              "tipo": "poder",
+              "id": "combate-estilo-de-arremesso",
+              "texto": "Estilo de Arremesso"
+            }
+          ]
+        },
+        {
+          "id": "combate-arremesso-multiplo",
+          "nome": "Arremesso Múltiplo",
+          "categoria": "combate",
+          "descricao": "Uma vez por rodada, ao realizar um ataque com uma arma de arremesso, é possível gastar 1 PM para executar um ataque adicional contra o mesmo alvo, arremessando outra arma de arremesso.",
+          "prerequisito_texto": "Des 1, Estilo de Arremesso",
+          "prerequisitos": [
+            {
+              "tipo": "atributo",
+              "atributo": "des",
+              "valor": 1,
+              "texto": "Des 1"
+            },
+            {
+              "tipo": "poder",
+              "id": "combate-estilo-de-arremesso",
+              "texto": "Estilo de Arremesso"
+            }
+          ]
+        },
+        {
+          "id": "combate-ataque-com-escudo",
+          "nome": "Ataque com Escudo",
+          "categoria": "combate",
+          "descricao": "Uma vez por rodada, enquanto empunha um escudo e realiza a ação de agredir, é possível gastar 1 PM para realizar um ataque corpo a corpo extra com o escudo. Esse ataque não resulta na perda do bônus do escudo na Defesa.",
+          "prerequisito_texto": "Estilo de Arma e Escudo",
+          "prerequisitos": [
+            {
+              "tipo": "poder",
+              "id": "combate-estilo-de-arma-e-escudo",
+              "texto": "Estilo de Arma e Escudo"
+            }
+          ]
+        },
+        {
+          "id": "combate-ataque-pesado",
+          "nome": "Ataque Pesado",
+          "categoria": "combate",
+          "descricao": "Ao efetuar um ataque corpo a corpo com uma arma de duas mãos, é possível pagar 1 PM. Se fizer isso e acertar o ataque, além do dano, é possível realizar uma manobra de derrubar ou empurrar contra o alvo como uma ação livre (use o resultado do ataque como o teste de manobra).",
+          "prerequisito_texto": "Estilo de Empunhadura Dupla",
+          "prerequisitos": [
+            {
+              "tipo": "poder",
+              "id": "combate-estilo-de-empunhadura-dupla",
+              "texto": "Estilo de Empunhadura Dupla"
+            }
+          ]
+        },
+        {
+          "id": "combate-ataque-poderoso",
+          "nome": "Ataque Poderoso",
+          "categoria": "combate",
+          "descricao": "Sempre que realiza um ataque corpo a corpo, é possível sofrer uma penalidade de -2 no teste de ataque para receber +5 na rolagem de dano.",
+          "prerequisito_texto": "For 1",
+          "prerequisitos": [
+            {
+              "tipo": "atributo",
+              "atributo": "for",
+              "valor": 1,
+              "texto": "For 1"
+            }
+          ]
+        },
+        {
+          "id": "combate-ataque-preciso",
+          "nome": "Ataque Preciso",
+          "categoria": "combate",
+          "descricao": "Se estiver empunhando uma arma corpo a corpo em uma das mãos e nada na outra, você recebe +2 na margem de ameaça e +1 no multiplicador de crítico.",
+          "prerequisito_texto": "Estilo de Uma Arma",
+          "prerequisitos": [
+            {
+              "tipo": "poder",
+              "id": "combate-estilo-de-uma-arma",
+              "texto": "Estilo de Uma Arma"
+            }
+          ]
+        },
+        {
+          "id": "combate-bloqueio-com-escudo",
+          "nome": "Bloqueio com Escudo",
+          "categoria": "combate",
+          "descricao": "Ao sofrer dano, é possível gastar 1 PM para receber uma redução de dano igual ao bônus na Defesa que seu escudo fornece contra esse dano. Este poder só pode ser utilizado quando estiver usando um escudo.",
+          "prerequisito_texto": "Estilo de Arma e Escudo",
+          "prerequisitos": [
+            {
+              "tipo": "poder",
+              "id": "combate-estilo-de-arma-e-escudo",
+              "texto": "Estilo de Arma e Escudo"
+            }
+          ]
+        },
+        {
+          "id": "combate-carga-de-cavalaria",
+          "nome": "Carga de Cavalaria",
+          "categoria": "combate",
+          "descricao": "Ao realizar uma investida montada, você causa +2d8 pontos de dano. Além disso, é possível continuar se movendo após o ataque, movendo-se em linha reta, com seu movimento máximo ainda sendo o dobro do seu deslocamento.",
+          "prerequisito_texto": "Ginete",
+          "prerequisitos": [
+            {
+              "tipo": "poder",
+              "id": "combate-ginete",
+              "texto": "Ginete"
+            }
+          ]
+        },
+        {
+          "id": "combate-contra-ataque",
+          "nome": "Contra-Ataque",
+          "categoria": "combate",
+          "descricao": "Uma vez por rodada, se uma criatura o atacar e errar, você pode gastar 1 PM para realizar um contra-ataque corpo a corpo contra essa criatura (desde que ela esteja dentro do seu alcance).",
+          "prerequisito_texto": "Combate Defensivo",
+          "prerequisitos": [
+            {
+              "tipo": "poder",
+              "id": "combate-combate-defensivo",
+              "texto": "Combate Defensivo"
+            }
+          ]
+        },
+        {
+          "id": "combate-combate-defensivo",
+          "nome": "Combate Defensivo",
+          "categoria": "combate",
+          "descricao": "Ao utilizar a ação de agredir, é possível empregar este poder. Nesse caso, até o próximo turno, o personagem sofre uma penalidade de -2 em todos os testes de ataque, mas recebe um bônus de +5 na Defesa.",
+          "prerequisito_texto": "Int 1",
+          "prerequisitos": [
+            {
+              "tipo": "atributo",
+              "atributo": "int",
+              "valor": 1,
+              "texto": "Int 1"
+            }
+          ]
+        },
+        {
+          "id": "combate-derrubar-aprimorado",
+          "nome": "Derrubar Aprimorado",
+          "categoria": "combate",
+          "descricao": "Recebe um bônus de +2 em testes de ataque para executar a manobra derrubar. Quando derruba uma criatura com sucesso, é possível gastar 1 PM para realizar um ataque extra contra ela.",
+          "prerequisito_texto": "Combate Defensivo",
+          "prerequisitos": [
+            {
+              "tipo": "poder",
+              "id": "combate-combate-defensivo",
+              "texto": "Combate Defensivo"
+            }
+          ]
+        },
+        {
+          "id": "combate-desarmar-aprimorado",
+          "nome": "Desarmar Aprimorado",
+          "categoria": "combate",
+          "descricao": "Obtém um bônus de +2 em testes de ataque ao tentar desarmar uma criatura. Após desarmar com sucesso, é possível gastar 1 PM para arremessar a arma da criatura para longe. A direção e distância são determinadas por rolagens de dados.",
+          "prerequisito_texto": "Combate Defensivo",
+          "prerequisitos": [
+            {
+              "tipo": "poder",
+              "id": "combate-combate-defensivo",
+              "texto": "Combate Defensivo"
+            }
+          ]
+        },
+        {
+          "id": "combate-despedacar-aprimorado",
+          "nome": "Despedaçar Aprimorado",
+          "categoria": "combate",
+          "descricao": "Receba um bônus de +2 em testes de ataque ao realizar manobras de quebra. Quando reduz os Pontos de Vida de uma arma para 0 ou menos, você pode gastar 1 PM para efetuar um ataque extra contra o usuário da arma. O ataque adicional usa os mesmos valores de ataque e dano, mas os dados devem ser rolados novamente.",
+          "prerequisito_texto": "Ataque Poderoso",
+          "prerequisitos": [
+            {
+              "tipo": "poder",
+              "id": "combate-ataque-poderoso",
+              "texto": "Ataque Poderoso"
+            }
+          ]
+        },
+        {
+          "id": "combate-disparo-especializado",
+          "nome": "Disparo Especializado",
+          "categoria": "combate",
+          "descricao": "Ao gastar 2 PM, você pode realizar uma manobra de combate, como derrubar, desarmar, empurrar ou quebrar, utilizando um ataque à distância. No caso da manobra de empurrar, você não pode avançar junto com a criatura.",
+          "prerequisito_texto": "Destreza 3, Disparo Preciso",
+          "prerequisitos": [
+            {
+              "tipo": "atributo",
+              "atributo": "des",
+              "valor": 3,
+              "texto": "Des 3"
+            },
+            {
+              "tipo": "poder",
+              "id": "combate-disparo-preciso",
+              "texto": "Disparo Preciso"
+            }
+          ]
+        },
+        {
+          "id": "combate-disparo-preciso",
+          "nome": "Disparo Preciso",
+          "categoria": "combate",
+          "descricao": "Permite realizar ataques à distância contra oponentes envolvidos em combate corpo a corpo sem sofrer a penalidade de -5 no teste de ataque.",
+          "prerequisito_texto": "Estilo de Disparo ou Estilo de Arremesso",
+          "prerequisitos": [
+            {
+              "tipo": "poder",
+              "id": "combate-estilo-de-arremesso",
+              "texto": "Estilo de Arremesso"
+            },
+            {
+              "tipo": "poder",
+              "id": "combate-estilo-de-disparo",
+              "texto": "Estilo de Disparo"
+            }
+          ]
+        },
+        {
+          "id": "combate-disparo-rapido",
+          "nome": "Disparo Rápido",
+          "categoria": "combate",
+          "descricao": "Ao empunhar uma arma de disparo que pode ser recarregada como ação livre e ao gastar uma ação completa para agredir, é possível realizar um ataque adicional com ela. Contudo, sofre uma penalidade de -2 em todos os testes de ataque até o próximo turno.",
+          "prerequisito_texto": "Des 1, Estilo de Disparo",
+          "prerequisitos": [
+            {
+              "tipo": "atributo",
+              "atributo": "des",
+              "valor": 1,
+              "texto": "Des 1"
+            },
+            {
+              "tipo": "poder",
+              "id": "combate-estilo-de-disparo",
+              "texto": "Estilo de Disparo"
+            }
+          ]
+        },
+        {
+          "id": "combate-empunhadura-poderosa",
+          "nome": "Empunhadura Poderosa",
+          "categoria": "combate",
+          "descricao": "Ao utilizar uma arma projetada para uma categoria de tamanho maior que a sua, a penalidade nos testes de ataque diminui para -2 (normalmente, utilizar uma arma de uma categoria maior impõe -5 nos testes de ataque).",
+          "prerequisito_texto": "For 3",
+          "prerequisitos": [
+            {
+              "tipo": "atributo",
+              "atributo": "for",
+              "valor": 3,
+              "texto": "For 3"
+            }
+          ]
+        },
+        {
+          "id": "combate-encouracado",
+          "nome": "Encouraçado",
+          "categoria": "combate",
+          "descricao": "Ao utilizar uma armadura pesada, recebe +2 na Defesa. Este bônus aumenta em +2 para cada outro poder que tenha Encouraçado como pré-requisito.",
+          "prerequisito_texto": "proficiência com armaduras pesadas",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "proficiência com armaduras pesadas"
+            }
+          ]
+        },
+        {
+          "id": "combate-esquiva",
+          "nome": "Esquiva",
+          "categoria": "combate",
+          "descricao": "Recebe +2 na Defesa e Reflexos.",
+          "prerequisito_texto": "Des 1",
+          "prerequisitos": [
+            {
+              "tipo": "atributo",
+              "atributo": "des",
+              "valor": 1,
+              "texto": "Des 1"
+            }
+          ]
+        },
+        {
+          "id": "combate-estilo-de-arma-e-escudo",
+          "nome": "Estilo de Arma e Escudo",
+          "categoria": "combate",
+          "descricao": "Se estiver utilizando um escudo, o bônus na Defesa fornecido por ele aumenta em +2.",
+          "prerequisito_texto": "treinado em Luta, proficiência com escudos",
+          "prerequisitos": [
+            {
+              "tipo": "pericia",
+              "texto": "Treinado em Luta"
+            }
+          ]
+        },
+        {
+          "id": "combate-estilo-de-arma-longa",
+          "nome": "Estilo de Arma Longa",
+          "categoria": "combate",
+          "descricao": "Recebe +2 em testes de ataque com armas alongadas e pode atacar alvos adjacentes com essas armas.",
+          "prerequisito_texto": "For 1, treinado em Luta",
+          "prerequisitos": [
+            {
+              "tipo": "atributo",
+              "atributo": "for",
+              "valor": 1,
+              "texto": "For 1"
+            },
+            {
+              "tipo": "pericia",
+              "texto": "Treinado em Luta"
+            }
+          ]
+        },
+        {
+          "id": "combate-estilo-de-arremesso",
+          "nome": "Estilo de Arremesso",
+          "categoria": "combate",
+          "descricao": "Permite sacar armas de arremesso como uma ação livre e concede +2 nas rolagens de dano com essas armas. Se também possuir o poder Saque Rápido, recebe +2 nos testes de ataque com essas armas.",
+          "prerequisito_texto": "treinado em Pontaria",
+          "prerequisitos": [
+            {
+              "tipo": "pericia",
+              "texto": "Treinado em Pontaria"
+            }
+          ]
+        },
+        {
+          "id": "combate-estilo-de-disparo",
+          "nome": "Estilo de Disparo",
+          "categoria": "combate",
+          "descricao": "Ao utilizar uma arma de disparo, soma a Destreza nas rolagens de dano.",
+          "prerequisito_texto": "treinado em Pontaria",
+          "prerequisitos": [
+            {
+              "tipo": "pericia",
+              "texto": "Treinado em Pontaria"
+            }
+          ]
+        },
+        {
+          "id": "combate-estilo-de-duas-armas",
+          "nome": "Estilo de Duas Armas",
+          "categoria": "combate",
+          "descricao": "Ao empunhar duas armas (sendo pelo menos uma delas leve) e realizar a ação de agredir, é possível realizar dois ataques, um com cada arma. Contudo, sofre uma penalidade de -2 em todos os testes de ataque até o próximo turno. Se possuir Ambidestria, não sofre penalidade para usar este estilo.",
+          "prerequisito_texto": "Des 2, treinado em luta",
+          "prerequisitos": [
+            {
+              "tipo": "atributo",
+              "atributo": "des",
+              "valor": 2,
+              "texto": "Des 2"
+            },
+            {
+              "tipo": "pericia",
+              "texto": "Treinado em luta"
+            }
+          ]
+        },
+        {
+          "id": "combate-estilo-de-empunhadura-dupla",
+          "nome": "Estilo de Empunhadura Dupla",
+          "categoria": "combate",
+          "descricao": "Ao empunhar uma arma corpo a corpo com ambas as mãos, você ganha um bônus de +5 nas rolagens de dano. Esse estilo não é aplicável a armas leves.",
+          "prerequisito_texto": "Força 2, treinado em Luta",
+          "prerequisitos": [
+            {
+              "tipo": "atributo",
+              "atributo": "for",
+              "valor": 2,
+              "texto": "For 2"
+            },
+            {
+              "tipo": "pericia",
+              "texto": "Treinado em Luta"
+            }
+          ]
+        },
+        {
+          "id": "combate-estilo-de-uma-arma",
+          "nome": "Estilo de Uma Arma",
+          "categoria": "combate",
+          "descricao": "Ao empunhar uma arma corpo a corpo com uma das mãos, mantendo a outra vazia, você ganha um acréscimo de +2 na Defesa e nos testes de ataque específicos para essa arma (excluindo ataques desarmados).",
+          "prerequisito_texto": "Treinado em Luta",
+          "prerequisitos": [
+            {
+              "tipo": "pericia",
+              "texto": "Treinado em Luta"
+            }
+          ]
+        },
+        {
+          "id": "combate-estilo-desarmado",
+          "nome": "Estilo Desarmado",
+          "categoria": "combate",
+          "descricao": "Seus ataques desarmados causam 1d6 pontos de dano e têm a opção de infligir dano letal ou não letal, sem penalidades.",
+          "prerequisito_texto": "Treinado em Luta",
+          "prerequisitos": [
+            {
+              "tipo": "pericia",
+              "texto": "Treinado em Luta"
+            }
+          ]
+        },
+        {
+          "id": "combate-estocada-debilitante",
+          "nome": "Estocada Debilitante",
+          "categoria": "combate",
+          "descricao": "Ao atacar com uma arma corpo a corpo de perfuração, é possível gastar 2 PM. Em caso de acerto, o alvo fica debilitado por uma rodada, ou seja, até o final do seu próximo turno.",
+          "prerequisito_texto": "Treinado em Luta",
+          "prerequisitos": [
+            {
+              "tipo": "pericia",
+              "texto": "Treinado em Luta"
+            }
+          ]
+        },
+        {
+          "id": "combate-finta-aprimorada",
+          "nome": "Finta Aprimorada",
+          "categoria": "combate",
+          "descricao": "Ganhe um bônus de +2 em testes de Enganação ao executar finta e a pode realizar uma finta como uma ação de movimento.",
+          "prerequisito_texto": "Treinado em Enganação",
+          "prerequisitos": [
+            {
+              "tipo": "pericia",
+              "texto": "Treinado em Enganação"
+            }
+          ]
+        },
+        {
+          "id": "combate-ginete",
+          "nome": "Ginete",
+          "categoria": "combate",
+          "descricao": "Você passa automaticamente nos testes de montaria, evitando quedas da sela ao sofrer danos. Além disso, não incorre em penalidades ao realizar ataques à distância ou conjurar magias enquanto montado.",
+          "prerequisito_texto": "treinado em Cavalgar",
+          "prerequisitos": [
+            {
+              "tipo": "pericia",
+              "texto": "Treinado em Cavalgar"
+            }
+          ]
+        },
+        {
+          "id": "combate-impacto-atordoante",
+          "nome": "Impacto Atordoante",
+          "categoria": "combate",
+          "descricao": "Ao atacar com uma arma corpo a corpo de impacto, é possível gastar 2 PM. Se o ataque acertar, o alvo fica desprevenido por uma rodada, ou seja, até o final do seu próximo turno.",
+          "prerequisito_texto": "Treinado em Luta",
+          "prerequisitos": [
+            {
+              "tipo": "pericia",
+              "texto": "Treinado em Luta"
+            }
+          ]
+        },
+        {
+          "id": "combate-impiedoso",
+          "nome": "Impiedoso",
+          "categoria": "combate",
+          "descricao": "Você obtém um bônus de +5 nas rolagens de dano contra oponentes caídos, desprevenidos ou indefesos.",
+          "prerequisito_texto": "",
+          "prerequisitos": []
+        },
+        {
+          "id": "combate-inviolavel",
+          "nome": "Inviolável",
+          "categoria": "combate",
+          "descricao": "Ao utilizar uma armadura pesada, você obtém um bônus de +2 em todos os testes de resistência.",
+          "prerequisito_texto": "Possuir a habilidade Encouraçado e ser um personagem de 6º nível ou superior",
+          "prerequisitos": [
+            {
+              "tipo": "nivel_personagem",
+              "nivel": 6,
+              "texto": "Nível 6"
+            },
+            {
+              "tipo": "poder",
+              "id": "combate-encouracado",
+              "texto": "Encouraçado"
+            }
+          ]
+        },
+        {
+          "id": "combate-mira-precisa",
+          "nome": "Mira Precisa",
+          "categoria": "combate",
+          "descricao": "Ao realizar a ação de mirar, você ganha um bônus de +2 em testes de ataque e na margem de ameaça em ataques à distância até o final do turno.",
+          "prerequisito_texto": "Sabedoria 1 e ter a habilidade de Disparo Preciso",
+          "prerequisitos": [
+            {
+              "tipo": "atributo",
+              "atributo": "sab",
+              "valor": 1,
+              "texto": "Sab 1"
+            },
+            {
+              "tipo": "poder",
+              "id": "combate-disparo-preciso",
+              "texto": "Disparo Preciso"
+            }
+          ]
+        },
+        {
+          "id": "combate-laceracao-profunda",
+          "nome": "Laceração Profunda",
+          "categoria": "combate",
+          "descricao": "Ao atacar com uma arma corpo a corpo de corte, é possível gastar 2 PM. Se o ataque acertar, você inflige +1d10 pontos de dano, e o alvo começa a sangrar.",
+          "prerequisito_texto": "Treinado em Luta",
+          "prerequisitos": [
+            {
+              "tipo": "pericia",
+              "texto": "Treinado em Luta"
+            }
+          ]
+        },
+        {
+          "id": "combate-lanceiro",
+          "nome": "Lanceiro",
+          "categoria": "combate",
+          "descricao": "Uma vez por rodada, ao empunhar uma arma alongada e um inimigo entrar voluntariamente em seu alcance corpo a corpo, você pode gastar 1 PM para realizar um ataque corpo a corpo contra esse oponente com a referida arma. Se o oponente se aproximar através de uma investida, seu ataque inflige dois dados de dano extras do mesmo tipo.",
+          "prerequisito_texto": "Estilo de Arma Longa",
+          "prerequisitos": [
+            {
+              "tipo": "poder",
+              "id": "combate-estilo-de-arma-longa",
+              "texto": "Estilo de Arma Longa"
+            }
+          ]
+        },
+        {
+          "id": "combate-passo-resiliente",
+          "nome": "Passo Resiliente",
+          "categoria": "combate",
+          "descricao": "Seu deslocamento não é prejudicado pelo uso de armaduras pesadas.",
+          "prerequisito_texto": "Personagem de 12º nível, Proficiência em Armaduras Pesadas",
+          "prerequisitos": [
+            {
+              "tipo": "nivel_personagem",
+              "nivel": 12,
+              "texto": "Nível 12"
+            },
+            {
+              "tipo": "manual",
+              "texto": "Personagem de 12º nível, Proficiência em Armaduras Pesadas"
+            }
+          ]
+        },
+        {
+          "id": "combate-presenca-aterradora",
+          "nome": "Presença Aterradora",
+          "categoria": "combate",
+          "descricao": "Você pode gastar uma ação padrão e 1 PM para amedrontar todas as criaturas de sua escolha em alcance curto. Consulte a perícia Intimidação para as regras sobre o efeito de amedrontar.",
+          "prerequisito_texto": "Treinado em Intimidação",
+          "prerequisitos": [
+            {
+              "tipo": "pericia",
+              "texto": "Treinado em Intimidação"
+            }
+          ]
+        },
+        {
+          "id": "combate-proficiencia-ampliada",
+          "nome": "Proficiência Ampliada",
+          "categoria": "combate",
+          "descricao": "Escolha uma proficiência: armas marciais, armas de fogo, armaduras pesadas ou escudos (se já for habilidoso em armas marciais, você também pode selecionar armas exóticas). Adquira essa proficiência. Esta opção pode ser escolhida novamente para obter proficiências diferentes.",
+          "prerequisito_texto": "",
+          "prerequisitos": []
+        },
+        {
+          "id": "combate-reflexos-de-combate",
+          "nome": "Reflexos de Combate",
+          "categoria": "combate",
+          "descricao": "Ganhe uma ação de movimento extra no seu primeiro turno de cada combate.",
+          "prerequisito_texto": "Destreza 1",
+          "prerequisitos": [
+            {
+              "tipo": "atributo",
+              "atributo": "des",
+              "valor": 1,
+              "texto": "Des 1"
+            }
+          ]
+        },
+        {
+          "id": "combate-saque-veloz",
+          "nome": "Saque Veloz",
+          "categoria": "combate",
+          "descricao": "Receba um bônus de +2 na Iniciativa e a capacidade de sacar ou guardar itens como uma ação livre (em vez de uma ação de movimento). Além disso, a ação necessária para recarregar armas de disparo é reduzida em uma categoria (de ação completa para padrão, de padrão para movimento, de movimento para livre).",
+          "prerequisito_texto": "Treinado em Iniciativa",
+          "prerequisitos": [
+            {
+              "tipo": "pericia",
+              "texto": "Treinado em Iniciativa"
+            }
+          ]
+        },
+        {
+          "id": "combate-transpassar",
+          "nome": "Transpassar",
+          "categoria": "combate",
+          "descricao": "Quando realizar um ataque corpo a corpo e reduzir os pontos de vida do alvo para 0 ou menos, pode gastar 1 PM para efetuar um ataque adicional contra outra criatura dentro do seu alcance.",
+          "prerequisito_texto": "Ataque Poderoso",
+          "prerequisitos": [
+            {
+              "tipo": "poder",
+              "id": "combate-ataque-poderoso",
+              "texto": "Ataque Poderoso"
+            }
+          ]
+        },
+        {
+          "id": "combate-vitalidade-aprimorada",
+          "nome": "Vitalidade Aprimorada",
+          "categoria": "combate",
+          "descricao": "Receba +1 ponto de vida por nível de personagem e um bônus de +2 em testes de Fortitude.",
+          "prerequisito_texto": "Constituição 1",
+          "prerequisitos": [
+            {
+              "tipo": "atributo",
+              "atributo": "con",
+              "valor": 1,
+              "texto": "Con 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "destino",
+      "nome": "Poderes de Destino",
+      "descricao": "Poderes que aprimoram características não associadas ao combate.",
+      "poderes": [
+        {
+          "id": "destino-acrobatico",
+          "nome": "Acrobático",
+          "categoria": "destino",
+          "descricao": "É possível empregar sua Destreza em lugar da Força durante os testes de Atletismo. Adicionalmente, terrenos difíceis não afetam sua velocidade de deslocamento, tampouco impedem a realização de investidas.",
+          "prerequisito_texto": "Des 2",
+          "prerequisitos": [
+            {
+              "tipo": "atributo",
+              "atributo": "des",
+              "valor": 2,
+              "texto": "Des 2"
+            }
+          ]
+        },
+        {
+          "id": "destino-aparencia-inofensiva",
+          "nome": "Aparência Inofensiva",
+          "categoria": "destino",
+          "descricao": "Quando a primeira criatura inteligente (Int –3 ou superior) tentar atacá-lo em uma cena, ela deve realizar um teste de Vontade (CD Car). Em caso de falha, a criatura perderá sua ação. Este poder é eficaz apenas uma vez por cena; independentemente do êxito ou fracasso no teste, a criatura poderá atacá-lo nas rodadas subsequentes.",
+          "prerequisito_texto": "Car 1",
+          "prerequisitos": [
+            {
+              "tipo": "atributo",
+              "atributo": "car",
+              "valor": 1,
+              "texto": "Car 1"
+            }
+          ]
+        },
+        {
+          "id": "destino-atletico",
+          "nome": "Atlético",
+          "categoria": "destino",
+          "descricao": "Você ganha um bônus de +2 em testes de Atletismo e um aumento de +3 metros em seu deslocamento.",
+          "prerequisito_texto": "For 2",
+          "prerequisitos": [
+            {
+              "tipo": "atributo",
+              "atributo": "for",
+              "valor": 2,
+              "texto": "For 2"
+            }
+          ]
+        },
+        {
+          "id": "destino-detective",
+          "nome": "Detective",
+          "categoria": "destino",
+          "descricao": "Você obtém um bônus de +2 em Investigação e adiciona sua Inteligência à sua Intuição.",
+          "prerequisito_texto": "Int 1",
+          "prerequisitos": [
+            {
+              "tipo": "atributo",
+              "atributo": "int",
+              "valor": 1,
+              "texto": "Int 1"
+            }
+          ]
+        },
+        {
+          "id": "destino-determinacao",
+          "nome": "Determinação",
+          "categoria": "destino",
+          "descricao": "Você ganha +1 PM para cada dois níveis de personagem e um aumento de +2 em sua resistência de Vontade.",
+          "prerequisito_texto": "Sab 1",
+          "prerequisitos": [
+            {
+              "tipo": "atributo",
+              "atributo": "sab",
+              "valor": 1,
+              "texto": "Sab 1"
+            }
+          ]
+        },
+        {
+          "id": "destino-lider-natural",
+          "nome": "Líder Natural",
+          "categoria": "destino",
+          "descricao": "Seu limite de parceiros aumenta em +1. Caso esteja no patamar de Campeão ou superior (11º nível ou mais), esse aumento é de +2.",
+          "prerequisito_texto": "Car 2",
+          "prerequisitos": [
+            {
+              "tipo": "atributo",
+              "atributo": "car",
+              "valor": 2,
+              "texto": "Car 2"
+            }
+          ]
+        },
+        {
+          "id": "destino-erudito",
+          "nome": "Erudito",
+          "categoria": "destino",
+          "descricao": "Uma vez por empreitada, caso esteja em uma biblioteca ou ambiente semelhante, é possível dedicar um dia ao estudo para realizar um teste de Conhecimento (CD 15). Em caso de êxito, você obtém um benefício à sua escolha entre: +2 em uma perícia (podendo escolher esse benefício múltiplas vezes para perícias distintas), +2 na Defesa, +2 em testes de resistência, +1 na CD para resistir às suas magias ou +3 pontos de mana. A cada 5 pontos que o resultado do teste ultrapassar a CD, você recebe um benefício adicional.",
+          "prerequisito_texto": "Inteligência 1 e treinado em Conhecimento",
+          "prerequisitos": [
+            {
+              "tipo": "atributo",
+              "atributo": "int",
+              "valor": 1,
+              "texto": "Int 1"
+            },
+            {
+              "tipo": "pericia",
+              "texto": "Treinado em Conhecimento"
+            }
+          ]
+        },
+        {
+          "id": "destino-epicurista",
+          "nome": "Epicurista",
+          "categoria": "destino",
+          "descricao": "Você ganha +1 PV por nível de personagem, e os benefícios provenientes da alimentação são duplicados. Dessa forma, ao desfrutar de uma refeição indulgente, você recebe +10 PV temporários. Ao participar de um banquete, obtém +1d6 em dois testes à sua escolha até o término do próximo dia.",
+          "prerequisito_texto": "Constituição 1 e treinado em Fortitude",
+          "prerequisitos": [
+            {
+              "tipo": "atributo",
+              "atributo": "con",
+              "valor": 1,
+              "texto": "Con 1"
+            },
+            {
+              "tipo": "pericia",
+              "texto": "Treinado em Fortitude"
+            }
+          ]
+        },
+        {
+          "id": "destino-expertise-em-pericia",
+          "nome": "Expertise em Perícia",
+          "categoria": "destino",
+          "descricao": "Selecione uma perícia. Ao realizar um teste relacionado a essa perícia, é possível gastar 1 PM para lançar dois dados e utilizar o resultado mais favorável. Você pode escolher essa habilidade novamente para perícias distintas. No entanto, este poder não se aplica a testes de Luta e Pontaria (consulte Foco em Arma).",
+          "prerequisito_texto": "treinado na perícia escolhida",
+          "prerequisitos": [
+            {
+              "tipo": "pericia",
+              "texto": "Treinado em perícia escolhida"
+            },
+            {
+              "tipo": "manual",
+              "texto": "treinado na perícia escolhida"
+            }
+          ]
+        },
+        {
+          "id": "destino-inventario-organizado",
+          "nome": "Inventário Organizado",
+          "categoria": "destino",
+          "descricao": "Você adiciona sua Inteligência ao limite de espaços que pode transportar. Além disso, itens muito leves ou pequenos, que normalmente ocupam meio espaço, passam a ocupar apenas 1/4 de espaço para você.",
+          "prerequisito_texto": "Int 1",
+          "prerequisitos": [
+            {
+              "tipo": "atributo",
+              "atributo": "int",
+              "valor": 1,
+              "texto": "Int 1"
+            }
+          ]
+        },
+        {
+          "id": "destino-lideranca",
+          "nome": "Liderança",
+          "categoria": "destino",
+          "descricao": "Ao gastar uma ação de movimento e 1 PM, você pode proferir ordens para seus aliados em alcance médio. Eles ganham um bônus de +1 em testes de perícia até o término da cena.",
+          "prerequisito_texto": "Carisma 1",
+          "prerequisitos": [
+            {
+              "tipo": "atributo",
+              "atributo": "car",
+              "valor": 1,
+              "texto": "Car 1"
+            }
+          ]
+        },
+        {
+          "id": "destino-lobo-solitario",
+          "nome": "Lobo Solitário",
+          "categoria": "destino",
+          "descricao": "Ganha +1 em testes de perícia e na Defesa quando não há nenhum aliado em alcance curto. Além disso, não sofre penalidade ao usar Cura em si mesmo.",
+          "prerequisito_texto": "",
+          "prerequisitos": []
+        },
+        {
+          "id": "destino-negociador-habilidoso",
+          "nome": "Negociador Habilidoso",
+          "categoria": "destino",
+          "descricao": "Ao chegar em uma nova comunidade, é possível dedicar um dia para estabelecer contatos no comércio local e realizar um teste de Diplomacia (CD 20). Em caso de sucesso, você pode vender itens nessa comunidade por 60% do seu preço, em vez dos habituais 50%. A cada 10 pontos que o resultado do teste exceder a CD, você aumenta o preço de venda em +10%.",
+          "prerequisito_texto": "Car 1 e treinado em Diplomacia e Ofício (qualquer)",
+          "prerequisitos": [
+            {
+              "tipo": "atributo",
+              "atributo": "car",
+              "valor": 1,
+              "texto": "Car 1"
+            },
+            {
+              "tipo": "pericia",
+              "texto": "Treinado em Diplomacia e Ofício (qualquer)"
+            }
+          ]
+        },
+        {
+          "id": "destino-parceiro",
+          "nome": "Parceiro",
+          "categoria": "destino",
+          "descricao": "Você conta com a presença de um companheiro animal ou humanoide que o acompanha em suas aventuras. Escolha os detalhes dele, como nome, aparência e personalidade. No aspecto mecânico, trata-se de um companheiro iniciante de um tipo à sua escolha (consulte a página ##). Seu companheiro segue suas ordens e está disposto a arriscar-se para auxiliá-lo, mas é importante tratá-lo com respeito; caso contrário, pode decidir parar de segui-lo (de acordo com a decisão do mestre). Se porventura perder seu companheiro, receberá outro no início da próxima aventura.",
+          "prerequisito_texto": "Treinado em Adestramento (para companheiro animal) ou Diplomacia (para companheiro humanoide) e 5º nível",
+          "prerequisitos": [
+            {
+              "tipo": "pericia",
+              "texto": "Treinado em Adestramento (para companheiro animal) ou Diplomacia (para companheiro humanoide)"
+            },
+            {
+              "tipo": "nivel_personagem",
+              "nivel": 5,
+              "texto": "Nível 5"
+            }
+          ]
+        },
+        {
+          "id": "destino-pratica-medica",
+          "nome": "Prática Médica",
+          "categoria": "destino",
+          "descricao": "É possível utilizar uma ação completa para realizar um teste de Cura (CD 15) em uma criatura. Se for bem-sucedido, a criatura recupera 1d6 pontos de vida, acrescidos de 1d6 para cada 5 pontos que o resultado do teste ultrapassar a CD (2d6 com um resultado 20, 3d6 com um resultado 25, e assim por diante). Este poder pode ser utilizado apenas uma vez por dia na mesma criatura.",
+          "prerequisito_texto": "Sab 1 e treinado em Cura",
+          "prerequisitos": [
+            {
+              "tipo": "atributo",
+              "atributo": "sab",
+              "valor": 1,
+              "texto": "Sab 1"
+            },
+            {
+              "tipo": "pericia",
+              "texto": "Treinado em Cura"
+            }
+          ]
+        },
+        {
+          "id": "destino-robustez-corporal",
+          "nome": "Robustez Corporal",
+          "categoria": "destino",
+          "descricao": "Seu limite de carga é ampliado em 5 espaços, permitindo que você usufrua de um item vestível adicional.",
+          "prerequisito_texto": "Constituição 1, Força 1",
+          "prerequisitos": [
+            {
+              "tipo": "atributo",
+              "atributo": "con",
+              "valor": 1,
+              "texto": "Con 1"
+            },
+            {
+              "tipo": "atributo",
+              "atributo": "for",
+              "valor": 1,
+              "texto": "For 1"
+            }
+          ]
+        },
+        {
+          "id": "destino-sedutor",
+          "nome": "Sedutor",
+          "categoria": "destino",
+          "descricao": "Você obtém um bônus de +2 em testes de perícias baseadas em Carisma quando interagindo com criaturas que possam se sentir fisicamente atraídas por você.",
+          "prerequisito_texto": "Carisma 1",
+          "prerequisitos": [
+            {
+              "tipo": "atributo",
+              "atributo": "car",
+              "valor": 1,
+              "texto": "Car 1"
+            }
+          ]
+        },
+        {
+          "id": "destino-sentidos-apurados",
+          "nome": "Sentidos Apurados",
+          "categoria": "destino",
+          "descricao": "Ganha um bônus de +2 em Percepção, não ficando desprevenido contra inimigos que não possa ver. Além disso, sempre que erra um ataque devido à camuflagem, tem a oportunidade de rolar novamente o dado.",
+          "prerequisito_texto": "Sabedoria 1 e treinado em Percepção",
+          "prerequisitos": [
+            {
+              "tipo": "atributo",
+              "atributo": "sab",
+              "valor": 1,
+              "texto": "Sab 1"
+            },
+            {
+              "tipo": "pericia",
+              "texto": "Treinado em Percepção"
+            }
+          ]
+        },
+        {
+          "id": "destino-sortudo",
+          "nome": "Sortudo",
+          "categoria": "destino",
+          "descricao": "É possível gastar 3 PM para rolar novamente um teste recém-realizado (limitado a uma vez por teste).",
+          "prerequisito_texto": "",
+          "prerequisitos": []
+        },
+        {
+          "id": "destino-torcida",
+          "nome": "Torcida",
+          "categoria": "destino",
+          "descricao": "Recebe um bônus de +2 em testes de perícia e na Defesa quando conta com a torcida a seu favor. Entende-se por \"torcida\" qualquer número de criaturas inteligentes em alcance médio que esteja apenas torcendo por você, sem realizar outras ações.",
+          "prerequisito_texto": "Car 1",
+          "prerequisitos": [
+            {
+              "tipo": "atributo",
+              "atributo": "car",
+              "valor": 1,
+              "texto": "Car 1"
+            }
+          ]
+        },
+        {
+          "id": "destino-treinamento-em-pericia",
+          "nome": "Treinamento em Perícia",
+          "categoria": "destino",
+          "descricao": "Torna-se treinado em uma perícia à sua escolha. É possível escolher esta habilidade para perícias diferentes.",
+          "prerequisito_texto": "",
+          "prerequisitos": []
+        },
+        {
+          "id": "destino-veneficio",
+          "nome": "Venefício",
+          "categoria": "destino",
+          "descricao": "Ao utilizar um agente tóxico, você fica isento do perigo de envenenamento acidental. Adicionalmente, o bônus na CD para resistir aos efeitos de seus venenos aumenta em +2.",
+          "prerequisito_texto": "Treinado em Ofício (alquimista)",
+          "prerequisitos": [
+            {
+              "tipo": "pericia",
+              "texto": "Treinado em Ofício (alquimista)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "magia",
+      "nome": "Poderes Mágicos",
+      "descricao": "Poderes vinculados a habilidades mágicas e itens mágicos. Todos os poderes deste conjunto demandam a capacidade de conjurar magias como pré-requisito.",
+      "poderes": [
+        {
+          "id": "magia-aprimoramento-magia-acelerada",
+          "nome": "Aprimoramento: Magia Acelerada",
+          "categoria": "magia",
+          "descricao": "Altera a execução da magia para uma ação livre. Este aprimoramento pode ser aplicado somente em magias com tempo de execução de movimento, padrão ou completo, e você só pode lançar uma magia como ação livre por rodada. Custo: +4 PM.",
+          "prerequisito_texto": "capacidade de lançar magias de 2º círculo",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "capacidade de lançar magias de 2º círculo"
+            }
+          ]
+        },
+        {
+          "id": "magia-aprimoramento-magia-ampliada",
+          "nome": "Aprimoramento: Magia Ampliada",
+          "categoria": "magia",
+          "descricao": "Aumenta o alcance da magia em um passo (de curto para médio, de médio para longo) ou dobra a área de efeito da magia. Por exemplo, uma Bola de Fogo ampliada tem seu alcance aumentado para longo ou sua área de efeito dobrada para 12 metros de raio. Custo: +2 PM.",
+          "prerequisito_texto": "",
+          "prerequisitos": []
+        },
+        {
+          "id": "magia-aprimoramento-magia-discreta",
+          "nome": "Aprimoramento: Magia Discreta",
+          "categoria": "magia",
+          "descricao": "Permite lançar a magia sem a necessidade de gestos ou palavras, utilizando apenas concentração. Isso possibilita a conjuração de magias mesmo com as mãos presas, estando amordaçado, entre outras situações. Além disso, possibilita o lançamento de magias arcanas enquanto estiver usando armadura, sem a necessidade de teste de Misticismo. Outros personagens somente percebem que você lançou uma magia se passarem em um teste de Misticismo (CD 20). Custo: +2 PM.",
+          "prerequisito_texto": "",
+          "prerequisitos": []
+        },
+        {
+          "id": "magia-celebrar-rituais",
+          "nome": "Celebrar Rituais",
+          "categoria": "magia",
+          "descricao": "Você tem a habilidade de realizar a conjuração de magias por meio de rituais. Essa prática dobra o seu limite de PM, porém, altera o tempo de execução para 1 hora (ou o dobro, o que for maior), exigindo um investimento de M$ 10 por PM gasto em materiais como incensos e oferendas. Dessa forma, um conjurador de 8º nível, por exemplo, pode conjurar uma magia de 16 PM ao custo de M$ 160.",
+          "prerequisito_texto": "treinado em Misticismo ou Religião e 8º nível. Importante ressaltar que magias lançadas como rituais não podem ser armazenadas em itens",
+          "prerequisitos": [
+            {
+              "tipo": "pericia",
+              "texto": "Treinado em Misticismo ou Religião"
+            },
+            {
+              "tipo": "nivel_personagem",
+              "nivel": 8,
+              "texto": "Nível 8"
+            }
+          ]
+        },
+        {
+          "id": "magia-concentracao-magica",
+          "nome": "Concentração Mágica",
+          "categoria": "magia",
+          "descricao": "Selecione uma magia que você seja capaz de conjurar. Seu custo é reduzido em –1 PM, o qual se acumula com outras reduções de custo. Você pode escolher esta habilidade múltiplas vezes para magias diferentes.",
+          "prerequisito_texto": "",
+          "prerequisitos": []
+        },
+        {
+          "id": "magia-confeccionar-pergaminho",
+          "nome": "Confeccionar Pergaminho",
+          "categoria": "magia",
+          "descricao": "Você tem a habilidade de utilizar a perícia Ofício (escriba) para criar pergaminhos contendo magias das quais você tenha conhecimento. Consulte a página 121 para as regras de fabricação de itens, bem como as páginas 333 e 341 para as diretrizes relacionadas a pergaminhos. A critério do mestre, é possível empregar objetos similares, como runas, tabuletas de argila, entre outros.",
+          "prerequisito_texto": "possuir a habilidade de classe Magias e treinado em Ofício (escriba)",
+          "prerequisitos": [
+            {
+              "tipo": "pericia",
+              "texto": "Treinado em Ofício (escriba)"
+            },
+            {
+              "tipo": "manual",
+              "texto": "possuir a habilidade de classe Magias e treinado em Ofício (escriba)"
+            }
+          ]
+        },
+        {
+          "id": "magia-magia-infindavel",
+          "nome": "Magia Infindável",
+          "categoria": "magia",
+          "descricao": "Você adiciona o valor do seu atributo-chave ao limite de PM que pode investir em uma magia. Como exemplo, um arcanista de 8º nível com Inteligência 5 e esta habilidade pode gastar até 13 PM em cada magia.",
+          "prerequisito_texto": "",
+          "prerequisitos": []
+        }
+      ]
+    },
+    {
+      "id": "divinos",
+      "nome": "Poderes Divinos",
+      "descricao": "Poderes recebidos como dádiva por devoção. Todos os talentos desta categoria exigem ser devoto de um dos deuses indicados.",
+      "poderes": [
+        {
+          "id": "divinos-abre-caminhos",
+          "nome": "Abre Caminhos",
+          "categoria": "divinos",
+          "descricao": "Você aprende e pode lançar Caminhos da Natureza. Caso aprenda novamente essa magia, seu custo diminui em –1 PM.",
+          "prerequisito_texto": "Devoto de Ex’us",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Ex’us"
+            }
+          ]
+        },
+        {
+          "id": "divinos-amigo-das-cobras",
+          "nome": "Amigo das Cobras",
+          "categoria": "divinos",
+          "descricao": "Você adquire uma serpente como parceiro (consulte a página ##), que não é contabilizada em seu limite total de parceiros por nível. A serpente é um parceiro especial (assassino) que fornece os benefícios a seguir. Iniciante: uma vez por rodada, quando causa dano com um ataque corpo a corpo (mordida +7), você pode deixar o alvo envenenado (1d12 PV Fort CD 16 evita). Veterano: o bônus de ataque e a CD para resistir o veneno aumentam em +2. Mestre: o envenenamento provocado exige dois sucessos em testes para ser removido.",
+          "prerequisito_texto": "Devoto de Kiantomerê",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Kiantomerê"
+            }
+          ]
+        },
+        {
+          "id": "divinos-anfibio",
+          "nome": "Anfíbio",
+          "categoria": "divinos",
+          "descricao": "você pode respirar debaixo d’água e nadar com facilidade. Você tem deslocamento de natação igual ao seu deslocamento terrestre.",
+          "prerequisito_texto": "Devoto de Mondjá",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Mondjá"
+            }
+          ]
+        },
+        {
+          "id": "divinos-armas-da-ambicao",
+          "nome": "Armas da Ambição",
+          "categoria": "divinos",
+          "descricao": "Você ganha um bônus de +1 em testes de ataque e na margem de ameaça com armas das quais é proficiente.",
+          "prerequisito_texto": "Devoto de Aelohim",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Aelohim"
+            }
+          ]
+        },
+        {
+          "id": "divinos-arqueiro",
+          "nome": "Arqueiro",
+          "categoria": "divinos",
+          "descricao": "Se estiver usando um arco e flecha, você soma sua Sabedoria nas rolagens de dano.",
+          "prerequisito_texto": "Devoto de Odéssi",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Odéssi"
+            }
+          ]
+        },
+        {
+          "id": "divinos-artesao-dos-minerios",
+          "nome": "Artesão dos Minérios",
+          "categoria": "divinos",
+          "descricao": "Você pode utilizar Sabedoria em testes de Oficio (armeiro) e é capaz de fabricar itens superiores (de metal) com 1 melhoria. Se você for um devoto fiel você pode escolher esse poder mais de uma vez aumentando o número de melhorias para 2. Personagens multiclasses artesãos também acumulam o número total de melhorias com as do benefício de Fabricar Item Superior.",
+          "prerequisito_texto": "Devoto de Gumedé",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Gumedé"
+            }
+          ]
+        },
+        {
+          "id": "divinos-artista-mistico",
+          "nome": "Artista Místico",
+          "categoria": "divinos",
+          "descricao": "Até uma magia de cada círculo que você aprender poderá ser escolhida entre magias divinas (se você for um conjurador arcano) ou entre magias arcanas (se for um conjurador divino).",
+          "prerequisito_texto": "habilidade de classe Magias e Devoto de Anhum",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "habilidade de classe Magias e Devoto de Anhum"
+            }
+          ]
+        },
+        {
+          "id": "divinos-ataque-piedoso",
+          "nome": "Ataque Piedoso",
+          "categoria": "divinos",
+          "descricao": "Você pode usar armas de combate corpo a corpo para infligir dano não letal sem sofrer a penalidade de –5 no teste de ataque.",
+          "prerequisito_texto": "Devoto de Guianalá",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Guianalá"
+            }
+          ]
+        },
+        {
+          "id": "divinos-aura-aterrorizante",
+          "nome": "Aura Aterrorizante",
+          "categoria": "divinos",
+          "descricao": "Ao gastar 2 Pontos de Magia (PM), você tem a capacidade de criar uma aura de medo com um raio de 9 metros, que perdura até o final da cena. Todos os inimigos que adentrarem na aura devem realizar um teste de Vontade (CD Sab) ou ficarão abalados até o término da cena. Uma criatura que passar no teste de Vontade torna-se imune a esta habilidade por um dia.",
+          "prerequisito_texto": "Devoto de Anhangá",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Anhangá"
+            }
+          ]
+        },
+        {
+          "id": "divinos-aura-de-serenidade",
+          "nome": "Aura de Serenidade",
+          "categoria": "divinos",
+          "descricao": "Ao gastar 2 Pontos de Magia (PM), você pode criar uma aura de paz com alcance curto que perdura por uma cena. Qualquer inimigo dentro da aura que tente realizar uma ação hostil contra você deve fazer um teste de Vontade (CD Car). Se falhar, perde sua ação. Se passar, torna-se imune a esta habilidade por um dia.",
+          "prerequisito_texto": "Devoto de Guianalá ou Yéxua",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Guianalá ou Yéxua"
+            }
+          ]
+        },
+        {
+          "id": "divinos-bencao-da-transicao",
+          "nome": "Benção da Transição",
+          "categoria": "divinos",
+          "descricao": "Você aprende e pode lançar uma magia entre, Leque Cromático, Primor Atlético, Augúrio, ou Tempestade Divina. Caso aprenda novamente alguma dessas magias, seu custo diminui em –1 PM. Caso seja um devoto fiel você pode escolher esse poder mais de uma vez.",
+          "prerequisito_texto": "Devoto de Kiantomerê",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Kiantomerê"
+            }
+          ]
+        },
+        {
+          "id": "divinos-bencao-do-sacrificio",
+          "nome": "Benção do Sacrifício",
+          "categoria": "divinos",
+          "descricao": "Ao custo de uma ação de movimento e 1 PM, você pode escolher um número de aliados limitado pela sua sabedoria para criar um vínculo mágico. Você sofre os danos em PV no lugar desses aliados e realiza os testes de resistência para evitar condições ofensivas. A Defesa utilizada para evitar ataques ainda permanece sendo a dos seus Aliados.",
+          "prerequisito_texto": "Devoto de Yéxua",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Yéxua"
+            }
+          ]
+        },
+        {
+          "id": "divinos-bencao-dos-mortos",
+          "nome": "Benção dos Mortos",
+          "categoria": "divinos",
+          "descricao": "Você pode gastar uma ação completa para se receber a benção dos mortos. Até o fim da cena você pode gastar uma ação padrão e 1 PM para lançar um raio necrótico que causa 1d8 pontos de dano de trevas num alvo em alcance curto. O alvo não poderá recuperar PV por 1 rodada. O dano do raio necrótico aumenta em +1d8 para cada círculo de magia acima do 1º que você puder lançar. O alvo pode fazer um teste de Reflexos (CD atributo-chave) para reduzir o dano à metade. O raio necrótico conta como uma magia da escola de necromancia para efeitos de habilidades e itens que beneficiem suas magias.",
+          "prerequisito_texto": "Devoto de Namburuk",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Namburuk"
+            }
+          ]
+        },
+        {
+          "id": "divinos-benevolencia",
+          "nome": "Benevolência",
+          "categoria": "divinos",
+          "descricao": "Você conhece e pode lançar a magia Enfeitiçar. Caso decida aprender novamente essa magia, seu custo é reduzido em –1 PM.",
+          "prerequisito_texto": "Devoto de Guianalá ou Yéxua",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Guianalá ou Yéxua"
+            }
+          ]
+        },
+        {
+          "id": "divinos-bloqueio-de-ventos",
+          "nome": "Bloqueio de ventos",
+          "categoria": "divinos",
+          "descricao": "Quando estiver em ambiente aberto com vento você pode como ação de movimento gastar 2 PM para ativar o Bloqueio dos Ventos ganhando camuflagem contra ataques à distância e +2 em reflexo. Essa habilidade dura até o final da cena",
+          "prerequisito_texto": "",
+          "prerequisitos": []
+        },
+        {
+          "id": "divinos-brilho-eterno",
+          "nome": "Brilho Eterno",
+          "categoria": "divinos",
+          "descricao": "Você pode usar uma ação padrão e 1 PM para se cobrir com uma película mágica que brilha e fornece RD 10 contra dano necrótico.",
+          "prerequisito_texto": "Devoto de Ruach-Hakodechi",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Ruach-Hakodechi"
+            }
+          ]
+        },
+        {
+          "id": "divinos-calor-da-fornalha",
+          "nome": "Calor da Fornalha",
+          "categoria": "divinos",
+          "descricao": "Você recebe redução de fogo 10 e ignora efeitos de calor.",
+          "prerequisito_texto": "Devoto de Gumedé",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Gumedé"
+            }
+          ]
+        },
+        {
+          "id": "divinos-centelha-magica",
+          "nome": "Centelha Mágica",
+          "categoria": "divinos",
+          "descricao": "Escolha uma magia arcana ou divina de 1º círculo. Você aprende e pode lançar essa magia.",
+          "prerequisito_texto": "Devoto de Anhum",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Anhum"
+            }
+          ]
+        },
+        {
+          "id": "divinos-colheita-da-morte",
+          "nome": "Colheita da Morte",
+          "categoria": "divinos",
+          "descricao": "Com uma ação de movimento você consegue extrair 1d4 PM por turno de criatura mortas em alcance médio. Os mortos (ou mortos vivos) devem possuir PM. Cadáveres que não estão animados perdem seus PM 1d6 semanas.",
+          "prerequisito_texto": "Devoto de Micê",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Micê"
+            }
+          ]
+        },
+        {
+          "id": "divinos-convocacao-solar",
+          "nome": "Convocação Solar",
+          "categoria": "divinos",
+          "descricao": "Você aprende e pode lançar Raio Solar. Caso aprenda novamente essa magia, seu custo diminui em –1 PM.",
+          "prerequisito_texto": "",
+          "prerequisitos": []
+        },
+        {
+          "id": "divinos-coragem-inabalavel",
+          "nome": "Coragem Inabalável",
+          "categoria": "divinos",
+          "descricao": "Você se torna imune a efeitos de medo, tanto mágicos quanto não mágicos.",
+          "prerequisito_texto": "Devoto de Aelohim, Ruach-Hakodechi ou Tumpã",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Aelohim, Ruach-Hakodechi ou Tumpã"
+            }
+          ]
+        },
+        {
+          "id": "divinos-corrigir-injustica",
+          "nome": "Corrigir Injustiça",
+          "categoria": "divinos",
+          "descricao": "Uma vez por rodada, quando um oponente em alcance curto acerta um ataque em você ou em um de seus aliados, é possível gastar 2 PM para fazer com que esse oponente repita o ataque, optando pelo pior resultado entre os dois.",
+          "prerequisito_texto": "Devoto de Tumpã",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Tumpã"
+            }
+          ]
+        },
+        {
+          "id": "divinos-couraca-florestal",
+          "nome": "Couraça Florestal",
+          "categoria": "divinos",
+          "descricao": "Ao gastar uma ação de movimento e 1 PM, você tem a habilidade de transformar sua pele em casca de árvore, obtendo um bônus de +2 na Defesa até o término da cena.",
+          "prerequisito_texto": "Devoto de Sãin",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Sãin"
+            }
+          ]
+        },
+        {
+          "id": "divinos-cura-amavel",
+          "nome": "Cura Amável",
+          "categoria": "divinos",
+          "descricao": "Você adiciona seu Carisma ou Sabedoria (o que for maior) aos Pontos de Vida restaurados por seus efeitos mágicos de cura.",
+          "prerequisito_texto": "Devoto de Axumewá",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Axumewá"
+            }
+          ]
+        },
+        {
+          "id": "divinos-cura-milagrosa",
+          "nome": "Cura Milagrosa",
+          "categoria": "divinos",
+          "descricao": "Sempre que utilizar algum efeito de cura, você pode gastar +1 PM e jogar 1d20, se o resultado for um número par você remove condição negativa dos alvos afetados.",
+          "prerequisito_texto": "Devoto de Yéxua",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Yéxua"
+            }
+          ]
+        },
+        {
+          "id": "divinos-dadiva-da-esperanca",
+          "nome": "Dádiva da Esperança",
+          "categoria": "divinos",
+          "descricao": "Você adiciona sua Sabedoria ou Carisma (o que for maior) aos seus Pontos de Vida, em vez de utilizar a Constituição, e torna-se imune às condições de alquebrado, esmorecido e frustrado.",
+          "prerequisito_texto": "Devoto de Guianalá",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Guianalá"
+            }
+          ]
+        },
+        {
+          "id": "divinos-devoto-das-artes",
+          "nome": "Devoto das Artes",
+          "categoria": "divinos",
+          "descricao": "Quando você fizer um teste de Atuação, pode gastar 1 PM, rolar dois dados e escolher o melhor resultado.",
+          "prerequisito_texto": "Devoto de Anhum",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Anhum"
+            }
+          ]
+        },
+        {
+          "id": "divinos-dom-da-veracidade",
+          "nome": "Dom da Veracidade",
+          "categoria": "divinos",
+          "descricao": "Você pode gastar 2 PM para obter +5 em testes de Intuição, bem como em testes de Percepção contra Enganação e Furtividade, durante o restante da cena.",
+          "prerequisito_texto": "Devoto de Ruach-Hakodechi",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Ruach-Hakodechi"
+            }
+          ]
+        },
+        {
+          "id": "divinos-dominio-das-maldicoes",
+          "nome": "Domínio das Maldições",
+          "categoria": "divinos",
+          "descricao": "Concede a habilidade de conjurar a magia Rogar Maldição (com Sabedoria como atributo-chave). Se optar por aprender novamente essa magia, o custo é reduzido em –1 PM.",
+          "prerequisito_texto": "Devoto de Micê",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Micê"
+            }
+          ]
+        },
+        {
+          "id": "divinos-dominio-das-transformacoes",
+          "nome": "Domínio das Transformações",
+          "categoria": "divinos",
+          "descricao": "A CD para resistir a suas magias da escola de Transmutação aumenta em +2. Se você for um devoto fiel, pode escolher esse poder mais uma vez e custo para lançar magias dessa escola diminui em –1 PM.",
+          "prerequisito_texto": "Devoto de Kiantomerê",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Kiantomerê"
+            }
+          ]
+        },
+        {
+          "id": "divinos-eco-da-natureza",
+          "nome": "Eco da Natureza",
+          "categoria": "divinos",
+          "descricao": "Concede a habilidade de se comunicar com animais (similar ao efeito da magia Voz Divina) e possibilita aprender e conjurar Acalmar Animal, porém, exclusivamente contra criaturas do reino animal. Caso opte por aprender novamente essa magia, seu custo é reduzido em –1 PM.",
+          "prerequisito_texto": "Devoto de Caaporiã",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Caaporiã"
+            }
+          ]
+        },
+        {
+          "id": "divinos-encanto-de-axumewa",
+          "nome": "Encanto de Axumewá",
+          "categoria": "divinos",
+          "descricao": "Você aprende e pode lançar uma magia entre, Hipnotismo, Enfeitiçar ou Comando. Caso aprenda novamente alguma dessas magias, seu custo diminui em –1 PM. Se você for um devoto fiel você pode escolher esse poder mais de uma vez.",
+          "prerequisito_texto": "Devoto de Axumewá",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Axumewá"
+            }
+          ]
+        },
+        {
+          "id": "divinos-encruzilhada",
+          "nome": "Encruzilhada",
+          "categoria": "divinos",
+          "descricao": "Você aprende e é capaz de usar a magia Teletransporte como magia de 2º círculo (não importando o limite de PM). Caso aprenda novamente essa magia, seu custo diminui em –1 PM e você pode usa-la nas condições padrão.",
+          "prerequisito_texto": "Devoto de Ex’us",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Ex’us"
+            }
+          ]
+        },
+        {
+          "id": "divinos-ervas-medicinais",
+          "nome": "Ervas Medicinais",
+          "categoria": "divinos",
+          "descricao": "Sempre que realizar testes de Cura, você tem a opção de escolher 10. Além disso, não sofre penalidades por utilizar essa perícia na ausência de um kit de medicamentos. Caso possua o item, recebe um bônus de +2 no teste de Cura (ou +5 se o kit estiver aprimorado).",
+          "prerequisito_texto": "Devoto de Sãin",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Sãin"
+            }
+          ]
+        },
+        {
+          "id": "divinos-espada-da-justica",
+          "nome": "Espada da Justiça",
+          "categoria": "divinos",
+          "descricao": "Ao gastar 1 PM, você tem a capacidade de encantar sua espada (ou outra arma corpo a corpo de corte que esteja empunhando). Isso resulta em um aumento no seu dano em um passo até o término da cena.",
+          "prerequisito_texto": "Devoto de Aelohim",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Aelohim"
+            }
+          ]
+        },
+        {
+          "id": "divinos-abebe",
+          "nome": "Abebé",
+          "categoria": "divinos",
+          "descricao": "Como um item adicional inicial, você recebe um Abebé, um item esotérico em formato de um leque com um espelho no centro que funciona como um pequeno escudo refletor. Uma vez por rodada, como reação quando você é alvo de uma magia, pode gastar uma quantidade de Pontos de Magia (PM) equivalente ao custo da magia para refleti-la de volta ao conjurador. As características da magia, como efeitos e CD, permanecem inalteradas, mas você deve tomar qualquer decisão exigida por ela. Esse item só possui seus poderes se for empunhado por um devoto de Mondjá ou Axumewá, para as demais criaturas não passa de um espelho mundano comum.",
+          "prerequisito_texto": "Devoto de Mondjá ou Axumewá",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Mondjá ou Axumewá"
+            }
+          ]
+        },
+        {
+          "id": "divinos-firme-como-um-troco",
+          "nome": "Firme Como Um Troco",
+          "categoria": "divinos",
+          "descricao": "Ao adotar uma postura defensiva, você se torna imune a qualquer tentativa de movê-lo, seja por meios mundanos ou mágicos. Durante a manutenção dessa postura, você não pode se deslocar, porém, adiciona sua Sabedoria à sua Defesa e pode substituir testes de Reflexos e Fortitude por testes de Vontade.",
+          "prerequisito_texto": "Devoto de Sãin",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Sãin"
+            }
+          ]
+        },
+        {
+          "id": "divinos-forcas-do-mar",
+          "nome": "Forças do Mar",
+          "categoria": "divinos",
+          "descricao": "Você aprende e pode lançar uma magia entre Conjurar Monstro (criaturas marinhas), Chicote de Água, Controlar Água ou Despedaçar. Caso aprenda novamente alguma dessas magias, seu custo diminui em –1 PM. Se você for um devoto fiel você pode escolher esse poder mais de uma vez.",
+          "prerequisito_texto": "Devoto de Mondjá",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Mondjá"
+            }
+          ]
+        },
+        {
+          "id": "divinos-imposicao-da-ordem",
+          "nome": "Imposição da Ordem",
+          "categoria": "divinos",
+          "descricao": "Você adquire o conhecimento e a capacidade de lançar a magia Marca da Obediência. Caso opte por aprender novamente essa magia, seu custo é reduzido em –1 PM.",
+          "prerequisito_texto": "Devoto de Aelohim",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Aelohim"
+            }
+          ]
+        },
+        {
+          "id": "divinos-inspiracao-magica",
+          "nome": "Inspiração Mágica",
+          "categoria": "divinos",
+          "descricao": "Quando lança uma magia, você doa um bônus em um teste de perícia igual ao círculo da magia lançada até o início do seu próximo turno a um número de aliados igual a sua sabedoria.",
+          "prerequisito_texto": "Devoto de Anhum",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Anhum"
+            }
+          ]
+        },
+        {
+          "id": "divinos-invocar-arma",
+          "nome": "Invocar Arma",
+          "categoria": "divinos",
+          "descricao": "Ao gastar 1 PM, você pode convocar uma arma corpo a corpo ou de arremesso com a qual seja proficiente. A arma materializa-se em sua mão, proporcionando um bônus de +1 em testes de ataque e rolagens de dano, sendo considerada mágica e perdurando até o fim da cena. Não é possível criar armas de disparo, mas é possível gerar 20 munições.",
+          "prerequisito_texto": "Devoto de Gumedé",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Gumedé"
+            }
+          ]
+        },
+        {
+          "id": "divinos-ira-divina",
+          "nome": "Ira Divina",
+          "categoria": "divinos",
+          "descricao": "Ao gastar 2 PM, você pode evocar uma fúria selvagem, transformando-se em uma presença temível em combate. Até o final da cena, você recebe +2 em testes de ataque e rolagens de dano corpo a corpo, porém, fica impedido de realizar qualquer ação que exija paciência ou concentração, como utilizar a perícia Furtividade ou lançar magias. Se optar por combinar esse poder com a habilidade Fúria (acumulando o bônus, ela também perdura por toda a cena (não sendo interrompida caso você não ataque ou seja alvo de uma ação hostil).",
+          "prerequisito_texto": "Devoto de Tumpã",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Tumpã"
+            }
+          ]
+        },
+        {
+          "id": "divinos-jogo-de-buzios",
+          "nome": "Jogo de Búzios",
+          "categoria": "divinos",
+          "descricao": "Você possui um jogo de búzios. Essas conchas marinhas podem revelar se uma ação que você tomará em breve terá resultados bons ou ruins. Você pode executar a magia Augúrio como ritual, sem custo material.",
+          "prerequisito_texto": "Devoto de Axumewá ou Kiantomerê",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Axumewá ou Kiantomerê"
+            }
+          ]
+        },
+        {
+          "id": "divinos-lamina-do-trovao",
+          "nome": "Lâmina do Trovão",
+          "categoria": "divinos",
+          "descricao": "Você pode gastar 1 PM para fazer uma arma corpo a corpo de corte que esteja empunhando causar +1d6 de dano por eletricidade até o fim da cena.",
+          "prerequisito_texto": "Devoto de Tumpã",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Tumpã"
+            }
+          ]
+        },
+        {
+          "id": "divinos-lamina-solar",
+          "nome": "Lâmina Solar",
+          "categoria": "divinos",
+          "descricao": "Ao gastar 1 PM, você pode fazer com que uma arma corpo a corpo de corte que esteja empunhando cause um dano adicional de +1d6 de fogo até o término da cena.",
+          "prerequisito_texto": "Devoção a Kuaracyr",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoção a Kuaracyr"
+            }
+          ]
+        },
+        {
+          "id": "divinos-liberdade-divina",
+          "nome": "Liberdade Divina",
+          "categoria": "divinos",
+          "descricao": "Você pode gastar 2 PM para receber imunidade a efeitos de movimento por uma rodada.",
+          "prerequisito_texto": "Devoto de Ruach-Hakodechi ou Tessã",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Ruach-Hakodechi ou Tessã"
+            }
+          ]
+        },
+        {
+          "id": "divinos-magia-lunar",
+          "nome": "Magia Lunar",
+          "categoria": "divinos",
+          "descricao": "Sempre que estiver sob a luz do luar suas habilidades tem o custo de PM reduzido em -1.",
+          "prerequisito_texto": "Devoto de Iacyr",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Iacyr"
+            }
+          ]
+        },
+        {
+          "id": "divinos-manipulacao-da-vida",
+          "nome": "Manipulação da Vida",
+          "categoria": "divinos",
+          "descricao": "Quando você causa dano necrótico ou restaura pontos de vida usando magia recuperam +1PV por dado.",
+          "prerequisito_texto": "Devoto de Namburuk",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Namburuk"
+            }
+          ]
+        },
+        {
+          "id": "divinos-manto-redentor",
+          "nome": "Manto Redentor",
+          "categoria": "divinos",
+          "descricao": "Ao gastar 2 Pontos de Magia (PM), você pode gerar um campo de energia sobre si mesmo ou um aliado. Qualquer criatura que realize um ataque contra o alvo do Manto Redentor deve realizar um teste de Vontade (CD Car). Se falhar no teste, seu próprio ataque se volta contra si, causando dano mental não letal.",
+          "prerequisito_texto": "Devoto de Guianalá",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Guianalá"
+            }
+          ]
+        },
+        {
+          "id": "divinos-mensageiro-do-divino",
+          "nome": "Mensageiro do Divino",
+          "categoria": "divinos",
+          "descricao": "Você está sempre sob efeito de Compreensão.",
+          "prerequisito_texto": "Devoto de Ex’us",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Ex’us"
+            }
+          ]
+        },
+        {
+          "id": "divinos-mestre-das-armas",
+          "nome": "Mestre das Armas",
+          "categoria": "divinos",
+          "descricao": "Você adquire proficiência em armas marciais corpo a corpo. Ao empunhar uma arma de combate corpo a corpo, pode utilizar sua Sabedoria em vez de Força nos testes de ataque e nas rolagens de dano.",
+          "prerequisito_texto": "Devoto de Gumedé",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Gumedé"
+            }
+          ]
+        },
+        {
+          "id": "divinos-mira-direcionada",
+          "nome": "Mira Direcionada",
+          "categoria": "divinos",
+          "descricao": "Você pode usar Mirar como ação livre.",
+          "prerequisito_texto": "Devoto de Odéssi",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Odéssi"
+            }
+          ]
+        },
+        {
+          "id": "divinos-morador-do-sertao",
+          "nome": "Morador do Sertão",
+          "categoria": "divinos",
+          "descricao": "Você adquire RD 10 a fogo e tem a habilidade de gastar 1 PM para conjurar água pura e potável em quantidade suficiente para encher um odre (ou outro recipiente pequeno).",
+          "prerequisito_texto": "Devoto de Kuaracyr",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Kuaracyr"
+            }
+          ]
+        },
+        {
+          "id": "divinos-morte-definitiva",
+          "nome": "Morte Definitiva",
+          "categoria": "divinos",
+          "descricao": "Quando você causa qualquer tipo de dano letal a uma criatura que chegue a 0 PV, ele morre imediatamente. Magias de ressurreição lançadas sobre pessoas que morreram assim, levam uma semana para surtir efeito.",
+          "prerequisito_texto": "Devoto de Anhangá",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Anhangá"
+            }
+          ]
+        },
+        {
+          "id": "divinos-necrovinculo",
+          "nome": "Necrovínculo",
+          "categoria": "divinos",
+          "descricao": "Você pode gastar uma ação completa e 3 PM, para ressuscitar o cadáver de uma criatura Pequena ou Média adjacente, concedendo-lhe funcionalidades como um parceiro iniciante, podendo ser escolhido entre combatente, fortão ou guardião. Além disso, quando submetido a danos, você tem a opção de sacrificar esse parceiro; ao fazê-lo, apenas metade do dano é recebido por você, mas o cadáver é completamente destruído.",
+          "prerequisito_texto": "Devoto de Micê",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Micê"
+            }
+          ]
+        },
+        {
+          "id": "divinos-negar-a-morte",
+          "nome": "Negar a morte",
+          "categoria": "divinos",
+          "descricao": "Você pode gastar uma ação completa e todos os PM que possui (mínimo 1 PM) para tocar o corpo de uma criatura morta há menos de um ano e ressuscitá-la. A criatura volta à vida com 1 PV e 0 PM, e perde 1 ponto de Constituição permanentemente. Este poder só pode ser usado uma vez em cada criatura.",
+          "prerequisito_texto": "Devoto de Namburuk",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Namburuk"
+            }
+          ]
+        },
+        {
+          "id": "divinos-olhar-amedrontador",
+          "nome": "Olhar Amedrontador",
+          "categoria": "divinos",
+          "descricao": "Você aprende e pode lançar Amedrontar ou Sussurros Insanos (CD Sab). Caso aprenda novamente essa magia, seu custo diminui em –1 PM.",
+          "prerequisito_texto": "Devoto de Anhangá",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Anhangá"
+            }
+          ]
+        },
+        {
+          "id": "divinos-olhos-da-tempestade",
+          "nome": "Olhos da Tempestade",
+          "categoria": "divinos",
+          "descricao": "você pode ver através das tempestades e dos raios. Você ganha visão no escuro e visão na penumbra, e ignora as penalidades por condições climáticas adversas, como chuva, neblina ou ventania.",
+          "prerequisito_texto": "Devoto de Tessã",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Tessã"
+            }
+          ]
+        },
+        {
+          "id": "divinos-oracao-milagrosa",
+          "nome": "Oração Milagrosa",
+          "categoria": "divinos",
+          "descricao": "Você pode gastar uma ação completa e todos os seus PM restante para maximizar o resultado do seu próximo teste ou o de uma criatura que você possa escolher.",
+          "prerequisito_texto": "Devoto de Ruach-Hakodechi",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Ruach-Hakodechi"
+            }
+          ]
+        },
+        {
+          "id": "divinos-rei-da-mata",
+          "nome": "Rei da Mata",
+          "categoria": "divinos",
+          "descricao": "Você aprende e pode lançar uma magia entre, Caminhos da Natureza, Armamento da Natureza ou Acalmar animal. Caso aprenda novamente alguma dessas magias, seu custo diminui em –1 PM. Se você for um devoto fiel você pode escolher esse poder mais de uma vez.",
+          "prerequisito_texto": "Devoto de Odéssi",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Odéssi"
+            }
+          ]
+        },
+        {
+          "id": "divinos-repouso-ideal",
+          "nome": "Repouso Ideal",
+          "categoria": "divinos",
+          "descricao": "Sua condição de descanso é sempre superior, avançando um passo (uma condição de descanso que seria considerada normal passa a ser confortável).",
+          "prerequisito_texto": "Devoto de Iacyr",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Iacyr"
+            }
+          ]
+        },
+        {
+          "id": "divinos-repouso-natural",
+          "nome": "Repouso Natural",
+          "categoria": "divinos",
+          "descricao": "Para você, repousar ao ar livre é considerado uma condição de descanso confortável.",
+          "prerequisito_texto": "Devoto de Caaporiã",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Caaporiã"
+            }
+          ]
+        },
+        {
+          "id": "divinos-resplendor-solar",
+          "nome": "Resplendor Solar",
+          "categoria": "divinos",
+          "descricao": "Você obtém uma redução de 5 em dano causado por frio e trevas. Além disso, quando é alvo de um ataque, você pode gastar 1 Ponto de Magia (PM) para irradiar um clarão solar que deixa o atacante ofuscado por uma rodada.",
+          "prerequisito_texto": "Devoto de Kuaracyr",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Kuaracyr"
+            }
+          ]
+        },
+        {
+          "id": "divinos-runas-ardentes",
+          "nome": "Runas Ardentes",
+          "categoria": "divinos",
+          "descricao": "Você começa o jogo com uma Runa de Fogo a sua escolha. Se você for um devoto fiel você pode escolher esse poder mais de uma vez, concedendo uma Runa de Fogo extra.",
+          "prerequisito_texto": "Devoto de Gumedé",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Gumedé"
+            }
+          ]
+        },
+        {
+          "id": "divinos-sacrificio",
+          "nome": "Sacrifício",
+          "categoria": "divinos",
+          "descricao": "Você pode gastar uma ação de movimento e uma quantidade de PM (limitado pela sua sabedoria) para oferecer a alma de uma criatura a seu Deus. Até o fim da cena, para cada PM gasto você recebe +1d4 nas rolagens de dano contra essa criatura.",
+          "prerequisito_texto": "Devoto de Anhangá ou Micê",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Anhangá ou Micê"
+            }
+          ]
+        },
+        {
+          "id": "divinos-sais-marinhos",
+          "nome": "Sais Marinhos",
+          "categoria": "divinos",
+          "descricao": "Uma vez por cena, quando está em contato com água marinha, você pode gastar uma ação de movimento para absorver energia mágica. Você adquire uma quantidade de PMs temporários igual ao círculo máximo de magias que pode lançar. Esses PMs duram por uma cena e não são cumulativos.",
+          "prerequisito_texto": "Devoto de Mondjá",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Mondjá"
+            }
+          ]
+        },
+        {
+          "id": "divinos-senhor-das-fortunas",
+          "nome": "Senhor das Fortunas",
+          "categoria": "divinos",
+          "descricao": "Uma vez por semana você recebe 2d20 M$ que surge ao acaso. Alguem lhe doa essa quantia, você acha um saco de moedas jogado ao chão, um item de mesmo valor ou inferior é “concidentemente” é encontrado. Você sente que esse presente é para você (ele brilha de forma especial, você vê uma cobra rastejando que logo desaparece e etc.). O narrador decide a forma que você será agraciado.",
+          "prerequisito_texto": "Devoto de Kiantomerê",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Kiantomerê"
+            }
+          ]
+        },
+        {
+          "id": "divinos-senhora-da-vida-e-da-morte",
+          "nome": "Senhora da Vida e da Morte",
+          "categoria": "divinos",
+          "descricao": "Você aprende e pode lançar uma magia entre, Area Escorregadia, Criar Elemento (Trevas), Toque Vampírico, Raio de Enfraquecimento, Infligir Ferimentos, Perdição, Profanar ou Vitalidade Fantasma. Caso aprenda novamente alguma dessas magias, seu custo diminui em –1 PM. Se você for um devoto fiel você pode escolher esse poder mais de uma vez.",
+          "prerequisito_texto": "Devoto de Namburuk",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Namburuk"
+            }
+          ]
+        },
+        {
+          "id": "divinos-senhora-dos-ventos",
+          "nome": "Senhora dos Ventos",
+          "categoria": "divinos",
+          "descricao": "Você aprende e pode lançar uma magia entre Criar Elementos (Ar), Controlar o ar, Névoa. Caso aprenda novamente alguma dessas magias, seu custo diminui em –1 PM. Se você for um devoto fiel você pode escolher esse poder mais de uma vez.",
+          "prerequisito_texto": "Devoto de Tessã",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Tessã"
+            }
+          ]
+        },
+        {
+          "id": "divinos-tiro-certeiro",
+          "nome": "Tiro Certeiro",
+          "categoria": "divinos",
+          "descricao": "Quando utilizar uma arma de ataque a distância você pode gastar 1 PM para jogar 2 dados no teste de pontaria e escolher o melhor resultado.",
+          "prerequisito_texto": "Devoto de Odéssi",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Odéssi"
+            }
+          ]
+        },
+        {
+          "id": "divinos-tiro-distante",
+          "nome": "Tiro Distante",
+          "categoria": "divinos",
+          "descricao": "Quando utilizar uma arma de ataque a distância você aumenta o alcance em um passo de distância.",
+          "prerequisito_texto": "Devoto de Odéssi",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Odéssi"
+            }
+          ]
+        },
+        {
+          "id": "divinos-toque-obscuro",
+          "nome": "Toque Obscuro",
+          "categoria": "divinos",
+          "descricao": "Ao gastar1 PM e uma ação padrão, você envolve sua mão com energia negativa, podendo tocá-la em uma criatura ao alcance corpo a corpo. A criatura sofre 2d6 pontos de dano de trevas (um teste de Fortitude com CD Sabedoria reduz à metade) e você recupera PV equivalentes à metade do dano causado. É possível aprender Toque Vampírico como uma magia divina. Ao fazê-lo, o custo dessa magia é reduzido em –1 PM.",
+          "prerequisito_texto": "Devoto de Micê",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Micê"
+            }
+          ]
+        },
+        {
+          "id": "divinos-toque-verde",
+          "nome": "Toque Verde",
+          "categoria": "divinos",
+          "descricao": "Você aprende e pode lançar uma magia entre, Caminhos da Natureza, Consagrar, Armamento da Natureza ou Controlar Plantas. Caso aprenda novamente alguma dessas magias, seu custo diminui em –1 PM. Se você for um devoto fiel você pode escolher esse poder mais de uma vez.",
+          "prerequisito_texto": "Devoto de Caaporiã ou Sãin",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Caaporiã ou Sãin"
+            }
+          ]
+        },
+        {
+          "id": "divinos-tridente-de-ex-us",
+          "nome": "Tridente de Ex’us",
+          "categoria": "divinos",
+          "descricao": "Você se torna proficiente em tridentes e pode gastar 1 PM para invocar um tridente que pode ser usado como arma de corpo a corpo ou de arremesso. Essa arma é considerada arremessável e possui o encantamento Arremesso (ver sessão armas mágicas: encantamentos no cap ## Equipamento.).",
+          "prerequisito_texto": "Devoto de Ex’us",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Ex’us"
+            }
+          ]
+        },
+        {
+          "id": "divinos-veu-da-noite",
+          "nome": "Véu da Noite",
+          "categoria": "divinos",
+          "descricao": "Você aprende e pode lançar Escuridão. Caso aprenda novamente essa magia, seu custo diminui em –1 PM.",
+          "prerequisito_texto": "Devoto de Iacyr",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Iacyr"
+            }
+          ]
+        },
+        {
+          "id": "divinos-vinculo-selvagem",
+          "nome": "Vínculo Selvagem",
+          "categoria": "divinos",
+          "descricao": "Você adquire um bônus de +2 em Sobrevivência e tem a capacidade de empregar a Sabedoria em testes de Adestramento, substituindo o Carisma para essa finalidade.",
+          "prerequisito_texto": "Devoto de Caaporiã",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Caaporiã"
+            }
+          ]
+        },
+        {
+          "id": "divinos-visao-na-escuridao",
+          "nome": "Visão na Escuridão",
+          "categoria": "divinos",
+          "descricao": "Você possui a capacidade de enxergar perfeitamente no escuro, incluindo em situações envolvendo magias de escuridão.",
+          "prerequisito_texto": "Devoto de Iacyr",
+          "prerequisitos": [
+            {
+              "tipo": "manual",
+              "texto": "Devoto de Iacyr"
+            }
+          ]
+        },
+        {
+          "id": "divinos-voo-de-tessa",
+          "nome": "Voo de Tessã",
+          "categoria": "divinos",
+          "descricao": "Você pode gastar 1 PM para receber deslocamento de voo 9m até o fim do seu turno. O deslocamento aumenta em +1,5m para cada 4 níveis que você possuir.",
+          "prerequisito_texto": "",
+          "prerequisitos": []
+        },
+        {
+          "id": "divinos-voz-da-natureza",
+          "nome": "Voz da Natureza",
+          "categoria": "divinos",
+          "descricao": "Você pode se comunicar com plantas e animais selvagens, fazendo perguntas simples e recebendo respostas dentro do entendimento da criatura. (Descrição completa pendente — confirme com o manual da campanha.)",
+          "prerequisito_texto": "Devoto de Caaporiã",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Caaporiã" }]
+        },
+        {
+          "id": "divinos-chave-de-exus",
+          "nome": "Chave de Ex'us",
+          "categoria": "divinos",
+          "descricao": "Como guardião dos caminhos, você pode gastar PM para abrir passagens, destrancar portas mágicas ou criar atalhos entre planos. (Descrição completa pendente — confirme com o manual da campanha.)",
+          "prerequisito_texto": "Devoto de Ex'us",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Ex'us" }]
+        },
+        {
+          "id": "divinos-canto-da-sereia",
+          "nome": "Canto da Sereia",
+          "categoria": "divinos",
+          "descricao": "Você pode entoar um canto que enfeitiça criaturas em alcance médio, atraindo-as para perto ou paralisando-as por sua beleza. (Descrição completa pendente — confirme com o manual da campanha.)",
+          "prerequisito_texto": "Devoto de Mondjá",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Mondjá" }]
+        },
+        {
+          "id": "divinos-controlar-mare",
+          "nome": "Controlar Maré",
+          "categoria": "divinos",
+          "descricao": "Você pode gastar PM para manipular as águas: aumentar ou diminuir marés, criar ondas, acalmar tempestades costeiras. (Descrição completa pendente — confirme com o manual da campanha.)",
+          "prerequisito_texto": "Devoto de Mondjá",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Mondjá" }]
+        },
+        {
+          "id": "divinos-mae-dos-peixes",
+          "nome": "Mãe dos Peixes",
+          "categoria": "divinos",
+          "descricao": "Criaturas marinhas tornam-se amigáveis a você por padrão. Você pode invocar cardumes ou pedir ajuda a criaturas aquáticas em alcance longo. (Descrição completa pendente — confirme com o manual da campanha.)",
+          "prerequisito_texto": "Devoto de Mondjá",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Mondjá" }]
+        }
+      ]
+    },
+    {
+      "id": "origem",
+      "nome": "Poderes Únicos de Origem",
+      "descricao": "Habilidades exclusivas concedidas pela origem do personagem. Apenas personagens que compartilham a mesma origem podem adotar a habilidade exclusiva correspondente.",
+      "poderes": [
+        { "id": "origem-amigo-especial",        "nome": "Amigo Especial",        "categoria": "origem", "origem": "amigo-dos-animais",   "descricao": "Você recebe +5 em testes de Adestramento com animais. Além disso, possui um animal de estimação que o auxilia e o acompanha em suas aventuras. Em termos de jogo, é um parceiro que fornece +2 em uma perícia a sua escolha (exceto Luta ou Pontaria e aprovada pelo mestre) e não conta em seu limite de parceiros.", "prerequisito_texto": "Origem: Amigo dos Animais", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Amigo dos Animais" }] },
+        { "id": "origem-lembrancas-graduais",   "nome": "Lembranças Graduais",   "categoria": "origem", "origem": "amnesico",            "descricao": "Durante suas aventuras, em determinados momentos a critério do mestre, você pode fazer um teste de Sabedoria (CD 10) para reconhecer pessoas, criaturas ou lugares que tenha encontrado antes de perder a memória.", "prerequisito_texto": "Origem: Amnésico", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Amnésico" }] },
+        { "id": "origem-sangue-azul",           "nome": "Sangue Azul",           "categoria": "origem", "origem": "aristocrata",         "descricao": "Você tem alguma influência política, suficiente para ser tratado com mais leniência pela guarda, conseguir uma audiência com o nobre local etc.", "prerequisito_texto": "Origem: Aristocrata", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Aristocrata" }] },
+        { "id": "origem-frutos-do-trabalho",    "nome": "Frutos do Trabalho",    "categoria": "origem", "origem": "artesao",             "descricao": "No início de cada aventura, você recebe até 5 itens gerais que possa fabricar num valor total de até M$ 50. Esse valor aumenta para M$ 100 no patamar aventureiro, M$ 300 no heroico e M$ 500 no lendário.", "prerequisito_texto": "Origem: Artesão", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Artesão" }] },
+        { "id": "origem-dom-artistico",         "nome": "Dom Artístico",         "categoria": "origem", "origem": "artista",             "descricao": "Você recebe +2 em testes de Atuação, e recebe o dobro de tibares em apresentações.", "prerequisito_texto": "Origem: Artista", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Artista" }] },
+        { "id": "origem-esse-cheiro",           "nome": "Esse Cheiro...",        "categoria": "origem", "origem": "assistente-de-laboratorio", "descricao": "Você recebe +2 em Fortitude e detecta automaticamente a presença (mas não a localização ou natureza) de itens alquímicos em alcance curto.", "prerequisito_texto": "Origem: Assistente de Laboratório", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Assistente de Laboratório" }] },
+        { "id": "origem-a-prova-de-tudo",       "nome": "À Prova de Tudo",       "categoria": "origem", "origem": "batedor",             "descricao": "Você não sofre penalidade em deslocamento e Sobrevivência por clima ruim e por terreno difícil natural.", "prerequisito_texto": "Origem: Batedor", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Batedor" }] },
+        { "id": "origem-confissao",             "nome": "Confissão",             "categoria": "origem", "origem": "capanga",             "descricao": "Você pode usar Intimidação para interrogar sem custo e em uma hora (veja Investigação).", "prerequisito_texto": "Origem: Capanga", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Capanga" }] },
+        { "id": "origem-alpinista-social",      "nome": "Alpinista Social",      "categoria": "origem", "origem": "charlatao",           "descricao": "Você pode substituir testes de Diplomacia por testes de Enganação.", "prerequisito_texto": "Origem: Charlatão", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Charlatão" }] },
+        { "id": "origem-truque-de-magica",      "nome": "Truque de Mágica",      "categoria": "origem", "origem": "circense",            "descricao": "Você pode lançar Explosão de Chamas, Hipnotismo e Queda Suave, mas apenas com o aprimoramento Truque. Esta não é uma habilidade mágica — os efeitos provêm de prestidigitação.", "prerequisito_texto": "Origem: Circense", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Circense" }] },
+        { "id": "origem-punguista",             "nome": "Punguista",             "categoria": "origem", "origem": "criminoso",           "descricao": "Você pode fazer testes de Ladinagem para sustento (como a perícia Ofício), mas em apenas um dia. Se passar, recebe o dobro do dinheiro, mas, se falhar, pode ter problemas com a lei (a critério do mestre).", "prerequisito_texto": "Origem: Criminoso", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Criminoso" }] },
+        { "id": "origem-medico-de-campo",       "nome": "Médico de Campo",       "categoria": "origem", "origem": "curandeiro",          "descricao": "Você soma sua Sabedoria aos PV restaurados por suas habilidades e itens mundanos de cura.", "prerequisito_texto": "Origem: Curandeiro", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Curandeiro" }] },
+        { "id": "origem-busca-interior",        "nome": "Busca Interior",        "categoria": "origem", "origem": "eremita",             "descricao": "Quando você e seus companheiros estão diante de um mistério, incapazes de prosseguir, você pode gastar 1 PM para meditar sozinho durante algum tempo e receber uma dica do mestre.", "prerequisito_texto": "Origem: Eremita", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Eremita" }] },
+        { "id": "origem-desejo-de-liberdade",   "nome": "Desejo de Liberdade",   "categoria": "origem", "origem": "escravo",             "descricao": "Ninguém voltará a torná-lo um escravo! Você recebe +5 em testes contra a manobra agarrar e efeitos de movimento.", "prerequisito_texto": "Origem: Escravo", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Escravo" }] },
+        { "id": "origem-palpite-fundamentado",  "nome": "Palpite Fundamentado",  "categoria": "origem", "origem": "estudioso",           "descricao": "Você pode gastar 1 PM para substituir um teste de qualquer perícia originalmente baseada em Inteligência ou Sabedoria por um teste de Conhecimento.", "prerequisito_texto": "Origem: Estudioso", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Estudioso" }] },
+        { "id": "origem-agua-no-feijao",        "nome": "Água no Feijão",        "categoria": "origem", "origem": "fazendeiro",          "descricao": "Você não sofre a penalidade de -5 e não gasta matéria prima adicional para fabricar pratos para cinco pessoas.", "prerequisito_texto": "Origem: Fazendeiro", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Fazendeiro" }] },
+        { "id": "origem-cultura-exotica",       "nome": "Cultura Exótica",       "categoria": "origem", "origem": "forasteiro",          "descricao": "Por sua diferente visão de mundo, você encontra soluções inesperadas. Você pode gastar 1 PM para fazer um teste de perícia somente treinada, mesmo sem ser treinado na perícia.", "prerequisito_texto": "Origem: Forasteiro", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Forasteiro" }] },
+        { "id": "origem-detetive",              "nome": "Detetive",              "categoria": "origem", "origem": "guarda",              "descricao": "Você pode substituir testes de Percepção e Intuição por testes de Investigação.", "prerequisito_texto": "Origem: Guarda", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Guarda" }] },
+        { "id": "origem-heranca",               "nome": "Herança",               "categoria": "origem", "origem": "herdeiro",            "descricao": "Você herdou um item de preço de até M$ 1.000. Você pode escolher este poder duas vezes, para um item de até M$ 2.000.", "prerequisito_texto": "Origem: Herdeiro", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Herdeiro" }] },
+        { "id": "origem-coracao-heroico",       "nome": "Coração Heroico",       "categoria": "origem", "origem": "heroi-camponese",     "descricao": "Você recebe +3 pontos de mana. Quando atinge um novo patamar (no 5º, 11º e 17º níveis), recebe +3 PM.", "prerequisito_texto": "Origem: Herói Camponês", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Herói Camponês" }] },
+        { "id": "origem-pao-e-circo",           "nome": "Pão e Circo",           "categoria": "origem", "origem": "lutador-de-rua",      "descricao": "Por seu treino em combates de exibição, você sabe \"bater sem machucar\". Pode escolher causar dano não letal sem sofrer a penalidade de -5.", "prerequisito_texto": "Origem: Lutador de Rua", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Lutador de Rua" }] },
+        { "id": "origem-passagem-de-navio",     "nome": "Passagem de Navio",     "categoria": "origem", "origem": "marujo",              "descricao": "Você consegue transporte em embarcações para você e seus aliados, sem custos, desde que todos paguem com trabalho (passar em pelo menos um teste de perícia adequado durante a viagem).", "prerequisito_texto": "Origem: Marujo", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Marujo" }] },
+        { "id": "origem-vendedor-de-carcacas",  "nome": "Vendedor de Carcaças",  "categoria": "origem", "origem": "mateiro",             "descricao": "Você pode extrair recursos de criaturas em um minuto, em vez de uma hora, e recebe +5 no teste.", "prerequisito_texto": "Origem: Mateiro", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Mateiro" }] },
+        { "id": "origem-rede-de-contatos",      "nome": "Rede de Contatos",      "categoria": "origem", "origem": "membro-de-guilda",    "descricao": "Graças à influência de sua guilda, você pode usar Diplomacia para interrogar sem custo e em uma hora (veja Investigação).", "prerequisito_texto": "Origem: Membro de Guilda", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Membro de Guilda" }] },
+        { "id": "origem-negociacao",            "nome": "Negociação",            "categoria": "origem", "origem": "mercador",            "descricao": "Você pode vender itens 10% mais caro (não cumulativo com barganha).", "prerequisito_texto": "Origem: Mercador", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Mercador" }] },
+        { "id": "origem-escavador",             "nome": "Escavador",             "categoria": "origem", "origem": "minerador",           "descricao": "Você se torna proficiente em picaretas, causa +1 de dano com elas e não é afetado por terreno difícil em masmorras e subterrâneos.", "prerequisito_texto": "Origem: Minerador", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Minerador" }] },
+        { "id": "origem-mochileiro",            "nome": "Mochileiro",            "categoria": "origem", "origem": "nomade",              "descricao": "Seu limite de carga aumenta em 5 espaços.", "prerequisito_texto": "Origem: Nômade", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Nômade" }] },
+        { "id": "origem-quebra-galho",          "nome": "Quebra-Galho",          "categoria": "origem", "origem": "pivete",              "descricao": "Em cidades ou metrópoles, você pode comprar qualquer item mundano não superior por metade do preço normal. Esses itens não podem ser matérias-primas e não podem ser revendidos (são velhos, sujos, furtados...).", "prerequisito_texto": "Origem: Pivete", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Pivete" }] },
+        { "id": "origem-estoico",               "nome": "Estoico",               "categoria": "origem", "origem": "refugiado",           "descricao": "Sua condição de descanso é uma categoria acima do padrão pela situação (normal em condições ruins, confortável em condições normais e luxuosa em condições confortáveis ou melhores).", "prerequisito_texto": "Origem: Refugiado", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Refugiado" }] },
+        { "id": "origem-membro-da-igreja",      "nome": "Membro da Igreja",      "categoria": "origem", "origem": "religioso",           "descricao": "Você consegue hospedagem confortável e informação em qualquer templo de sua divindade, para você e seus aliados.", "prerequisito_texto": "Origem: Religioso", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Religioso" }] },
+        { "id": "origem-antigo-mestre",         "nome": "Antigo Mestre",         "categoria": "origem", "origem": "seguidor",            "descricao": "Você ainda mantém contato com o herói que costumava servir. Uma vez por aventura, ele surge para ajudá-lo por uma cena. Ele é um parceiro mestre de um tipo a sua escolha (definido ao obter este poder) que não conta em seu limite de aliados.", "prerequisito_texto": "Origem: Seguidor", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Seguidor" }] },
+        { "id": "origem-vida-rustica",          "nome": "Vida Rústica",          "categoria": "origem", "origem": "selvagem",            "descricao": "Você come coisas que fariam um avestruz vomitar (sendo imune a efeitos prejudiciais de itens ingeríveis) e também consegue descansar nos lugares mais desconfortáveis (mesmo dormindo ao relento, sua recuperação de PV e PM nunca é inferior a seu próprio nível).", "prerequisito_texto": "Origem: Selvagem", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Selvagem" }] },
+        { "id": "origem-influencia-militar",    "nome": "Influência Militar",    "categoria": "origem", "origem": "soldado",             "descricao": "Você fez amigos nas forças armadas. Onde houver acampamentos ou bases militares, você pode conseguir hospedagem e informações para você e seus aliados.", "prerequisito_texto": "Origem: Soldado", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Soldado" }] },
+        { "id": "origem-gororoba",              "nome": "Gororoba",              "categoria": "origem", "origem": "taverneiro",          "descricao": "Você não sofre a penalidade de -5 para fabricar um prato especial adicional.", "prerequisito_texto": "Origem: Taverneiro", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Taverneiro" }] },
+        { "id": "origem-esforcado",             "nome": "Esforçado",             "categoria": "origem", "origem": "trabalhador",         "descricao": "Você não teme trabalho duro, nem prazos apertados. Você recebe um bônus de +2 em todos os testes de perícias estendidos (incluindo perigos complexos).", "prerequisito_texto": "Origem: Trabalhador", "prerequisitos": [{ "tipo": "manual", "texto": "Origem: Trabalhador" }] }
+      ]
+    }
+  ]
+}
