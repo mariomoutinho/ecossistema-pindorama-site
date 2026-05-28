@@ -476,17 +476,39 @@
             "jing (poço)"
         ],
         "localizacao": "Canto ungueal radial do indicador",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor do Yangming",
+            "restabelece a consciência",
+            "beneficia a garganta"
+        ],
+        "sintomas_relacionados": [
+            "dor de garganta aguda",
+            "febre alta",
+            "dor dental",
+            "coma"
+        ],
+        "sindromes_relacionadas": [
+            "calor no Yangming",
+            "fechamento súbito"
+        ],
+        "indicacoes_terapeuticas": [
+            "amigdalite aguda (sangria)",
+            "ressuscitação"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "P11",
+                "objetivo": "calor agudo (sangria conjunta)"
+            }
+        ],
+        "observacoes_clinicas": "Shangyang — ponto Jing-poço do IG. Sangria útil em quadros agudos.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "mão"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "IG2",
@@ -496,17 +518,32 @@
             "ying (fonte)"
         ],
         "localizacao": "Depressão distal à articulação metacarpofalângica do indicador, lado radial",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor",
+            "beneficia a garganta e os dentes"
+        ],
+        "sintomas_relacionados": [
+            "dor de garganta",
+            "dor dental",
+            "epistaxe",
+            "febre"
+        ],
+        "sindromes_relacionadas": [
+            "calor no Yangming"
+        ],
+        "indicacoes_terapeuticas": [
+            "amigdalite",
+            "dor de dente"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Erjian — ponto Ying (fonte) do IG.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "mão"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "IG3",
@@ -516,17 +553,30 @@
             "shu (arroio)"
         ],
         "localizacao": "Depressão proximal à articulação metacarpofalângica do indicador, lado radial",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor",
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "dor dental",
+            "dor na mão",
+            "dor de garganta"
+        ],
+        "sindromes_relacionadas": [
+            "calor no Yangming"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor de dente"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Sanjian — ponto Shu (arroio) do IG.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "mão"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "IG4",
@@ -599,17 +649,35 @@
             "jing (rio)"
         ],
         "localizacao": "Tabaqueira anatômica, entre tendões do extensor longo e curto do polegar",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal",
+            "alivia dor no punho"
+        ],
+        "sintomas_relacionados": [
+            "dor no punho",
+            "tendinite do polegar"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal Yangming"
+        ],
+        "indicacoes_terapeuticas": [
+            "tendinite de De Quervain",
+            "dor de punho"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "PC7",
+                "objetivo": "punho"
+            }
+        ],
+        "observacoes_clinicas": "Yangxi — ponto Jing-rio do IG. Excelente para dor radial do punho.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "punho"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "IG6",
@@ -619,17 +687,41 @@
             "luo"
         ],
         "localizacao": "3 cun acima de IG5, na borda dorsorradial do antebraço",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "abre as cavidades nasais",
+            "promove a função da Bexiga"
+        ],
+        "sintomas_relacionados": [
+            "congestão nasal",
+            "epistaxe",
+            "edema facial",
+            "edema generalizado",
+            "disúria"
+        ],
+        "sindromes_relacionadas": [
+            "vento-calor no nariz",
+            "retenção de água"
+        ],
+        "indicacoes_terapeuticas": [
+            "rinite",
+            "edema"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "P9",
+                "objetivo": "IG-Pulmão, par yuan-luo"
+            }
+        ],
+        "observacoes_clinicas": "Pianli — ponto Luo do IG. Pareia com P9.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "braço",
+            "punho"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "IG7",
@@ -639,17 +731,30 @@
             "xi (fenda)"
         ],
         "localizacao": "5 cun acima de IG5",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor",
+            "alivia dor aguda"
+        ],
+        "sintomas_relacionados": [
+            "dor abdominal aguda",
+            "dor de garganta aguda",
+            "dor no antebraço"
+        ],
+        "sindromes_relacionadas": [
+            "calor agudo no Yangming"
+        ],
+        "indicacoes_terapeuticas": [
+            "amigdalite aguda"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Wenliu — ponto Xi (fenda) do IG.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "braço"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "IG8",
@@ -657,17 +762,28 @@
         "meridiano": "Intestino Grosso",
         "categoria": [],
         "localizacao": "4 cun abaixo de IG11",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "dor no cotovelo",
+            "dor no antebraço"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor no antebraço"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "braço"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "IG9",
@@ -675,17 +791,28 @@
         "meridiano": "Intestino Grosso",
         "categoria": [],
         "localizacao": "3 cun abaixo de IG11",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "dor no cotovelo",
+            "dor no antebraço"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor no antebraço"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "braço"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "IG10",
@@ -693,17 +820,43 @@
         "meridiano": "Intestino Grosso",
         "categoria": [],
         "localizacao": "2 cun abaixo de IG11",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal",
+            "regula intestinos",
+            "harmoniza o Estômago"
+        ],
+        "sintomas_relacionados": [
+            "dor no braço",
+            "epicondilite lateral",
+            "fraqueza do membro superior",
+            "diarreia",
+            "dor abdominal"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal Yangming"
+        ],
+        "indicacoes_terapeuticas": [
+            "epicondilite lateral (cotovelo de tenista)",
+            "fraqueza do braço pós-AVC"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "IG11",
+                "objetivo": "cotovelo"
+            },
+            {
+                "com": "IG4",
+                "objetivo": "vento e dor no braço"
+            }
+        ],
+        "observacoes_clinicas": "Shousanli — ponto local importante para todo o canal do IG no braço.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "braço"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "IG11",
@@ -762,17 +915,33 @@
         "meridiano": "Intestino Grosso",
         "categoria": [],
         "localizacao": "1 cun proximal a IG11, na borda lateral do úmero",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "dor no cotovelo",
+            "rigidez articular"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "epicondilite lateral"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "IG11",
+                "objetivo": "cotovelo"
+            }
+        ],
+        "observacoes_clinicas": "Zhouliao — local clássico para cotovelo de tenista.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "braço"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "IG13",
@@ -780,17 +949,28 @@
         "meridiano": "Intestino Grosso",
         "categoria": [],
         "localizacao": "3 cun proximal a IG11, na borda lateral do úmero",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "dor no cotovelo",
+            "rigidez articular"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor de cotovelo"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "braço"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "IG14",
@@ -798,17 +978,30 @@
         "meridiano": "Intestino Grosso",
         "categoria": [],
         "localizacao": "Inserção do deltoide, 7 cun proximal a IG11",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal",
+            "beneficia o ombro"
+        ],
+        "sintomas_relacionados": [
+            "dor de ombro",
+            "dor no braço",
+            "linfadenite cervical"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal Yangming"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor de ombro"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Binao — inserção do deltoide.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "braço"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "IG15",
@@ -816,17 +1009,48 @@
         "meridiano": "Intestino Grosso",
         "categoria": [],
         "localizacao": "Depressão anterior do ombro abduzido (entre acrômio e tubérculo maior)",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal",
+            "dispersa vento",
+            "alivia dor de ombro"
+        ],
+        "sintomas_relacionados": [
+            "dor de ombro",
+            "ombro congelado",
+            "urticária",
+            "hemiplegia"
+        ],
+        "sindromes_relacionadas": [
+            "vento-frio-umidade no ombro",
+            "estagnação no canal Yangming"
+        ],
+        "indicacoes_terapeuticas": [
+            "capsulite adesiva do ombro",
+            "tendinopatia do supraespinhal",
+            "hemiplegia pós-AVC"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "IG11",
+                "objetivo": "membro superior"
+            },
+            {
+                "com": "E38",
+                "objetivo": "ombro congelado — par local-distal"
+            },
+            {
+                "com": "TA14",
+                "objetivo": "ombro"
+            }
+        ],
+        "observacoes_clinicas": "Jianyu. Depressão anteroinferior do acrômio. Ponto principal do ombro anterior.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "braço"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "IG16",
@@ -834,17 +1058,34 @@
         "meridiano": "Intestino Grosso",
         "categoria": [],
         "localizacao": "Depressão entre acrômio e espinha da escápula",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "dor de ombro",
+            "dor cervical"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor de ombro"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "IG15",
+                "objetivo": "ombro"
+            }
+        ],
+        "observacoes_clinicas": "Jugu — entre clavícula e espinha da escápula.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "braço",
+            "pescoço"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "IG17",
@@ -852,17 +1093,32 @@
         "meridiano": "Intestino Grosso",
         "categoria": [],
         "localizacao": "1 cun abaixo de IG18, borda posterior do esternocleidomastoideo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "beneficia a garganta",
+            "transforma fleuma"
+        ],
+        "sintomas_relacionados": [
+            "dor de garganta",
+            "tireoide aumentada",
+            "linfadenite cervical"
+        ],
+        "sindromes_relacionadas": [
+            "fleuma-fogo no pescoço"
+        ],
+        "indicacoes_terapeuticas": [
+            "bócio (suporte)"
+        ],
+        "contraindicacoes": [
+            "evitar a carótida"
+        ],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Tianding — ponto janela do céu.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "pescoço"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "IG18",
@@ -870,17 +1126,31 @@
         "meridiano": "Intestino Grosso",
         "categoria": [],
         "localizacao": "No pescoço, ao lado da maçã de Adão, entre os ventres do esternocleidomastoideo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "beneficia a garganta"
+        ],
+        "sintomas_relacionados": [
+            "dor de garganta",
+            "tosse",
+            "tireoide aumentada"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no pescoço"
+        ],
+        "indicacoes_terapeuticas": [
+            "faringite"
+        ],
+        "contraindicacoes": [
+            "evitar a carótida"
+        ],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Futu (pescoço) — janela do céu.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "pescoço"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "IG19",
@@ -888,17 +1158,30 @@
         "meridiano": "Intestino Grosso",
         "categoria": [],
         "localizacao": "Abaixo da narina, ao lado do filtro labial",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "abre o nariz"
+        ],
+        "sintomas_relacionados": [
+            "congestão nasal",
+            "epistaxe",
+            "paralisia facial"
+        ],
+        "sindromes_relacionadas": [
+            "vento na face"
+        ],
+        "indicacoes_terapeuticas": [
+            "rinite"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Heliao (face) — abaixo da narina.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "IG20",
@@ -3504,17 +3787,43 @@
             "jing (poço)"
         ],
         "localizacao": "Canto ungueal ulnar do dedo mínimo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "promove a lactação",
+            "dispersa vento-calor",
+            "beneficia a garganta"
+        ],
+        "sintomas_relacionados": [
+            "agalactia",
+            "mastite",
+            "dor de garganta",
+            "rigidez cervical"
+        ],
+        "sindromes_relacionadas": [
+            "estase nas mamas",
+            "calor-toxina"
+        ],
+        "indicacoes_terapeuticas": [
+            "agalactia",
+            "mastite (sangria útil)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "E18",
+                "objetivo": "lactação"
+            },
+            {
+                "com": "VC17",
+                "objetivo": "mamas e Qi"
+            }
+        ],
+        "observacoes_clinicas": "Shaoze — ponto Jing-poço do ID. Sangria clássica para mastite.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "mão"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "ID2",
@@ -3524,17 +3833,32 @@
             "ying (fonte)"
         ],
         "localizacao": "Depressão distal à articulação MCF do dedo mínimo, lado ulnar",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor",
+            "beneficia a garganta e os ouvidos"
+        ],
+        "sintomas_relacionados": [
+            "dor de garganta",
+            "zumbido",
+            "surdez",
+            "febre"
+        ],
+        "sindromes_relacionadas": [
+            "calor no Taiyang"
+        ],
+        "indicacoes_terapeuticas": [
+            "faringite",
+            "zumbido por calor"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Qiangu — ponto Ying (fonte) do ID.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "mão"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "ID3",
@@ -3545,17 +3869,55 @@
             "confluência com Du Mai"
         ],
         "localizacao": "Depressão proximal à articulação MCF do dedo mínimo, lado ulnar",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "abre o Du Mai",
+            "dispersa vento",
+            "relaxa tendões",
+            "acalma o shen"
+        ],
+        "sintomas_relacionados": [
+            "cervicalgia",
+            "torcicolo",
+            "lombalgia aguda",
+            "cefaleia occipital",
+            "epilepsia",
+            "rigidez da coluna",
+            "espasmo do trapézio"
+        ],
+        "sindromes_relacionadas": [
+            "vento externo no Taiyang",
+            "estagnação no Du Mai",
+            "vento interno"
+        ],
+        "indicacoes_terapeuticas": [
+            "torcicolo agudo",
+            "cervicalgia aguda",
+            "lombalgia aguda",
+            "hérnia de disco cervical (suporte)",
+            "epilepsia (suporte)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "B62",
+                "objetivo": "abrir Du Mai + Yang Qiao, par mestre-acoplado"
+            },
+            {
+                "com": "VG14",
+                "objetivo": "Du Mai"
+            },
+            {
+                "com": "VB20",
+                "objetivo": "cervicalgia"
+            }
+        ],
+        "observacoes_clinicas": "Houxi — ponto Shu (arroio) do ID e confluência (mestre) do Du Mai. Ponto distal de eleição para qualquer rigidez do Taiyang.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "mão"
+        ],
+        "peso_base": 8,
+        "dados_completos": true
     },
     {
         "codigo": "ID4",
@@ -3565,17 +3927,33 @@
             "yuan (fonte)"
         ],
         "localizacao": "Borda ulnar da mão, depressão entre 5º metacarpo e ganchoso",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor",
+            "regula líquidos"
+        ],
+        "sintomas_relacionados": [
+            "icterícia",
+            "rigidez cervical",
+            "dor no punho",
+            "diabetes (suporte)"
+        ],
+        "sindromes_relacionadas": [
+            "calor-umidade",
+            "deficiência de Yin (suporte)"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor de punho",
+            "icterícia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Wangu (mão) — ponto Yuan (fonte) do ID.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "mão"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "ID5",
@@ -3585,17 +3963,29 @@
             "jing (rio)"
         ],
         "localizacao": "Depressão entre estiloide ulnar e piramidal",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor",
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "dor no punho",
+            "febre"
+        ],
+        "sindromes_relacionadas": [
+            "calor no Taiyang"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor de punho"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Yanggu — ponto Jing-rio do ID.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "punho"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "ID6",
@@ -3605,17 +3995,41 @@
             "xi (fenda)"
         ],
         "localizacao": "Acima do estiloide ulnar, com o punho em supinação",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "beneficia os olhos",
+            "relaxa tendões",
+            "alivia dor aguda"
+        ],
+        "sintomas_relacionados": [
+            "visão turva",
+            "dor de ombro",
+            "dor cervical",
+            "dor lombar",
+            "dor nas costas"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de sangue do Fígado",
+            "estagnação aguda no Taiyang"
+        ],
+        "indicacoes_terapeuticas": [
+            "visão turva no idoso",
+            "dor aguda de ombro/cervical"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "ID3",
+                "objetivo": "Taiyang superior"
+            }
+        ],
+        "observacoes_clinicas": "Yanglao — ponto Xi (fenda) do ID. \"Cuidar do idoso\": tradicionalmente para presbiopia.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "punho",
+            "braço"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "ID7",
@@ -3625,17 +4039,39 @@
             "luo"
         ],
         "localizacao": "5 cun acima de ID5",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "acalma o shen",
+            "dispersa vento"
+        ],
+        "sintomas_relacionados": [
+            "ansiedade",
+            "agitação mental",
+            "rigidez cervical",
+            "dor no cotovelo",
+            "tristeza"
+        ],
+        "sindromes_relacionadas": [
+            "fogo do Coração transferido para o ID",
+            "vento-calor"
+        ],
+        "indicacoes_terapeuticas": [
+            "ansiedade",
+            "transtornos psicossomáticos"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "C5",
+                "objetivo": "Coração-ID, par yuan-luo"
+            }
+        ],
+        "observacoes_clinicas": "Zhizheng — ponto Luo do ID. Pareia com C5.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "braço"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "ID8",
@@ -3645,17 +4081,28 @@
             "he (mar)"
         ],
         "localizacao": "Entre olécrano e epicôndilo medial",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "dor no cotovelo medial",
+            "rigidez cervical"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor medial do cotovelo"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Xiaohai — ponto He-mar do ID.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "braço"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "ID9",
@@ -3663,17 +4110,38 @@
         "meridiano": "Intestino Delgado",
         "categoria": [],
         "localizacao": "1 cun acima da prega axilar posterior",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal",
+            "beneficia o ombro"
+        ],
+        "sintomas_relacionados": [
+            "dor de ombro",
+            "limitação articular"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal Taiyang"
+        ],
+        "indicacoes_terapeuticas": [
+            "ombro congelado (face posterior)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "ID11",
+                "objetivo": "ombro"
+            },
+            {
+                "com": "IG15",
+                "objetivo": "ombro"
+            }
+        ],
+        "observacoes_clinicas": "Jianzhen — ombro posterior.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "braço"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "ID10",
@@ -3681,17 +4149,28 @@
         "meridiano": "Intestino Delgado",
         "categoria": [],
         "localizacao": "Vertical de ID9, abaixo da espinha da escápula",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "dor de ombro",
+            "edema do ombro"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor de ombro"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Naoshu.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "braço"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "ID11",
@@ -3699,17 +4178,50 @@
         "meridiano": "Intestino Delgado",
         "categoria": [],
         "localizacao": "Centro da fossa infraespinhosa",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal",
+            "regula o Qi do ombro e da escápula",
+            "regula as mamas"
+        ],
+        "sintomas_relacionados": [
+            "dor escapular",
+            "ombro congelado",
+            "dor torácica lateral",
+            "mastite",
+            "agalactia"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal Taiyang",
+            "estase nas mamas"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor escapular crônica",
+            "ombro congelado (posterior)",
+            "mastite"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "ID9",
+                "objetivo": "ombro"
+            },
+            {
+                "com": "ID10",
+                "objetivo": "ombro"
+            },
+            {
+                "com": "IG15",
+                "objetivo": "ombro anterior"
+            }
+        ],
+        "observacoes_clinicas": "Tianzong. Centro da fossa infraespinhal — ponto-chave para qualquer dor escapular.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "costas",
+            "braço"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "ID12",
@@ -3717,17 +4229,28 @@
         "meridiano": "Intestino Delgado",
         "categoria": [],
         "localizacao": "Acima de ID11, na fossa supraespinhosa",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "dor escapular",
+            "dor de ombro"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor escapular"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Bingfeng.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "costas"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "ID13",
@@ -3735,17 +4258,28 @@
         "meridiano": "Intestino Delgado",
         "categoria": [],
         "localizacao": "Borda medial da fossa supraespinhosa",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "dor escapular",
+            "rigidez de pescoço"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor escapular"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Quyuan.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "costas"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "ID14",
@@ -3753,17 +4287,28 @@
         "meridiano": "Intestino Delgado",
         "categoria": [],
         "localizacao": "3 cun lateral à borda inferior do processo espinhoso de T1",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "dor escapular alta",
+            "rigidez cervical"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor cervicoescapular"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Jianwaishu.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "costas"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "ID15",
@@ -3771,17 +4316,31 @@
         "meridiano": "Intestino Delgado",
         "categoria": [],
         "localizacao": "2 cun lateral à borda inferior do processo espinhoso de C7",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal",
+            "descende Qi rebelde"
+        ],
+        "sintomas_relacionados": [
+            "rigidez cervical",
+            "tosse",
+            "dor escapular"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "cervicalgia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Jianzhongshu.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "costas",
+            "pescoço"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "ID16",
@@ -3789,17 +4348,32 @@
         "meridiano": "Intestino Delgado",
         "categoria": [],
         "localizacao": "Borda posterior do esternocleidomastoideo, ao nível da maçã de Adão",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "beneficia a garganta",
+            "abre os ouvidos"
+        ],
+        "sintomas_relacionados": [
+            "dor de garganta",
+            "zumbido",
+            "rigidez cervical"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no pescoço"
+        ],
+        "indicacoes_terapeuticas": [
+            "faringite"
+        ],
+        "contraindicacoes": [
+            "evitar a carótida"
+        ],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Tianchuang — janela do céu.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "pescoço"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "ID17",
@@ -3807,17 +4381,33 @@
         "meridiano": "Intestino Delgado",
         "categoria": [],
         "localizacao": "Atrás do ângulo da mandíbula, na borda anterior do esternocleidomastoideo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "beneficia a garganta",
+            "abre os ouvidos"
+        ],
+        "sintomas_relacionados": [
+            "dor de garganta",
+            "zumbido",
+            "surdez",
+            "tireoide aumentada"
+        ],
+        "sindromes_relacionadas": [
+            "fleuma no pescoço"
+        ],
+        "indicacoes_terapeuticas": [
+            "bócio (suporte)"
+        ],
+        "contraindicacoes": [
+            "evitar a carótida"
+        ],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Tianrong.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "pescoço"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "ID18",
@@ -3825,17 +4415,42 @@
         "meridiano": "Intestino Delgado",
         "categoria": [],
         "localizacao": "Sob a margem inferior do zigomático, na linha vertical do canto externo do olho",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "ativa o canal",
+            "alivia dor facial"
+        ],
+        "sintomas_relacionados": [
+            "paralisia facial",
+            "dor zigomática",
+            "tique facial",
+            "dor dental superior"
+        ],
+        "sindromes_relacionadas": [
+            "vento externo na face"
+        ],
+        "indicacoes_terapeuticas": [
+            "paralisia facial periférica",
+            "neuralgia do trigêmeo (2º ramo)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "IG4",
+                "objetivo": "vento na face"
+            },
+            {
+                "com": "E2",
+                "objetivo": "paralisia facial"
+            }
+        ],
+        "observacoes_clinicas": "Quanliao — depressão abaixo do zigoma. Ponto local clássico para a região malar.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "ID19",
@@ -3843,17 +4458,49 @@
         "meridiano": "Intestino Delgado",
         "categoria": [],
         "localizacao": "Anterior ao tragus, com a boca aberta",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "abre os ouvidos",
+            "beneficia a audição"
+        ],
+        "sintomas_relacionados": [
+            "zumbido",
+            "surdez",
+            "dor de ouvido",
+            "DTM"
+        ],
+        "sindromes_relacionadas": [
+            "vento na orelha",
+            "fleuma-fogo no ouvido",
+            "deficiência de Rim (zumbido crônico)"
+        ],
+        "indicacoes_terapeuticas": [
+            "zumbido",
+            "surdez",
+            "otite",
+            "DTM"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "TA17",
+                "objetivo": "ouvidos"
+            },
+            {
+                "com": "TA21",
+                "objetivo": "ouvidos"
+            },
+            {
+                "com": "VB2",
+                "objetivo": "ouvidos"
+            }
+        ],
+        "observacoes_clinicas": "Tinggong. Anterior ao trágus, boca entreaberta. Trio clássico com TA21 (Ermen) e VB2 (Tinghui).",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "B1",
@@ -7455,17 +8102,33 @@
             "jing (poço)"
         ],
         "localizacao": "Canto ungueal ulnar do anelar",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor",
+            "restabelece a consciência"
+        ],
+        "sintomas_relacionados": [
+            "dor de garganta",
+            "febre alta",
+            "coma",
+            "dor de cabeça"
+        ],
+        "sindromes_relacionadas": [
+            "calor no Shaoyang",
+            "fechamento súbito"
+        ],
+        "indicacoes_terapeuticas": [
+            "amigdalite aguda (sangria)",
+            "ressuscitação"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Guanchong — ponto Jing-poço do TA.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "mão"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "TA2",
@@ -7475,17 +8138,31 @@
             "ying (fonte)"
         ],
         "localizacao": "Depressão entre 4º e 5º metacarpos, distal à MCF",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor do Shaoyang",
+            "beneficia os ouvidos"
+        ],
+        "sintomas_relacionados": [
+            "dor de cabeça",
+            "zumbido",
+            "dor de garganta",
+            "olhos vermelhos"
+        ],
+        "sindromes_relacionadas": [
+            "calor no Shaoyang"
+        ],
+        "indicacoes_terapeuticas": [
+            "zumbido por calor"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Yemen — ponto Ying (fonte) do TA.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "mão"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "TA3",
@@ -7495,17 +8172,44 @@
             "shu (arroio)"
         ],
         "localizacao": "Dorso da mão, depressão proximal entre 4º e 5º metacarpos",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor do Shaoyang",
+            "beneficia os ouvidos",
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "enxaqueca",
+            "zumbido",
+            "surdez",
+            "dor cervical",
+            "dor no membro superior"
+        ],
+        "sindromes_relacionadas": [
+            "calor no Shaoyang",
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "zumbido",
+            "enxaqueca temporal"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "TA21",
+                "objetivo": "ouvidos"
+            },
+            {
+                "com": "VB20",
+                "objetivo": "enxaqueca"
+            }
+        ],
+        "observacoes_clinicas": "Zhongzhu — ponto Shu (arroio) do TA. Bastante usado em conjunto com TA5 e VB20 nas cefaleias laterais.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "mão"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "TA4",
@@ -7515,17 +8219,30 @@
             "yuan (fonte)"
         ],
         "localizacao": "Centro da prega dorsal do punho",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal",
+            "alivia dor no punho"
+        ],
+        "sintomas_relacionados": [
+            "dor no punho",
+            "rigidez articular",
+            "diabetes (suporte)"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal Shaoyang"
+        ],
+        "indicacoes_terapeuticas": [
+            "tendinopatia do punho"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Yangchi — ponto Yuan (fonte) do TA. Centro do dorso do punho.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "punho"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "TA5",
@@ -7585,17 +8302,47 @@
             "jing (rio)"
         ],
         "localizacao": "3 cun acima de TA4, entre rádio e ulna",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o Qi do TA",
+            "promove peristalse",
+            "espalha o Qi do Fígado",
+            "drena calor"
+        ],
+        "sintomas_relacionados": [
+            "constipação",
+            "hipocondralgia",
+            "neuralgia intercostal",
+            "herpes-zóster",
+            "tireoide aumentada"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação de Qi do Fígado",
+            "calor no Shaoyang",
+            "estagnação no TA"
+        ],
+        "indicacoes_terapeuticas": [
+            "constipação por estagnação",
+            "neuralgia intercostal",
+            "herpes-zóster (suporte)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "E25",
+                "objetivo": "constipação"
+            },
+            {
+                "com": "TA5",
+                "objetivo": "TA superior e inferior"
+            }
+        ],
+        "observacoes_clinicas": "Zhigou — ponto Jing-rio do TA. Indicação de eleição para constipação por estagnação.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "braço"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "TA7",
@@ -7605,17 +8352,30 @@
             "xi (fenda)"
         ],
         "localizacao": "3 cun acima de TA4, 1 dedo ulnar a TA6",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor",
+            "alivia dor aguda"
+        ],
+        "sintomas_relacionados": [
+            "dor no antebraço",
+            "surdez aguda",
+            "epilepsia"
+        ],
+        "sindromes_relacionadas": [
+            "calor agudo no Shaoyang"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor aguda no antebraço"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Huizong — ponto Xi (fenda) do TA.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "braço"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "TA8",
@@ -7623,17 +8383,28 @@
         "meridiano": "Triplo Aquecedor",
         "categoria": [],
         "localizacao": "4 cun acima de TA4, entre rádio e ulna",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "dor no antebraço",
+            "fraqueza dos membros"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor no antebraço"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Sanyangluo — \"União dos Três Yang\" (acoplagem dos três Yang do braço).",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "braço"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "TA9",
@@ -7641,17 +8412,29 @@
         "meridiano": "Triplo Aquecedor",
         "categoria": [],
         "localizacao": "5 cun abaixo do olécrano, entre rádio e ulna",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor",
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "dor no antebraço",
+            "surdez"
+        ],
+        "sindromes_relacionadas": [
+            "calor no Shaoyang"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor no antebraço"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "braço"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "TA10",
@@ -7661,17 +8444,33 @@
             "he (mar)"
         ],
         "localizacao": "1 cun acima do olécrano, com o cotovelo flexionado",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "transforma fleuma",
+            "acalma o shen",
+            "alivia dor no cotovelo"
+        ],
+        "sintomas_relacionados": [
+            "epilepsia",
+            "transtornos mentais",
+            "dor no cotovelo",
+            "linfadenite"
+        ],
+        "sindromes_relacionadas": [
+            "fleuma-fogo perturbando o shen"
+        ],
+        "indicacoes_terapeuticas": [
+            "epilepsia (suporte)",
+            "linfadenite cervical (suporte)"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Tianjing — ponto He-mar do TA.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "braço"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "TA11",
@@ -7679,17 +8478,28 @@
         "meridiano": "Triplo Aquecedor",
         "categoria": [],
         "localizacao": "1 cun proximal a TA10",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "dor no cotovelo",
+            "dor no braço"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor de cotovelo"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "braço"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "TA12",
@@ -7697,17 +8507,27 @@
         "meridiano": "Triplo Aquecedor",
         "categoria": [],
         "localizacao": "Meio da face dorsal do úmero, entre TA11 e TA13",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "dor no braço"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor no braço"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "braço"
+        ],
+        "peso_base": 3,
+        "dados_completos": true
     },
     {
         "codigo": "TA13",
@@ -7715,17 +8535,28 @@
         "meridiano": "Triplo Aquecedor",
         "categoria": [],
         "localizacao": "Borda inferior do deltoide, na face posterior do braço",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "dor no braço",
+            "dor escapular"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor no braço"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "braço"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "TA14",
@@ -7733,17 +8564,41 @@
         "meridiano": "Triplo Aquecedor",
         "categoria": [],
         "localizacao": "Depressão posterior do ombro abduzido",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal",
+            "alivia dor de ombro"
+        ],
+        "sintomas_relacionados": [
+            "dor de ombro",
+            "ombro congelado",
+            "limitação articular"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal Shaoyang",
+            "vento-frio-umidade no ombro"
+        ],
+        "indicacoes_terapeuticas": [
+            "capsulite adesiva do ombro (face lateral/posterior)",
+            "tendinopatias do ombro"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "IG15",
+                "objetivo": "ombro anterior + lateral"
+            },
+            {
+                "com": "ID11",
+                "objetivo": "ombro posterior"
+            }
+        ],
+        "observacoes_clinicas": "Jianliao. Depressão posteroinferior do acrômio. Trio com IG15 e ID11 para ombro congelado.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "braço"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "TA15",
@@ -7751,17 +8606,29 @@
         "meridiano": "Triplo Aquecedor",
         "categoria": [],
         "localizacao": "Borda superior da escápula, ângulo medial superior",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "dor escapular alta",
+            "rigidez cervical"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor cervicoescapular"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "costas",
+            "pescoço"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "TA16",
@@ -7769,17 +8636,31 @@
         "meridiano": "Triplo Aquecedor",
         "categoria": [],
         "localizacao": "Atrás do ângulo da mandíbula, abaixo do processo mastoide",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "acalma o shen",
+            "abre os ouvidos"
+        ],
+        "sintomas_relacionados": [
+            "zumbido",
+            "surdez",
+            "transtornos mentais",
+            "cefaleia"
+        ],
+        "sindromes_relacionadas": [
+            "fleuma-fogo no Shaoyang"
+        ],
+        "indicacoes_terapeuticas": [
+            "zumbido"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Tianyou — ponto janela do céu.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "pescoço"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "TA17",
@@ -7787,17 +8668,51 @@
         "meridiano": "Triplo Aquecedor",
         "categoria": [],
         "localizacao": "Atrás do lóbulo da orelha, na depressão entre mandíbula e processo mastoide",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "abre os ouvidos",
+            "beneficia a face"
+        ],
+        "sintomas_relacionados": [
+            "zumbido",
+            "surdez",
+            "otite",
+            "paralisia facial",
+            "DTM",
+            "papeira",
+            "dor de ouvido"
+        ],
+        "sindromes_relacionadas": [
+            "vento externo invadindo o ouvido",
+            "vento-fleuma na face"
+        ],
+        "indicacoes_terapeuticas": [
+            "paralisia facial periférica (especialmente acompanhada de envolvimento auricular)",
+            "otite externa/média",
+            "zumbido"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "ID19",
+                "objetivo": "ouvidos"
+            },
+            {
+                "com": "TA21",
+                "objetivo": "ouvidos"
+            },
+            {
+                "com": "IG4",
+                "objetivo": "vento na face"
+            }
+        ],
+        "observacoes_clinicas": "Yifeng — \"Tela do Vento\". Atrás do lóbulo da orelha. Ponto-chave para qualquer afecção do ouvido e na paralisia facial periférica.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "TA18",
@@ -7805,17 +8720,30 @@
         "meridiano": "Triplo Aquecedor",
         "categoria": [],
         "localizacao": "1/3 superior do processo mastoide, atrás da orelha",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "abre os ouvidos",
+            "acalma o shen"
+        ],
+        "sintomas_relacionados": [
+            "zumbido",
+            "surdez",
+            "convulsão infantil"
+        ],
+        "sindromes_relacionadas": [
+            "vento interno"
+        ],
+        "indicacoes_terapeuticas": [
+            "zumbido"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Qimai.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "TA19",
@@ -7823,17 +8751,29 @@
         "meridiano": "Triplo Aquecedor",
         "categoria": [],
         "localizacao": "Atrás da orelha, na linha vertical entre TA18 e TA20",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "abre os ouvidos"
+        ],
+        "sintomas_relacionados": [
+            "zumbido",
+            "surdez",
+            "cefaleia"
+        ],
+        "sindromes_relacionadas": [
+            "vento na orelha"
+        ],
+        "indicacoes_terapeuticas": [
+            "zumbido"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Luxi.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "TA20",
@@ -7841,17 +8781,30 @@
         "meridiano": "Triplo Aquecedor",
         "categoria": [],
         "localizacao": "Acima do ápice da orelha, na inserção do cabelo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "clareia calor"
+        ],
+        "sintomas_relacionados": [
+            "dor temporal",
+            "cefaleia",
+            "olhos vermelhos"
+        ],
+        "sindromes_relacionadas": [
+            "calor no Shaoyang"
+        ],
+        "indicacoes_terapeuticas": [
+            "cefaleia temporal"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Jiaosun — acima da orelha. Tradicionalmente usado em moxa para papeira.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "cabeça"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "TA21",
@@ -7859,17 +8812,44 @@
         "meridiano": "Triplo Aquecedor",
         "categoria": [],
         "localizacao": "Anterior à incisura supratragal, com a boca aberta",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "abre os ouvidos",
+            "dispersa vento"
+        ],
+        "sintomas_relacionados": [
+            "zumbido",
+            "surdez",
+            "otite",
+            "dor de ouvido",
+            "DTM"
+        ],
+        "sindromes_relacionadas": [
+            "vento externo no ouvido",
+            "fogo do Fígado/VB"
+        ],
+        "indicacoes_terapeuticas": [
+            "zumbido",
+            "surdez",
+            "otite"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "ID19",
+                "objetivo": "ouvidos"
+            },
+            {
+                "com": "VB2",
+                "objetivo": "ouvidos"
+            }
+        ],
+        "observacoes_clinicas": "Ermen — \"Porta do Ouvido\". Anterior ao trágus, boca entreaberta. Forma trio com ID19 (Tinggong) e VB2 (Tinghui).",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "TA22",
@@ -7877,17 +8857,32 @@
         "meridiano": "Triplo Aquecedor",
         "categoria": [],
         "localizacao": "Anterior à raiz da hélice da orelha, ao nível de TA21",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "zumbido",
+            "dor temporal",
+            "paralisia facial"
+        ],
+        "sindromes_relacionadas": [
+            "vento externo na face"
+        ],
+        "indicacoes_terapeuticas": [
+            "paralisia facial"
+        ],
+        "contraindicacoes": [
+            "evitar a artéria temporal superficial"
+        ],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Heliao (têmpora).",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "cabeça"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "TA23",
@@ -7895,17 +8890,45 @@
         "meridiano": "Triplo Aquecedor",
         "categoria": [],
         "localizacao": "Extremidade lateral da sobrancelha",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "clareia calor do Fígado",
+            "beneficia os olhos",
+            "alivia dor temporal"
+        ],
+        "sintomas_relacionados": [
+            "enxaqueca",
+            "cefaleia temporal",
+            "olhos vermelhos",
+            "visão turva",
+            "tique palpebral"
+        ],
+        "sindromes_relacionadas": [
+            "ascensão de Yang",
+            "vento externo"
+        ],
+        "indicacoes_terapeuticas": [
+            "enxaqueca",
+            "afecções oculares"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VB8",
+                "objetivo": "enxaqueca temporal"
+            },
+            {
+                "com": "EX-HN5 Taiyang",
+                "objetivo": "têmpora"
+            }
+        ],
+        "observacoes_clinicas": "Sizhukong — fim da sobrancelha. Subcutâneo em direção ao templo.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "VB1",
