@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Organizador de Estudos · Suindá</title>
+  <meta name="description" content="Cadastre matérias, tarefas e monte sua agenda de estudos da semana." />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/organizador.css" />
+</head>
+<body>
+  <header class="app-header">
+    <a class="brand" href="index.html">
+      <span class="logo">S</span>
+      <span>Suindá</span>
+    </a>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="baralhos.html">Baralhos</a>
+      <a href="organizador.html" class="active">Organizador</a>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- TOPO: identidade do(a) estudante + resumo da semana -->
+    <section class="card">
+      <div class="estudante-topo">
+        <div>
+          <h1 id="estudante-nome-topo">Estudante</h1>
+          <p class="objetivo" id="estudante-objetivo-topo">Sem objetivo definido</p>
+        </div>
+        <div class="kpis">
+          <div class="kpi"><strong id="resumo-horas">0h</strong><span>planejadas</span></div>
+          <div class="kpi"><strong id="resumo-pendentes">0</strong><span>pendentes</span></div>
+          <div class="kpi"><strong id="resumo-concluidas">0</strong><span>concluídas</span></div>
+        </div>
+      </div>
+      <div id="aviso-carga" class="aviso aviso--warn hidden"></div>
+
+      <details style="margin-top:var(--sp-4);">
+        <summary class="muted" style="cursor:pointer;">Editar perfil do(a) estudante</summary>
+        <form id="form-estudante" class="stack" style="margin-top:var(--sp-3);">
+          <div class="field-row cols-3">
+            <div class="field">
+              <label for="est-nome">Nome</label>
+              <input type="text" id="est-nome" name="nome" placeholder="Seu nome" maxlength="60" />
+            </div>
+            <div class="field">
+              <label for="est-objetivo">Objetivo principal</label>
+              <select id="est-objetivo" name="objetivo">
+                <option value="">—</option>
+                <option>ENEM</option>
+                <option>Concurso</option>
+                <option>Faculdade</option>
+                <option>Curso livre</option>
+                <option>Rotina pessoal</option>
+                <option>Reforço escolar</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="est-carga">Carga horária semanal (h)</label>
+              <input type="number" id="est-carga" name="cargaSemanal" min="0" step="0.5" placeholder="ex.: 20" />
+            </div>
+          </div>
+          <div class="row">
+            <button type="submit" class="btn btn--primary">Salvar perfil</button>
+            <button type="button" class="btn btn--ghost" id="btn-export">Exportar backup</button>
+            <button type="button" class="btn btn--ghost" id="btn-import">Importar backup</button>
+            <input type="file" id="input-import" accept="application/json" class="hidden" />
+            <button type="button" class="btn btn--danger" id="btn-reset">Apagar tudo</button>
+          </div>
+        </form>
+      </details>
+    </section>
+
+    <!-- RESUMO da semana por matéria e categoria -->
+    <section class="card">
+      <h2>Resumo da semana</h2>
+      <div class="resumo-grid">
+        <div class="resumo-bloco">
+          <h4>Horas por matéria</h4>
+          <div id="resumo-materias"></div>
+        </div>
+        <div class="resumo-bloco">
+          <h4>Horas por categoria</h4>
+          <div id="resumo-categorias"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LAYOUT PRINCIPAL: matérias | agenda | tarefas -->
+    <div class="organizador-layout">
+
+      <!-- COL 1: matérias -->
+      <section class="card col-materias">
+        <div class="col-titulo">
+          <h2>Matérias</h2>
+          <button class="btn btn--primary btn--sm" id="btn-nova-materia">+ Nova</button>
+        </div>
+        <div id="lista-materias"></div>
+      </section>
+
+      <!-- COL 2: agenda -->
+      <section class="card col-agenda">
+        <div class="col-titulo">
+          <h2>Agenda</h2>
+          <button class="btn btn--primary btn--sm" id="btn-nova-tarefa">+ Nova tarefa</button>
+        </div>
+        <div class="agenda-controles">
+          <div class="views">
+            <button type="button" class="btn active" data-view="semana">Semana</button>
+            <button type="button" class="btn" data-view="dia">Dia</button>
+          </div>
+          <button class="btn btn--ghost btn--sm" id="agenda-anterior">←</button>
+          <div class="agenda-titulo" id="agenda-titulo"></div>
+          <button class="btn btn--ghost btn--sm" id="agenda-proximo">→</button>
+          <button class="btn btn--ghost btn--sm" id="agenda-hoje">Hoje</button>
+        </div>
+        <div id="agenda" class="agenda agenda--semana"></div>
+        <p class="muted" style="margin-top:var(--sp-2);font-size:.8rem;">Dica: clique em um espaço vazio da agenda para criar uma tarefa naquele horário.</p>
+      </section>
+
+      <!-- COL 3: tarefas + filtros -->
+      <section class="card col-tarefas">
+        <div class="col-titulo">
+          <h2>Tarefas</h2>
+        </div>
+        <div id="filtros" class="filtros-bar">
+          <div class="field">
+            <label>Buscar</label>
+            <input type="text" data-filter="busca" placeholder="título ou descrição" />
+          </div>
+          <div class="field">
+            <label>Matéria</label>
+            <select data-filter="materiaId" data-fill="materias" data-optional="1" data-placeholder="Todas"></select>
+          </div>
+          <div class="field">
+            <label>Categoria</label>
+            <select data-filter="categoria" data-fill="categorias" data-optional="1"></select>
+          </div>
+          <div class="field">
+            <label>Prioridade</label>
+            <select data-filter="prioridade">
+              <option value="">Todas</option>
+              <option value="baixa">Baixa</option>
+              <option value="media">Média</option>
+              <option value="alta">Alta</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Status</label>
+            <select data-filter="status">
+              <option value="">Todos</option>
+              <option value="pendente">Pendente</option>
+              <option value="em_andamento">Em andamento</option>
+              <option value="concluida">Concluída</option>
+              <option value="adiada">Adiada</option>
+              <option value="cancelada">Cancelada</option>
+            </select>
+          </div>
+          <button class="btn btn--ghost btn--sm" id="btn-limpar-filtros">Limpar</button>
+        </div>
+        <ul id="lista-tarefas"></ul>
+      </section>
+    </div>
+  </main>
+
+  <!-- ============================ MODAIS ============================ -->
+
+  <!-- Modal: matéria -->
+  <div id="modal-materia" class="modal-backdrop hidden">
+    <div class="modal">
+      <header>
+        <h3 id="modal-materia-titulo">Nova matéria</h3>
+        <button class="modal-close" aria-label="Fechar">×</button>
+      </header>
+      <form id="form-materia" class="stack">
+        <input type="hidden" name="id" />
+        <div class="field">
+          <label>Nome *</label>
+          <input type="text" name="nome" required maxlength="80" />
+        </div>
+        <div class="field-row cols-3">
+          <div class="field">
+            <label>Cor</label>
+            <input type="color" name="cor" value="#4f7a4a" />
+          </div>
+          <div class="field">
+            <label>Prioridade</label>
+            <select name="prioridade">
+              <option value="baixa">Baixa</option>
+              <option value="media" selected>Média</option>
+              <option value="alta">Alta</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Status</label>
+            <select name="status">
+              <option value="ativa" selected>Ativa</option>
+              <option value="pausada">Pausada</option>
+              <option value="concluida">Concluída</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>Carga horária semanal desejada (h)</label>
+          <input type="number" name="cargaSemanal" min="0" step="0.5" />
+        </div>
+        <div class="field">
+          <label>Observações</label>
+          <textarea name="observacoes" maxlength="400"></textarea>
+        </div>
+        <div class="modal-actions">
+          <button type="submit" class="btn btn--primary">Salvar matéria</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: tarefa -->
+  <div id="modal-tarefa" class="modal-backdrop hidden">
+    <div class="modal">
+      <header>
+        <h3 id="modal-tarefa-titulo">Nova tarefa</h3>
+        <button class="modal-close" aria-label="Fechar">×</button>
+      </header>
+      <form id="form-tarefa" class="stack">
+        <input type="hidden" name="id" />
+        <div class="field">
+          <label>Título *</label>
+          <input type="text" name="titulo" required maxlength="120" />
+        </div>
+        <div class="field">
+          <label>Descrição</label>
+          <textarea name="descricao" maxlength="400"></textarea>
+        </div>
+        <div class="field-row cols-2">
+          <div class="field">
+            <label>Matéria <span id="tarefa-materia-hint" class="muted">(obrigatória)</span></label>
+            <select name="materiaId" data-fill="materias" data-optional="1" data-placeholder="—"></select>
+          </div>
+          <div class="field">
+            <label>Categoria</label>
+            <select name="categoria" data-fill="categorias"></select>
+          </div>
+        </div>
+        <div class="field-row cols-3">
+          <div class="field">
+            <label>Data</label>
+            <input type="date" name="data" />
+          </div>
+          <div class="field">
+            <label>Início</label>
+            <input type="time" name="horaInicio" />
+          </div>
+          <div class="field">
+            <label>Fim</label>
+            <input type="time" name="horaFim" />
+          </div>
+        </div>
+        <div class="field-row cols-3">
+          <div class="field">
+            <label>ou duração (min)</label>
+            <input type="number" name="duracaoMin" min="5" step="5" placeholder="ex.: 60" />
+          </div>
+          <div class="field">
+            <label>Prioridade</label>
+            <select name="prioridade">
+              <option value="baixa">Baixa</option>
+              <option value="media" selected>Média</option>
+              <option value="alta">Alta</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Status</label>
+            <select name="status">
+              <option value="pendente" selected>Pendente</option>
+              <option value="em_andamento">Em andamento</option>
+              <option value="concluida">Concluída</option>
+              <option value="adiada">Adiada</option>
+              <option value="cancelada">Cancelada</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="submit" class="btn btn--primary">Salvar tarefa</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- toast host -->
+  <div class="toast-host" id="toast-host" aria-live="polite"></div>
+
+  <!-- Scripts em ordem de dependência -->
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/categorias.js"></script>
+  <script src="assets/js/estudante.js"></script>
+  <script src="assets/js/materias.js"></script>
+  <script src="assets/js/tarefas.js"></script>
+  <script src="assets/js/agenda.js"></script>
+  <script src="assets/js/organizador.js"></script>
+</body>
+</html>

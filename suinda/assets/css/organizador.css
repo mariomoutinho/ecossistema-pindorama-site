@@ -1,0 +1,242 @@
+/* Suindá — estilos específicos do Organizador de Estudos */
+
+/* ---------- Topo: identidade do(a) estudante e KPIs ---------- */
+.estudante-topo {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--sp-4);
+  align-items: center;
+}
+.estudante-topo h1 { font-size: 1.8rem; }
+.estudante-topo .objetivo { color: var(--c-ink-soft); font-style: italic; }
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: var(--sp-3);
+}
+.kpi {
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-md);
+  padding: var(--sp-2) var(--sp-3);
+  text-align: center;
+  min-width: 86px;
+}
+.kpi strong { font-size: 1.25rem; display: block; color: var(--c-primary); font-family: var(--ff-display); }
+.kpi span { color: var(--c-muted); font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; }
+
+.aviso {
+  border-radius: var(--r-md);
+  padding: var(--sp-2) var(--sp-3);
+  margin-top: var(--sp-3);
+  font-size: .9rem;
+}
+.aviso--warn { background: var(--c-warn-soft); color: var(--c-warn); }
+
+/* ---------- Layout principal: matérias | agenda | tarefas ---------- */
+.organizador-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 320px) 1fr minmax(280px, 360px);
+  gap: var(--sp-4);
+  margin-top: var(--sp-4);
+}
+@media (max-width: 1100px) {
+  .organizador-layout { grid-template-columns: 1fr 1fr; }
+  .organizador-layout > .col-agenda { grid-column: 1 / -1; order: 0; }
+  .organizador-layout > .col-materias { order: 1; }
+  .organizador-layout > .col-tarefas { order: 2; }
+}
+@media (max-width: 720px) {
+  .organizador-layout { grid-template-columns: 1fr; }
+}
+
+.col-titulo {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: var(--sp-3);
+}
+
+/* ---------- Matérias ---------- */
+#lista-materias {
+  display: grid; gap: var(--sp-3);
+}
+.materia-card {
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-left: 4px solid var(--mat-cor, var(--c-primary));
+  border-radius: var(--r-md);
+  padding: var(--sp-3);
+  display: flex; flex-direction: column; gap: var(--sp-2);
+}
+.materia-card header {
+  display: flex; align-items: center; gap: var(--sp-2);
+}
+.materia-cor {
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--mat-cor);
+}
+.materia-nome { font-weight: 600; flex: 1; }
+.materia-meta { display: flex; gap: 6px; flex-wrap: wrap; }
+.small-obs { font-size: .85rem; }
+
+/* ---------- Tarefas ---------- */
+#lista-tarefas {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; gap: var(--sp-2);
+  max-height: 480px;
+  overflow: auto;
+}
+.tarefa-item {
+  display: grid;
+  grid-template-columns: 36px 1fr auto;
+  gap: var(--sp-2);
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-left: 4px solid var(--mat-cor);
+  border-radius: var(--r-md);
+  padding: var(--sp-2) var(--sp-3);
+  align-items: start;
+}
+.tarefa-item.status-concluida { opacity: .55; text-decoration: line-through; }
+.tarefa-item.status-cancelada { opacity: .4; }
+.tarefa-item.em-conflito { box-shadow: 0 0 0 2px var(--c-danger-soft) inset; }
+.tarefa-marc {
+  width: 32px; height: 32px;
+  background: var(--cat-cor)20;
+  border-radius: var(--r-md);
+  display: grid; place-items: center;
+  font-size: 1rem;
+}
+.tarefa-titulo { font-weight: 600; }
+.tarefa-meta { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 4px; }
+.tarefa-acoes { display: flex; gap: 4px; }
+
+/* ---------- Filtros ---------- */
+.filtros-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr auto;
+  gap: var(--sp-2);
+  align-items: end;
+  margin-bottom: var(--sp-3);
+}
+.filtros-bar .field { margin-bottom: 0; }
+@media (max-width: 900px) {
+  .filtros-bar { grid-template-columns: 1fr 1fr; }
+}
+
+/* ---------- Resumo ---------- */
+.resumo-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-3);
+  margin-top: var(--sp-3);
+}
+.resumo-bloco h4 {
+  font-family: var(--ff-base);
+  font-size: .82rem; text-transform: uppercase; letter-spacing: .04em;
+  color: var(--c-muted); font-weight: 600;
+  margin: 0 0 var(--sp-2);
+}
+.resumo-linha {
+  display: grid; grid-template-columns: 12px 1fr auto;
+  gap: var(--sp-2);
+  align-items: center;
+  padding: 4px 0;
+  border-bottom: 1px dashed var(--c-line);
+  font-size: .9rem;
+}
+.resumo-linha:last-child { border-bottom: none; }
+.resumo-linha .dot { width: 12px; height: 12px; border-radius: 50%; }
+
+/* ---------- Agenda ---------- */
+.agenda-controles {
+  display: flex; gap: var(--sp-2); align-items: center; flex-wrap: wrap;
+  margin-bottom: var(--sp-3);
+}
+.agenda-controles .views { display: flex; background: var(--c-surface); border-radius: var(--r-pill); padding: 2px; }
+.agenda-controles .views .btn { border-radius: var(--r-pill); padding: 4px 12px; font-size: .82rem; }
+.agenda-controles .views .btn.active { background: var(--c-primary); color: var(--c-primary-ink); }
+.agenda-titulo { font-family: var(--ff-display); font-weight: 600; flex: 1; text-align: center; }
+
+.agenda {
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-md);
+  overflow: auto;
+  max-height: 70vh;
+}
+
+.agenda-head {
+  display: grid;
+  grid-template-columns: 64px repeat(var(--n-dias), 1fr);
+  background: var(--c-bg-elev);
+  border-bottom: 1px solid var(--c-line);
+  position: sticky; top: 0; z-index: 5;
+}
+.agenda-corner {}
+.agenda-dia-head {
+  text-align: center;
+  padding: var(--sp-2);
+  font-size: .85rem;
+  font-weight: 600;
+  border-left: 1px solid var(--c-line);
+  color: var(--c-ink-soft);
+}
+.agenda-dia-head.hoje { color: var(--c-primary); background: var(--c-primary-soft); }
+
+.agenda-grid {
+  display: grid;
+  grid-template-columns: 64px repeat(var(--n-dias), 1fr);
+  position: relative;
+}
+.col-horas { display: flex; flex-direction: column; }
+.col-horas .hora-row {
+  height: 60px;
+  font-size: .72rem;
+  color: var(--c-muted);
+  padding-left: 6px;
+  border-top: 1px dashed var(--c-line);
+}
+.col-dia {
+  position: relative;
+  border-left: 1px solid var(--c-line);
+}
+.slot {
+  height: 60px;
+  border-top: 1px dashed var(--c-line);
+  cursor: pointer;
+  transition: background var(--t-fast);
+}
+.slot:hover { background: var(--c-primary-soft); }
+
+.bloco-tarefa {
+  position: absolute;
+  left: 4px; right: 4px;
+  top: var(--top);
+  height: var(--altura);
+  background: color-mix(in srgb, var(--bloco-cor) 18%, var(--c-bg-elev));
+  border: 1px solid var(--bloco-cor);
+  border-left: 4px solid var(--bloco-cor);
+  border-radius: 6px;
+  padding: 4px 6px;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 2;
+  transition: transform var(--t-fast), box-shadow var(--t-fast);
+}
+.bloco-tarefa:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--sh-md);
+  z-index: 3;
+}
+.bloco-tarefa.conflito { box-shadow: 0 0 0 2px var(--c-danger) inset; }
+.bloco-tarefa.status-concluida { opacity: .55; text-decoration: line-through; }
+.bloco-tarefa.status-cancelada { opacity: .35; }
+.bloco-titulo { font-weight: 600; font-size: .82rem; line-height: 1.2; }
+.bloco-meta { font-size: .72rem; color: var(--c-ink-soft); margin-top: 2px; }
+
+/* Fallback p/ navegadores sem color-mix */
+@supports not (background: color-mix(in srgb, red 50%, white)) {
+  .bloco-tarefa { background: var(--c-bg-elev); }
+}
+
+/* Variante dia única — coluna mais larga */
+.agenda--dia .agenda-head { grid-template-columns: 64px 1fr; }
+.agenda--dia .agenda-grid { grid-template-columns: 64px 1fr; }
