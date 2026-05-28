@@ -43,6 +43,11 @@ pindoramarpg/.env
 pindoramarpg/.env.*
 pindoramarpg/secrets.*
 pindoramarpg/uploads/
+# Re-inclui pindoramarpg/data/ — a regra genérica `data/` acima estava
+# excluindo dados pré-carregados do RPG (ancestralidades, bestiário, etc.),
+# que precisam ser deployados. Os arquivos de estado runtime continuam
+# excluídos pelas regras específicas logo abaixo.
+!pindoramarpg/data/
 pindoramarpg/data/campo-batalha-state*.json
 pindoramarpg/data/aventuras/*/cenas.json
 pindoramarpg/*.sql

@@ -1,0 +1,536 @@
+{
+  "introducao": [
+    "Nos esplêndidos reinos que se estiram pela Terra de Pindorama, uma tapeçaria viva de diversidade se faz, onde os habitantes de distintas raças e povos desfilam. Mesmo um pequeno passeio por grandes metrópoles como Anhangabaú ou Corcovas pode transformar-se em uma experiência avassaladora para os sentidos. As vozes convergem rapidamente em uma mistura de idiomas, enquanto os aromas de dezenas de cozinhas entrelaçam-se com os cheiros das vielas tumultuadas e da precária infraestrutura sanitária. Edificações exibem uma miríade de estilos arquitetônicos, refletindo as diversas origens de seus habitantes. Em Pindorama cada ser inteligente possui um espírito que lhe concede características e dons dividindo-os em dois grandes grupos: os almantes e encantados. Por sua vez esses grupos são separados mais uma vez em ancestralidades, marcando as peculiaridades de cada etnia e concedendo dons únicos.",
+    "A raça mais populosa são os almantes e se encontram divididos em várias ancestralidades, dentre elas os humanos e os povos caucazis. Os encantados apesar de terem uma variedade muito maior são mais raros em Pindorama. Entre eles destacam-se desde os diminutos candangos, os astutos goiazis, os vigorosos muiraquitãs até os gigantescos curinqueãs.",
+    "Optando, em sua grande maioria, por um estilo de vida mais eremita, encontramos os floratas, que coexistem em harmonia com as florestas, e os iakarés, que formam suas tribos por entre as alagadiças regiões pantanosas. Existe ainda raças mais escassas, tidas como quase míticas pelos pindorins comuns, como os orumerês, cuja origem é traçada pela vontade dos Deuses; os oiáras, que estabelecem morada em reinos submarinos ou em arquipélagos formados por pedras encantadas; também os kai’porahs e sacis, que são considerados por muitos como espíritos da mata, porém, na verdade, preservam tribos de dimensões colossais ocultas nas entranhas do Grande Verdejante.",
+    "A ancestralidade do seu personagem não apenas influencia seus e traços, mas também fornece sugestões valiosas para a construção da história do seu personagem e a interação deles com todo o mundo de Pindorama. Chamaria bastante atenção encontrar um oiára dentro de uma grande cidade longe do litoral. Membros dos povos caucazis não seriam bem vindos nos quilombos dos pindorins.",
+    "A descrição de cada ancestralidade neste capítulo inclui informações úteis para ajudá-lo a interpretá-la como um personagem, abordando aspectos como personalidade, aparência física, características da sociedade e inclinações de tendências ancestrais. Estes detalhes servem como sugestões para orientar você na compreensão do seu personagem, mas claro que a decisão final sempre será do jogador, podendo também divergir consideravelmente dos padrões de suas ancestralidades. Levar em consideração o motivo pelo qual seu personagem é único é uma maneira valiosa de orientar a escolha das biografias e dos traços de personalidade.",
+    "Escolhendo sua Ancestralidade",
+    "Após definir seus atributos, é hora de escolher sua ancestralidade. Você pode escolher qualquer ancestralidade, mas dependendo do seu conceito de personagem, algumas são mais indicadas que outras.",
+    "Se você quiser um personagem bom de briga, por exemplo, iakaré é uma boa escolha. Se gosta de lançar magias, alguns encantados oferecem boas opções. Já se prefere resolver seus problemas na lábia, escolha um oiára. No entanto todas as ancestralidades podem ser adaptadas ao perfil que você deseja criar. Você é livre pra criar o mais inusitado aventureiro em Pindorama.",
+    "Como dito acima, todas as raças funcionam para todos os tipos de personagem, e fazer combinações inusitadas pode ser muito divertido.",
+    "Você possui todas as habilidades descrita nos Traços Ancestrais. As regras para usar habilidades são explicadas no Capítulo 5: Jogando."
+  ],
+  "ancestralidades": [
+    {
+      "id": "arajuba",
+      "nome": "Arajubá",
+      "descricao": [
+        "Os arajubás são os mais discretos de todos os seres: falam, falam, e não dizem nada.",
+        "Ferreira da Luz Líder dos Bem-te-vi",
+        "Isolados nas montanhas elevadas em pequenas vilas construídas na copa de altas árvores, os arajubás, às vezes chamados de povo pássaro, provocam curiosidade medo e ao mesmo tempo admiração entre muitos em Pindorama. Os arajubás sequer são nativos de Pindorama. Eles vêm de um mundo distante – dos horizontes sem fim além do Oceano no Velho Mundo. Eles são imigrantes, refugiados, batedores e exploradores.",
+        "De baixo, os arajubás se parecem muito com pássaros gigantes. Apenas quando eles descem para se empoleirar em um galho ou andar pelo chão que sua aparência de humanoide se revela. Ficando em pé, um arajubás pode alcançar até 1,7 metros de altura, possuem pernas compridas e finas terminadas em garras afiadas com penas cobrem e plumagem que cobrem o seu corpo de cor que varia de sua tribo. Suas cabeças completam a aparência aviária, parecida com a de um papagaio.",
+        "Nenhum lugar é mais confortável para os arajubás que o céu. Eles podem passar horas no ar, e alguns passam até dias, travando suas asas e deixando os ventos termais mantê-los no ar. Em batalha, eles se mostram dinâmicos e aviadores acrobáticos, movendo-se com velocidade e graça memoráveis, mergulhando para rasgar oponentes com armas ou garras antes de virarem e voarem para longe.",
+        "A semelhança dos arajubás com pássaros não se limita às características físicas. Os arajubás são vaidosos com suas plumagens, frequentemente cuidando de suas penas, limpando e removendo quaisquer passageiros minúsculos que eles tenham adquirido. Quando eles se dignam a descer do céu, eles frequentemente o fazem próximo de poças onde eles possam pegar peixes e se banhar. Muitos arajubás pontuam suas falas com gorjeios, sons que eles usam para transmitir ênfase e para mascarar significado, similar aos que outros ceres que fazem através de expressões faciais e gestos.",
+        "Objetos brilhantes e cintilantes atraem sua atenção e eles não têm dificuldade em arrancar o tesouro e levar de volta para seus lares para embeleza-los.",
+        "O confinamento aterroriza os arajubás. Estar aterrado, preso no subterrâneo ou aprisionado em terra é um tormento que poucos arajubás podem suportar. Mesmo quando estão empoleirados em galhos altos ou descansando em seus lares no topo de montanhas, eles parecem alerta, com olhos inquietos e corpos preparados para voar."
+      ],
+      "tracos": [
+        {
+          "id": "asas",
+          "nome": "Asas",
+          "descricao": "Você pode pairar a 1,5m do chão com deslocamento 9m. Isso permite que você ignore terreno difícil e o torna imune a dano por queda (a menos que esteja inconsciente). Se não estiver usando armadura pesada, você pode gastar 1 PM por rodada para voar com deslocamento de 12m. Você precisa de espaço para abrir suas asas; quando paira ou voa, ocupa o espaço de uma criatura de uma categoria de tamanho maior que a sua."
+        },
+        {
+          "id": "garras-afiadas",
+          "nome": "Garras Afiadas",
+          "descricao": "Você tem uma arma natural, as garras, (dano 1d6, crítico x2, perfuração). Uma vez por rodada, quando usa a ação agredir para atacar com uma arma, você pode gastar 1 PM para fazer um ataque corpo a corpo extra com as garras, desde que estejam livres e não tenham sido usadas para atacar neste turno.",
+          "concede_ataque": {
+            "nome": "Garras Afiadas",
+            "dano": "1d6",
+            "critico": "x2",
+            "alcance": "Curto",
+            "tipo": "Perfuração",
+            "teste": "Luta"
+          }
+        },
+        {
+          "id": "espreitador",
+          "nome": "Espreitador",
+          "descricao": "Você recebe visão no escuro e +2 em Percepção e Vontade.",
+          "bonus_pericias": [
+            { "pericia": "Percepção", "valor": 2 },
+            { "pericia": "Vontade", "valor": 2 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "candango",
+      "nome": "Candango",
+      "descricao": [
+        "\"Nos ecos das pegadas daqueles que perderam a memória, trilhamos um caminho de superação e resiliência, tecendo com cada passo uma nova identidade, sublime e grandiosa.”",
+        "- Nzinga Mbandi Sacerdotisa Unhabá",
+        "Portando o Edã em suas mãos, o artefato mais poderoso de Kiantomerê, Nzinga Mbandi rogou ao Deus das transformações que protegesse seu povo, que lutava ao lado dos pindorins contra os povos caucazis invasores. Em retribuição uma onda gigantesca de poder divino varreu a terra, transformando a todos no campo de batalha em uma nova ancestralidade de encantados, os Candangos. Esse encantamento profundo também apagou a memória de todos ali com exceção da própria sacerdotisa. A Batalha do Esquecimento, como ficou conhecida, então cessou trazendo um momento de paz efêmera.",
+        "Com corpos pequeninos os Candangos apresentam uma aparência que mistura de inocência, resistência e beleza natural. Possuem orelhas e rabos que lembram as de um roedor e são dotados de membros ágeis, que os fazem mover-se com destreza através do terreno acidentado de Pindorama.",
+        "Embora tenham perdido suas memórias durante a transformação, os Candangos rapidamente se uniram e povoaram vários locais em Pindorama.",
+        "É bem comum encontra-los em várias cidades, em vilas, em comunidades de quaisquer outros povos ou mesmo grupo de viajantes errante.",
+        "Os candangos são persistentes e acima de tudo prestativos e simpáticos, sempre tentando acolher e ajudar a todos que cruzam seu caminho. Tais virtudes tornam-nos valorosos companheiros de jornadas. Aqueles que subestimam sua aparência inofensiva cometem um equívoco, pois, mesmo adornados por traços infantis, o que os ajuda a se livrarem de muitas situações complicadas, podem ocultar uma brutalidade imensa em campos de batalha."
+      ],
+      "tracos": [
+        {
+          "id": "sobrevivente-implacavel",
+          "nome": "Sobrevivente Implacável",
+          "descricao": "Você possui uma habilidade inata para sobreviver em condições adversas. Recebe +2 de bônus em testes Fortitude e Sobrevivência.",
+          "bonus_pericias": [
+            { "pericia": "Fortitude", "valor": 2 },
+            { "pericia": "Sobrevivência", "valor": 2 }
+          ]
+        },
+        {
+          "id": "espelunqueiro",
+          "nome": "Espelunqueiro",
+          "descricao": "Você recebe visão no escuro, +2 em Percepção e deslocamento de escalada igual ao seu deslocamento terrestre.",
+          "bonus_pericias": [
+            { "pericia": "Percepção", "valor": 2 }
+          ]
+        },
+        {
+          "id": "pequenos-ligeiros",
+          "nome": "Pequenos Ligeiros",
+          "descricao": "Seu tamanho é Pequeno (veja a página ##), mas seu deslocamento se mantém 9m. Além disso você recebe o poder Aparência Inofensiva (ver a página ##).",
+          "bonus_pericias": [
+            { "pericia": "Furtividade", "valor": 2 }
+          ]
+        },
+        {
+          "id": "faro",
+          "nome": "Faro",
+          "descricao": "Você tem olfato apurado. Contra inimigos em alcance curto que não possa ver, você não fica desprevenido e camuflagem total lhe causa apenas 20% de chance de falha."
+        }
+      ]
+    },
+    {
+      "id": "curinqueas",
+      "nome": "Curinqueãs",
+      "descricao": [
+        "Gigante pela eterna natureza, és belo, és forte, impávido colosso – Chico Manuel, Curinqueã Brincante",
+        "Corpulentos e vigorosos, os curinqueãs são conhecidos por sua estatura colossal chegando a atingirem a estatura de três metros, mas essa dimensão não representa seu limite, já que continuam a crescer ao longo de suas vidas. Há lendas que narram a existência de curinqueãs anciões, cujas alturas rivalizam com as mais altas árvores de Pindorama.",
+        "Diferentemente de muitos tipos de gigantes, caracterizados por mentes simplórias e limitadas, ou por comportamento violento, os curinqueãs possuem profundo conhecimento em magia, diplomacia e na arte da guerra, demonstrando uma organização social multifacetada e organizada. Normalmente são pacíficos sempre optam por evitar confrontos violentos, vivendo no isolamento de suas aldeias, no entanto sobre condições de ameaça, são exímios em explorar as fraquezas dos rivais nas trincheiras de batalha. Apesar de tamanho poder não manifestem qualquer interesse em dominar ou impor sua cultura sobre as outros povos.",
+        "Os curinqueãs cultivam uma quase paranoia em relação à localização de suas aldeias, as quais permanecem ocultas nos grandes espaços naturais por meio de magias ancestrais e barreiras naturais. A honra de ser conduzido a esses locais é concedida apenas a indivíduos considerados extremamente merecedores, enquanto profanar essas terras é tido como um pecado mortal aos olhos dos curinqueãs. Essa complexidade de valores e a interseção entre suas habilidades notáveis e uma abordagem mais sutil à diplomacia fazem dos curinqueãs uma ancestralidade verdadeiramente intrigante e respeitada.",
+        "Possuem a pele da cor do cobre, e anéis que atravessam seus beiços. Usam poucas roupas, e comumente adornos de ouro, principalmente como colares e brincos nas orelhas nariz e lábios e empunham ferramentas e armas proporcionais ao seu tamanho, o que as tornam de manuseio únicos desse povo gigante."
+      ],
+      "tracos": [
+        {
+          "id": "colosso",
+          "nome": "Colosso",
+          "descricao": "Seu tamanho é Grande (veja a página ##) e você soma sua Força em seu total de pontos de vida. Você pode usar armas normais ou aumentadas, mas só pode vestir armaduras especialmente feitas para seu tamanho. Além disso, quando você acerta um golpe com ataque de corpo a corpo, você pode gastar +1 PM para causar +1d8 de dano do mesmo tipo.",
+          "bonus_pericias": [
+            { "pericia": "Furtividade", "valor": -2 }
+          ]
+        },
+        {
+          "id": "gigante",
+          "nome": "Gigante",
+          "descricao": "Você recebe bônus de +1 em Força e +1 em Constituição.",
+          "bonus_atributos": [
+            { "atributo": "forca", "valor": 1 },
+            { "atributo": "constituicao", "valor": 1 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "florata",
+      "nome": "Florata",
+      "descricao": [
+        "\"Para as Caiporas, a mata é lar e morada; para os Floratas, ela é sagrada.\" – Dona Carminha Florata Devota de Wesuirã",
+        "Nas eras antigas, quando Wesuirã, o orixá das plantas sagradas, decidiu deixar sua marca em Pindorama, não apenas plantou árvores, mas também concedeu sua essência a cada uma delas. De dentro de algumas dessas árvores a essência despertou e ergueram-se seres notáveis conhecidos como Floratas. Estes seres conscientes, tornaram-se os guardiões das florestas, conectados a natureza. Consideram cada planta como um membro de sua família que ainda irá despertar e possuem a capacidade de falar com eles mesmo em estado “embrionário”.",
+        "De aparência esbelta e graciosa, orelhas pontudas e olhos expressivos, os Floratas possuem uma beleza quase etérea. Ostentam tons esverdeados em sua pele e em sintonia com o ambiente ao seu redor, vestem-se com roupas adornadas de materiais naturais, como vinhas, cipós e folhas, exibindo túnicas e capas habilmente esculpidas. Adornos que refletem sua afinidade com o reino vegetal completam seu visual único.",
+        "Engana-se aquele que julga sua sutileza como fraqueza, pois esses seres representam a força da natureza verde em sua forma mais pura. Sua resistência é como a raiz profunda de uma árvore centenária, e sua capacidade de moldar e transformar o mundo ao seu redor é uma extensão do poder inerente à natureza que os criou.",
+        "Os Floratas, além de serem guardiões das florestas, são embaixadores da harmonia entre as criaturas da terra e os domínios vegetais. Sua presença é uma lembrança viva do equilíbrio necessário entre a civilização e a natureza. Preferem viver reclusos entre as vastas florestas de Pindorama, mas diante da destruição causados pelo avanço das invasões dos povos caucazis eles se aproximaram dos outros pindorins firmando a Grande Fraternidade Verdejante."
+      ],
+      "tracos": [
+        {
+          "id": "fotossintese",
+          "nome": "Fotossíntese",
+          "descricao": "Você não precisa dormir ou mesmo de comida para se alimentar (embora alguns floratas o façam), para manter sua saúde e vitalidade é necessário a luz solar. Passar mais de um dia em ambientes com pouca exposição solar ou em períodos de dias nublados, te impede de recuperarem PM e causa estado de Fome (ver página ##). Você não se alimenta de comida sólida, mas ainda precisa beber água. Além disso uma vez por dia, enquanto estiverem em um ambiente natural com vegetação, e tocada pela luz do sol, como ação completa você pode gastar um 1PM para regenerar 1d8 pontos de vida."
+        },
+        {
+          "id": "lamina-da-mata",
+          "nome": "Lâmina da Mata",
+          "descricao": "Você pode lançar as magias Controlar Plantas e Controlar Madeira. Caso aprenda novamente uma dessas magias, seu custo diminui em –1 PM.",
+          "concede_magias": {
+            "limite": 2,
+            "opcoes": ["controlar-plantas", "controlar-madeira"],
+            "regra_extra": "Caso aprenda novamente uma dessas magias, seu custo diminui em –1 PM.",
+            "permite_reaprender": true,
+            "mod_pm_por_repeticao": -1
+          }
+        },
+        {
+          "id": "protecao-da-mata",
+          "nome": "Proteção da mata",
+          "descricao": "Você pode gastar uma ação de movimento e 1 PM para transformar arbustos, vinhas e cipós em uma armadura. Isso concede um bônus de +2 na Defesa até o final da cena."
+        },
+        {
+          "id": "conexao-com-a-natureza",
+          "nome": "Conexão com a Natureza",
+          "descricao": "Você pode se comunicar com as plantas próximas de forma telepática e pedir favores a elas."
+        }
+      ]
+    },
+    {
+      "id": "goiazi",
+      "nome": "Goiazi",
+      "descricao": [
+        "“Quando a vida fica complicada, siga o conselho do goiazi: dance sob a lua e sorria para as estrelas.”",
+        "- Cristobal de Acunã Florata Brincante",
+        "Um incessante murmúrio de atividades preenche o ambiente, permeando as terras onde os goiazis estabelecem suas raízes. Estrondosos ruídos pontuam esse murmúrio: o tilintar de engrenagens moendo aqui, uma pequena explosão ali, um grito de surpresa ou celebração, e, acima de tudo, inúmeras gargalhadas. Os goiazis celebram a vida, desfrutando de cada momento de inventividade, exploração, investigação, criação e diversão.",
+        "A energia e entusiasmo dos goiazis pela vida brilham em cada pedacinho de seus corpos diminutos. Com estatura comparável à de bebês de outras ancestralidades, medem aproximadamente 90 centímetros de altura e pesam entre 20 e 23 kg. Apresentam rostos morenos ou bronzeados, frequentemente adornados com sorrisos amplos (apesar de seus notáveis narizes), e seus olhos negros vibram de emoção. Expressando um fascínio insaciável por tudo ao seu redor, emanam uma fabulosa e peculiar aura.",
+        "Apesar de sua destemida disposição para defender seus territórios, os goiazis não resistiram às invasões dos povos caucazis, perdendo seu reino no coração de Pindorama. Aqueles poucos que conseguiram escapar refugiaram-se entre o verde exuberante, vivendo agora ocultos em pequenas tribos, onde suas casas são construídas no subterrâneo ou camufladas por magias de ilusão.",
+        "No entanto, mesmo diante das adversidades, cada goiazi encara a vida como uma dádiva, aproveitando ao máximo seus 2 a 3 séculos de existência. Os goiazis normalmente falam mais rápido do que o pensamento em suas mentes consegue formar. Mesmo enquanto oferecem uma ampla gama de ideias ou opções, permanecem atentos aos outros, adicionando exclamações, surpresas e apreciações de forma apropriada ao longo das conversas.",
+        "Os goiazis que se estabeleceram nos demais reinos de Pindorama geralmente são lapidários, engenheiros, sábios ou inventores. Algumas vilas chegam a contar com um professor goiazi, assegurando que as crianças apreciem uma mistura de aprendizado sério e encantadora diversão. Ao longo de suas vidas longas, um goiazi dedicado ensinará várias gerações em uma única vila."
+      ],
+      "tracos": [
+        {
+          "id": "engenhosidade",
+          "nome": "Engenhosidade",
+          "descricao": "Quando faz um teste de perícia, você pode gastar 2 PM para somar sua Inteligência no teste. Você não pode usar esta habilidade em testes de ataque. Caso receba esta habilidade novamente, seu custo é reduzido em –1 PM."
+        },
+        {
+          "id": "inventor",
+          "nome": "Inventor",
+          "descricao": "Você é treinado em ofício e é capaz de fabricar itens superiores com uma melhoria. Caso você aprenda a habilidade Fabricar Item Superior do artífice, você gasta ¼ do tempo para produzir qualquer item."
+        },
+        {
+          "id": "pequeno-furtivo",
+          "nome": "Pequeno Furtivo",
+          "descricao": "Seu tamanho é Minúsculo (ver página ##) e seu deslocamento é de 6m. Além disso seu bônus para testes de Furtividade é dobrado.",
+          "bonus_pericias": [
+            { "pericia": "Furtividade", "valor": 5 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "iakare",
+      "nome": "Iakaré",
+      "descricao": [
+        "Cuidado com a Cuca, que a cuca te pega, Pega daqui, pega de lá – Thy, Candango Bardo",
+        "Os Iakarés são répteis gigantes, que caminham majestosamente sobre duas patas, habitando as áreas próximas aos rios e pântanos, onde se misturam harmoniosamente aos ambientes úmidos que chamam de lar.",
+        "A sociedade dos Iakarés é tribal, caracterizada por uma estrutura hierárquica rígida e tradições profundamente enraizadas. Sua natureza territorialista e hostil é evidente nas fronteiras marcadas pelos rios que defendem ferozmente. São mestres na arte da emboscada nas matas densas, onde suas tribos planejam ataques estratégicos contra territórios alheios.",
+        "Com suas escamas verde-acinzentadas que cobrem todo o corpo, olhos amarelados penetrantes e garras e presas afiadas, os Iakarés exibem uma aparência que evoca os traços dos poderosos jacarés. Criaturas de sangue frio, eles são caçadores natos, conhecidos por suas investidas precisas e letais.",
+        "Entretanto, nem todos os Iakarés seguem o caminho da crueldade. Alguns indivíduos, desviando-se da selvageria inerente à sua ancestralidade, optam por abandonar suas tribos ou são expulsos devido a suas escolhas surpreendentes. Tais dissidentes aventuram-se pelo mundo a fora buscando provar seu valor em sociedades mais civilizadas, encontrando caminhos inusitados, tornando-se xamãs, sacerdotes, fanfarrões, ou qualquer outra vocação que os afaste do padrão esperado. Estes Iakarés deslocados, por vezes, acabam sendo aceitos como colegas por aventureiros de mentalidade igualmente estranha."
+      ],
+      "tracos": [
+        {
+          "id": "reptiliano",
+          "nome": "Reptiliano",
+          "descricao": "Você é uma criatura do tipo monstro e pode somar sua Constituição na Defesa, limitado pelo seu nível, mas apenas se não estiver usando armadura  pesada, caso esteja usando o bônus é de apenas +2. Você não pode ser flanqueado e recebe cobertura leve se estiver submerso ou caído. Além disso você recebe +5 em Furtividade em terrenos pantanosos e tem deslocamento de natação igual ao deslocamento terrestre.",
+          "bonus_defesa": {
+            "atributo": "constituicao",
+            "limitar_a_nivel": true,
+            "max_armadura_pesada": 2,
+            "minimo": 0
+          }
+        },
+        {
+          "id": "mordida",
+          "nome": "Mordida",
+          "descricao": "Você possui uma arma natural de mordida (dano 1d6, crítico x2, perfuração). Uma vez por rodada, quando usa a ação agredir para atacar com outra arma, pode gastar 1 PM para fazer um ataque corpo a corpo extra com a mordida.",
+          "concede_ataque": {
+            "nome": "Mordida",
+            "dano": "1d6",
+            "critico": "x2",
+            "alcance": "Curto",
+            "tipo": "Perfuração",
+            "teste": "Luta"
+          }
+        },
+        {
+          "id": "sangue-frio",
+          "nome": "Sangue Frio",
+          "descricao": "Você sofre 1 ponto de dano adicional por dado de dano de frio."
+        }
+      ]
+    },
+    {
+      "id": "jaguarete",
+      "nome": "Jaguaretê",
+      "descricao": [
+        "Jaguaretês",
+        "Quando a mata rosna em silêncio, os Jaguaretês já decidiram quem viverá até o amanhecer.",
+        "— Iracê Jaguaretê, Caçadora das Sete Luas",
+        "Os Jaguaretês são uma ancestralidade de encantados nascidos da união entre o espírito primordial das onças do Grande Verdejante e os antigos rituais de guerra dos primeiros povos pindorins. Segundo as lendas mais antigas, quando os povos caucázis avançaram queimando matas e profanando territórios sagrados, Guaraci e Jurema pediram aos espíritos predadores da floresta que erguessem defensores capazes de enfrentar os invasores não apenas com força, mas com astúcia e ferocidade ancestral.",
+        "As grandes onças responderam.",
+        "Nas noites de eclipse, xamãs antigos realizaram pactos espirituais com os senhores felinos da mata profunda. Alguns guerreiros passaram a carregar dentro de si fragmentos do espírito das onças encantadas. Seus corpos mudaram. Ossos tornaram-se mais densos. Presas cresceram. A visão passou a enxergar na penumbra da mata fechada. E seus instintos tornaram-se perigosamente aguçados.",
+        "Assim nasceram os primeiros Jaguaretês.",
+        "Os Jaguaretês não formam impérios nem grandes cidades. Vivem em clãs seminômades espalhados pelas regiões mais perigosas do Grande Verdejante, serras densas, ruínas antigas e territórios onde até mesmo outros encantados evitam entrar. Muitos atuam como guardiões silenciosos de rotas espirituais, cemitérios ancestrais, aldeias escondidas ou templos devorados pela floresta.",
+        "Fisicamente, os Jaguaretês combinam traços humanoides e felinos. Seus corpos são musculosos e cobertos parcialmente por pelagens manchadas que variam entre padrões de onça-pintada, suçuarana ou jaguatirica. Possuem olhos intensos, presas afiadas, unhas retráteis e movimentos extremamente graciosos. Alguns apresentam caudas longas, orelhas felinas ou marcas espirituais semelhantes a pinturas tribais naturais sobre a pele.",
+        "Apesar da reputação brutal, os Jaguaretês raramente são assassinos irracionais. São caçadores ritualísticos. Respeitam equilíbrio, território, ancestralidade e a caça justa. Muitos acreditam que toda criatura abatida deve possuir um propósito, e desprezam violência gratuita. Ainda assim, quando entram em estado de caça, tornam-se aterrorizantes até mesmo para guerreiros experientes.",
+        "Entre os povos pindorins, Jaguaretês costumam ser vistos com respeito cauteloso. Já entre os povos caucázis, são frequentemente tratados como monstros ou demônios da floresta — o que, para muitos Jaguaretês, parece uma definição perfeitamente aceitável."
+      ],
+      "tracos": [
+        {
+          "id": "sangue-predador",
+          "nome": "Sangue Predador",
+          "descricao": "Você recebe visão na penumbra e +2 em Percepção e Sobrevivência. Além disso, não sofre penalidades por se mover furtivamente em terreno natural.",
+          "bonus_pericias": [
+            { "pericia": "Percepção", "valor": 2 },
+            { "pericia": "Sobrevivência", "valor": 2 }
+          ]
+        },
+        {
+          "id": "garras-da-cacada",
+          "nome": "Garras da Caçada",
+          "descricao": "Você possui uma arma natural de garras (dano 1d6, crítico x2, corte). Uma vez por rodada, quando usa a ação agredir para atacar com outra arma corpo a corpo, pode gastar 1 PM para realizar um ataque adicional com as garras.",
+          "concede_ataque": {
+            "nome": "Garras",
+            "dano": "1d6",
+            "critico": "x2",
+            "alcance": "Curto",
+            "tipo": "Corte",
+            "teste": "Luta"
+          }
+        },
+        {
+          "id": "passos-da-onca",
+          "nome": "Passos da Onça",
+          "descricao": "Seu deslocamento terrestre aumenta para 12m. Além disso, você recebe +2 em Furtividade. Caso esteja em florestas, matas ou ruínas tomadas pela vegetação, esse bônus aumenta para +5.",
+          "bonus_pericias": [
+            { "pericia": "Furtividade", "valor": 2 }
+          ]
+        },
+        {
+          "id": "instinto-territorial",
+          "nome": "Instinto Territorial",
+          "descricao": "Quando uma criatura entra em alcance curto contra você pela primeira vez na cena, você pode gastar 1 PM para receber +2 na Defesa e em testes de ataque contra ela até o fim do seu próximo turno."
+        }
+      ]
+    },
+    {
+      "id": "kai-porah",
+      "nome": "Kai’porah",
+      "descricao": [
+        "\"Não se atreva a caçar na floresta sem antes fazer uma oferenda ao Caipora.\" - Raposo Tavares Lusino Caçador",
+        "O jeito mais fácil de conseguir amizade de um kai’porah é oferecendo a eles o fumo que eles tanto veneram. Esses pequeninos seres mágicos, com cabelos vermelhos, normalmente usam roupas feitas de folhas e cascas de árvores, que os ajuda se camuflarem facilmente entre a vegetação, tornam-se quase invisíveis aos olhos dos outros. Eles tendem a ser pacíficos e amigáveis com os outros povos da floresta, tendo os Floratas como importante aliados.",
+        "Por sua natureza mágica, possuem habilidade natural em realizar truques de ilusão, que combinada com a capacidade de se camuflar na floresta, os torna excelentes exploradores. No entanto, eles também são facilmente manipulados por magias que afetem a mente.",
+        "Os Kai’porahs também possuem uma habilidade especial de se comunicar com animais, e por isso é comum fazerem amizades com esses seres silvestre, garantindo informações preciosas sobre ameaças que estejam perambulando por suas terras. Quando ameaçados, eles podem enganar seus perseguidores, criando armadilhas, atacando furtivamente em bandos, o encarando seus inimigos montados em javalis.",
+        "Os Kai’porahs são raros nos grandes centros urbanos de Pindorama, preferindo viver em pequenas aldeias escondidas na floresta silvestre, onde dividem tarefas e cuidam uns dos outros. Seu conhecimento da flora e fauna local permitem viver com facilidade nesses locais."
+      ],
+      "tracos": [
+        {
+          "id": "pequeno-enganador",
+          "nome": "Pequeno Enganador",
+          "descricao": "Seu tamanho é Pequeno (veja a página ##) e seu deslocamento é 6m. Você recebe +2 em Enganação e pode usar Destreza como atributo-chave de Atletismo (em vez de Força).",
+          "bonus_pericias": [
+            { "pericia": "Enganação", "valor": 2 },
+            { "pericia": "Furtividade", "valor": 2 }
+          ],
+          "substituicao_atributos": [
+            { "pericia": "Atletismo", "atributo_alternativo": "Des", "modo": "maior" }
+          ]
+        },
+        {
+          "id": "seres-da-mata",
+          "nome": "Seres da Mata",
+          "descricao": "Kai’porahs possuem +2 em testes de Furtividade em florestas e matas e têm visão na penumbra."
+        },
+        {
+          "id": "magia-natural",
+          "nome": "Magia Natural",
+          "descricao": "Você pode lançar duas das magias a seguir (atributo-chave Carisma): Criar Ilusão, Imagem Duplicata, Névoa e Amedrontar. Caso aprenda novamente uma dessas magias, seu custo diminui em –1 PM.",
+          "concede_magias": {
+            "limite": 2,
+            "opcoes": ["criar-ilusao", "duplicata-ilusoria", "nevoa", "amedrontar"],
+            "atributo_chave": "Carisma",
+            "regra_extra": "Caso aprenda novamente uma dessas magias, seu custo diminui em –1 PM."
+          }
+        },
+        {
+          "id": "empatia-com-animais",
+          "nome": "Empatia com Animais",
+          "descricao": "Você pode se compreender e se comunicar verbalmente com animais. Você pode usar Adestramento para mudar atitude e persuasão com animais (veja Diplomacia, na página ##). Caso receba esta habilidade novamente, recebe +2 em Adestramento."
+        },
+        {
+          "id": "encantaveis",
+          "nome": "Encantáveis",
+          "descricao": "Você sofre uma penalidade de -2 em testes de resistência de Vontade contra efeitos mágicos."
+        }
+      ]
+    },
+    {
+      "id": "muiraquita",
+      "nome": "Muiraquitã",
+      "descricao": [
+        "Um abraço firme como uma rocha e aconchegante como o sol da manhã – Ardel Cobrevento, Lorde de Diamantina.",
+        "Em Pindorama, uma lenda ancestral ecoa pelos confins dos reinos subterrâneos. Diz-se que foi a Záxiro Gumedé que escupiu a terra em montanhas. Contudo, a pedra bruta silenciosa, fria e inerte, não adorava sua criadora como faziam as demais criaturas concebidas por outros Deuses. Em busca de uma solução, Gumedé concebeu uma audaciosa ideia: roubar um pouco da essência de Kuarasy, o ser-trovão sol para forjar os metais das entranhas da terra e infundi-los com vida. Esse fragmento do sol veio a ser conhecido como fogo e, possibilitou a deusa esculpir e dar forma à essa ancestralidade. Assim surgiram os primeiros Muiraquitãs, seres nascidos do casamento entre Fogo e Metal, a quem Alagbedê ensinou a arte da metalurgia e das tecnologias envolvendo o calor.",
+        "Essa criação preciosa estava destinada a permanecer oculta dos olhos curiosos de Kuarasy, a fim de evitar que o pedaço do sol fosse reclamado de volta pelo divino. A lenda foi transmitida através das gerações, e os Angáris prosperaram nos recônditos subterrâneos, erguendo verdadeiros reinos nas profundezas.",
+        "Alguns jovens e audaciosos Muiraquitãs decidiram se aventurar pela superfície, ignorando o conselho dos mais velhos que sempre os alertavam sobre os perigos desconhecidos do mundo acima. Fascinados pela luz brilhante do sol e pela vastidão dos céus, adentraram a floresta e as montanhas, desafiando o desconhecido e construindo verdadeiros monumentos naturais, cidades que mais pareciam montanhas, fortalezas de puro metal impenetráveis.",
+        "Os Muiraquitãs possuem corpo mediano com pedaços de cristal incrustado neles. Exibem uma linda pele metálica em cores que variam dos metais ao qual sua linhagem pertence (rubros, prateados, dourados e etc.)",
+        "Quanto à personalidade, os Muiraquitãs são conhecidos por possuírem corações generosos e compassivos, dedicando-se ao cuidado e preocupação com os outros acima de si mesmos. Mas também são conhecidos por serem teimosos e determinados. Uma vez que estabelecem uma convicção ou objetivo, não facilmente se deixam desviar por obstáculos ou adversidades. Impulsionando-os a persistir mesmo diante dos desafios mais difíceis."
+      ],
+      "tracos": [
+        {
+          "id": "minerios-das-profundezas",
+          "nome": "Minérios das Profundezas",
+          "descricao": "Você é acostumado a carregar vários itens e ferramentas feitos com minérios. Seu deslocamento não é reduzido por uso de armadura ou excesso de carga. Você recebe visão no escuro e +2 em testes de Percepção e Sobrevivência realizados no subterrâneo.",
+          "imune_sobrecarga": true
+        },
+        {
+          "id": "pedra-preciosa",
+          "nome": "Pedra Preciosa",
+          "descricao": "Seu coração é um pedaço do próprio sol. Você tem resistência a dano de fogo. Além disso você possui invulnerabilidade a um elemento ligado ao minério da sua linhagem e começa com Item Mágico com 1 encantamento. Além disso, você recebe +2 em Ofício (armeiro) e, se for treinado nesta perícia, pode fabricar armas e armaduras superiores com uma melhoria. Se aprender a fabricar itens superiores desses tipos por outra habilidade, gasta apenas ¼ do preço das melhorias que aplica nesses itens (em vez de ⅓)."
+        },
+        {
+          "id": "esqueleto-metalico",
+          "nome": "Esqueleto Metálico",
+          "descricao": "Você tem redução de 1 ponto por dado de dano de impacto. Por exemplo, se for atingido por uma clava (dano 1d6), sofre 1d6-1 pontos de dano. Se cair de 3m de altura (dano 2d6), sofre 2d6-2 pontos de dano."
+        }
+      ]
+    },
+    {
+      "id": "oiara",
+      "nome": "Oiára",
+      "descricao": [
+        "\"Se em alto-mar você for navegar, dos oiáras deve se lembrar.\"",
+        "Raniere da Ciranda da Ilha, Unhabá Feiticeire",
+        "Os oiáras são seres místicos e fascinantes, capazes de assumir duas formas distintas. Quando estão na água, possuem uma cauda de animal marinho, que lhes permite nadar com velocidade e agilidade surpreendentes. Já quando estão fora da água, assumem a forma bípede, com pernas e pés.",
+        "Os oiáras possuem uma habilidade inata em lidar com a água e com as criaturas marinhas. São excelentes nadadores e possuem a capacidade de se comunicar com os animais aquáticos. Além disso, podem respirar livremente dentro da água, sendo capazes de viver suas vindas inteiras no fundo dos oceanos e rios, onde muitos construíram verdadeiros reinos.",
+        "Por sua habilidade natural em lidar com a água, são frequentemente vistos como guardiões dos oceanos e rios, protegendo os ecossistemas aquáticos e as criaturas que neles habitam.",
+        "Segundo a lenda, Iemanjá, a orixá dos mares e oceanos, criou os oiáras como uma forma de proteger as águas e suas criaturas. Ela escolheu os mais leais e corajosos dos animais marinhos e lhes concedeu a forma híbrida que permite que se movam livremente tanto na água quanto na terra. Dizem que Iemanjá também concedeu a habilidade de se comunicar com todas as criaturas do mar, e os ensinou a viver em harmonia com a natureza. Ao ver essa criação de Iemanjá, Oxum ficou tão apaixonada por elas que concedeu o dom da beleza e da voz encantadora e as convidou a morarem em seus rios de água doce.",
+        "Até hoje, os oiáras reverenciam essas duas divindades como suas protetoras, e realizam rituais em sua homenagem nos mares e rios de Pindorama."
+      ],
+      "tracos": [
+        {
+          "id": "transformacao-anfibia",
+          "nome": "Transformação Anfíbia",
+          "descricao": "Você pode respirar debaixo d’água e possui uma cauda que fornece deslocamento de natação 12m e +1 em Defesa Quando fora d’água, sua cauda desaparece e dá lugar a pernas (deslocamento 9m). Se permanecer mais de um dia sem contato com água, você não recupera PM com descanso até voltar para a água (ou, pelo menos, tomar um bom banho!)."
+        },
+        {
+          "id": "filhos-do-mar",
+          "nome": "Filhos do Mar",
+          "descricao": "sereianos podem se comunicar com criaturas marinhas"
+        },
+        {
+          "id": "canto-da-sereia",
+          "nome": "Canto da Sereia",
+          "descricao": "Você pode lançar duas magias entre as opções de Amedrontar, Comando, Despedaçar, Enfeitiçar, Hipnotismo ou Sono. Essas magias são associadas ao atributo-chave Carisma. Caso aprenda novamente uma dessas magias, seu custo diminui em –1 PM.",
+          "concede_magias": {
+            "limite": 2,
+            "opcoes": ["amedrontar", "comando", "despedacar", "enfeiticar", "hipnotismo", "sono"],
+            "atributo_chave": "Carisma",
+            "regra_extra": "Caso aprenda novamente uma dessas magias, seu custo diminui em –1 PM."
+          }
+        },
+        {
+          "id": "aparencia-encantada",
+          "nome": "Aparência Encantada",
+          "descricao": "você recebe +1 em testes de Carisma.",
+          "bonus_atributos": [
+            { "atributo": "carisma", "valor": 1 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orumere",
+      "nome": "Orumerê",
+      "descricao": [
+        "“Quando o trovão despenca com força e vigor,",
+        "A terra recebe com grande tremor,",
+        "Um Orumerê, guerreiro valente e protetor,",
+        "Pronto para vingar e causar dor.”",
+        "- Camões, Bardo dos Povos Caucazis",
+        "Os orumerês são seres criados a partir da união de uma Divindade com a energia cósmica que permeia o universo, sempre aparecendo em Pindorama de forma misteriosa, ainda nos primeiros dias de vida como uma criança abandonada.",
+        "Alguns possuem laços mais fortes com certos povos unhabás, sendo chamados para ajudá-los em momentos de grande necessidade. Outros vagam pelo reino, procurando por injustiças a serem corrigidas e ajudando qualquer pessoa que precise de sua ajuda.",
+        "Comumente apresentam corpos atléticos, cabelos crespos e olhos penetrantes e brilhantes, refletindo a o pulso da essência da divindade que existe em sua alma.",
+        "Os orumerês sentem a determinação por servir ao seu Deus, e são aclamados pelos seus seguidores como um sinal de proximidade com sua divindade. Sua presença é sempre bem-vinda, pois trazem esperança e coragem para aqueles que precisam de ajuda.",
+        "No entanto, nem todos compartilham desse sentimento. Os povos caucazis enxergam os orumerês como ameaças perigosíssimas. Eles os caçam impiedosamente, vendo-os como uma ameaça à sua dominação sobre Pindorama."
+      ],
+      "tracos": [
+        {
+          "id": "resistencia-a-magia",
+          "nome": "Resistência a Magia",
+          "descricao": "Você possui resistência a magias, recebendo um bônus de +2 em testes de resistência contra magias e efeitos mágicos."
+        },
+        {
+          "id": "sangue-divino",
+          "nome": "Sangue Divino",
+          "descricao": "Você aprende e pode lançar 2 magias divinas do 1º círculo (atributo-chave Carisma). Caso aprenda novamente essa magia, seu custo diminui em -1 PM.",
+          "concede_magias": {
+            "limite": 2,
+            "filtro": { "tipo": "Divina", "circulo": 1 },
+            "atributo_chave": "Carisma",
+            "regra_extra": "Caso aprenda novamente essa magia, seu custo diminui em -1 PM."
+          }
+        },
+        {
+          "id": "filho-devoto",
+          "nome": "Filho Devoto",
+          "descricao": "Você é devoto de um Deus e recebe dois poderes concebidos por isso (em vez de um). Classes que como Sacerdotes, Inquisidores ou Xamã, recebem todos os poderes da divindade. Além disso uma vez por aventura você pode gastar uma ação completa e 2PM para canalizar energia divina. Ao fazer isso, por 1d4 turnos você lança 1 magias divinas do 1º círculo, (CD Carisma), como uma ação livre e sem gastar PM (mas ainda precisa pagar outros custos). Você pode aplicar aprimoramentos, mas precisa pagar por eles. A cada 4 níveis você pode lançar magias de um círculo superior. Você pode escolher qualquer magia, mesmo que não a conheça."
+        }
+      ]
+    },
+    {
+      "id": "saci",
+      "nome": "Saci",
+      "descricao": [
+        "\"Redemoinho nos pés, mistérios nos véus, Saci é dança e encanto nos céus.\"",
+        "– Mestre Cacau Capoeira – Unhabá Lutador",
+        "Os Sacis são seres misteriosos, conhecidos por seu comportamento travesso e sua conexão com o Grande Verdejante. Eles são criaturas de estatura baixa, medindo cerca de meio metro de altura, com pele e cabelos negros. No entanto, o traço mais distintivo dos Sacis é o redemoinho mágico que gira em seus pés quando ele os une, permitindo-lhes flutuar rapidamente. Eles são criaturas ágeis, e rápidas, conhecidas por sua astúcia e senso de humor peculiar.",
+        "Os Sacis têm uma cultura baseada na tradição oral, transmitindo histórias e lendas de geração em geração. Eles são conhecidos por suas festas e celebrações ao ar livre, nas quais dançam pelo ar ao som de músicas folclóricas e desempenham peças teatrais que retratam as histórias de seu povo. Outra característica marcante da sua cultura é o uso de um gorro vermelho, uma peça que é mais que um simples adorno; é uma marca de passagem que simboliza a transição da infância para a idade adulta entre os sacis, um símbolo de maturidade e responsabilidade que os mesmos ostentam com orgulho.",
+        "A sociedade dos Sacis é organizada em pequenas comunidades que vivem em harmonia com o grande verde em florestas exuberantes de Pindorama. Eles são caçadores habilidosos e coletam ervas e plantas mágicas para usar em rituais e poções. Os anciãos desempenham um papel importante na orientação das decisões da comunidade e na preservação das tradições."
+      ],
+      "tracos": [
+        {
+          "id": "redemoinho-no-pes",
+          "nome": "Redemoinho no Pés",
+          "descricao": "Você pode pairar a 1,5m do chão com deslocamento 9m. Isso permite que você ignore terreno difícil e o torna imune a dano por queda (a menos que esteja inconsciente). Você pode gastar 1 PM para voar com deslocamento de 12m até o final da cena. Você também gastar uma quantidade de PM limitada pelo seu nível para comandar o redemoinho em linha reta por até 9m cegando e deixando os inimigos caídos. Um teste de Reflexo reduz as condições para ofuscado. A CD  para resistir é igual ao dobro da quantidade de PM gastos + 1d20."
+        },
+        {
+          "id": "espirito-da-natureza",
+          "nome": "Espírito da Natureza",
+          "descricao": "Você é uma criatura do tipo espírito, recebe visão na penumbra e pode falar com animais livremente. Também ganha um bônus +2 em testes de Sobrevivência quando estiver em ambiente selvagem."
+        },
+        {
+          "id": "travessos",
+          "nome": "Travessos",
+          "descricao": "Seu tamanho é Minúsculo e você é mestre em brincadeiras e travessuras ganhando um bônus de +2 em testes relacionados a enganar, iludir ou confundir.",
+          "bonus_pericias": [
+            { "pericia": "Enganação", "valor": 2 },
+            { "pericia": "Furtividade", "valor": 5 }
+          ]
+        },
+        {
+          "id": "encantaveis",
+          "nome": "Encantáveis",
+          "descricao": "Você sofre uma penalidade de -2 em testes de resistência de Vontade contra efeitos mágicos."
+        }
+      ]
+    },
+    {
+      "id": "humano",
+      "nome": "Humano",
+      "descricao": [
+        "Das cobra-canoas, meu povo navegou até aportar no litoral. Ali fizemos morada, entre folhas, marés e cantos antigos, em um jardim sem males, numa terra onde a doença ainda não havia aprendido nosso nome.",
+        "Ceci Xariabá – Sacerdote Humano",
+        "Entre todas as ancestralidades nativas de Pindorama, os Humanos foram os que mais se espalharam pelo continente. Onde pisavam, abriam caminhos, aldeias, portos, roçados, ritos e histórias. Construíram uma vasta civilização viva, tão extensa que parecia menos um império e mais um jardim sem fim, entrelaçado por trilhas, rios, cantos e alianças, cobrindo a Costa das Palmeiras — como chamavam o litoral de Pindorama — e avançando para além dela, onde a mata ainda cochichava segredos aos pacientes.",
+        "Dizem que os Humanos nasceram da vontade dos Deuses Criadores e chegaram a Pindorama navegando em uma imensa cobra-canoa, vinda de um rio formado pela lágrima da própria Deusa do Mar. A cada dobra da costa, uma tribo-família descia da embarcação sagrada para fundar sua morada. Algumas escolheram as praias claras. Outras, os mangues, as serras, os rios profundos ou as sombras generosas dos Grandes Verdejantes.",
+        "Assim, os humanos se tornaram a ancestralidade mais numerosa de Pindorama. O que, como quase sempre acontece com aquilo que cresce demais, trouxe bênçãos, confusão e uma quantidade bastante inconveniente de tragédias.",
+        "Foram também os primeiros a encontrar os temidos forasteiros vindos do Grande Mar: humanos de outras tribos-famílias, que insistiam em se chamar de povos caucázis. Chegaram deteriorados pela travessia, cuspidos pelo oceano, famintos, doentes e cheios de certezas — combinação perigosa em qualquer mundo conhecido.",
+        "Os pindorins os acolheram. Alimentaram-nos, curaram suas febres, abriram suas casas e dividiram seus cantos. Foi um gesto belo. Também foi, como diriam alguns anciãos mais secos, “uma péssima ideia vestida de bondade”.",
+        "Movidos por ganância e por uma fome que não era apenas de comida, os caucázis iniciaram guerras que atravessaram anos, tentando dominar, escravizar e apagar os povos de Pindorama — fossem eles humanos nativos ou encantades. Desde então, muitas tribos-famílias foram dispersas. Algumas sobrevivem em pequenas cidades fundadas nas profundezas dos Grandes Verdejantes. Outras tentam reconstruir seus lares, seus nomes e suas nações, agora diluídas pelas muitas terras de Pindorama.",
+        "Ainda assim, os Humanos persistem. E, para profundo desgosto de seus inimigos, persistem muito bem.",
+        "São belos, esguios e marcados por uma graça quase sobrenatural. Seus cabelos e olhos variam do mel ao negro profundo, do verde ao azul, muitas vezes brilhando como céu estrelado visto através da fumaça de uma fogueira. Suas vestes mudam conforme o povo, o território e a memória que carregam no corpo.",
+        "Entre os pindorins, é comum o uso de roupas feitas com materiais naturais: folhas tratadas, penas, couro, fibras vegetais, algodão cru, linho simples e panos de trama rústica. Mesmo nas peças mais simples, há elegância. Suas tecnologias de cultura parecem quase mágicas, pois nascem da comunhão com a natureza, não da tentativa grosseira de domesticá-la a marteladas.",
+        "Já entre os povos caucázis, as roupas tendem a ser mais estruturadas e sóbrias: tecidos em camadas, fivelas discretas, mangas longas, coletes, casacos, saias pesadas, golas fechadas e uma rigidez visual que sugere disciplina, hierarquia e uma leve dificuldade em respirar.",
+        "Humanos são múltiplos. Talvez essa seja sua maior força — e seu maior problema. Adaptam-se com notável rapidez diante das ameaças, sejam elas monstros, maldições, guerras, impostos ou parentes em visita prolongada.",
+        "Alguns preferem a diplomacia, a escuta e o acordo antes da violência. Outros são hostis, bélicos e calculistas, capazes de transformar qualquer promessa de paz em contrato com letras pequenas. Muitos recuam para seus lares na floresta quando enfrentam invasores, confiantes de que a mata, o tempo e a fome farão seu trabalho. Outros, por ironia cruel dos deuses, podem ser exatamente os invasores.",
+        "Em Pindorama, ser humano não significa pertencer a um único povo, destino ou moral. Significa carregar contradições. Significa ser capaz de acolher e ferir, plantar e queimar, lembrar e esquecer.",
+        "E, ainda assim, continuar contando histórias ao redor do fogo, como se a noite não estivesse ouvindo."
+      ],
+      "tracos": [
+        {
+          "id": "versatil",
+          "nome": "Versátil",
+          "descricao": "Você se torna treinado em duas perícias a sua escolha (não precisam ser da sua classe). Você pode trocar uma dessas perícias por um poder geral a sua escolha.",
+          "concede_pericias_treinadas": {
+            "limite": 2
+          }
+        }
+      ]
+    }
+  ]
+}
