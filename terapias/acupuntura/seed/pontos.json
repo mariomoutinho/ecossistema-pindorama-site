@@ -14178,17 +14178,48 @@
         "meridiano": "Pontos extraordinários",
         "categoria": [],
         "localizacao": "1 cun anterior, posterior e bilateral a VG20",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "acalma o shen",
+            "clareia a cabeça",
+            "dispersa vento"
+        ],
+        "sintomas_relacionados": [
+            "insônia",
+            "ansiedade",
+            "cefaleia",
+            "vertigem",
+            "perda de memória",
+            "epilepsia"
+        ],
+        "sindromes_relacionadas": [
+            "ascensão de Yang",
+            "Shen perturbado",
+            "vento interno"
+        ],
+        "indicacoes_terapeuticas": [
+            "insônia crônica",
+            "transtornos de memória (suporte)",
+            "ansiedade",
+            "epilepsia (suporte)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VG20",
+                "objetivo": "shen e ascensão de Yang"
+            },
+            {
+                "com": "EX-HN3 Yintang",
+                "objetivo": "shen"
+            }
+        ],
+        "observacoes_clinicas": "Sishencong — 4 pontos a 1 cun anterior, posterior e bilateral a VG20 (Baihui). Trabalhado em conjunto com VG20.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "EX-B1",
@@ -14196,17 +14227,41 @@
         "meridiano": "Pontos extraordinários",
         "categoria": [],
         "localizacao": "0,5 cun lateral a VG14",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "descende o Qi rebelde do Pulmão",
+            "alivia dispneia"
+        ],
+        "sintomas_relacionados": [
+            "asma",
+            "dispneia",
+            "tosse"
+        ],
+        "sindromes_relacionadas": [
+            "Qi rebelde do Pulmão",
+            "fleuma no Pulmão"
+        ],
+        "indicacoes_terapeuticas": [
+            "crise asmática",
+            "bronquite"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VG14",
+                "objetivo": "Du Mai e Pulmão"
+            },
+            {
+                "com": "B13",
+                "objetivo": "shu do Pulmão"
+            }
+        ],
+        "observacoes_clinicas": "Dingchuan — \"Estabilizar a dispneia\". 0,5 cun lateral a VG14. Ponto local importante em crises asmáticas.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "costas"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "EX-CA1",
@@ -14214,17 +14269,51 @@
         "meridiano": "Pontos extraordinários",
         "categoria": [],
         "localizacao": "4 cun abaixo do umbigo, 3 cun lateral à linha média",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "acoes_energeticas": [
+            "regula o útero",
+            "regula a menstruação",
+            "trata o prolapso"
+        ],
+        "sintomas_relacionados": [
+            "irregularidade menstrual",
+            "dismenorreia",
+            "infertilidade",
+            "prolapso uterino"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no útero",
+            "deficiência de Qi não sustentando"
+        ],
+        "indicacoes_terapeuticas": [
+            "infertilidade",
+            "prolapso uterino",
+            "endometriose (suporte)",
+            "dismenorreia"
+        ],
+        "contraindicacoes": [
+            "evitar agulhamento profundo em gestantes"
+        ],
+        "combinacoes": [
+            {
+                "com": "VC4",
+                "objetivo": "útero e Chong"
+            },
+            {
+                "com": "BP6",
+                "objetivo": "ginecologia"
+            },
+            {
+                "com": "VG20",
+                "objetivo": "elevar Qi em prolapsos"
+            }
+        ],
+        "observacoes_clinicas": "Zigong — \"Palácio Uterino\". 4 cun abaixo do umbigo, 3 cun lateral à linha média.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "abdome"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "EX-UE1",
@@ -14232,17 +14321,31 @@
         "meridiano": "Pontos extraordinários",
         "categoria": [],
         "localizacao": "Ponta do olécrano, com o cotovelo flexionado",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa fleuma",
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "papeira (escrófula)",
+            "linfadenite cervical",
+            "dor no cotovelo"
+        ],
+        "sindromes_relacionadas": [
+            "fleuma-fogo",
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "linfadenite cervical (suporte)"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Zhoujian — ponta do olécrano com o cotovelo flexionado.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "braço"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "EX-B2",
@@ -14250,17 +14353,49 @@
         "meridiano": "Pontos extraordinários",
         "categoria": [],
         "localizacao": "0,5 cun lateral aos processos espinhosos de T1 a L5 (17 pontos bilaterais)",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula a coluna",
+            "ativa o canal",
+            "regula órgãos correspondentes segmentarmente"
+        ],
+        "sintomas_relacionados": [
+            "dor segmentar paravertebral",
+            "rigidez da coluna",
+            "hérnia de disco",
+            "neuralgia intercostal",
+            "paralisias",
+            "afecções viscerais correspondentes"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no Du Mai",
+            "estagnação no canal vertebral"
+        ],
+        "indicacoes_terapeuticas": [
+            "hérnia de disco (cervical, torácica ou lombar)",
+            "espondilose",
+            "neuralgia intercostal",
+            "sequelas neurológicas segmentares"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VG14",
+                "objetivo": "espinha cervical"
+            },
+            {
+                "com": "VG4",
+                "objetivo": "espinha lombar"
+            }
+        ],
+        "observacoes_clinicas": "Jiaji (Huatuojiaji) — \"Pontos Para-vertebrais de Hua Tuo\". 17 pares de pontos a 0,5 cun lateral aos processos espinhosos de T1 a L5. Selecionados conforme o segmento clínico.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "costas",
+            "lombar",
+            "pescoço"
+        ],
+        "peso_base": 8,
+        "dados_completos": true
     },
     {
         "codigo": "EX-UE2",
@@ -14268,17 +14403,37 @@
         "meridiano": "Pontos extraordinários",
         "categoria": [],
         "localizacao": "4 cun acima da prega do punho, em ambos os lados do tendão palmar longo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula intestinos",
+            "ativa o sangue"
+        ],
+        "sintomas_relacionados": [
+            "hemorroidas",
+            "prolapso anal",
+            "fissura anal"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação de sangue no ânus",
+            "deficiência de Qi"
+        ],
+        "indicacoes_terapeuticas": [
+            "hemorroidas crônicas"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "B57",
+                "objetivo": "hemorroidas"
+            }
+        ],
+        "observacoes_clinicas": "Erbai — \"Duas Brancas\". 4 cun acima da prega do punho, em ambos os lados do tendão do flexor radial do carpo.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "braço",
+            "punho"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "EX-LE2",
@@ -14286,17 +14441,41 @@
         "meridiano": "Pontos extraordinários",
         "categoria": [],
         "localizacao": "Centro da borda superior da patela",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal",
+            "alivia dor de joelho"
+        ],
+        "sintomas_relacionados": [
+            "dor no joelho",
+            "edema do joelho",
+            "rigidez articular"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal",
+            "vento-frio-umidade no joelho"
+        ],
+        "indicacoes_terapeuticas": [
+            "artrose de joelho",
+            "dor anterior do joelho"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "E35",
+                "objetivo": "joelho anterior"
+            },
+            {
+                "com": "EX-LE5 Xiyan",
+                "objetivo": "joelho"
+            }
+        ],
+        "observacoes_clinicas": "Heding — centro da borda superior da patela. Ponto local para o joelho anterior.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "joelho"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "EX-HN3",
@@ -14359,17 +14538,45 @@
         "meridiano": "Pontos extraordinários",
         "categoria": [],
         "localizacao": "Centro da sobrancelha, vertical da pupila",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "clareia visão",
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "paralisia palpebral",
+            "ptose",
+            "tique palpebral",
+            "olhos vermelhos",
+            "lacrimejamento",
+            "dor supraorbital"
+        ],
+        "sindromes_relacionadas": [
+            "vento na pálpebra",
+            "calor no Fígado"
+        ],
+        "indicacoes_terapeuticas": [
+            "paralisia facial (acometimento palpebral)",
+            "ptose palpebral"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "B2",
+                "objetivo": "sobrancelha e olhos"
+            },
+            {
+                "com": "IG4",
+                "objetivo": "paralisia facial"
+            }
+        ],
+        "observacoes_clinicas": "Yuyao — centro da sobrancelha. Subcutâneo em direção lateral ou medial.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "EX-HN5",
@@ -14377,17 +14584,52 @@
         "meridiano": "Pontos extraordinários",
         "categoria": [],
         "localizacao": "Depressão a 1 cun lateral entre canto do olho e sobrancelha",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "clareia calor",
+            "alivia dor temporal",
+            "beneficia os olhos"
+        ],
+        "sintomas_relacionados": [
+            "enxaqueca",
+            "cefaleia temporal",
+            "cefaleia tensional",
+            "olhos vermelhos",
+            "paralisia facial",
+            "dor dental"
+        ],
+        "sindromes_relacionadas": [
+            "ascensão de Yang do Fígado",
+            "vento externo",
+            "fogo no Shaoyang"
+        ],
+        "indicacoes_terapeuticas": [
+            "enxaqueca",
+            "cefaleia tensional",
+            "neuralgia do trigêmeo (V1-V2)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VB20",
+                "objetivo": "enxaqueca"
+            },
+            {
+                "com": "VB8",
+                "objetivo": "cefaleia temporal"
+            },
+            {
+                "com": "TA23",
+                "objetivo": "têmpora"
+            }
+        ],
+        "observacoes_clinicas": "Taiyang — \"Grande Yang\". Depressão a 1 cun lateral entre canto do olho e sobrancelha. Pode ser sangrado em quadros agudos de calor.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 8,
+        "dados_completos": true
     },
     {
         "codigo": "EX-LE5",
@@ -14395,17 +14637,44 @@
         "meridiano": "Pontos extraordinários",
         "categoria": [],
         "localizacao": "Duas depressões mediais e laterais à patela com o joelho flexionado",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal",
+            "relaxa tendões",
+            "alivia dor de joelho"
+        ],
+        "sintomas_relacionados": [
+            "dor no joelho",
+            "edema do joelho",
+            "rigidez articular",
+            "instabilidade do joelho"
+        ],
+        "sindromes_relacionadas": [
+            "frio-umidade no joelho",
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "artrose de joelho",
+            "lesão meniscal (suporte)",
+            "tendinopatia patelar"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "E35",
+                "objetivo": "Dubi — \"olho lateral\" pareando com o medial"
+            },
+            {
+                "com": "E34",
+                "objetivo": "joelho"
+            }
+        ],
+        "observacoes_clinicas": "Xiyan — \"Olhos do Joelho\". Duas depressões mediais e laterais à patela com o joelho flexionado. O olho lateral coincide com E35 (Dubi); o medial é o ponto \"extraordinário\" propriamente dito.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "joelho"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "EX-LE6",
@@ -14413,17 +14682,40 @@
         "meridiano": "Pontos extraordinários",
         "categoria": [],
         "localizacao": "1-2 cun abaixo de VB34, ponto sensível à pressão",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "drena calor-umidade da Vesícula Biliar"
+        ],
+        "sintomas_relacionados": [
+            "colecistite",
+            "colelitíase",
+            "dor hipocondrial"
+        ],
+        "sindromes_relacionadas": [
+            "calor-umidade na Vesícula Biliar"
+        ],
+        "indicacoes_terapeuticas": [
+            "colecistite aguda e crônica",
+            "colelitíase (suporte)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VB34",
+                "objetivo": "VB"
+            },
+            {
+                "com": "VB24",
+                "objetivo": "VB Mu"
+            }
+        ],
+        "observacoes_clinicas": "Dannangxue — \"Ponto da Vesícula Biliar\". 1-2 cun abaixo de VB34, no ponto mais sensível à pressão. Indicação principal: doenças da vesícula biliar.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "joelho",
+            "panturrilha"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "EX-HN7",
@@ -14431,17 +14723,40 @@
         "meridiano": "Pontos extraordinários",
         "categoria": [],
         "localizacao": "Borda infraorbital, no canto lateral do olho",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "acoes_energeticas": [
+            "beneficia os olhos",
+            "clareia visão"
+        ],
+        "sintomas_relacionados": [
+            "visão turva",
+            "miopia",
+            "atrofia do nervo óptico (suporte)",
+            "cataratas",
+            "glaucoma"
+        ],
+        "sindromes_relacionadas": [
+            "deficiência de sangue do Fígado",
+            "deficiência de essência do Rim"
+        ],
+        "indicacoes_terapeuticas": [
+            "doenças degenerativas oculares (suporte)"
+        ],
+        "contraindicacoes": [
+            "agulhar com extrema cautela pela proximidade ao globo ocular"
+        ],
+        "combinacoes": [
+            {
+                "com": "B1",
+                "objetivo": "afecções oculares"
+            }
+        ],
+        "observacoes_clinicas": "Qiuhou — \"Atrás do Globo Ocular\". Borda infraorbital, no canto lateral do olho. Punção lenta sem retração para evitar hematoma.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "EX-UE7",
@@ -14449,17 +14764,38 @@
         "meridiano": "Pontos extraordinários",
         "categoria": [],
         "localizacao": "Dorso da mão, entre 2º/3º e 4º/5º metacarpos, na linha das pregas digitais",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "alivia lombalgia aguda",
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "lombalgia aguda",
+            "torcicolo"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação aguda no Du Mai/Taiyang"
+        ],
+        "indicacoes_terapeuticas": [
+            "lombalgia aguda"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "ID3",
+                "objetivo": "lombalgia aguda"
+            },
+            {
+                "com": "VG26",
+                "objetivo": "lombalgia aguda"
+            }
+        ],
+        "observacoes_clinicas": "Yaotongdian (Yaotongxue) — \"Ponto da Dor Lombar\". 2 pontos no dorso da mão, entre 2º/3º e 4º/5º metacarpos. Agulhamento com mobilização ativa da lombar.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "mão"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "EX-LE7",
@@ -14467,17 +14803,38 @@
         "meridiano": "Pontos extraordinários",
         "categoria": [],
         "localizacao": "2 cun abaixo de E36",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor-umidade no Intestino Grosso"
+        ],
+        "sintomas_relacionados": [
+            "dor abdominal em fossa ilíaca direita",
+            "apendicite"
+        ],
+        "sindromes_relacionadas": [
+            "calor-umidade no Intestino Grosso"
+        ],
+        "indicacoes_terapeuticas": [
+            "apendicite aguda (suporte)",
+            "apendicite crônica"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "E37",
+                "objetivo": "he inferior do IG"
+            },
+            {
+                "com": "E36",
+                "objetivo": "Estômago"
+            }
+        ],
+        "observacoes_clinicas": "Lanweixue — \"Ponto do Apêndice\". 2 cun abaixo de E36, no ponto mais sensível à pressão. Indicação principal: apendicite (sob orientação médica concomitante).",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "membro inferior"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "EX-HN8",
@@ -14485,17 +14842,37 @@
         "meridiano": "Pontos extraordinários",
         "categoria": [],
         "localizacao": "Topo do sulco nasolabial, na asa do nariz",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "abre o nariz"
+        ],
+        "sintomas_relacionados": [
+            "congestão nasal",
+            "rinite",
+            "sinusite",
+            "anosmia"
+        ],
+        "sindromes_relacionadas": [
+            "vento na cavidade nasal"
+        ],
+        "indicacoes_terapeuticas": [
+            "rinite crônica",
+            "sinusite"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "IG20",
+                "objetivo": "nariz"
+            }
+        ],
+        "observacoes_clinicas": "Bitong — \"Nariz Permeável\". Topo do sulco nasolabial, na asa do nariz. Subcutâneo em direção a IG20.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "EX-UE9",
@@ -14503,17 +14880,33 @@
         "meridiano": "Pontos extraordinários",
         "categoria": [],
         "localizacao": "4 pontos bilaterais nas pregas entre os dedos da mão",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal",
+            "alivia dor",
+            "dispersa vento na pele"
+        ],
+        "sintomas_relacionados": [
+            "dor articular dos dedos da mão",
+            "edema dos dedos",
+            "dormência dos dedos"
+        ],
+        "sindromes_relacionadas": [
+            "vento-frio-umidade nos dedos",
+            "vento na pele"
+        ],
+        "indicacoes_terapeuticas": [
+            "artrite das mãos",
+            "síndrome de Raynaud (suporte)"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Baxie — \"Oito Patogênios\". 4 pontos bilaterais nas pregas entre os dedos da mão.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "mão"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "EX-LE10",
@@ -14521,17 +14914,33 @@
         "meridiano": "Pontos extraordinários",
         "categoria": [],
         "localizacao": "4 pontos bilaterais nas pregas entre os artelhos",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal",
+            "alivia dor",
+            "drena calor-umidade"
+        ],
+        "sintomas_relacionados": [
+            "dor articular dos artelhos",
+            "edema dos pés",
+            "podagra"
+        ],
+        "sindromes_relacionadas": [
+            "vento-frio-umidade nos artelhos",
+            "calor-umidade"
+        ],
+        "indicacoes_terapeuticas": [
+            "gota (podagra)",
+            "artrite dos artelhos"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Bafeng — \"Oito Ventos\". 4 pontos bilaterais nas pregas entre os artelhos.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "pé"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "EX-UE11",
@@ -14539,17 +14948,46 @@
         "meridiano": "Pontos extraordinários",
         "categoria": [],
         "localizacao": "Pontas dos 10 dedos das mãos",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "restabelece a consciência",
+            "clareia calor",
+            "drena fogo extremo"
+        ],
+        "sintomas_relacionados": [
+            "coma",
+            "desmaio",
+            "AVC",
+            "convulsão",
+            "febre alta",
+            "fechamento"
+        ],
+        "sindromes_relacionadas": [
+            "fechamento súbito",
+            "vento interno",
+            "fogo extremo"
+        ],
+        "indicacoes_terapeuticas": [
+            "ressuscitação em quadros de fechamento",
+            "AVC agudo (sangria)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VG26",
+                "objetivo": "ressuscitação"
+            },
+            {
+                "com": "PC9",
+                "objetivo": "ressuscitação cardíaca"
+            }
+        ],
+        "observacoes_clinicas": "Shixuan — \"Dez Estimulações\". Pontas dos 10 dedos das mãos. Sangria é a técnica clássica em emergências.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "mão"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "EX-HN15",
@@ -14557,16 +14995,37 @@
         "meridiano": "Pontos extraordinários",
         "categoria": [],
         "localizacao": "2 cun acima de VG14 e 1 cun lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa fleuma-fogo",
+            "regula o pescoço"
+        ],
+        "sintomas_relacionados": [
+            "tireoide aumentada",
+            "linfadenite cervical",
+            "papeira",
+            "tosse crônica",
+            "rigidez cervical"
+        ],
+        "sindromes_relacionadas": [
+            "fleuma-fogo no pescoço"
+        ],
+        "indicacoes_terapeuticas": [
+            "bócio (suporte)",
+            "linfadenite cervical"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VG14",
+                "objetivo": "Du Mai cervical"
+            }
+        ],
+        "observacoes_clinicas": "Bailao — \"Cem Fadigas\". 2 cun acima de VG14 e 1 cun lateral. Tradicionalmente usado para tuberculose pulmonar e fadiga crônica.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "pescoço"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     }
 ]
