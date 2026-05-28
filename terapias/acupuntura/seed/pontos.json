@@ -733,17 +733,47 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "Entre globo ocular e margem infraorbital, na pupila",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "acoes_energeticas": [
+            "dispersa vento",
+            "clareia visão",
+            "beneficia os olhos"
+        ],
+        "sintomas_relacionados": [
+            "lacrimejamento",
+            "visão turva",
+            "olhos vermelhos",
+            "fotofobia",
+            "tique palpebral"
+        ],
+        "sindromes_relacionadas": [
+            "vento-calor nos olhos",
+            "deficiência de sangue do Fígado"
+        ],
+        "indicacoes_terapeuticas": [
+            "conjuntivite",
+            "miopia",
+            "glaucoma (suporte)"
+        ],
+        "contraindicacoes": [
+            "agulhar com extrema cautela pela proximidade ao globo ocular"
+        ],
+        "combinacoes": [
+            {
+                "com": "B1",
+                "objetivo": "afecções oculares"
+            },
+            {
+                "com": "VB20",
+                "objetivo": "olhos e cabeça"
+            }
+        ],
+        "observacoes_clinicas": "Diretamente abaixo da pupila. Sem moxa. Pressão local após agulhamento para prevenir hematoma.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "E2",
@@ -751,17 +781,45 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "1 cun abaixo de E1, no forame infraorbital",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "ativa o canal",
+            "beneficia os olhos"
+        ],
+        "sintomas_relacionados": [
+            "paralisia facial",
+            "tique palpebral",
+            "dor facial",
+            "olhos vermelhos",
+            "sinusite maxilar"
+        ],
+        "sindromes_relacionadas": [
+            "vento externo na face",
+            "estagnação no canal Yangming"
+        ],
+        "indicacoes_terapeuticas": [
+            "paralisia facial periférica",
+            "neuralgia do trigêmeo (2º ramo)",
+            "sinusite maxilar"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "IG4",
+                "objetivo": "paralisia facial e vento na face"
+            },
+            {
+                "com": "E4",
+                "objetivo": "paralisia facial"
+            }
+        ],
+        "observacoes_clinicas": "Ponto local clássico para paralisia facial. Forame infraorbital.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "E3",
@@ -769,17 +827,37 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "Sulco nasolabial, na linha vertical da pupila",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "paralisia facial",
+            "dor facial",
+            "edema facial",
+            "sinusite"
+        ],
+        "sindromes_relacionadas": [
+            "vento externo na face"
+        ],
+        "indicacoes_terapeuticas": [
+            "paralisia facial",
+            "sinusite maxilar"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
+        "combinacoes": [
+            {
+                "com": "IG4",
+                "objetivo": "vento na face"
+            }
+        ],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "cabeça"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "E4",
@@ -787,17 +865,43 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "0,4 cun lateral ao canto da boca",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "ativa o canal",
+            "beneficia a boca"
+        ],
+        "sintomas_relacionados": [
+            "paralisia facial",
+            "desvio da boca",
+            "salivação excessiva",
+            "afasia",
+            "dor dental inferior"
+        ],
+        "sindromes_relacionadas": [
+            "vento externo na face"
+        ],
+        "indicacoes_terapeuticas": [
+            "paralisia facial periférica",
+            "sequela de AVC com desvio bucal"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "E6",
+                "objetivo": "paralisia facial (via subcutânea Dicang-Jiache)"
+            },
+            {
+                "com": "IG4",
+                "objetivo": "vento na face"
+            }
+        ],
+        "observacoes_clinicas": "Canto da boca. Agulhamento clássico subcutâneo em direção a E6 (Jiache) na paralisia facial.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "E5",
@@ -805,17 +909,31 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "Ângulo da mandíbula, na borda anterior do masseter",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "paralisia facial",
+            "dor dental",
+            "trismo"
+        ],
+        "sindromes_relacionadas": [
+            "vento externo na face"
+        ],
+        "indicacoes_terapeuticas": [
+            "paralisia facial",
+            "trismo"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Cuidado com a artéria facial subjacente.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "cabeça"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "E6",
@@ -823,17 +941,46 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "Ventre do masseter, ao apertar os dentes",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "ativa o canal",
+            "alivia trismo"
+        ],
+        "sintomas_relacionados": [
+            "trismo",
+            "paralisia facial",
+            "dor dental inferior",
+            "espasmo do masseter",
+            "papeira"
+        ],
+        "sindromes_relacionadas": [
+            "vento externo na face",
+            "estagnação no canal Yangming"
+        ],
+        "indicacoes_terapeuticas": [
+            "paralisia facial periférica",
+            "trismo",
+            "dor de dente",
+            "DTM"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "E4",
+                "objetivo": "paralisia facial"
+            },
+            {
+                "com": "E7",
+                "objetivo": "DTM e dor de dente"
+            }
+        ],
+        "observacoes_clinicas": "Centro do masseter. Bastante usado em conjunto com E4 e E7 no protocolo facial.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "E7",
@@ -841,17 +988,46 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "Depressão abaixo do arco zigomático, anterior ao côndilo mandibular",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "beneficia a ATM",
+            "abre os ouvidos"
+        ],
+        "sintomas_relacionados": [
+            "DTM",
+            "trismo",
+            "dor dental superior",
+            "zumbido",
+            "surdez",
+            "paralisia facial"
+        ],
+        "sindromes_relacionadas": [
+            "vento externo na face",
+            "estagnação no Shaoyang"
+        ],
+        "indicacoes_terapeuticas": [
+            "disfunção da ATM",
+            "dor de dente superior",
+            "zumbido"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VB20",
+                "objetivo": "DTM"
+            },
+            {
+                "com": "TA21",
+                "objetivo": "ouvidos e ATM"
+            }
+        ],
+        "observacoes_clinicas": "Articulação temporomandibular. Punção feita com a boca fechada.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "E8",
@@ -859,17 +1035,44 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "Canto fronto-temporal do couro cabeludo, 0,5 cun dentro da linha do cabelo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "dispersa vento",
+            "alivia dor",
+            "clareia a cabeça"
+        ],
+        "sintomas_relacionados": [
+            "cefaleia frontal",
+            "cefaleia temporal",
+            "visão turva",
+            "vertigem"
+        ],
+        "sindromes_relacionadas": [
+            "vento externo",
+            "ascensão de Yang",
+            "deficiência de sangue"
+        ],
+        "indicacoes_terapeuticas": [
+            "cefaleia frontal e temporal",
+            "enxaqueca"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VB8",
+                "objetivo": "cefaleia temporal"
+            },
+            {
+                "com": "F3",
+                "objetivo": "ascensão de Yang"
+            }
+        ],
+        "observacoes_clinicas": "Canto frontal da linha do cabelo. Útil em todas as cefaleias da região frontotemporal.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "cabeça"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "E9",
@@ -877,17 +1080,43 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "Ao lado da maçã de Adão, na borda anterior do esternocleidomastoideo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "acoes_energeticas": [
+            "descende o Qi rebelde",
+            "regula o sangue",
+            "beneficia a garganta"
+        ],
+        "sintomas_relacionados": [
+            "dor de garganta",
+            "asma",
+            "hipertensão (suporte)",
+            "tireoide aumentada",
+            "rouquidão"
+        ],
+        "sindromes_relacionadas": [
+            "ascensão de Yang",
+            "estagnação no pescoço"
+        ],
+        "indicacoes_terapeuticas": [
+            "hipertensão (suporte)",
+            "bócio (suporte)",
+            "asma"
+        ],
+        "contraindicacoes": [
+            "evitar a artéria carótida — punção cautelosa, superficial"
+        ],
+        "combinacoes": [
+            {
+                "com": "E10",
+                "objetivo": "garganta"
+            }
+        ],
+        "observacoes_clinicas": "Adjacente à carótida. Janela do céu. Punção rasa e cuidadosa, evitando vaso.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "pescoço"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "E10",
@@ -895,17 +1124,30 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "Entre E9 e E11, na borda anterior do esternocleidomastoideo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "beneficia a garganta",
+            "descende o Qi rebelde"
+        ],
+        "sintomas_relacionados": [
+            "dor de garganta",
+            "tosse",
+            "asma"
+        ],
+        "sindromes_relacionadas": [
+            "Qi rebelde no pescoço"
+        ],
+        "indicacoes_terapeuticas": [
+            "faringite"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "pescoço"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "E11",
@@ -913,17 +1155,29 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "Borda superior da clavícula, na cabeça esternal do esternocleidomastoideo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "descende o Qi rebelde",
+            "beneficia a garganta"
+        ],
+        "sintomas_relacionados": [
+            "dor de garganta",
+            "tosse"
+        ],
+        "sindromes_relacionadas": [
+            "Qi rebelde do Pulmão"
+        ],
+        "indicacoes_terapeuticas": [
+            "faringite"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "pescoço"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "E12",
@@ -931,17 +1185,35 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "Centro da fossa supraclavicular, 4 cun lateral à linha média anterior",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "descende o Qi rebelde",
+            "transforma fleuma"
+        ],
+        "sintomas_relacionados": [
+            "tosse",
+            "dispneia",
+            "dor escapular",
+            "dor torácica"
+        ],
+        "sindromes_relacionadas": [
+            "fleuma no Pulmão"
+        ],
+        "indicacoes_terapeuticas": [
+            "asma",
+            "bronquite"
+        ],
+        "contraindicacoes": [
+            "punção rasa pelo risco de pneumotórax"
+        ],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Fossa supraclavicular. Pneumotórax é o risco principal.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "pescoço",
+            "tórax"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "E13",
@@ -949,17 +1221,32 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "Borda inferior da clavícula, na linha mamilar",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "descende o Qi rebelde",
+            "abre o tórax"
+        ],
+        "sintomas_relacionados": [
+            "tosse",
+            "dispneia",
+            "opressão torácica"
+        ],
+        "sindromes_relacionadas": [
+            "Qi rebelde do Pulmão"
+        ],
+        "indicacoes_terapeuticas": [
+            "asma"
+        ],
+        "contraindicacoes": [
+            "risco de pneumotórax — punção oblíqua superficial"
+        ],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "tórax"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "E14",
@@ -967,17 +1254,30 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "1º espaço intercostal, na linha mamilar",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "descende o Qi rebelde"
+        ],
+        "sintomas_relacionados": [
+            "tosse",
+            "opressão torácica"
+        ],
+        "sindromes_relacionadas": [
+            "Qi rebelde do Pulmão"
+        ],
+        "indicacoes_terapeuticas": [
+            "bronquite"
+        ],
+        "contraindicacoes": [
+            "risco de pneumotórax"
+        ],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "tórax"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "E15",
@@ -985,17 +1285,30 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "2º espaço intercostal, na linha mamilar",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "abre o tórax"
+        ],
+        "sintomas_relacionados": [
+            "tosse",
+            "dor torácica"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no tórax"
+        ],
+        "indicacoes_terapeuticas": [
+            "bronquite"
+        ],
+        "contraindicacoes": [
+            "risco de pneumotórax"
+        ],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "tórax"
+        ],
+        "peso_base": 4,
+        "dados_completos": true
     },
     {
         "codigo": "E16",
@@ -1003,17 +1316,33 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "3º espaço intercostal, na linha mamilar",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "abre o tórax",
+            "promove a lactação"
+        ],
+        "sintomas_relacionados": [
+            "dor torácica",
+            "mastite",
+            "agalactia"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no tórax",
+            "estase nas mamas"
+        ],
+        "indicacoes_terapeuticas": [
+            "mastite"
+        ],
+        "contraindicacoes": [
+            "risco de pneumotórax"
+        ],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "tórax"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "E17",
@@ -1025,13 +1354,17 @@
         "sintomas_relacionados": [],
         "sindromes_relacionadas": [],
         "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "contraindicacoes": [
+            "agulhamento contraindicado — ponto de referência anatômica apenas (mamilo). Sem moxa direta"
+        ],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Ponto de referência sobre o mamilo, na linha do canal de Estômago. Não é puncionado nem moxabustionado.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "tórax"
+        ],
+        "peso_base": 1,
+        "dados_completos": true
     },
     {
         "codigo": "E18",
@@ -1039,17 +1372,39 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "5º espaço intercostal, na linha mamilar",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "acoes_energeticas": [
+            "promove a lactação",
+            "regula as mamas"
+        ],
+        "sintomas_relacionados": [
+            "agalactia",
+            "mastite",
+            "dor mamária",
+            "tosse"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação de Qi do Fígado nas mamas"
+        ],
+        "indicacoes_terapeuticas": [
+            "mastite",
+            "insuficiência de leite"
+        ],
+        "contraindicacoes": [
+            "risco de pneumotórax"
+        ],
+        "combinacoes": [
+            {
+                "com": "VC17",
+                "objetivo": "mastite e lactação"
+            }
+        ],
+        "observacoes_clinicas": "Imediatamente abaixo da mama. Punção oblíqua superficial.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "tórax"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "E19",
@@ -1057,17 +1412,31 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "6 cun acima do umbigo, 2 cun lateral à linha média",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "harmoniza o Estômago",
+            "descende o Qi rebelde"
+        ],
+        "sintomas_relacionados": [
+            "distensão epigástrica",
+            "vômito",
+            "anorexia"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação de alimento",
+            "Qi rebelde do Estômago"
+        ],
+        "indicacoes_terapeuticas": [
+            "dispepsia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "abdome"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "E20",
@@ -1075,17 +1444,30 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "5 cun acima do umbigo, 2 cun lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "harmoniza o Estômago",
+            "transforma estagnação alimentar"
+        ],
+        "sintomas_relacionados": [
+            "distensão epigástrica",
+            "dor epigástrica",
+            "vômito"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação de alimento"
+        ],
+        "indicacoes_terapeuticas": [
+            "dispepsia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "abdome"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "E21",
@@ -1093,17 +1475,44 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "4 cun acima do umbigo, 2 cun lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "harmoniza o Estômago",
+            "descende o Qi rebelde",
+            "alivia dor"
+        ],
+        "sintomas_relacionados": [
+            "dor epigástrica",
+            "vômito",
+            "distensão",
+            "diarreia"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no Estômago",
+            "deficiência de Baço"
+        ],
+        "indicacoes_terapeuticas": [
+            "gastrite",
+            "úlcera péptica",
+            "dispepsia"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "E36",
+                "objetivo": "harmonizar Estômago"
+            },
+            {
+                "com": "VC12",
+                "objetivo": "centro digestivo"
+            }
+        ],
+        "observacoes_clinicas": "Ponto local muito usado em quadros gástricos crônicos.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "abdome"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "E22",
@@ -1111,17 +1520,29 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "3 cun acima do umbigo, 2 cun lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "harmoniza o Estômago"
+        ],
+        "sintomas_relacionados": [
+            "dor epigástrica",
+            "distensão",
+            "anorexia"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no Estômago"
+        ],
+        "indicacoes_terapeuticas": [
+            "dispepsia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "abdome"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "E23",
@@ -1129,17 +1550,29 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "2 cun acima do umbigo, 2 cun lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "harmoniza o Estômago",
+            "acalma o shen"
+        ],
+        "sintomas_relacionados": [
+            "distensão epigástrica",
+            "agitação mental"
+        ],
+        "sindromes_relacionadas": [
+            "fleuma-fogo perturbando o shen"
+        ],
+        "indicacoes_terapeuticas": [
+            "agitação com origem digestiva"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "abdome"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "E24",
@@ -1147,17 +1580,30 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "1 cun acima do umbigo, 2 cun lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "transforma fleuma",
+            "harmoniza o Estômago"
+        ],
+        "sintomas_relacionados": [
+            "distensão",
+            "vômito",
+            "epilepsia (suporte)"
+        ],
+        "sindromes_relacionadas": [
+            "fleuma obstruindo as cavidades"
+        ],
+        "indicacoes_terapeuticas": [
+            "epilepsia (suporte)"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "abdome"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "E25",
@@ -1167,17 +1613,54 @@
             "mu do Intestino Grosso"
         ],
         "localizacao": "2 cun lateral ao umbigo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula os intestinos",
+            "transforma estagnação",
+            "regula Qi e sangue",
+            "drena calor-umidade"
+        ],
+        "sintomas_relacionados": [
+            "constipação",
+            "diarreia",
+            "dor abdominal periumbilical",
+            "distensão",
+            "disenteria",
+            "irregularidade menstrual"
+        ],
+        "sindromes_relacionadas": [
+            "calor-umidade nos intestinos",
+            "estagnação de alimento",
+            "estagnação de Qi no IG"
+        ],
+        "indicacoes_terapeuticas": [
+            "constipação crônica",
+            "diarreia aguda e crônica",
+            "síndrome do intestino irritável",
+            "disenteria",
+            "dismenorreia"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "E36",
+                "objetivo": "regular intestinos"
+            },
+            {
+                "com": "E37",
+                "objetivo": "constipação"
+            },
+            {
+                "com": "BP6",
+                "objetivo": "dismenorreia"
+            }
+        ],
+        "observacoes_clinicas": "Ponto Mu do Intestino Grosso. Lateral 2 cun ao umbigo. Excelente em todos os quadros intestinais.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "abdome"
+        ],
+        "peso_base": 8,
+        "dados_completos": true
     },
     {
         "codigo": "E26",
@@ -1185,17 +1668,28 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "1 cun abaixo do umbigo, 2 cun lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o TA inferior"
+        ],
+        "sintomas_relacionados": [
+            "dor abdominal",
+            "irregularidade menstrual"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no TA inferior"
+        ],
+        "indicacoes_terapeuticas": [
+            "dismenorreia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "abdome"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "E27",
@@ -1203,17 +1697,30 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "2 cun abaixo do umbigo, 2 cun lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o TA inferior",
+            "beneficia o sêmen"
+        ],
+        "sintomas_relacionados": [
+            "distensão abdominal baixa",
+            "disúria",
+            "emissão noturna"
+        ],
+        "sindromes_relacionadas": [
+            "calor-umidade no TA inferior"
+        ],
+        "indicacoes_terapeuticas": [
+            "disúria"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "abdome"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "E28",
@@ -1221,17 +1728,37 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "3 cun abaixo do umbigo, 2 cun lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula a água",
+            "beneficia a Bexiga"
+        ],
+        "sintomas_relacionados": [
+            "edema",
+            "disúria",
+            "ascite",
+            "retenção urinária"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação de água no TA inferior"
+        ],
+        "indicacoes_terapeuticas": [
+            "edema",
+            "retenção urinária"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
+        "combinacoes": [
+            {
+                "com": "BP9",
+                "objetivo": "edema"
+            }
+        ],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "abdome"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "E29",
@@ -1239,17 +1766,47 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "4 cun abaixo do umbigo, 2 cun lateral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o útero",
+            "dispersa frio na pelve",
+            "regula menstruação"
+        ],
+        "sintomas_relacionados": [
+            "irregularidade menstrual",
+            "dismenorreia",
+            "amenorreia",
+            "infertilidade",
+            "leucorreia",
+            "hérnia"
+        ],
+        "sindromes_relacionadas": [
+            "frio-estagnação no útero",
+            "deficiência de Chong e Ren"
+        ],
+        "indicacoes_terapeuticas": [
+            "dismenorreia",
+            "amenorreia",
+            "infertilidade",
+            "prolapso uterino"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VC4",
+                "objetivo": "útero e Chong Mai"
+            },
+            {
+                "com": "BP6",
+                "objetivo": "ginecologia"
+            }
+        ],
+        "observacoes_clinicas": "Ponto clássico para distúrbios ginecológicos por frio.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "abdome"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "E30",
@@ -1257,17 +1814,34 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "5 cun abaixo do umbigo, 2 cun lateral, sobre a artéria femoral",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "regula o Chong Mai",
+            "beneficia os órgãos genitais"
+        ],
+        "sintomas_relacionados": [
+            "impotência",
+            "irregularidade menstrual",
+            "hérnia inguinal",
+            "dor na virilha"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no Chong Mai"
+        ],
+        "indicacoes_terapeuticas": [
+            "distúrbios sexuais",
+            "hérnia"
+        ],
+        "contraindicacoes": [
+            "evitar a artéria femoral local"
+        ],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Ponto de reunião com o Chong Mai. Lateral ao tubérculo púbico.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "abdome"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "E31",
@@ -1275,17 +1849,38 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "Cruzamento da linha vertical da espinha ilíaca antero-superior com a linha do períneo",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal",
+            "relaxa tendões",
+            "alivia dor no quadril"
+        ],
+        "sintomas_relacionados": [
+            "dor no quadril",
+            "fraqueza dos membros inferiores",
+            "atrofia muscular"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal",
+            "wei (atrofia)"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor de quadril",
+            "fraqueza/atrofia dos membros inferiores"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VB30",
+                "objetivo": "dor de quadril"
+            }
+        ],
+        "observacoes_clinicas": "Ponto local importante do quadril anterior.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "membro inferior"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "E32",
@@ -1293,17 +1888,31 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "6 cun acima da margem superolateral da patela, linha de E31",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal",
+            "alivia dor"
+        ],
+        "sintomas_relacionados": [
+            "dor na coxa anterior",
+            "fraqueza muscular",
+            "dor lombar"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal Yangming"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor na coxa",
+            "fraqueza do quadríceps"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "membro inferior"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "E33",
@@ -1311,17 +1920,28 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "3 cun acima da margem superolateral da patela",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "dor no joelho",
+            "rigidez do joelho"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "gonalgia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
         "observacoes_clinicas": "",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "joelho"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "E34",
@@ -1331,17 +1951,45 @@
             "xi (fenda)"
         ],
         "localizacao": "2 cun acima da margem superolateral da patela",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "harmoniza o Estômago",
+            "alivia dor aguda",
+            "relaxa tendões"
+        ],
+        "sintomas_relacionados": [
+            "dor epigástrica aguda",
+            "gastrite aguda",
+            "dor no joelho",
+            "edema do joelho",
+            "mastite aguda"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação aguda no Estômago",
+            "estagnação no canal Yangming"
+        ],
+        "indicacoes_terapeuticas": [
+            "gastrite aguda",
+            "dor aguda de joelho",
+            "mastite aguda"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "E36",
+                "objetivo": "dor gástrica aguda"
+            },
+            {
+                "com": "E35",
+                "objetivo": "gonalgia"
+            }
+        ],
+        "observacoes_clinicas": "Ponto Xi (fenda) do Estômago — efetivo em quadros agudos.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "joelho"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "E35",
@@ -1349,17 +1997,42 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "Depressão lateral abaixo da patela, com o joelho flexionado",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal",
+            "relaxa tendões",
+            "alivia dor no joelho"
+        ],
+        "sintomas_relacionados": [
+            "gonalgia",
+            "edema do joelho",
+            "rigidez do joelho"
+        ],
+        "sindromes_relacionadas": [
+            "frio-umidade no joelho",
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "artrose de joelho",
+            "dor de joelho"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "EX-LE5 Xiyan",
+                "objetivo": "olhos do joelho — par medial e lateral"
+            },
+            {
+                "com": "E34",
+                "objetivo": "gonalgia"
+            }
+        ],
+        "observacoes_clinicas": "\"Olho do joelho lateral\" — ponto local clássico para qualquer dor de joelho.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "joelho"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "E36",
@@ -1427,17 +2100,46 @@
             "he inferior do Intestino Grosso"
         ],
         "localizacao": "6 cun abaixo do joelho, 1 dedo lateral à crista tibial",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o Intestino Grosso",
+            "transforma umidade",
+            "harmoniza o Estômago"
+        ],
+        "sintomas_relacionados": [
+            "constipação",
+            "diarreia",
+            "disenteria",
+            "dor abdominal",
+            "apendicite"
+        ],
+        "sindromes_relacionadas": [
+            "calor-umidade no IG",
+            "estagnação no IG"
+        ],
+        "indicacoes_terapeuticas": [
+            "apendicite (suporte)",
+            "diarreia crônica",
+            "constipação",
+            "colite"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "E25",
+                "objetivo": "regular IG"
+            },
+            {
+                "com": "E36",
+                "objetivo": "tonificar centro"
+            }
+        ],
+        "observacoes_clinicas": "He inferior do Intestino Grosso. Ponto de eleição para quadros agudos do IG (incluindo apendicite aguda).",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "membro inferior"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "E38",
@@ -1445,17 +2147,35 @@
         "meridiano": "Estômago",
         "categoria": [],
         "localizacao": "8 cun abaixo do joelho, 1 dedo lateral à crista tibial",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal",
+            "beneficia o ombro"
+        ],
+        "sintomas_relacionados": [
+            "ombro congelado",
+            "dor no ombro",
+            "fraqueza do membro inferior"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal"
+        ],
+        "indicacoes_terapeuticas": [
+            "capsulite adesiva do ombro (ombro congelado)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "IG15",
+                "objetivo": "ombro congelado — distal e local"
+            }
+        ],
+        "observacoes_clinicas": "Ponto distal clássico para ombro congelado, frequentemente puncionado com mobilização ativa do ombro.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "membro inferior"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "E39",
@@ -1465,17 +2185,32 @@
             "he inferior do Intestino Delgado"
         ],
         "localizacao": "9 cun abaixo do joelho, 1 dedo lateral à crista tibial",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "regula o Intestino Delgado",
+            "drena umidade"
+        ],
+        "sintomas_relacionados": [
+            "dor abdominal baixa",
+            "diarreia",
+            "disúria",
+            "lombalgia"
+        ],
+        "sindromes_relacionadas": [
+            "calor-umidade no ID"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor abdominal baixa",
+            "diarreia"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "He inferior do Intestino Delgado.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "membro inferior"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "E40",
@@ -1485,17 +2220,51 @@
             "luo"
         ],
         "localizacao": "8 cun abaixo do joelho, 2 dedos lateral à crista tibial",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "transforma fleuma",
+            "resolve umidade",
+            "acalma o shen",
+            "abre o tórax"
+        ],
+        "sintomas_relacionados": [
+            "tosse com expectoração abundante",
+            "dispneia",
+            "vertigem",
+            "obesidade",
+            "confusão mental",
+            "epilepsia",
+            "edema"
+        ],
+        "sindromes_relacionadas": [
+            "fleuma-umidade",
+            "fleuma obstruindo as cavidades",
+            "fleuma-fogo perturbando o shen"
+        ],
+        "indicacoes_terapeuticas": [
+            "asma com fleuma",
+            "obesidade",
+            "tonturas por fleuma",
+            "epilepsia (suporte)",
+            "transtornos psiquiátricos por fleuma"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VC12",
+                "objetivo": "transformar fleuma central"
+            },
+            {
+                "com": "BP9",
+                "objetivo": "umidade"
+            }
+        ],
+        "observacoes_clinicas": "Ponto Luo do Estômago. Considerado o ponto principal para resolver fleuma em todo o corpo.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "panturrilha"
+        ],
+        "peso_base": 8,
+        "dados_completos": true
     },
     {
         "codigo": "E41",
@@ -1505,17 +2274,40 @@
             "jing (rio)"
         ],
         "localizacao": "Centro da prega anterior do tornozelo, entre os tendões extensores",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "ativa o canal",
+            "clareia calor",
+            "acalma o shen"
+        ],
+        "sintomas_relacionados": [
+            "dor no tornozelo",
+            "edema do tornozelo",
+            "cefaleia",
+            "vertigem",
+            "agitação mental"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal Yangming",
+            "fleuma-fogo"
+        ],
+        "indicacoes_terapeuticas": [
+            "entorse de tornozelo",
+            "cefaleia"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "VB40",
+                "objetivo": "entorse de tornozelo"
+            }
+        ],
+        "observacoes_clinicas": "Ponto Jing-rio do Estômago. Excelente para dor anterior do tornozelo.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "tornozelo"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "E42",
@@ -1525,17 +2317,32 @@
             "yuan (fonte)"
         ],
         "localizacao": "Dorso do pé, no ponto mais alto, sobre a artéria dorsal do pé",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
-        "contraindicacoes": [],
+        "acoes_energeticas": [
+            "regula o Estômago",
+            "ativa o canal"
+        ],
+        "sintomas_relacionados": [
+            "dor no dorso do pé",
+            "cefaleia",
+            "dor dental"
+        ],
+        "sindromes_relacionadas": [
+            "estagnação no canal Yangming"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor no pé"
+        ],
+        "contraindicacoes": [
+            "evitar a artéria dorsal do pé"
+        ],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Ponto Yuan (fonte) do Estômago. Pulso pedioso usado no diagnóstico.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "pé"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "E43",
@@ -1545,17 +2352,31 @@
             "shu (arroio)"
         ],
         "localizacao": "Depressão proximal entre 2º e 3º metatarsos",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor",
+            "regula o Estômago",
+            "elimina edema facial"
+        ],
+        "sintomas_relacionados": [
+            "edema facial",
+            "dor abdominal",
+            "dor no dorso do pé"
+        ],
+        "sindromes_relacionadas": [
+            "calor no Estômago"
+        ],
+        "indicacoes_terapeuticas": [
+            "edema facial"
+        ],
         "contraindicacoes": [],
         "combinacoes": [],
-        "observacoes_clinicas": "",
+        "observacoes_clinicas": "Ponto Shu (arroio) do Estômago.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
+        "regiao_afetada": [
+            "pé"
+        ],
         "peso_base": 5,
-        "dados_completos": false
+        "dados_completos": true
     },
     {
         "codigo": "E44",
@@ -1565,17 +2386,49 @@
             "ying (fonte)"
         ],
         "localizacao": "Depressão distal entre 2º e 3º artelhos",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor do Estômago",
+            "harmoniza intestinos",
+            "alivia dor"
+        ],
+        "sintomas_relacionados": [
+            "dor dental superior",
+            "gengivite",
+            "dor facial",
+            "halitose",
+            "constipação por calor",
+            "epistaxe",
+            "dor abdominal por calor",
+            "azia"
+        ],
+        "sindromes_relacionadas": [
+            "calor no Estômago",
+            "fogo do Estômago subindo"
+        ],
+        "indicacoes_terapeuticas": [
+            "dor de dente (especialmente superior)",
+            "gengivite",
+            "úlceras orais",
+            "azia/refluxo"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "IG4",
+                "objetivo": "dor dental"
+            },
+            {
+                "com": "E45",
+                "objetivo": "drenar fogo do Estômago"
+            }
+        ],
+        "observacoes_clinicas": "Ponto Ying (fonte) do Estômago. Excelente para drenar calor/fogo do Estômago e do canal Yangming.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "pé"
+        ],
+        "peso_base": 7,
+        "dados_completos": true
     },
     {
         "codigo": "E45",
@@ -1585,17 +2438,43 @@
             "jing (poço)"
         ],
         "localizacao": "Canto ungueal lateral do 2º artelho",
-        "acoes_energeticas": [],
-        "sintomas_relacionados": [],
-        "sindromes_relacionadas": [],
-        "indicacoes_terapeuticas": [],
+        "acoes_energeticas": [
+            "clareia calor",
+            "acalma o shen",
+            "restabelece a consciência"
+        ],
+        "sintomas_relacionados": [
+            "dor dental",
+            "dor de garganta",
+            "epistaxe",
+            "agitação mental",
+            "insônia",
+            "sonhos excessivos",
+            "coma"
+        ],
+        "sindromes_relacionadas": [
+            "fogo do Estômago",
+            "fleuma-fogo perturbando o shen"
+        ],
+        "indicacoes_terapeuticas": [
+            "pesadelos persistentes",
+            "agitação mental",
+            "ressuscitação (sangria)"
+        ],
         "contraindicacoes": [],
-        "combinacoes": [],
-        "observacoes_clinicas": "",
+        "combinacoes": [
+            {
+                "com": "E44",
+                "objetivo": "fogo do Estômago"
+            }
+        ],
+        "observacoes_clinicas": "Ponto Jing-poço do Estômago. Sangria útil em quadros agudos de fogo do Estômago e em desmaios.",
         "coordenadas_mapa": null,
-        "regiao_afetada": [],
-        "peso_base": 5,
-        "dados_completos": false
+        "regiao_afetada": [
+            "pé"
+        ],
+        "peso_base": 6,
+        "dados_completos": true
     },
     {
         "codigo": "BP1",
