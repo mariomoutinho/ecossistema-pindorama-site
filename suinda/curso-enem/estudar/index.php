@@ -20,6 +20,12 @@ require __DIR__ . '/../../inc/header.php';
   .qcard__head { font-size: .82rem; color: var(--accent-dark); font-weight: 800; text-transform: uppercase; letter-spacing: .03em; }
   .qcard__pending { background: var(--bg-deep); border-radius: 10px; padding: .5rem .7rem; font-size: .85rem; color: var(--text-soft); margin: .6rem 0; }
   .qcard__statement { margin: .6rem 0 1rem; white-space: pre-line; }
+  .qcard__html { margin: .6rem 0 1rem; }
+  .qcard__html img { max-width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--border); margin: .4rem 0; }
+  .qcard__html p { margin: .5rem 0; }
+  .qcard__html table { border-collapse: collapse; }
+  .qcard__html td, .qcard__html th { border: 1px solid var(--border); padding: .3rem .5rem; }
+  .comentario__body .qcard__html { margin: 0; }
   .qcard__img { width: 100%; border-radius: 10px; border: 1px solid var(--border); margin: .4rem 0 1rem; }
   .alts { list-style: none; padding: 0; margin: 0 0 1rem; display: grid; gap: .5rem; }
   .alt { display: flex; gap: .7rem; align-items: flex-start; border: 1.5px solid var(--border); border-radius: 12px; padding: .7rem .85rem; cursor: pointer; background: #fff; }
@@ -158,6 +164,11 @@ require __DIR__ . '/../../inc/header.php';
 
   // ---- visual da questão (imagens oficiais OU transcrição) — usado nos 2 estados ----
   function questionVisual(q) {
+    // Frente rica (editor admin estilo Anki): HTML já sanitizado no servidor,
+    // pode conter imagens inline. Tem prioridade sobre o legado.
+    if (q.frontHtml && String(q.frontHtml).trim()) {
+      return '<div class="qcard__html">' + q.frontHtml + '</div>';
+    }
     var imgs = (q.images || []);
     if (imgs.length) {
       var multi = imgs.length > 1
@@ -187,6 +198,11 @@ require __DIR__ . '/../../inc/header.php';
   function wireZoom() {
     root.querySelectorAll("[data-zoom]").forEach(function (img) {
       img.addEventListener("click", function () { openZoom(img.getAttribute("data-zoom")); });
+    });
+    // Imagens inline da frente/verso rica também ampliam ao clique.
+    root.querySelectorAll(".qcard__html img").forEach(function (img) {
+      img.style.cursor = "zoom-in";
+      img.addEventListener("click", function () { openZoom(img.getAttribute("src")); });
     });
     var full = root.querySelector("[data-full]");
     if (full) {
@@ -272,9 +288,12 @@ require __DIR__ . '/../../inc/header.php';
     if (back.competency) metaRows.push("<b>Competência:</b> " + esc(back.competency) + (back.competencyStatement ? " — " + esc(back.competencyStatement) : ""));
     if (back.skill) metaRows.push("<b>Habilidade:</b> " + esc(back.skill) + (back.skillStatement ? " — " + esc(back.skillStatement) : ""));
 
-    var explanationHtml = back.explanation
-      ? '<p>' + esc(back.explanation) + '</p>'
-      : '<p class="explain__pending">Explicação pedagógica pendente de revisão para esta questão.</p>';
+    // Verso rico (HTML sanitizado no servidor) tem prioridade sobre o texto legado.
+    var explanationHtml = (back.backHtml && String(back.backHtml).trim())
+      ? '<div class="qcard__html">' + back.backHtml + '</div>'
+      : (back.explanation
+          ? '<p>' + esc(back.explanation) + '</p>'
+          : '<p class="explain__pending">Explicação pedagógica pendente de revisão para esta questão.</p>');
 
     var comentario = '<details class="comentario" open><summary>Comentário da resposta</summary>'
       + '<div class="comentario__body">'

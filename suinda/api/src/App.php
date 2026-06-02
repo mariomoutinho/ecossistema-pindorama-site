@@ -511,6 +511,15 @@ SQL);
         $this->addColumnIfMissing('question_images', 'crop_width', $int);
         $this->addColumnIfMissing('question_images', 'crop_height', $int);
         $this->addColumnIfMissing('question_images', 'updated_at', $isMysql ? 'VARCHAR(40)' : 'TEXT');
+        $this->addColumnIfMissing('question_images', 'usage_type', $isMysql ? "VARCHAR(20) NOT NULL DEFAULT 'attachment'" : "TEXT NOT NULL DEFAULT 'attachment'");
+        $this->addColumnIfMissing('question_images', 'size_bytes', $int);
+
+        // Frente/verso do card como HTML rico (editor estilo Anki). Aditivas e
+        // nulas por padrão: enquanto NULL, o estudante usa o comportamento legado
+        // (imagens + transcrição na frente, explicação no verso). Nada é apagado;
+        // para reverter basta ignorar/remover as colunas.
+        $this->addColumnIfMissing('exam_questions', 'front_html', 'TEXT');
+        $this->addColumnIfMissing('exam_questions', 'back_html', 'TEXT');
     }
 
     private function enemSqliteSchema(): string
@@ -1554,12 +1563,13 @@ SQL;
 
         $alts = $this->db->prepare('SELECT letter, body, is_correct FROM question_alternatives WHERE question_id = ? ORDER BY letter');
         $alts->execute([$id]);
-        $imgs = $this->db->prepare('SELECT id, position, path, kind, is_primary, alt_text FROM question_images WHERE question_id = ? ORDER BY position, id');
+        $imgs = $this->db->prepare('SELECT id, position, path, kind, is_primary, alt_text, width, height, mime_type, usage_type FROM question_images WHERE question_id = ? ORDER BY position, id');
         $imgs->execute([$id]);
 
         $this->json(['question' => [
             'id' => (int) $row['id'], 'number' => (int) $row['number'], 'exam' => $row['exam_name'], 'examSlug' => $row['exam_slug'],
             'status' => $row['status'], 'correctAlternative' => $row['correct_alternative'],
+            'frontHtml' => $row['front_html'] ?? null, 'backHtml' => $row['back_html'] ?? null,
             'statement' => $row['statement_text'], 'explanation' => $row['explanation'],
             'explanationStatus' => $row['explanation_status'], 'confidence' => $row['confidence'],
             'reviewNeeded' => ((int) $row['review_needed']) === 1, 'notes' => $row['notes'],
@@ -1572,6 +1582,8 @@ SQL;
             'images' => array_map(fn ($im) => [
                 'id' => (int) $im['id'], 'position' => (int) $im['position'], 'path' => $im['path'], 'kind' => $im['kind'],
                 'isPrimary' => ((int) $im['is_primary']) === 1, 'altText' => $im['alt_text'],
+                'width' => $im['width'] !== null ? (int) $im['width'] : null, 'height' => $im['height'] !== null ? (int) $im['height'] : null,
+                'mimeType' => $im['mime_type'] ?? null, 'usageType' => $im['usage_type'] ?? 'attachment',
             ], $imgs->fetchAll()),
         ]]);
     }
@@ -1582,7 +1594,8 @@ SQL;
         if (!$row) { $this->json(['error' => 'Questão não encontrada.'], 404); return; }
         $d = $this->input();
 
-        $status = in_array(($d['status'] ?? $row['status']), ['ativa', 'anulada', 'pendente_revisao', 'revisada', 'arquivada'], true) ? $d['status'] : $row['status'];
+        $statusIn = $d['status'] ?? $row['status'];
+        $status = in_array($statusIn, ['ativa', 'anulada', 'pendente_revisao', 'revisada', 'arquivada'], true) ? $statusIn : $row['status'];
         $correct = array_key_exists('correctAlternative', $d) ? (strtoupper(trim((string) $d['correctAlternative'])) ?: null) : $row['correct_alternative'];
         if ($status === 'anulada') { $correct = null; }
         if ($correct !== null && !in_array($correct, ['A', 'B', 'C', 'D', 'E'], true)) { $correct = null; }
@@ -1605,6 +1618,25 @@ SQL;
             'competency_id' => array_key_exists('competencyId', $d) ? $this->nullableFk('competencies', $d['competencyId']) : ($row['competency_id'] !== null ? (int) $row['competency_id'] : null),
             'skill_id' => array_key_exists('skillId', $d) ? $this->nullableFk('skills', $d['skillId']) : ($row['skill_id'] !== null ? (int) $row['skill_id'] : null),
         ];
+
+        // Frente/verso ricos (editor estilo Anki). Quando enviados, são a fonte de
+        // verdade: persistimos o HTML sanitizado e derivamos o texto plano para
+        // manter busca, filtros ("sem comentário") e o fallback legado coerentes.
+        $frontHtmlProvided = array_key_exists('frontHtml', $d);
+        $backHtmlProvided = array_key_exists('backHtml', $d);
+        $frontHtml = $frontHtmlProvided ? $this->sanitizeCardHtml((string) $d['frontHtml']) : null;
+        $backHtml = $backHtmlProvided ? $this->sanitizeCardHtml((string) $d['backHtml']) : null;
+        if ($frontHtmlProvided) {
+            $fields['front_html'] = $frontHtml;
+            $fields['statement_text'] = $frontHtml !== null ? $this->ankiHtmlToText($frontHtml) : $row['statement_text'];
+        }
+        if ($backHtmlProvided) {
+            $fields['back_html'] = $backHtml;
+            $explText = $backHtml !== null ? $this->ankiHtmlToText($backHtml) : '';
+            $fields['explanation'] = $explText !== '' ? $explText : null;
+            $fields['explanation_status'] = $explText !== '' ? 'revisada' : 'pendente';
+        }
+
         $set = [];
         $params = [];
         foreach ($fields as $k => $v) { $set[] = "$k = ?"; $params[] = $v; }
@@ -1622,16 +1654,24 @@ SQL;
             $this->db->prepare('UPDATE question_alternatives SET is_correct = CASE WHEN letter = ? THEN 1 ELSE 0 END WHERE question_id = ?')->execute([$correct, $id]);
         }
 
-        // sincroniza o verso do card (fallback do app de cards)
+        // sincroniza frente/verso do card (fallback do app de cards genérico).
         if ($row['card_id']) {
-            $expl = $fields['explanation'];
-            $e = fn (string $s): string => htmlspecialchars($s, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
-            if ($status === 'anulada') {
-                $back = '<div class="enem-a enem-a--anulada"><p><strong>⚠ Questão anulada</strong> no gabarito oficial.</p>' . ($expl ? '<p>' . $e($expl) . '</p>' : '') . '</div>';
-            } else {
-                $back = '<div class="enem-a"><p><strong>Resposta oficial:</strong> ' . $e((string) ($correct ?? '?')) . '</p>' . ($expl ? '<p>' . $e($expl) . '</p>' : '') . '</div>';
+            if ($frontHtmlProvided && $frontHtml !== null) {
+                $this->db->prepare('UPDATE cards SET question_html = ? WHERE id = ?')->execute([$frontHtml, (int) $row['card_id']]);
             }
-            $this->db->prepare('UPDATE cards SET answer_html = ? WHERE id = ?')->execute([$back, (int) $row['card_id']]);
+            if ($backHtmlProvided && $backHtml !== null) {
+                // Verso curado pelo admin: usa o HTML rico tal como salvo.
+                $this->db->prepare('UPDATE cards SET answer_html = ? WHERE id = ?')->execute([$backHtml, (int) $row['card_id']]);
+            } else {
+                $expl = $fields['explanation'];
+                $e = fn (string $s): string => htmlspecialchars($s, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+                if ($status === 'anulada') {
+                    $back = '<div class="enem-a enem-a--anulada"><p><strong>⚠ Questão anulada</strong> no gabarito oficial.</p>' . ($expl ? '<p>' . $e($expl) . '</p>' : '') . '</div>';
+                } else {
+                    $back = '<div class="enem-a"><p><strong>Resposta oficial:</strong> ' . $e((string) ($correct ?? '?')) . '</p>' . ($expl ? '<p>' . $e($expl) . '</p>' : '') . '</div>';
+                }
+                $this->db->prepare('UPDATE cards SET answer_html = ? WHERE id = ?')->execute([$back, (int) $row['card_id']]);
+            }
         }
 
         $this->json(['ok' => true, 'id' => $id]);
@@ -1660,6 +1700,9 @@ SQL;
         if (!is_dir($dir)) { @mkdir($dir, 0775, true); }
         if (!is_writable($dir)) { $this->json(['error' => 'Diretório de imagens não gravável no servidor.'], 500); return; }
 
+        $usageType = in_array(($_POST['usageType'] ?? ''), ['front', 'back', 'attachment'], true) ? (string) $_POST['usageType'] : 'attachment';
+        $sizeBytes = (int) ($file['size'] ?? 0);
+
         $position = 1 + (int) $this->prepared('SELECT COALESCE(MAX(position), 0) FROM question_images WHERE question_id = ?', [$id])->fetchColumn();
         $existing = (int) $this->prepared('SELECT COUNT(*) FROM question_images WHERE question_id = ?', [$id])->fetchColumn();
         $base = preg_replace('/[^a-z0-9\-]/', '', strtolower((string) ($row['exam_slug'] ?? 'enem'))) ?: 'enem';
@@ -1668,13 +1711,22 @@ SQL;
         if (!move_uploaded_file($file['tmp_name'], $dest)) { $this->json(['error' => 'Falha ao salvar a imagem.'], 500); return; }
         @chmod($dest, 0644);
 
+        $publicUrl = $urlBase . '/' . $fileName;
+        // Imagens inline (frente/verso) não viram "principal" automaticamente; o
+        // principal serve à miniatura/legado e fica restrito a anexos.
+        $isPrimary = ($existing === 0 && $usageType === 'attachment') ? 1 : 0;
         $stmt = $this->db->prepare(
-            'INSERT INTO question_images (question_id, position, path, kind, is_primary, mime_type, width, height, updated_at)
-             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)'
+            'INSERT INTO question_images (question_id, position, path, kind, is_primary, mime_type, width, height, usage_type, size_bytes, updated_at)
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
         );
-        $stmt->execute([$id, $position, $urlBase . '/' . $fileName, 'manual', $existing === 0 ? 1 : 0, $mime, $size[0] ?? null, $size[1] ?? null, date('c')]);
+        $stmt->execute([$id, $position, $publicUrl, 'manual', $isPrimary, $mime, $size[0] ?? null, $size[1] ?? null, $usageType, $sizeBytes, date('c')]);
 
-        $this->json(['ok' => true, 'id' => (int) $this->db->lastInsertId(), 'path' => $urlBase . '/' . $fileName, 'position' => $position, 'isPrimary' => $existing === 0], 201);
+        $this->json([
+            'ok' => true, 'id' => (int) $this->db->lastInsertId(),
+            'path' => $publicUrl, 'url' => $publicUrl, 'position' => $position,
+            'isPrimary' => $isPrimary === 1, 'usageType' => $usageType,
+            'mimeType' => $mime, 'width' => $size[0] ?? null, 'height' => $size[1] ?? null, 'size' => $sizeBytes,
+        ], 201);
     }
 
     private function adminUpdateImage(int $id): void
@@ -1691,6 +1743,9 @@ SQL;
         }
         if (array_key_exists('position', $d)) {
             $this->db->prepare('UPDATE question_images SET position = ? WHERE id = ?')->execute([(int) $d['position'], $id]);
+        }
+        if (array_key_exists('usageType', $d) && in_array($d['usageType'], ['front', 'back', 'attachment'], true)) {
+            $this->db->prepare('UPDATE question_images SET usage_type = ? WHERE id = ?')->execute([(string) $d['usageType'], $id]);
         }
         $this->db->prepare('UPDATE question_images SET updated_at = ? WHERE id = ?')->execute([date('c'), $id]);
         $this->json(['ok' => true]);
@@ -2434,6 +2489,48 @@ SQL;
 
         // Neutralize javascript:/vbscript: in src and href.
         $html = preg_replace('/\s+(src|href|xlink:href)\s*=\s*("|\')(\s*(?:javascript|vbscript|data:text\/html)[^"\']*)\2/i', ' $1=""', $html) ?? $html;
+
+        $html = trim($html);
+
+        return $html === '' ? null : $html;
+    }
+
+    /**
+     * Sanitiza HTML da frente/verso do card (editor admin estilo Anki).
+     * Permite apenas um conjunto seguro de tags; remove scripts, handlers de
+     * evento, atributos de estilo/classe/id/data-* e URLs perigosas; e só aceita
+     * <img>/<a> apontando para URLs internas do próprio Suindá (nada de base64
+     * permanente nem domínios externos arbitrários). Retorna null se vazio.
+     */
+    private function sanitizeCardHtml(?string $html): ?string
+    {
+        $html = (string) $html;
+        if (trim($html) === '') {
+            return null;
+        }
+        $html = preg_replace('/<\s*(script|style|iframe|object|embed)[^>]*>.*?<\s*\/\s*\1\s*>/is', '', $html) ?? $html;
+        $html = str_replace("\xc2\xa0", ' ', $html);
+
+        $allowed = '<p><br><hr><strong><b><em><i><u><span><div><ul><ol><li><sup><sub>'
+            . '<h3><h4><h5><blockquote><a><img><figure><figcaption>'
+            . '<table><thead><tbody><tfoot><tr><td><th>';
+        $html = strip_tags($html, $allowed);
+
+        // Remove handlers de evento e atributos de estilo/identificação/data-*.
+        $html = preg_replace('/\s+on[a-z]+\s*=\s*("[^"]*"|\'[^\']*\'|[^\s>]+)/i', '', $html) ?? $html;
+        $html = preg_replace('/\s+(style|class|id|data-[\w-]+)\s*=\s*("[^"]*"|\'[^\']*\'|[^\s>]+)/i', '', $html) ?? $html;
+
+        // Neutraliza javascript:/vbscript:/data:text-html em src/href.
+        $html = preg_replace('/\s+(src|href|xlink:href)\s*=\s*("|\')(\s*(?:javascript|vbscript|data:text\/html)[^"\']*)\2/i', ' $1=""', $html) ?? $html;
+
+        // <img>: aceita somente URLs internas do Suindá (geradas pelo upload).
+        $html = preg_replace_callback('/<img\b[^>]*>/i', function (array $m): string {
+            if (!preg_match('/\bsrc\s*=\s*("|\')([^"\']*)\1/i', $m[0], $s)) {
+                return '';
+            }
+            $src = trim($s[2]);
+            return (str_starts_with($src, '/suinda/') || str_starts_with($src, '/assets/')) ? $m[0] : '';
+        }, $html) ?? $html;
 
         $html = trim($html);
 
@@ -3778,10 +3875,11 @@ SQL;
 
     private function enemImages(int $questionId): array
     {
-        $stmt = $this->db->prepare('SELECT position, path, kind, pdf_page FROM question_images WHERE question_id = ? ORDER BY position');
+        $stmt = $this->db->prepare("SELECT position, path, kind, pdf_page, alt_text FROM question_images WHERE question_id = ? AND COALESCE(usage_type, 'attachment') <> 'back' ORDER BY position");
         $stmt->execute([$questionId]);
         return array_map(fn ($r) => [
             'position' => (int) $r['position'], 'path' => $r['path'], 'kind' => $r['kind'],
+            'altText' => $r['alt_text'] ?? null,
         ], $stmt->fetchAll());
     }
 
@@ -3939,8 +4037,9 @@ SQL;
             'skill' => $row['skill_code'], 'skillStatement' => $row['skill_statement'],
             'exam' => $row['exam_name'], 'pdfPage' => $row['pdf_page'] !== null ? (int) $row['pdf_page'] : null,
             'statement' => $row['statement_text'],
+            'frontHtml' => $row['front_html'] ?? null,
             'images' => $this->enemImages($id),
-            'imagePending' => count($this->enemImages($id)) === 0,
+            'imagePending' => (($row['front_html'] ?? null) === null || trim((string) $row['front_html']) === '') && count($this->enemImages($id)) === 0,
             'alternatives' => array_map(fn ($a) => ['letter' => $a['letter'], 'body' => $a['body']], $alts->fetchAll()),
             'cardId' => (int) $row['card_id'],
             'annulled' => $row['status'] === 'anulada',
@@ -3972,6 +4071,7 @@ SQL;
             'correct' => $row['correct_alternative'],
             'selected' => $selected ?: null,
             'explanation' => $row['explanation'],
+            'backHtml' => $row['back_html'] ?? null,
             'explanationStatus' => $row['explanation_status'],
             'alternatives' => $alternatives,
             'discipline' => $row['discipline'], 'content' => $row['content_name'],
