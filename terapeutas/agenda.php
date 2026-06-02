@@ -40,11 +40,7 @@ function ha_conflito(array $todos, string $data, string $hi, string $hf, string 
   return false;
 }
 function status_label(string $s): string {
-  return [
-    'agendado'  => 'Agendado',
-    'realizado' => 'Realizado',
-    'cancelado' => 'Cancelado',
-  ][$s] ?? ucfirst($s);
+  return agenda_status_label($s);
 }
 
 // ----------- estado -----------
@@ -59,6 +55,24 @@ if ($registroEdit && !agenda_pode_gerir($registroEdit, $terapeutaLogado)) {
   flash_set('error', 'Você só pode editar os seus próprios atendimentos.');
   header('Location: agenda.php');
   exit;
+}
+
+// Clonar: abre o formulário como NOVO, pré-preenchido com a fonte (sem salvar).
+// A sessão do pacote só é consumida quando o novo atendimento for salvo.
+$clonando = false;
+$clonarId = isset($_GET['clonar']) ? (int)$_GET['clonar'] : 0;
+if ($clonarId) {
+  $fonte = store_find('agendamentos', $clonarId);
+  if (!$fonte || !agenda_pode_gerir($fonte, $terapeutaLogado)) {
+    flash_set('error', 'Atendimento para clonar não encontrado.');
+    header('Location: agenda.php');
+    exit;
+  }
+  $registroEdit = $fonte;
+  unset($registroEdit['id']);          // vira um novo registro
+  $registroEdit['status'] = 'agendado';
+  $mostrarForm = true;
+  $clonando = true;
 }
 
 // ----------- POST: salvar / cancelar / realizar -----------
@@ -137,6 +151,47 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           pacote_marcar_realizada((int)$atend['paciente_package_id'], $id, (int)$terapeutaLogado['id']);
         }
         flash_set('success', 'Atendimento marcado como realizado.');
+      } else {
+        flash_set('error', 'Atendimento não encontrado.');
+      }
+      header('Location: agenda.php');
+      exit;
+    }
+
+    if ($acao === 'confirmar') {
+      $id = (int)($_POST['id'] ?? 0);
+      $atend = store_find('agendamentos', $id);
+      if ($atend && !agenda_pode_gerir($atend, $terapeutaLogado)) {
+        flash_set('error', 'Você só pode alterar os seus próprios atendimentos.');
+        header('Location: agenda.php');
+        exit;
+      }
+      if ($atend) {
+        store_update('agendamentos', $id, ['status' => 'confirmado', 'confirmado_em' => date('c')]);
+        flash_set('success', 'Atendimento confirmado.');
+      } else {
+        flash_set('error', 'Atendimento não encontrado.');
+      }
+      header('Location: agenda.php');
+      exit;
+    }
+
+    if ($acao === 'falta') {
+      $id = (int)($_POST['id'] ?? 0);
+      $atend = store_find('agendamentos', $id);
+      if ($atend && !agenda_pode_gerir($atend, $terapeutaLogado)) {
+        flash_set('error', 'Você só pode alterar os seus próprios atendimentos.');
+        header('Location: agenda.php');
+        exit;
+      }
+      if ($atend) {
+        $consumir = (string)($_POST['consumir'] ?? '1') === '1';
+        store_update('agendamentos', $id, ['status' => 'falta', 'falta_em' => date('c'), 'falta_consumiu' => $consumir]);
+        whats_remover_de_atendimento($id);
+        if (!empty($atend['paciente_package_id'])) {
+          pacote_falta((int)$atend['paciente_package_id'], $id, (int)$terapeutaLogado['id'], $consumir, $consumir ? 'Falta com consumo da sessão' : 'Falta com devolução ao saldo');
+        }
+        flash_set('success', $consumir ? 'Falta registrada — sessão consumida.' : 'Falta registrada — sessão devolvida ao saldo.');
       } else {
         flash_set('error', 'Atendimento não encontrado.');
       }
