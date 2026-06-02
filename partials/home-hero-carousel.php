@@ -55,7 +55,7 @@ $bannerTotal = count($bannerSlides);
             <?php endif; ?>
             decoding="async"
             width="1600"
-            height="1000"
+            height="900"
             alt="<?= htmlspecialchars($s['alt']) ?>"
           >
         </div>
