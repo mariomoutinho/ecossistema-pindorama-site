@@ -197,6 +197,8 @@ e `decks[] { id, title, totalCards, newCards, dueCards, studiedCards }`.
 | `POST` | `/admin/areas` · `/admin/courses` · `/admin/paths` · `/admin/modules` | Cria a entidade (slug gerado e único). |
 | `POST` | `/admin/users` | Cria estudante/admin (senha com `password_hash`). |
 | `POST` | `/admin/path-courses` · `/admin/course-decks` · `/admin/enrollments` | Cria vínculos (idempotente). |
+| `PUT` | `/admin/courses/{id}` | Edita/inativa um curso (`active=0` esconde os baralhos dos estudantes; slug mantido). |
+| `POST` | `/admin/enrollments/bulk` | Matrícula em lote: `{courseId, defaultPassword?, students:[{name,email,password?}]}`; cria os ausentes e devolve `{created, enrolled, alreadyEnrolled, errors[]}`. |
 | `DELETE` | `/admin/enrollments/{id}` · `/admin/course-decks/{id}` | Remove matrícula / vínculo curso-baralho. |
 
 Esses endpoints existem tanto na cópia do site quanto no app standalone
