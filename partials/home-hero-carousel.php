@@ -11,14 +11,17 @@ $bannerBase = 'assets/img/home/banner/';
 
 // Ordem dos slides e textos alternativos (acessibilidade). Para reordenar o
 // banner no futuro, basta reordenar os itens deste array.
+// posD = foco vertical (corte topo/base no desktop largo); posM = foco
+// horizontal (corte das laterais no mobile 5/4). Definidos por slide após
+// inspeção visual de cada foto (preservar rostos e a prática terapêutica).
 $bannerSlides = [
-  ['file' => '01-acolhimento-pindorama.webp',     'label' => 'Acolhimento',           'alt' => 'Terapeutas do Coletivo Pindorama em ambiente acolhedor diante da mandala do espaço.'],
-  ['file' => '02-acupuntura.webp',                'label' => 'Acupuntura',            'alt' => 'Atendimento de acupuntura no Espaço Pindorama.'],
-  ['file' => '03-preparo-do-espaco.webp',         'label' => 'Espaço Pindorama',      'alt' => 'Preparação da maca para atendimento terapêutico.'],
-  ['file' => '04-acompanhamento-integrativo.webp','label' => 'Terapias integrativas', 'alt' => 'Atendimento integrativo com escuta e acolhimento.'],
-  ['file' => '05-consulta-terapeutica.webp',      'label' => 'Escuta e cuidado',      'alt' => 'Consulta terapêutica individual.'],
-  ['file' => '06-ventosaterapia.webp',            'label' => 'Ventosaterapia',        'alt' => 'Sessão de ventosaterapia no Espaço Pindorama.'],
-  ['file' => '07-massagem-ayurvedica.webp',       'label' => 'Massagem ayurvédica',   'alt' => 'Sessão de massagem ayurvédica com aplicação de óleo.'],
+  ['file' => '01-acolhimento-pindorama.webp',     'label' => 'Acolhimento',           'posD' => 'center 42%', 'posM' => '60% center',    'alt' => 'Terapeutas do Coletivo Pindorama em ambiente acolhedor diante da mandala do espaço.'],
+  ['file' => '02-acupuntura.webp',                'label' => 'Acupuntura',            'posD' => 'center 50%', 'posM' => '62% center',    'alt' => 'Atendimento de acupuntura no Espaço Pindorama.'],
+  ['file' => '03-preparo-do-espaco.webp',         'label' => 'Espaço Pindorama',      'posD' => 'center 35%', 'posM' => '60% center',    'alt' => 'Preparação da maca para atendimento terapêutico.'],
+  ['file' => '04-acompanhamento-integrativo.webp','label' => 'Terapias integrativas', 'posD' => 'center 42%', 'posM' => 'center center', 'alt' => 'Atendimento integrativo com escuta e acolhimento.'],
+  ['file' => '05-consulta-terapeutica.webp',      'label' => 'Escuta e cuidado',      'posD' => 'center 45%', 'posM' => 'center center', 'alt' => 'Consulta terapêutica individual.'],
+  ['file' => '06-ventosaterapia.webp',            'label' => 'Ventosaterapia',        'posD' => 'center 55%', 'posM' => '55% center',    'alt' => 'Sessão de ventosaterapia no Espaço Pindorama.'],
+  ['file' => '07-massagem-ayurvedica.webp',       'label' => 'Massagem ayurvédica',   'posD' => 'center center', 'posM' => 'center center', 'alt' => 'Sessão de massagem ayurvédica com aplicação de óleo.'],
 ];
 $bannerTotal = count($bannerSlides);
 ?>
@@ -45,6 +48,7 @@ $bannerTotal = count($bannerSlides);
         >
           <img
             class="hhc__img"
+            style="--pos-d: <?= htmlspecialchars($s['posD']) ?>; --pos-m: <?= htmlspecialchars($s['posM']) ?>;"
             <?php if ($first): ?>
               src="<?= htmlspecialchars($src) ?>"
               fetchpriority="high"

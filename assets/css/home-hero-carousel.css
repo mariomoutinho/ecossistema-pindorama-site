@@ -15,9 +15,12 @@
 .hhc__frame{
   position: relative;
   width: 100%;
-  /* desktop: faixa ampla e baixa (mais larga que alta) */
-  height: clamp(320px, 44vh, 460px);
-  border-radius: var(--radius2);
+  /* MOBILE-FIRST: card compacto (mais largo que alto, sem virar pôster) */
+  aspect-ratio: 5 / 4;
+  height: auto;
+  min-height: 0;
+  max-height: 520px;
+  border-radius: 20px;
   overflow: hidden;
   isolation: isolate;
   background: #10231d; /* fallback enquanto a 1ª imagem carrega */
@@ -27,6 +30,10 @@
     0 26px 70px rgba(0,0,0,.34),
     0 0 44px rgba(102,180,143,.10);
   touch-action: pan-y; /* permite scroll vertical; o swipe horizontal é tratado no JS */
+}
+/* Fallback p/ navegadores sem aspect-ratio: evita colapso de altura */
+@supports not (aspect-ratio: 1 / 1){
+  .hhc__frame{ height: clamp(300px, 70vw, 460px); }
 }
 
 /* ---- Trilho e slides ---- */
@@ -56,7 +63,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  /* enquadramento individual por slide (definido inline no partial).
+     Mobile-first usa o foco horizontal (--pos-m); o desktop sobrescreve. */
+  object-position: var(--pos-m, center center);
   user-select: none;
   -webkit-user-drag: none;
   transition: opacity .5s ease;
@@ -211,8 +220,25 @@
 }
 
 /* ============================================================
-   TABLET
+   TABLET / DESKTOP — proporções horizontais (≥768px)
    ============================================================ */
+@media (min-width: 768px){
+  .hhc__frame{
+    aspect-ratio: 16 / 9;
+    max-height: 620px;
+    border-radius: var(--radius2);
+  }
+  /* no desktop importa o foco vertical do enquadramento */
+  .hhc__img{ object-position: var(--pos-d, center center); }
+}
+@media (min-width: 1200px){
+  .hhc__frame{
+    aspect-ratio: 16 / 7; /* faixa ampla e baixa em telas grandes */
+    max-height: 620px;
+  }
+}
+
+/* Conteúdo: largura confortável em telas médias */
 @media (max-width: 980px){
   .hhc__content{
     width: min(560px, calc(100% - 64px));
@@ -221,44 +247,44 @@
 }
 
 /* ============================================================
-   MOBILE — porta de entrada visual (≈70–85vh)
+   MOBILE (<768px) — card compacto, texto na base
    ============================================================ */
-@media (max-width: 720px){
+@media (max-width: 767px){
   .hhc{ padding: 14px 0 4px; }
-  .hhc__frame{
-    /* svh respeita a altura real disponível em navegadores móveis */
-    height: 78svh;
-    min-height: 70svh;
-    max-height: 85svh;
-    border-radius: 20px;
-  }
-  /* degradê mais forte embaixo: o texto fica na base no mobile */
+  /* degradê concentrado embaixo: preserva a fotografia no topo */
   .hhc__overlay{
     background:
       linear-gradient(
         180deg,
-        rgba(5,30,24,.30) 0%,
-        rgba(5,30,24,.55) 42%,
-        rgba(5,30,24,.92) 100%
-      ),
-      radial-gradient(80% 45% at 50% 18%, rgba(244,231,211,.08), transparent 64%);
+        rgba(5,30,24,.08) 0%,
+        rgba(5,30,24,.18) 42%,
+        rgba(5,30,24,.90) 100%
+      );
   }
   .hhc__content{
     top: auto;
-    bottom: 64px;
+    bottom: 38px;
     transform: none;
     width: 100%;
-    padding: 0 20px;
-    gap: 10px;
+    padding: 0 18px;
+    gap: 8px;
   }
-  .hhc__text{ max-width: 100%; }
-  .hhc__actions{ width: 100%; }
+  .hhc__title{ font-size: clamp(26px, 7vw, 34px); }
+  .hhc__tagline{ font-size: 15px; }
+  .hhc__text{ max-width: 100%; font-size: 13.5px; margin: 0; }
+  .hhc__actions{ width: 100%; gap: 8px; }
   .hhc__actions .btn{ flex: 1 1 auto; justify-content: center; text-align: center; }
   /* rótulo discreto ocultado no mobile para não competir com a composição */
   .hhc__label{ display: none; }
   /* setas escondidas; navegação por gesto/indicadores */
   .hhc__arrow{ display: none; }
-  .hhc__dots{ bottom: 16px; }
+  .hhc__dots{ bottom: 14px; }
+}
+
+/* Abaixo de 390px: oculta o parágrafo complementar p/ não crescer o bloco */
+@media (max-width: 389px){
+  .hhc__text{ display: none; }
+  .hhc__content{ bottom: 42px; gap: 8px; }
 }
 
 /* Telas muito estreitas: botões empilhados */
