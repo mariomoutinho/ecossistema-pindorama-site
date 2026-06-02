@@ -67,6 +67,26 @@ final class App
                 return;
             }
 
+            // ---- Área administrativa (mini-CMS) — somente admin ----
+            if (str_starts_with($path, '/admin/')) {
+                $this->requireAdmin((string) $user['role']);
+
+                if ($method === 'GET' && $path === '/admin/overview') { $this->adminOverview(); return; }
+                if ($method === 'POST' && $path === '/admin/users') { $this->adminCreateUser(); return; }
+                if ($method === 'POST' && $path === '/admin/areas') { $this->adminCreateArea(); return; }
+                if ($method === 'POST' && $path === '/admin/courses') { $this->adminCreateCourse(); return; }
+                if ($method === 'POST' && $path === '/admin/paths') { $this->adminCreatePath(); return; }
+                if ($method === 'POST' && $path === '/admin/modules') { $this->adminCreateModule(); return; }
+                if ($method === 'POST' && $path === '/admin/path-courses') { $this->adminLinkPathCourse(); return; }
+                if ($method === 'POST' && $path === '/admin/course-decks') { $this->adminLinkCourseDeck(); return; }
+                if ($method === 'POST' && $path === '/admin/enrollments') { $this->adminEnroll(); return; }
+                if ($method === 'DELETE' && preg_match('#^/admin/enrollments/(\d+)$#', $path, $m)) { $this->adminDelete('enrollments', (int) $m[1]); return; }
+                if ($method === 'DELETE' && preg_match('#^/admin/course-decks/(\d+)$#', $path, $m)) { $this->adminDelete('course_decks', (int) $m[1]); return; }
+
+                $this->json(['error' => 'Rota administrativa nao encontrada.'], 404);
+                return;
+            }
+
             if ($method === 'GET' && $path === '/decks') {
                 $this->listDecks();
                 return;
@@ -735,6 +755,299 @@ SQL);
         $id = $stmt->fetchColumn();
 
         return $id === false ? null : (int) $id;
+    }
+
+    // ===================== Área administrativa (mini-CMS) =====================
+
+    /** Estado completo para popular a tela de administração. */
+    private function adminOverview(): void
+    {
+        $areas = $this->rowsInt(
+            $this->db->query('SELECT id, name, slug, description, active FROM knowledge_areas ORDER BY name')->fetchAll(),
+            ['id', 'active']
+        );
+        $courses = $this->rowsInt(
+            $this->db->query('SELECT id, area_id, title, slug, description, level, status, active FROM courses ORDER BY title')->fetchAll(),
+            ['id', 'area_id', 'active']
+        );
+        $paths = $this->rowsInt(
+            $this->db->query('SELECT id, area_id, title, slug, description, active FROM learning_paths ORDER BY title')->fetchAll(),
+            ['id', 'area_id', 'active']
+        );
+        $modules = $this->rowsInt(
+            $this->db->query('SELECT id, course_id, title, position FROM course_modules ORDER BY course_id, position')->fetchAll(),
+            ['id', 'course_id', 'position']
+        );
+        $decks = $this->rowsInt(
+            $this->db->query(
+                'SELECT decks.id, decks.title, decks.category, COUNT(cards.id) AS totalCards
+                 FROM decks LEFT JOIN cards ON cards.deck_id = decks.id AND cards.active = 1
+                 WHERE decks.active = 1 GROUP BY decks.id ORDER BY decks.title'
+            )->fetchAll(),
+            ['id', 'totalCards']
+        );
+        $users = $this->rowsInt(
+            $this->db->query('SELECT id, name, email, role, active FROM users ORDER BY name')->fetchAll(),
+            ['id', 'active']
+        );
+        $enrollments = $this->rowsInt(
+            $this->db->query(
+                'SELECT enrollments.id, enrollments.user_id, enrollments.course_id, enrollments.status,
+                        users.name AS user_name, users.email, courses.title AS course_title
+                 FROM enrollments
+                 INNER JOIN users ON users.id = enrollments.user_id
+                 INNER JOIN courses ON courses.id = enrollments.course_id
+                 ORDER BY enrollments.id DESC'
+            )->fetchAll(),
+            ['id', 'user_id', 'course_id']
+        );
+        $courseDecks = $this->rowsInt(
+            $this->db->query(
+                'SELECT course_decks.id, course_decks.course_id, course_decks.deck_id, course_decks.module_id,
+                        courses.title AS course_title, decks.title AS deck_title
+                 FROM course_decks
+                 INNER JOIN courses ON courses.id = course_decks.course_id
+                 INNER JOIN decks ON decks.id = course_decks.deck_id
+                 ORDER BY course_decks.course_id'
+            )->fetchAll(),
+            ['id', 'course_id', 'deck_id', 'module_id']
+        );
+        $pathCourses = $this->rowsInt(
+            $this->db->query(
+                'SELECT learning_path_courses.id, learning_path_courses.path_id, learning_path_courses.course_id,
+                        learning_path_courses.position, learning_paths.title AS path_title, courses.title AS course_title
+                 FROM learning_path_courses
+                 INNER JOIN learning_paths ON learning_paths.id = learning_path_courses.path_id
+                 INNER JOIN courses ON courses.id = learning_path_courses.course_id
+                 ORDER BY learning_path_courses.path_id, learning_path_courses.position'
+            )->fetchAll(),
+            ['id', 'path_id', 'course_id', 'position']
+        );
+
+        $this->json(compact(
+            'areas', 'courses', 'paths', 'modules', 'decks', 'users', 'enrollments', 'courseDecks', 'pathCourses'
+        ));
+    }
+
+    private function adminCreateUser(): void
+    {
+        $d = $this->input();
+        $name = trim((string) ($d['name'] ?? ''));
+        $email = strtolower(trim((string) ($d['email'] ?? '')));
+        $password = (string) ($d['password'] ?? '');
+        $role = ($d['role'] ?? 'student') === 'admin' ? 'admin' : 'student';
+
+        if ($name === '' || $email === '' || $password === '') {
+            $this->json(['error' => 'Informe nome, e-mail e senha.'], 422);
+            return;
+        }
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $this->json(['error' => 'E-mail invalido.'], 422);
+            return;
+        }
+        if (strlen($password) < 6) {
+            $this->json(['error' => 'A senha deve ter ao menos 6 caracteres.'], 422);
+            return;
+        }
+        if ($this->findUserIdByEmail($email) !== null) {
+            $this->json(['error' => 'Ja existe um usuario com este e-mail.'], 409);
+            return;
+        }
+
+        $stmt = $this->db->prepare('INSERT INTO users (name, email, password_hash, role, active) VALUES (?, ?, ?, ?, 1)');
+        $stmt->execute([$name, $email, password_hash($password, PASSWORD_DEFAULT), $role]);
+        $this->json(['id' => (int) $this->db->lastInsertId(), 'name' => $name, 'email' => $email, 'role' => $role], 201);
+    }
+
+    private function adminCreateArea(): void
+    {
+        $d = $this->input();
+        $name = trim((string) ($d['name'] ?? ''));
+        if ($name === '') {
+            $this->json(['error' => 'Informe o nome da area.'], 422);
+            return;
+        }
+        $slug = $this->uniqueSlug('knowledge_areas', $this->slugify($name));
+        $stmt = $this->db->prepare('INSERT INTO knowledge_areas (name, slug, description) VALUES (?, ?, ?)');
+        $stmt->execute([$name, $slug, trim((string) ($d['description'] ?? '')) ?: null]);
+        $this->json(['id' => (int) $this->db->lastInsertId(), 'slug' => $slug], 201);
+    }
+
+    private function adminCreateCourse(): void
+    {
+        $d = $this->input();
+        $title = trim((string) ($d['title'] ?? ''));
+        if ($title === '') {
+            $this->json(['error' => 'Informe o titulo do curso.'], 422);
+            return;
+        }
+        $areaId = $this->nullableFk('knowledge_areas', $d['areaId'] ?? null);
+        $status = in_array(($d['status'] ?? ''), ['available', 'coming_soon'], true) ? $d['status'] : 'available';
+        $level = trim((string) ($d['level'] ?? 'introdutorio')) ?: 'introdutorio';
+        $slug = $this->uniqueSlug('courses', $this->slugify($title));
+
+        $stmt = $this->db->prepare('INSERT INTO courses (area_id, title, slug, description, level, status) VALUES (?, ?, ?, ?, ?, ?)');
+        $stmt->execute([$areaId, $title, $slug, trim((string) ($d['description'] ?? '')) ?: null, $level, $status]);
+        $this->json(['id' => (int) $this->db->lastInsertId(), 'slug' => $slug], 201);
+    }
+
+    private function adminCreatePath(): void
+    {
+        $d = $this->input();
+        $title = trim((string) ($d['title'] ?? ''));
+        if ($title === '') {
+            $this->json(['error' => 'Informe o titulo da trilha.'], 422);
+            return;
+        }
+        $areaId = $this->nullableFk('knowledge_areas', $d['areaId'] ?? null);
+        $slug = $this->uniqueSlug('learning_paths', $this->slugify($title));
+        $stmt = $this->db->prepare('INSERT INTO learning_paths (area_id, title, slug, description) VALUES (?, ?, ?, ?)');
+        $stmt->execute([$areaId, $title, $slug, trim((string) ($d['description'] ?? '')) ?: null]);
+        $this->json(['id' => (int) $this->db->lastInsertId(), 'slug' => $slug], 201);
+    }
+
+    private function adminCreateModule(): void
+    {
+        $d = $this->input();
+        $courseId = (int) ($d['courseId'] ?? 0);
+        $title = trim((string) ($d['title'] ?? ''));
+        if ($courseId <= 0 || $title === '') {
+            $this->json(['error' => 'Informe o curso e o titulo do modulo.'], 422);
+            return;
+        }
+        if (!$this->rowExists('courses', $courseId)) {
+            $this->json(['error' => 'Curso inexistente.'], 422);
+            return;
+        }
+        $position = (int) ($d['position'] ?? 0);
+        $stmt = $this->db->prepare('INSERT INTO course_modules (course_id, title, description, position) VALUES (?, ?, ?, ?)');
+        $stmt->execute([$courseId, $title, trim((string) ($d['description'] ?? '')) ?: null, $position]);
+        $this->json(['id' => (int) $this->db->lastInsertId()], 201);
+    }
+
+    private function adminLinkPathCourse(): void
+    {
+        $d = $this->input();
+        $pathId = (int) ($d['pathId'] ?? 0);
+        $courseId = (int) ($d['courseId'] ?? 0);
+        if (!$this->rowExists('learning_paths', $pathId) || !$this->rowExists('courses', $courseId)) {
+            $this->json(['error' => 'Trilha ou curso inexistente.'], 422);
+            return;
+        }
+        $this->ensureLink(
+            'SELECT id FROM learning_path_courses WHERE path_id = ? AND course_id = ?',
+            [$pathId, $courseId],
+            'INSERT INTO learning_path_courses (path_id, course_id, position) VALUES (?, ?, ?)',
+            [$pathId, $courseId, (int) ($d['position'] ?? 0)]
+        );
+        $this->json(['ok' => true], 201);
+    }
+
+    private function adminLinkCourseDeck(): void
+    {
+        $d = $this->input();
+        $courseId = (int) ($d['courseId'] ?? 0);
+        $deckId = (int) ($d['deckId'] ?? 0);
+        if (!$this->rowExists('courses', $courseId) || !$this->rowExists('decks', $deckId)) {
+            $this->json(['error' => 'Curso ou baralho inexistente.'], 422);
+            return;
+        }
+        $moduleId = $this->nullableFk('course_modules', $d['moduleId'] ?? null);
+        $this->ensureLink(
+            'SELECT id FROM course_decks WHERE course_id = ? AND deck_id = ?',
+            [$courseId, $deckId],
+            'INSERT INTO course_decks (course_id, deck_id, module_id, position) VALUES (?, ?, ?, ?)',
+            [$courseId, $deckId, $moduleId, (int) ($d['position'] ?? 0)]
+        );
+        $this->json(['ok' => true], 201);
+    }
+
+    private function adminEnroll(): void
+    {
+        $d = $this->input();
+        $userId = (int) ($d['userId'] ?? 0);
+        $courseId = (int) ($d['courseId'] ?? 0);
+        if (!$this->rowExists('users', $userId) || !$this->rowExists('courses', $courseId)) {
+            $this->json(['error' => 'Estudante ou curso inexistente.'], 422);
+            return;
+        }
+        $this->ensureLink(
+            'SELECT id FROM enrollments WHERE user_id = ? AND course_id = ?',
+            [$userId, $courseId],
+            'INSERT INTO enrollments (user_id, course_id, status) VALUES (?, ?, ?)',
+            [$userId, $courseId, 'active']
+        );
+        $this->json(['ok' => true], 201);
+    }
+
+    /** DELETE genérico para vínculos administrativos (lista branca de tabelas). */
+    private function adminDelete(string $table, int $id): void
+    {
+        if (!in_array($table, ['enrollments', 'course_decks'], true)) {
+            $this->json(['error' => 'Operacao nao permitida.'], 403);
+            return;
+        }
+        $stmt = $this->db->prepare("DELETE FROM {$table} WHERE id = ?");
+        $stmt->execute([$id]);
+        $this->json(['ok' => true, 'deleted' => $stmt->rowCount()]);
+    }
+
+    private function rowsInt(array $rows, array $intKeys): array
+    {
+        return array_map(function (array $row) use ($intKeys): array {
+            foreach ($intKeys as $key) {
+                if (array_key_exists($key, $row) && $row[$key] !== null) {
+                    $row[$key] = (int) $row[$key];
+                }
+            }
+            return $row;
+        }, $rows);
+    }
+
+    private function rowExists(string $table, int $id): bool
+    {
+        if ($id <= 0) {
+            return false;
+        }
+        $stmt = $this->db->prepare("SELECT 1 FROM {$table} WHERE id = ? LIMIT 1");
+        $stmt->execute([$id]);
+        return $stmt->fetchColumn() !== false;
+    }
+
+    private function nullableFk(string $table, mixed $value): ?int
+    {
+        $id = (int) ($value ?? 0);
+        return ($id > 0 && $this->rowExists($table, $id)) ? $id : null;
+    }
+
+    private function slugify(string $text): string
+    {
+        $text = trim($text);
+        if (function_exists('iconv')) {
+            $converted = @iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $text);
+            if ($converted !== false) {
+                $text = $converted;
+            }
+        }
+        $text = strtolower($text);
+        $text = preg_replace('/[^a-z0-9]+/', '-', $text) ?? $text;
+        $text = trim($text, '-');
+        return $text !== '' ? $text : 'item';
+    }
+
+    private function uniqueSlug(string $table, string $base): string
+    {
+        $slug = $base;
+        $n = 2;
+        $stmt = $this->db->prepare("SELECT 1 FROM {$table} WHERE slug = ? LIMIT 1");
+        while (true) {
+            $stmt->execute([$slug]);
+            if ($stmt->fetchColumn() === false) {
+                return $slug;
+            }
+            $slug = $base . '-' . $n;
+            $n++;
+        }
     }
 
     private function login(): void

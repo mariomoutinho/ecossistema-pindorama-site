@@ -125,12 +125,17 @@ require __DIR__ . '/../inc/header.php';
     var firstName = (user.name || "estudante").split(" ")[0];
 
     var logoutBtn = el("button", { class: "btn btn--ghost", text: "Sair", attrs: { type: "button", id: "logoutBtn" } });
+    var actions = [];
+    if (user.role === "admin") {
+      actions.push(el("a", { class: "btn btn--ghost", text: "⚙ Administração", attrs: { href: "/suinda/admin/" } }));
+    }
+    actions.push(logoutBtn);
     var greeting = el("div", { class: "dash__greeting", children: [
       el("div", { children: [
         el("h1", { text: "Olá, " + firstName + " 👋" }),
         el("p", { text: "Bem-vindo(a) de volta ao seu espaço de estudos." })
       ]}),
-      logoutBtn
+      el("div", { class: "dash__actions", attrs: { style: "margin:0" }, children: actions })
     ]});
     root.appendChild(greeting);
     logoutBtn.addEventListener("click", signOut);

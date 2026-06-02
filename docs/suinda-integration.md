@@ -88,6 +88,7 @@ pindorama/
 | URL | Arquivo | Descrição |
 | --- | --- | --- |
 | `/suinda/estudar` | `suinda/estudar/index.php` | Painel: saudação, cursos matriculados, trilhas, progresso, novos/pendentes, acesso ao app. |
+| `/suinda/admin` | `suinda/admin/index.php` | **Mini-CMS (somente admin)**: áreas, trilhas, cursos, módulos, vínculo curso↔baralho, criação de estudantes e matrículas. Link aparece no painel quando `role=admin`. |
 | `/suinda/app/pages/*` | app SRS | Telas do app de repetição espaçada (baralhos, estudo, navegador, progresso). |
 
 ### API (`/suinda/api`)
@@ -189,6 +190,18 @@ Gating aplicado a: `GET /decks` (lista só os liberados), `GET /decks/{id}`,
 `courses[]` traz `progress { totalCards, studiedCards, newCards, dueCards, percent }`
 e `decks[] { id, title, totalCards, newCards, dueCards, studiedCards }`.
 
+### Administrativos (`/admin/*`, exigem `role=admin`)
+| Método | Rota | Ação |
+| --- | --- | --- |
+| `GET` | `/admin/overview` | Estado completo (áreas, cursos, trilhas, módulos, baralhos, usuários, matrículas, vínculos). |
+| `POST` | `/admin/areas` · `/admin/courses` · `/admin/paths` · `/admin/modules` | Cria a entidade (slug gerado e único). |
+| `POST` | `/admin/users` | Cria estudante/admin (senha com `password_hash`). |
+| `POST` | `/admin/path-courses` · `/admin/course-decks` · `/admin/enrollments` | Cria vínculos (idempotente). |
+| `DELETE` | `/admin/enrollments/{id}` · `/admin/course-decks/{id}` | Remove matrícula / vínculo curso-baralho. |
+
+Esses endpoints existem tanto na cópia do site quanto no app standalone
+(`__remote_suinda_app`), mantendo paridade.
+
 ---
 
 ## 8. Montagem da API e caminhos relativos
@@ -281,8 +294,10 @@ Todas opcionais (há padrões em `config.php`); podem também vir de `config.loc
 
 ## 12. Evolução futura (preparado, não construído)
 
-- **Área administrativa/CMS**: criar áreas, trilhas, cursos, módulos e matrículas
-  hoje é feito por seed/SQL. O modelo já suporta uma futura UI de gestão.
+- **Área administrativa/CMS**: já existe um **mini-CMS** em `/suinda/admin` para
+  criar áreas, trilhas, cursos, módulos, vincular baralhos a cursos, criar
+  estudantes e matricular. Evoluções possíveis: edição/inativação de itens,
+  reordenação por drag-and-drop e busca/paginação de usuários.
 - **Matrícula self-service / turmas / pré-requisitos** entre cursos da trilha.
 - **Recuperação de senha** (a tela de login já tem o ponto preparado).
 - **Conteúdo dos cursos**: textos, módulos e baralhos definitivos ainda serão

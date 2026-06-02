@@ -26,6 +26,9 @@ check() { # check "label" "expected_substring" "actual"
 json() { # json "<body>" "<py expression on data>"
   printf '%s' "$1" | python3 -c "import sys,json;d=json.load(sys.stdin);print($2)" 2>/dev/null
 }
+json_get() { # lê body do stdin: ... | json_get "d['id']"
+  python3 -c "import sys,json;d=json.load(sys.stdin);print($1)" 2>/dev/null
+}
 
 echo "→ Semeando banco de teste ($DB)"
 php "$API_DIR/tools/seed.php" >/dev/null
@@ -84,6 +87,22 @@ ATOKEN=$(json "$ALOGIN" "d['token']")
 ADECKS=$(curl -s "$BASE/decks" -H "Authorization: Bearer $ATOKEN")
 NA=$(json "$ADECKS" "len(d['decks'])")
 check "admin enxerga os 3 baralhos institucionais" "3" "$NA"
+
+# 10. mini-CMS: aluno bloqueado no admin; admin cria curso, usuário, matrícula
+CODE=$(curl -s -o /dev/null -w '%{http_code}' "$BASE/admin/overview" -H "Authorization: Bearer $TOKEN")
+check "estudante recebe 403 em /admin/overview" "403" "$CODE"
+
+NEWCID=$(curl -s -X POST "$BASE/admin/courses" -H "Authorization: Bearer $ATOKEN" -H 'Content-Type: application/json' -d '{"title":"Ingles Essencial Admin","status":"available"}' | json_get "d['id']")
+check "admin cria curso" "[0-9]" "$NEWCID"
+curl -s -o /dev/null -X POST "$BASE/admin/course-decks" -H "Authorization: Bearer $ATOKEN" -H 'Content-Type: application/json' -d "{\"courseId\":$NEWCID,\"deckId\":3}"
+NEWSTU=$(curl -s -X POST "$BASE/admin/users" -H "Authorization: Bearer $ATOKEN" -H 'Content-Type: application/json' -d '{"name":"Estudante Novo","email":"novo@suinda.com","password":"senha123"}' | json_get "d['id']")
+check "admin cria estudante" "[0-9]" "$NEWSTU"
+CODE=$(curl -s -o /dev/null -w '%{http_code}' -X POST "$BASE/admin/enrollments" -H "Authorization: Bearer $ATOKEN" -H 'Content-Type: application/json' -d "{\"userId\":$NEWSTU,\"courseId\":$NEWCID}")
+check "admin matricula estudante (201)" "201" "$CODE"
+NEWTK=$(curl -s -X POST "$BASE/auth/login" -H 'Content-Type: application/json' -d '{"email":"novo@suinda.com","password":"senha123"}' | json_get "d['token']")
+NEWDECKS=$(curl -s "$BASE/decks" -H "Authorization: Bearer $NEWTK")
+check "novo estudante vê só o baralho liberado pela matrícula" "Ingles" "$NEWDECKS"
+check "novo estudante vê exatamente 1 baralho" "1" "$(json "$NEWDECKS" "len(d['decks'])")"
 
 echo
 echo "Resultado: $pass passou, $fail falhou"
