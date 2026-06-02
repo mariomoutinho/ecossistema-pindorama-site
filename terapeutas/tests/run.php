@@ -26,6 +26,7 @@ require_once __DIR__ . '/../lib/storage.php';
 require_once __DIR__ . '/../lib/mailer.php';
 require_once __DIR__ . '/../lib/account.php';
 require_once __DIR__ . '/../lib/pacientes.php';
+require_once __DIR__ . '/../lib/agendamentos.php';
 
 // ---- Mini framework ----
 $TESTS = ['pass' => 0, 'fail' => 0, 'fails' => []];
@@ -251,6 +252,31 @@ $ac = pac_listar($T1, '', 'ativos');
 $idsAtivos = array_column($ac['itens'], 'id');
 ok(!in_array((int)$pOutro['id'], $idsAtivos, true), 'autocomplete não inclui paciente de outro terapeuta');
 ok(!in_array((int)$p2['id'], $idsAtivos, true), 'autocomplete não inclui paciente inativo');
+
+// =====================================================================
+section('Agendamentos — propriedade (Fase 1)');
+limpar_tabelas(['agendamentos']);
+store_save('terapeutas', [
+  ['id' => 1,  'nome' => 'Admin',       'email' => 'a@x',  'papel' => 'admin',     'ativo' => true],
+  ['id' => 10, 'nome' => 'Terapeuta A', 'email' => 'ta@x', 'papel' => 'terapeuta', 'ativo' => true],
+  ['id' => 20, 'nome' => 'Terapeuta B', 'email' => 'tb@x', 'papel' => 'terapeuta', 'ativo' => true],
+]);
+$admin = store_find('terapeutas', 1);
+$tA    = store_find('terapeutas', 10);
+$tB    = store_find('terapeutas', 20);
+$agA = store_insert('agendamentos', ['data' => '2026-07-01', 'hora_inicio' => '09:00', 'hora_fim' => '10:00', 'sala' => 'sala-1', 'terapeuta_id' => 10, 'paciente' => 'X', 'status' => 'agendado']);
+
+ok(agenda_is_admin($admin), 'admin é reconhecido como admin');
+ok(!agenda_is_admin($tA), 'terapeuta comum não é admin');
+ok(agenda_pode_gerir($agA, $tA), 'dono pode gerir o próprio agendamento');
+ok(!agenda_pode_gerir($agA, $tB), 'terapeuta não gere agendamento de outro');
+ok(agenda_pode_gerir($agA, $admin), 'admin gere agendamento de qualquer um');
+ok(!agenda_pode_gerir(null, $tA), 'agendamento inexistente não é gerível');
+
+eq(agenda_resolver_terapeuta_id($tA, 20), 10, 'não-admin: dono forçado ao próprio (ignora terapeuta_id do form)');
+eq(agenda_resolver_terapeuta_id($tA, 10, $agA), 10, 'não-admin em edição: preserva o dono original');
+eq(agenda_resolver_terapeuta_id($admin, 20), 20, 'admin: atribui ao terapeuta ativo enviado');
+eq(agenda_resolver_terapeuta_id($admin, 999), 1, 'admin: id inválido cai no próprio');
 
 // =====================================================================
 // Limpeza
