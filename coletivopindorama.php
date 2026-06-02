@@ -8,7 +8,8 @@
 $activePage      = 'home';
 $pageTitle       = 'Coletivo Pindorama • Saúde Integrativa & Bem-Estar';
 $pageDescription = 'Saúde Integrativa & Bem-Estar em Recife/PE. Terapias, atividades coletivas, formações e a metodologia Cuidar+.';
-$pageScripts     = ['assets/js/home.js'];
+$pageScripts     = ['assets/js/home-hero-carousel.js', 'assets/js/home.js'];
+$extraStyles     = ['assets/css/home-hero-carousel.css'];
 
 require __DIR__ . '/partials/bootstrap.php';
 
@@ -74,73 +75,8 @@ require __DIR__ . '/partials/header.php';
 ?>
 
 <main id="topo">
-  <!-- HERO -->
-  <div class="container hero">
-    <div class="heroGrid">
-      <div class="heroCard">
-        <div class="heroInner">
-          <div class="kicker">
-            <span class="pill highlight">Acolhimento • Corpo • Comunidade</span>
-            <span class="pill">Recife/PE • Espaço Pindorama</span>
-            <span class="pill">Metodologia Cuidar+</span>
-          </div>
-
-          <h2 class="heroTitle">Cuidado integral, com saberes ancestrais e práticas contemporâneas.</h2>
-          <p class="heroText">
-            Terapias integrativas, atendimentos individuais, atividades coletivas e formações para promover equilíbrio físico,
-            emocional e social — com escuta ativa, acolhimento e compromisso ético.
-          </p>
-
-          <div class="heroActions">
-            <a class="btn primary" href="<?= htmlspecialchars($whatsLink) ?>" target="_blank" rel="noopener">Agendar no WhatsApp</a>
-            <a class="btn" href="<?= htmlspecialchars($terapiasUrl) ?>">Ver terapias</a>
-            <a class="btn ghost" href="<?= htmlspecialchars($cuidarUrl) ?>">Conhecer Cuidar+</a>
-          </div>
-        </div>
-      </div>
-
-      <aside class="sideCard">
-        <h3>Como a gente trabalha</h3>
-        <ul class="bullets">
-          <li>Escuta ativa e diálogo horizontal</li>
-          <li>Valorização das experiências do grupo</li>
-          <li>Construção coletiva de soluções</li>
-          <li>Vivências corporais e ludicidade</li>
-        </ul>
-
-        <div class="mini">
-          <div class="miniRow">
-            <span class="dot dotLeaf" aria-hidden="true"></span>
-            <div>
-              <strong>Instagram</strong>
-              <span>
-                <a class="link" href="<?= htmlspecialchars($insta) ?>" target="_blank" rel="noopener">
-                  <?= htmlspecialchars($instaHandle) ?>
-                </a>
-              </span>
-            </div>
-          </div>
-
-          <div class="miniRow">
-            <span class="dot dotLeaf" aria-hidden="true"></span>
-            <div>
-              <strong>Endereço</strong>
-              <span><?= htmlspecialchars($endereco) ?></span>
-            </div>
-          </div>
-
-          <div class="mapWrap" aria-label="Mapa do Espaço Pindorama">
-            <iframe
-              title="Mapa - Rua Dom Carlos Coelho, 86"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps?q=Rua%20Dom%20Carlos%20Coelho,%2086,%20Boa%20Vista,%20Recife%20PE&output=embed">
-            </iframe>
-          </div>
-        </div>
-      </aside>
-    </div>
-  </div>
+  <!-- BANNER DINÂMICO (carrossel) — somente na home -->
+  <?php require __DIR__ . '/partials/home-hero-carousel.php'; ?>
 
   <!-- ECOSSISTEMA PINDORAMA -->
   <section id="ecossistema">
@@ -271,6 +207,17 @@ require __DIR__ . '/partials/header.php';
           <span class="tag">Valores</span>
           <h3>Cuidado, ética e integração</h3>
           <p>Empatia no atendimento, integração de saberes tradicionais e científicos, escuta ativa e compromisso social.</p>
+        </div>
+
+        <div class="card span12">
+          <span class="tag">Como a gente trabalha</span>
+          <h3>Escuta ativa e construção coletiva</h3>
+          <ul class="bullets">
+            <li>Escuta ativa e diálogo horizontal</li>
+            <li>Valorização das experiências do grupo</li>
+            <li>Construção coletiva de soluções</li>
+            <li>Vivências corporais e ludicidade</li>
+          </ul>
         </div>
 
         <div class="card span12">

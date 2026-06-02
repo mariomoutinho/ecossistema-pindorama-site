@@ -1,0 +1,277 @@
+/* ============================================================
+   BANNER DINÂMICO DA HOME (home-hero-carousel)
+   Carrossel imersivo — somente na página inicial.
+   Reaproveita a paleta e os padrões visuais do site (global.css).
+   ============================================================ */
+
+.hhc{
+  /* anula o padding vertical padrão de <section> e dá respiro sob o header */
+  padding: 22px 0 8px;
+}
+
+/* offset para o scroll ancorado não ficar sob o header fixo */
+#ecossistema{ scroll-margin-top: 90px; }
+
+.hhc__frame{
+  position: relative;
+  width: 100%;
+  /* desktop: proporção ampla e elegante, com teto de altura */
+  height: clamp(440px, 64vh, 620px);
+  border-radius: var(--radius2);
+  overflow: hidden;
+  isolation: isolate;
+  background: #10231d; /* fallback enquanto a 1ª imagem carrega */
+  border: 1px solid rgba(244,231,211,.16);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.06),
+    0 26px 70px rgba(0,0,0,.34),
+    0 0 44px rgba(102,180,143,.10);
+  touch-action: pan-y; /* permite scroll vertical; o swipe horizontal é tratado no JS */
+}
+
+/* ---- Trilho e slides ---- */
+.hhc__track{
+  display: flex;
+  height: 100%;
+  will-change: transform;
+  transition: transform .7s cubic-bezier(.22,.61,.36,1); /* desliza da direita p/ esquerda */
+}
+.hhc__track.is-grabbing{
+  transition: none;
+  cursor: grabbing;
+}
+.hhc__slide{
+  position: relative;
+  flex: 0 0 100%;
+  height: 100%;
+  /* fallback em degradê (paleta) caso a imagem falte/quebre */
+  background:
+    radial-gradient(80% 70% at 18% 22%, rgba(244,231,211,.10), transparent 60%),
+    radial-gradient(70% 60% at 82% 16%, rgba(196,106,74,.12), transparent 58%),
+    linear-gradient(160deg, #051e18 0%, #173a2c 100%);
+}
+.hhc__img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  user-select: none;
+  -webkit-user-drag: none;
+  transition: opacity .5s ease;
+}
+.hhc__img--err{ opacity: 0; } /* some se a imagem não carregar; revela o degradê */
+
+/* ---- Degradê de legibilidade ---- */
+.hhc__overlay{
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    radial-gradient(70% 80% at 16% 26%, rgba(244,231,211,.10), transparent 60%),
+    linear-gradient(
+      90deg,
+      rgba(5,30,24,.90) 0%,
+      rgba(5,30,24,.62) 38%,
+      rgba(5,30,24,.18) 72%,
+      rgba(18,52,60,.10) 100%
+    );
+}
+
+/* ---- Conteúdo estável ---- */
+.hhc__content{
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: min(560px, calc(100% - 96px));
+  padding: 0 0 0 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.hhc__label{
+  align-self: flex-start;
+  margin: 0;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .9px;
+  color: var(--sand);
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(244,231,211,.12);
+  border: 1px solid rgba(244,231,211,.22);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+}
+.hhc__title{
+  margin: 0;
+  font-size: clamp(30px, 4.6vw, 50px);
+  line-height: 1.05;
+  letter-spacing: -.6px;
+  font-weight: 700;
+  text-shadow: 0 16px 40px rgba(0,0,0,.5);
+}
+.hhc__tagline{
+  margin: 0;
+  font-size: clamp(16px, 2vw, 20px);
+  color: var(--sand);
+  letter-spacing: .1px;
+  text-shadow: 0 8px 26px rgba(0,0,0,.5);
+}
+.hhc__text{
+  margin: 2px 0 6px;
+  max-width: 46ch;
+  font-size: clamp(14px, 1.5vw, 15.5px);
+  line-height: 1.6;
+  color: rgba(234,243,239,.92);
+  text-shadow: 0 6px 22px rgba(0,0,0,.55);
+}
+.hhc__actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* ---- Setas (desktop) ---- */
+.hhc__arrow{
+  position: absolute;
+  top: 50%;
+  z-index: 4;
+  width: 46px;
+  height: 46px;
+  transform: translateY(-50%);
+  border-radius: 999px;
+  border: 1px solid rgba(244,231,211,.24);
+  background: rgba(7,17,14,.55);
+  color: var(--sand);
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.28);
+  transition: transform .25s ease, background .25s ease, border-color .25s ease;
+}
+.hhc__arrow:hover,
+.hhc__arrow:focus-visible{
+  transform: translateY(-50%) scale(1.06);
+  background: rgba(19,45,38,.78);
+  border-color: rgba(244,231,211,.46);
+  outline: none;
+}
+.hhc__arrow:focus-visible{ box-shadow: 0 0 0 5px var(--focus); }
+.hhc__arrow--prev{ left: 18px; }
+.hhc__arrow--next{ right: 18px; }
+
+/* ---- Indicadores ---- */
+.hhc__dots{
+  position: absolute;
+  z-index: 4;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+  padding: 6px 0;
+}
+.hhc__dot{
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border-radius: 999px;
+  border: 1px solid rgba(244,231,211,.42);
+  background: rgba(244,231,211,.18);
+  cursor: pointer;
+  transition: width .25s ease, background .25s ease, border-color .25s ease;
+}
+.hhc__dot.active{
+  width: 28px;
+  background: var(--sand);
+  border-color: var(--sand);
+}
+.hhc__dot:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 5px var(--focus);
+}
+
+/* ---- Texto exclusivo para leitores de tela ---- */
+.hhc__sr{
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0; border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+@media (max-width: 980px){
+  .hhc__content{
+    width: min(560px, calc(100% - 64px));
+    padding-left: 40px;
+  }
+}
+
+/* ============================================================
+   MOBILE — porta de entrada visual (≈70–85vh)
+   ============================================================ */
+@media (max-width: 720px){
+  .hhc{ padding: 14px 0 4px; }
+  .hhc__frame{
+    /* svh respeita a altura real disponível em navegadores móveis */
+    height: 78svh;
+    min-height: 70svh;
+    max-height: 85svh;
+    border-radius: 20px;
+  }
+  /* degradê mais forte embaixo: o texto fica na base no mobile */
+  .hhc__overlay{
+    background:
+      linear-gradient(
+        180deg,
+        rgba(5,30,24,.30) 0%,
+        rgba(5,30,24,.55) 42%,
+        rgba(5,30,24,.92) 100%
+      ),
+      radial-gradient(80% 45% at 50% 18%, rgba(244,231,211,.08), transparent 64%);
+  }
+  .hhc__content{
+    top: auto;
+    bottom: 64px;
+    transform: none;
+    width: 100%;
+    padding: 0 20px;
+    gap: 10px;
+  }
+  .hhc__text{ max-width: 100%; }
+  .hhc__actions{ width: 100%; }
+  .hhc__actions .btn{ flex: 1 1 auto; justify-content: center; text-align: center; }
+  /* rótulo discreto ocultado no mobile para não competir com a composição */
+  .hhc__label{ display: none; }
+  /* setas escondidas; navegação por gesto/indicadores */
+  .hhc__arrow{ display: none; }
+  .hhc__dots{ bottom: 16px; }
+}
+
+/* Telas muito estreitas: botões empilhados */
+@media (max-width: 380px){
+  .hhc__actions{ flex-direction: column; }
+  .hhc__actions .btn{ width: 100%; }
+}
+
+/* ============================================================
+   PREFERÊNCIA POR REDUÇÃO DE MOVIMENTO
+   Desativa o deslize suave (o JS desativa o autoplay).
+   ============================================================ */
+@media (prefers-reduced-motion: reduce){
+  .hhc__track{ transition: none; }
+  .hhc__img{ transition: none; }
+}
