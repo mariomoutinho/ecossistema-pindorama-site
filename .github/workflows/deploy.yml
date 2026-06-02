@@ -33,6 +33,7 @@ jobs:
             **/.claude/**
             README.md
             CLAUDE.md
+            docs/**
             **/.DS_Store
             **/Thumbs.db
             **/*Zone.Identifier*

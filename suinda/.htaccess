@@ -1,0 +1,3 @@
+# Suindá — garante que a vitrine (index.php) seja a página inicial de /suinda/,
+# mesmo com o index.html legado ainda presente.
+DirectoryIndex index.php index.html

@@ -1,0 +1,24 @@
+# ============================================================================
+# .gitignore — Suinda (espaco educacional do Pindorama)
+# Mantem fora do versionamento dados de runtime e credenciais locais.
+# ============================================================================
+
+# Configuracao sensivel / local (servidor usa config.local.php gitignored)
+api/config.local.php
+
+# Banco SQLite e dados de runtime
+api/storage/*
+!api/storage/.gitkeep
+!api/storage/.htaccess
+api/local-data/
+*.sqlite
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm
+
+# Uploads / imports gerados pelo app
+api/uploads/
+api/imports/
+
+# Logs
+*.log

@@ -48,6 +48,7 @@ $homePrefix = ($active === 'home') ? '' : htmlspecialchars($homeUrl);
         <a href="<?= htmlspecialchars($cuidarUrl) ?>"<?= $active === 'cuidar' ? ' aria-current="page"' : '' ?>>Cuidar+</a>
         <a href="<?= htmlspecialchars($rpgUrl) ?>" target="_blank" rel="noopener">Pindorama RPG</a>
         <a href="<?= htmlspecialchars($gessUrl) ?>"<?= $active === 'gess' ? ' aria-current="page"' : '' ?>>Sementeira</a>
+        <a href="<?= htmlspecialchars($suindaUrl) ?>"<?= $active === 'suinda' ? ' aria-current="page"' : '' ?>>Suindá</a>
         <a href="<?= $homePrefix ?>#sobre">Sobre</a>
         <a href="<?= $homePrefix ?>#contato">Contato</a>
       </nav>
@@ -78,6 +79,7 @@ $homePrefix = ($active === 'home') ? '' : htmlspecialchars($homeUrl);
         <a href="<?= htmlspecialchars($cuidarUrl) ?>"<?= $active === 'cuidar' ? ' aria-current="page"' : '' ?>>Cuidar+</a>
         <a href="<?= htmlspecialchars($rpgUrl) ?>" target="_blank" rel="noopener">Pindorama RPG</a>
         <a href="<?= htmlspecialchars($gessUrl) ?>"<?= $active === 'gess' ? ' aria-current="page"' : '' ?>>Sementeira</a>
+        <a href="<?= htmlspecialchars($suindaUrl) ?>"<?= $active === 'suinda' ? ' aria-current="page"' : '' ?>>Suindá</a>
         <a href="<?= $homePrefix ?>#sobre">Sobre</a>
         <a href="<?= $homePrefix ?>#contato">Contato</a>
         <a href="terapeutas/">Área dos terapeutas</a>

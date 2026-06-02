@@ -8,12 +8,16 @@
 
 require_once dirname(__DIR__) . '/partials/bootstrap.php';
 
+require_once __DIR__ . '/lib/env.php';
 require_once __DIR__ . '/lib/storage.php';
 require_once __DIR__ . '/lib/auth.php';
 require_once __DIR__ . '/lib/whatsapp.php';
+require_once __DIR__ . '/lib/mailer.php';
+require_once __DIR__ . '/lib/account.php';
+require_once __DIR__ . '/lib/pacientes.php';
 
 // Garante que os arquivos de dados existam (cria a partir do seed se faltar)
-foreach (['terapeutas', 'agendamentos', 'evolucoes', 'lembretes', 'notificacoes'] as $tbl) {
+foreach (['terapeutas', 'agendamentos', 'evolucoes', 'lembretes', 'notificacoes', 'pacientes', 'codigos_senha'] as $tbl) {
   store_bootstrap($tbl);
 }
 

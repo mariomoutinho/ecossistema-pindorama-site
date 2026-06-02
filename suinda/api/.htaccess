@@ -1,0 +1,30 @@
+# ============================================================================
+# API educacional do Suinda — front controller.
+# Encaminha todas as rotas para index.php e garante que o header Authorization
+# (Bearer token) chegue ao PHP em ambientes Apache/CGI.
+# ============================================================================
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /suinda/api/
+
+  # Repassa o header Authorization para o PHP quando o servidor nao o expoe.
+  RewriteCond %{HTTP:Authorization} .
+  RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+  # Arquivos e diretorios reais sao servidos diretamente.
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Todo o resto cai no front controller.
+  RewriteRule ^ index.php [L]
+</IfModule>
+
+# Alternativa para expor o Authorization em alguns servidores.
+<IfModule mod_setenvif.c>
+  SetEnvIfNoCase Authorization "(.+)" HTTP_AUTHORIZATION=$1
+</IfModule>
+
+# Em FastCGI/CGI, descomente se o Bearer token nao estiver chegando:
+# CGIPassAuth On

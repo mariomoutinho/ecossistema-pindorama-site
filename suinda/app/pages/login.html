@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entrar — Suindá</title>
+  <script>
+    // O login do Suindá foi unificado em /suinda/login/. Esta página interna
+    // do app apenas reencaminha para lá, preservando o ponto único de acesso.
+    (function () {
+      var path = window.location.pathname;
+      var target = path.replace(/\/app\/pages\/login\.html$/, "/login/");
+      if (target === path) {
+        var m = path.match(/^(.*\/suinda)\//);
+        target = m ? m[1] + "/login/" : "../../login/";
+      }
+      window.location.replace(target);
+    })();
+  </script>
+  <meta http-equiv="refresh" content="0; url=../../login/" />
+</head>
+<body>
+  <p>Redirecionando para o acesso do Suindá… <a href="../../login/">Clique aqui</a> se não for automático.</p>
+</body>
+</html>

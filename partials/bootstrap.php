@@ -69,3 +69,4 @@ $terapiasUrl = 'terapias.php';
 $cuidarUrl   = 'cuidar-mais/';
 $rpgUrl      = 'https://pindoramarpg.coletivopindorama.com.br';
 $gessUrl     = 'gess/';
+$suindaUrl   = 'suinda/';

@@ -1085,6 +1085,12 @@ textarea{ min-height: 120px; resize: vertical; }
 .ecosystem-card--sementeira .ecosystem-card__bg{
   background-image: url("../img/ecossistema/sementeira-bg.png");
 }
+/* Suindá ainda não tem arte dedicada: usa gradiente da sua identidade (teal + dourado). */
+.ecosystem-card--suinda .ecosystem-card__bg{
+  background-image:
+    radial-gradient(120% 80% at 72% 12%, rgba(217,164,65,.45) 0%, rgba(217,164,65,0) 48%),
+    linear-gradient(160deg, #1f4d5c 0%, #163944 58%, #0e1c17 100%);
+}
 
 .ecosystem-card__tag,
 .ecosystem-card__content{

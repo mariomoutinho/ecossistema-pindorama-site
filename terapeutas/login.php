@@ -26,6 +26,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   } else {
     $u = auth_attempt($emailPre, $senha);
     if ($u) {
+      // Senha temporária? Vai direto para a troca obrigatória.
+      if (!empty($u['must_change_password'])) {
+        header('Location: conta.php?primeiro_acesso=1');
+        exit;
+      }
       $destino = 'index.php';
       // Anti open-redirect: aceita apenas caminhos relativos sem esquema/host.
       if ($next !== '' && preg_match('#^[a-zA-Z0-9_\-./?=&%]+$#', $next) && strpos($next, '//') === false) {

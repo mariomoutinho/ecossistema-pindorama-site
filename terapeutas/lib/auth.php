@@ -20,10 +20,34 @@ function auth_logged_in(): bool {
 }
 
 function auth_require_login(string $loginUrl = 'login.php'): void {
-  if (auth_logged_in()) return;
-  $back = $_SERVER['REQUEST_URI'] ?? '';
-  $qs = $back ? ('?next=' . urlencode($back)) : '';
-  header('Location: ' . $loginUrl . $qs);
+  if (!auth_logged_in()) {
+    $back = $_SERVER['REQUEST_URI'] ?? '';
+    $qs = $back ? ('?next=' . urlencode($back)) : '';
+    header('Location: ' . $loginUrl . $qs);
+    exit;
+  }
+  // Se a senha inicial ainda é temporária, força a troca antes de seguir,
+  // exceto nas próprias páginas de conta/logout.
+  auth_enforce_password_change();
+}
+
+/**
+ * Indica se o terapeuta logado ainda precisa trocar a senha temporária.
+ */
+function auth_must_change_password(): bool {
+  $u = auth_user();
+  return $u !== null && !empty($u['must_change_password']);
+}
+
+/**
+ * Redireciona para a tela de troca de senha quando a senha é temporária.
+ * Não age nas páginas de conta (onde a troca acontece) nem no logout.
+ */
+function auth_enforce_password_change(string $contaUrl = 'conta.php'): void {
+  if (!auth_must_change_password()) return;
+  $script = basename($_SERVER['SCRIPT_NAME'] ?? '');
+  if (in_array($script, ['conta.php', 'logout.php'], true)) return;
+  header('Location: ' . $contaUrl . '?primeiro_acesso=1');
   exit;
 }
 

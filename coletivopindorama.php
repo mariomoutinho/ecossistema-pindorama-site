@@ -128,6 +128,16 @@ require __DIR__ . '/partials/header.php';
             <span class="ecosystem-card__cta">Conhecer Sementeira →</span>
           </div>
         </a>
+
+        <a class="ecosystem-card ecosystem-card--suinda" href="<?= htmlspecialchars($suindaUrl) ?>">
+          <span class="ecosystem-card__bg" aria-hidden="true"></span>
+          <span class="ecosystem-card__tag">Educação</span>
+          <div class="ecosystem-card__content">
+            <h3>Suindá</h3>
+            <p>Espaço de cursos, trilhas formativas e ferramentas de aprendizagem — com revisão por repetição espaçada.</p>
+            <span class="ecosystem-card__cta">Conhecer o Suindá →</span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
