@@ -42,6 +42,38 @@ require __DIR__ . '/../../inc/header.php';
   .srs button { flex: 1 1 120px; }
   .end { text-align: center; padding: 2.4rem 1rem; }
   .end__owl { font-size: 2.6rem; }
+  .end-stats { display: grid; gap: .7rem; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); max-width: 580px; margin: 1rem auto 1.4rem; }
+
+  /* alternativas: seleção (estado 1) x resultado (estado 2) */
+  .alt--select { cursor: pointer; }
+  .alt--result { cursor: default; }
+  .alt--result:hover { border-color: var(--border); }
+  .alt__tag { font-size: .72rem; padding: .06rem .45rem; border-radius: 999px; margin-left: .35rem; font-weight: 800; }
+  .alt__tag--ok { background: #dcefe2; color: var(--ok); }
+  .alt__tag--no { background: var(--danger-soft); color: #8a2f2f; }
+
+  /* imagens amplia­ veis + botão de questão completa */
+  .qcard__img { cursor: zoom-in; }
+  .qcard__full { margin: .1rem 0 .6rem; }
+
+  /* comentário expansível */
+  details.comentario { background: var(--bg-deep); border-radius: 12px; padding: .6rem .9rem; margin: .5rem 0 1rem; }
+  details.comentario > summary { cursor: pointer; font-weight: 800; color: var(--primary-dark); list-style: revert; }
+  .comentario__body { margin-top: .5rem; }
+  .comentario__body p { margin: .4rem 0; }
+  .explain__pending { color: var(--text-soft); font-style: italic; }
+
+  /* botões SRS com intervalo */
+  .srs-btn { flex-direction: column; gap: .12rem; line-height: 1.15; padding: .55rem .5rem; min-height: 0; }
+  .srs-btn__label { font-weight: 800; }
+  .srs-btn__when { font-size: .72rem; font-weight: 600; opacity: .85; }
+  .srs-confirm { margin-top: .7rem; color: var(--ok); font-weight: 700; }
+
+  /* modal de imagem ampliada */
+  .zoom-modal { position: fixed; inset: 0; background: rgba(10,20,18,.86); display: none; align-items: center; justify-content: center; z-index: 100; padding: 1rem; }
+  .zoom-modal.open { display: flex; }
+  .zoom-modal img { max-width: 100%; max-height: 92vh; border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,.5); }
+  .zoom-modal__close { position: absolute; top: 14px; right: 18px; width: 42px; height: 42px; border: none; border-radius: 50%; background: #fff; font-size: 1.2rem; cursor: pointer; }
 </style>
 
 <main id="conteudo" class="run">
@@ -62,7 +94,7 @@ require __DIR__ . '/../../inc/header.php';
   var loading = document.getElementById("loading");
   var root = document.getElementById("runRoot");
 
-  var session = { ids: [], idx: 0, correct: 0, answered: 0, progress: {} };
+  var session = { ids: [], idx: 0, correct: 0, answered: 0, annulled: 0, scheduled: 0, progress: {} };
   var startTime = 0;
 
   async function api(path, opts) {
@@ -79,56 +111,122 @@ require __DIR__ . '/../../inc/header.php';
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]; }); }
   function el(html) { var d = document.createElement("div"); d.innerHTML = html; return d.firstElementChild; }
 
-  // ---- repetição espaçada (grava em card_progress, formato do app) ----
+  // ---- repetição espaçada (grava em card_progress; minutos p/ intervalos curtos) ----
   function schedule(prev, rating) {
     var ease = prev && prev.easeFactor ? prev.easeFactor : 2.5;
-    var interval = prev && prev.intervalDays ? prev.intervalDays : 0;
+    var prevDays = prev && prev.intervalDays ? prev.intervalDays : 0;
     var reps = prev && prev.repetitions ? prev.repetitions : 0;
     var lapses = prev && prev.lapses ? prev.lapses : 0;
-    var state = "review";
-    if (rating === "errei") { ease = Math.max(1.3, ease - 0.2); interval = 1; reps = 0; lapses += 1; state = "relearning"; }
+    var state = "review", minutes;
+    if (rating === "errei") { ease = Math.max(1.3, ease - 0.2); minutes = 10; reps = 0; lapses += 1; state = "relearning"; }
     else {
       reps += 1;
-      if (rating === "dificil") { ease = Math.max(1.3, ease - 0.15); interval = interval <= 0 ? 1 : Math.max(1, Math.round(interval * 1.2)); }
-      else if (rating === "facil") { interval = interval <= 0 ? 2 : Math.max(2, Math.round(interval * ease)); }
-      else { ease = ease + 0.15; interval = interval <= 0 ? 4 : Math.max(4, Math.round(interval * ease * 1.3)); } // muito_facil
+      var days;
+      if (rating === "dificil") { ease = Math.max(1.3, ease - 0.15); days = prevDays <= 0 ? 1 : Math.max(1, Math.round(prevDays * 1.2)); }
+      else if (rating === "facil") { days = prevDays <= 0 ? 2 : Math.max(2, Math.round(prevDays * ease)); }
+      else { ease = ease + 0.15; days = prevDays <= 0 ? 4 : Math.max(4, Math.round(prevDays * ease * 1.3)); } // muito_facil
+      minutes = days * 1440;
     }
-    var due = new Date(Date.now() + interval * 86400000).toISOString();
     return {
-      state: state, dueAt: due, easeFactor: Math.round(ease * 100) / 100, intervalDays: interval,
+      state: state, dueAt: new Date(Date.now() + minutes * 60000).toISOString(),
+      easeFactor: Math.round(ease * 100) / 100, intervalDays: Math.round(minutes / 1440), intervalMinutes: minutes,
       repetitions: reps, lapses: lapses,
       introducedAt: (prev && prev.introducedAt) ? prev.introducedAt : new Date().toISOString(),
       lastRating: rating
     };
+  }
+
+  // ---- formatação amigável de intervalos/datas ----
+  function formatDate(d) {
+    var meses = ["jan.", "fev.", "mar.", "abr.", "mai.", "jun.", "jul.", "ago.", "set.", "out.", "nov.", "dez."];
+    return d.getDate() + " " + meses[d.getMonth()] + " " + d.getFullYear();
+  }
+  function formatInterval(minutes) {
+    if (minutes < 60) return "em " + minutes + " min";
+    if (minutes < 1440) return "em " + Math.round(minutes / 60) + " h";
+    var days = Math.round(minutes / 1440);
+    if (days === 1) return "amanhã";
+    if (days < 14) return "em " + days + " dias";
+    if (days < 60) { var w = Math.round(days / 7); return "em " + w + (w === 1 ? " semana" : " semanas"); }
+    if (days < 365) { var mo = Math.round(days / 30); return "em " + mo + (mo === 1 ? " mês" : " meses"); }
+    return "em " + formatDate(new Date(Date.now() + minutes * 60000));
+  }
+  function dueLabel(minutes) {
+    var days = Math.round(minutes / 1440);
+    return (days <= 14) ? formatInterval(minutes) : ("em " + formatDate(new Date(Date.now() + minutes * 60000)));
+  }
+
+  // ---- visual da questão (imagens oficiais OU transcrição) — usado nos 2 estados ----
+  function questionVisual(q) {
+    var imgs = (q.images || []);
+    if (imgs.length) {
+      var multi = imgs.length > 1
+        ? '<button class="btn btn-mini qcard__full" type="button" data-full="1">Ver questão completa (' + imgs.length + ' imagens)</button>'
+        : "";
+      return imgs.map(function (im, i) {
+        var alt = esc(im.altText || ("Questão " + q.number + " — imagem " + (i + 1)));
+        return '<img class="qcard__img" data-zoom="' + esc(im.path) + '" alt="' + alt + '" src="' + esc(im.path) + '">';
+      }).join("") + multi;
+    }
+    return '<p class="qcard__pending">🖼️ Imagem oficial pendente de recorte — exibindo a transcrição.</p>'
+      + '<div class="qcard__statement">' + esc(q.statement || "") + '</div>';
+  }
+
+  // ---- modal de ampliação de imagem ----
+  function openZoom(src) {
+    var m = document.getElementById("zoomModal");
+    if (!m) {
+      m = document.createElement("div"); m.id = "zoomModal"; m.className = "zoom-modal";
+      m.innerHTML = '<button class="zoom-modal__close" type="button" aria-label="Fechar">✕</button><img alt="Imagem ampliada da questão">';
+      m.addEventListener("click", function (e) { if (e.target === m || e.target.classList.contains("zoom-modal__close")) m.classList.remove("open"); });
+      document.body.appendChild(m);
+    }
+    m.querySelector("img").src = src;
+    m.classList.add("open");
+  }
+  function wireZoom() {
+    root.querySelectorAll("[data-zoom]").forEach(function (img) {
+      img.addEventListener("click", function () { openZoom(img.getAttribute("data-zoom")); });
+    });
+    var full = root.querySelector("[data-full]");
+    if (full) {
+      full.addEventListener("click", function () {
+        var first = root.querySelector("[data-zoom]");
+        if (first) openZoom(first.getAttribute("data-zoom"));
+      });
+    }
   }
   async function rate(cardId, rating) {
     var next = schedule(session.progress[cardId], rating);
     next.cardId = cardId;
     session.progress[cardId] = next;
     try { await api("/cards/" + cardId + "/progress", { method: "PUT", body: next }); } catch (e) {}
+    return next;
   }
 
   function renderQuestion(q) {
     startTime = Date.now();
-    var imgs = (q.images || []);
-    var visual = imgs.length
-      ? imgs.map(function (im) { return '<img class="qcard__img" alt="Questão ' + q.number + '" src="' + esc(im.path) + '">'; }).join("")
-      : '<p class="qcard__pending">🖼️ Imagem oficial pendente de recorte — exibindo a transcrição.</p><div class="qcard__statement">' + esc(q.statement || "") + '</div>';
-
     var altsHtml = (q.alternatives || []).map(function (a) {
-      return '<li><label class="alt"><input type="radio" name="alt" value="' + a.letter + '"><span class="letter">' + a.letter + ')</span><span>' + esc(a.body) + '</span></label></li>';
+      return '<li><label class="alt alt--select"><input type="radio" name="alt" value="' + a.letter + '"><span class="letter">' + a.letter + ')</span><span>' + esc(a.body) + '</span></label></li>';
     }).join("");
 
     var meta = [q.discipline, q.content].filter(Boolean).map(esc).join(" · ");
     var html = '<div class="qcard">'
       + '<p class="qcard__head">' + esc(q.exam || "ENEM") + ' · Questão ' + q.number + (meta ? ' · ' + meta : "") + '</p>'
-      + visual
+      + questionVisual(q)
       + '<ul class="alts">' + altsHtml + '</ul>'
-      + '<button class="btn btn--primary btn--block" id="confirmBtn" type="button">Confirmar resposta</button>'
+      + '<button class="btn btn--primary btn--block" id="confirmBtn" type="button" disabled>Responder</button>'
       + '<p id="confirmMsg" class="form-msg"></p>'
       + '</div>';
     root.innerHTML = progressBar() + html;
-    document.getElementById("confirmBtn").addEventListener("click", function () { confirmAnswer(q); });
+    wireZoom();
+
+    var confirmBtn = document.getElementById("confirmBtn");
+    if (q.annulled) { confirmBtn.disabled = false; } // anulada: seleção é opcional
+    root.querySelectorAll('input[name="alt"]').forEach(function (r) {
+      r.addEventListener("change", function () { confirmBtn.disabled = false; });
+    });
+    confirmBtn.addEventListener("click", function () { confirmAnswer(q); });
   }
 
   function progressBar() {
@@ -151,49 +249,70 @@ require __DIR__ . '/../../inc/header.php';
 
   function renderResult(q, back) {
     var annulled = back.annulled;
-    if (!annulled) { session.answered++; if (back.isCorrect) session.correct++; }
+    if (annulled) { session.annulled++; }
+    else { session.answered++; if (back.isCorrect) session.correct++; }
 
-    // alternativas com marcação
+    // alternativas marcadas (a questão CONTINUA visível, acima)
     var altsHtml = (back.alternatives || []).map(function (a) {
-      var cls = "alt alt--muted";
-      if (a.isCorrect) cls = "alt alt--correct";
-      else if (a.letter === back.selected) cls = "alt alt--wrong";
-      return '<li><span class="' + cls + '" style="cursor:default"><span class="letter">' + a.letter + ')</span><span>' + esc(a.body)
-        + (a.isCorrect ? ' ✓' : (a.letter === back.selected ? ' ✗' : "")) + '</span></span></li>';
+      var cls = "alt alt--result alt--muted";
+      var tag = "";
+      if (a.isCorrect) { cls = "alt alt--result alt--correct"; tag = ' <span class="alt__tag alt__tag--ok">correta</span>'; }
+      else if (a.letter === back.selected) { cls = "alt alt--result alt--wrong"; tag = ' <span class="alt__tag alt__tag--no">sua resposta</span>'; }
+      return '<li><span class="' + cls + '"><span class="letter">' + a.letter + ')</span><span>' + esc(a.body) + tag + '</span></span></li>';
     }).join("");
 
     var banner = annulled
       ? '<div class="result result--anulada">⚠ Questão anulada no gabarito oficial — não conta acerto nem erro.</div>'
-      : (back.isCorrect ? '<div class="result result--ok">✓ Você acertou! Gabarito: ' + back.correct + '</div>'
-                        : '<div class="result result--no">✗ Resposta incorreta. Gabarito oficial: ' + back.correct + (back.selected ? ' (você marcou ' + back.selected + ')' : '') + '</div>');
+      : (back.isCorrect ? '<div class="result result--ok">✓ Você acertou! Gabarito oficial: ' + back.correct + '</div>'
+                        : '<div class="result result--no">✗ Resposta incorreta. Gabarito oficial: ' + back.correct + (back.selected ? ' · você marcou ' + back.selected : ' · você não marcou') + '</div>');
 
-    var explain = back.explanation
-      ? '<div class="explain"><h4>Comentário</h4><div>' + esc(back.explanation) + '</div></div>'
-      : '<div class="explain"><h4>Comentário</h4><p class="explain__pending">Explicação pedagógica pendente de revisão para esta questão.</p></div>';
+    var metaRows = [];
+    if (back.discipline) metaRows.push("<b>Disciplina:</b> " + esc(back.discipline));
+    if (back.content) metaRows.push("<b>Conteúdo:</b> " + esc(back.content));
+    if (back.competency) metaRows.push("<b>Competência:</b> " + esc(back.competency) + (back.competencyStatement ? " — " + esc(back.competencyStatement) : ""));
+    if (back.skill) metaRows.push("<b>Habilidade:</b> " + esc(back.skill) + (back.skillStatement ? " — " + esc(back.skillStatement) : ""));
 
-    var metaParts = [];
-    if (back.discipline) metaParts.push("<b>Disciplina:</b> " + esc(back.discipline));
-    if (back.content) metaParts.push("<b>Conteúdo:</b> " + esc(back.content));
-    if (back.competency) metaParts.push("<b>Competência:</b> " + esc(back.competency));
-    if (back.skill) metaParts.push("<b>Habilidade:</b> " + esc(back.skill));
+    var explanationHtml = back.explanation
+      ? '<p>' + esc(back.explanation) + '</p>'
+      : '<p class="explain__pending">Explicação pedagógica pendente de revisão para esta questão.</p>';
 
-    var srs = annulled
-      ? '<div class="srs"><button class="btn btn--primary" id="nextBtn" type="button">Próxima questão →</button></div>'
-      : '<p class="qmeta" style="margin-top:.4rem">Como foi lembrar? (define a próxima revisão)</p>'
-        + '<div class="srs">'
-        + '<button class="btn btn-danger" data-rate="errei" type="button">Errei</button>'
-        + '<button class="btn" data-rate="dificil" type="button">Difícil</button>'
-        + '<button class="btn" data-rate="facil" type="button">Fácil</button>'
-        + '<button class="btn btn--primary" data-rate="muito_facil" type="button">Muito fácil</button>'
-        + '</div>';
+    var comentario = '<details class="comentario" open><summary>Comentário da resposta</summary>'
+      + '<div class="comentario__body">'
+      + '<p><b>Sua resposta:</b> ' + (back.selected || "—") + ' &nbsp;·&nbsp; <b>Gabarito oficial:</b> ' + (annulled ? "anulada" : back.correct) + '</p>'
+      + explanationHtml
+      + (metaRows.length ? '<p class="qmeta">' + metaRows.join("<br>") + '</p>' : "")
+      + '</div></details>';
 
+    var srs;
+    if (annulled) {
+      srs = '<div class="srs"><button class="btn btn--primary" id="nextBtn" type="button">Próxima questão →</button></div>';
+    } else {
+      var prev = session.progress[back.cardId];
+      var ratings = [
+        { k: "errei", label: "Errei", cls: "btn-danger" },
+        { k: "dificil", label: "Difícil", cls: "" },
+        { k: "facil", label: "Fácil", cls: "" },
+        { k: "muito_facil", label: "Muito fácil", cls: "btn--primary" }
+      ];
+      srs = '<p class="qmeta" style="margin-top:.4rem">Como foi lembrar? (define quando a questão volta a aparecer)</p>'
+        + '<div class="srs">' + ratings.map(function (r) {
+            var sc = schedule(prev, r.k);
+            return '<button class="btn srs-btn ' + r.cls + '" data-rate="' + r.k + '" type="button">'
+              + '<span class="srs-btn__label">' + r.label + '</span>'
+              + '<span class="srs-btn__when">' + formatInterval(sc.intervalMinutes) + '</span></button>';
+          }).join("") + '</div>'
+        + '<p id="srsConfirm" class="srs-confirm" hidden></p>';
+    }
+
+    // Card permanece visível: cabeçalho + resultado + IMAGEM/ENUNCIADO + alternativas + comentário + SRS
     root.innerHTML = progressBar() + '<div class="qcard">'
-      + '<p class="qcard__head">Questão ' + q.number + '</p>'
+      + '<p class="qcard__head">' + esc(q.exam || "ENEM") + ' · Questão ' + q.number + '</p>'
       + banner
+      + questionVisual(q)
       + '<ul class="alts">' + altsHtml + '</ul>'
-      + explain
-      + (metaParts.length ? '<p class="qmeta">' + metaParts.join(" · ") + '</p>' : "")
+      + comentario
       + srs + '</div>';
+    wireZoom();
 
     if (annulled) {
       document.getElementById("nextBtn").addEventListener("click", next);
@@ -201,8 +320,13 @@ require __DIR__ . '/../../inc/header.php';
       root.querySelectorAll("[data-rate]").forEach(function (b) {
         b.addEventListener("click", async function () {
           root.querySelectorAll("[data-rate]").forEach(function (x) { x.disabled = true; });
-          await rate(back.cardId, b.getAttribute("data-rate"));
-          next();
+          var sched = await rate(back.cardId, b.getAttribute("data-rate"));
+          session.scheduled++;
+          if (b.getAttribute("data-rate") === "errei") { session.ids.push(q.id); } // reaparece nesta sessão (mesmo dia)
+          var conf = document.getElementById("srsConfirm");
+          conf.hidden = false;
+          conf.textContent = "Próxima revisão programada para: " + (sched ? dueLabel(sched.intervalMinutes) : "—");
+          setTimeout(next, 950);
         });
       });
     }
@@ -224,14 +348,19 @@ require __DIR__ . '/../../inc/header.php';
     }
   }
 
+  function statTile(v, label) { return '<div class="stat"><strong>' + v + '</strong><span>' + esc(label) + '</span></div>'; }
   function finish() {
     var pct = session.answered ? Math.round(session.correct / session.answered * 100) : 0;
+    var errors = session.answered - session.correct;
     root.innerHTML = '<div class="end"><div class="end__owl">🦉</div>'
       + '<h2>Sessão concluída!</h2>'
-      + '<p>Você respondeu ' + session.answered + ' questão(ões) com ' + session.correct + ' acerto(s) (' + pct + '%).</p>'
+      + '<div class="end-stats">'
+      + statTile(session.answered, "Respondidas") + statTile(session.correct, "Acertos") + statTile(errors, "Erros")
+      + statTile(session.annulled, "Anuladas") + statTile(session.scheduled, "Revisões programadas") + statTile(pct + "%", "Aproveitamento")
+      + '</div>'
       + '<div class="dash__actions" style="justify-content:center">'
-      + '<a class="btn btn--primary" href="/suinda/curso-enem/">Voltar ao curso</a>'
-      + '<a class="btn btn--ghost" href="/suinda/curso-enem/estudar/' + location.search + '">Estudar mais</a>'
+      + '<a class="btn btn--primary" href="/suinda/curso-enem/estudar/' + location.search + '">Continuar</a>'
+      + '<a class="btn btn--ghost" href="/suinda/curso-enem/">Voltar ao curso</a>'
       + '</div></div>';
   }
 
