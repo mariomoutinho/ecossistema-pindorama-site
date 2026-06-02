@@ -81,6 +81,11 @@ require __DIR__ . '/partials/header.php';
 <div class="terap-grid">
 
   <!-- ATALHOS -->
+  <a class="terap-shortcut terap-span-3" href="pacientes.php">
+    <span class="terap-tag terap-tag--leaf">Pacientes</span>
+    <strong>Meus pacientes</strong>
+    <span>Cadastrar, buscar e acompanhar fichas dos seus pacientes.</span>
+  </a>
   <a class="terap-shortcut terap-span-3" href="agenda.php">
     <span class="terap-tag terap-tag--leaf">Agenda</span>
     <strong>Agenda da semana</strong>

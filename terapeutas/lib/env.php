@@ -17,7 +17,15 @@ if (!function_exists('terap_env_load_file')) {
     if ($carregado) return;
     $carregado = true;
 
-    // .env na raiz do repositório (dirname 3 acima de /terapeutas/lib).
+    // Config de e-mail opcional no padrão do projeto (gitignored), carregada
+    // independentemente do .env. O arquivo deve usar putenv() para definir
+    // TERAP_MAIL_*/TERAP_SMTP_*.
+    $mailCfg = dirname(__DIR__) . '/config-mail.php';
+    if (is_file($mailCfg) && is_readable($mailCfg)) {
+      require_once $mailCfg;
+    }
+
+    // .env na raiz do repositório (dirname 2 acima de /terapeutas/lib) — só DEV.
     $envPath = dirname(__DIR__, 2) . '/.env';
     if (!is_file($envPath) || !is_readable($envPath)) return;
 

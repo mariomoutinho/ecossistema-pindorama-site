@@ -139,6 +139,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $paciente    = trim($_POST['paciente'] ?? '');
       $observacoes = trim($_POST['observacoes'] ?? '');
 
+      // Vínculo opcional com paciente cadastrado (do terapeuta logado).
+      $pacienteId  = (int)($_POST['paciente_id'] ?? 0);
+      if ($pacienteId > 0) {
+        $pac = pac_find_do_terapeuta($pacienteId, (int)$terapeutaLogado['id']);
+        if (!$pac) {
+          $erros[] = 'Paciente selecionado inválido.';
+          $pacienteId = 0;
+        } else {
+          // O nome canônico do paciente prevalece sobre o texto digitado.
+          $paciente = pac_nome_exibicao($pac);
+        }
+      }
+
       if ($data === '' || $hi === '' || $hf === '' || $sala === '' || $paciente === '') {
         $erros[] = 'Preencha data, horários, sala e identificação do paciente.';
       }
@@ -168,6 +181,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           'sala'         => $sala,
           'terapeuta_id' => $terapId,
           'paciente'     => $paciente,
+          'paciente_id'  => $pacienteId,
           'observacoes'  => $observacoes,
         ];
         if (!$id) {
@@ -198,6 +212,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           'sala'         => $sala,
           'terapeuta_id' => $terapId,
           'paciente'     => $paciente,
+          'paciente_id'  => $pacienteId,
           'observacoes'  => $observacoes,
         ];
         $mostrarForm = true;
@@ -337,6 +352,13 @@ $nomeTerap = function (int $id): string {
   $valPaciente= $registroEdit['paciente']     ?? '';
   $valObs     = $registroEdit['observacoes']  ?? '';
   $valId      = (int)($registroEdit['id']     ?? 0);
+
+  // Vínculo com paciente cadastrado: edição traz do registro; novo aceita ?paciente_id=.
+  $valPacienteId = (int)($registroEdit['paciente_id'] ?? 0);
+  if (!$valPacienteId && !$valId && isset($_GET['paciente_id'])) {
+    $pre = pac_find_do_terapeuta((int)$_GET['paciente_id'], (int)$terapeutaLogado['id']);
+    if ($pre) { $valPacienteId = (int)$pre['id']; $valPaciente = pac_nome_exibicao($pre); }
+  }
 ?>
   <section class="terap-card terap-span-12" style="margin-bottom:18px;">
     <h2><?= $valId ? 'Editar atendimento' : 'Novo atendimento' ?></h2>
@@ -383,9 +405,20 @@ $nomeTerap = function (int $id): string {
         </div>
       </div>
 
-      <div class="terap-field">
-        <label for="paciente">Identificação do paciente *</label>
-        <input id="paciente" name="paciente" required maxlength="120" value="<?= htmlspecialchars($valPaciente) ?>" placeholder="Ex.: Maria S. (cuidado: evitar dados sensíveis no nome)">
+      <div class="terap-field pac-autocomplete" id="pacAutocomplete">
+        <label for="paciente">Paciente *</label>
+        <input id="paciente" name="paciente" required maxlength="120" autocomplete="off"
+               value="<?= htmlspecialchars($valPaciente) ?>"
+               placeholder="Digite para buscar um paciente cadastrado (ou um nome livre)">
+        <input type="hidden" id="paciente_id" name="paciente_id" value="<?= (int)$valPacienteId ?>">
+        <ul class="pac-autocomplete__list" id="pacAutocompleteList" role="listbox" hidden></ul>
+        <small class="pac-help" id="pacAutocompleteHint">
+          <?php if ($valPacienteId): ?>
+            Vinculado a <a class="terap-link" href="paciente.php?id=<?= (int)$valPacienteId ?>">ficha do paciente</a>.
+          <?php else: ?>
+            Comece a digitar para vincular a um paciente já cadastrado por você.
+          <?php endif; ?>
+        </small>
       </div>
 
       <div class="terap-field">
@@ -516,6 +549,9 @@ $nomeTerap = function (int $id): string {
             <td style="white-space:nowrap;">
               <?php if ($status !== 'cancelado'): ?>
                 <a class="terap-btn terap-btn--sm" href="agenda.php?editar=<?= (int)$e['id'] ?>">Editar</a>
+                <?php if (!empty($e['paciente_id']) && pac_find_do_terapeuta((int)$e['paciente_id'], (int)$terapeutaLogado['id'])): ?>
+                  <a class="terap-btn terap-btn--sm" href="paciente.php?id=<?= (int)$e['paciente_id'] ?>">Ficha</a>
+                <?php endif; ?>
                 <a class="terap-btn terap-btn--sm" href="evolucoes.php?nova=1&atendimento_id=<?= (int)$e['id'] ?>">Evolução</a>
                 <?php if ($status === 'agendado'): ?>
                   <form method="post" action="agenda.php" style="display:inline">
@@ -584,6 +620,62 @@ $nomeTerap = function (int $id): string {
   document.addEventListener('click', function (ev) {
     if (!ev.target.closest('.terap-tooltip-host')) closeAll(null);
   }, true);
+})();
+</script>
+
+<script>
+// Autocomplete de pacientes no formulário de agendamento.
+(function () {
+  var wrap = document.getElementById('pacAutocomplete');
+  if (!wrap) return;
+  var input  = document.getElementById('paciente');
+  var hidden = document.getElementById('paciente_id');
+  var list   = document.getElementById('pacAutocompleteList');
+  var hint   = document.getElementById('pacAutocompleteHint');
+  var timer = null;
+
+  function fechar() { list.hidden = true; list.innerHTML = ''; }
+
+  function escolher(item) {
+    input.value = item.nome;
+    hidden.value = item.id;
+    if (hint) hint.innerHTML = 'Vinculado a <a class="terap-link" href="paciente.php?id=' + item.id + '">ficha do paciente</a>.';
+    fechar();
+  }
+
+  function buscar(q) {
+    fetch('api/pacientes-busca.php?q=' + encodeURIComponent(q), { headers: { 'Accept': 'application/json' } })
+      .then(function (r) { return r.ok ? r.json() : { itens: [] }; })
+      .then(function (data) {
+        var itens = (data && data.itens) || [];
+        list.innerHTML = '';
+        if (!itens.length) { fechar(); return; }
+        itens.forEach(function (item) {
+          var li = document.createElement('li');
+          li.setAttribute('role', 'option');
+          li.className = 'pac-autocomplete__item';
+          li.innerHTML = '<strong></strong>' + (item.detalhe ? '<span></span>' : '');
+          li.querySelector('strong').textContent = item.nome;
+          if (item.detalhe) li.querySelector('span').textContent = item.detalhe;
+          li.addEventListener('mousedown', function (ev) { ev.preventDefault(); escolher(item); });
+          list.appendChild(li);
+        });
+        list.hidden = false;
+      })
+      .catch(fechar);
+  }
+
+  input.addEventListener('input', function () {
+    // Edição manual desfaz o vínculo até nova escolha.
+    hidden.value = '';
+    if (hint) hint.textContent = 'Comece a digitar para vincular a um paciente já cadastrado por você.';
+    var q = input.value.trim();
+    clearTimeout(timer);
+    if (q.length < 2) { fechar(); return; }
+    timer = setTimeout(function () { buscar(q); }, 220);
+  });
+  input.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') fechar(); });
+  document.addEventListener('click', function (ev) { if (!wrap.contains(ev.target)) fechar(); });
 })();
 </script>
 

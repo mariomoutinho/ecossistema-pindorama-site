@@ -41,6 +41,7 @@ jobs:
             **/*.bak
             # --- arquivos sensíveis que devem permanecer só no servidor ---
             config-db.php
+            terapeutas/config-mail.php
             pindoramarpg/config.php
             # --- artefatos que não pertencem ao deploy ---
             dbtest.php

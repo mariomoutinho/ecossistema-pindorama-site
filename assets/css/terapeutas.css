@@ -686,3 +686,250 @@
   }
   .terap-tooltip::after { left: 18px; transform: none; }
 }
+
+/* ============================================================
+   Pacientes — lista, busca, ficha, formulário em seções
+   Reaproveita as variáveis de global.css (--leaf, --sand, --clay2…).
+   ============================================================ */
+
+/* Barra de busca */
+.pac-toolbar { margin-bottom: 12px; }
+.pac-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(7, 17, 14, .55);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 6px 8px 6px 12px;
+}
+.pac-search__icon { color: var(--muted); font-size: 16px; }
+.pac-search input[type="search"] {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-size: 14px;
+  padding: 8px 4px;
+  min-width: 0;
+}
+.pac-search input[type="search"]:focus { outline: none; }
+
+/* Lista de pacientes (cards responsivos) */
+.pac-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+.pac-card {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(19, 45, 38, .62);
+  color: var(--text);
+  transition: transform .15s ease, border-color .15s ease;
+}
+.pac-card:hover { transform: translateY(-2px); border-color: rgba(102, 180, 143, .35); }
+.pac-card__avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 17px;
+  background: linear-gradient(135deg, var(--leaf), var(--leaf2));
+  color: #052015;
+}
+.pac-card__name { display: block; font-weight: 600; font-size: 14px; }
+.pac-card__meta { display: block; font-size: 12px; color: var(--muted); margin-top: 2px; }
+.pac-card__hint { display: block; font-size: 12px; color: var(--muted); margin-top: 4px; opacity: .85; }
+
+.pac-badge {
+  display: inline-block;
+  font-style: normal;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  vertical-align: middle;
+}
+.pac-badge--off { background: rgba(196, 106, 74, .18); color: var(--clay2); border: 1px solid rgba(196, 106, 74, .35); }
+
+.pac-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+.pac-pagination__info { font-size: 12px; color: var(--muted); }
+
+.pac-help { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+/* Formulário em seções (acordeões nativos) */
+.pac-form { gap: 12px; }
+.pac-section {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(19, 45, 38, .55);
+  overflow: hidden;
+}
+.pac-section > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 16px 18px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+.pac-section > summary::-webkit-details-marker { display: none; }
+.pac-section > summary::after {
+  content: '▸';
+  color: var(--muted);
+  font-size: 13px;
+  transition: transform .15s ease;
+}
+.pac-section[open] > summary::after { transform: rotate(90deg); }
+.pac-section__title { font-size: 15px; font-weight: 600; color: var(--text); }
+.pac-section__hint { font-size: 11px; color: var(--muted); text-align: right; }
+.pac-section__body {
+  padding: 0 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.pac-subgroup {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  margin: 0;
+}
+.pac-subgroup legend {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  color: var(--muted);
+  padding: 0 6px;
+}
+
+/* Condições de saúde (checkbox + detalhe) */
+.pac-cond-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 10px;
+}
+.pac-cond {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px;
+  background: rgba(7, 17, 14, .35);
+  transition: border-color .15s ease, background .15s ease;
+}
+.pac-cond.is-on { border-color: rgba(102, 180, 143, .45); background: rgba(102, 180, 143, .08); }
+.pac-cond__check { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text); cursor: pointer; }
+.pac-cond__check input { width: 16px; height: 16px; accent-color: var(--leaf2); }
+.pac-cond__det {
+  margin-top: 8px;
+  width: 100%;
+  background: rgba(7, 17, 14, .55);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 13px;
+  padding: 7px 9px;
+}
+.pac-cond__det:focus { outline: none; border-color: rgba(102, 180, 143, .45); }
+
+/* Linhas de medicamentos */
+.pac-med-row {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.4fr;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.pac-med-row input {
+  background: rgba(7, 17, 14, .55);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 13px;
+  padding: 8px 10px;
+}
+.pac-med-row input:focus { outline: none; border-color: rgba(102, 180, 143, .45); }
+
+.pac-form__actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+/* Ficha (visualização read-only) */
+.ficha-list { margin: 0; display: grid; gap: 10px; }
+.ficha-row { display: grid; grid-template-columns: 200px 1fr; gap: 12px; }
+.ficha-row dt { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .5px; margin: 0; }
+.ficha-row dd { margin: 0; color: var(--text); font-size: 14px; }
+.ficha-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.ficha-chip {
+  display: inline-flex;
+  gap: 4px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(102, 180, 143, .12);
+  border: 1px solid rgba(102, 180, 143, .3);
+  font-size: 12px;
+  color: var(--text);
+}
+.ficha-chip em { color: var(--muted); font-style: normal; }
+.ficha-meds { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 8px; }
+.ficha-meds li {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: rgba(7, 17, 14, .35);
+  font-size: 13px;
+}
+.ficha-meds li strong { display: block; }
+.ficha-meds li span { color: var(--muted); font-size: 12px; }
+
+.terap-feed__item.is-inativa { opacity: .6; }
+
+/* Autocomplete de paciente (agenda) */
+.pac-autocomplete { position: relative; }
+.pac-autocomplete__list {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 4px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: #0E1C17;
+  border: 1px solid rgba(102, 180, 143, .35);
+  border-radius: 12px;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, .5);
+  max-height: 260px;
+  overflow-y: auto;
+}
+.pac-autocomplete__item {
+  padding: 9px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.pac-autocomplete__item:hover { background: rgba(102, 180, 143, .14); }
+.pac-autocomplete__item strong { display: block; font-size: 13px; color: var(--text); }
+.pac-autocomplete__item span { display: block; font-size: 11px; color: var(--muted); }
+
+@media (max-width: 720px) {
+  .ficha-row { grid-template-columns: 1fr; gap: 2px; }
+  .pac-med-row { grid-template-columns: 1fr 1fr; }
+  .pac-section__hint { display: none; }
+}

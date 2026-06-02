@@ -41,8 +41,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $valores['data'])) $erros[] = 'Data inválida.';
 
     if (!$erros) {
+      // Se o atendimento vinculado tiver paciente cadastrado, herda o vínculo.
+      $pacienteIdVinc = 0;
+      if (!empty($valores['atendimento_id'])) {
+        $atvinc = store_find('agendamentos', (int)$valores['atendimento_id']);
+        if ($atvinc && !empty($atvinc['paciente_id'])) {
+          $pacienteIdVinc = (int)$atvinc['paciente_id'];
+        }
+      }
       store_insert('evolucoes', [
         'terapeuta_id'    => (int)$terapeutaLogado['id'],
+        'paciente_id'     => $pacienteIdVinc,
         'atendimento_id'  => (int)$valores['atendimento_id'],
         'data'            => $valores['data'],
         'paciente'        => $valores['paciente'],
@@ -52,6 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'percepcao'       => $valores['percepcao'],
         'encaminhamentos' => $valores['encaminhamentos'],
         'acompanhamento'  => $valores['acompanhamento'],
+        'status'          => 'ativo',
       ]);
       flash_set('success', 'Evolução registrada com sucesso.');
       header('Location: evolucoes.php');
@@ -61,7 +71,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 }
 
-$minhas = store_where('evolucoes', fn($r) => (int)($r['terapeuta_id'] ?? 0) === (int)$terapeutaLogado['id']);
+$minhas = store_where('evolucoes', fn($r) =>
+  (int)($r['terapeuta_id'] ?? 0) === (int)$terapeutaLogado['id']
+  && ($r['status'] ?? 'ativo') !== 'inativo');
 usort($minhas, fn($a, $b) => strcmp(($b['data'] ?? '') . ($b['criado_em'] ?? ''), ($a['data'] ?? '') . ($a['criado_em'] ?? '')));
 
 $pageTitle = 'Evoluções • Espaço Pindorama';

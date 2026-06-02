@@ -28,6 +28,14 @@ if (PHP_SAPI !== 'cli') {
 }
 
 require_once __DIR__ . '/../lib/env.php';
+
+// Permite apontar o storage para um diretório alternativo (usado pelos testes
+// e por execuções pontuais de ops). Sem isso, usa o padrão de data/terapeutas.
+$dataDirEnv = getenv('TERAP_DATA_DIR');
+if ($dataDirEnv !== false && $dataDirEnv !== '' && !defined('TERAP_DATA_DIR')) {
+  define('TERAP_DATA_DIR', $dataDirEnv);
+}
+
 require_once __DIR__ . '/../lib/storage.php';
 
 $opts = $argv ?? [];

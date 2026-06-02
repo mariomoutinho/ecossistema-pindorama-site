@@ -10,9 +10,11 @@ $showSidebar = isset($terapeutaLogado) && $terapeutaLogado !== null;
 
 $navItems = [
   'dashboard'  => ['label' => 'Início',       'href' => 'index.php',      'icon' => '◉'],
+  'pacientes'  => ['label' => 'Pacientes',    'href' => 'pacientes.php',  'icon' => '◍'],
   'agenda'     => ['label' => 'Agenda',       'href' => 'agenda.php',     'icon' => '◗'],
   'evolucoes'  => ['label' => 'Evoluções',    'href' => 'evolucoes.php',  'icon' => '◇'],
   'lembretes'  => ['label' => 'Lembretes',    'href' => 'lembretes.php',  'icon' => '◐'],
+  'conta'      => ['label' => 'Segurança da conta', 'href' => 'conta.php', 'icon' => '◔'],
 ];
 ?><!doctype html>
 <html lang="pt-br">
