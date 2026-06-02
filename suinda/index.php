@@ -82,6 +82,12 @@ require __DIR__ . '/inc/header.php';
       </div>
       <div class="cards">
         <article class="card">
+          <div class="card__icon" aria-hidden="true">🎯</div>
+          <h3>Preparatório para o ENEM</h3>
+          <p>Banco de questões oficiais do ENEM organizado por áreas, disciplinas, competências e habilidades — com gabarito, explicação e revisão por repetição espaçada.</p>
+          <div class="card__foot"><span class="badge badge--open">Disponível</span><a class="btn btn--ghost" href="/suinda/curso-enem/">Acessar curso</a></div>
+        </article>
+        <article class="card">
           <div class="card__icon" aria-hidden="true">🌿</div>
           <h3>Fundamentos de Biologia</h3>
           <p>Conceitos introdutórios de biologia para revisar com baralhos de repetição espaçada.</p>

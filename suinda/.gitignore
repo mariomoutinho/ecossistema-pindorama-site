@@ -22,3 +22,8 @@ api/imports/
 
 # Logs
 *.log
+
+# ENEM — recortes oficiais gerados (não versionar; sincronizar no deploy)
+assets/enem/questions/*.webp
+assets/enem/questions/*.png
+# Relatórios de importação ENEM ficam em api/storage/ (já ignorado)

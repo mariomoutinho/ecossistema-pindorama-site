@@ -93,6 +93,12 @@ require __DIR__ . '/../inc/header.php';
     if (course.description) children.push(el("p", { class: "course__desc", text: course.description }));
     children.push(bar, progressLabel);
 
+    if (course.slug === "preparatorio-enem") {
+      children.push(el("div", { class: "dash__actions", attrs: { style: "margin:.4rem 0" }, children: [
+        el("a", { class: "btn btn--accent", text: "Abrir curso ENEM →", attrs: { href: "/suinda/curso-enem/" } })
+      ]}));
+    }
+
     if (course.decks && course.decks.length) {
       course.decks.forEach(function (d) { children.push(deckRow(d)); });
     } else {
