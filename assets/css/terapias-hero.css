@@ -1,0 +1,46 @@
+/* ============================================================
+   BANNER DE TERAPIAS — complementos sobre o motor .hhc da home
+   Apenas o necessário para a info por slide (categoria/nome/duração).
+   Carregado só em terapias.php, depois de home-hero-carousel.css.
+   ============================================================ */
+
+/* offset p/ o scroll ancorado não ficar sob o header fixo */
+#catalogo{ scroll-margin-top: 90px; }
+
+/* Bloco discreto de info do slide ativo (acima do texto fixo) */
+.hhc--terapias .hhc__slideinfo{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.hhc--terapias .hhc__name{
+  font-size: clamp(15px, 1.8vw, 18px);
+  font-weight: 650;
+  letter-spacing: .1px;
+  color: var(--sand);
+  text-shadow: 0 6px 20px rgba(0,0,0,.5);
+}
+.hhc--terapias .hhc__dur{
+  font-size: 12px;
+  line-height: 1;
+  color: rgba(234,243,239,.85);
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(234,243,239,.18);
+  background: rgba(7,17,14,.42);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.hhc--terapias .hhc__dur[hidden]{ display: none; }
+
+/* MOBILE: priorizar nome + categoria; ocultar duração em telas muito pequenas.
+   (o motor da home oculta .hhc__label no mobile — aqui reexibimos a categoria) */
+@media (max-width: 767px){
+  .hhc--terapias .hhc__label{ display: inline-flex; }
+  .hhc--terapias .hhc__slideinfo{ gap: 6px; margin-bottom: 6px; }
+}
+@media (max-width: 389px){
+  .hhc--terapias .hhc__dur{ display: none; }
+}

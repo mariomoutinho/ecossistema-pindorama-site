@@ -8,39 +8,16 @@
 $activePage      = 'terapias';
 $pageTitle       = 'Terapias do Espaço Pindorama • Saúde Integrativa';
 $pageDescription = 'Terapias integrativas, atendimentos individuais e práticas corporais no Espaço Pindorama, em Recife/PE.';
-$pageScripts     = ['assets/js/terapias.js'];
+$pageScripts     = ['assets/js/home-hero-carousel.js', 'assets/js/terapias.js'];
+$extraStyles     = ['assets/css/home-hero-carousel.css', 'assets/css/terapias-hero.css'];
 
 require __DIR__ . '/partials/bootstrap.php';
 require __DIR__ . '/partials/header.php';
 ?>
 
 <main id="topo">
-  <!-- HERO -->
-  <div class="container hero">
-    <div class="heroGrid heroGrid--single">
-      <div class="heroCard">
-        <div class="heroInner">
-          <div class="kicker">
-            <span class="pill highlight">Terapias integrativas</span>
-            <span class="pill">Espaço Pindorama • Recife/PE</span>
-            <span class="pill">Atendimentos individuais</span>
-          </div>
-
-          <h2 class="heroTitle">Terapias e práticas integrativas para um cuidado de verdade.</h2>
-          <p class="heroText">
-            Massagens corporais, terapias orientais, cuidado energético e práticas expressivas — em um só lugar,
-            com escuta atenta e profissionais que dialogam entre si.
-          </p>
-
-          <div class="heroActions">
-            <a class="btn primary" href="<?= htmlspecialchars($whatsLink) ?>" target="_blank" rel="noopener">Agendar no WhatsApp</a>
-            <a class="btn" href="#catalogo">Ver catálogo</a>
-            <a class="btn ghost" href="<?= htmlspecialchars($homeUrl) ?>">Voltar para o Coletivo</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- BANNER DINÂMICO (carrossel) — somente em terapias -->
+  <?php require __DIR__ . '/partials/terapias-hero-carousel.php'; ?>
 
   <!-- CATÁLOGO -->
   <section id="catalogo">

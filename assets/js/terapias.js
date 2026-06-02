@@ -452,3 +452,54 @@ function escapeAttr(str){
 
 renderFilters('Todos');
 renderServices('Todos');
+
+// =========================
+// Banner dinâmico da abertura (carrossel)
+// Alimentado pelo MESMO array `services` (fonte única, sem duplicar dados).
+// Seleção curada abaixo — ÚNICO ponto a editar para trocar/reordenar slides
+// ou ajustar o enquadramento (object-position) por terapia.
+// =========================
+const HERO_SLIDES = [
+  { title: 'Acupuntura',                            posD: 'center 50%', posM: '62% center',    alt: 'Sessão de acupuntura no Espaço Pindorama.' },
+  { title: 'Ventosaterapia',                        posD: 'center 55%', posM: '55% center',    alt: 'Atendimento de ventosaterapia no Espaço Pindorama.' },
+  { title: 'Massagem Relaxante com Pedras Quentes', posD: 'center 50%', posM: 'center center', alt: 'Sessão de massagem com pedras quentes no Espaço Pindorama.' },
+  { title: 'Reflexologia Podal',                    posD: 'center 55%', posM: 'center center', alt: 'Sessão de reflexologia podal no Espaço Pindorama.' },
+  { title: 'Massoterapia (diversas técnicas)',      posD: 'center 50%', posM: 'center center', alt: 'Atendimento de massoterapia no Espaço Pindorama.' },
+  { title: 'Reiki',                                 posD: 'center 45%', posM: 'center center', alt: 'Sessão de reiki no Espaço Pindorama.' },
+];
+
+function buildHeroCarousel() {
+  const root = document.querySelector('.hhc--terapias');
+  if (!root || typeof window.initHeroCarousel !== 'function') return;
+  const track = root.querySelector('.hhc__track');
+  if (!track) return;
+
+  // Casa a seleção com os dados reais do catálogo (ignora títulos inexistentes).
+  const picks = HERO_SLIDES
+    .map(h => ({ h, s: services.find(sv => sv.title === h.title) }))
+    .filter(x => x.s);
+  if (!picks.length) return;
+
+  track.innerHTML = picks.map(({ h, s }, i) => {
+    const first = i === 0;
+    const imgAttrs = first
+      ? `src="${escapeAttr(s.bg)}" fetchpriority="high" loading="eager"`
+      : `data-src="${escapeAttr(s.bg)}" loading="lazy"`;
+    return `
+      <div class="hhc__slide" role="group" aria-roledescription="slide"
+           aria-label="${i + 1} de ${picks.length}"
+           data-label="${escapeAttr(s.cat)}"
+           data-name="${escapeAttr(s.title)}"
+           data-dur="${escapeAttr(s.duration || '')}">
+        <img class="hhc__img"
+             style="--pos-d:${escapeAttr(h.posD)};--pos-m:${escapeAttr(h.posM)};"
+             ${imgAttrs} decoding="async" width="1600" height="900"
+             alt="${escapeAttr(h.alt)}">
+      </div>`;
+  }).join('');
+
+  track.removeAttribute('aria-busy');
+  window.initHeroCarousel(root);
+}
+
+buildHeroCarousel();
