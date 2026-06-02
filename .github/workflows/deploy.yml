@@ -42,6 +42,7 @@ jobs:
             # --- arquivos sensíveis que devem permanecer só no servidor ---
             config-db.php
             terapeutas/config-mail.php
+            terapeutas/config-provision.php
             pindoramarpg/config.php
             # --- artefatos que não pertencem ao deploy ---
             dbtest.php

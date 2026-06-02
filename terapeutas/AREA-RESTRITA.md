@@ -90,6 +90,22 @@ php terapeutas/bin/provisionar-terapeuta.php
 - O terapeuta entra com a senha temporária e é levado a **Segurança da conta**
   para definir a senha definitiva via código por e-mail.
 
+### Provisionar SEM terminal (Hostinger / File Manager)
+
+Para ambientes sem SSH/CLI, use o provisionamento web (`provisionar.php`),
+que fica **inerte** até existir um token:
+
+1. No servidor, copie `terapeutas/config-provision.example.php` para
+   `terapeutas/config-provision.php` (gitignored) e defina um token longo.
+2. Acesse `https://SEU-DOMINIO/terapeutas/provisionar.php?token=SEU_TOKEN`.
+3. Confirme nome/e-mail, digite a senha temporária e envie. A senha vira hash na
+   hora — não é gravada em arquivo nem versionada.
+4. **Apague** `config-provision.php` e `provisionar.php` do servidor.
+
+O envio do código de troca de senha depende de e-mail funcionando no servidor
+(`TERAP_MAIL_TRANSPORT=mail` usa o `mail()` da hospedagem; para SMTP dedicado,
+use `config-mail.php`). Se o código não chegar, verifique spam ou configure SMTP.
+
 ## Configurar envio de e-mail
 
 1. Copie `terapeutas/config-mail.example.php` para `terapeutas/config-mail.php`

@@ -37,6 +37,7 @@ if ($dataDirEnv !== false && $dataDirEnv !== '' && !defined('TERAP_DATA_DIR')) {
 }
 
 require_once __DIR__ . '/../lib/storage.php';
+require_once __DIR__ . '/../lib/provision.php';
 
 $opts = $argv ?? [];
 $resetPassword = in_array('--reset-password', $opts, true);
@@ -58,42 +59,12 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
   exit(2);
 }
 
-store_bootstrap('terapeutas');
-
-$existentes = store_where('terapeutas', fn($r) => strtolower((string)($r['email'] ?? '')) === $email);
-
-if ($existentes) {
-  $u = $existentes[0];
-  $changes = [];
-  if (empty($u['ativo']))            $changes['ativo'] = true;
-  if (($u['nome'] ?? '') !== $nome)  $changes['nome'] = $nome;
-
-  // Define a senha apenas se não houver hash ainda, OU se --reset-password.
-  if (empty($u['senha_hash']) || $resetPassword) {
-    $changes['senha_hash'] = password_hash($senha, PASSWORD_DEFAULT);
-    $changes['must_change_password'] = true;
-  }
-
-  if ($changes) {
-    store_update('terapeutas', $u['id'], $changes);
-    $acao = isset($changes['senha_hash']) ? 'atualizado (senha redefinida, troca obrigatória)' : 'atualizado';
-    echo "Terapeuta já existia (#{$u['id']}, {$email}) — {$acao}.\n";
-  } else {
-    echo "Terapeuta já provisionado (#{$u['id']}, {$email}) — nada a fazer.\n";
-  }
-} else {
-  $novo = store_insert('terapeutas', [
-    'nome'                 => $nome,
-    'email'                => $email,
-    'senha_hash'           => password_hash($senha, PASSWORD_DEFAULT),
-    'telefone'             => '',
-    'especialidade'        => 'Terapeuta',
-    'ativo'                => true,
-    'papel'                => 'terapeuta',
-    'must_change_password' => true,
-  ]);
-  echo "Terapeuta provisionado com sucesso (#{$novo['id']}, {$email}). Senha temporária exige troca no 1º acesso.\n";
+$res = provision_terapeuta($nome, $email, $senha, $resetPassword);
+if ($res['status'] === 'error') {
+  fwrite(STDERR, $res['message'] . "\n");
+  exit(2);
 }
+echo $res['message'] . ' (#' . $res['id'] . ", {$email})\n";
 
 // Higiene: limpa a variável de senha do processo após o uso.
 putenv('INITIAL_THERAPIST_PASSWORD');

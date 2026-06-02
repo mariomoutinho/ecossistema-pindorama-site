@@ -5,6 +5,7 @@
 # --- Credenciais e configuração local ---
 config-db.php
 terapeutas/config-mail.php
+terapeutas/config-provision.php
 .env
 .env.*
 !.env.example
