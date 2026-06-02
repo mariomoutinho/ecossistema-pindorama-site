@@ -57,6 +57,7 @@ require __DIR__ . '/../inc/header.php';
     <div id="adminRoot" hidden>
       <h1>Administração do Suindá</h1>
       <p class="admin__sub">Cadastre a estrutura pedagógica e gerencie matrículas. Tudo é validado no servidor.</p>
+      <p style="margin:-.6rem 0 1rem"><a class="btn btn--accent" href="/suinda/admin/questoes/">⚙ Banco de questões ENEM (editar questões e imagens) →</a></p>
       <p id="adminTopMsg" class="admin-msg"></p>
 
       <div class="admin-cols">

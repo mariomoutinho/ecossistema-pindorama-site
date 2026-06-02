@@ -20,6 +20,11 @@ return [
     // SUINDA_BASE_PATH se necessario.
     'base_path' => getenv('SUINDA_BASE_PATH') ?: '',
 
+    // Imagens das questoes ENEM (publicas). api/ fica em suinda/api, entao
+    // ../assets/enem/questions = suinda/assets/enem/questions.
+    'enem_image_dir' => getenv('SUINDA_ENEM_IMAGE_DIR') ?: (__DIR__ . '/../assets/enem/questions'),
+    'enem_image_url' => getenv('SUINDA_ENEM_IMAGE_URL') ?: '/suinda/assets/enem/questions',
+
     'mysql' => [
         'host'     => getenv('SUINDA_DB_HOST') ?: '127.0.0.1',
         'port'     => getenv('SUINDA_DB_PORT') ?: '3306',
