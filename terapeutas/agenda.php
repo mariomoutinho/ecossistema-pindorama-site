@@ -49,9 +49,17 @@ function status_label(string $s): string {
 
 // ----------- estado -----------
 $erros   = [];
+$isAdmin = agenda_is_admin($terapeutaLogado);
 $editarId = isset($_GET['editar']) ? (int)$_GET['editar'] : 0;
 $mostrarForm = isset($_GET['novo']) || $editarId > 0;
 $registroEdit = $editarId ? store_find('agendamentos', $editarId) : null;
+
+// Não-admin não pode nem abrir o formulário de edição de agendamento alheio.
+if ($registroEdit && !agenda_pode_gerir($registroEdit, $terapeutaLogado)) {
+  flash_set('error', 'Você só pode editar os seus próprios atendimentos.');
+  header('Location: agenda.php');
+  exit;
+}
 
 // ----------- POST: salvar / cancelar / realizar -----------
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -63,6 +71,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($acao === 'cancelar') {
       $id = (int)($_POST['id'] ?? 0);
       $atend = store_find('agendamentos', $id);
+      if ($atend && !agenda_pode_gerir($atend, $terapeutaLogado)) {
+        flash_set('error', 'Você só pode cancelar os seus próprios atendimentos.');
+        header('Location: agenda.php');
+        exit;
+      }
       if ($atend) {
         $motivo = trim((string)($_POST['motivo'] ?? ''));
         store_update('agendamentos', $id, [
@@ -83,6 +96,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($acao === 'excluir') {
       $id = (int)($_POST['id'] ?? 0);
       $atend = store_find('agendamentos', $id);
+      if ($atend && !agenda_pode_gerir($atend, $terapeutaLogado)) {
+        flash_set('error', 'Você só pode excluir os seus próprios atendimentos.');
+        header('Location: agenda.php');
+        exit;
+      }
       if ($atend) {
         // Exclusão definitiva: remove o registro e qualquer lembrete vinculado.
         whats_remover_de_atendimento($id);
@@ -98,6 +116,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($acao === 'realizar') {
       $id = (int)($_POST['id'] ?? 0);
       $atend = store_find('agendamentos', $id);
+      if ($atend && !agenda_pode_gerir($atend, $terapeutaLogado)) {
+        flash_set('error', 'Você só pode alterar os seus próprios atendimentos.');
+        header('Location: agenda.php');
+        exit;
+      }
       if ($atend) {
         store_update('agendamentos', $id, [
           'status'        => 'realizado',
@@ -115,6 +138,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($acao === 'reativar') {
       $id = (int)($_POST['id'] ?? 0);
       $atend = store_find('agendamentos', $id);
+      if ($atend && !agenda_pode_gerir($atend, $terapeutaLogado)) {
+        flash_set('error', 'Você só pode reativar os seus próprios atendimentos.');
+        header('Location: agenda.php');
+        exit;
+      }
       if ($atend) {
         // Checa conflito antes de reativar
         if (ha_conflito(store_all('agendamentos'), $atend['data'], $atend['hora_inicio'], $atend['hora_fim'], $atend['sala'], $id)) {
@@ -135,7 +163,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $hi          = trim($_POST['hora_inicio'] ?? '');
       $hf          = trim($_POST['hora_fim'] ?? '');
       $sala        = trim($_POST['sala'] ?? '');
-      $terapId     = (int)($_POST['terapeuta_id'] ?? $terapeutaLogado['id']);
+
+      // Propriedade: não-admin não edita agendamento alheio; e o dono é
+      // resolvido no backend (nunca confiando no terapeuta_id do form).
+      $atendExistente = $id ? store_find('agendamentos', $id) : null;
+      if ($atendExistente && !agenda_pode_gerir($atendExistente, $terapeutaLogado)) {
+        flash_set('error', 'Você só pode editar os seus próprios atendimentos.');
+        header('Location: agenda.php');
+        exit;
+      }
+      $terapId     = agenda_resolver_terapeuta_id($terapeutaLogado, (int)($_POST['terapeuta_id'] ?? 0), $atendExistente);
       $paciente    = trim($_POST['paciente'] ?? '');
       $observacoes = trim($_POST['observacoes'] ?? '');
 
@@ -393,6 +430,7 @@ $nomeTerap = function (int $id): string {
             <?php endforeach; ?>
           </select>
         </div>
+        <?php if ($isAdmin): ?>
         <div class="terap-field" style="flex:1;min-width:220px;">
           <label for="terapeuta_id">Terapeuta</label>
           <select id="terapeuta_id" name="terapeuta_id" required>
@@ -403,6 +441,20 @@ $nomeTerap = function (int $id): string {
             <?php endforeach; ?>
           </select>
         </div>
+        <?php else: ?>
+        <?php
+          // Não-admin: o atendimento é sempre do terapeuta logado. Em edição,
+          // mostra o dono original (read-only) — o backend não aceita troca.
+          $donoNome = $registroEdit
+            ? (store_find('terapeutas', (int)($registroEdit['terapeuta_id'] ?? $terapeutaLogado['id']))['nome'] ?? $terapeutaLogado['nome'])
+            : $terapeutaLogado['nome'];
+        ?>
+        <div class="terap-field" style="flex:1;min-width:220px;">
+          <label>Terapeuta</label>
+          <input type="text" value="<?= htmlspecialchars($donoNome) ?>" readonly
+                 style="opacity:.8;cursor:not-allowed;">
+        </div>
+        <?php endif; ?>
       </div>
 
       <div class="terap-field pac-autocomplete" id="pacAutocomplete">
@@ -534,6 +586,7 @@ $nomeTerap = function (int $id): string {
           $tNome = store_find('terapeutas', (int)$e['terapeuta_id']);
           $tNomeStr = $tNome['nome'] ?? '—';
           $status = $e['status'] ?? 'agendado';
+          $podeGerir = agenda_pode_gerir($e, $terapeutaLogado);
         ?>
           <tr class="terap-row--<?= htmlspecialchars($status) ?>">
             <td><?= htmlspecialchars(date('d/m', strtotime($e['data']))) ?> <span style="color:var(--muted)"><?= htmlspecialchars($diasLabel[(int)date('N', strtotime($e['data'])) - 1] ?? '') ?></span></td>
@@ -547,6 +600,9 @@ $nomeTerap = function (int $id): string {
               </span>
             </td>
             <td style="white-space:nowrap;">
+              <?php if (!$podeGerir): ?>
+                <span style="color:var(--muted);font-size:12px;">Somente leitura</span>
+              <?php else: ?>
               <?php if ($status !== 'cancelado'): ?>
                 <a class="terap-btn terap-btn--sm" href="agenda.php?editar=<?= (int)$e['id'] ?>">Editar</a>
                 <?php if (!empty($e['paciente_id']) && pac_find_do_terapeuta((int)$e['paciente_id'], (int)$terapeutaLogado['id'])): ?>
@@ -583,6 +639,7 @@ $nomeTerap = function (int $id): string {
                 <input type="hidden" name="id" value="<?= (int)$e['id'] ?>">
                 <button class="terap-btn terap-btn--sm terap-btn--danger" type="submit" title="Excluir definitivamente">🗑 Excluir</button>
               </form>
+              <?php endif; ?>
             </td>
           </tr>
         <?php endforeach; ?>
