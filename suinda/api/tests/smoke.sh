@@ -31,9 +31,12 @@ echo "→ Semeando banco de teste ($DB)"
 php "$API_DIR/tools/seed.php" >/dev/null
 
 echo "→ Subindo servidor em $BASE"
-( cd "$API_DIR" && php -S "127.0.0.1:${PORT}" router.php >/dev/null 2>&1 ) &
+# Inicia o php diretamente (sem subshell) para que $! seja o PID real do
+# servidor e o trap consiga encerrá-lo. router.php usa __DIR__, então o
+# caminho absoluto dispensa 'cd'.
+php -S "127.0.0.1:${PORT}" "$API_DIR/router.php" >/dev/null 2>&1 &
 SVR=$!
-trap 'kill $SVR 2>/dev/null; rm -f "$DB"' EXIT
+trap 'kill "$SVR" 2>/dev/null; rm -f "$DB"' EXIT
 sleep 1.2
 
 echo "→ Testes"
