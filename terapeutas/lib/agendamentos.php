@@ -14,8 +14,54 @@
 
 require_once __DIR__ . '/storage.php';
 
+// Status possíveis de um atendimento (Fase 3).
+const AGENDA_STATUS = [
+  'agendado'   => 'Agendado',
+  'confirmado' => 'Confirmado',
+  'realizado'  => 'Realizado',
+  'cancelado'  => 'Cancelado',
+  'falta'      => 'Falta',
+  'reagendado' => 'Reagendado',
+];
+
+function agenda_status_label(string $s): string {
+  return AGENDA_STATUS[$s] ?? ucfirst($s);
+}
+
+/** Status que ainda "ocupam" a sessão do pacote (reserva pendente). */
+function agenda_status_ativo(string $s): bool {
+  return in_array($s, ['agendado', 'confirmado', 'reagendado'], true);
+}
+
 function agenda_is_admin(?array $terapeuta): bool {
   return ($terapeuta['papel'] ?? '') === 'admin';
+}
+
+/**
+ * Posição "Sessão N de M" de um agendamento dentro do pacote.
+ * N = ordem cronológica entre os atendimentos do pacote que consomem sessão
+ * (qualquer status menos 'cancelado'); M = total de sessões do pacote.
+ * Retorna ['n'=>int,'m'=>int] ou null se não houver pacote.
+ */
+function agenda_sessao_no_pacote(array $atend): ?array {
+  $pkgId = (int)($atend['paciente_package_id'] ?? 0);
+  if ($pkgId <= 0) return null;
+  $pkg = store_find('pacotes', $pkgId);
+  if (!$pkg) return null;
+
+  $irmaos = store_where('agendamentos', function ($a) use ($pkgId) {
+    return (int)($a['paciente_package_id'] ?? 0) === $pkgId
+        && ($a['status'] ?? 'agendado') !== 'cancelado';
+  });
+  usort($irmaos, fn($a, $b) => strcmp(
+    ($a['data'] ?? '') . ($a['hora_inicio'] ?? ''),
+    ($b['data'] ?? '') . ($b['hora_inicio'] ?? '')
+  ));
+  $n = 0;
+  foreach ($irmaos as $i => $a) {
+    if ((int)$a['id'] === (int)$atend['id']) { $n = $i + 1; break; }
+  }
+  return ['n' => $n, 'm' => (int)($pkg['total_sessoes'] ?? 0)];
 }
 
 /**
