@@ -16,9 +16,10 @@ require_once __DIR__ . '/lib/mailer.php';
 require_once __DIR__ . '/lib/account.php';
 require_once __DIR__ . '/lib/pacientes.php';
 require_once __DIR__ . '/lib/agendamentos.php';
+require_once __DIR__ . '/lib/pacotes.php';
 
 // Garante que os arquivos de dados existam (cria a partir do seed se faltar)
-foreach (['terapeutas', 'agendamentos', 'evolucoes', 'lembretes', 'notificacoes', 'pacientes', 'codigos_senha'] as $tbl) {
+foreach (['terapeutas', 'agendamentos', 'evolucoes', 'lembretes', 'notificacoes', 'pacientes', 'codigos_senha', 'pacotes', 'pacote_movimentacoes'] as $tbl) {
   store_bootstrap($tbl);
 }
 

@@ -27,6 +27,7 @@ require_once __DIR__ . '/../lib/mailer.php';
 require_once __DIR__ . '/../lib/account.php';
 require_once __DIR__ . '/../lib/pacientes.php';
 require_once __DIR__ . '/../lib/agendamentos.php';
+require_once __DIR__ . '/../lib/pacotes.php';
 
 // ---- Mini framework ----
 $TESTS = ['pass' => 0, 'fail' => 0, 'fails' => []];
@@ -277,6 +278,138 @@ eq(agenda_resolver_terapeuta_id($tA, 20), 10, 'não-admin: dono forçado ao pró
 eq(agenda_resolver_terapeuta_id($tA, 10, $agA), 10, 'não-admin em edição: preserva o dono original');
 eq(agenda_resolver_terapeuta_id($admin, 20), 20, 'admin: atribui ao terapeuta ativo enviado');
 eq(agenda_resolver_terapeuta_id($admin, 999), 1, 'admin: id inválido cai no próprio');
+
+// =====================================================================
+section('Pacotes — ledger, saldo e idempotência (Fase 2)');
+limpar_tabelas(['pacotes', 'pacote_movimentacoes', 'agendamentos']);
+$TPpac = 501;
+$PACpac = 700;
+
+$rc = pacote_criar(['paciente_id' => $PACpac, 'terapeuta_id' => $TPpac, 'nome' => 'Massoterapia 10', 'terapia' => 'Massoterapia', 'total_sessoes' => 10]);
+ok(!empty($rc['ok']), 'cria pacote de 10 sessões');
+$pid = (int)$rc['pacote']['id'];
+eq(pacote_disponivel($pid), 10, 'compra: disponível = total (10)');
+
+// Reserva + idempotência
+$ag1 = 9101;
+ok(pacote_reservar($pid, $ag1, $TPpac)['ok'], 'reserva ok');
+eq(pacote_disponivel($pid), 9, 'após 1 reserva: 9');
+$dup = pacote_reservar($pid, $ag1, $TPpac);
+ok(!empty($dup['ja']), 'reserva do mesmo agendamento é idempotente');
+eq(pacote_disponivel($pid), 9, 'reserva repetida não muda saldo (9)');
+
+// Reagendar (mesma reserva ativa) não reconsome
+$re = pacote_reservar($pid, $ag1, $TPpac);
+ok(!empty($re['ja']), 'reagendar não reconsome (idempotente)');
+eq(pacote_disponivel($pid), 9, 'reagendar mantém saldo (9)');
+
+// Realizada não altera disponível, idempotente
+pacote_marcar_realizada($pid, $ag1, $TPpac);
+eq(pacote_disponivel($pid), 9, 'realizada não altera disponível (9)');
+pacote_marcar_realizada($pid, $ag1, $TPpac);
+eq(pacote_conta_mov($pid, $ag1, 'realizada'), 1, 'realizada é idempotente (1 movimento)');
+
+// Não devolve sessão já realizada
+$devR = pacote_devolver($pid, $ag1, $TPpac);
+ok(!empty($devR['ja']), 'não devolve sessão já realizada');
+eq(pacote_disponivel($pid), 9, 'saldo intacto após tentar devolver realizada (9)');
+
+// Cancelamento devolve (agendamento ainda em aberto)
+$ag2 = 9102;
+pacote_reservar($pid, $ag2, $TPpac);
+eq(pacote_disponivel($pid), 8, 'após 2ª reserva: 8');
+$dev = pacote_devolver($pid, $ag2, $TPpac);
+ok($dev['ok'] && empty($dev['ja']), 'cancelamento devolve a sessão');
+eq(pacote_disponivel($pid), 9, 'devolução: +1 -> 9');
+ok(!empty(pacote_devolver($pid, $ag2, $TPpac)['ja']), 'devolução é idempotente');
+eq(pacote_disponivel($pid), 9, 'devolução repetida não muda saldo (9)');
+
+// Reativar após cancelar reconsome
+$reAtiva = pacote_reservar($pid, $ag2, $TPpac);
+ok($reAtiva['ok'] && empty($reAtiva['ja']), 'reativar reconsome a sessão');
+eq(pacote_disponivel($pid), 8, 'reativação consome de novo (8)');
+
+// Falta com devolução (+1) e com consumo (0)
+$ag3 = 9103; pacote_reservar($pid, $ag3, $TPpac);          // 7
+eq(pacote_disponivel($pid), 7, 'reserva ag3 -> 7');
+pacote_falta($pid, $ag3, $TPpac, false, 'paciente avisou');// devolve -> 8
+eq(pacote_disponivel($pid), 8, 'falta com devolução -> 8');
+$ag4 = 9104; pacote_reservar($pid, $ag4, $TPpac);          // 7
+pacote_falta($pid, $ag4, $TPpac, true, 'falta sem aviso'); // consumo -> 7
+eq(pacote_disponivel($pid), 7, 'falta com consumo mantém saldo (7)');
+ok(!pacote_sessao_aberta($pid, $ag4), 'sessão consumida por falta não fica em aberto');
+
+// Ajuste manual: motivo obrigatório, sem negativo
+ok(!pacote_ajuste_manual($pid, $TPpac, 0, 'x')['ok'], 'ajuste com delta 0 é barrado');
+ok(!pacote_ajuste_manual($pid, $TPpac, 2, '')['ok'], 'ajuste sem motivo é barrado');
+ok(pacote_ajuste_manual($pid, $TPpac, 3, 'Bônus de fidelidade')['ok'], 'ajuste +3 com motivo ok');
+eq(pacote_disponivel($pid), 10, 'ajuste manual +3 -> 10');
+ok(!pacote_ajuste_manual($pid, $TPpac, -50, 'tentativa')['ok'], 'ajuste que deixaria negativo é barrado');
+eq(pacote_disponivel($pid), 10, 'saldo intacto após ajuste inválido (10)');
+
+// Esgotar e bloquear reserva sem saldo
+limpar_tabelas(['pacotes', 'pacote_movimentacoes']);
+$rc2 = pacote_criar(['paciente_id' => $PACpac, 'terapeuta_id' => $TPpac, 'nome' => 'Mini 1', 'terapia' => 'Massoterapia', 'total_sessoes' => 1]);
+$pid2 = (int)$rc2['pacote']['id'];
+ok(pacote_reservar($pid2, 1, $TPpac)['ok'], 'reserva única ok');
+$semSaldo = pacote_reservar($pid2, 2, $TPpac);
+ok(empty($semSaldo['ok']), 'reserva sem saldo é bloqueada (não-negativo)');
+eq(pacote_disponivel($pid2), 0, 'saldo nunca fica negativo (0)');
+
+// Isolamento por terapeuta
+ok(pacote_find_do_terapeuta($pid2, $TPpac) !== null, 'dono acessa o próprio pacote');
+ok(pacote_find_do_terapeuta($pid2, 999) === null, 'outro terapeuta não acessa o pacote');
+
+// saldo_apos do ledger é coerente
+$movs = pacote_movimentacoes($pid2);
+eq((int)$movs[0]['saldo_apos'], 1, 'compra grava saldo_apos = 1');
+eq((int)end($movs)['saldo_apos'], 0, 'reserva grava saldo_apos = 0');
+
+// Resumo derivado de agendamentos vinculados
+limpar_tabelas(['pacotes', 'pacote_movimentacoes', 'agendamentos']);
+$rc3 = pacote_criar(['paciente_id' => $PACpac, 'terapeuta_id' => $TPpac, 'nome' => 'P', 'terapia' => 'Massoterapia', 'total_sessoes' => 10]);
+$pid3 = (int)$rc3['pacote']['id'];
+$a1 = store_insert('agendamentos', ['paciente_package_id' => $pid3, 'status' => 'realizado', 'terapeuta_id' => $TPpac]);
+$a2 = store_insert('agendamentos', ['paciente_package_id' => $pid3, 'status' => 'agendado',  'terapeuta_id' => $TPpac]);
+$a3 = store_insert('agendamentos', ['paciente_package_id' => $pid3, 'status' => 'agendado',  'terapeuta_id' => $TPpac]);
+pacote_reservar($pid3, (int)$a2['id'], $TPpac);
+pacote_reservar($pid3, (int)$a3['id'], $TPpac);
+$resumo = pacote_resumo(store_find('pacotes', $pid3));
+eq($resumo['realizadas'], 1, 'resumo: 1 realizada');
+eq($resumo['agendadas'], 2, 'resumo: 2 agendadas');
+eq($resumo['disponivel'], 8, 'resumo: 8 disponíveis (10 - 2 reservas)');
+
+// =====================================================================
+section('Pacote do Ronaldo — provisionamento idempotente (script real)');
+limpar_tabelas(['pacientes', 'pacotes', 'pacote_movimentacoes', 'agendamentos']);
+$scriptR = realpath(__DIR__ . '/../bin/provisionar-pacote-ronaldo.php');
+function rodar_ronaldo(string $tmp, string $script, array $args = []): array {
+  $cmd = 'php ' . escapeshellarg($script);
+  foreach ($args as $a) $cmd .= ' ' . escapeshellarg($a);
+  $descr = [1 => ['pipe', 'w'], 2 => ['pipe', 'w']];
+  $p = proc_open($cmd, $descr, $pipes, null, ['TERAP_DATA_DIR' => $tmp, 'PATH' => getenv('PATH')]);
+  $out = stream_get_contents($pipes[1]); $err = stream_get_contents($pipes[2]);
+  fclose($pipes[1]); fclose($pipes[2]); $code = proc_close($p);
+  return ['out' => $out . $err, 'code' => $code];
+}
+$r0 = rodar_ronaldo($TMP, $scriptR);
+eq($r0['code'], 1, 'sem Ronaldo cadastrado: script falha (exit 1)');
+
+$ron = store_insert('pacientes', ['nome_completo' => 'Ronaldo Teste', 'terapeuta_id' => 77, 'status' => 'ativo']);
+$r1 = rodar_ronaldo($TMP, $scriptR, ['--aplicar']);
+eq($r1['code'], 0, 'cria pacote do Ronaldo (exit 0)');
+$pkR = store_where('pacotes', fn($p) => (int)$p['paciente_id'] === (int)$ron['id']);
+eq(count($pkR), 1, '1 pacote criado para o Ronaldo');
+eq((int)$pkR[0]['total_sessoes'], 10, 'pacote com 10 sessões');
+eq(pacote_disponivel((int)$pkR[0]['id']), 10, 'saldo 10 disponível');
+
+$r2 = rodar_ronaldo($TMP, $scriptR, ['--aplicar']);
+ok(stripos($r2['out'], 'idempotente') !== false || stripos($r2['out'], 'nada a fazer') !== false, 'reexecução é idempotente');
+eq(count(store_where('pacotes', fn($p) => (int)$p['paciente_id'] === (int)$ron['id'])), 1, 'não duplica o pacote');
+
+store_insert('pacientes', ['nome_completo' => 'Ronaldo Segundo', 'terapeuta_id' => 77, 'status' => 'ativo']);
+$r3 = rodar_ronaldo($TMP, $scriptR, ['--aplicar']);
+eq($r3['code'], 2, 'múltiplos Ronaldos: exige desambiguação (exit 2)');
 
 // =====================================================================
 // Limpeza

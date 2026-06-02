@@ -933,3 +933,97 @@
   .pac-med-row { grid-template-columns: 1fr 1fr; }
   .pac-section__hint { display: none; }
 }
+
+/* ============================================================
+   Pacotes e sessões (ficha + agenda)
+   ============================================================ */
+.pac-pkg-list { display: grid; gap: 12px; margin-top: 12px; }
+.pac-pkg {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px;
+  background: rgba(7, 17, 14, .35);
+}
+.pac-pkg__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.pac-pkg__head strong { font-size: 15px; }
+.pac-pkg__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.pac-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 74px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(234, 243, 239, .03);
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .4px;
+}
+.pac-stat b { font-size: 20px; color: var(--text); font-weight: 700; }
+.pac-stat--avail {
+  background: rgba(102, 180, 143, .14);
+  border-color: rgba(102, 180, 143, .35);
+}
+.pac-stat--avail b { color: var(--leaf2); }
+.pac-pkg__det { margin-top: 10px; }
+.pac-pkg__det > summary {
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--sand);
+  list-style: none;
+}
+.pac-pkg__det > summary::-webkit-details-marker { display: none; }
+.pac-pkg__det > summary::before { content: '▸ '; }
+.pac-pkg__det[open] > summary::before { content: '▾ '; }
+
+.pac-mov-list { display: grid; gap: 6px; margin-top: 10px; }
+.pac-mov {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(7, 17, 14, .35);
+}
+.pac-mov__qty {
+  text-align: center;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 4px 0;
+  border-radius: 8px;
+  background: rgba(234, 243, 239, .06);
+  color: var(--muted);
+}
+.pac-mov__qty.is-pos { background: rgba(102, 180, 143, .18); color: var(--leaf2); }
+.pac-mov__qty.is-neg { background: rgba(196, 106, 74, .18); color: var(--clay2); }
+.pac-mov__body strong { display: block; font-size: 13px; }
+
+/* Resumo de saldo do pacote no formulário de agendamento */
+.pac-saldo-box {
+  border: 1px solid rgba(102, 180, 143, .3);
+  background: rgba(102, 180, 143, .08);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 13px;
+  margin-top: 8px;
+}
+.pac-saldo-box.is-warn {
+  border-color: rgba(196, 106, 74, .4);
+  background: rgba(196, 106, 74, .1);
+  color: var(--clay2);
+}
