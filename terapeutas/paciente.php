@@ -43,6 +43,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       exit;
     }
 
+    if ($acao === 'pacote_criar') {
+      $res = pacote_criar([
+        'paciente_id'   => $id,
+        'terapeuta_id'  => $terapId,
+        'nome'          => $_POST['nome'] ?? '',
+        'terapia'       => $_POST['terapia'] ?? '',
+        'total_sessoes' => (int)($_POST['total_sessoes'] ?? 0),
+        'comprado_em'   => $_POST['comprado_em'] ?? '',
+        'validade'      => $_POST['validade'] ?? '',
+        'valor_total'   => $_POST['valor_total'] ?? '',
+        'valor_sessao'  => $_POST['valor_sessao'] ?? '',
+        'observacoes'   => $_POST['observacoes'] ?? '',
+      ]);
+      flash_set($res['ok'] ? 'success' : 'error', $res['ok'] ? 'Pacote cadastrado.' : ($res['erro'] ?? 'Não foi possível criar o pacote.'));
+      header('Location: paciente.php?id=' . $id . '#pacotes');
+      exit;
+    }
+
+    if ($acao === 'pacote_ajuste') {
+      $pkgId = (int)($_POST['pacote_id'] ?? 0);
+      $pkg = pacote_find_do_terapeuta($pkgId, $terapId);
+      if (!$pkg || (int)($pkg['paciente_id'] ?? 0) !== $id) {
+        flash_set('error', 'Pacote não encontrado.');
+      } else {
+        $qtd = abs((int)($_POST['quantidade'] ?? 0));
+        $delta = (($_POST['tipo_ajuste'] ?? 'adicionar') === 'remover') ? -$qtd : $qtd;
+        $res = pacote_ajuste_manual($pkgId, $terapId, $delta, (string)($_POST['motivo'] ?? ''));
+        flash_set($res['ok'] ? 'success' : 'error', $res['ok'] ? 'Saldo ajustado.' : ($res['erro'] ?? 'Ajuste não realizado.'));
+      }
+      header('Location: paciente.php?id=' . $id . '#pacotes');
+      exit;
+    }
+
     if ($acao === 'evolucao_inativar') {
       $evid = (int)($_POST['evolucao_id'] ?? 0);
       $ev = store_find('evolucoes', $evid);
@@ -117,6 +150,10 @@ usort($evolucoes, fn($a, $b) => strcmp(
 // Agendamentos vinculados a este paciente (do terapeuta logado)
 $agendamentos = store_where('agendamentos', fn($r) => (int)($r['paciente_id'] ?? 0) === $id);
 usort($agendamentos, fn($a, $b) => strcmp(($b['data'] ?? ''), ($a['data'] ?? '')));
+
+// Pacotes deste paciente (do terapeuta logado)
+$pacotes = store_where('pacotes', fn($r) => (int)($r['paciente_id'] ?? 0) === $id && (int)($r['terapeuta_id'] ?? 0) === $terapId);
+usort($pacotes, fn($a, $b) => strcmp(($b['criado_em'] ?? ''), ($a['criado_em'] ?? '')));
 
 $nome   = pac_nome_exibicao($paciente);
 $idade  = pac_idade($paciente['data_nascimento'] ?? null);
@@ -337,6 +374,153 @@ $usoLabels  = pac_opcoes_uso();
     </section>
   </aside>
 </div>
+
+<!-- PACOTES E SESSÕES -->
+<?php
+$pkgStatusBadge = ['ativo' => 'agendado', 'finalizado' => 'realizado', 'expirado' => 'cancelado', 'cancelado' => 'cancelado'];
+$pkgStatusLabel = ['ativo' => 'Ativo', 'finalizado' => 'Finalizado', 'expirado' => 'Expirado', 'cancelado' => 'Cancelado'];
+?>
+<section class="terap-card terap-span-12" id="pacotes" style="margin-top:18px;">
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+    <h2 style="margin:0;">Pacotes e sessões (<?= count($pacotes) ?>)</h2>
+  </div>
+
+  <?php if (!$pacotes): ?>
+    <p class="pac-help" style="margin-top:10px;">Nenhum pacote cadastrado para este paciente.</p>
+  <?php else: ?>
+    <div class="pac-pkg-list">
+      <?php foreach ($pacotes as $pk):
+        $resumo = pacote_resumo($pk);
+        $movs = array_reverse(pacote_movimentacoes((int)$pk['id']));
+        $st = $pk['status'] ?? 'ativo';
+      ?>
+        <div class="pac-pkg">
+          <div class="pac-pkg__head">
+            <div>
+              <strong><?= htmlspecialchars($pk['nome']) ?></strong>
+              <?php if (!empty($pk['terapia'])): ?><span class="pac-help"> · <?= htmlspecialchars($pk['terapia']) ?></span><?php endif; ?>
+            </div>
+            <span class="terap-tooltip__status terap-tooltip__status--<?= htmlspecialchars($pkgStatusBadge[$st] ?? 'agendado') ?>"><?= htmlspecialchars($pkgStatusLabel[$st] ?? $st) ?></span>
+          </div>
+
+          <div class="pac-pkg__stats">
+            <span class="pac-stat"><b><?= (int)$resumo['total'] ?></b>total</span>
+            <span class="pac-stat"><b><?= (int)$resumo['realizadas'] ?></b>realizadas</span>
+            <span class="pac-stat"><b><?= (int)$resumo['agendadas'] ?></b>agendadas</span>
+            <span class="pac-stat pac-stat--avail"><b><?= (int)$resumo['disponivel'] ?></b>disponíveis</span>
+          </div>
+
+          <?php
+            $meta = [];
+            if (!empty($pk['comprado_em'])) $meta[] = 'Comprado em ' . htmlspecialchars(date('d/m/Y', strtotime($pk['comprado_em'])));
+            if (!empty($pk['validade']))    $meta[] = 'Válido até ' . htmlspecialchars(date('d/m/Y', strtotime($pk['validade'])));
+            if (!empty($pk['valor_total']))  $meta[] = 'Total: ' . htmlspecialchars($pk['valor_total']);
+            if (!empty($pk['valor_sessao'])) $meta[] = 'Sessão: ' . htmlspecialchars($pk['valor_sessao']);
+          ?>
+          <?php if ($meta): ?><p class="pac-help"><?= implode(' · ', $meta) ?></p><?php endif; ?>
+          <?php if (!empty($pk['observacoes'])): ?><p class="pac-help"><?= nl2br(htmlspecialchars($pk['observacoes'])) ?></p><?php endif; ?>
+
+          <details class="pac-pkg__det">
+            <summary>Ajustar saldo manualmente</summary>
+            <form method="post" class="terap-form" style="margin-top:10px;">
+              <input type="hidden" name="csrf" value="<?= htmlspecialchars($csrf) ?>">
+              <input type="hidden" name="acao" value="pacote_ajuste">
+              <input type="hidden" name="pacote_id" value="<?= (int)$pk['id'] ?>">
+              <div class="terap-field--row" style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;">
+                <div class="terap-field" style="flex:0 0 130px;">
+                  <label>Ação</label>
+                  <select name="tipo_ajuste">
+                    <option value="adicionar">Adicionar</option>
+                    <option value="remover">Remover</option>
+                  </select>
+                </div>
+                <div class="terap-field" style="flex:0 0 110px;">
+                  <label>Quantidade</label>
+                  <input type="number" name="quantidade" min="1" value="1" required>
+                </div>
+                <div class="terap-field" style="flex:1;min-width:200px;">
+                  <label>Motivo (obrigatório)</label>
+                  <input type="text" name="motivo" required maxlength="160" placeholder="Ex.: correção, bônus, devolução">
+                </div>
+                <button type="submit" class="terap-btn terap-btn--sm">Aplicar</button>
+              </div>
+            </form>
+          </details>
+
+          <details class="pac-pkg__det">
+            <summary>Histórico de movimentações (<?= count($movs) ?>)</summary>
+            <div class="pac-mov-list">
+              <?php foreach ($movs as $m):
+                $q = (int)($m['quantidade'] ?? 0);
+                $sinal = $q > 0 ? '+' . $q : (string)$q;
+              ?>
+                <div class="pac-mov">
+                  <span class="pac-mov__qty <?= $q > 0 ? 'is-pos' : ($q < 0 ? 'is-neg' : '') ?>"><?= $q === 0 ? '0' : htmlspecialchars($sinal) ?></span>
+                  <div class="pac-mov__body">
+                    <strong><?= htmlspecialchars(PAC_MOV_LABELS[$m['tipo'] ?? ''] ?? ($m['tipo'] ?? '')) ?></strong>
+                    <span class="pac-help">
+                      Saldo após: <?= (int)($m['saldo_apos'] ?? 0) ?>
+                      · <?= htmlspecialchars(!empty($m['criado_em']) ? date('d/m/Y H:i', strtotime($m['criado_em'])) : '—') ?>
+                      <?php if (!empty($m['agendamento_id'])): ?> · atend. #<?= (int)$m['agendamento_id'] ?><?php endif; ?>
+                      <?php if (!empty($m['motivo'])): ?> · <?= htmlspecialchars($m['motivo']) ?><?php endif; ?>
+                    </span>
+                  </div>
+                </div>
+              <?php endforeach; ?>
+            </div>
+          </details>
+        </div>
+      <?php endforeach; ?>
+    </div>
+  <?php endif; ?>
+
+  <details class="pac-section" style="margin-top:14px;">
+    <summary><span class="pac-section__title">+ Novo pacote</span><span class="pac-section__hint">Sessões contratadas</span></summary>
+    <div class="pac-section__body">
+      <form method="post" class="terap-form">
+        <input type="hidden" name="csrf" value="<?= htmlspecialchars($csrf) ?>">
+        <input type="hidden" name="acao" value="pacote_criar">
+        <div class="terap-field--row" style="display:flex;gap:12px;flex-wrap:wrap;">
+          <div class="terap-field" style="flex:2;min-width:200px;">
+            <label for="pk_nome">Nome do pacote *</label>
+            <input id="pk_nome" name="nome" required maxlength="120" placeholder="Ex.: Massoterapia — 10 sessões">
+          </div>
+          <div class="terap-field" style="flex:1;min-width:140px;">
+            <label for="pk_terapia">Terapia</label>
+            <input id="pk_terapia" name="terapia" maxlength="80" placeholder="Massoterapia">
+          </div>
+          <div class="terap-field" style="flex:0 0 130px;">
+            <label for="pk_total">Total de sessões *</label>
+            <input id="pk_total" name="total_sessoes" type="number" min="1" required value="10">
+          </div>
+        </div>
+        <div class="terap-field--row" style="display:flex;gap:12px;flex-wrap:wrap;">
+          <div class="terap-field" style="flex:1;min-width:140px;">
+            <label for="pk_compra">Data da compra</label>
+            <input id="pk_compra" name="comprado_em" type="date" value="<?= date('Y-m-d') ?>">
+          </div>
+          <div class="terap-field" style="flex:1;min-width:140px;">
+            <label for="pk_validade">Validade</label>
+            <input id="pk_validade" name="validade" type="date">
+          </div>
+          <div class="terap-field" style="flex:1;min-width:120px;">
+            <label for="pk_vtotal">Valor total</label>
+            <input id="pk_vtotal" name="valor_total" maxlength="30" placeholder="R$">
+          </div>
+          <div class="terap-field" style="flex:1;min-width:120px;">
+            <label for="pk_vsessao">Valor/sessão</label>
+            <input id="pk_vsessao" name="valor_sessao" maxlength="30" placeholder="R$">
+          </div>
+        </div>
+        <div class="terap-field">
+          <label for="pk_obs">Observações</label>
+          <textarea id="pk_obs" name="observacoes" rows="2"></textarea>
+        </div>
+        <button type="submit" class="terap-btn terap-btn--primary">Cadastrar pacote</button>
+      </form>
+    </div>
+  </details>
+</section>
 
 <!-- HISTÓRICO DE ATENDIMENTOS / EVOLUÇÕES -->
 <section class="terap-card terap-span-12" id="evolucoes" style="margin-top:18px;">

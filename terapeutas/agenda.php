@@ -85,6 +85,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           'motivo_cancel'   => $motivo,
         ]);
         whats_remover_de_atendimento($id);
+        if (!empty($atend['paciente_package_id'])) {
+          pacote_devolver((int)$atend['paciente_package_id'], $id, (int)$terapeutaLogado['id'], 'Cancelamento do atendimento');
+        }
         flash_set('success', 'Atendimento cancelado. Histórico preservado e lembretes removidos.');
       } else {
         flash_set('error', 'Atendimento não encontrado.');
@@ -103,6 +106,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       }
       if ($atend) {
         // Exclusão definitiva: remove o registro e qualquer lembrete vinculado.
+        if (!empty($atend['paciente_package_id'])) {
+          pacote_devolver((int)$atend['paciente_package_id'], $id, (int)$terapeutaLogado['id'], 'Exclusão do atendimento');
+        }
         whats_remover_de_atendimento($id);
         store_delete('agendamentos', $id);
         flash_set('success', 'Atendimento excluído definitivamente.');
@@ -127,6 +133,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           'realizado_em'  => date('c'),
           'realizado_por' => (int)$terapeutaLogado['id'],
         ]);
+        if (!empty($atend['paciente_package_id'])) {
+          pacote_marcar_realizada((int)$atend['paciente_package_id'], $id, (int)$terapeutaLogado['id']);
+        }
         flash_set('success', 'Atendimento marcado como realizado.');
       } else {
         flash_set('error', 'Atendimento não encontrado.');
@@ -151,6 +160,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           store_update('agendamentos', $id, ['status' => 'agendado']);
           whats_enfileirar_para_atendimento(array_merge($atend, ['status' => 'agendado']), store_find('terapeutas', (int)$atend['terapeuta_id']));
           flash_set('success', 'Atendimento reativado.');
+          if (!empty($atend['paciente_package_id'])) {
+            $rr = pacote_reservar((int)$atend['paciente_package_id'], $id, (int)$terapeutaLogado['id']);
+            if (empty($rr['ok'])) {
+              flash_set('error', 'Atendimento reativado, mas sem saldo no pacote para reservar a sessão.');
+            }
+          }
         }
       }
       header('Location: agenda.php');
@@ -189,6 +204,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
       }
 
+      // Vínculo opcional com um PACOTE do paciente (do terapeuta dono).
+      $pacotePkgId = (int)($_POST['paciente_package_id'] ?? 0);
+      if ($pacotePkgId > 0) {
+        $pkgSel = pacote_find_do_terapeuta($pacotePkgId, $terapId);
+        if (!$pkgSel || (int)($pkgSel['paciente_id'] ?? 0) !== $pacienteId || ($pkgSel['status'] ?? '') !== 'ativo') {
+          $erros[] = 'Pacote selecionado inválido para este paciente.';
+          $pacotePkgId = 0;
+        }
+      }
+
       if ($data === '' || $hi === '' || $hf === '' || $sala === '' || $paciente === '') {
         $erros[] = 'Preencha data, horários, sala e identificação do paciente.';
       }
@@ -210,16 +235,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
       }
 
+      // Se vai reservar uma sessão nova (novo agendamento ou troca de pacote),
+      // exige saldo disponível ANTES de salvar — nunca cria sem cobertura.
+      $pkgAntigo = (int)($atendExistente['paciente_package_id'] ?? 0);
+      if (!$erros && $pacotePkgId > 0) {
+        $precisaReservar = !$atendExistente || $pkgAntigo !== $pacotePkgId;
+        if ($precisaReservar && pacote_disponivel($pacotePkgId) < 1) {
+          $erros[] = 'O pacote selecionado não tem sessões disponíveis. Ajuste o pacote ou agende sem pacote.';
+        }
+      }
+
       if (!$erros) {
         $payload = [
-          'data'         => $data,
-          'hora_inicio'  => $hi,
-          'hora_fim'     => $hf,
-          'sala'         => $sala,
-          'terapeuta_id' => $terapId,
-          'paciente'     => $paciente,
-          'paciente_id'  => $pacienteId,
-          'observacoes'  => $observacoes,
+          'data'                => $data,
+          'hora_inicio'         => $hi,
+          'hora_fim'            => $hf,
+          'sala'                => $sala,
+          'terapeuta_id'        => $terapId,
+          'paciente'            => $paciente,
+          'paciente_id'         => $pacienteId,
+          'paciente_package_id' => $pacotePkgId,
+          'observacoes'         => $observacoes,
         ];
         if (!$id) {
           $payload['status'] = 'agendado';
@@ -231,26 +267,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           if (($atualizado['status'] ?? 'agendado') !== 'cancelado') {
             whats_enfileirar_para_atendimento($atualizado, store_find('terapeutas', $terapId));
           }
+          $novoId = $id;
           flash_set('success', 'Atendimento atualizado.');
         } else {
           $criado = store_insert('agendamentos', $payload);
           whats_enfileirar_para_atendimento($criado, store_find('terapeutas', $terapId));
+          $novoId = (int)$criado['id'];
           flash_set('success', 'Atendimento marcado e lembretes programados.');
+        }
+
+        // Movimentação de saldo do pacote (idempotente; reagendar não reconsome).
+        if ($pkgAntigo > 0 && $pkgAntigo !== $pacotePkgId) {
+          pacote_devolver($pkgAntigo, $novoId, $terapId, 'Desvinculado do agendamento');
+        }
+        if ($pacotePkgId > 0) {
+          $rr = pacote_reservar($pacotePkgId, $novoId, $terapId);
+          if (empty($rr['ok'])) {
+            flash_set('error', 'Atendimento salvo, mas não foi possível reservar a sessão do pacote: ' . ($rr['erro'] ?? 'saldo insuficiente') . '.');
+          }
         }
 
         header('Location: agenda.php');
         exit;
       } else {
         $registroEdit = [
-          'id'           => $id,
-          'data'         => $data,
-          'hora_inicio'  => $hi,
-          'hora_fim'     => $hf,
-          'sala'         => $sala,
-          'terapeuta_id' => $terapId,
-          'paciente'     => $paciente,
-          'paciente_id'  => $pacienteId,
-          'observacoes'  => $observacoes,
+          'id'                  => $id,
+          'data'                => $data,
+          'hora_inicio'         => $hi,
+          'hora_fim'            => $hf,
+          'sala'                => $sala,
+          'terapeuta_id'        => $terapId,
+          'paciente'            => $paciente,
+          'paciente_id'         => $pacienteId,
+          'paciente_package_id' => $pacotePkgId,
+          'observacoes'         => $observacoes,
         ];
         $mostrarForm = true;
       }
@@ -396,6 +446,10 @@ $nomeTerap = function (int $id): string {
     $pre = pac_find_do_terapeuta((int)$_GET['paciente_id'], (int)$terapeutaLogado['id']);
     if ($pre) { $valPacienteId = (int)$pre['id']; $valPaciente = pac_nome_exibicao($pre); }
   }
+  // Pacote vinculado + opções do paciente (renderizadas no servidor; o JS
+  // repopula quando o paciente muda).
+  $valPkgId  = (int)($registroEdit['paciente_package_id'] ?? 0);
+  $pkgOpcoes = $valPacienteId ? pacote_ativos_do_paciente($valPacienteId, (int)$terapeutaLogado['id']) : [];
 ?>
   <section class="terap-card terap-span-12" style="margin-bottom:18px;">
     <h2><?= $valId ? 'Editar atendimento' : 'Novo atendimento' ?></h2>
@@ -471,6 +525,20 @@ $nomeTerap = function (int $id): string {
             Comece a digitar para vincular a um paciente já cadastrado por você.
           <?php endif; ?>
         </small>
+      </div>
+
+      <div class="terap-field" id="pacPacoteWrap" data-orig-pkg="<?= (int)$valPkgId ?>">
+        <label for="paciente_package_id">Pacote (opcional)</label>
+        <select id="paciente_package_id" name="paciente_package_id">
+          <option value="0">Sem pacote</option>
+          <?php foreach ($pkgOpcoes as $pk): $disp = max(0, pacote_disponivel((int)$pk['id'])); ?>
+            <option value="<?= (int)$pk['id'] ?>" data-disp="<?= $disp ?>" <?= $valPkgId === (int)$pk['id'] ? 'selected' : '' ?>>
+              <?= htmlspecialchars($pk['nome']) ?> — <?= $disp ?> disponível(is)
+            </option>
+          <?php endforeach; ?>
+        </select>
+        <div class="pac-saldo-box" id="pacSaldoBox" hidden></div>
+        <small class="pac-help">Ao salvar um novo vínculo, 1 sessão é reservada. Cancelar devolve a sessão; reagendar não consome de novo.</small>
       </div>
 
       <div class="terap-field">
@@ -681,7 +749,7 @@ $nomeTerap = function (int $id): string {
 </script>
 
 <script>
-// Autocomplete de pacientes no formulário de agendamento.
+// Autocomplete de pacientes + seletor de pacote (saldo ao vivo).
 (function () {
   var wrap = document.getElementById('pacAutocomplete');
   if (!wrap) return;
@@ -689,15 +757,61 @@ $nomeTerap = function (int $id): string {
   var hidden = document.getElementById('paciente_id');
   var list   = document.getElementById('pacAutocompleteList');
   var hint   = document.getElementById('pacAutocompleteHint');
+  var pkgWrap = document.getElementById('pacPacoteWrap');
+  var pkgSel  = document.getElementById('paciente_package_id');
+  var saldoBox = document.getElementById('pacSaldoBox');
   var timer = null;
 
   function fechar() { list.hidden = true; list.innerHTML = ''; }
+
+  function atualizarSaldo() {
+    if (!pkgSel || !saldoBox) return;
+    var opt = pkgSel.options[pkgSel.selectedIndex];
+    if (!opt || opt.value === '0') { saldoBox.hidden = true; return; }
+    var disp = parseInt(opt.getAttribute('data-disp') || '0', 10);
+    var orig = parseInt((pkgWrap && pkgWrap.dataset.origPkg) || '0', 10);
+    var vaiReservar = parseInt(opt.value, 10) !== orig;
+    var apos = vaiReservar ? Math.max(0, disp - 1) : disp;
+    saldoBox.hidden = false;
+    if (vaiReservar && disp < 1) {
+      saldoBox.className = 'pac-saldo-box is-warn';
+      saldoBox.textContent = 'Este pacote não tem sessões disponíveis.';
+    } else {
+      saldoBox.className = 'pac-saldo-box';
+      saldoBox.textContent = vaiReservar
+        ? ('Disponíveis: ' + disp + ' · após salvar: ' + apos + ' (1 sessão reservada).')
+        : ('Disponíveis: ' + disp + ' · reagendamento não consome nova sessão.');
+    }
+  }
+
+  function repovoarPacotes(itens, selId) {
+    if (!pkgSel) return;
+    pkgSel.innerHTML = '<option value="0">Sem pacote</option>';
+    (itens || []).forEach(function (p) {
+      var o = document.createElement('option');
+      o.value = String(p.id);
+      o.setAttribute('data-disp', String(p.disponivel));
+      o.textContent = p.nome + ' — ' + p.disponivel + ' disponível(is)';
+      if (selId && parseInt(selId, 10) === p.id) o.selected = true;
+      pkgSel.appendChild(o);
+    });
+    atualizarSaldo();
+  }
+
+  function carregarPacotes(pacienteId) {
+    if (!pkgSel || !pacienteId) { repovoarPacotes([], 0); return; }
+    fetch('api/pacotes-do-paciente.php?paciente_id=' + encodeURIComponent(pacienteId), { headers: { 'Accept': 'application/json' } })
+      .then(function (r) { return r.ok ? r.json() : { itens: [] }; })
+      .then(function (data) { repovoarPacotes((data && data.itens) || [], 0); })
+      .catch(function () { repovoarPacotes([], 0); });
+  }
 
   function escolher(item) {
     input.value = item.nome;
     hidden.value = item.id;
     if (hint) hint.innerHTML = 'Vinculado a <a class="terap-link" href="paciente.php?id=' + item.id + '">ficha do paciente</a>.';
     fechar();
+    carregarPacotes(item.id);
   }
 
   function buscar(q) {
@@ -723,9 +837,10 @@ $nomeTerap = function (int $id): string {
   }
 
   input.addEventListener('input', function () {
-    // Edição manual desfaz o vínculo até nova escolha.
+    // Edição manual desfaz o vínculo (e os pacotes) até nova escolha.
     hidden.value = '';
     if (hint) hint.textContent = 'Comece a digitar para vincular a um paciente já cadastrado por você.';
+    repovoarPacotes([], 0);
     var q = input.value.trim();
     clearTimeout(timer);
     if (q.length < 2) { fechar(); return; }
@@ -733,6 +848,10 @@ $nomeTerap = function (int $id): string {
   });
   input.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') fechar(); });
   document.addEventListener('click', function (ev) { if (!wrap.contains(ev.target)) fechar(); });
+  if (pkgSel) pkgSel.addEventListener('change', atualizarSaldo);
+
+  // Estado inicial (edição/pré-preenchido): saldo já reflete o pacote atual.
+  atualizarSaldo();
 })();
 </script>
 
