@@ -104,6 +104,21 @@ NEWDECKS=$(curl -s "$BASE/decks" -H "Authorization: Bearer $NEWTK")
 check "novo estudante vê só o baralho liberado pela matrícula" "Ingles" "$NEWDECKS"
 check "novo estudante vê exatamente 1 baralho" "1" "$(json "$NEWDECKS" "len(d['decks'])")"
 
+# 11. matrícula em lote (turma) — cria aluno novo e reporta linha inválida
+BULK=$(curl -s -X POST "$BASE/admin/enrollments/bulk" -H "Authorization: Bearer $ATOKEN" -H 'Content-Type: application/json' -d '{"courseId":1,"defaultPassword":"turma2026","students":[{"name":"Ana Lote","email":"ana.lote@suinda.com"},{"email":"bademail@@"}]}')
+check "lote: 1 estudante criado" "1" "$(printf '%s' "$BULK" | json_get "d['created']")"
+check "lote: 1 estudante matriculado" "1" "$(printf '%s' "$BULK" | json_get "d['enrolled']")"
+check "lote: 1 linha com erro" "1" "$(printf '%s' "$BULK" | json_get "len(d['errors'])")"
+ANATK=$(curl -s -X POST "$BASE/auth/login" -H 'Content-Type: application/json' -d '{"email":"ana.lote@suinda.com","password":"turma2026"}' | json_get "d['token']")
+ANADECKS=$(curl -s "$BASE/decks" -H "Authorization: Bearer $ANATK")
+check "aluno do lote (senha padrão) vê o baralho do curso" "Biologia" "$ANADECKS"
+
+# 12. inativar curso esconde os baralhos do aluno (gating respeita courses.active)
+curl -s -o /dev/null -X PUT "$BASE/admin/courses/1" -H "Authorization: Bearer $ATOKEN" -H 'Content-Type: application/json' -d '{"active":0}'
+check "curso inativado: aluno deixa de ver o baralho" "0" "$(json "$(curl -s "$BASE/decks" -H "Authorization: Bearer $ANATK")" "len(d['decks'])")"
+curl -s -o /dev/null -X PUT "$BASE/admin/courses/1" -H "Authorization: Bearer $ATOKEN" -H 'Content-Type: application/json' -d '{"active":1}'
+check "curso reativado: aluno volta a ver o baralho" "1" "$(json "$(curl -s "$BASE/decks" -H "Authorization: Bearer $ANATK")" "len(d['decks'])")"
+
 echo
 echo "Resultado: $pass passou, $fail falhou"
 [ "$fail" -eq 0 ]

@@ -75,7 +75,7 @@ require __DIR__ . '/../inc/header.php';
         <!-- CURSOS -->
         <section class="panel">
           <h2>Cursos</h2>
-          <p class="hint">Um curso pode liberar um ou mais baralhos.</p>
+          <p class="hint">Um curso pode liberar um ou mais baralhos. Use “Editar” para ajustar ou inativar (inativar esconde os baralhos dos estudantes).</p>
           <form class="admin-form" data-endpoint="/admin/courses">
             <div class="field span2"><label>Título*<input name="title" required></label></div>
             <div class="field"><label>Área<select name="areaId" data-options="areas"></select></label></div>
@@ -86,7 +86,26 @@ require __DIR__ . '/../inc/header.php';
             <div class="field span2"><label>Descrição<input name="description"></label></div>
             <div class="actions"><button class="btn btn--primary btn-mini" type="submit">Adicionar</button></div>
           </form>
-          <table class="list"><thead><tr><th>Curso</th><th>Status</th><th>Área</th></tr></thead><tbody data-list="courses"></tbody></table>
+
+          <form class="admin-form" id="courseEditForm" hidden style="margin-top:.8rem;background:var(--bg-deep);padding:.9rem;border-radius:12px">
+            <input type="hidden" name="id">
+            <div class="field span2"><label>Editar título*<input name="title" required></label></div>
+            <div class="field"><label>Área<select name="areaId" data-options="areas"></select></label></div>
+            <div class="field"><label>Nível<input name="level"></label></div>
+            <div class="field"><label>Status
+              <select name="status"><option value="available">Disponível</option><option value="coming_soon">Em breve</option></select>
+            </label></div>
+            <div class="field"><label>Ativo
+              <select name="active"><option value="1">Sim</option><option value="0">Não (inativo)</option></select>
+            </label></div>
+            <div class="field span2"><label>Descrição<input name="description"></label></div>
+            <div class="actions" style="gap:.5rem">
+              <button class="btn btn--primary btn-mini" type="submit">Salvar</button>
+              <button class="btn btn-mini" type="button" id="courseEditCancel">Cancelar</button>
+            </div>
+          </form>
+
+          <table class="list"><thead><tr><th>Curso</th><th>Status</th><th>Área</th><th>Ações</th></tr></thead><tbody data-list="courses"></tbody></table>
         </section>
 
         <!-- TRILHAS -->
@@ -160,6 +179,20 @@ require __DIR__ . '/../inc/header.php';
             <div class="actions"><button class="btn btn--primary btn-mini" type="submit">Matricular</button></div>
           </form>
           <table class="list"><thead><tr><th>Estudante</th><th>Curso</th><th>Status</th><th></th></tr></thead><tbody data-list="enrollments"></tbody></table>
+        </section>
+
+        <!-- MATRÍCULA EM LOTE -->
+        <section class="panel">
+          <h2>Matrícula em lote (turma)</h2>
+          <p class="hint">Cole uma linha por estudante: <code>nome,email,senha</code> (a senha é opcional). Estudantes que ainda não existem são criados; sem senha na linha, usam a “senha padrão”.</p>
+          <form id="bulkForm" class="admin-form">
+            <div class="field"><label>Curso*<select name="courseId" data-options="courses" required></select></label></div>
+            <div class="field"><label>Senha padrão (novos)<input name="defaultPassword" type="text" placeholder="ex.: turma2026"></label></div>
+            <div class="field" style="grid-column:1/-1"><label>Lista CSV (nome,email,senha)
+              <textarea name="csv" rows="5" placeholder="Maria Silva,maria@escola.com&#10;João Souza,joao@escola.com,senhaDele"></textarea></label></div>
+            <div class="actions"><button class="btn btn--primary btn-mini" type="submit">Matricular turma</button></div>
+          </form>
+          <div id="bulkResult" class="admin-msg" aria-live="polite"></div>
         </section>
       </div>
 
@@ -239,9 +272,15 @@ require __DIR__ . '/../inc/header.php';
 
     L.courses.innerHTML = data.courses.map(function (c) {
       var area = data.areas.find(function (a) { return a.id === c.area_id; });
-      var st = c.status === "available" ? '<span class="pill">Disponível</span>' : '<span class="pill pill--soon">Em breve</span>';
-      return row([esc(c.title), st, area ? esc(area.name) : "—"]);
-    }).join("") || row(["—", "", ""]);
+      var st = c.active === 0
+        ? '<span class="pill pill--soon">inativo</span>'
+        : (c.status === "available" ? '<span class="pill">Disponível</span>' : '<span class="pill pill--soon">Em breve</span>');
+      var acts =
+        '<button class="btn btn-mini" data-edit-course="' + c.id + '">Editar</button> ' +
+        '<button class="btn btn-mini ' + (c.active === 0 ? '' : 'btn-danger') + '" data-toggle-course="' + c.id + '" data-active="' + c.active + '">' +
+        (c.active === 0 ? 'Ativar' : 'Inativar') + '</button>';
+      return row([esc(c.title), st, area ? esc(area.name) : "—", acts]);
+    }).join("") || row(["—", "", "", ""]);
 
     L.paths.innerHTML = data.paths.map(function (p) {
       var cs = data.pathCourses.filter(function (pc) { return pc.path_id === p.id; }).map(function (pc) { return esc(pc.course_title); });
@@ -270,19 +309,44 @@ require __DIR__ . '/../inc/header.php';
     renderLists();
   }
 
+  function formBody(form) {
+    var body = {};
+    form.querySelectorAll("input,select,textarea").forEach(function (inp) {
+      if (!inp.name) return;
+      var v = (inp.value || "").trim();
+      if (v !== "") body[inp.name] = (inp.type === "number") ? Number(v) : v;
+    });
+    return body;
+  }
+
+  function openCourseEdit(course) {
+    var f = document.getElementById("courseEditForm");
+    f.elements.id.value = course.id;
+    f.elements.title.value = course.title || "";
+    f.elements.level.value = course.level || "introdutorio";
+    f.elements.status.value = course.status || "available";
+    f.elements.active.value = String(course.active);
+    f.elements.areaId.value = course.area_id ? String(course.area_id) : "";
+    f.elements.description.value = course.description || "";
+    f.hidden = false;
+    f.scrollIntoView({ behavior: "smooth", block: "center" });
+    f.elements.title.focus();
+  }
+
+  function parseCsv(text) {
+    return (text || "").split(/\r?\n/).map(function (line) {
+      var parts = line.split(",");
+      return { name: (parts[0] || "").trim(), email: (parts[1] || "").trim(), password: (parts[2] || "").trim() };
+    }).filter(function (r) { return r.email !== "" || r.name !== ""; });
+  }
+
   function bindForms() {
-    document.querySelectorAll("form.admin-form").forEach(function (form) {
+    // Formulários de criação simples (POST data-endpoint).
+    document.querySelectorAll("form.admin-form[data-endpoint]").forEach(function (form) {
       form.addEventListener("submit", async function (ev) {
         ev.preventDefault();
-        var endpoint = form.getAttribute("data-endpoint");
-        var body = {};
-        form.querySelectorAll("input,select,textarea").forEach(function (inp) {
-          if (!inp.name) return;
-          var v = inp.value.trim();
-          if (v !== "") body[inp.name] = (inp.type === "number") ? Number(v) : v;
-        });
         try {
-          await api(endpoint, "POST", body);
+          await api(form.getAttribute("data-endpoint"), "POST", formBody(form));
           form.reset();
           await reload();
           flash("Salvo com sucesso.", true);
@@ -292,15 +356,78 @@ require __DIR__ . '/../inc/header.php';
       });
     });
 
-    document.addEventListener("click", async function (ev) {
-      var btn = ev.target.closest("[data-del]");
-      if (!btn) return;
-      if (!confirm("Confirmar remoção?")) return;
+    // Editar curso (PUT) + cancelar.
+    var editForm = document.getElementById("courseEditForm");
+    editForm.addEventListener("submit", async function (ev) {
+      ev.preventDefault();
+      var body = formBody(editForm);
+      var id = body.id; delete body.id;
+      // garante envio de campos que podem ter ficado vazios (descrição/ativo)
+      body.active = Number(editForm.elements.active.value);
+      body.description = editForm.elements.description.value.trim();
       try {
-        await api("/admin/" + btn.getAttribute("data-del") + "/" + btn.getAttribute("data-id"), "DELETE");
+        await api("/admin/courses/" + id, "PUT", body);
+        editForm.hidden = true;
         await reload();
-        flash("Removido.", true);
-      } catch (err) { flash(err.message || "Falha ao remover.", false); }
+        flash("Curso atualizado.", true);
+      } catch (err) { flash(err.message || "Falha ao atualizar o curso.", false); }
+    });
+    document.getElementById("courseEditCancel").addEventListener("click", function () { editForm.hidden = true; });
+
+    // Matrícula em lote (CSV).
+    var bulkForm = document.getElementById("bulkForm");
+    var bulkResult = document.getElementById("bulkResult");
+    bulkForm.addEventListener("submit", async function (ev) {
+      ev.preventDefault();
+      var students = parseCsv(bulkForm.elements.csv.value);
+      if (!students.length) { bulkResult.className = "admin-msg admin-msg--error"; bulkResult.textContent = "Cole ao menos uma linha (nome,email)."; return; }
+      var body = {
+        courseId: Number(bulkForm.elements.courseId.value),
+        defaultPassword: bulkForm.elements.defaultPassword.value.trim(),
+        students: students
+      };
+      bulkResult.className = "admin-msg"; bulkResult.textContent = "Processando…";
+      try {
+        var res = await api("/admin/enrollments/bulk", "POST", body);
+        var msg = "Matriculados: " + res.enrolled + " · Criados: " + res.created + " · Já matriculados: " + res.alreadyEnrolled;
+        if (res.errors && res.errors.length) {
+          msg += " · Erros: " + res.errors.length + " (" + res.errors.map(function (e) { return "linha " + e.line + ": " + e.reason; }).join("; ") + ")";
+          bulkResult.className = "admin-msg admin-msg--error";
+        } else {
+          bulkResult.className = "admin-msg admin-msg--ok";
+        }
+        bulkResult.textContent = msg;
+        bulkForm.elements.csv.value = "";
+        await reload();
+      } catch (err) {
+        bulkResult.className = "admin-msg admin-msg--error";
+        bulkResult.textContent = err.message || "Falha na matrícula em lote.";
+      }
+    });
+
+    // Ações por linha: remover vínculo, editar/ativar curso.
+    document.addEventListener("click", async function (ev) {
+      var del = ev.target.closest("[data-del]");
+      if (del) {
+        if (!confirm("Confirmar remoção?")) return;
+        try { await api("/admin/" + del.getAttribute("data-del") + "/" + del.getAttribute("data-id"), "DELETE"); await reload(); flash("Removido.", true); }
+        catch (err) { flash(err.message || "Falha ao remover.", false); }
+        return;
+      }
+      var edit = ev.target.closest("[data-edit-course]");
+      if (edit) {
+        var course = data.courses.find(function (c) { return c.id === Number(edit.getAttribute("data-edit-course")); });
+        if (course) openCourseEdit(course);
+        return;
+      }
+      var toggle = ev.target.closest("[data-toggle-course]");
+      if (toggle) {
+        var newActive = Number(toggle.getAttribute("data-active")) === 1 ? 0 : 1;
+        if (newActive === 0 && !confirm("Inativar o curso? Os estudantes deixarão de ver seus baralhos.")) return;
+        try { await api("/admin/courses/" + toggle.getAttribute("data-toggle-course"), "PUT", { active: newActive }); await reload(); flash(newActive ? "Curso ativado." : "Curso inativado.", true); }
+        catch (err) { flash(err.message || "Falha ao alterar o curso.", false); }
+        return;
+      }
     });
 
     document.getElementById("adminLogout").addEventListener("click", function () {
