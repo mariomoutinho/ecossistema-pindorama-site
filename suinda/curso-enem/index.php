@@ -56,6 +56,7 @@ require __DIR__ . '/../inc/header.php';
   var denied = document.getElementById("enemDenied");
   var root = document.getElementById("enemRoot");
   var taxonomy = {};
+  var isAdmin = false;
 
   async function api(path) {
     var res = await fetch(API + path, { headers: { "Authorization": "Bearer " + token } });
@@ -89,6 +90,7 @@ require __DIR__ . '/../inc/header.php';
       + '<a class="btn btn--primary" href="' + studyUrl({ filter: "novas" }) + '">Estudar questões novas</a>'
       + '<a class="btn btn--ghost" href="' + studyUrl({ filter: "vencidas" }) + '">Revisar pendentes</a>'
       + '<a class="btn btn--ghost" href="' + studyUrl({ random: 1 }) + '">Simulado aleatório</a>'
+      + (isAdmin ? '<a class="btn btn-mini" style="border-color:var(--accent-dark);color:var(--accent-dark)" href="/suinda/admin/questoes/">⚙ Editar questões (admin)</a>' : '')
       + '</div>';
 
     html += '<h2 class="section__head">Disciplinas</h2><div class="enem-disc">';
@@ -170,8 +172,9 @@ require __DIR__ . '/../inc/header.php';
     });
   }
 
-  Promise.all([api("/enem/overview"), api("/enem/taxonomy")]).then(function (res) {
+  Promise.all([api("/enem/overview"), api("/enem/taxonomy"), api("/me").catch(function () { return { user: {} }; })]).then(function (res) {
     var ov = res[0]; taxonomy = res[1];
+    isAdmin = ((res[2] && res[2].user ? res[2].user.role : "") === "admin");
     if (!ov.hasContent) { loading.hidden = true; denied.hidden = false; return; }
     render(ov);
   }).catch(function (e) {
