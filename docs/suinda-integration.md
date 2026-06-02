@@ -271,6 +271,27 @@ Credenciais de demonstração:
 > **Não** suba `seed_on_boot=true` em produção, e troque/retire o usuário de
 > demonstração antes de liberar contas reais.
 
+### Primeiro administrador em produção (sem usar o usuário de demonstração)
+
+Em vez do seed, crie um admin real com senha sua. O script é **CLI-only** (e a
+pasta `tools/` é bloqueada para acesso web):
+
+```bash
+# Interativo (senha oculta, não fica no histórico):
+php suinda/api/tools/create-admin.php
+
+# Não-interativo:
+SUINDA_ADMIN_NAME="Coordenação" SUINDA_ADMIN_EMAIL="voce@dominio" \
+SUINDA_ADMIN_PASSWORD='senha-forte' SUINDA_DISABLE_DEMO=1 \
+php suinda/api/tools/create-admin.php
+```
+
+O script roda as migrations (em SQLite cria tudo; em MySQL exige importar antes
+`schema.mysql.sql` + `schema.suinda.sql`), cria/promove o admin com
+`password_hash`, e — com `SUINDA_DISABLE_DEMO=1` ou confirmação interativa —
+**desativa** `aluno@suinda.com`/`admin@suinda.com`. Depois, gerencie tudo em
+`/suinda/admin`. Nunca passe a senha por argumento de linha de comando.
+
 ### Testes
 ```bash
 bash suinda/api/tests/smoke.sh   # 13 verificações de login, gating e dashboard
