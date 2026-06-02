@@ -1,0 +1,2 @@
+Recortes oficiais das questões (gerados pelo importador com pdftoppm+cwebp).
+Os .webp NÃO são versionados (ver .gitignore) — gere-os e sincronize no deploy.
