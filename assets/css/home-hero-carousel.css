@@ -15,8 +15,8 @@
 .hhc__frame{
   position: relative;
   width: 100%;
-  /* desktop: proporção ampla e elegante, com teto de altura */
-  height: clamp(440px, 64vh, 620px);
+  /* desktop: faixa ampla e baixa (mais larga que alta) */
+  height: clamp(320px, 44vh, 460px);
   border-radius: var(--radius2);
   overflow: hidden;
   isolation: isolate;
