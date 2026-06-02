@@ -412,6 +412,29 @@ $r3 = rodar_ronaldo($TMP, $scriptR, ['--aplicar']);
 eq($r3['code'], 2, 'múltiplos Ronaldos: exige desambiguação (exit 2)');
 
 // =====================================================================
+section('Agenda — status estendidos e sessão no pacote (Fase 3)');
+eq(agenda_status_label('confirmado'), 'Confirmado', 'rótulo de status: confirmado');
+eq(agenda_status_label('falta'), 'Falta', 'rótulo de status: falta');
+eq(agenda_status_label('reagendado'), 'Reagendado', 'rótulo de status: reagendado');
+ok(agenda_status_ativo('confirmado'), 'confirmado ocupa a sessão');
+ok(!agenda_status_ativo('cancelado'), 'cancelado não ocupa');
+ok(!agenda_status_ativo('falta'), 'falta não é status ativo');
+
+limpar_tabelas(['pacotes', 'pacote_movimentacoes', 'agendamentos']);
+$rk = pacote_criar(['paciente_id' => 700, 'terapeuta_id' => 501, 'nome' => 'P', 'terapia' => 'M', 'total_sessoes' => 10]);
+$pkid = (int)$rk['pacote']['id'];
+$x1 = store_insert('agendamentos', ['paciente_package_id' => $pkid, 'data' => '2026-08-01', 'hora_inicio' => '09:00', 'status' => 'agendado']);
+$x2 = store_insert('agendamentos', ['paciente_package_id' => $pkid, 'data' => '2026-08-08', 'hora_inicio' => '09:00', 'status' => 'agendado']);
+$x3 = store_insert('agendamentos', ['paciente_package_id' => $pkid, 'data' => '2026-08-15', 'hora_inicio' => '09:00', 'status' => 'agendado']);
+$pos2 = agenda_sessao_no_pacote(store_find('agendamentos', (int)$x2['id']));
+eq($pos2['n'], 2, 'sessão do meio é a 2ª');
+eq($pos2['m'], 10, 'total de sessões = 10');
+eq(agenda_sessao_no_pacote(store_find('agendamentos', (int)$x3['id']))['n'], 3, 'última é a 3ª');
+store_update('agendamentos', (int)$x1['id'], ['status' => 'cancelado']);
+eq(agenda_sessao_no_pacote(store_find('agendamentos', (int)$x3['id']))['n'], 2, 'cancelado sai da contagem (3ª vira 2ª)');
+ok(agenda_sessao_no_pacote(['paciente_package_id' => 0, 'id' => 1]) === null, 'sem pacote: retorna null');
+
+// =====================================================================
 // Limpeza
 array_map('unlink', glob($TMP . '/*.json') ?: []);
 array_map('unlink', glob($TMP . '/_mail/*.eml') ?: []);
