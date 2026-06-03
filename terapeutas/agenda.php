@@ -24,20 +24,8 @@ function fmt_data_pt(string $isoDate): string {
   return (int)date('d', $ts) . ' de ' . $meses[(int)date('n', $ts) - 1] . ' de ' . date('Y', $ts);
 }
 function ha_conflito(array $todos, string $data, string $hi, string $hf, string $sala, ?int $ignorarId = null): bool {
-  $hiNew = strtotime($data . ' ' . $hi);
-  $hfNew = strtotime($data . ' ' . $hf);
-  foreach ($todos as $a) {
-    if ($ignorarId !== null && (int)$a['id'] === $ignorarId) continue;
-    // Cancelados nunca bloqueiam horário.
-    if (($a['status'] ?? '') === 'cancelado') continue;
-    if (($a['data'] ?? '') !== $data) continue;
-    if (($a['sala'] ?? '') !== $sala) continue;
-    $hiE = strtotime($data . ' ' . substr($a['hora_inicio'] ?? '', 0, 5));
-    $hfE = strtotime($data . ' ' . substr($a['hora_fim']    ?? '', 0, 5));
-    if ($hiE === false || $hfE === false) continue;
-    if ($hiNew < $hfE && $hfNew > $hiE) return true;
-  }
-  return false;
+  // Delega para o lib (fonte única); preserva os pontos de chamada existentes.
+  return agenda_ha_conflito($todos, $data, $hi, $hf, $sala, $ignorarId);
 }
 function status_label(string $s): string {
   return agenda_status_label($s);
@@ -448,6 +436,39 @@ $nomeTerap = function (int $id): string {
   $t = store_find('terapeutas', $id);
   return $t['nome'] ?? '—';
 };
+
+// Layout de "lanes": eventos que se sobrepõem no tempo, no mesmo dia, são
+// dispostos lado a lado (como no Google Agenda). Retorna id => [lane, lanes].
+function agenda_layout_lanes(array $eventos): array {
+  $norm = [];
+  foreach ($eventos as $e) {
+    $ini = agenda_minutos(substr((string)($e['hora_inicio'] ?? ''), 0, 5));
+    $fim = agenda_minutos(substr((string)($e['hora_fim'] ?? ''), 0, 5));
+    if ($ini === null || $fim === null) continue;
+    $norm[] = ['id' => (int)$e['id'], 'ini' => $ini, 'fim' => max($fim, $ini + 1)];
+  }
+  usort($norm, fn($a, $b) => $a['ini'] <=> $b['ini'] ?: $a['fim'] <=> $b['fim']);
+
+  $res = [];
+  $cluster = [];        // eventos do grupo de sobreposição atual
+  $laneEnd = [];        // fim (min) ocupado em cada lane
+  $clusterFimMax = 0;
+  $fechar = function () use (&$cluster, &$res, &$laneEnd) {
+    $total = max(1, count($laneEnd));
+    foreach ($cluster as $c) $res[$c['id']] = ['lane' => $c['lane'], 'lanes' => $total];
+    $cluster = []; $laneEnd = [];
+  };
+  foreach ($norm as $e) {
+    if ($cluster && $e['ini'] >= $clusterFimMax) { $fechar(); $clusterFimMax = 0; }
+    $lane = 0;
+    while (isset($laneEnd[$lane]) && $laneEnd[$lane] > $e['ini']) $lane++;
+    $laneEnd[$lane] = $e['fim'];
+    $cluster[] = ['id' => $e['id'], 'lane' => $lane];
+    $clusterFimMax = max($clusterFimMax, $e['fim']);
+  }
+  $fechar();
+  return $res;
+}
 ?>
 
 <div class="terap-page-head">
@@ -641,71 +662,97 @@ $nomeTerap = function (int $id): string {
   </section>
 <?php endif; ?>
 
-<!-- VISÃO SEMANAL -->
+<!-- VISÃO SEMANAL (timeline proporcional por minuto) -->
 <section class="terap-card terap-span-12">
   <h2>Semana de <?= htmlspecialchars(fmt_data_pt($inicio)) ?></h2>
-  <p style="margin-bottom:14px;">Passe o mouse (ou toque, no celular) sobre um bloco para ver os detalhes do atendimento.</p>
+  <p style="margin-bottom:14px;">Clique num bloco para ver/editar. Arraste o corpo para mover, ou as alças (topo/base) para mudar a duração. Encaixe a cada <?= AG_SNAP_MIN ?> min.</p>
 
-  <div class="terap-week" role="table" aria-label="Agenda semanal">
-    <div class="terap-week__hourHead">Hora</div>
-    <?php foreach ($diasSem as $i => $d):
-      $isToday = $d === date('Y-m-d');
-    ?>
-      <div class="terap-week__dayHead <?= $isToday ? 'is-today' : '' ?>">
-        <?= $diasLabel[$i] ?>
-        <small><?= date('d/m', strtotime($d)) ?></small>
+  <div class="ag-cal-scroll">
+    <div class="ag-cal"
+         id="agCal"
+         style="--ag-pph: <?= AG_PIXELS_PER_HOUR ?>px;"
+         data-start-hour="<?= AG_GRID_START_HOUR ?>"
+         data-end-hour="<?= AG_GRID_END_HOUR ?>"
+         data-snap="<?= AG_SNAP_MIN ?>"
+         data-min-dur="<?= AG_MIN_DURACAO_MIN ?>">
+
+      <!-- Cabeçalho de dias -->
+      <div class="ag-cal__head">
+        <div class="ag-cal__corner">Hora</div>
+        <?php foreach ($diasSem as $i => $d): $isToday = $d === date('Y-m-d'); ?>
+          <div class="ag-cal__dayhead <?= $isToday ? 'is-today' : '' ?>">
+            <?= $diasLabel[$i] ?><small><?= date('d/m', strtotime($d)) ?></small>
+          </div>
+        <?php endforeach; ?>
       </div>
-    <?php endforeach; ?>
 
-    <?php foreach ($horasGrade as $h): ?>
-      <div class="terap-week__hour"><?= str_pad((string)$h, 2, '0', STR_PAD_LEFT) ?>h</div>
-      <?php foreach ($diasSem as $d):
-        $eventos = array_filter($eventosPorDia[$d] ?? [], function ($e) use ($h) {
-          $eh = (int)substr($e['hora_inicio'] ?? '', 0, 2);
-          return $eh === $h;
-        });
-        $celulaVazia = empty($eventos);
-        $novoHref = 'agenda.php?novo=1'
-                  . '&data=' . urlencode($d)
-                  . '&hora_inicio=' . urlencode(sprintf('%02d:00', $h));
-      ?>
-        <?php if ($celulaVazia): ?>
-          <a class="terap-week__cell terap-week__cell--empty"
-             href="<?= htmlspecialchars($novoHref) ?>"
-             title="Marcar atendimento neste horário"
-             aria-label="Marcar atendimento em <?= htmlspecialchars(date('d/m', strtotime($d))) ?> às <?= sprintf('%02d:00', $h) ?>">
-            <span class="terap-week__cell__plus" aria-hidden="true">+</span>
-          </a>
-        <?php else: ?>
-        <div class="terap-week__cell">
-          <?php foreach ($eventos as $e):
+      <!-- Corpo: régua de horas + colunas de dia posicionadas por minuto -->
+      <div class="ag-cal__body" style="height: <?= (AG_GRID_END_HOUR - AG_GRID_START_HOUR) * AG_PIXELS_PER_HOUR ?>px;">
+        <div class="ag-cal__gutter">
+          <?php for ($h = AG_GRID_START_HOUR; $h <= AG_GRID_END_HOUR; $h++): ?>
+            <div class="ag-cal__hourline" style="top: <?= ($h - AG_GRID_START_HOUR) * AG_PIXELS_PER_HOUR ?>px;">
+              <span><?= sprintf('%02dh', $h) ?></span>
+            </div>
+          <?php endfor; ?>
+        </div>
+
+        <?php foreach ($diasSem as $d):
+          $isToday = $d === date('Y-m-d');
+          $evs = array_values($eventosPorDia[$d] ?? []);
+          $lanes = agenda_layout_lanes($evs);
+        ?>
+        <div class="ag-cal__col <?= $isToday ? 'is-today' : '' ?>" data-date="<?= htmlspecialchars($d) ?>" role="gridcell" aria-label="<?= htmlspecialchars(date('d/m', strtotime($d))) ?>">
+          <?php for ($h = AG_GRID_START_HOUR; $h <= AG_GRID_END_HOUR; $h++): ?>
+            <div class="ag-cal__rule" style="top: <?= ($h - AG_GRID_START_HOUR) * AG_PIXELS_PER_HOUR ?>px;"></div>
+          <?php endfor; ?>
+
+          <?php foreach ($evs as $e):
+            $iniMin = agenda_minutos(substr((string)($e['hora_inicio'] ?? ''), 0, 5));
+            $fimMin = agenda_minutos(substr((string)($e['hora_fim'] ?? ''), 0, 5));
+            if ($iniMin === null || $fimMin === null) continue;
+            $top = ($iniMin - AG_GRID_START_HOUR * 60) * AG_PIXELS_PER_HOUR / 60;
+            $alt = max(20, ($fimMin - $iniMin) * AG_PIXELS_PER_HOUR / 60);
+            $lay = $lanes[(int)$e['id']] ?? ['lane' => 0, 'lanes' => 1];
+            $wPct = 100 / max(1, $lay['lanes']);
+            $leftPct = $lay['lane'] * $wPct;
+
             $mine = (int)($e['terapeuta_id'] ?? 0) === (int)$terapeutaLogado['id'];
             $status = $e['status'] ?? 'agendado';
-            $cls = ' terap-week__event--' . htmlspecialchars($status);
-            if ($status === 'agendado' && !$mine) $cls .= ' terap-week__event--sand';
-            $tNome = store_find('terapeutas', (int)$e['terapeuta_id']);
-            $tNomeStr = $tNome['nome'] ?? '—';
-            $tipId = 'tip-' . (int)$e['id'];
+            $cls = ' ag-ev--' . htmlspecialchars($status);
+            if ($status === 'agendado' && !$mine) $cls .= ' ag-ev--sand';
+            $pode = agenda_pode_gerir($e, $terapeutaLogado);
+            $tNomeStr = ($nomeTerap((int)($e['terapeuta_id'] ?? 0)));
+            $hi5 = substr((string)$e['hora_inicio'], 0, 5);
+            $hf5 = substr((string)$e['hora_fim'], 0, 5);
+            $tituloHover = $hi5 . '–' . $hf5 . ' · ' . ($e['paciente'] ?? '—')
+              . ' · ' . ($salasDisponiveis[$e['sala'] ?? ''] ?? ($e['sala'] ?? '—'))
+              . ' · ' . explode(' ', $tNomeStr)[0];
+            $curto = $alt < 44;
           ?>
-            <span class="terap-tooltip-host">
-              <a class="terap-week__event<?= $cls ?>"
-                 href="agenda.php?editar=<?= (int)$e['id'] ?>"
-                 data-ag-id="<?= (int)$e['id'] ?>"
-                 aria-describedby="<?= $tipId ?>">
-                <strong><?= htmlspecialchars(substr($e['hora_inicio'], 0, 5)) ?>–<?= htmlspecialchars(substr($e['hora_fim'], 0, 5)) ?></strong>
-                <?= htmlspecialchars($e['paciente'] ?? '—') ?>
-                <small><?= htmlspecialchars($salasDisponiveis[$e['sala'] ?? ''] ?? '') ?> · <?= htmlspecialchars(explode(' ', $tNomeStr)[0]) ?></small>
-                <?php if ($status !== 'agendado'): ?>
-                  <em class="terap-week__event__badge"><?= htmlspecialchars(status_label($status)) ?></em>
-                <?php endif; ?>
-              </a>
-              <div class="terap-tooltip" id="<?= $tipId ?>" role="tooltip"><?= tooltip_render($e, $salasDisponiveis, $nomeTerap) ?></div>
-            </span>
+            <a class="ag-ev<?= $cls ?><?= $pode ? '' : ' ag-ev--readonly' ?><?= $curto ? ' ag-ev--curto' : '' ?>"
+               href="agenda.php?editar=<?= (int)$e['id'] ?>"
+               data-ag-id="<?= (int)$e['id'] ?>"
+               data-date="<?= htmlspecialchars($d) ?>"
+               data-start="<?= htmlspecialchars($hi5) ?>"
+               data-end="<?= htmlspecialchars($hf5) ?>"
+               data-sala="<?= htmlspecialchars($e['sala'] ?? '') ?>"
+               data-pode="<?= $pode ? '1' : '0' ?>"
+               title="<?= htmlspecialchars($tituloHover) ?>"
+               style="top: <?= $top ?>px; height: <?= $alt ?>px; left: calc(<?= $leftPct ?>% + 2px); width: calc(<?= $wPct ?>% - 4px);">
+              <?php if ($pode): ?><span class="ag-ev__grip ag-ev__grip--top" data-grip="top" aria-hidden="true"></span><?php endif; ?>
+              <span class="ag-ev__body">
+                <strong class="ag-ev__time"><?= htmlspecialchars($hi5) ?>–<?= htmlspecialchars($hf5) ?></strong>
+                <span class="ag-ev__pac"><?= htmlspecialchars($e['paciente'] ?? '—') ?></span>
+                <small class="ag-ev__meta"><?= htmlspecialchars($salasDisponiveis[$e['sala'] ?? ''] ?? '') ?> · <?= htmlspecialchars(explode(' ', $tNomeStr)[0]) ?></small>
+                <?php if ($status !== 'agendado'): ?><em class="ag-ev__badge"><?= htmlspecialchars(status_label($status)) ?></em><?php endif; ?>
+              </span>
+              <?php if ($pode): ?><span class="ag-ev__grip ag-ev__grip--bottom" data-grip="bottom" aria-hidden="true"></span><?php endif; ?>
+            </a>
           <?php endforeach; ?>
         </div>
-        <?php endif; ?>
-      <?php endforeach; ?>
-    <?php endforeach; ?>
+        <?php endforeach; ?>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1020,6 +1067,7 @@ window.AG_CSRF = <?= json_encode(auth_csrf_token()) ?>;
   }
 
   function render(d) {
+    content.querySelectorAll('.ag-resched').forEach(function (n) { n.remove(); });
     elTitle.textContent = d.paciente || 'Atendimento';
     elStatus.textContent = d.status_label || '';
     elStatus.className = 'terap-tooltip__status terap-tooltip__status--' + (d.status || 'agendado');
@@ -1049,9 +1097,39 @@ window.AG_CSRF = <?= json_encode(auth_csrf_token()) ?>;
       elActions.appendChild(botao('Fechar', 'terap-btn--ghost', fechar));
       return;
     }
+    // Painel "Reagendar" — edição manual de data/horário, sincronizada com a grade.
+    if (d.status !== 'cancelado') {
+      var rs = document.createElement('div'); rs.className = 'ag-resched';
+      rs.innerHTML =
+        '<h4>Reagendar</h4>' +
+        '<div class="ag-resched__row">' +
+        '<div class="terap-field"><label>Data</label><input type="date" data-rs="data"></div>' +
+        '<div class="terap-field"><label>Início</label><input type="time" step="900" data-rs="hi"></div>' +
+        '<div class="terap-field"><label>Fim</label><input type="time" step="900" data-rs="hf"></div>' +
+        '</div>';
+      elList.insertAdjacentElement('afterend', rs);
+      rs.querySelector('[data-rs="data"]').value = d.data || '';
+      rs.querySelector('[data-rs="hi"]').value = d.hora_inicio || '';
+      rs.querySelector('[data-rs="hf"]').value = d.hora_fim || '';
+      var saveBtn = botao('Salvar horário', 'terap-btn--primary', function () {
+        if (window.agReschedule) window.agReschedule(d.id,
+          rs.querySelector('[data-rs="data"]').value,
+          rs.querySelector('[data-rs="hi"]').value,
+          rs.querySelector('[data-rs="hf"]').value,
+          function (ok) { if (ok) fechar(); });
+      });
+      rs.querySelector('.ag-resched__row').appendChild(saveBtn);
+    }
+
     if (d.ficha_url) elActions.appendChild(link('Ver ficha', d.ficha_url));
     elActions.appendChild(link('Editar', 'agenda.php?editar=' + d.id));
-    elActions.appendChild(link('Clonar', 'agenda.php?clonar=' + d.id));
+    // Clonar: inicia uma cópia arrastável na grade (cancela com Esc). Mantém o
+    // fluxo de formulário como alternativa via "Editar".
+    elActions.appendChild(botao('Clonar', '', function () {
+      fechar();
+      if (window.agStartClone) window.agStartClone(d.id, d.paciente || 'Cópia');
+      else window.location = 'agenda.php?clonar=' + d.id;
+    }));
 
     if (d.status === 'agendado') {
       elActions.appendChild(botao('Confirmar', '', function () { postForm('confirmar', d.id); }));
@@ -1087,17 +1165,253 @@ window.AG_CSRF = <?= json_encode(auth_csrf_token()) ?>;
       .catch(function () { loading.textContent = 'Não foi possível carregar o atendimento.'; });
   }
 
-  // Clique num bloco da grade abre o modal (sem navegar).
-  document.querySelectorAll('.terap-week__event[data-ag-id]').forEach(function (ev) {
+  // Clique num bloco da grade abre o modal (sem navegar). Ignora o clique
+  // sintético que encerra um arraste/redimensionamento (flag data-ag-dragged).
+  document.querySelectorAll('.ag-ev[data-ag-id]').forEach(function (ev) {
     ev.addEventListener('click', function (e) {
       e.preventDefault();
+      if (ev.getAttribute('data-ag-dragged') === '1') { ev.removeAttribute('data-ag-dragged'); return; }
       carregar(ev.getAttribute('data-ag-id'));
     });
   });
+  // Exposto para o módulo de arraste reabrir o modal após clonar/editar.
+  window.agModalOpen = carregar;
 
   modal.addEventListener('click', function (e) {
     if (e.target.hasAttribute('data-close')) fechar();
   });
+})();
+</script>
+
+<script>
+// ============================================================
+// Edição visual da agenda: mover, redimensionar e clonar.
+// Geometria (PPM, faixa, snap) vem do #agCal — mesma fonte do PHP/lib.
+// Pointer Events unificam mouse e toque; no toque, "mover" exige pressão
+// contínua (long-press) para não brigar com a rolagem.
+// ============================================================
+(function () {
+  var cal = document.getElementById('agCal');
+  if (!cal || !window.PointerEvent) return;
+
+  var START = parseInt(cal.dataset.startHour, 10) * 60;
+  var END   = parseInt(cal.dataset.endHour, 10) * 60;
+  var SNAP  = parseInt(cal.dataset.snap, 10) || 15;
+  var MINDUR = parseInt(cal.dataset.minDur, 10) || 15;
+  var PPH = parseFloat(getComputedStyle(cal).getPropertyValue('--ag-pph')) || 64;
+  var PPM = PPH / 60;
+  var cols = Array.prototype.slice.call(cal.querySelectorAll('.ag-cal__col'));
+
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function toHHMM(m) { m = Math.round(m); return pad(Math.floor(m / 60)) + ':' + pad(m % 60); }
+  function toMin(s) { var p = (s || '0:0').split(':'); return (+p[0]) * 60 + (+p[1]); }
+  function snap(m) { return Math.round(m / SNAP) * SNAP; }
+  function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+
+  // ---- Toast ----
+  var toastEl = null, toastTimer = null;
+  function toast(msg, ok) {
+    if (!toastEl) { toastEl = document.createElement('div'); document.body.appendChild(toastEl); }
+    toastEl.className = 'ag-toast ' + (ok ? 'ag-toast--ok' : 'ag-toast--err');
+    toastEl.textContent = msg;
+    requestAnimationFrame(function () { toastEl.classList.add('is-on'); });
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toastEl.classList.remove('is-on'); }, ok ? 2400 : 4200);
+  }
+  window.agToast = toast;
+
+  function post(payload, cb) {
+    fetch('api/agendamento-acao.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': window.AG_CSRF, 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function (r) { return r.json().then(function (j) { return j; }).catch(function () { return { ok: false, error: 'Resposta inválida.' }; }); })
+      .then(function (j) { cb(!!(j && j.ok), j || {}); })
+      .catch(function () { cb(false, { error: 'Falha de conexão. Verifique a internet.' }); });
+  }
+
+  function colAt(x) { var best = null; cols.forEach(function (c) { var r = c.getBoundingClientRect(); if (x >= r.left && x < r.right) best = c; }); return best; }
+  function evTimes(ev) { return { s: toMin(ev.dataset.start), e: toMin(ev.dataset.end) }; }
+  function applyGeom(ev, s, e) {
+    ev.style.top = ((s - START) * PPM) + 'px';
+    ev.style.height = Math.max(20, (e - s) * PPM) + 'px';
+    ev.dataset.start = toHHMM(s); ev.dataset.end = toHHMM(e);
+    var t = ev.querySelector('.ag-ev__time'); if (t) t.textContent = toHHMM(s) + '–' + toHHMM(e);
+  }
+  function toCol(ev, col) {
+    if (col && ev.parentNode !== col) { col.appendChild(ev); ev.dataset.date = col.dataset.date; ev.style.left = '2px'; ev.style.width = 'calc(100% - 4px)'; }
+  }
+
+  // ---- Arraste (mover / redimensionar) ----
+  var d = null;
+  function begin(ev, mode, e) {
+    var t = evTimes(ev);
+    d = {
+      ev: ev, mode: mode, type: e.pointerType, pid: e.pointerId,
+      x0: e.clientX, y0: e.clientY,
+      s0: t.s, e0: t.e, date0: ev.dataset.date, parent0: ev.parentNode,
+      left0: ev.style.left, width0: ev.style.width,
+      active: false, pending: false, moved: false, timer: null
+    };
+  }
+  function activate() {
+    if (!d) return;
+    d.active = true; d.pending = false;
+    try { d.ev.setPointerCapture(d.pid); } catch (_) {}
+    d.ev.classList.add('is-dragging');
+  }
+  function onDown(e) {
+    var ev = e.target.closest('.ag-ev');
+    if (!ev || ev.dataset.pode !== '1' || d) return;
+    var grip = e.target.closest('.ag-ev__grip');
+    var mode = grip ? ('resize-' + grip.dataset.grip) : 'move';
+    begin(ev, mode, e);
+    document.addEventListener('pointermove', onMove);
+    document.addEventListener('pointerup', onUp);
+    document.addEventListener('pointercancel', onCancel);
+
+    if (e.pointerType === 'touch' && mode === 'move' && !ev.classList.contains('ag-ev--ghost')) {
+      // Long-press para iniciar o arraste; até lá, a rolagem é permitida.
+      d.pending = true;
+      d.timer = setTimeout(function () {
+        activate();
+        if (navigator.vibrate) navigator.vibrate(8);
+      }, 280);
+    } else {
+      activate(); e.preventDefault();
+    }
+  }
+  function onMove(e) {
+    if (!d) return;
+    var dx = e.clientX - d.x0, dy = e.clientY - d.y0;
+    if (d.pending) {
+      // Moveu antes do long-press disparar → é rolagem: desiste do arraste.
+      if (Math.abs(dx) > 8 || Math.abs(dy) > 10) { cleanup(); }
+      return;
+    }
+    if (!d.active) return;
+    if (!d.moved && Math.abs(dx) < 4 && Math.abs(dy) < 4) return;
+    d.moved = true;
+    e.preventDefault();
+    var dm = dy / PPM;
+    if (d.mode === 'move') {
+      var dur = d.e0 - d.s0;
+      var ns = clamp(snap(d.s0 + dm), START, END - dur);
+      applyGeom(d.ev, ns, ns + dur);
+      var col = colAt(e.clientX); if (col) toCol(d.ev, col);
+    } else if (d.mode === 'resize-top') {
+      var nt = clamp(snap(d.s0 + dm), START, d.e0 - MINDUR);
+      applyGeom(d.ev, nt, d.e0);
+    } else {
+      var nb = clamp(snap(d.e0 + dm), d.s0 + MINDUR, END);
+      applyGeom(d.ev, d.s0, nb);
+    }
+  }
+  function revertFull() {
+    if (!d) return;
+    if (d.parent0 && d.ev.parentNode !== d.parent0) d.parent0.appendChild(d.ev);
+    d.ev.dataset.date = d.date0;
+    d.ev.style.left = d.left0; d.ev.style.width = d.width0;
+    applyGeom(d.ev, d.s0, d.e0);
+  }
+  function cleanup() {
+    if (!d) return;
+    if (d.timer) clearTimeout(d.timer);
+    d.ev.classList.remove('is-dragging');
+    try { d.ev.releasePointerCapture(d.pid); } catch (_) {}
+    document.removeEventListener('pointermove', onMove);
+    document.removeEventListener('pointerup', onUp);
+    document.removeEventListener('pointercancel', onCancel);
+    d = null;
+  }
+  function onCancel() { if (d && d.moved) revertFull(); cleanup(); }
+  function onUp() {
+    if (!d) return;
+    var ev = d.ev, mode = d.mode, isGhost = ev.classList.contains('ag-ev--ghost');
+    if (!d.active || !d.moved) { cleanup(); return; } // toque/clique simples: abre o modal
+    ev.setAttribute('data-ag-dragged', '1'); // suprime o "click" sintético
+
+    if (isGhost) { cleanup(); return; } // a cópia só se move; salva pelo botão
+
+    var changed = ev.dataset.date !== d.date0 || ev.dataset.start !== toHHMM(d.s0) || ev.dataset.end !== toHHMM(d.e0);
+    if (!changed) { cleanup(); return; }
+    var snap0 = d; // captura para o callback
+    var acao = mode === 'move' ? 'mover' : 'redimensionar';
+    var payload = { acao: acao, id: +ev.dataset.agId, data: ev.dataset.date, hora_inicio: ev.dataset.start, hora_fim: ev.dataset.end };
+    ev.style.opacity = '.6';
+    post(payload, function (ok, res) {
+      ev.style.opacity = '';
+      if (ok) { location.reload(); }
+      else { d = snap0; revertFull(); d = null; toast(res.error || 'Não foi possível salvar.', false); }
+    });
+    cleanup();
+  }
+  cal.addEventListener('pointerdown', onDown);
+
+  // ---- Clonagem (cópia arrastável) ----
+  var clone = null;
+  function cancelClone() {
+    if (!clone) return;
+    if (clone.ghost && clone.ghost.parentNode) clone.ghost.parentNode.removeChild(clone.ghost);
+    if (clone.hint && clone.hint.parentNode) clone.hint.parentNode.removeChild(clone.hint);
+    clone = null;
+  }
+  window.agStartClone = function (srcId, label) {
+    cancelClone();
+    var src = cal.querySelector('.ag-ev[data-ag-id="' + srcId + '"]');
+    var s, e, col;
+    if (src) { var t = evTimes(src); s = t.s; e = t.e; col = src.parentNode; }
+    else { s = toMin('09:00'); e = s + 60; col = cols[0]; }
+    if (!col) return;
+    var g = document.createElement('div');
+    g.className = 'ag-ev ag-ev--ghost';
+    g.dataset.pode = '1'; g.dataset.clone = String(srcId);
+    g.dataset.start = toHHMM(s); g.dataset.end = toHHMM(e); g.dataset.date = col.dataset.date;
+    g.style.left = '2px'; g.style.width = 'calc(100% - 4px)';
+    g.innerHTML = '<span class="ag-ev__ghosttag">Cópia</span><span class="ag-ev__body"><strong class="ag-ev__time"></strong><span class="ag-ev__pac"></span></span>';
+    col.appendChild(g);
+    applyGeom(g, s, e);
+    g.querySelector('.ag-ev__pac').textContent = label || 'Cópia';
+
+    var hint = document.createElement('div');
+    hint.className = 'ag-clone-hint';
+    hint.innerHTML = '<span>Arraste a <strong>cópia</strong> para o dia/horário desejado.</span>';
+    var ok = document.createElement('button'); ok.className = 'terap-btn terap-btn--sm terap-btn--primary'; ok.textContent = 'Salvar cópia';
+    var no = document.createElement('button'); no.className = 'terap-btn terap-btn--sm terap-btn--ghost'; no.textContent = 'Cancelar';
+    hint.appendChild(ok); hint.appendChild(no);
+    document.body.appendChild(hint);
+    clone = { ghost: g, hint: hint, srcId: srcId };
+
+    no.addEventListener('click', cancelClone);
+    ok.addEventListener('click', function () {
+      ok.disabled = true;
+      post({ acao: 'clonar', source_id: srcId, data: g.dataset.date, hora_inicio: g.dataset.start, hora_fim: g.dataset.end }, function (good, res) {
+        if (good) { location.reload(); }
+        else { ok.disabled = false; toast(res.error || 'Não foi possível clonar.', false); }
+      });
+    });
+  };
+
+  // ---- Reagendar pelo modal ----
+  window.agReschedule = function (id, data, hi, hf, cb) {
+    post({ acao: 'mover', id: +id, data: data, hora_inicio: hi, hora_fim: hf }, function (ok, res) {
+      if (ok) { location.reload(); }
+      else { toast(res.error || 'Não foi possível reagendar.', false); if (cb) cb(false); }
+    });
+  };
+
+  // ---- Criar em espaço vazio (clique na coluna) ----
+  cols.forEach(function (col) {
+    col.addEventListener('click', function (e) {
+      if (e.target.closest('.ag-ev')) return;       // clique num evento já é tratado
+      if (d || clone) return;
+      var r = col.getBoundingClientRect();
+      var min = clamp(snap(START + (e.clientY - r.top) / PPM), START, END - SNAP);
+      window.location = 'agenda.php?novo=1&data=' + encodeURIComponent(col.dataset.date) + '&hora_inicio=' + encodeURIComponent(toHHMM(min));
+    });
+  });
+
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') cancelClone(); });
 })();
 </script>
 
