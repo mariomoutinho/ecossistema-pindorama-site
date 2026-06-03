@@ -16,6 +16,17 @@ $navItems = [
   'lembretes'  => ['label' => 'Lembretes',    'href' => 'lembretes.php',  'icon' => '◐'],
   'conta'      => ['label' => 'Segurança da conta', 'href' => 'conta.php', 'icon' => '◔'],
 ];
+
+// Item exclusivo de administradores (spec §7.1) — só aparece para quem é admin.
+$ehAdmin = isset($terapeutaLogado) && function_exists('auth_is_admin') && auth_is_admin($terapeutaLogado);
+if ($ehAdmin) {
+  $navItems['equipe'] = ['label' => 'Gestão da equipe', 'href' => 'equipe.php', 'icon' => '◈'];
+}
+
+// Rótulo do perfil para exibição discreta (spec §7.2).
+$perfilLabel = (isset($terapeutaLogado) && function_exists('auth_papel_label'))
+  ? auth_papel_label($terapeutaLogado['papel'] ?? 'terapeuta')
+  : 'Terapeuta';
 ?><!doctype html>
 <html lang="pt-br">
 <head>
@@ -48,8 +59,9 @@ $navItems = [
       <span class="terap-avatar" aria-hidden="true"><?= htmlspecialchars(mb_substr($terapeutaLogado['nome'] ?? 'P', 0, 1, 'UTF-8')) ?></span>
       <div class="terap-topbar__userMeta">
         <strong><?= htmlspecialchars(explode(' ', trim($terapeutaLogado['nome'] ?? 'Terapeuta'))[0]) ?></strong>
-        <span><?= htmlspecialchars($terapeutaLogado['especialidade'] ?? 'Terapeuta') ?></span>
+        <span><?= htmlspecialchars($perfilLabel) ?></span>
       </div>
+      <a class="terap-btn terap-btn--ghost" href="conta.php" title="Alterar minha senha">Minha senha</a>
       <a class="terap-btn terap-btn--ghost" href="logout.php" title="Sair">Sair</a>
     </div>
   </div>
