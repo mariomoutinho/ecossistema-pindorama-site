@@ -17,10 +17,26 @@ require_once __DIR__ . '/lib/account.php';
 require_once __DIR__ . '/lib/pacientes.php';
 require_once __DIR__ . '/lib/agendamentos.php';
 require_once __DIR__ . '/lib/pacotes.php';
+require_once __DIR__ . '/lib/audit.php';
+require_once __DIR__ . '/lib/admin.php';
 
 // Garante que os arquivos de dados existam (cria a partir do seed se faltar)
-foreach (['terapeutas', 'agendamentos', 'evolucoes', 'lembretes', 'notificacoes', 'pacientes', 'codigos_senha', 'pacotes', 'pacote_movimentacoes'] as $tbl) {
+foreach (['terapeutas', 'agendamentos', 'evolucoes', 'lembretes', 'notificacoes', 'pacientes', 'codigos_senha', 'pacotes', 'pacote_movimentacoes', 'auditoria'] as $tbl) {
   store_bootstrap($tbl);
+}
+
+// Promoção idempotente do administrador inicial (spec §11). Roda UMA vez por
+// ambiente (marcador em data/), promovendo o e-mail configurado a 'admin' sem
+// duplicar nem mexer na senha. Default aponta para o admin inicial do projeto;
+// pode ser sobrescrito por INITIAL_ADMIN_EMAIL/INITIAL_ADMIN_NAME no ambiente.
+$adminInicialMarker = TERAP_DATA_DIR . '/.admin-inicial.done';
+if (!is_file($adminInicialMarker)) {
+  $adminEmail = admin_normalizar_email((string)terap_env('INITIAL_ADMIN_EMAIL', 'luizmariomoutinho1@gmail.com'));
+  $adminNome  = (string)terap_env('INITIAL_ADMIN_NAME', 'Luiz');
+  if ($adminEmail !== '') {
+    admin_garantir_admin_inicial($adminNome, $adminEmail, null);
+  }
+  @file_put_contents($adminInicialMarker, date('c'));
 }
 
 // Sincroniza terapeutas novos do seed sem sobrescrever os existentes.
