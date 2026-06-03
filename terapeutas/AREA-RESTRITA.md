@@ -127,6 +127,47 @@ troca (validade/uso único/tentativas/reenvio), CRUD e busca de pacientes,
 cálculo de idade, isolamento entre terapeutas, evoluções e vínculo com
 agendamentos.
 
+## Perfis administrativos e gestão da equipe (admin/terapeuta)
+
+A área tem dois perfis no campo `papel` do usuário: **`admin`** (Administrador)
+e **`terapeuta`** (Terapeuta). A autorização é sempre no backend.
+
+- **Fonte de verdade**: `lib/auth.php` (`auth_is_admin`, `auth_require_admin`,
+  `auth_papeis`/`auth_papel_label`) e `lib/admin.php` (regras de negócio).
+- **Tela**: `terapeutas/equipe.php` (rota acessível só a admins; item de menu
+  **Gestão da equipe** aparece apenas para admins). Lista usuários (nome,
+  e-mail, perfil, status, 1º acesso pendente, data) e permite cadastrar, editar
+  dados, alterar perfil, ativar/desativar e redefinir a senha temporária.
+- **Senha temporária**: todo usuário criado/redefinido recebe
+  `must_change_password = true` e é obrigado a trocar a senha no 1º acesso
+  (enforcement em `lib/auth.php`). A troca pode ser **direta** (senha atual +
+  nova, sem e-mail — ver `account_trocar_senha_direta`) ou por **código de
+  e-mail** (fluxo já existente). Ambas em `conta.php`.
+- **Regras de segurança** (em `lib/admin.php`, cobertas por testes):
+  - só admin cria contas e concede/remove o perfil admin;
+  - um admin não desativa a própria conta enquanto autenticado;
+  - o **último administrador ativo** não pode ser rebaixado nem desativado;
+  - e-mail normalizado e único; senha só como hash.
+- **Agenda** (`agenda.php`): admin vê e edita todos os agendamentos, atribui
+  qualquer terapeuta e tem **filtro por terapeuta**; terapeuta gere só os seus
+  (regras em `lib/agendamentos.php`, já existentes).
+- **Auditoria mínima** (`lib/audit.php` → `data/terapeutas/auditoria.json`):
+  registra usuário criado, perfil alterado, conta ativada/desativada e senha
+  temporária redefinida — sem senhas, hashes ou códigos.
+
+### Configurar o administrador inicial (Luiz) — idempotente
+
+1. O **bootstrap** promove o e-mail configurado a `admin` **uma vez por
+   ambiente** (marcador `data/terapeutas/.admin-inicial.done`), sem duplicar e
+   sem mexer na senha. Default: `luizmariomoutinho1@gmail.com` / nome `Luiz`.
+   Para outro e-mail, defina `INITIAL_ADMIN_EMAIL`/`INITIAL_ADMIN_NAME` no
+   ambiente (ver `.env.example`).
+2. Para definir a **senha inicial** de Luiz sem expor credenciais, use o
+   provisionamento já existente (CLI `bin/provisionar-terapeuta.php` com
+   `INITIAL_THERAPIST_*`, ou o `provisionar.php` web). A senha vira hash na hora
+   — nunca é impressa nem versionada. O e-mail no seed/bootstrap **não** é
+   segredo; a senha real nunca está no Git.
+
 ## Fluxo de troca de senha por código (resumo)
 
 1. **Segurança da conta → Enviar código**: gera código de 6 dígitos, guarda

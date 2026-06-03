@@ -24,10 +24,13 @@ putenv('TERAP_MAIL_FROM=teste@local');
 
 require_once __DIR__ . '/../lib/storage.php';
 require_once __DIR__ . '/../lib/mailer.php';
+require_once __DIR__ . '/../lib/auth.php';
 require_once __DIR__ . '/../lib/account.php';
 require_once __DIR__ . '/../lib/pacientes.php';
 require_once __DIR__ . '/../lib/agendamentos.php';
 require_once __DIR__ . '/../lib/pacotes.php';
+require_once __DIR__ . '/../lib/audit.php';
+require_once __DIR__ . '/../lib/admin.php';
 
 // ---- Mini framework ----
 $TESTS = ['pass' => 0, 'fail' => 0, 'fails' => []];
@@ -410,6 +413,121 @@ eq(count(store_where('pacotes', fn($p) => (int)$p['paciente_id'] === (int)$ron['
 store_insert('pacientes', ['nome_completo' => 'Ronaldo Segundo', 'terapeuta_id' => 77, 'status' => 'ativo']);
 $r3 = rodar_ronaldo($TMP, $scriptR, ['--aplicar']);
 eq($r3['code'], 2, 'múltiplos Ronaldos: exige desambiguação (exit 2)');
+
+// =====================================================================
+section('Agenda — status estendidos e sessão no pacote (Fase 3)');
+eq(agenda_status_label('confirmado'), 'Confirmado', 'rótulo de status: confirmado');
+eq(agenda_status_label('falta'), 'Falta', 'rótulo de status: falta');
+eq(agenda_status_label('reagendado'), 'Reagendado', 'rótulo de status: reagendado');
+ok(agenda_status_ativo('confirmado'), 'confirmado ocupa a sessão');
+ok(!agenda_status_ativo('cancelado'), 'cancelado não ocupa');
+ok(!agenda_status_ativo('falta'), 'falta não é status ativo');
+
+limpar_tabelas(['pacotes', 'pacote_movimentacoes', 'agendamentos']);
+$rk = pacote_criar(['paciente_id' => 700, 'terapeuta_id' => 501, 'nome' => 'P', 'terapia' => 'M', 'total_sessoes' => 10]);
+$pkid = (int)$rk['pacote']['id'];
+$x1 = store_insert('agendamentos', ['paciente_package_id' => $pkid, 'data' => '2026-08-01', 'hora_inicio' => '09:00', 'status' => 'agendado']);
+$x2 = store_insert('agendamentos', ['paciente_package_id' => $pkid, 'data' => '2026-08-08', 'hora_inicio' => '09:00', 'status' => 'agendado']);
+$x3 = store_insert('agendamentos', ['paciente_package_id' => $pkid, 'data' => '2026-08-15', 'hora_inicio' => '09:00', 'status' => 'agendado']);
+$pos2 = agenda_sessao_no_pacote(store_find('agendamentos', (int)$x2['id']));
+eq($pos2['n'], 2, 'sessão do meio é a 2ª');
+eq($pos2['m'], 10, 'total de sessões = 10');
+eq(agenda_sessao_no_pacote(store_find('agendamentos', (int)$x3['id']))['n'], 3, 'última é a 3ª');
+store_update('agendamentos', (int)$x1['id'], ['status' => 'cancelado']);
+eq(agenda_sessao_no_pacote(store_find('agendamentos', (int)$x3['id']))['n'], 2, 'cancelado sai da contagem (3ª vira 2ª)');
+ok(agenda_sessao_no_pacote(['paciente_package_id' => 0, 'id' => 1]) === null, 'sem pacote: retorna null');
+
+// =====================================================================
+section('Perfis e autorização administrativa');
+eq(auth_papel_label('admin'), 'Administrador', 'rótulo do perfil admin');
+eq(auth_papel_label('terapeuta'), 'Terapeuta', 'rótulo do perfil terapeuta');
+eq(auth_papel_label('qualquer'), 'Terapeuta', 'perfil desconhecido cai em Terapeuta');
+ok(auth_papel_valido('admin') && auth_papel_valido('terapeuta'), 'perfis válidos aceitos');
+ok(!auth_papel_valido('root'), 'perfil inválido rejeitado');
+ok(auth_is_admin(['papel' => 'admin']), 'auth_is_admin reconhece admin');
+ok(!auth_is_admin(['papel' => 'terapeuta']), 'auth_is_admin nega terapeuta');
+ok(!auth_is_admin(null), 'auth_is_admin nega nulo');
+
+section('Gestão da equipe — criação, validação e regras de segurança');
+limpar_tabelas(['terapeutas', 'auditoria', 'codigos_senha']);
+$admin = store_insert('terapeutas', ['nome' => 'Coordenação', 'email' => 'coord@x.com', 'senha_hash' => password_hash('Coord123', PASSWORD_DEFAULT), 'ativo' => true, 'papel' => 'admin']);
+$terap = store_insert('terapeutas', ['nome' => 'Terap', 'email' => 'terap@x.com', 'senha_hash' => password_hash('Terap123', PASSWORD_DEFAULT), 'ativo' => true, 'papel' => 'terapeuta']);
+
+// Terapeuta não pode criar contas.
+$rNeg = admin_criar_usuario($terap, ['nome' => 'X', 'email' => 'x@x.com', 'papel' => 'terapeuta', 'senha' => 'Abcd1234', 'confirma' => 'Abcd1234']);
+ok(!$rNeg['ok'], 'terapeuta não cria usuários');
+
+// Admin cria terapeuta com senha temporária (must_change_password).
+$rOk = admin_criar_usuario($admin, ['nome' => 'Nova Terapeuta', 'email' => 'NOVA@x.com ', 'papel' => 'terapeuta', 'senha' => 'Abcd1234', 'confirma' => 'Abcd1234']);
+ok($rOk['ok'], 'admin cria usuário com senha temporária');
+$nova = store_find('terapeutas', $rOk['id']);
+eq($nova['email'], 'nova@x.com', 'e-mail normalizado (minúsculas/trim)');
+ok(!empty($nova['must_change_password']), 'novo usuário exige troca de senha');
+ok($nova['senha_hash'] !== 'Abcd1234', 'senha guardada como hash, nunca em claro');
+
+// E-mail duplicado e validações.
+$rDup = admin_criar_usuario($admin, ['nome' => 'Dup', 'email' => 'nova@x.com', 'papel' => 'terapeuta', 'senha' => 'Abcd1234', 'confirma' => 'Abcd1234']);
+ok(!$rDup['ok'], 'e-mail duplicado rejeitado');
+$rMail = admin_criar_usuario($admin, ['nome' => 'M', 'email' => 'invalido', 'papel' => 'terapeuta', 'senha' => 'Abcd1234', 'confirma' => 'Abcd1234']);
+ok(!$rMail['ok'], 'e-mail inválido rejeitado');
+$rConf = admin_criar_usuario($admin, ['nome' => 'C', 'email' => 'c@x.com', 'papel' => 'terapeuta', 'senha' => 'Abcd1234', 'confirma' => 'OUTRA123']);
+ok(!$rConf['ok'], 'confirmação divergente rejeitada');
+$rPap = admin_criar_usuario($admin, ['nome' => 'P', 'email' => 'p@x.com', 'papel' => 'root', 'senha' => 'Abcd1234', 'confirma' => 'Abcd1234']);
+ok(!$rPap['ok'], 'perfil inexistente rejeitado');
+$rFraca = admin_criar_usuario($admin, ['nome' => 'F', 'email' => 'f@x.com', 'papel' => 'terapeuta', 'senha' => 'abc', 'confirma' => 'abc']);
+ok(!$rFraca['ok'], 'senha fraca rejeitada');
+
+// Admin cria outro admin.
+$rAdm = admin_criar_usuario($admin, ['nome' => 'Admin 2', 'email' => 'adm2@x.com', 'papel' => 'admin', 'senha' => 'Abcd1234', 'confirma' => 'Abcd1234']);
+ok($rAdm['ok'], 'admin cria outro admin');
+eq(admin_contar_admins_ativos(), 2, 'agora há 2 admins ativos');
+
+// Promover terapeuta e rebaixar — regras do último admin.
+ok(admin_alterar_papel($admin, (int)$terap['id'], 'admin')['ok'], 'admin promove terapeuta a admin');
+eq(admin_contar_admins_ativos(), 3, '3 admins ativos após promoção');
+// Rebaixa adm2 e terap de volta — restam só 1 admin (coordenação) e deve travar.
+admin_alterar_papel($admin, (int)$rAdm['id'], 'terapeuta');
+admin_alterar_papel($admin, (int)$terap['id'], 'terapeuta');
+eq(admin_contar_admins_ativos(), 1, 'sobra 1 admin ativo');
+ok(admin_eh_ultimo_admin_ativo((int)$admin['id']), 'coordenação é o último admin ativo');
+$rUlt = admin_alterar_papel($admin, (int)$admin['id'], 'terapeuta');
+ok(!$rUlt['ok'], 'último admin ativo não pode ser rebaixado');
+
+// Não desativar a si mesmo; não desativar o último admin ativo.
+$rEu = admin_definir_status($admin, (int)$admin['id'], false);
+ok(!$rEu['ok'], 'admin não desativa a própria conta');
+// terap agora é terapeuta: pode desativar.
+ok(admin_definir_status($admin, (int)$terap['id'], false)['ok'], 'admin desativa um terapeuta');
+$tDesat = store_find('terapeutas', (int)$terap['id']);
+ok(empty($tDesat['ativo']), 'conta marcada como desativada');
+ok(admin_definir_status($admin, (int)$terap['id'], true)['ok'], 'admin reativa a conta');
+
+// Redefinir senha temporária.
+$rRed = admin_redefinir_senha_temp($admin, (int)$nova['id'], 'NovaSenha9', 'NovaSenha9');
+ok($rRed['ok'], 'admin redefine senha temporária');
+$nova2 = store_find('terapeutas', (int)$nova['id']);
+ok(!empty($nova2['must_change_password']), 'redefinição re-exige troca no próximo acesso');
+ok(password_verify('NovaSenha9', $nova2['senha_hash']), 'nova senha temporária vira hash válido');
+
+section('Troca direta de senha (primeiro acesso, sem e-mail)');
+$rAtual = account_trocar_senha_direta((int)$nova['id'], 'errada', 'OutraSenha9', 'OutraSenha9');
+eq($rAtual['motivo'], 'atual_incorreta', 'senha atual incorreta é rejeitada');
+$rIgual = account_trocar_senha_direta((int)$nova['id'], 'NovaSenha9', 'NovaSenha9', 'NovaSenha9');
+eq($rIgual['motivo'], 'senha_igual', 'nova senha igual à atual é rejeitada');
+$rTroca = account_trocar_senha_direta((int)$nova['id'], 'NovaSenha9', 'DefinitivaX1', 'DefinitivaX1');
+ok($rTroca['ok'], 'troca direta com senha atual correta funciona');
+$nova3 = store_find('terapeutas', (int)$nova['id']);
+ok(empty($nova3['must_change_password']), 'must_change_password limpo após troca');
+ok(password_verify('DefinitivaX1', $nova3['senha_hash']), 'nova senha pessoal salva como hash');
+
+section('Admin inicial idempotente (spec §11)');
+limpar_tabelas(['terapeutas']);
+store_insert('terapeutas', ['nome' => 'Luiz', 'email' => 'luiz@x.com', 'senha_hash' => password_hash('Temp1234', PASSWORD_DEFAULT), 'ativo' => true, 'papel' => 'terapeuta']);
+eq(admin_garantir_admin_inicial('Luiz', 'luiz@x.com'), 'promoted', '1ª execução promove a admin');
+eq(admin_garantir_admin_inicial('Luiz', 'luiz@x.com'), 'noop', '2ª execução não faz nada (idempotente)');
+eq(count(store_where('terapeutas', fn($r) => strtolower($r['email']) === 'luiz@x.com')), 1, 'não duplica o usuário');
+$luiz = store_where('terapeutas', fn($r) => strtolower($r['email']) === 'luiz@x.com')[0];
+eq($luiz['papel'], 'admin', 'Luiz ficou admin');
 
 // =====================================================================
 // Limpeza
