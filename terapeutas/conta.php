@@ -20,6 +20,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   } else {
     $acao = $_POST['acao'] ?? '';
 
+    // Troca direta: senha atual + nova + confirmação (não depende de e-mail).
+    // É o caminho do primeiro acesso (senha temporária conhecida pelo usuário).
+    if ($acao === 'trocar_direta') {
+      $atual    = (string)($_POST['senha_atual'] ?? '');
+      $nova     = (string)($_POST['nova_senha'] ?? '');
+      $confirma = (string)($_POST['confirma_senha'] ?? '');
+      $res = account_trocar_senha_direta((int)$terapeutaLogado['id'], $atual, $nova, $confirma);
+      if (!empty($res['ok'])) {
+        flash_set('success', 'Senha alterada com sucesso. Use a nova senha nos próximos acessos.');
+        header('Location: index.php');
+        exit;
+      }
+      switch ($res['motivo']) {
+        case 'atual_incorreta': $erros[] = 'A senha atual está incorreta.'; break;
+        case 'confirma':        $erros[] = 'A confirmação não confere com a nova senha.'; break;
+        case 'senha_igual':     $erros[] = 'A nova senha deve ser diferente da atual.'; break;
+        case 'senha_fraca':     $erros[] = $res['detalhe'] ?? 'Senha fora da política mínima.'; break;
+        default:                $erros[] = 'Não foi possível alterar a senha. Tente novamente.';
+      }
+    }
+
     if ($acao === 'solicitar') {
       $res = account_solicitar_codigo((int)$terapeutaLogado['id'], $devCodigo);
       if (!empty($res['ok'])) {
@@ -107,6 +128,35 @@ require __DIR__ . '/partials/header.php';
 <?php endforeach; ?>
 
 <div class="terap-grid">
+  <section class="terap-card terap-span-12">
+    <h2>Trocar a senha agora<?= $primeiroAcesso ? ' (recomendado)' : '' ?></h2>
+    <p style="margin-bottom:14px;">Informe a sua senha atual<?= $primeiroAcesso ? ' (a temporária recebida)' : '' ?> e defina uma nova senha. Mínimo de 8 caracteres, com letra e número.</p>
+    <form method="post" class="terap-form" action="conta.php<?= $primeiroAcesso ? '?primeiro_acesso=1' : '' ?>" autocomplete="off">
+      <input type="hidden" name="csrf" value="<?= htmlspecialchars($csrf) ?>">
+      <input type="hidden" name="acao" value="trocar_direta">
+      <div class="terap-field--row" style="display:flex;gap:12px;flex-wrap:wrap;">
+        <div class="terap-field" style="flex:1;min-width:220px;">
+          <label for="senha_atual_d">Senha atual</label>
+          <input id="senha_atual_d" name="senha_atual" type="password" required autocomplete="current-password" placeholder="Sua senha atual">
+        </div>
+        <div class="terap-field" style="flex:1;min-width:220px;">
+          <label for="nova_senha_d">Nova senha</label>
+          <input id="nova_senha_d" name="nova_senha" type="password" required minlength="8" autocomplete="new-password" placeholder="Nova senha">
+        </div>
+        <div class="terap-field" style="flex:1;min-width:220px;">
+          <label for="confirma_senha_d">Confirmar nova senha</label>
+          <input id="confirma_senha_d" name="confirma_senha" type="password" required minlength="8" autocomplete="new-password" placeholder="Repita a nova senha">
+        </div>
+      </div>
+      <button type="submit" class="terap-btn terap-btn--primary">Salvar nova senha</button>
+    </form>
+  </section>
+
+  <section class="terap-card terap-span-12" style="margin-top:6px;">
+    <h2 style="margin-bottom:4px;">Ou troque por código de e-mail</h2>
+    <p style="color:var(--muted);font-size:13px;margin:0;">Caso prefira (ou tenha esquecido a senha atual), receba um código no seu e-mail cadastrado.</p>
+  </section>
+
   <section class="terap-card terap-span-6">
     <h2>1. Receber código</h2>
     <p style="margin-bottom:14px;">Enviaremos um código de 6 dígitos para <strong><?= htmlspecialchars($emailMasc) ?></strong>. Ele vale por 10 minutos.</p>

@@ -106,6 +106,13 @@ require __DIR__ . '/partials/header.php';
     <strong>Marcar atendimento</strong>
     <span>Sala, horário, paciente — sem choque de horários.</span>
   </a>
+  <?php if (auth_is_admin($terapeutaLogado)): ?>
+  <a class="terap-shortcut terap-span-3" href="equipe.php">
+    <span class="terap-tag terap-tag--sand">Admin</span>
+    <strong>Gestão da equipe</strong>
+    <span>Cadastrar terapeutas e administradores, perfis e senhas.</span>
+  </a>
+  <?php endif; ?>
 
   <!-- PRÓXIMOS ATENDIMENTOS -->
   <section class="terap-card terap-span-8">
