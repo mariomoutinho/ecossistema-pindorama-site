@@ -386,10 +386,14 @@ function evento_passa_filtro(array $a, string $filtro): bool {
   return $s !== 'cancelado';
 }
 
+// Filtro por terapeuta — exclusivo de administradores (spec §8.2). 0 = todos.
+$filtroTerap = ($isAdmin && isset($_GET['terapeuta'])) ? (int)$_GET['terapeuta'] : 0;
+
 $todosAtend = store_all('agendamentos');
 $eventosPorDia = array_fill_keys($diasSem, []);
 foreach ($todosAtend as $a) {
   if (!evento_passa_filtro($a, $filtroStatus)) continue;
+  if ($filtroTerap > 0 && (int)($a['terapeuta_id'] ?? 0) !== $filtroTerap) continue;
   $d = $a['data'] ?? '';
   if (isset($eventosPorDia[$d])) $eventosPorDia[$d][] = $a;
 }
@@ -468,6 +472,21 @@ $nomeTerap = function (int $id): string {
     Todos <span><?= $contagens['todos'] ?></span>
   </a>
 </div>
+
+<?php if ($isAdmin): ?>
+<!-- FILTRO POR TERAPEUTA (apenas administradores) -->
+<form method="get" class="terap-filters" style="align-items:center;gap:8px;margin-top:6px;">
+  <input type="hidden" name="status" value="<?= htmlspecialchars($filtroStatus) ?>">
+  <input type="hidden" name="semana" value="<?= htmlspecialchars($inicio) ?>">
+  <label for="filtroTerap" style="font-size:13px;color:var(--muted);">Terapeuta:</label>
+  <select id="filtroTerap" name="terapeuta" onchange="this.form.submit()">
+    <option value="0">Todos da equipe</option>
+    <?php foreach ($terapeutasAtivos as $t): ?>
+      <option value="<?= (int)$t['id'] ?>" <?= $filtroTerap === (int)$t['id'] ? 'selected' : '' ?>><?= htmlspecialchars($t['nome']) ?></option>
+    <?php endforeach; ?>
+  </select>
+</form>
+<?php endif; ?>
 
 <?php if ($flash): ?>
   <div class="terap-alert terap-alert--<?= htmlspecialchars($flash['type']) ?>"><?= htmlspecialchars($flash['msg']) ?></div>
