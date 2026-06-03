@@ -530,6 +530,39 @@ $luiz = store_where('terapeutas', fn($r) => strtolower($r['email']) === 'luiz@x.
 eq($luiz['papel'], 'admin', 'Luiz ficou admin');
 
 // =====================================================================
+section('Agenda — geometria, conflito e validação de intervalo (timeline)');
+eq(agenda_minutos('15:30'), 930, '15:30 → 930 min');
+eq(agenda_minutos('07:00'), 420, '07:00 → 420 min');
+ok(agenda_minutos('99:99') === null, 'hora inválida → null');
+eq(agenda_hhmm(930), '15:30', '930 min → 15:30');
+eq(agenda_hhmm(615), '10:15', '615 min → 10:15');
+
+// Validação de intervalo (formato, fim>início, duração mín., faixa 07–22).
+ok(agenda_validar_intervalo('2026-06-03', '15:30', '16:30')['ok'], '15:30–16:30 é válido');
+ok(agenda_validar_intervalo('2026-06-03', '18:30', '22:00')['ok'], '18:30–22:00 cabe na grade (até 22h)');
+ok(!agenda_validar_intervalo('2026-06-03', '16:30', '16:30')['ok'], 'fim igual ao início é inválido');
+ok(!agenda_validar_intervalo('2026-06-03', '16:30', '15:30')['ok'], 'fim antes do início é inválido');
+ok(!agenda_validar_intervalo('2026-06-03', '15:00', '15:10')['ok'], 'duração < 15 min é inválida');
+ok(agenda_validar_intervalo('2026-06-03', '15:00', '15:15')['ok'], 'duração de exatamente 15 min é válida');
+ok(!agenda_validar_intervalo('2026-06-03', '06:30', '07:30')['ok'], 'antes das 07h é inválido');
+ok(!agenda_validar_intervalo('2026-06-03', '21:30', '22:30')['ok'], 'depois das 22h é inválido');
+ok(!agenda_validar_intervalo('03/06/2026', '15:00', '16:00')['ok'], 'data fora do formato ISO é inválida');
+
+// Conflito por SALA (regra do projeto): mesma sala+data sobrepondo bloqueia;
+// salas diferentes ou cancelados não bloqueiam.
+limpar_tabelas(['agendamentos']);
+store_insert('agendamentos', ['data' => '2026-06-03', 'hora_inicio' => '15:00', 'hora_fim' => '16:00', 'sala' => 'sala-1', 'status' => 'agendado']);
+$todosAg = store_all('agendamentos');
+ok(agenda_ha_conflito($todosAg, '2026-06-03', '15:30', '16:30', 'sala-1', null), 'sobreposição na mesma sala bloqueia');
+ok(!agenda_ha_conflito($todosAg, '2026-06-03', '15:30', '16:30', 'sala-2', null), 'sala diferente não bloqueia');
+ok(!agenda_ha_conflito($todosAg, '2026-06-03', '16:00', '17:00', 'sala-1', null), 'encostar no fim (16:00) não é conflito');
+ok(!agenda_ha_conflito($todosAg, '2026-06-04', '15:30', '16:30', 'sala-1', null), 'outro dia não bloqueia');
+$idA = (int)$todosAg[0]['id'];
+ok(!agenda_ha_conflito($todosAg, '2026-06-03', '15:30', '16:30', 'sala-1', $idA), 'ignorar o próprio id não bloqueia (mover/redimensionar)');
+store_update('agendamentos', $idA, ['status' => 'cancelado']);
+ok(!agenda_ha_conflito(store_all('agendamentos'), '2026-06-03', '15:30', '16:30', 'sala-1', null), 'cancelado nunca bloqueia');
+
+// =====================================================================
 // Limpeza
 array_map('unlink', glob($TMP . '/*.json') ?: []);
 array_map('unlink', glob($TMP . '/_mail/*.eml') ?: []);
