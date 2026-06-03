@@ -161,6 +161,44 @@ function account_trocar_senha(int $terapeutaId, string $codigo, string $novaSenh
 }
 
 /**
+ * Troca direta de senha: valida a senha ATUAL e define a nova (spec §6 e
+ * "alterar a própria senha"). Não depende de e-mail — é o caminho usado no
+ * primeiro acesso (senha temporária conhecida pelo usuário) e por quem quer
+ * trocar a senha sem código. Salva apenas o hash e limpa must_change_password.
+ *
+ * Retorna ['ok'=>bool, 'motivo'=>string].
+ *   motivos de erro: 'indisponivel', 'atual_incorreta', 'confirma', 'senha_fraca', 'senha_igual'
+ */
+function account_trocar_senha_direta(int $terapeutaId, string $senhaAtual, string $novaSenha, string $confirmaSenha): array {
+  $u = store_find('terapeutas', $terapeutaId);
+  if (!$u || empty($u['ativo'])) {
+    return ['ok' => false, 'motivo' => 'indisponivel'];
+  }
+  if (!password_verify($senhaAtual, (string)($u['senha_hash'] ?? ''))) {
+    return ['ok' => false, 'motivo' => 'atual_incorreta'];
+  }
+  if ($novaSenha !== $confirmaSenha) {
+    return ['ok' => false, 'motivo' => 'confirma'];
+  }
+  $forca = account_validar_forca_senha($novaSenha);
+  if ($forca !== true) {
+    return ['ok' => false, 'motivo' => 'senha_fraca', 'detalhe' => $forca];
+  }
+  if (password_verify($novaSenha, (string)($u['senha_hash'] ?? ''))) {
+    return ['ok' => false, 'motivo' => 'senha_igual'];
+  }
+
+  store_update('terapeutas', $terapeutaId, [
+    'senha_hash'           => password_hash($novaSenha, PASSWORD_DEFAULT),
+    'must_change_password' => false,
+    'senha_trocada_em'     => date('c'),
+  ]);
+  // Qualquer código de troca por e-mail pendente perde a validade.
+  account_invalidar_codigos($terapeutaId);
+  return ['ok' => true, 'motivo' => 'trocada'];
+}
+
+/**
  * Política de senha: mínimo 8 caracteres, com ao menos uma letra e um número.
  * Retorna true se válida, ou string com a mensagem de erro.
  */

@@ -19,6 +19,48 @@ function auth_logged_in(): bool {
   return auth_user() !== null;
 }
 
+/**
+ * Papéis internos válidos e seus rótulos para a interface (pt-BR).
+ * Mantido aqui para ser a única fonte de verdade dos perfis.
+ */
+function auth_papeis(): array {
+  return ['admin' => 'Administrador', 'terapeuta' => 'Terapeuta'];
+}
+
+function auth_papel_valido(string $papel): bool {
+  return array_key_exists($papel, auth_papeis());
+}
+
+function auth_papel_label(?string $papel): string {
+  $papel = (string)$papel;
+  return auth_papeis()[$papel] ?? 'Terapeuta';
+}
+
+/**
+ * O usuário logado é administrador? (perfil = 'admin').
+ * Fonte única de verdade para a autorização administrativa no backend.
+ */
+function auth_is_admin(?array $usuario = null): bool {
+  $u = $usuario ?? auth_user();
+  return $u !== null && ($u['papel'] ?? 'terapeuta') === 'admin';
+}
+
+/**
+ * Exige sessão de administrador. Para acessos via navegador, redireciona com
+ * mensagem; para chamadas de API (JSON), responde 403. Nunca confia no
+ * frontend — toda rota administrativa deve chamar isto.
+ */
+function auth_require_admin(string $redirectUrl = 'index.php'): void {
+  auth_require_login('login.php');
+  if (auth_is_admin()) return;
+
+  if (function_exists('flash_set')) {
+    flash_set('error', 'Acesso restrito à coordenação. Você não tem permissão para essa área.');
+  }
+  header('Location: ' . $redirectUrl);
+  exit;
+}
+
 function auth_require_login(string $loginUrl = 'login.php'): void {
   if (!auth_logged_in()) {
     $back = $_SERVER['REQUEST_URI'] ?? '';
