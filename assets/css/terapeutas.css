@@ -1027,3 +1027,84 @@
   background: rgba(196, 106, 74, .1);
   color: var(--clay2);
 }
+
+/* Badges dos status estendidos (Fase 3) */
+.terap-tooltip__status--confirmado { background: rgba(102, 180, 143, .26); color: var(--leaf2); border-color: rgba(102, 180, 143, .5); }
+.terap-tooltip__status--falta      { background: rgba(196, 106, 74, .16);  color: var(--clay2); border-color: rgba(196, 106, 74, .35); }
+.terap-tooltip__status--reagendado { background: rgba(244, 231, 211, .12); color: var(--sand);  border-color: rgba(244, 231, 211, .3); }
+.terap-week__event--confirmado { border-color: rgba(102, 180, 143, .6); box-shadow: inset 0 0 0 1px rgba(102, 180, 143, .35); }
+.terap-week__event--falta { background: repeating-linear-gradient(135deg, rgba(196,106,74,.10) 0 8px, rgba(196,106,74,.03) 8px 16px); border-color: rgba(196,106,74,.3); }
+.terap-week__event--reagendado { background: linear-gradient(135deg, rgba(244,231,211,.2), rgba(244,231,211,.06)); border-color: rgba(244,231,211,.35); }
+
+/* ============================================================
+   Modal flutuante do agendamento (Fase 3)
+   ============================================================ */
+.ag-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.ag-modal[hidden] { display: none; }
+.ag-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 8, 6, .66);
+  backdrop-filter: blur(2px);
+}
+.ag-modal__panel {
+  position: relative;
+  width: min(480px, 100%);
+  max-height: 88vh;
+  overflow-y: auto;
+  background: #0E1C17;
+  border: 1px solid rgba(102, 180, 143, .3);
+  border-radius: 18px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .55);
+  padding: 22px;
+}
+.ag-modal__x {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: rgba(234, 243, 239, .05);
+  color: var(--text);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+.ag-modal__x:hover { background: rgba(234, 243, 239, .12); }
+.ag-modal__loading { color: var(--muted); font-size: 14px; padding: 8px 0; }
+.ag-modal__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 30px 14px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+.ag-modal__head h3 { margin: 0; font-size: 18px; }
+.ag-modal__list { display: grid; gap: 8px; margin: 0 0 16px; }
+.ag-modal__list > div { display: grid; grid-template-columns: 110px 1fr; gap: 10px; }
+.ag-modal__list dt { margin: 0; color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .5px; }
+.ag-modal__list dd { margin: 0; color: var(--text); font-size: 14px; white-space: pre-wrap; }
+.ag-modal__actions { display: flex; flex-wrap: wrap; gap: 8px; }
+
+@media (max-width: 560px) {
+  .ag-modal { padding: 0; align-items: flex-end; }
+  .ag-modal__panel {
+    width: 100%;
+    max-height: 92vh;
+    border-radius: 18px 18px 0 0;
+    padding: 20px 16px 24px;
+  }
+  .ag-modal__list > div { grid-template-columns: 1fr; gap: 2px; }
+}

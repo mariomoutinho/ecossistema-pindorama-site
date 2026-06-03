@@ -245,6 +245,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $terapId     = agenda_resolver_terapeuta_id($terapeutaLogado, (int)($_POST['terapeuta_id'] ?? 0), $atendExistente);
       $paciente    = trim($_POST['paciente'] ?? '');
       $observacoes = trim($_POST['observacoes'] ?? '');
+      $terapia     = trim($_POST['terapia'] ?? '');
 
       // Vínculo opcional com paciente cadastrado (do terapeuta logado).
       $pacienteId  = (int)($_POST['paciente_id'] ?? 0);
@@ -310,6 +311,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           'paciente'            => $paciente,
           'paciente_id'         => $pacienteId,
           'paciente_package_id' => $pacotePkgId,
+          'terapia'             => $terapia,
           'observacoes'         => $observacoes,
         ];
         if (!$id) {
@@ -355,6 +357,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           'paciente'            => $paciente,
           'paciente_id'         => $pacienteId,
           'paciente_package_id' => $pacotePkgId,
+          'terapia'             => $terapia,
           'observacoes'         => $observacoes,
         ];
         $mostrarForm = true;
@@ -512,7 +515,8 @@ $nomeTerap = function (int $id): string {
   $valTerap   = (int)($registroEdit['terapeuta_id'] ?? $terapeutaLogado['id']);
   $valPaciente= $registroEdit['paciente']     ?? '';
   $valObs     = $registroEdit['observacoes']  ?? '';
-  $valId      = (int)($registroEdit['id']     ?? 0);
+  $valTerapia = $registroEdit['terapia']      ?? '';
+  $valId      = ($clonando ?? false) ? 0 : (int)($registroEdit['id'] ?? 0);
 
   // Vínculo com paciente cadastrado: edição traz do registro; novo aceita ?paciente_id=.
   $valPacienteId = (int)($registroEdit['paciente_id'] ?? 0);
@@ -526,8 +530,12 @@ $nomeTerap = function (int $id): string {
   $pkgOpcoes = $valPacienteId ? pacote_ativos_do_paciente($valPacienteId, (int)$terapeutaLogado['id']) : [];
 ?>
   <section class="terap-card terap-span-12" style="margin-bottom:18px;">
-    <h2><?= $valId ? 'Editar atendimento' : 'Novo atendimento' ?></h2>
-    <p style="margin-bottom:14px;">Sala/espaço com horário ocupado será bloqueado automaticamente.</p>
+    <h2><?= $clonando ? 'Clonar atendimento' : ($valId ? 'Editar atendimento' : 'Novo atendimento') ?></h2>
+    <?php if ($clonando): ?>
+      <div class="terap-alert terap-alert--info">Clonando os dados do atendimento. Confirme/ajuste <strong>data e horário</strong> e salve — uma nova sessão do pacote só é reservada ao salvar.</div>
+    <?php else: ?>
+      <p style="margin-bottom:14px;">Sala/espaço com horário ocupado será bloqueado automaticamente.</p>
+    <?php endif; ?>
 
     <form method="post" class="terap-form" action="agenda.php">
       <input type="hidden" name="csrf" value="<?= htmlspecialchars($csrf) ?>">
@@ -616,6 +624,11 @@ $nomeTerap = function (int $id): string {
       </div>
 
       <div class="terap-field">
+        <label for="terapia">Terapia / tipo de atendimento</label>
+        <input id="terapia" name="terapia" maxlength="80" value="<?= htmlspecialchars($valTerapia) ?>" placeholder="Ex.: Massoterapia, escuta, auriculo…">
+      </div>
+
+      <div class="terap-field">
         <label for="observacoes">Observações</label>
         <textarea id="observacoes" name="observacoes" rows="3" placeholder="Anotações rápidas sobre a sessão, ajustes de horário etc."><?= htmlspecialchars($valObs) ?></textarea>
       </div>
@@ -677,6 +690,7 @@ $nomeTerap = function (int $id): string {
             <span class="terap-tooltip-host">
               <a class="terap-week__event<?= $cls ?>"
                  href="agenda.php?editar=<?= (int)$e['id'] ?>"
+                 data-ag-id="<?= (int)$e['id'] ?>"
                  aria-describedby="<?= $tipId ?>">
                 <strong><?= htmlspecialchars(substr($e['hora_inicio'], 0, 5)) ?>–<?= htmlspecialchars(substr($e['hora_fim'], 0, 5)) ?></strong>
                 <?= htmlspecialchars($e['paciente'] ?? '—') ?>
@@ -926,6 +940,164 @@ $nomeTerap = function (int $id): string {
 
   // Estado inicial (edição/pré-preenchido): saldo já reflete o pacote atual.
   atualizarSaldo();
+})();
+</script>
+
+<!-- MODAL FLUTUANTE DO AGENDAMENTO -->
+<div class="ag-modal" id="agModal" hidden role="dialog" aria-modal="true" aria-labelledby="agModalTitle">
+  <div class="ag-modal__backdrop" data-close></div>
+  <div class="ag-modal__panel" role="document">
+    <button class="ag-modal__x" type="button" data-close aria-label="Fechar">&times;</button>
+    <div class="ag-modal__loading" id="agModalLoading">Carregando…</div>
+    <div class="ag-modal__content" id="agModalContent" hidden>
+      <div class="ag-modal__head">
+        <h3 id="agModalTitle"></h3>
+        <span class="terap-tooltip__status" id="agModalStatus"></span>
+      </div>
+      <dl class="ag-modal__list" id="agModalList"></dl>
+      <div class="ag-modal__actions" id="agModalActions"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+window.AG_CSRF = <?= json_encode(auth_csrf_token()) ?>;
+(function () {
+  var modal = document.getElementById('agModal');
+  if (!modal) return;
+  var loading = document.getElementById('agModalLoading');
+  var content = document.getElementById('agModalContent');
+  var elTitle = document.getElementById('agModalTitle');
+  var elStatus = document.getElementById('agModalStatus');
+  var elList = document.getElementById('agModalList');
+  var elActions = document.getElementById('agModalActions');
+  var lastFocus = null;
+
+  function abrir() {
+    lastFocus = document.activeElement;
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', onKey);
+  }
+  function fechar() {
+    modal.hidden = true;
+    document.body.style.overflow = '';
+    document.removeEventListener('keydown', onKey);
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  function onKey(e) { if (e.key === 'Escape') fechar(); }
+
+  function row(dt, dd) {
+    if (!dd) return '';
+    var d = document.createElement('div');
+    var t = document.createElement('dt'); t.textContent = dt;
+    var v = document.createElement('dd'); v.textContent = dd;
+    d.appendChild(t); d.appendChild(v);
+    return d;
+  }
+
+  function postForm(acao, id, extra) {
+    var f = document.createElement('form');
+    f.method = 'post'; f.action = 'agenda.php';
+    function add(n, v) { var i = document.createElement('input'); i.type = 'hidden'; i.name = n; i.value = v; f.appendChild(i); }
+    add('csrf', window.AG_CSRF); add('acao', acao); add('id', id);
+    if (extra) Object.keys(extra).forEach(function (k) { add(k, extra[k]); });
+    document.body.appendChild(f); f.submit();
+  }
+
+  function botao(label, cls, onClick) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'terap-btn terap-btn--sm ' + (cls || '');
+    b.textContent = label;
+    b.addEventListener('click', onClick);
+    return b;
+  }
+  function link(label, href, cls) {
+    var a = document.createElement('a');
+    a.className = 'terap-btn terap-btn--sm ' + (cls || '');
+    a.href = href; a.textContent = label;
+    return a;
+  }
+
+  function render(d) {
+    elTitle.textContent = d.paciente || 'Atendimento';
+    elStatus.textContent = d.status_label || '';
+    elStatus.className = 'terap-tooltip__status terap-tooltip__status--' + (d.status || 'agendado');
+
+    elList.innerHTML = '';
+    [
+      ['Terapia', d.terapia],
+      ['Data', d.data_fmt],
+      ['Horário', (d.hora_inicio && d.hora_fim) ? (d.hora_inicio + ' – ' + d.hora_fim) : ''],
+      ['Sala', d.sala_label],
+      ['Terapeuta', d.terapeuta],
+      ['Observações', d.observacoes]
+    ].forEach(function (p) { var r = row(p[0], p[1]); if (r) elList.appendChild(r); });
+
+    if (d.pacote) {
+      var txt = d.pacote.nome;
+      if (d.pacote.sessao_n) txt += ' — Sessão ' + d.pacote.sessao_n + ' de ' + d.pacote.sessao_m;
+      txt += ' · ' + d.pacote.disponivel + ' disponível(is)';
+      var r = row('Pacote', txt); if (r) elList.appendChild(r);
+    }
+
+    elActions.innerHTML = '';
+    if (!d.pode_gerir) {
+      var ro = document.createElement('span');
+      ro.className = 'pac-help'; ro.textContent = 'Somente leitura (atendimento de outro terapeuta).';
+      elActions.appendChild(ro);
+      elActions.appendChild(botao('Fechar', 'terap-btn--ghost', fechar));
+      return;
+    }
+    if (d.ficha_url) elActions.appendChild(link('Ver ficha', d.ficha_url));
+    elActions.appendChild(link('Editar', 'agenda.php?editar=' + d.id));
+    elActions.appendChild(link('Clonar', 'agenda.php?clonar=' + d.id));
+
+    if (d.status === 'agendado') {
+      elActions.appendChild(botao('Confirmar', '', function () { postForm('confirmar', d.id); }));
+    }
+    if (d.status !== 'realizado' && d.status !== 'cancelado') {
+      elActions.appendChild(botao('Realizado', '', function () { postForm('realizar', d.id); }));
+    }
+    if (d.status !== 'cancelado' && d.status !== 'falta') {
+      elActions.appendChild(botao('Falta', '', function () {
+        if (!confirm('Registrar FALTA neste atendimento?')) return;
+        var consumir = confirm('Consumir a sessão do pacote?\n\nOK = consumir a sessão · Cancelar = devolver ao saldo');
+        postForm('falta', d.id, { consumir: consumir ? '1' : '0' });
+      }));
+    }
+    if (d.status !== 'cancelado') {
+      elActions.appendChild(botao('Cancelar', 'terap-btn--danger', function () {
+        var m = prompt('Cancelar este atendimento?\nMotivo (opcional):');
+        if (m === null) return;
+        postForm('cancelar', d.id, { motivo: m });
+      }));
+    }
+    elActions.appendChild(botao('Excluir', 'terap-btn--danger', function () {
+      if (confirm('Excluir DEFINITIVAMENTE este atendimento?\nPara manter o histórico, use Cancelar.')) postForm('excluir', d.id);
+    }));
+    elActions.appendChild(botao('Fechar', 'terap-btn--ghost', fechar));
+  }
+
+  function carregar(id) {
+    content.hidden = true; loading.hidden = false; abrir();
+    fetch('api/agendamento.php?id=' + encodeURIComponent(id), { headers: { 'Accept': 'application/json' } })
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+      .then(function (d) { render(d); loading.hidden = true; content.hidden = false; })
+      .catch(function () { loading.textContent = 'Não foi possível carregar o atendimento.'; });
+  }
+
+  // Clique num bloco da grade abre o modal (sem navegar).
+  document.querySelectorAll('.terap-week__event[data-ag-id]').forEach(function (ev) {
+    ev.addEventListener('click', function (e) {
+      e.preventDefault();
+      carregar(ev.getAttribute('data-ag-id'));
+    });
+  });
+
+  modal.addEventListener('click', function (e) {
+    if (e.target.hasAttribute('data-close')) fechar();
+  });
 })();
 </script>
 
