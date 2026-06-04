@@ -56,3 +56,11 @@ pindoramarpg/*.sql
 pindoramarpg/*.sql.bak
 pindoramarpg/vendor/
 pindoramarpg/node_modules/
+
+# --- Ferramentas de desenvolvimento local (nunca publicar) ---
+# Modo de pré-visualização local da agenda (login fictício sob php -S):
+terapeutas/preview-local.php
+# Scripts para subir o servidor PHP local:
+start-local.sh
+start-local.ps1
+start-local.bat
