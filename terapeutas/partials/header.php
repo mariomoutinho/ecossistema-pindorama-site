@@ -61,12 +61,9 @@ $perfilLabel = (isset($terapeutaLogado) && function_exists('auth_papel_label'))
         <strong><?= htmlspecialchars(explode(' ', trim($terapeutaLogado['nome'] ?? 'Terapeuta'))[0]) ?></strong>
         <span><?= htmlspecialchars($perfilLabel) ?></span>
       </div>
-      <a class="terap-btn terap-btn--ghost terap-topbar__act" href="conta.php" title="Alterar minha senha" aria-label="Minha senha">
-        <span class="terap-topbar__actIco" aria-hidden="true">🔑</span><span class="terap-topbar__actTxt">Minha senha</span>
-      </a>
-      <a class="terap-btn terap-btn--ghost terap-topbar__act" href="logout.php" title="Sair" aria-label="Sair">
-        <span class="terap-topbar__actIco" aria-hidden="true">⎋</span><span class="terap-topbar__actTxt">Sair</span>
-      </a>
+      <!-- No mobile estas ações somem do cabeçalho (CSS) e migram para o drawer. -->
+      <a class="terap-btn terap-btn--ghost terap-topbar__act" href="conta.php" title="Segurança da conta">Minha senha</a>
+      <a class="terap-btn terap-btn--ghost terap-topbar__act" href="logout.php" title="Sair da conta">Sair</a>
     </div>
   </div>
 </header>
@@ -89,6 +86,15 @@ $perfilLabel = (isset($terapeutaLogado) && function_exists('auth_papel_label'))
     </nav>
 
     <div class="terap-sidebar__foot">
+      <a href="logout.php" class="terap-logout" title="Encerrar a sessão">
+        <svg class="terap-logout__ico" width="18" height="18" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+          <polyline points="16 17 21 12 16 7"/>
+          <line x1="21" y1="12" x2="9" y2="12"/>
+        </svg>
+        <span>Sair da conta</span>
+      </a>
       <a href="../index.php" class="terap-link">← Voltar ao site</a>
     </div>
   </aside>

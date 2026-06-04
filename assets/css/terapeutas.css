@@ -10,6 +10,9 @@
 }
 
 .terap-body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
   min-height: 100vh;
   background:
     radial-gradient(900px 480px at 12% 0%, rgba(102, 180, 143, .14), transparent 60%),
@@ -26,8 +29,11 @@
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
   height: var(--terap-topbar-h);
+  width: 100%;
+  max-width: 100%;
 }
 .terap-topbar__inner {
+  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   height: 100%;
@@ -35,12 +41,14 @@
   display: flex;
   align-items: center;
   gap: 16px;
+  min-width: 0;
 }
 .terap-brand {
   display: flex;
   align-items: center;
   gap: 12px;
   color: var(--text);
+  min-width: 0;
 }
 .terap-brand__logo {
   width: 40px;
@@ -51,6 +59,7 @@
   display: block;
   font-size: 14px;
   letter-spacing: .2px;
+  overflow-wrap: anywhere;
 }
 .terap-brand span {
   display: block;
@@ -63,6 +72,8 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  flex: 0 0 auto;
+  min-width: 0;
 }
 .terap-avatar {
   width: 38px;
@@ -90,9 +101,9 @@
   color: var(--muted);
 }
 
-/* Ações da topbar (Minha senha / Sair): texto no desktop, ícone no mobile. */
+/* Ações da topbar (Minha senha / Sair): visíveis no desktop; no mobile saem
+   do cabeçalho e a saída passa a viver no drawer (ver media query). */
 .terap-topbar__act { white-space: nowrap; }
-.terap-topbar__actIco { display: none; font-size: 16px; line-height: 1; }
 
 .terap-burger {
   display: none;
@@ -119,9 +130,11 @@
 .terap-shell {
   display: grid;
   grid-template-columns: var(--terap-sidebar-w) 1fr;
+  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   min-height: calc(100vh - var(--terap-topbar-h));
+  min-width: 0;
 }
 
 .terap-sidebar {
@@ -173,7 +186,28 @@
   margin-top: auto;
   padding: 10px;
   border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
+/* Sair da conta: ação de encerramento, em tom terroso, com ícone + texto. */
+.terap-logout {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(196, 106, 74, .35);
+  background: rgba(196, 106, 74, .10);
+  color: var(--clay2);
+  font-size: 14px;
+  font-weight: 600;
+  min-height: 44px;
+  transition: background .15s ease, border-color .15s ease;
+}
+.terap-logout:hover { background: rgba(196, 106, 74, .18); border-color: rgba(196, 106, 74, .55); }
+.terap-logout:focus-visible { outline: none; box-shadow: 0 0 0 4px var(--focus); }
+.terap-logout__ico { flex: 0 0 auto; }
 .terap-link {
   color: var(--sand);
   text-decoration: underline;
@@ -183,6 +217,9 @@
 /* ----------------- Main ----------------- */
 .terap-main {
   padding: 28px 28px 64px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 .terap-page-head {
   display: flex;
@@ -191,17 +228,25 @@
   align-items: flex-end;
   justify-content: space-between;
   margin-bottom: 22px;
+  min-width: 0;
+}
+.terap-page-head > * {
+  min-width: 0;
 }
 .terap-page-head h1 {
   margin: 0;
   font-size: clamp(22px, 2.3vw, 28px);
   letter-spacing: -.3px;
+  overflow-wrap: anywhere;
 }
 .terap-page-head p {
   margin: 6px 0 0;
   color: var(--muted);
   font-size: 14px;
   max-width: 70ch;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 /* ----------------- Cards / Feed ----------------- */
@@ -209,6 +254,9 @@
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 16px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 .terap-card {
   background: rgba(19, 45, 38, .62);
@@ -216,6 +264,10 @@
   border-radius: var(--radius);
   padding: 18px;
   box-shadow: 0 12px 34px rgba(0, 0, 0, .22);
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
 }
 .terap-card h2,
 .terap-card h3 {
@@ -303,6 +355,7 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
+  min-width: 0;
 }
 .terap-field label {
   font-size: 12px;
@@ -313,6 +366,9 @@
 .terap-field input,
 .terap-field select,
 .terap-field textarea {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   background: rgba(7, 17, 14, .55);
   border: 1px solid var(--line);
   border-radius: 12px;
@@ -330,7 +386,7 @@
 }
 .terap-field textarea { min-height: 90px; resize: vertical; }
 .terap-field--row { flex-direction: row; gap: 12px; }
-.terap-field--row > * { flex: 1; }
+.terap-field--row > * { flex: 1; min-width: 0; }
 
 .terap-btn {
   display: inline-flex;
@@ -346,6 +402,8 @@
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
+  max-width: 100%;
+  white-space: normal;
 }
 .terap-btn:hover { background: rgba(234, 243, 239, .12); }
 .terap-btn--primary {
@@ -365,15 +423,28 @@
   border-color: rgba(196, 106, 74, .35);
   color: var(--clay2);
 }
+/* Destaque positivo discreto (ex.: "Realizado") — dentro da paleta verde. */
+.terap-btn--ok {
+  background: rgba(102, 180, 143, .12);
+  border-color: rgba(102, 180, 143, .42);
+  color: var(--leaf2);
+}
+.terap-btn--ok:hover { background: rgba(102, 180, 143, .2); }
 .terap-btn--sm { padding: 7px 12px; font-size: 12px; }
 
 /* ----------------- Alerts ----------------- */
 .terap-alert {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   padding: 12px 14px;
   border-radius: 12px;
   border: 1px solid var(--line);
   font-size: 13px;
   margin-bottom: 14px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .terap-alert--error   { background: rgba(196, 106, 74, .14); border-color: rgba(196, 106, 74, .35); color: var(--clay2); }
 .terap-alert--success { background: rgba(102, 180, 143, .14); border-color: rgba(102, 180, 143, .35); color: var(--leaf2); }
@@ -508,9 +579,12 @@
 
 /* ----------------- Filtros de status ----------------- */
 .terap-filters {
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
   gap: 6px;
+  width: fit-content;
+  max-width: 100%;
+  min-width: 0;
   background: rgba(7, 17, 14, .45);
   padding: 4px;
   border-radius: 999px;
@@ -528,6 +602,7 @@
   color: var(--muted);
   text-decoration: none;
   transition: background .15s ease, color .15s ease;
+  min-width: 0;
 }
 .terap-filter:hover { background: rgba(234, 243, 239, .06); color: var(--text); }
 .terap-filter.is-active {
@@ -663,15 +738,17 @@
   .terap-shell { grid-template-columns: 1fr; }
   .terap-sidebar {
     position: fixed;
-    inset: var(--terap-topbar-h) 0 0 -100%;
-    width: 80%;
+    inset-block: var(--terap-topbar-h) 0;
+    left: 0;
+    width: min(86vw, 320px);
     max-width: 320px;
     background: #07110E;
     z-index: 70;
-    transition: left .22s ease;
+    transition: transform .22s ease;
+    transform: translateX(-100%);
     border-right: 1px solid var(--line);
   }
-  .terap-sidebar.is-open { inset: var(--terap-topbar-h) 0 0 0; }
+  .terap-sidebar.is-open { transform: translateX(0); }
   .terap-burger { display: inline-flex; }
   .terap-topbar__userMeta { display: none; }
   .terap-main { padding: 18px 18px 72px; }
@@ -1062,8 +1139,11 @@
 .ag-modal__panel {
   position: relative;
   width: min(480px, 100%);
+  max-width: 100%;
+  min-width: 0;
   max-height: 88vh;
   overflow-y: auto;
+  overflow-x: hidden;
   background: #0E1C17;
   border: 1px solid rgba(102, 180, 143, .3);
   border-radius: 18px;
@@ -1088,6 +1168,7 @@
 .ag-modal__loading { color: var(--muted); font-size: 14px; padding: 8px 0; }
 .ag-modal__head {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
@@ -1099,13 +1180,14 @@
 .ag-modal__list { display: grid; gap: 8px; margin: 0 0 16px; }
 .ag-modal__list > div { display: grid; grid-template-columns: 110px 1fr; gap: 10px; }
 .ag-modal__list dt { margin: 0; color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .5px; }
-.ag-modal__list dd { margin: 0; color: var(--text); font-size: 14px; white-space: pre-wrap; }
+.ag-modal__list dd { margin: 0; color: var(--text); font-size: 14px; white-space: pre-wrap; overflow-wrap: anywhere; min-width: 0; }
 .ag-modal__actions { display: flex; flex-wrap: wrap; gap: 8px; }
 
 @media (max-width: 560px) {
   .ag-modal { padding: 0; align-items: flex-end; }
   .ag-modal__panel {
     width: 100%;
+    max-width: 100%;
     max-height: 92vh;
     border-radius: 18px 18px 0 0;
     padding: 20px 16px 24px;
@@ -1118,10 +1200,18 @@
    arraste, redimensionamento e clonagem. Geometria espelha
    window.AG_GRID / lib/agendamentos.php (--ag-pph).
    ============================================================ */
-.ag-cal-scroll { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; }
+.ag-cal-scroll {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
 .ag-cal {
   --ag-gutter: 52px;
   min-width: 720px;
+  width: 100%;
   user-select: none;
 }
 .ag-cal__head {
@@ -1171,11 +1261,23 @@
   cursor: pointer;
   transition: box-shadow .12s ease, filter .12s ease;
   z-index: 1;
+  min-width: 0;
+  max-width: calc(100% - 4px);
 }
 .ag-ev:hover { box-shadow: 0 4px 14px rgba(0, 0, 0, .35); filter: brightness(1.06); z-index: 3; }
 .ag-ev:focus-visible { outline: 2px solid var(--leaf, #66b48f); outline-offset: 1px; }
-.ag-ev__body { padding: 5px 8px; min-height: 0; flex: 1; overflow: hidden; }
+.ag-ev__body { padding: 5px 8px; min-height: 0; flex: 1; overflow: hidden; min-width: 0; }
 .ag-ev__time { display: block; font-size: 12px; font-weight: 700; }
+.ag-ev__pac,
+.ag-ev__meta,
+.ag-ev__time {
+  min-width: 0;
+  max-width: 100%;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow-wrap: anywhere;
+}
 .ag-ev__pac  { display: block; }
 .ag-ev__meta { display: block; color: var(--muted); font-size: 10px; }
 .ag-ev--curto .ag-ev__body { padding: 2px 8px; }
@@ -1234,21 +1336,29 @@
 }
 .ag-clone-hint {
   position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%);
+  width: min(100% - 24px, 520px);
+  max-width: calc(100% - 24px);
   background: rgba(14, 28, 23, .96); color: var(--text);
   border: 1px solid rgba(255, 255, 255, .16); border-radius: 10px;
   padding: 10px 16px; font-size: 13px; z-index: 200;
   box-shadow: 0 8px 24px rgba(0, 0, 0, .4);
+  overflow-wrap: anywhere;
 }
 .ag-clone-hint button { margin-left: 10px; }
 
 /* Toast de feedback (sucesso/erro de salvamento) */
 .ag-toast {
   position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%) translateY(8px);
+  width: min(100% - 24px, 520px);
+  max-width: calc(100% - 24px);
   background: var(--card, #12241d); color: var(--text);
   border: 1px solid rgba(255, 255, 255, .16); border-left-width: 4px;
   border-radius: 10px; padding: 11px 16px; font-size: 13px; z-index: 210;
   box-shadow: 0 8px 24px rgba(0, 0, 0, .45);
   opacity: 0; transition: opacity .18s ease, transform .18s ease; pointer-events: none;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .ag-toast.is-on { opacity: 1; transform: translateX(-50%) translateY(0); }
 .ag-toast--ok  { border-left-color: var(--leaf, #66b48f); }
@@ -1261,7 +1371,7 @@
 .ag-resched h4 { margin: 0 0 8px; font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
 
 @media (max-width: 768px) {
-  .ag-cal { --ag-gutter: 42px; min-width: 660px; }
+  .ag-cal { --ag-gutter: 52px; min-width: 660px; }
   .ag-ev__grip { height: 16px; }              /* alças maiores para toque */
   .ag-ev__grip::after { width: 34px; height: 4px; }
 }
@@ -1281,6 +1391,9 @@
   justify-content: space-between;
   flex-wrap: wrap;
   margin-bottom: 12px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 .ag-viewtoggle {
   display: inline-flex;
@@ -1321,13 +1434,24 @@
 }
 .ag-daynav__btn:hover { background: rgba(234, 243, 239, .12); }
 .ag-daynav__btn:focus-visible { outline: none; box-shadow: 0 0 0 4px var(--focus); }
-.ag-daynav__label { min-width: 96px; text-align: center; font-size: 14px; font-weight: 600; }
+.ag-daynav__label {
+  min-width: 0;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
 
 /* Modo "dia": a grade semanal mostra só a coluna do dia ativo, em largura
    total — sem rolagem horizontal. Reaproveita todo o markup/JS da semana. */
-.ag-cal--day { min-width: 0; }
+.ag-cal--day {
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+}
 .ag-cal--day .ag-cal__head,
-.ag-cal--day .ag-cal__body { grid-template-columns: var(--ag-gutter) 1fr; }
+.ag-cal--day .ag-cal__body { grid-template-columns: var(--ag-gutter) minmax(0, 1fr); }
 .ag-cal--day .ag-cal__dayhead:not(.is-active-day),
 .ag-cal--day .ag-cal__col:not(.is-active-day) { display: none; }
 
@@ -1338,10 +1462,161 @@
 
 @media (max-width: 768px) {
   .ag-mobilebar { display: flex; }
+  .terap-body,
+  .terap-shell,
+  .terap-topbar,
+  .terap-main {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .terap-main {
+    padding-inline: 12px;
+    margin: 0;
+  }
+
+  .terap-topbar__inner {
+    padding-inline: 12px;
+    gap: 8px;
+  }
+
+  .terap-brand {
+    flex: 1 1 auto;
+    gap: 8px;
+  }
+
+  .terap-brand > div {
+    min-width: 0;
+  }
+
+  .terap-topbar__user,
+  .terap-burger,
+  .terap-avatar,
+  .terap-topbar__act {
+    flex: 0 0 auto;
+  }
+
+  /* No mobile, "Minha senha"/"Sair" saem do cabeçalho (vão para o drawer:
+     "Segurança da conta" no menu + "Sair da conta" no rodapé do drawer). */
+  .terap-topbar__act { display: none; }
+
+  .terap-page-head h1,
+  .terap-card h2,
+  .terap-card p {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .terap-page-head > div:last-child {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .terap-page-head > div:last-child .terap-btn {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .terap-page-head > div:last-child .terap-btn--primary {
+    flex: 1 0 100%;
+    width: 100%;
+  }
+
+  .terap-filters {
+    width: 100%;
+    border-radius: 16px;
+    gap: 8px;
+  }
+
+  .terap-filters .terap-filter {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  .terap-filters label {
+    flex: 0 0 100%;
+  }
+
+  .terap-filters select {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
 
   /* ---- Cabeçalho da página empilha: texto em cima, comandos embaixo ---- */
   .terap-page-head { flex-direction: column; align-items: stretch; gap: 14px; }
   .terap-page-head > div:last-child { width: 100%; }
+
+  .ag-mobilebar {
+    align-items: stretch;
+  }
+
+  .ag-viewtoggle {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .ag-viewtoggle__btn {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .ag-daynav {
+    width: 100%;
+    min-width: 0;
+    display: flex;
+  }
+
+  .ag-daynav__label {
+    flex: 1 1 auto;
+    min-width: 0;
+    align-self: center;
+  }
+
+  .ag-daynav__btn {
+    flex: 0 0 40px;
+  }
+
+  .ag-cal-scroll {
+    overflow-x: hidden;
+  }
+
+  .ag-cal-scroll.is-week-view {
+    overflow-x: auto;
+  }
+
+  .ag-cal {
+    width: 660px;
+    max-width: none;
+  }
+
+  .ag-cal--day {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .ag-cal--day .ag-cal__head,
+  .ag-cal--day .ag-cal__body {
+    grid-template-columns: 52px minmax(0, 1fr);
+  }
+
+  .ag-cal--day .ag-cal__corner,
+  .ag-cal--day .ag-cal__dayhead {
+    min-width: 0;
+  }
+
+  .ag-cal--day .ag-ev {
+    left: 4px !important;
+    right: 4px;
+    width: auto !important;
+    max-width: calc(100% - 8px);
+  }
 
   /* ---- Novo atendimento como bottom-sheet ---- */
   .ag-sheet-bd {
@@ -1354,10 +1629,15 @@
   }
   .ag-sheet {
     position: fixed;
-    left: 0; right: 0; bottom: 0;
+    inset-inline: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     margin: 0 !important;
-    max-height: 92vh;
+    max-height: 90dvh;
     overflow-y: auto;
+    overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
     border-radius: 18px 18px 0 0;
     padding-bottom: max(28px, env(safe-area-inset-bottom));
@@ -1381,6 +1661,13 @@
     text-decoration: none;
   }
   .ag-sheet h2 { padding-right: 46px; }
+  .ag-sheet .terap-field[style] {
+    min-width: 0 !important;
+  }
+  .ag-sheet .terap-field--row {
+    width: 100%;
+    min-width: 0;
+  }
   @keyframes agSheetUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
   @keyframes agSheetFade { from { opacity: 0; } to { opacity: 1; } }
 
@@ -1410,17 +1697,24 @@
     letter-spacing: .5px;
     margin-right: 6px;
   }
-  /* Célula de ações: rótulo em linha própria e botões com bom alvo de toque */
+  /* Célula de ações: grade responsiva (auto-fit). Duas colunas quando há
+     largura; cai sozinha para uma coluna em telas muito estreitas. Cada
+     botão preenche a célula, sem estourar o card e com bom alvo de toque. */
   .terap-table td:last-child {
     margin-top: 8px;
     padding-top: 10px;
     border-top: 1px dashed var(--line);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 8px;
+    align-items: stretch;
   }
-  .terap-table td:last-child::before { display: block; margin: 0 0 8px; }
-  .terap-table td:last-child form { display: inline-block; }
+  .terap-table td:last-child::before { grid-column: 1 / -1; display: block; margin: 0 0 2px; }
+  .terap-table td:last-child > form { display: block; margin: 0; min-width: 0; }
   .terap-table td:last-child .terap-btn {
-    margin: 0 6px 6px 0;
-    min-height: 36px;
+    width: 100%;
+    margin: 0;
+    min-height: 40px;
   }
 }
 
@@ -1430,9 +1724,6 @@
   .terap-brand span { display: none; }
   .terap-brand__logo { width: 34px; height: 34px; }
   .terap-topbar__user { gap: 8px; }
-  .terap-topbar__act { padding: 9px 11px; }
-  .terap-topbar__actIco { display: inline; }
-  .terap-topbar__actTxt { display: none; }
 
   /* ---- Formulário de atendimento em coluna única ---- */
   .terap-field--row { flex-direction: column; gap: 12px; }

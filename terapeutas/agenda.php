@@ -841,7 +841,7 @@ function agenda_layout_lanes(array $eventos): array {
                     <input type="hidden" name="csrf" value="<?= htmlspecialchars(auth_csrf_token()) ?>">
                     <input type="hidden" name="acao" value="realizar">
                     <input type="hidden" name="id" value="<?= (int)$e['id'] ?>">
-                    <button class="terap-btn terap-btn--sm" type="submit" title="Marcar como realizado">✓ Realizado</button>
+                    <button class="terap-btn terap-btn--sm terap-btn--ok" type="submit" title="Marcar como realizado">✓ Realizado</button>
                   </form>
                 <?php endif; ?>
                 <form method="post" action="agenda.php" style="display:inline" onsubmit="var m=prompt('Cancelar este atendimento?\nMotivo (opcional):'); if(m===null) return false; this.motivo.value = m; return true;">
@@ -1467,6 +1467,7 @@ window.AG_CSRF = <?= json_encode(auth_csrf_token()) ?>;
   var cal = document.getElementById('agCal');
   var bar = document.querySelector('.ag-mobilebar');
   if (!cal || !bar) return;
+  var scroller = cal.closest('.ag-cal-scroll');
 
   var heads = Array.prototype.slice.call(cal.querySelectorAll('.ag-cal__dayhead'));
   var cols  = Array.prototype.slice.call(cal.querySelectorAll('.ag-cal__col'));
@@ -1498,6 +1499,7 @@ window.AG_CSRF = <?= json_encode(auth_csrf_token()) ?>;
       b.classList.toggle('is-active', b.dataset.view === v);
     });
     if (daynav) daynav.style.visibility = dia ? '' : 'hidden';
+    if (scroller) scroller.classList.toggle('is-week-view', !dia);
     if (dia) { cal.classList.add('ag-cal--day'); applyDay(); }
     else { cal.classList.remove('ag-cal--day'); }
   }
@@ -1521,6 +1523,7 @@ window.AG_CSRF = <?= json_encode(auth_csrf_token()) ?>;
       setView(active ? active.dataset.view : 'dia');
     } else {
       cal.classList.remove('ag-cal--day');
+      if (scroller) scroller.classList.remove('is-week-view');
     }
   }
   sync();
