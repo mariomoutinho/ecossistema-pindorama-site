@@ -8,6 +8,9 @@ jobs:
   deploy:
     name: FTP deploy → public_html
     runs-on: ubuntu-latest
+    # Backstop: uma queda do FTP da Hostinger não deve mais pendurar o job
+    # por horas. Deploys normais concluem em ~50s; 10 min é folga ampla.
+    timeout-minutes: 10
     steps:
       - name: Checkout do repositório
         uses: actions/checkout@v4
@@ -67,6 +70,8 @@ jobs:
             set ftp:ssl-allow no
             set ftp:passive-mode true
             set net:timeout 30
+            set net:max-retries 2
+            set net:reconnect-interval-base 5
             set cmd:fail-exit no
             echo "--- raiz FTP detectada ---"
             pwd
@@ -101,6 +106,8 @@ jobs:
             set ftp:ssl-allow no
             set ftp:passive-mode true
             set net:timeout 30
+            set net:max-retries 2
+            set net:reconnect-interval-base 5
             set cmd:fail-exit no
             echo "--- pwd (raiz da conta FTP) ---"
             pwd
