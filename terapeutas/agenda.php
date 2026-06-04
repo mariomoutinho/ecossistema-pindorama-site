@@ -515,9 +515,12 @@ function agenda_layout_lanes(array $eventos): array {
 <?php if ($flash): ?>
   <div class="terap-alert terap-alert--<?= htmlspecialchars($flash['type']) ?>"><?= htmlspecialchars($flash['msg']) ?></div>
 <?php endif; ?>
-<?php foreach ($erros as $e): ?>
+<?php /* Com o form aberto, os erros de validação são exibidos DENTRO dele
+         (importante no mobile, onde o form é um bottom-sheet). Fora disso
+         — ex.: CSRF sem form — mostram-se aqui mesmo. */ ?>
+<?php if (!$mostrarForm): foreach ($erros as $e): ?>
   <div class="terap-alert terap-alert--error"><?= htmlspecialchars($e) ?></div>
-<?php endforeach; ?>
+<?php endforeach; endif; ?>
 
 <?php if ($mostrarForm):
   $csrf = auth_csrf_token();
@@ -550,13 +553,20 @@ function agenda_layout_lanes(array $eventos): array {
   $valPkgId  = (int)($registroEdit['paciente_package_id'] ?? 0);
   $pkgOpcoes = $valPacienteId ? pacote_ativos_do_paciente($valPacienteId, (int)$terapeutaLogado['id']) : [];
 ?>
-  <section class="terap-card terap-span-12" style="margin-bottom:18px;">
+  <!-- No mobile, esta seção é apresentada como bottom-sheet (CSS); o backdrop
+       e o "×" fecham retornando à agenda. No desktop, é um card inline normal. -->
+  <a href="agenda.php" class="ag-sheet-bd" aria-label="Fechar formulário"></a>
+  <section class="terap-card terap-span-12 ag-sheet" id="agFormSheet" style="margin-bottom:18px;">
+    <a href="agenda.php" class="ag-sheet__x" aria-label="Fechar" title="Fechar">&times;</a>
     <h2><?= $clonando ? 'Clonar atendimento' : ($valId ? 'Editar atendimento' : 'Novo atendimento') ?></h2>
     <?php if ($clonando): ?>
       <div class="terap-alert terap-alert--info">Clonando os dados do atendimento. Confirme/ajuste <strong>data e horário</strong> e salve — uma nova sessão do pacote só é reservada ao salvar.</div>
     <?php else: ?>
       <p style="margin-bottom:14px;">Sala/espaço com horário ocupado será bloqueado automaticamente.</p>
     <?php endif; ?>
+    <?php foreach ($erros as $e): ?>
+      <div class="terap-alert terap-alert--error"><?= htmlspecialchars($e) ?></div>
+    <?php endforeach; ?>
 
     <form method="post" class="terap-form" action="agenda.php">
       <input type="hidden" name="csrf" value="<?= htmlspecialchars($csrf) ?>">
@@ -1001,6 +1011,23 @@ function agenda_layout_lanes(array $eventos): array {
 
   // Estado inicial (edição/pré-preenchido): saldo já reflete o pacote atual.
   atualizarSaldo();
+})();
+</script>
+
+<script>
+// No mobile, mantém o campo focado visível dentro do bottom-sheet quando o
+// teclado virtual sobe. No desktop não há sheet, então nada é vinculado.
+(function () {
+  var sheet = document.getElementById('agFormSheet');
+  if (!sheet || !window.matchMedia('(max-width: 768px)').matches) return;
+  sheet.addEventListener('focusin', function (e) {
+    var f = e.target;
+    if (!f || !f.matches || !f.matches('input, select, textarea')) return;
+    setTimeout(function () {
+      try { f.scrollIntoView({ block: 'center', behavior: 'smooth' }); }
+      catch (_) { f.scrollIntoView(); }
+    }, 220);
+  });
 })();
 </script>
 
@@ -1449,7 +1476,7 @@ window.AG_CSRF = <?= json_encode(auth_csrf_token()) ?>;
   var daynav   = bar.querySelector('.ag-daynav');
   var prevWeek = document.querySelector('[data-week-prev]');
   var nextWeek = document.querySelector('[data-week-next]');
-  var mq = window.matchMedia('(max-width: 720px)');
+  var mq = window.matchMedia('(max-width: 768px)');
 
   // Dia inicial: hoje (se estiver na semana exibida); senão, o primeiro dia.
   var idx = 0;
