@@ -61,8 +61,12 @@ $perfilLabel = (isset($terapeutaLogado) && function_exists('auth_papel_label'))
         <strong><?= htmlspecialchars(explode(' ', trim($terapeutaLogado['nome'] ?? 'Terapeuta'))[0]) ?></strong>
         <span><?= htmlspecialchars($perfilLabel) ?></span>
       </div>
-      <a class="terap-btn terap-btn--ghost" href="conta.php" title="Alterar minha senha">Minha senha</a>
-      <a class="terap-btn terap-btn--ghost" href="logout.php" title="Sair">Sair</a>
+      <a class="terap-btn terap-btn--ghost terap-topbar__act" href="conta.php" title="Alterar minha senha" aria-label="Minha senha">
+        <span class="terap-topbar__actIco" aria-hidden="true">🔑</span><span class="terap-topbar__actTxt">Minha senha</span>
+      </a>
+      <a class="terap-btn terap-btn--ghost terap-topbar__act" href="logout.php" title="Sair" aria-label="Sair">
+        <span class="terap-topbar__actIco" aria-hidden="true">⎋</span><span class="terap-topbar__actTxt">Sair</span>
+      </a>
     </div>
   </div>
 </header>

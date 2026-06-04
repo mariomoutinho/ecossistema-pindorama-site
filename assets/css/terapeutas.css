@@ -90,6 +90,10 @@
   color: var(--muted);
 }
 
+/* Ações da topbar (Minha senha / Sair): texto no desktop, ícone no mobile. */
+.terap-topbar__act { white-space: nowrap; }
+.terap-topbar__actIco { display: none; font-size: 16px; line-height: 1; }
+
 .terap-burger {
   display: none;
   width: 38px;
@@ -670,7 +674,7 @@
   .terap-sidebar.is-open { inset: var(--terap-topbar-h) 0 0 0; }
   .terap-burger { display: inline-flex; }
   .terap-topbar__userMeta { display: none; }
-  .terap-main { padding: 18px; }
+  .terap-main { padding: 18px 18px 72px; }
   .terap-week { grid-template-columns: 50px repeat(7, minmax(80px, 1fr)); overflow-x: auto; }
 
   /* Tooltip se adapta ao mobile: ancora à esquerda do bloco, ocupa quase a tela */
@@ -1260,4 +1264,126 @@
   .ag-cal { --ag-gutter: 42px; min-width: 660px; }
   .ag-ev__grip { height: 16px; }              /* alças maiores para toque */
   .ag-ev__grip::after { width: 34px; height: 4px; }
+}
+
+/* ============================================================
+   MOBILE — Agenda dos terapeutas (interface orientada a toque).
+   Tudo isolado por media query / classes ativadas via JS no mobile;
+   o desktop permanece exatamente como está.
+   ============================================================ */
+
+/* Controles da agenda no mobile: alternador Dia/Semana + navegação de dia.
+   Escondidos por padrão; só aparecem dentro da media query abaixo. */
+.ag-mobilebar {
+  display: none;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.ag-viewtoggle {
+  display: inline-flex;
+  gap: 3px;
+  padding: 3px;
+  background: rgba(7, 17, 14, .45);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+.ag-viewtoggle__btn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-weight: 600;
+  padding: 8px 16px;
+  min-height: 38px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.ag-viewtoggle__btn.is-active {
+  background: linear-gradient(135deg, var(--leaf), var(--leaf2));
+  color: #052015;
+  box-shadow: 0 6px 18px rgba(62, 142, 106, .25);
+}
+.ag-viewtoggle__btn:focus-visible { outline: none; box-shadow: 0 0 0 4px var(--focus); }
+.ag-daynav { display: inline-flex; align-items: center; gap: 6px; }
+.ag-daynav__btn {
+  appearance: none;
+  width: 40px; height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(234, 243, 239, .06);
+  color: var(--text);
+  font-size: 20px; line-height: 1;
+  cursor: pointer;
+}
+.ag-daynav__btn:hover { background: rgba(234, 243, 239, .12); }
+.ag-daynav__btn:focus-visible { outline: none; box-shadow: 0 0 0 4px var(--focus); }
+.ag-daynav__label { min-width: 96px; text-align: center; font-size: 14px; font-weight: 600; }
+
+/* Modo "dia": a grade semanal mostra só a coluna do dia ativo, em largura
+   total — sem rolagem horizontal. Reaproveita todo o markup/JS da semana. */
+.ag-cal--day { min-width: 0; }
+.ag-cal--day .ag-cal__head,
+.ag-cal--day .ag-cal__body { grid-template-columns: var(--ag-gutter) 1fr; }
+.ag-cal--day .ag-cal__dayhead:not(.is-active-day),
+.ag-cal--day .ag-cal__col:not(.is-active-day) { display: none; }
+
+@media (max-width: 720px) {
+  .ag-mobilebar { display: flex; }
+
+  /* ---- Lista detalhada da semana: tabela vira cartões empilhados ---- */
+  .terap-table thead { display: none; }
+  .terap-table, .terap-table tbody, .terap-table tr, .terap-table td { display: block; }
+  .terap-table tr {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: rgba(7, 17, 14, .40);
+    padding: 12px 14px;
+    margin-bottom: 12px;
+  }
+  .terap-table tr:hover td { background: transparent; }
+  .terap-table td {
+    border: 0;
+    padding: 4px 0;
+    text-align: left;
+    white-space: normal;            /* anula o nowrap inline da célula de ações */
+  }
+  .terap-table td::before {
+    content: attr(data-label) ': ';
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    margin-right: 6px;
+  }
+  /* Célula de ações: rótulo em linha própria e botões com bom alvo de toque */
+  .terap-table td:last-child {
+    margin-top: 8px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--line);
+  }
+  .terap-table td:last-child::before { display: block; margin: 0 0 8px; }
+  .terap-table td:last-child form { display: inline-block; }
+  .terap-table td:last-child .terap-btn {
+    margin: 0 6px 6px 0;
+    min-height: 36px;
+  }
+}
+
+@media (max-width: 560px) {
+  /* ---- Topbar compacta: ações viram ícones, subtítulo da marca oculto ---- */
+  .terap-topbar__inner { padding: 0 12px; gap: 10px; }
+  .terap-brand span { display: none; }
+  .terap-brand__logo { width: 34px; height: 34px; }
+  .terap-topbar__user { gap: 8px; }
+  .terap-topbar__act { padding: 9px 11px; }
+  .terap-topbar__actIco { display: inline; }
+  .terap-topbar__actTxt { display: none; }
+
+  /* ---- Formulário de atendimento em coluna única ---- */
+  .terap-field--row { flex-direction: column; gap: 12px; }
 }

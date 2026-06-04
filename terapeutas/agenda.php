@@ -477,9 +477,9 @@ function agenda_layout_lanes(array $eventos): array {
     <p>Visão semanal · começa na segunda · marcações bloqueiam choque de horários por sala (cancelados nunca bloqueiam).</p>
   </div>
   <div style="display:flex;gap:8px;flex-wrap:wrap;">
-    <a class="terap-btn" href="agenda.php?semana=<?= htmlspecialchars($prevSemana) ?>&status=<?= htmlspecialchars($filtroStatus) ?>">← Semana</a>
+    <a class="terap-btn" data-week-prev href="agenda.php?semana=<?= htmlspecialchars($prevSemana) ?>&status=<?= htmlspecialchars($filtroStatus) ?>">← Semana</a>
     <a class="terap-btn" href="agenda.php?status=<?= htmlspecialchars($filtroStatus) ?>">Hoje</a>
-    <a class="terap-btn" href="agenda.php?semana=<?= htmlspecialchars($nextSemana) ?>&status=<?= htmlspecialchars($filtroStatus) ?>">Semana →</a>
+    <a class="terap-btn" data-week-next href="agenda.php?semana=<?= htmlspecialchars($nextSemana) ?>&status=<?= htmlspecialchars($filtroStatus) ?>">Semana →</a>
     <a class="terap-btn terap-btn--primary" href="agenda.php?novo=1">+ Novo atendimento</a>
   </div>
 </div>
@@ -667,6 +667,20 @@ function agenda_layout_lanes(array $eventos): array {
   <h2>Semana de <?= htmlspecialchars(fmt_data_pt($inicio)) ?></h2>
   <p style="margin-bottom:14px;">Clique num bloco para ver/editar. Arraste o corpo para mover, ou as alças (topo/base) para mudar a duração. Encaixe a cada <?= AG_SNAP_MIN ?> min.</p>
 
+  <!-- Controles exclusivos do mobile: alterna Dia/Semana e navega entre dias.
+       Em telas largas ficam ocultos via CSS e a grade semanal é a única visão. -->
+  <div class="ag-mobilebar">
+    <div class="ag-viewtoggle" role="group" aria-label="Modo de visualização da agenda">
+      <button type="button" class="ag-viewtoggle__btn is-active" data-view="dia">Dia</button>
+      <button type="button" class="ag-viewtoggle__btn" data-view="semana">Semana</button>
+    </div>
+    <div class="ag-daynav">
+      <button type="button" class="ag-daynav__btn" data-day-step="-1" aria-label="Dia anterior">‹</button>
+      <strong class="ag-daynav__label" data-role="daylabel" aria-live="polite">—</strong>
+      <button type="button" class="ag-daynav__btn" data-day-step="1" aria-label="Próximo dia">›</button>
+    </div>
+  </div>
+
   <div class="ag-cal-scroll">
     <div class="ag-cal"
          id="agCal"
@@ -792,17 +806,17 @@ function agenda_layout_lanes(array $eventos): array {
           $podeGerir = agenda_pode_gerir($e, $terapeutaLogado);
         ?>
           <tr class="terap-row--<?= htmlspecialchars($status) ?>">
-            <td><?= htmlspecialchars(date('d/m', strtotime($e['data']))) ?> <span style="color:var(--muted)"><?= htmlspecialchars($diasLabel[(int)date('N', strtotime($e['data'])) - 1] ?? '') ?></span></td>
-            <td><?= htmlspecialchars(substr($e['hora_inicio'], 0, 5)) ?>–<?= htmlspecialchars(substr($e['hora_fim'], 0, 5)) ?></td>
-            <td><?= htmlspecialchars($salasDisponiveis[$e['sala'] ?? ''] ?? '') ?></td>
-            <td><?= htmlspecialchars($tNomeStr) ?></td>
-            <td><?= htmlspecialchars($e['paciente'] ?? '') ?></td>
-            <td>
+            <td data-label="Dia"><?= htmlspecialchars(date('d/m', strtotime($e['data']))) ?> <span style="color:var(--muted)"><?= htmlspecialchars($diasLabel[(int)date('N', strtotime($e['data'])) - 1] ?? '') ?></span></td>
+            <td data-label="Horário"><?= htmlspecialchars(substr($e['hora_inicio'], 0, 5)) ?>–<?= htmlspecialchars(substr($e['hora_fim'], 0, 5)) ?></td>
+            <td data-label="Sala"><?= htmlspecialchars($salasDisponiveis[$e['sala'] ?? ''] ?? '') ?></td>
+            <td data-label="Terapeuta"><?= htmlspecialchars($tNomeStr) ?></td>
+            <td data-label="Paciente"><?= htmlspecialchars($e['paciente'] ?? '') ?></td>
+            <td data-label="Status">
               <span class="terap-tooltip__status terap-tooltip__status--<?= htmlspecialchars($status) ?>">
                 <?= htmlspecialchars(status_label($status)) ?>
               </span>
             </td>
-            <td style="white-space:nowrap;">
+            <td data-label="Ações" style="white-space:nowrap;">
               <?php if (!$podeGerir): ?>
                 <span style="color:var(--muted);font-size:12px;">Somente leitura</span>
               <?php else: ?>
@@ -1412,6 +1426,79 @@ window.AG_CSRF = <?= json_encode(auth_csrf_token()) ?>;
   });
 
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') cancelClone(); });
+})();
+</script>
+
+<script>
+// ============================================================
+// Visão por dia no mobile. Não duplica a grade: apenas mostra a coluna
+// do dia ativo (via classe .ag-cal--day, tratada no CSS) e oferece
+// navegação dia-a-dia + alternância Dia/Semana. No desktop nada disso
+// é acionado (a barra fica oculta e a grade semanal permanece intacta).
+// ============================================================
+(function () {
+  var cal = document.getElementById('agCal');
+  var bar = document.querySelector('.ag-mobilebar');
+  if (!cal || !bar) return;
+
+  var heads = Array.prototype.slice.call(cal.querySelectorAll('.ag-cal__dayhead'));
+  var cols  = Array.prototype.slice.call(cal.querySelectorAll('.ag-cal__col'));
+  if (!cols.length) return;
+
+  var label    = bar.querySelector('[data-role="daylabel"]');
+  var daynav   = bar.querySelector('.ag-daynav');
+  var prevWeek = document.querySelector('[data-week-prev]');
+  var nextWeek = document.querySelector('[data-week-next]');
+  var mq = window.matchMedia('(max-width: 720px)');
+
+  // Dia inicial: hoje (se estiver na semana exibida); senão, o primeiro dia.
+  var idx = 0;
+  cols.forEach(function (c, i) { if (c.classList.contains('is-today')) idx = i; });
+
+  function applyDay() {
+    heads.forEach(function (h, i) { h.classList.toggle('is-active-day', i === idx); });
+    cols.forEach(function (c, i) { c.classList.toggle('is-active-day', i === idx); });
+    if (label && heads[idx]) {
+      var dia = (heads[idx].childNodes[0] && heads[idx].childNodes[0].textContent || '').trim();
+      var dta = heads[idx].querySelector('small');
+      label.textContent = dia + (dta ? ' ' + dta.textContent.trim() : '');
+    }
+  }
+
+  function setView(v) {
+    var dia = (v === 'dia');
+    bar.querySelectorAll('.ag-viewtoggle__btn').forEach(function (b) {
+      b.classList.toggle('is-active', b.dataset.view === v);
+    });
+    if (daynav) daynav.style.visibility = dia ? '' : 'hidden';
+    if (dia) { cal.classList.add('ag-cal--day'); applyDay(); }
+    else { cal.classList.remove('ag-cal--day'); }
+  }
+
+  bar.querySelectorAll('[data-day-step]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var n = idx + parseInt(btn.dataset.dayStep, 10);
+      if (n < 0) { if (prevWeek) { window.location = prevWeek.href; return; } n = 0; }
+      else if (n > cols.length - 1) { if (nextWeek) { window.location = nextWeek.href; return; } n = cols.length - 1; }
+      idx = n; applyDay();
+    });
+  });
+  bar.querySelectorAll('.ag-viewtoggle__btn').forEach(function (b) {
+    b.addEventListener('click', function () { setView(b.dataset.view); });
+  });
+
+  // No mobile abre em "Dia"; no desktop a grade semanal permanece como está.
+  function sync() {
+    if (mq.matches) {
+      var active = bar.querySelector('.ag-viewtoggle__btn.is-active');
+      setView(active ? active.dataset.view : 'dia');
+    } else {
+      cal.classList.remove('ag-cal--day');
+    }
+  }
+  sync();
+  if (mq.addEventListener) mq.addEventListener('change', sync);
+  else if (mq.addListener) mq.addListener(sync);
 })();
 </script>
 
