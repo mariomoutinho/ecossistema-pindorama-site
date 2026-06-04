@@ -557,8 +557,10 @@ function agenda_layout_lanes(array $eventos): array {
        e o "×" fecham retornando à agenda. No desktop, é um card inline normal. -->
   <a href="agenda.php" class="ag-sheet-bd" aria-label="Fechar formulário"></a>
   <section class="terap-card terap-span-12 ag-sheet" id="agFormSheet" style="margin-bottom:18px;">
-    <a href="agenda.php" class="ag-sheet__x" aria-label="Fechar" title="Fechar">&times;</a>
-    <h2><?= $clonando ? 'Clonar atendimento' : ($valId ? 'Editar atendimento' : 'Novo atendimento') ?></h2>
+    <div class="ag-sheet__head">
+      <h2><?= $clonando ? 'Clonar atendimento' : ($valId ? 'Editar atendimento' : 'Novo atendimento') ?></h2>
+      <a href="agenda.php" class="ag-sheet__x" aria-label="Fechar" title="Fechar">&times;</a>
+    </div>
     <?php if ($clonando): ?>
       <div class="terap-alert terap-alert--info">Clonando os dados do atendimento. Confirme/ajuste <strong>data e horário</strong> e salve — uma nova sessão do pacote só é reservada ao salvar.</div>
     <?php else: ?>
@@ -1015,12 +1017,23 @@ function agenda_layout_lanes(array $eventos): array {
 </script>
 
 <script>
-// No mobile, mantém o campo focado visível dentro do bottom-sheet quando o
-// teclado virtual sobe. No desktop não há sheet, então nada é vinculado.
+// Bottom-sheet de novo atendimento (mobile): trava a rolagem da página ao
+// fundo e mantém o campo focado visível quando o teclado virtual sobe.
+// No desktop o formulário é um card inline, então nada disto é acionado.
 (function () {
   var sheet = document.getElementById('agFormSheet');
-  if (!sheet || !window.matchMedia('(max-width: 768px)').matches) return;
+  if (!sheet) return;
+  var mq = window.matchMedia('(max-width: 768px)');
+
+  // Trava/destrava a rolagem da página de fundo conforme estamos no mobile.
+  function lock() { document.documentElement.classList.toggle('ag-sheet-open', mq.matches); }
+  lock();
+  if (mq.addEventListener) mq.addEventListener('change', lock);
+  else if (mq.addListener) mq.addListener(lock);
+
+  // Mantém o campo ativo visível dentro do painel ao abrir o teclado.
   sheet.addEventListener('focusin', function (e) {
+    if (!mq.matches) return;
     var f = e.target;
     if (!f || !f.matches || !f.matches('input, select, textarea')) return;
     setTimeout(function () {
