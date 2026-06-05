@@ -84,7 +84,7 @@ try {
                     <nav class="classes-toc" id="classesToc">
                         <a class="toc-link toc-level-2" href="#introducao">Introdução</a>
                         <a class="toc-link toc-level-2" href="#regras">Regras de Devoção</a>
-                        <a class="toc-link toc-level-2" href="#tabela-divindades">Tabela 1-19: Divindades</a>
+                        <a class="toc-link toc-level-2" href="#tabela-divindades">Divindades</a>
                         <a class="toc-link toc-level-2" href="#detalhes">Divindades em detalhe</a>
                         <?php foreach ($divindades as $d): ?>
                             <a class="toc-link toc-level-3" href="#div-<?= htmlspecialchars($d['id']) ?>">
@@ -112,7 +112,7 @@ try {
                 </section>
 
                 <section id="tabela-divindades" class="content-section">
-                    <h2>Tabela 1-19: Divindades</h2>
+                    <h2>Divindades</h2>
                     <div class="classes-table-wrap">
                         <table class="classes-table">
                             <thead>
@@ -131,11 +131,19 @@ try {
                                     <td><?= htmlspecialchars(ucfirst($d['energia'] ?? '')) ?></td>
                                     <td>
                                         <?php
-                                        $nomes = [];
+                                        // Cada poder vira um botão interativo (tooltip no hover/foco,
+                                        // modal no clique/toque). A descrição é consumida da mesma
+                                        // fonte centralizada ($idx → data/poderes-gerais.json) via JS.
+                                        $links = [];
                                         foreach ($d['poderes'] ?? [] as $pid) {
-                                            $nomes[] = $idx[$pid]['nome'] ?? $pid;
+                                            $nome = $idx[$pid]['nome'] ?? $pid;
+                                            $links[] = '<button type="button" class="poder-link" data-poder-id="'
+                                                . htmlspecialchars((string) $pid, ENT_QUOTES)
+                                                . '" aria-haspopup="dialog">'
+                                                . htmlspecialchars($nome)
+                                                . '</button>';
                                         }
-                                        echo htmlspecialchars(implode(', ', $nomes));
+                                        echo implode('<span class="poder-sep">, </span>', $links);
                                         ?>
                                     </td>
                                 </tr>
@@ -202,6 +210,30 @@ try {
     </button>
 
     <button type="button" class="back-to-top-btn" id="backToTopBtn" aria-label="Voltar ao topo" title="Voltar ao topo">↑</button>
+
+    <?php
+    // Fonte centralizada para tooltip/modal: só os poderes usados na tabela,
+    // reaproveitando $idx (data/poderes-gerais.json). Poderes repetidos em
+    // divindades diferentes compartilham a mesma entrada (chave = id).
+    $poderesMap = [];
+    foreach ($divindades as $d) {
+        foreach ($d['poderes'] ?? [] as $pid) {
+            if (isset($poderesMap[$pid])) {
+                continue;
+            }
+            $p = $idx[$pid] ?? null;
+            $desc = trim((string) ($p['descricao'] ?? ''));
+            $poderesMap[$pid] = [
+                'nome' => $p['nome'] ?? $pid,
+                'descricao' => $desc !== '' ? $desc : 'Descrição ainda não cadastrada.',
+            ];
+        }
+    }
+    ?>
+    <script>
+        window.PODERES_DIVINDADES = <?= json_encode($poderesMap, JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?>;
+    </script>
+    <script src="assets/js/divindades-poderes.js?v=20260605"></script>
     <script src="assets/js/classes.js?v=20260503j"></script>
 </body>
 </html>
