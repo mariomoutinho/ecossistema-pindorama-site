@@ -256,14 +256,7 @@
 <div class="classes-table-wrap">
 <table class="classes-table level-table">
 <thead>
-<tr>
-<th>Tabela 4-2: Variação de Dano</th>
-<th>Tabela 4-2: Variação de Dano</th>
-<th>Tabela 4-2: Variação de Dano</th>
-<th>Tabela 4-2: Variação de Dano</th>
-<th>Tabela 4-2: Variação de Dano</th>
-<th>Tabela 4-2: Variação de Dano</th>
-</tr>
+<tr><th colspan="6">Variação de Dano</th></tr>
 </thead>
 <tbody>
 <tr>
@@ -395,48 +388,6 @@
 <p>Rede. A rede tem pequenos dentes em sua trama e uma corda para controlar os inimigos presos. Se você acertar um ataque com a rede, não causa dano. Em vez disso, a vítima fica enredada (deslocamento reduzido à metade, não pode correr nem fazer investidas e sofre -2 na Defesa e em testes de ataque). Enquanto você estiver segurando a corda, sempre que a vítima se mover, você pode fazer um teste de Força oposto contra ela como uma reação. Se você vencer, a vítima só pode se mover até o limite da corda (9m). A vítima pode se soltar com uma ação completa e um teste de Força ou Acrobacia (CD 20). A rede tem 5 pontos de vida e, se rasgar, qualquer criatura enredada se solta automaticamente. A rede só pode ser usada contra criaturas no máximo uma categoria de tamanho maior que você.</p>
 <p><strong>Tacape.</strong> Versão maior e/ou com pregos de uma clava. Não é uma arma elegante, mas faz o serviço.</p>
 <p><strong>Tridente.</strong> Uma lança com três pontas, muito usada por pescadores costeiros e gladiadores, própria para prender as pernas do oponente. O tridente é uma arma versátil, fornecendo +2 em testes para derrubar.</p>
-</section>
-<section class="content-section" id="municoes">
-<h2>Munições</h2>
-<p>Projéteis utilizados em armas de disparo, comercializados em pacotes contendo projéteis suficientes para 20 ataques. Sempre que você realiza um ataque com uma arma de disparo, a munição é consumida, independentemente do acerto ou não do ataque.</p>
-<div class="classes-table-wrap">
-<table class="classes-table level-table">
-<thead>
-<tr>
-<th>Tabela 4-3: Munições</th>
-<th>Tabela 4-3: Munições</th>
-<th>Tabela 4-3: Munições</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Item</td>
-<td>Preço</td>
-<td>Espaços</td>
-</tr>
-<tr>
-<td>Balas</td>
-<td>M$ 20</td>
-<td>1</td>
-</tr>
-<tr>
-<td>Flechas</td>
-<td>M$ 1</td>
-<td>1</td>
-</tr>
-<tr>
-<td>Pedras</td>
-<td>M$ 0,5</td>
-<td>1</td>
-</tr>
-<tr>
-<td>Virotes</td>
-<td>M$ 2</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-</div>
 <h3 id="armas">Tabela de Armas</h3><div class="classes-table-wrap">
 <table aria-label="Tabela de Armas" class="classes-table level-table" id="tabela-armas">
 <thead><tr><th>Arma ou Categoria</th><th>Preço</th><th>Dano</th><th>Crítico</th><th>Alcance</th><th>Tipo</th><th>Espaços</th></tr></thead>
@@ -998,6 +949,45 @@
 </tr></tbody>
 </table>
 </div>
+</section>
+<section class="content-section" id="municoes">
+<h2>Munições</h2>
+<p>Projéteis utilizados em armas de disparo, comercializados em pacotes contendo projéteis suficientes para 20 ataques. Sempre que você realiza um ataque com uma arma de disparo, a munição é consumida, independentemente do acerto ou não do ataque.</p>
+<div class="classes-table-wrap">
+<table class="classes-table level-table">
+<thead>
+<tr><th colspan="3">Munições</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>Item</td>
+<td>Preço</td>
+<td>Espaços</td>
+</tr>
+<tr>
+<td>Balas</td>
+<td>M$ 20</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Flechas</td>
+<td>M$ 1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Pedras</td>
+<td>M$ 0,5</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Virotes</td>
+<td>M$ 2</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
+
 <p>Os pacotes de munições podem ser aprimorados assim como as armas (no entanto, os bônus das munições não se acumulam com os bônus da arma de disparo). O aumento no preço de um pacote aprimorado é a metade do aumento de uma arma (por exemplo, um pacote de munição com um aprimoramento custa +M$ 150, em vez de + M$300).</p>
 <p><strong>Balas.</strong> Um saco contendo 20 balas, compostos por pequenas esferas de chumbo acompanhadas de pólvora. Recarregar uma pistola ou mosquete demanda uma ação padrão. Flechas. Uma aljava contendo 20 flechas, com hastes de madeira, pontas metálicas e penas para estabilizar o voo. Recarregar um arco com uma flecha é uma ação livre.</p>
 <p><strong>Pedras.</strong> Um saco de couro com 20 pedras polidas. Recarregar uma funda com uma pedra de qualquer tipo é uma ação de movimento.</p>
@@ -1041,13 +1031,7 @@
 <div class="classes-table-wrap">
 <table class="classes-table level-table">
 <thead>
-<tr>
-<th>Tabela 4-5: Armaduras &amp; Escudos</th>
-<th>Tabela 4-5: Armaduras &amp; Escudos</th>
-<th>Tabela 4-5: Armaduras &amp; Escudos</th>
-<th>Tabela 4-5: Armaduras &amp; Escudos</th>
-<th>Tabela 4-5: Armaduras &amp; Escudos</th>
-</tr>
+<tr><th colspan="5">Armaduras &amp; Escudos</th></tr>
 </thead>
 <tbody>
 <tr>
@@ -1057,12 +1041,8 @@
 <td>Penalidade<br/>De Armadura</td>
 <td>Espaços</td>
 </tr>
-<tr>
-<td>Armaduras Leves</td>
-<td>Armaduras Leves</td>
-<td>Armaduras Leves</td>
-<td>Armaduras Leves</td>
-<td>Armaduras Leves</td>
+<tr class="equipment-category-row">
+<td colspan="5">Armaduras Leves</td>
 </tr>
 <tr>
 <td>Armadura Acolchoada</td>
@@ -1106,12 +1086,8 @@
 <td>-4</td>
 <td>2</td>
 </tr>
-<tr>
-<td>Armaduras Pesadas</td>
-<td>Armaduras Pesadas</td>
-<td>Armaduras Pesadas</td>
-<td>Armaduras Pesadas</td>
-<td>Armaduras Pesadas</td>
+<tr class="equipment-category-row">
+<td colspan="5">Armaduras Pesadas</td>
 </tr>
 <tr>
 <td>Brunea</td>
@@ -1148,12 +1124,8 @@
 <td>-5</td>
 <td>5</td>
 </tr>
-<tr>
-<td>Escudos</td>
-<td>Escudos</td>
-<td>Escudos</td>
-<td>Escudos</td>
-<td>Escudos</td>
+<tr class="equipment-category-row">
+<td colspan="5">Escudos</td>
 </tr>
 <tr>
 <td>Escudo leve</td>
@@ -1233,14 +1205,7 @@
 <div class="classes-table-wrap">
 <table class="classes-table level-table">
 <thead>
-<tr>
-<th>Tabela 4-6: Itens Gerais</th>
-<th>Tabela 4-6: Itens Gerais</th>
-<th>Tabela 4-6: Itens Gerais</th>
-<th>Tabela 4-6: Itens Gerais</th>
-<th>Tabela 4-6: Itens Gerais</th>
-<th>Tabela 4-6: Itens Gerais</th>
-</tr>
+<tr><th colspan="6">Itens Gerais</th></tr>
 </thead>
 <tbody>
 <tr>
@@ -1601,14 +1566,7 @@
 <div class="classes-table-wrap">
 <table class="classes-table level-table">
 <thead>
-<tr>
-<th>Tabela 4-6: Itens Gerais (Continuação)</th>
-<th>Tabela 4-6: Itens Gerais (Continuação)</th>
-<th>Tabela 4-6: Itens Gerais (Continuação)</th>
-<th>Tabela 4-6: Itens Gerais (Continuação)</th>
-<th>Tabela 4-6: Itens Gerais (Continuação)</th>
-<th>Tabela 4-6: Itens Gerais (Continuação)</th>
-</tr>
+<tr><th colspan="6">Itens Gerais (Continuação)</th></tr>
 </thead>
 <tbody>
 <tr>
