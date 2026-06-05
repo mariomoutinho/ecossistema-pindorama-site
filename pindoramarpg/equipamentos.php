@@ -441,23 +441,11 @@
 <table aria-label="Tabela de Armas" class="classes-table level-table" id="tabela-armas">
 <thead><tr><th>Arma ou Categoria</th><th>Preço</th><th>Dano</th><th>Crítico</th><th>Alcance</th><th>Tipo</th><th>Espaços</th></tr></thead>
 <tbody>
-<tr>
-<td>Armas Simples</td>
-<td>Preço</td>
-<td>Dano</td>
-<td>Crítico</td>
-<td>Alcance</td>
-<td>Tipo</td>
-<td>Espaços</td>
+<tr class="weapon-category-row">
+<td colspan="7">Armas Simples</td>
 </tr>
-<tr>
-<td>Corpo a Corpo - Leves</td>
-<td>Corpo a Corpo - Leves</td>
-<td>Corpo a Corpo - Leves</td>
-<td>Corpo a Corpo - Leves</td>
-<td>Corpo a Corpo - Leves</td>
-<td>Corpo a Corpo - Leves</td>
-<td>Corpo a Corpo - Leves</td>
+<tr class="weapon-category-row">
+<td colspan="7">Corpo a Corpo - Leves</td>
 </tr>
 <tr>
 <td>Adaga</td>
@@ -495,14 +483,8 @@
 <td>Perfuração</td>
 <td>1</td>
 </tr>
-<tr>
-<td>Corpo a Corpo – Uma Mão</td>
-<td>Corpo a Corpo – Uma Mão</td>
-<td>Corpo a Corpo – Uma Mão</td>
-<td>Corpo a Corpo – Uma Mão</td>
-<td>Corpo a Corpo – Uma Mão</td>
-<td>Corpo a Corpo – Uma Mão</td>
-<td>Corpo a Corpo – Uma Mão</td>
+<tr class="weapon-category-row">
+<td colspan="7">Corpo a Corpo – Uma Mão</td>
 </tr>
 <tr>
 <td>Clava</td>
@@ -531,14 +513,8 @@
 <td>Impacto</td>
 <td>1</td>
 </tr>
-<tr>
-<td>Corpo a Corpo – Duas Mãos</td>
-<td>Corpo a Corpo – Duas Mãos</td>
-<td>Corpo a Corpo – Duas Mãos</td>
-<td>Corpo a Corpo – Duas Mãos</td>
-<td>Corpo a Corpo – Duas Mãos</td>
-<td>Corpo a Corpo – Duas Mãos</td>
-<td>Corpo a Corpo – Duas Mãos</td>
+<tr class="weapon-category-row">
+<td colspan="7">Corpo a Corpo – Duas Mãos</td>
 </tr>
 <tr>
 <td>Bordão</td>
@@ -567,14 +543,8 @@
 <td>Impacto</td>
 <td>2</td>
 </tr>
-<tr>
-<td>Ataque à Distância — Uma Mão</td>
-<td>Ataque à Distância — Uma Mão</td>
-<td>Ataque à Distância — Uma Mão</td>
-<td>Ataque à Distância — Uma Mão</td>
-<td>Ataque à Distância — Uma Mão</td>
-<td>Ataque à Distância — Uma Mão</td>
-<td>Ataque à Distância — Uma Mão</td>
+<tr class="weapon-category-row">
+<td colspan="7">Ataque à Distância — Uma Mão</td>
 </tr>
 <tr>
 <td>Azagaia</td>
@@ -612,14 +582,8 @@
 <td>—</td>
 <td>1</td>
 </tr>
-<tr>
-<td>Ataque à Distância — Duas Mãos</td>
-<td>Ataque à Distância — Duas Mãos</td>
-<td>Ataque à Distância — Duas Mãos</td>
-<td>Ataque à Distância — Duas Mãos</td>
-<td>Ataque à Distância — Duas Mãos</td>
-<td>Ataque à Distância — Duas Mãos</td>
-<td>Ataque à Distância — Duas Mãos</td>
+<tr class="weapon-category-row">
+<td colspan="7">Ataque à Distância — Duas Mãos</td>
 </tr>
 <tr>
 <td>Arco Curto</td>
@@ -639,23 +603,11 @@
 <td>—</td>
 <td>1</td>
 </tr>
-<tr>
-<td>Armas Marciais</td>
-<td>Preço</td>
-<td>Dano</td>
-<td>Crítico</td>
-<td>Alcance</td>
-<td>Tipo</td>
-<td>Espaços</td>
+<tr class="weapon-category-row">
+<td colspan="7">Armas Marciais</td>
 </tr>
-<tr>
-<td>Corpo A Corpo — Leves</td>
-<td>Corpo A Corpo — Leves</td>
-<td>Corpo A Corpo — Leves</td>
-<td>Corpo A Corpo — Leves</td>
-<td>Corpo A Corpo — Leves</td>
-<td>Corpo A Corpo — Leves</td>
-<td>Corpo A Corpo — Leves</td>
+<tr class="weapon-category-row">
+<td colspan="7">Corpo A Corpo — Leves</td>
 </tr>
 <tr>
 <td>Gancho</td>
@@ -675,14 +627,8 @@
 <td>Corte</td>
 <td>1</td>
 </tr>
-<tr>
-<td>Corpo a Corpo — Uma Mão</td>
-<td>Corpo a Corpo — Uma Mão</td>
-<td>Corpo a Corpo — Uma Mão</td>
-<td>Corpo a Corpo — Uma Mão</td>
-<td>Corpo a Corpo — Uma Mão</td>
-<td>Corpo a Corpo — Uma Mão</td>
-<td>Corpo a Corpo — Uma Mão</td>
+<tr class="weapon-category-row">
+<td colspan="7">Corpo a Corpo — Uma Mão</td>
 </tr>
 <tr>
 <td>Cimitarra</td>
@@ -774,14 +720,8 @@
 <td>Perfuração</td>
 <td>1</td>
 </tr>
-<tr>
-<td>Corpo a Corpo — Duas mãos</td>
-<td>Corpo a Corpo — Duas mãos</td>
-<td>Corpo a Corpo — Duas mãos</td>
-<td>Corpo a Corpo — Duas mãos</td>
-<td>Corpo a Corpo — Duas mãos</td>
-<td>Corpo a Corpo — Duas mãos</td>
-<td>Corpo a Corpo — Duas mãos</td>
+<tr class="weapon-category-row">
+<td colspan="7">Corpo a Corpo — Duas mãos</td>
 </tr>
 <tr>
 <td>Alabarda</td>
@@ -837,14 +777,8 @@
 <td>Corte</td>
 <td>2</td>
 </tr>
-<tr>
-<td>Corpo a Corpo — Duas mãos</td>
-<td>Corpo a Corpo — Duas mãos</td>
-<td>Corpo a Corpo — Duas mãos</td>
-<td>Corpo a Corpo — Duas mãos</td>
-<td>Corpo a Corpo — Duas mãos</td>
-<td>Corpo a Corpo — Duas mãos</td>
-<td>Corpo a Corpo — Duas mãos</td>
+<tr class="weapon-category-row">
+<td colspan="7">Corpo a Corpo — Duas mãos</td>
 </tr><tr>
 <td>Malho</td>
 <td>M$ 8</td>
@@ -877,14 +811,8 @@
 <td>—</td>
 <td>Corte</td>
 <td>2</td>
-</tr><tr>
-<td>Ataque à Distância – Duas Mãos</td>
-<td>Ataque à Distância – Duas Mãos</td>
-<td>Ataque à Distância – Duas Mãos</td>
-<td>Ataque à Distância – Duas Mãos</td>
-<td>Ataque à Distância – Duas Mãos</td>
-<td>Ataque à Distância – Duas Mãos</td>
-<td>Ataque à Distância – Duas Mãos</td>
+</tr><tr class="weapon-category-row">
+<td colspan="7">Ataque à Distância – Duas Mãos</td>
 </tr><tr>
 <td>Arco Longo</td>
 <td>M$ 100</td>
@@ -917,22 +845,10 @@
 <td>—</td>
 <td>Perfuração</td>
 <td>1</td>
-</tr><tr>
-<td>Armas Exóticas</td>
-<td>Preço</td>
-<td>Dano</td>
-<td>Crítico</td>
-<td>Alcance</td>
-<td>Tipo</td>
-<td>Espaços</td>
-</tr><tr>
-<td>Corpo a Corpo — Uma Mão</td>
-<td>Corpo a Corpo — Uma Mão</td>
-<td>Corpo a Corpo — Uma Mão</td>
-<td>Corpo a Corpo — Uma Mão</td>
-<td>Corpo a Corpo — Uma Mão</td>
-<td>Corpo a Corpo — Uma Mão</td>
-<td>Corpo a Corpo — Uma Mão</td>
+</tr><tr class="weapon-category-row">
+<td colspan="7">Armas Exóticas</td>
+</tr><tr class="weapon-category-row">
+<td colspan="7">Corpo a Corpo — Uma Mão</td>
 </tr><tr>
 <td>Chicote</td>
 <td>M$ 2</td>
@@ -973,14 +889,8 @@
 <td>—</td>
 <td>Perfuração</td>
 <td>1</td>
-</tr><tr>
-<td>Corpo a Corpo — Duas Mãos</td>
-<td>Corpo a Corpo — Duas Mãos</td>
-<td>Corpo a Corpo — Duas Mãos</td>
-<td>Corpo a Corpo — Duas Mãos</td>
-<td>Corpo a Corpo — Duas Mãos</td>
-<td>Corpo a Corpo — Duas Mãos</td>
-<td>Corpo a Corpo — Duas Mãos</td>
+</tr><tr class="weapon-category-row">
+<td colspan="7">Corpo a Corpo — Duas Mãos</td>
 </tr><tr>
 <td>Corrente de Espinhos</td>
 <td>M$ 25</td>
@@ -997,14 +907,8 @@
 <td>—</td>
 <td>Corte</td>
 <td>2</td>
-</tr><tr>
-<td>Ataque à Distância</td>
-<td>Ataque à Distância</td>
-<td>Ataque à Distância</td>
-<td>Ataque à Distância</td>
-<td>Ataque à Distância</td>
-<td>Ataque à Distância</td>
-<td>Ataque à Distância</td>
+</tr><tr class="weapon-category-row">
+<td colspan="7">Ataque à Distância</td>
 </tr><tr>
 <td>Arco de Guerra</td>
 <td>M$ 200</td>
@@ -1037,22 +941,10 @@
 <td>Curto</td>
 <td>—</td>
 <td>2</td>
-</tr><tr>
-<td>Armas de Fogo</td>
-<td>Preço</td>
-<td>Dano</td>
-<td>Crítico</td>
-<td>Alcance</td>
-<td>Tipo</td>
-<td>Espaços</td>
-</tr><tr>
-<td>Ataque à Distância – Leve</td>
-<td>Ataque à Distância – Leve</td>
-<td>Ataque à Distância – Leve</td>
-<td>Ataque à Distância – Leve</td>
-<td>Ataque à Distância – Leve</td>
-<td>Ataque à Distância – Leve</td>
-<td>Ataque à Distância – Leve</td>
+</tr><tr class="weapon-category-row">
+<td colspan="7">Armas de Fogo</td>
+</tr><tr class="weapon-category-row">
+<td colspan="7">Ataque à Distância – Leve</td>
 </tr><tr>
 <td>Pistola</td>
 <td>M$ 250</td>
@@ -1069,14 +961,8 @@
 <td>—</td>
 <td>—</td>
 <td>1</td>
-</tr><tr>
-<td>Ataque à Distância – Duas Mãos</td>
-<td>Ataque à Distância – Duas Mãos</td>
-<td>Ataque à Distância – Duas Mãos</td>
-<td>Ataque à Distância – Duas Mãos</td>
-<td>Ataque à Distância – Duas Mãos</td>
-<td>Ataque à Distância – Duas Mãos</td>
-<td>Ataque à Distância – Duas Mãos</td>
+</tr><tr class="weapon-category-row">
+<td colspan="7">Ataque à Distância – Duas Mãos</td>
 </tr><tr>
 <td>Bacamarte</td>
 <td>M$ 300</td>

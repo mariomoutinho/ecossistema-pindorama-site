@@ -528,6 +528,20 @@ body.mobile-menu-open .classes-sidebar {
     text-align: left;
 }
 
+/* Linha divisória de categoria (ex.: tabela de armas): uma única célula
+   mesclada (colspan) ocupando toda a largura, como um subtítulo de seção. */
+.classes-table .weapon-category-row td {
+    text-align: center;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    background: rgba(105, 67, 111, 0.12);
+    color: var(--purple-dark, #3b1d43);
+}
+/* Não reagir como linha de arma (a cor própria da célula prevalece). */
+.classes-table tbody tr.weapon-category-row:hover td {
+    background: rgba(105, 67, 111, 0.12);
+}
+
 /* =====================================================
    PATAMARES DE JOGO
 ===================================================== */
