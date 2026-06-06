@@ -64,3 +64,6 @@ terapeutas/preview-local.php
 start-local.sh
 start-local.ps1
 start-local.bat
+
+# --- Pindorama RPG v2 (stack Laravel/React/Postgres/Docker — NÃO publicar via FTP) ---
+pindoramarpg-v2/
