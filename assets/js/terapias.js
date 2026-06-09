@@ -35,9 +35,9 @@ const therapyDetails = {
     indications: ['Busca por um cuidado integral e personalizado', 'Vontade de combinar diferentes terapias numa só sessão', 'Cuidado físico, emocional e energético ao mesmo tempo', 'Dúvida sobre por qual prática começar'],
     benefits: ['Atendimento integrativo e personalizado', 'Escuta cuidadosa das necessidades de cada pessoa', 'Combinação de diferentes terapias em uma mesma sessão', 'Cuidado físico, emocional, energético e integrativo', 'Experiência construída com base nas ofertas do Coletivo Pindorama'],
     duration: 'Personalizada',
-    single: null,
-    pack4: null,
-    pack10: null,
+    single: 200,
+    pack4: 720,
+    pack10: 1600,
   },
   'Massagem Ayurvédica': {
     category: 'Terapias Integrativas',
@@ -174,7 +174,7 @@ const therapyDetails = {
 };
 
 const services = [
-  { cat: 'Terapias Integrativas', title: 'Experiência Pindorama', duration: 'Personalizada', priceFrom: 'Sob consulta', desc: 'Um atendimento integrado e personalizado, construído a partir da escuta compartilhada e da combinação de diferentes práticas terapêuticas conforme as necessidades de cada pessoa.', bg: './assets/img/terapias/experiencia-pindorama.png' },
+  { cat: 'Terapias Integrativas', title: 'Experiência Pindorama', duration: 'Personalizada', priceFrom: 'R$ 160,00', desc: 'Um atendimento integrado e personalizado, construído a partir da escuta compartilhada e da combinação de diferentes práticas terapêuticas conforme as necessidades de cada pessoa.', bg: './assets/img/terapias/experiencia-pindorama.png' },
   { cat: 'Terapias Integrativas', title: 'Massagem Ayurvédica', duration: '80 min', priceFrom: 'R$ 160,00', desc: 'Cuidado profundo para relaxamento, vitalidade e equilíbrio.', bg: './assets/img/massagem-ayurvedica-bg.png' },
   { cat: 'Terapias Integrativas', title: 'Massoterapia (diversas técnicas)', duration: '60 min', priceFrom: 'R$ 120,00', desc: 'Atendimento adaptado às necessidades do corpo e do momento.', bg: './assets/img/massoterapia-bg.png' },
   { cat: 'Terapias Integrativas', title: 'Acupuntura', duration: '60 min', priceFrom: 'R$ 120,00', desc: 'Prática integrativa para dores, estresse e regulação do organismo.', bg: './assets/img/acupuntura-bg.png', bgPos: '75% center', bgSize: '140% auto' },
