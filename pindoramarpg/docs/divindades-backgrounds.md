@@ -41,8 +41,8 @@ Imagens de fundo usadas pelo modal **Selecionar Divindade** em `ficha.php`.
 
 ## Status atual
 
-Apenas `axumewa-bg.webp` está presente no repositório. Os outros 20
-arquivos (19 divindades + `default-bg.webp`) precisam ser adicionados —
+Apenas `axumewa-bg.webp` está presente no repositório. Os demais
+arquivos de background das divindades e patronos, além de `default-bg.webp`, precisam ser adicionados —
 até lá, o picker exibe um fundo roxo sólido (`#2d0c37`) para essas
 divindades, sem quebrar o layout.
 

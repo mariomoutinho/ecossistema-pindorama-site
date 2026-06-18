@@ -2207,6 +2207,326 @@
           "descricao": "Criaturas marinhas tornam-se amigáveis a você por padrão. Você pode invocar cardumes ou pedir ajuda a criaturas aquáticas em alcance longo. (Descrição completa pendente — confirme com o manual da campanha.)",
           "prerequisito_texto": "Devoto de Mondjá",
           "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Mondjá" }]
+        },
+        {
+          "id": "divinos-labia-de-esquina",
+          "nome": "Lábia de Esquina",
+          "categoria": "divinos",
+          "descricao": "Você recebe +2 em Diplomacia, Enganação e Intuição. Uma vez por cena, quando faz um desses testes, pode gastar 1 PM para rolar novamente o dado e usar o melhor resultado.",
+          "prerequisito_texto": "Devoto de Rei do Chapéu Branco",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Rei do Chapéu Branco" }]
+        },
+        {
+          "id": "divinos-navalha-de-luz",
+          "nome": "Navalha de Luz",
+          "categoria": "divinos",
+          "descricao": "Quando acerta um ataque corpo a corpo com arma leve ou ágil, pode gastar 1 PM para causar +1d6 pontos de dano de luz. Se o alvo traiu acordo, abusou de indefeso ou atacou inocente nesta cena, o dano adicional aumenta para +2d6.",
+          "prerequisito_texto": "Devoto de Rei do Chapéu Branco",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Rei do Chapéu Branco" }]
+        },
+        {
+          "id": "divinos-escapada-no-sorriso",
+          "nome": "Escapada no Sorriso",
+          "categoria": "divinos",
+          "descricao": "Como reação, quando é alvo de um ataque ou efeito que permita teste de Reflexos, você pode gastar 1 PM para receber +2 na Defesa contra esse ataque ou +2 no teste. Se o ataque errar ou você passar no teste, pode se deslocar 3m sem provocar reações.",
+          "prerequisito_texto": "Devoto de Rei do Chapéu Branco",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Rei do Chapéu Branco" }]
+        },
+        {
+          "id": "divinos-caminho-aberto",
+          "nome": "Caminho Aberto",
+          "categoria": "divinos",
+          "descricao": "Com uma ação de movimento, você pode gastar 1 PM para tocar uma criatura. Até o fim do próximo turno dela, ela ignora terreno difícil, multidões e obstáculos menores em seu deslocamento.",
+          "prerequisito_texto": "Devoto de Rei do Chapéu Branco",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Rei do Chapéu Branco" }]
+        },
+        {
+          "id": "divinos-passo-da-mata-fechada",
+          "nome": "Passo da Mata Fechada",
+          "categoria": "divinos",
+          "descricao": "Você ignora terreno difícil natural e recebe +2 em Furtividade, Percepção e Sobrevivência em ambiente selvagem.",
+          "prerequisito_texto": "Devoto de Mãe das Matas",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Mãe das Matas" }]
+        },
+        {
+          "id": "divinos-flecha-que-nao-erra",
+          "nome": "Flecha que Não Erra",
+          "categoria": "divinos",
+          "descricao": "Quando ataca à distância uma criatura que observou por pelo menos uma ação de movimento nesta cena, pode gastar 1 PM para receber +2 no teste de ataque e causar +1d8 pontos de dano.",
+          "prerequisito_texto": "Devoto de Mãe das Matas",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Mãe das Matas" }]
+        },
+        {
+          "id": "divinos-brado-da-jurema",
+          "nome": "Brado da Jurema",
+          "categoria": "divinos",
+          "descricao": "Com uma ação padrão e 2 PM, você solta um brado ancestral. Inimigos em alcance curto devem fazer um teste de Vontade; se falharem, ficam abalados por 1 rodada. A CD do poder é 10 + metade do seu nível + seu modificador de Sabedoria ou Carisma, escolhido ao se tornar devoto.",
+          "prerequisito_texto": "Devoto de Mãe das Matas",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Mãe das Matas" }]
+        },
+        {
+          "id": "divinos-erva-de-fechar-corpo",
+          "nome": "Erva de Fechar Corpo",
+          "categoria": "divinos",
+          "descricao": "Com uma ação padrão e 1 PM, você toca uma criatura para conceder 5 PV temporários e +2 em testes contra venenos e doenças até o fim da cena. Os PV temporários aumentam em +5 nos níveis 5, 11 e 17.",
+          "prerequisito_texto": "Devoto de Mãe das Matas",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Mãe das Matas" }]
+        },
+        {
+          "id": "divinos-benzimento-manso",
+          "nome": "Benzimento Manso",
+          "categoria": "divinos",
+          "descricao": "Com uma ação padrão e 1 PM, você toca uma criatura e cura 2d6 PV. Fora de combate, cura 2d8 PV. A cura aumenta em +1 dado nos níveis 5, 11 e 17.",
+          "prerequisito_texto": "Devoto de Vó do Cruzeiro",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Vó do Cruzeiro" }]
+        },
+        {
+          "id": "divinos-paciencia-de-seculos",
+          "nome": "Paciência de Séculos",
+          "categoria": "divinos",
+          "descricao": "Você recebe +2 em Vontade e Intuição. Uma vez por cena, quando falha em um teste contra medo, encanto ou ilusão, pode rolar novamente o teste.",
+          "prerequisito_texto": "Devoto de Vó do Cruzeiro",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Vó do Cruzeiro" }]
+        },
+        {
+          "id": "divinos-fumo-de-quebra",
+          "nome": "Fumo de Quebra",
+          "categoria": "divinos",
+          "descricao": "Com uma ação padrão e 2 PM, você permite que uma criatura em alcance curto faça um novo teste contra magia, maldição, veneno, doença, medo ou possessão que a esteja afetando, com +2 no teste.",
+          "prerequisito_texto": "Devoto de Vó do Cruzeiro",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Vó do Cruzeiro" }]
+        },
+        {
+          "id": "divinos-conselho-do-banquinho",
+          "nome": "Conselho do Banquinho",
+          "categoria": "divinos",
+          "descricao": "Após conversar por pelo menos 1 minuto com uma criatura, você pode gastar 1 PM para conceder a ela +2 em um teste de perícia à escolha dela até o fim do dia. Uma criatura só pode receber este benefício uma vez por dia.",
+          "prerequisito_texto": "Devoto de Vó do Cruzeiro",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Vó do Cruzeiro" }]
+        },
+        {
+          "id": "divinos-riso-desarmante",
+          "nome": "Riso Desarmante",
+          "categoria": "divinos",
+          "descricao": "Com uma ação padrão e 1 PM, escolha uma criatura em alcance curto. Ela deve fazer um teste de Vontade; se falhar, sofre –2 em testes de ataque contra você por 1 rodada. A CD do poder é 10 + metade do seu nível + seu modificador de Sabedoria ou Carisma, escolhido ao se tornar devoto.",
+          "prerequisito_texto": "Devoto de Menino da Gira",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Menino da Gira" }]
+        },
+        {
+          "id": "divinos-doce-sorte",
+          "nome": "Doce Sorte",
+          "categoria": "divinos",
+          "descricao": "Uma vez por rodada, quando você ou um aliado em alcance curto rolar 1 natural em um teste, você pode gastar 1 PM como reação para tratar o resultado do dado como 10. Este poder não transforma a rolagem em sucesso automático.",
+          "prerequisito_texto": "Devoto de Menino da Gira",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Menino da Gira" }]
+        },
+        {
+          "id": "divinos-travessura-santa",
+          "nome": "Travessura Santa",
+          "categoria": "divinos",
+          "descricao": "Com uma ação de movimento e 1 PM, você cria uma distração inocente contra uma criatura em alcance curto. Ela fica desprevenida contra o próximo ataque feito contra ela até o início do seu próximo turno.",
+          "prerequisito_texto": "Devoto de Menino da Gira",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Menino da Gira" }]
+        },
+        {
+          "id": "divinos-olhos-limpos",
+          "nome": "Olhos Limpos",
+          "categoria": "divinos",
+          "descricao": "Você recebe +2 em Percepção e Intuição. Durante uma conversa, pode gastar 1 PM para perceber se uma frase direta dita por uma criatura é mentira deliberada; o mestre responde apenas sim, não ou incerto.",
+          "prerequisito_texto": "Devoto de Menino da Gira",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Menino da Gira" }]
+        },
+        {
+          "id": "divinos-chave-da-encruzilhada",
+          "nome": "Chave da Encruzilhada",
+          "categoria": "divinos",
+          "descricao": "Você recebe +2 em Ladinagem, Investigação e Sobrevivência em ambiente urbano. Pode gastar 1 PM para receber +5 em um teste para abrir fechaduras, encontrar rotas, escapar de prisões ou descobrir passagens.",
+          "prerequisito_texto": "Devoto de Senhor da Encruza",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Senhor da Encruza" }]
+        },
+        {
+          "id": "divinos-tranca-rua",
+          "nome": "Tranca-Rua",
+          "categoria": "divinos",
+          "descricao": "Com uma ação padrão e 2 PM, escolha uma criatura em alcance curto. Ela deve fazer um teste de Reflexos; se falhar, seu deslocamento é reduzido pela metade e ela não pode fazer investidas por 1 rodada. A CD do poder é 10 + metade do seu nível + seu modificador de Sabedoria ou Carisma, escolhido ao se tornar devoto.",
+          "prerequisito_texto": "Devoto de Senhor da Encruza",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Senhor da Encruza" }]
+        },
+        {
+          "id": "divinos-gargalhada-de-guarda",
+          "nome": "Gargalhada de Guarda",
+          "categoria": "divinos",
+          "descricao": "Como reação, quando você ou um aliado em alcance curto é alvo de magia, maldição, medo ou dominação, você pode gastar 1 PM para conceder +2 no teste de resistência contra o efeito.",
+          "prerequisito_texto": "Devoto de Senhor da Encruza",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Senhor da Encruza" }]
+        },
+        {
+          "id": "divinos-pacto-do-caminho",
+          "nome": "Pacto do Caminho",
+          "categoria": "divinos",
+          "descricao": "No início do dia, escolha uma direção simbólica: frente, trás, esquerda ou direita. Uma vez por cena, pode gastar 1 PM para se deslocar 6m nessa direção sem provocar reações, desde que exista caminho físico possível.",
+          "prerequisito_texto": "Devoto de Senhor da Encruza",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Senhor da Encruza" }]
+        },
+        {
+          "id": "divinos-espelho-do-desejo",
+          "nome": "Espelho do Desejo",
+          "categoria": "divinos",
+          "descricao": "Você recebe +2 em Diplomacia, Enganação e Intimidação. Uma vez por cena, pode gastar 1 PM para perceber o desejo imediato de uma criatura que possa ver; o mestre responde em uma frase curta.",
+          "prerequisito_texto": "Devoto de Rainha da Rosa Vermelha",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Rainha da Rosa Vermelha" }]
+        },
+        {
+          "id": "divinos-rosa-de-fogo",
+          "nome": "Rosa de Fogo",
+          "categoria": "divinos",
+          "descricao": "Com uma ação padrão e 2 PM, escolha uma criatura em alcance curto. Ela deve fazer um teste de Vontade; se falhar, fica fascinada por 1 rodada. O efeito termina se a criatura for atacada ou sofrer dano. A CD do poder é 10 + metade do seu nível + seu modificador de Sabedoria ou Carisma, escolhido ao se tornar devoto.",
+          "prerequisito_texto": "Devoto de Rainha da Rosa Vermelha",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Rainha da Rosa Vermelha" }]
+        },
+        {
+          "id": "divinos-salto-na-gira",
+          "nome": "Salto na Gira",
+          "categoria": "divinos",
+          "descricao": "Quando uma criatura erra um ataque corpo a corpo contra você, pode gastar 1 PM como reação para se deslocar 3m sem provocar reações. Se terminar adjacente a outro inimigo, ele fica desprevenido contra o próximo ataque que você fizer até o fim do seu próximo turno.",
+          "prerequisito_texto": "Devoto de Rainha da Rosa Vermelha",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Rainha da Rosa Vermelha" }]
+        },
+        {
+          "id": "divinos-beijo-de-corte",
+          "nome": "Beijo de Corte",
+          "categoria": "divinos",
+          "descricao": "Quando acerta um ataque corpo a corpo, pode gastar 1 PM para forçar o alvo a fazer um teste de Fortitude. Se falhar, ele fica vulnerável por 1 rodada. Se você estiver sob medo, encanto ou dominação, também pode fazer um novo teste contra um desses efeitos. A CD do poder é 10 + metade do seu nível + seu modificador de Sabedoria ou Carisma, escolhido ao se tornar devoto.",
+          "prerequisito_texto": "Devoto de Rainha da Rosa Vermelha",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Rainha da Rosa Vermelha" }]
+        },
+        {
+          "id": "divinos-risada-que-desamarra",
+          "nome": "Risada que Desamarra",
+          "categoria": "divinos",
+          "descricao": "Como reação, quando você ou um aliado em alcance curto falha em teste contra medo, paralisia ou efeito que reduza deslocamento, você pode gastar 1 PM para permitir uma nova rolagem com +2.",
+          "prerequisito_texto": "Devoto de Senhor do Dendê",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Senhor do Dendê" }]
+        },
+        {
+          "id": "divinos-facao-de-feira",
+          "nome": "Facão de Feira",
+          "categoria": "divinos",
+          "descricao": "Se você se deslocou pelo menos 3m neste turno, pode gastar 1 PM ao acertar um ataque corpo a corpo para causar +1d8 pontos de dano. Até o início do seu próximo turno, recebe +2 para resistir a agarrar e derrubar.",
+          "prerequisito_texto": "Devoto de Senhor do Dendê",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Senhor do Dendê" }]
+        },
+        {
+          "id": "divinos-coco-de-roda",
+          "nome": "Coco de Roda",
+          "categoria": "divinos",
+          "descricao": "Com uma ação de movimento e 2 PM, aliados em alcance curto recebem +2 contra medo e +1 em testes de ataque corpo a corpo até o início do seu próximo turno.",
+          "prerequisito_texto": "Devoto de Senhor do Dendê",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Senhor do Dendê" }]
+        },
+        {
+          "id": "divinos-farofa-de-axe",
+          "nome": "Farofa de Axé",
+          "categoria": "divinos",
+          "descricao": "Durante um descanso, se houver ingredientes simples, você pode gastar 2 PM para cozinhar. Até seis criaturas que comerem recuperam +1d6 PV e recebem +2 em Fortitude até o próximo descanso.",
+          "prerequisito_texto": "Devoto de Senhor do Dendê",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Senhor do Dendê" }]
+        },
+        {
+          "id": "divinos-laco-astral",
+          "nome": "Laço Astral",
+          "categoria": "divinos",
+          "descricao": "Com uma ação padrão e 2 PM, escolha uma criatura em alcance curto. Ela deve fazer um teste de Reflexos; se falhar, fica agarrada por um laço espiritual por 1 rodada. A criatura pode gastar uma ação padrão para repetir o teste e encerrar o efeito. A CD do poder é 10 + metade do seu nível + seu modificador de Sabedoria ou Carisma, escolhido ao se tornar devoto.",
+          "prerequisito_texto": "Devoto de Cavaleiro do Laço",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Cavaleiro do Laço" }]
+        },
+        {
+          "id": "divinos-casco-firme",
+          "nome": "Casco Firme",
+          "categoria": "divinos",
+          "descricao": "Você recebe +2 em Atletismo e Fortitude, e +5 em testes para resistir a empurrões, quedas, investidas e efeitos de terreno difícil.",
+          "prerequisito_texto": "Devoto de Cavaleiro do Laço",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Cavaleiro do Laço" }]
+        },
+        {
+          "id": "divinos-tropa-no-grito",
+          "nome": "Tropa no Grito",
+          "categoria": "divinos",
+          "descricao": "Com uma ação de movimento e 2 PM, aliados em alcance curto recebem +3m de deslocamento até o fim do próximo turno deles. Se usarem esse deslocamento para se aproximar de um inimigo, recebem +1 no próximo ataque corpo a corpo contra ele.",
+          "prerequisito_texto": "Devoto de Cavaleiro do Laço",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Cavaleiro do Laço" }]
+        },
+        {
+          "id": "divinos-marcar-a-res",
+          "nome": "Marcar a Rês",
+          "categoria": "divinos",
+          "descricao": "Com uma ação de movimento e 1 PM, você marca espiritualmente uma criatura em alcance curto até o fim da cena. Uma vez por rodada, o primeiro aliado que causar dano a ela causa +1d6 pontos de dano.",
+          "prerequisito_texto": "Devoto de Cavaleiro do Laço",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Cavaleiro do Laço" }]
+        },
+        {
+          "id": "divinos-pe-de-conves",
+          "nome": "Pé de Convés",
+          "categoria": "divinos",
+          "descricao": "Você recebe +2 em Acrobacia, Atletismo e Pilotagem. Não sofre penalidade por piso molhado, instável ou escorregadio.",
+          "prerequisito_texto": "Devoto de Capitão das Marés",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Capitão das Marés" }]
+        },
+        {
+          "id": "divinos-balanco-do-mar",
+          "nome": "Balanço do Mar",
+          "categoria": "divinos",
+          "descricao": "Como reação, quando uma criatura faz um ataque corpo a corpo contra você, pode gastar 1 PM para impor –2 nesse ataque. Se o ataque errar, você pode dar um passo de 1,5m.",
+          "prerequisito_texto": "Devoto de Capitão das Marés",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Capitão das Marés" }]
+        },
+        {
+          "id": "divinos-canto-de-bordo",
+          "nome": "Canto de Bordo",
+          "categoria": "divinos",
+          "descricao": "Com uma ação padrão e 2 PM, aliados em alcance curto recebem +2 em Vontade contra medo, confusão e encantamento até o fim da cena. Quem já estiver sob um desses efeitos pode fazer um novo teste imediatamente.",
+          "prerequisito_texto": "Devoto de Capitão das Marés",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Capitão das Marés" }]
+        },
+        {
+          "id": "divinos-agua-leva",
+          "nome": "Água Leva",
+          "categoria": "divinos",
+          "descricao": "Com uma ação padrão e 1 PM, você toca uma criatura para apagar fogo comum, remover enjoo, veneno leve ou fadiga. Contra efeitos mais fortes ligados a fogo, veneno, enjoo ou fadiga, a criatura pode fazer um novo teste com +2.",
+          "prerequisito_texto": "Devoto de Capitão das Marés",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Capitão das Marés" }]
+        },
+        {
+          "id": "divinos-carta-virada",
+          "nome": "Carta Virada",
+          "categoria": "divinos",
+          "descricao": "Uma vez por cena, após você ou um aliado em alcance curto rolar um teste e antes de saber o resultado, pode gastar 1 PM como reação para somar +1d6 ao resultado.",
+          "prerequisito_texto": "Devoto de Senhora da Estrada Dourada",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Senhora da Estrada Dourada" }]
+        },
+        {
+          "id": "divinos-danca-dos-lencos",
+          "nome": "Dança dos Lenços",
+          "categoria": "divinos",
+          "descricao": "Com uma ação de movimento e 1 PM, você recebe +2 na Defesa contra ataques à distância e pode se deslocar 3m sem provocar reações.",
+          "prerequisito_texto": "Devoto de Senhora da Estrada Dourada",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Senhora da Estrada Dourada" }]
+        },
+        {
+          "id": "divinos-olho-de-pressagio",
+          "nome": "Olho de Presságio",
+          "categoria": "divinos",
+          "descricao": "Você recebe +2 em Misticismo, Intuição e Percepção. Após uma leitura breve de cartas, fogo, estrelas, moedas ou linhas da mão, pode gastar 1 PM para fazer ao mestre uma pergunta simples sobre perigo imediato; a resposta deve ser curta e simbólica.",
+          "prerequisito_texto": "Devoto de Senhora da Estrada Dourada",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Senhora da Estrada Dourada" }]
+        },
+        {
+          "id": "divinos-chama-do-acampamento",
+          "nome": "Chama do Acampamento",
+          "categoria": "divinos",
+          "descricao": "Durante um descanso, você pode gastar 2 PM para proteger o acampamento. Até o próximo descanso, até seis criaturas beneficiadas recebem +2 no primeiro teste contra medo, frio, ilusão ou surpresa.",
+          "prerequisito_texto": "Devoto de Senhora da Estrada Dourada",
+          "prerequisitos": [{ "tipo": "manual", "texto": "Devoto de Senhora da Estrada Dourada" }]
         }
       ]
     },

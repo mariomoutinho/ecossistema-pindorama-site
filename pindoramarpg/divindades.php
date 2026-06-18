@@ -14,6 +14,14 @@ function garantirHelperDivindadesPrimario(string $primario, string $fallback): v
     }
 }
 
+function slugDivindades(string $texto): string
+{
+    $ascii = iconv('UTF-8', 'ASCII//TRANSLIT', $texto);
+    $base = strtolower($ascii !== false ? $ascii : $texto);
+    $slug = preg_replace('/[^a-z0-9]+/', '-', $base) ?? '';
+    return trim($slug, '-');
+}
+
 try {
     garantirHelperDivindadesPrimario(__DIR__ . '/lib/divindades.php', __DIR__ . '/includes/divindades.php');
     garantirHelperDivindadesPrimario(__DIR__ . '/lib/origens.php', __DIR__ . '/includes/origens.php');
@@ -86,7 +94,18 @@ try {
                         <a class="toc-link toc-level-2" href="#regras">Regras de Devoção</a>
                         <a class="toc-link toc-level-2" href="#tabela-divindades">Divindades</a>
                         <a class="toc-link toc-level-2" href="#detalhes">Divindades em detalhe</a>
+                        <?php $grupoTocAtual = null; ?>
                         <?php foreach ($divindades as $d): ?>
+                            <?php
+                            $grupo = trim((string) ($d['grupo'] ?? ''));
+                            if ($grupo !== '' && $grupo !== $grupoTocAtual):
+                                $grupoTocAtual = $grupo;
+                                $grupoId = 'grupo-' . slugDivindades($grupo);
+                            ?>
+                                <a class="toc-link toc-level-2" href="#<?= htmlspecialchars($grupoId) ?>">
+                                    <?= htmlspecialchars($grupo) ?>
+                                </a>
+                            <?php endif; ?>
                             <a class="toc-link toc-level-3" href="#div-<?= htmlspecialchars($d['id']) ?>">
                                 <?= htmlspecialchars($d['nome']) ?>
                             </a>
@@ -157,7 +176,19 @@ try {
                     <h2>Divindades em detalhe</h2>
                 </section>
 
+                <?php $grupoDetalheAtual = null; ?>
                 <?php foreach ($divindades as $d): ?>
+                <?php
+                    $grupo = trim((string) ($d['grupo'] ?? ''));
+                    if ($grupo !== '' && $grupo !== $grupoDetalheAtual):
+                        $grupoDetalheAtual = $grupo;
+                        $grupoId = 'grupo-' . slugDivindades($grupo);
+                ?>
+                <section id="<?= htmlspecialchars($grupoId) ?>" class="content-section">
+                    <h2><?= htmlspecialchars($grupo) ?></h2>
+                    <p>Estes patronos são criações ficcionais para RPG, inspiradas em arquétipos populares e espirituais brasileiros. Não representam doutrina oficial da Umbanda, Candomblé, Quimbanda ou qualquer tradição religiosa específica.</p>
+                </section>
+                <?php endif; ?>
                 <section id="div-<?= htmlspecialchars($d['id']) ?>" class="content-section divindade-detalhe">
                     <h2><?= htmlspecialchars($d['nome']) ?></h2>
                     <span class="divindade-saudacao-grande"><?= htmlspecialchars($d['saudacao'] ?? '') ?></span>

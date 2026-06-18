@@ -205,7 +205,7 @@ Algoritmo (`podeAdquirirPoder`):
 
 Cada divindade possui: nome, saudação, descrição, crenças, símbolo, energia (`retrativa`, `expansiva`, `qualquer`), arma preferida, lista de devotos permitidos (raças/classes), lista de poderes divinos permitidos, obrigações.
 
-20 divindades catalogadas (Aelohim, Anhanga, Axumewá, etc.).
+30 divindades e patronos catalogados (Aelohim, Anhangá, Axumewá, etc., incluindo o Panteão da Gira como material homebrew ficcional).
 
 ### 6.2 Devoção
 

@@ -3,7 +3,7 @@
 /**
  * Helpers para o sistema de Divindades.
  *
- * data/divindades.json: 20 divindades, cada uma com lista de IDs de poderes
+ * data/divindades.json: divindades e patronos, cada um com lista de IDs de poderes
  * que referenciam a categoria "divinos" em data/poderes-gerais.json.
  */
 
