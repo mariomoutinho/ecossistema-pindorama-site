@@ -48,7 +48,7 @@ $homePrefix = ($active === 'home') ? '' : htmlspecialchars($homeUrl);
   <div class="container">
     <div class="nav">
       <a class="brand" href="<?= htmlspecialchars($homeUrl) ?>#topo">
-        <img class="logo" src="assets/img/logo-pindorama-128.webp" width="64" height="64" decoding="async" alt="Coletivo Pindorama">
+        <img class="logo" src="assets/img/logo-pindorama.svg" width="64" height="64" decoding="async" alt="Coletivo Pindorama">
         <div>
           <h1>Coletivo Pindorama</h1>
           <p>Saúde Integrativa &amp; Bem-Estar</p>

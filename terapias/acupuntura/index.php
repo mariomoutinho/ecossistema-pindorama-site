@@ -97,7 +97,7 @@ $pageTitle = 'Acupuntura — Mapa interativo (experimental) • Pindorama';
 <header class="acup-topbar">
   <div class="acup-topbar__inner">
     <a class="acup-topbar__brand" href="../../index.php">
-      <img src="../../assets/img/logo-pindorama-128.webp" width="64" height="64" decoding="async" alt="Pindorama">
+      <img src="../../assets/img/logo-pindorama.svg" width="64" height="64" decoding="async" alt="Pindorama">
       <div>
         <strong>Coletivo Pindorama</strong>
         <span>Acupuntura · ferramenta experimental</span>

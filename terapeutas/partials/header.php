@@ -44,7 +44,7 @@ $perfilLabel = (isset($terapeutaLogado) && function_exists('auth_papel_label'))
 <header class="terap-topbar">
   <div class="terap-topbar__inner">
     <a class="terap-brand" href="index.php">
-      <img src="../assets/img/logo-pindorama-128.webp" width="64" height="64" decoding="async" alt="Pindorama" class="terap-brand__logo">
+      <img src="../assets/img/logo-pindorama.svg" width="64" height="64" decoding="async" alt="Pindorama" class="terap-brand__logo">
       <div>
         <strong>Espaço Pindorama</strong>
         <span>Área dos terapeutas</span>
