@@ -71,6 +71,7 @@
   object-position: var(--pos-m, center center);
   user-select: none;
   -webkit-user-drag: none;
+  will-change: opacity;
   transition: opacity .5s ease;
 }
 .hhc__img--err{ opacity: 0; } /* some se a imagem não carregar; revela o degradê */
@@ -193,10 +194,10 @@
 }
 .hhc__dot{
   position: relative;
-  width: 24px;
-  height: 24px;
+  width: 44px;
+  height: 44px;
   padding: 0;
-  margin: -7.5px;
+  margin: -10px;
   border: 0;
   background: transparent;
   cursor: pointer;
@@ -204,14 +205,19 @@
 .hhc__dot::before{
   content: "";
   position: absolute;
-  inset: 7.5px;
+  top: 50%;
+  left: 50%;
+  width: 9px;
+  height: 9px;
+  transform: translate(-50%, -50%);
   border-radius: 999px;
   border: 1px solid rgba(244,231,211,.42);
   background: rgba(244,231,211,.18);
   transition: transform .25s ease, background .25s ease, border-color .25s ease;
+  will-change: transform;
 }
 .hhc__dot.active::before{
-  transform: scaleX(3.1);
+  transform: translate(-50%, -50%) scaleX(3.1);
   background: var(--sand);
   border-color: var(--sand);
 }

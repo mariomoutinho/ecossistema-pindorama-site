@@ -210,7 +210,7 @@ function renderCarousel() {
     <div class="therapyCarousel__viewport"></div>
     <button class="therapyCarousel__arrow therapyCarousel__arrow--prev" type="button" aria-label="Serviço anterior">&lsaquo;</button>
     <button class="therapyCarousel__arrow therapyCarousel__arrow--next" type="button" aria-label="Próximo serviço">&rsaquo;</button>
-    <div class="therapyCarousel__dots" aria-label="Selecionar terapia em destaque"></div>
+    <div class="therapyCarousel__dots" role="tablist" aria-label="Selecionar terapia em destaque"></div>
   `;
 
   carouselEl.querySelector('.therapyCarousel__arrow--prev').addEventListener('click', () => {
@@ -278,7 +278,7 @@ function goToSlide(index, userAction = false) {
   `;
 
   dots.innerHTML = services.map((item, itemIndex) => `
-    <button class="therapyCarousel__dot${itemIndex === currentSlide ? ' active' : ''}" type="button" aria-label="Mostrar ${escapeAttr(item.title)}" aria-current="${itemIndex === currentSlide ? 'true' : 'false'}" data-slide-index="${itemIndex}"></button>
+    <button class="therapyCarousel__dot${itemIndex === currentSlide ? ' active' : ''}" type="button" role="tab" aria-label="Mostrar ${escapeAttr(item.title)}" aria-selected="${itemIndex === currentSlide ? 'true' : 'false'}" data-slide-index="${itemIndex}"></button>
   `).join('');
 
   dots.querySelectorAll('.therapyCarousel__dot').forEach(dot => {

@@ -157,11 +157,13 @@
 }
 .therapyCarousel__slide{
   overflow: hidden;
+  will-change: transform, opacity;
   animation: carouselReveal .48s cubic-bezier(.2,.7,.2,1) both;
 }
 .therapyCarousel__image{
   background-repeat: no-repeat;
   transform: scale(1.02);
+  will-change: transform;
   animation: carouselImageEase 5.1s ease both;
 }
 .therapyCarousel__shade{
@@ -291,10 +293,10 @@
 }
 .therapyCarousel__dot{
   position: relative;
-  width: 24px;
-  height: 24px;
+  width: 44px;
+  height: 44px;
   padding: 0;
-  margin: -7.5px;
+  margin: -10px;
   border: 0;
   background: transparent;
   cursor: pointer;
@@ -302,14 +304,19 @@
 .therapyCarousel__dot::before{
   content: "";
   position: absolute;
-  inset: 7.5px;
+  top: 50%;
+  left: 50%;
+  width: 9px;
+  height: 9px;
+  transform: translate(-50%, -50%);
   border-radius: 999px;
   border: 1px solid rgba(244,231,211,.42);
   background: rgba(244,231,211,.18);
   transition: transform .25s ease, background .25s ease, border-color .25s ease;
+  will-change: transform;
 }
 .therapyCarousel__dot.active::before{
-  transform: scaleX(3.1);
+  transform: translate(-50%, -50%) scaleX(3.1);
   background: var(--sand);
   border-color: var(--sand);
 }
@@ -365,6 +372,7 @@
     transform .35s cubic-bezier(.2,.7,.2,1),
     box-shadow .35s ease,
     border-color .35s ease;
+  will-change: transform;
 }
 .serviceCard:hover,
 .serviceCard:focus-within{
@@ -387,6 +395,7 @@
   background-size: cover;
   background-position: center;
   transition: transform 1.2s cubic-bezier(.2,.7,.2,1);
+  will-change: transform;
 }
 .serviceCard:hover .serviceCard__bg,
 .serviceCard:focus-within .serviceCard__bg{ transform: scale(1.06); }
@@ -402,7 +411,6 @@
     rgba(8,18,14,.55) 45%,
     rgba(5,13,10,.93) 100%
   );
-  transition: background .35s ease;
 }
 .serviceCard:hover .serviceCard__overlay,
 .serviceCard:focus-within .serviceCard__overlay{
@@ -507,7 +515,7 @@
   gap: 6px;
   flex-wrap: wrap;
   box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
-  transition: border-color .35s ease, background .35s ease;
+  transition: border-color .35s ease;
 }
 .serviceCard:hover .serviceCard__price,
 .serviceCard:focus-within .serviceCard__price{
@@ -535,7 +543,7 @@
   letter-spacing: .15px;
 }
 
-.note{ font-size: 12.5px; color: var(--muted); margin: 16px 0 0; text-align: center; }
+.note{ font-size: 12.5px; color: rgba(234,243,239,.94); margin: 16px 0 0; text-align: center; }
 
 /* ============================================================
    MODAL DE TERAPIA
@@ -560,6 +568,7 @@ body.modalOpen{ overflow: hidden; }
   -webkit-backdrop-filter: blur(10px);
 }
 .therapyModal.open .therapyModal__backdrop{
+  will-change: opacity;
   animation: modalFade .22s ease both;
 }
 .therapyModal__dialog{
@@ -581,6 +590,7 @@ body.modalOpen{ overflow: hidden; }
   outline: none;
 }
 .therapyModal.open .therapyModal__dialog{
+  will-change: transform, opacity;
   animation: modalLift .28s cubic-bezier(.2,.7,.2,1) both;
 }
 .therapyModal__close{
@@ -1038,6 +1048,7 @@ textarea{ min-height: 120px; resize: vertical; }
     transform .35s cubic-bezier(.2,.7,.2,1),
     box-shadow .35s ease,
     border-color .35s ease;
+  will-change: transform;
 }
 .ecosystem-card::before{
   content: "";
@@ -1050,7 +1061,6 @@ textarea{ min-height: 120px; resize: vertical; }
     rgba(5,24,18,.62) 55%,
     rgba(3,16,12,.92) 100%
   );
-  transition: background .35s ease;
 }
 .ecosystem-card:hover,
 .ecosystem-card:focus-visible{
@@ -1076,6 +1086,7 @@ textarea{ min-height: 120px; resize: vertical; }
   background-size: cover;
   background-position: center;
   transition: transform 1.2s cubic-bezier(.2,.7,.2,1);
+  will-change: transform;
 }
 .ecosystem-card:hover .ecosystem-card__bg,
 .ecosystem-card:focus-visible .ecosystem-card__bg{
@@ -1170,7 +1181,7 @@ textarea{ min-height: 120px; resize: vertical; }
   border-color: rgba(244,231,211,.22);
 }
 .ctaCard h3{ font-size: 18px; margin: 4px 0 2px; }
-.ctaCard p{ margin: 0; color: var(--muted); font-size: 13.5px; max-width: 60ch; }
+.ctaCard p{ margin: 0; color: rgba(234,243,239,.94); font-size: 13.5px; max-width: 60ch; }
 
 /* Hero em coluna única (terapias.php não usa sideCard) */
 .heroGrid--single{ grid-template-columns: 1fr; }

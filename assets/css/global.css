@@ -3,7 +3,7 @@
   --surface: #112620;
   --card: #132D26;
   --text: #EAF3EF;
-  --muted: rgba(234,243,239,.78);
+  --muted: rgba(234,243,239,.90);
   --line: rgba(234,243,239,.12);
 
   --sand: #F4E7D3;
@@ -176,8 +176,8 @@ main > section:not(:first-child){
   padding: 16px;
   box-shadow: 0 12px 34px rgba(0,0,0,.22);
 }
-.card h3{ margin: 0 0 6px; font-size: 14px; }
-.card p{ margin: 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+.card h3{ margin: 0 0 6px; color: var(--text); font-size: 14px; }
+.card p{ margin: 0; color: rgba(234,243,239,.94); font-size: 13px; line-height: 1.55; }
 
 .tag{
   display:inline-flex;
@@ -186,7 +186,7 @@ main > section:not(:first-child){
   border-radius: 999px;
   border: 1px solid rgba(234,243,239,.14);
   background: rgba(234,243,239,.06);
-  color: var(--muted);
+  color: rgba(234,243,239,.94);
   margin-bottom: 10px;
 }
 

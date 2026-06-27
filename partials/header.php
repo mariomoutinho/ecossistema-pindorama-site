@@ -10,6 +10,8 @@ $active           = $activePage         ?? 'home';
 $pageTitle        = $pageTitle          ?? 'Coletivo Pindorama • Saúde Integrativa & Bem-Estar';
 $pageDescription  = $pageDescription    ?? 'Saúde Integrativa & Bem-Estar em Recife/PE. Terapias, atividades coletivas, formações e a metodologia Cuidar+.';
 $extraStyles      = $extraStyles        ?? [];
+$asyncStyles      = $asyncStyles        ?? [];
+$criticalCss      = $criticalCss        ?? '';
 $preloadImages    = $preloadImages      ?? [];
 
 // Prefixo para âncoras de seções que só existem na home (#sobre, #contato).
@@ -36,11 +38,27 @@ $homePrefix = ($active === 'home') ? '' : htmlspecialchars($homeUrl);
     >
   <?php endforeach; ?>
 
-  <link rel="stylesheet" href="assets/css/global.css">
-  <link rel="stylesheet" href="assets/css/home.css">
+  <?php if ($criticalCss !== ''): ?>
+    <style><?= $criticalCss ?></style>
+  <?php endif; ?>
+
+  <?php if (!$asyncStyles): ?>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/home.css">
+  <?php endif; ?>
   <?php foreach ($extraStyles as $href): ?>
     <link rel="stylesheet" href="<?= htmlspecialchars($href) ?>">
   <?php endforeach; ?>
+  <?php foreach ($asyncStyles as $href): ?>
+    <link rel="preload" href="<?= htmlspecialchars($href) ?>" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <?php endforeach; ?>
+  <?php if ($asyncStyles): ?>
+    <noscript>
+      <?php foreach ($asyncStyles as $href): ?>
+        <link rel="stylesheet" href="<?= htmlspecialchars($href) ?>">
+      <?php endforeach; ?>
+    </noscript>
+  <?php endif; ?>
 </head>
 
 <body>
@@ -48,7 +66,7 @@ $homePrefix = ($active === 'home') ? '' : htmlspecialchars($homeUrl);
   <div class="container">
     <div class="nav">
       <a class="brand" href="<?= htmlspecialchars($homeUrl) ?>#topo">
-        <img class="logo" src="assets/img/logo-pindorama.svg" width="64" height="64" decoding="async" alt="Coletivo Pindorama">
+        <img class="logo" src="assets/img/logo-pindorama.svg" width="64" height="64" decoding="async" fetchpriority="low" alt="Coletivo Pindorama">
         <div>
           <h1>Coletivo Pindorama</h1>
           <p>Saúde Integrativa &amp; Bem-Estar</p>
