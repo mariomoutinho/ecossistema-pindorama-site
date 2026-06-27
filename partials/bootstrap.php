@@ -50,10 +50,11 @@ try {
   $db_error = $e->getMessage();
 }
 
-// Ambiente: APP_ENV manda; sem ela, considera dev se o host de banco for local.
+// Ambiente: APP_ENV manda; sem ela, considera dev apenas em acesso local.
 $is_dev = defined('APP_ENV')
   ? (APP_ENV === 'development')
-  : in_array(DB_HOST, ['127.0.0.1', 'localhost', '::1'], true);
+  : (($_SERVER['HTTP_HOST'] ?? '') === ''
+    || preg_match('/^(localhost|127\.0\.0\.1|\[?::1\]?)(:\d+)?$/', $_SERVER['HTTP_HOST'] ?? ''));
 
 // Contato + redes
 $whatsNumber  = '5581995216450';
