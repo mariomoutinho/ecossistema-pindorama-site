@@ -10,6 +10,13 @@ $pageTitle       = 'Coletivo Pindorama • Saúde Integrativa & Bem-Estar';
 $pageDescription = 'Saúde Integrativa & Bem-Estar em Recife/PE. Terapias, atividades coletivas, formações e a metodologia Cuidar+.';
 $pageScripts     = ['assets/js/home-hero-carousel.js', 'assets/js/home.js'];
 $extraStyles     = ['assets/css/home-hero-carousel.css'];
+$preloadImages   = [[
+  'href' => 'assets/img/home/banner/01-acolhimento-pindorama-1280.webp',
+  'type' => 'image/webp',
+  'imagesrcset' => 'assets/img/home/banner/01-acolhimento-pindorama-640.webp 640w, assets/img/home/banner/01-acolhimento-pindorama-960.webp 960w, assets/img/home/banner/01-acolhimento-pindorama-1280.webp 1280w, assets/img/home/banner/01-acolhimento-pindorama.webp 1600w',
+  'imagesizes' => '(max-width: 767px) calc(100vw - 40px), min(1120px, calc(100vw - 40px))',
+  'fetchpriority' => 'high',
+]];
 
 require __DIR__ . '/partials/bootstrap.php';
 

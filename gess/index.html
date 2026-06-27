@@ -12,8 +12,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
+    rel="preload"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
   />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -22,7 +25,7 @@
   <header class="site-header" id="topo">
     <div class="container header-wrap">
       <a href="#topo" class="brand" aria-label="Página inicial da GESS">
-        <img src="LOGO SEMENTEIRA.png" alt="Logo da GESS" class="brand-logo" />
+        <img src="LOGO SEMENTEIRA.webp" width="74" height="74" decoding="async" alt="Logo da GESS" class="brand-logo" />
         <div class="brand-text">
           <strong>GESS</strong>
           <span>Grupo de Empreendedorismo Social</span>
@@ -480,6 +483,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

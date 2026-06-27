@@ -88,7 +88,7 @@ $pageTitle = 'Acupuntura — Mapa interativo (experimental) • Pindorama';
   <meta name="robots" content="noindex" />
   <title><?= htmlspecialchars($pageTitle) ?></title>
   <meta name="description" content="Ferramenta experimental de apoio clínico em acupuntura — mapa corporal interativo e recomendações por sintoma/síndrome/ação. Educacional, não substitui consulta.">
-  <link rel="icon" type="image/svg+xml" href="../../assets/img/logo-pindorama.svg" />
+  <link rel="icon" type="image/png" href="../../assets/img/logo-pindorama-64.png" />
   <link rel="stylesheet" href="../../assets/css/global.css">
   <link rel="stylesheet" href="assets/acupuntura.css">
 </head>
@@ -97,7 +97,7 @@ $pageTitle = 'Acupuntura — Mapa interativo (experimental) • Pindorama';
 <header class="acup-topbar">
   <div class="acup-topbar__inner">
     <a class="acup-topbar__brand" href="../../index.php">
-      <img src="../../assets/img/logo-pindorama.svg" alt="Pindorama">
+      <img src="../../assets/img/logo-pindorama-128.webp" width="64" height="64" decoding="async" alt="Pindorama">
       <div>
         <strong>Coletivo Pindorama</strong>
         <span>Acupuntura · ferramenta experimental</span>

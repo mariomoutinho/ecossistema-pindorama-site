@@ -174,19 +174,19 @@ const therapyDetails = {
 };
 
 const services = [
-  { cat: 'Terapias Integrativas', title: 'Experiência Pindorama', duration: 'Personalizada', priceFrom: 'R$ 160,00', desc: 'Um atendimento integrado e personalizado, construído a partir da escuta compartilhada e da combinação de diferentes práticas terapêuticas conforme as necessidades de cada pessoa.', bg: './assets/img/terapias/experiencia-pindorama.png' },
-  { cat: 'Terapias Integrativas', title: 'Massagem Ayurvédica', duration: '80 min', priceFrom: 'R$ 160,00', desc: 'Cuidado profundo para relaxamento, vitalidade e equilíbrio.', bg: './assets/img/massagem-ayurvedica-bg.png' },
-  { cat: 'Terapias Integrativas', title: 'Massoterapia (diversas técnicas)', duration: '60 min', priceFrom: 'R$ 120,00', desc: 'Atendimento adaptado às necessidades do corpo e do momento.', bg: './assets/img/massoterapia-bg.png' },
-  { cat: 'Terapias Integrativas', title: 'Acupuntura', duration: '60 min', priceFrom: 'R$ 120,00', desc: 'Prática integrativa para dores, estresse e regulação do organismo.', bg: './assets/img/acupuntura-bg.png', bgPos: '75% center', bgSize: '140% auto' },
-  { cat: 'Terapias Integrativas', title: 'Quick Massage', duration: '20 min', priceFrom: 'R$ 40,00', desc: 'Massagem rápida e revigorante, ideal para alívio imediato de tensões.', bg: './assets/img/terapias/quick-massage.png' },
-  { cat: 'Terapias Integrativas', title: 'Massagem Relaxante com Pedras Quentes', duration: '60 min', priceFrom: 'R$ 96,00', desc: 'Calor terapêutico que dissolve tensões profundas e aprofunda o relaxamento.', bg: './assets/img/terapias/pedras-quentes.png' },
-  { cat: 'Terapias Integrativas', title: 'Manipulação Vertebral', duration: '60 min', priceFrom: 'R$ 96,00', desc: 'Ajustes precisos para restabelecer mobilidade e aliviar tensões na coluna.', bg: './assets/img/terapias/manipulacao-vertebral.png' },
-  { cat: 'Terapias Integrativas', title: 'Liberação Miofascial', duration: '60 min', priceFrom: 'R$ 96,00', desc: 'Técnica para soltar tensões profundas das fáscias e restaurar o equilíbrio corporal.', bg: './assets/img/terapias/massagem-relaxante.png' },
-  { cat: 'Terapias Integrativas', title: 'Reflexologia Podal', duration: '45 min', priceFrom: 'R$ 64,00', desc: 'Massagem nos pés que repercute bem-estar para todo o corpo.', bg: './assets/img/terapias/reflexologia-podal.png' },
-  { cat: 'Terapias Integrativas', title: 'Ventosaterapia', duration: '45 min', priceFrom: 'R$ 64,00', desc: 'Apoio para tensão muscular, circulação e bem-estar.', bg: './assets/img/ventosaterapia-bg.png' },
-  { cat: 'Terapias Integrativas', title: 'Moxabustão', duration: '40 min', priceFrom: 'R$ 56,00', desc: 'Calor terapêutico aplicado em pontos energéticos para equilíbrio vital.', bg: './assets/img/terapias/moxabustao.png' },
-  { cat: 'Terapias Integrativas', title: 'Auriculoterapia', duration: '30 min', priceFrom: 'R$ 56,00', desc: 'Estímulos na orelha para apoiar equilíbrio e sintomas.', bg: './assets/img/auriculoterapia-bg.png' },
-  { cat: 'Terapias Integrativas', title: 'Reiki', duration: '40 min', priceFrom: 'R$ 48,00', desc: 'Cuidado energético para acolher emoções e relaxar.', bg: './assets/img/reiki-bg.png' },
+  { cat: 'Terapias Integrativas', title: 'Experiência Pindorama', duration: 'Personalizada', priceFrom: 'R$ 160,00', desc: 'Um atendimento integrado e personalizado, construído a partir da escuta compartilhada e da combinação de diferentes práticas terapêuticas conforme as necessidades de cada pessoa.', bg: './assets/img/terapias/experiencia-pindorama.webp' },
+  { cat: 'Terapias Integrativas', title: 'Massagem Ayurvédica', duration: '80 min', priceFrom: 'R$ 160,00', desc: 'Cuidado profundo para relaxamento, vitalidade e equilíbrio.', bg: './assets/img/massagem-ayurvedica-bg.webp' },
+  { cat: 'Terapias Integrativas', title: 'Massoterapia (diversas técnicas)', duration: '60 min', priceFrom: 'R$ 120,00', desc: 'Atendimento adaptado às necessidades do corpo e do momento.', bg: './assets/img/massoterapia-bg.webp' },
+  { cat: 'Terapias Integrativas', title: 'Acupuntura', duration: '60 min', priceFrom: 'R$ 120,00', desc: 'Prática integrativa para dores, estresse e regulação do organismo.', bg: './assets/img/acupuntura-bg.webp', bgPos: '75% center', bgSize: '140% auto' },
+  { cat: 'Terapias Integrativas', title: 'Quick Massage', duration: '20 min', priceFrom: 'R$ 40,00', desc: 'Massagem rápida e revigorante, ideal para alívio imediato de tensões.', bg: './assets/img/terapias/quick-massage.webp' },
+  { cat: 'Terapias Integrativas', title: 'Massagem Relaxante com Pedras Quentes', duration: '60 min', priceFrom: 'R$ 96,00', desc: 'Calor terapêutico que dissolve tensões profundas e aprofunda o relaxamento.', bg: './assets/img/terapias/pedras-quentes.webp' },
+  { cat: 'Terapias Integrativas', title: 'Manipulação Vertebral', duration: '60 min', priceFrom: 'R$ 96,00', desc: 'Ajustes precisos para restabelecer mobilidade e aliviar tensões na coluna.', bg: './assets/img/terapias/manipulacao-vertebral.webp' },
+  { cat: 'Terapias Integrativas', title: 'Liberação Miofascial', duration: '60 min', priceFrom: 'R$ 96,00', desc: 'Técnica para soltar tensões profundas das fáscias e restaurar o equilíbrio corporal.', bg: './assets/img/terapias/massagem-relaxante.webp' },
+  { cat: 'Terapias Integrativas', title: 'Reflexologia Podal', duration: '45 min', priceFrom: 'R$ 64,00', desc: 'Massagem nos pés que repercute bem-estar para todo o corpo.', bg: './assets/img/terapias/reflexologia-podal.webp' },
+  { cat: 'Terapias Integrativas', title: 'Ventosaterapia', duration: '45 min', priceFrom: 'R$ 64,00', desc: 'Apoio para tensão muscular, circulação e bem-estar.', bg: './assets/img/ventosaterapia-bg.webp' },
+  { cat: 'Terapias Integrativas', title: 'Moxabustão', duration: '40 min', priceFrom: 'R$ 56,00', desc: 'Calor terapêutico aplicado em pontos energéticos para equilíbrio vital.', bg: './assets/img/terapias/moxabustao.webp' },
+  { cat: 'Terapias Integrativas', title: 'Auriculoterapia', duration: '30 min', priceFrom: 'R$ 56,00', desc: 'Estímulos na orelha para apoiar equilíbrio e sintomas.', bg: './assets/img/auriculoterapia-bg.webp' },
+  { cat: 'Terapias Integrativas', title: 'Reiki', duration: '40 min', priceFrom: 'R$ 48,00', desc: 'Cuidado energético para acolher emoções e relaxar.', bg: './assets/img/reiki-bg.webp' },
 ];
 
 const categories = ['Todos', ...Array.from(new Set(services.map(s => s.cat)))];
@@ -222,7 +222,7 @@ function renderServices(filter = 'Todos') {
     const bgSize = s.bgSize || 'cover';
 
     const bgStyle = hasBg
-      ? `style="background-image: url('${escapeAttr(s.bg)}'); background-position: ${escapeAttr(bgPos)}; background-size: ${escapeAttr(bgSize)};"`
+      ? `style="background-position: ${escapeAttr(bgPos)}; background-size: ${escapeAttr(bgSize)};" data-bg="${escapeAttr(s.bg)}"`
       : '';
 
     const cardClass = 'serviceCard' + (hasBg ? '' : ' serviceCard--noImage');
@@ -268,6 +268,35 @@ function renderServices(filter = 'Todos') {
       }
     });
   });
+
+  applyLazyBackgrounds(gridEl.querySelectorAll('.serviceCard__bg[data-bg]'));
+}
+
+function applyLazyBackgrounds(nodes) {
+  const items = Array.from(nodes);
+  if (!items.length) return;
+
+  const load = (el) => {
+    const src = el.dataset.bg;
+    if (!src) return;
+    el.style.backgroundImage = `url('${escapeAttr(src)}')`;
+    delete el.dataset.bg;
+  };
+
+  if (!('IntersectionObserver' in window)) {
+    items.forEach(load);
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      load(entry.target);
+      observer.unobserve(entry.target);
+    });
+  }, { rootMargin: '260px 0px' });
+
+  items.forEach((el) => observer.observe(el));
 }
 
 function getServiceDetail(service) {

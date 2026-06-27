@@ -50,7 +50,7 @@ require __DIR__ . '/partials/header.php';
 ?>
 
 <div class="terap-auth-card">
-  <img src="../assets/img/logo-pindorama.svg" alt="Pindorama" class="terap-auth-card__logo">
+  <img src="../assets/img/logo-pindorama-128.webp" width="96" height="96" decoding="async" alt="Pindorama" class="terap-auth-card__logo">
   <h1>Área dos terapeutas</h1>
   <p class="terap-auth-sub">Acesse com seu e-mail e senha para entrar no painel do Espaço Pindorama.</p>
 

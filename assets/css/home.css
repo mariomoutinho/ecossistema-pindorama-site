@@ -290,17 +290,26 @@
   padding: 6px 0;
 }
 .therapyCarousel__dot{
-  width: 9px;
-  height: 9px;
+  position: relative;
+  width: 24px;
+  height: 24px;
   padding: 0;
+  margin: -7.5px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.therapyCarousel__dot::before{
+  content: "";
+  position: absolute;
+  inset: 7.5px;
   border-radius: 999px;
   border: 1px solid rgba(244,231,211,.42);
   background: rgba(244,231,211,.18);
-  cursor: pointer;
-  transition: width .25s ease, background .25s ease, border-color .25s ease;
+  transition: transform .25s ease, background .25s ease, border-color .25s ease;
 }
-.therapyCarousel__dot.active{
-  width: 28px;
+.therapyCarousel__dot.active::before{
+  transform: scaleX(3.1);
   background: var(--sand);
   border-color: var(--sand);
 }
@@ -1074,16 +1083,16 @@ textarea{ min-height: 120px; resize: vertical; }
 }
 
 .ecosystem-card--terapias .ecosystem-card__bg{
-  background-image: url("../img/ecossistema/espaco-pindorama-bg.png");
+  background-image: url("../img/ecossistema/espaco-pindorama-bg.webp");
 }
 .ecosystem-card--cuidar .ecosystem-card__bg{
-  background-image: url("../img/ecossistema/cuidar-mais-bg.png");
+  background-image: url("../img/ecossistema/cuidar-mais-bg.webp");
 }
 .ecosystem-card--rpg .ecosystem-card__bg{
-  background-image: url("../img/ecossistema/pindorama-rpg-bg.png");
+  background-image: url("../img/ecossistema/pindorama-rpg-bg.webp");
 }
 .ecosystem-card--sementeira .ecosystem-card__bg{
-  background-image: url("../img/ecossistema/sementeira-bg.png");
+  background-image: url("../img/ecossistema/sementeira-bg.webp");
 }
 /* Suindá ainda não tem arte dedicada: usa gradiente da sua identidade (teal + dourado). */
 .ecosystem-card--suinda .ecosystem-card__bg{

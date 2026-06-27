@@ -140,6 +140,10 @@ a{ color: inherit; text-decoration: none; }
 .drawer.open{ display:block; }
 
 section{ padding: 56px 0; }
+main > section:not(:first-child){
+  content-visibility: auto;
+  contain-intrinsic-size: auto 480px;
+}
 
 .sectionHead{
   display:flex; align-items:flex-end; justify-content:space-between;

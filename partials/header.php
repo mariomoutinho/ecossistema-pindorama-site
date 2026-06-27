@@ -10,6 +10,7 @@ $active           = $activePage         ?? 'home';
 $pageTitle        = $pageTitle          ?? 'Coletivo Pindorama • Saúde Integrativa & Bem-Estar';
 $pageDescription  = $pageDescription    ?? 'Saúde Integrativa & Bem-Estar em Recife/PE. Terapias, atividades coletivas, formações e a metodologia Cuidar+.';
 $extraStyles      = $extraStyles        ?? [];
+$preloadImages    = $preloadImages      ?? [];
 
 // Prefixo para âncoras de seções que só existem na home (#sobre, #contato).
 $homePrefix = ($active === 'home') ? '' : htmlspecialchars($homeUrl);
@@ -21,7 +22,19 @@ $homePrefix = ($active === 'home') ? '' : htmlspecialchars($homeUrl);
   <title><?= htmlspecialchars($pageTitle) ?></title>
   <meta name="description" content="<?= htmlspecialchars($pageDescription) ?>" />
   <meta name="theme-color" content="#0E1C17" />
-  <link rel="icon" type="image/svg+xml" href="assets/img/logo-pindorama.svg" />
+  <link rel="icon" type="image/png" href="assets/img/logo-pindorama-64.png" />
+
+  <?php foreach ($preloadImages as $img): ?>
+    <link
+      rel="preload"
+      as="image"
+      href="<?= htmlspecialchars($img['href']) ?>"
+      <?php if (!empty($img['type'])): ?>type="<?= htmlspecialchars($img['type']) ?>"<?php endif; ?>
+      <?php if (!empty($img['imagesrcset'])): ?>imagesrcset="<?= htmlspecialchars($img['imagesrcset']) ?>"<?php endif; ?>
+      <?php if (!empty($img['imagesizes'])): ?>imagesizes="<?= htmlspecialchars($img['imagesizes']) ?>"<?php endif; ?>
+      <?php if (!empty($img['fetchpriority'])): ?>fetchpriority="<?= htmlspecialchars($img['fetchpriority']) ?>"<?php endif; ?>
+    >
+  <?php endforeach; ?>
 
   <link rel="stylesheet" href="assets/css/global.css">
   <link rel="stylesheet" href="assets/css/home.css">
@@ -35,7 +48,7 @@ $homePrefix = ($active === 'home') ? '' : htmlspecialchars($homeUrl);
   <div class="container">
     <div class="nav">
       <a class="brand" href="<?= htmlspecialchars($homeUrl) ?>#topo">
-        <img class="logo" src="assets/img/logo-pindorama.svg" alt="Coletivo Pindorama">
+        <img class="logo" src="assets/img/logo-pindorama-128.webp" width="64" height="64" decoding="async" alt="Coletivo Pindorama">
         <div>
           <h1>Coletivo Pindorama</h1>
           <p>Saúde Integrativa &amp; Bem-Estar</p>

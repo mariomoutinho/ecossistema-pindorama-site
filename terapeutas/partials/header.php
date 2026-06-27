@@ -34,7 +34,7 @@ $perfilLabel = (isset($terapeutaLogado) && function_exists('auth_papel_label'))
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0E1C17" />
   <title><?= htmlspecialchars($pageTitle) ?></title>
-  <link rel="icon" type="image/svg+xml" href="../assets/img/logo-pindorama.svg" />
+  <link rel="icon" type="image/png" href="../assets/img/logo-pindorama-64.png" />
   <link rel="stylesheet" href="../assets/css/global.css">
   <link rel="stylesheet" href="../assets/css/terapeutas.css">
 </head>
@@ -44,7 +44,7 @@ $perfilLabel = (isset($terapeutaLogado) && function_exists('auth_papel_label'))
 <header class="terap-topbar">
   <div class="terap-topbar__inner">
     <a class="terap-brand" href="index.php">
-      <img src="../assets/img/logo-pindorama.svg" alt="Pindorama" class="terap-brand__logo">
+      <img src="../assets/img/logo-pindorama-128.webp" width="64" height="64" decoding="async" alt="Pindorama" class="terap-brand__logo">
       <div>
         <strong>Espaço Pindorama</strong>
         <span>Área dos terapeutas</span>

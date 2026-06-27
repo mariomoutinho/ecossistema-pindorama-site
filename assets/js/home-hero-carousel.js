@@ -53,6 +53,10 @@
       var sel = track.querySelectorAll('.hhc__slide[data-real="' + realIndex + '"] .hhc__img');
       Array.prototype.forEach.call(sel, function (img) {
         var ds = img.getAttribute('data-src');
+        var dss = img.getAttribute('data-srcset');
+        var dsz = img.getAttribute('data-sizes');
+        if (dss) { img.setAttribute('srcset', dss); img.removeAttribute('data-srcset'); }
+        if (dsz) { img.setAttribute('sizes', dsz); img.removeAttribute('data-sizes'); }
         if (ds) { img.setAttribute('src', ds); img.removeAttribute('data-src'); }
       });
     }
@@ -84,12 +88,13 @@
     function setPos(p, animate) {
       pos = p;
       if (!animate || prefersReduced) {
-        var prev = track.style.transition;
-        track.style.transition = 'none';
+        track.classList.add('hhc__track--jump');
         applyTransform();
-        void track.offsetWidth; // força reflow p/ o "salto" sem animação
-        track.style.transition = prev;
+        window.requestAnimationFrame(function () {
+          track.classList.remove('hhc__track--jump');
+        });
       } else {
+        track.classList.remove('hhc__track--jump');
         applyTransform();
       }
       updateActive();

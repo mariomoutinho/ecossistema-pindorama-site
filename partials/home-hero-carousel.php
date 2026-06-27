@@ -24,6 +24,14 @@ $bannerSlides = [
   ['file' => '07-massagem-ayurvedica.webp',       'label' => 'Massagem ayurvédica',   'posD' => 'center center', 'posM' => 'center center', 'alt' => 'Sessão de massagem ayurvédica com aplicação de óleo.'],
 ];
 $bannerTotal = count($bannerSlides);
+function banner_srcset(string $base, string $file): string {
+  $stem = preg_replace('/\.webp$/', '', $file);
+  return
+    $base . $stem . '-640.webp 640w, ' .
+    $base . $stem . '-960.webp 960w, ' .
+    $base . $stem . '-1280.webp 1280w, ' .
+    $base . $file . ' 1600w';
+}
 ?>
 <section
   class="hhc"
@@ -37,7 +45,8 @@ $bannerTotal = count($bannerSlides);
       <div class="hhc__track" id="hhcTrack">
         <?php foreach ($bannerSlides as $i => $s):
           $first = ($i === 0);
-          $src   = $bannerBase . $s['file'];
+          $src   = $bannerBase . preg_replace('/\.webp$/', '-1280.webp', $s['file']);
+          $srcset = banner_srcset($bannerBase, $s['file']);
         ?>
         <div
           class="hhc__slide"
@@ -51,10 +60,14 @@ $bannerTotal = count($bannerSlides);
             style="--pos-d: <?= htmlspecialchars($s['posD']) ?>; --pos-m: <?= htmlspecialchars($s['posM']) ?>;"
             <?php if ($first): ?>
               src="<?= htmlspecialchars($src) ?>"
+              srcset="<?= htmlspecialchars($srcset) ?>"
+              sizes="(max-width: 767px) calc(100vw - 40px), min(1120px, calc(100vw - 40px))"
               fetchpriority="high"
               loading="eager"
             <?php else: ?>
               data-src="<?= htmlspecialchars($src) ?>"
+              data-srcset="<?= htmlspecialchars($srcset) ?>"
+              data-sizes="(max-width: 767px) calc(100vw - 40px), min(1120px, calc(100vw - 40px))"
               loading="lazy"
             <?php endif; ?>
             decoding="async"

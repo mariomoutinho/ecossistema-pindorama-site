@@ -14,8 +14,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
 
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -23,7 +26,7 @@
     <header class="site-header" id="topo">
       <div class="container nav">
         <a href="../" class="brand" aria-label="Coletivo Pindorama — página inicial">
-          <img src="../assets/img/logo-pindorama.svg" alt="Logo Coletivo Pindorama" class="brand-logo" />
+          <img src="../assets/img/logo-pindorama-128.webp" width="42" height="42" decoding="async" alt="Logo Coletivo Pindorama" class="brand-logo" />
           <span class="brand-text">Coletivo Pindorama</span>
         </a>
 
@@ -423,7 +426,7 @@
       <div class="container footer-content">
         <div>
           <a href="#topo" class="brand footer-brand">
-            <img src="Design sem nome.png" alt="Logo Cuidar+" class="brand-logo" />
+            <img src="Design sem nome.webp" loading="lazy" decoding="async" alt="Logo Cuidar+" class="brand-logo" />
             <span class="brand-text">Cuidar<span>+</span></span>
           </a>
           <p>
@@ -445,6 +448,6 @@
 
     <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">↑</button>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
   </body>
 </html>

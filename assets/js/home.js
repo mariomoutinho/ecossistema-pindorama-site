@@ -30,7 +30,7 @@ const services = [
     duration: '80 min',
     priceFrom: 'R$ 160,00',
     desc: 'Cuidado profundo para relaxamento, vitalidade e equilíbrio.',
-    bg: './assets/img/massagem-ayurvedica-bg.png'
+    bg: './assets/img/massagem-ayurvedica-bg.webp'
   },
   {
     cat: 'Massagens corporais',
@@ -38,7 +38,7 @@ const services = [
     duration: '60 min',
     priceFrom: 'R$ 120,00',
     desc: 'Atendimento adaptado às necessidades do corpo e do momento.',
-    bg: './assets/img/massoterapia-bg.png'
+    bg: './assets/img/massoterapia-bg.webp'
   },
   {
     cat: 'Massagens corporais',
@@ -46,7 +46,7 @@ const services = [
     duration: '20 min',
     priceFrom: 'R$ 40,00',
     desc: 'Massagem rápida e revigorante, ideal para alívio imediato de tensões.',
-    bg: './assets/img/terapias/quick-massage.png'
+    bg: './assets/img/terapias/quick-massage.webp'
   },
   {
     cat: 'Massagens corporais',
@@ -54,7 +54,7 @@ const services = [
     duration: '60 min',
     priceFrom: 'R$ 96,00',
     desc: 'Calor terapêutico que dissolve tensões profundas e aprofunda o relaxamento.',
-    bg: './assets/img/terapias/pedras-quentes.png'
+    bg: './assets/img/terapias/pedras-quentes.webp'
   },
   {
     cat: 'Massagens corporais',
@@ -62,7 +62,7 @@ const services = [
     duration: '50 min',
     priceFrom: 'R$ 96,00',
     desc: 'Ajustes precisos para restabelecer mobilidade e aliviar tensões na coluna.',
-    bg: './assets/img/terapias/manipulacao-vertebral.png'
+    bg: './assets/img/terapias/manipulacao-vertebral.webp'
   },
   {
     cat: 'Massagens corporais',
@@ -70,7 +70,7 @@ const services = [
     duration: '60 min',
     priceFrom: 'R$ 96,00',
     desc: 'Técnica para soltar tensões profundas das fáscias e restaurar o equilíbrio corporal.',
-    bg: './assets/img/terapias/massagem-relaxante.png'
+    bg: './assets/img/terapias/massagem-relaxante.webp'
   },
 
   // ---------- Terapias orientais ----------
@@ -80,7 +80,7 @@ const services = [
     duration: '60 min',
     priceFrom: 'R$ 120,00',
     desc: 'Prática integrativa para dores, estresse e regulação do organismo.',
-    bg: './assets/img/acupuntura-bg.png',
+    bg: './assets/img/acupuntura-bg.webp',
     bgPos: '75% center',
     bgSize: '140% auto'
   },
@@ -90,7 +90,7 @@ const services = [
     duration: '45 min',
     priceFrom: 'R$ 64,00',
     desc: 'Apoio para tensão muscular, circulação e bem-estar.',
-    bg: './assets/img/ventosaterapia-bg.png'
+    bg: './assets/img/ventosaterapia-bg.webp'
   },
   {
     cat: 'Terapias orientais',
@@ -98,7 +98,7 @@ const services = [
     duration: '40 min',
     priceFrom: 'R$ 56,00',
     desc: 'Calor terapêutico aplicado em pontos energéticos para equilíbrio vital.',
-    bg: './assets/img/terapias/moxabustao.png'
+    bg: './assets/img/terapias/moxabustao.webp'
   },
   {
     cat: 'Terapias orientais',
@@ -106,7 +106,7 @@ const services = [
     duration: '30 min',
     priceFrom: 'R$ 56,00',
     desc: 'Estímulos na orelha para apoiar equilíbrio e sintomas.',
-    bg: './assets/img/auriculoterapia-bg.png'
+    bg: './assets/img/auriculoterapia-bg.webp'
   },
 
   // ---------- Cuidado integrativo ----------
@@ -116,7 +116,7 @@ const services = [
     duration: '45 min',
     priceFrom: 'R$ 64,00',
     desc: 'Massagem nos pés que repercute bem-estar para todo o corpo.',
-    bg: './assets/img/terapias/reflexologia-podal.png'
+    bg: './assets/img/terapias/reflexologia-podal.webp'
   },
   {
     cat: 'Cuidado integrativo',
@@ -124,7 +124,7 @@ const services = [
     duration: '40 min',
     priceFrom: 'R$ 48,00',
     desc: 'Cuidado energético para acolher emoções e relaxar.',
-    bg: './assets/img/reiki-bg.png'
+    bg: './assets/img/reiki-bg.webp'
   }
 ];
 
@@ -230,6 +230,23 @@ function renderCarousel() {
   startCarousel();
 }
 
+function initCarouselWhenVisible() {
+  if (!carouselEl) return;
+
+  if (!('IntersectionObserver' in window)) {
+    renderCarousel();
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    if (!entries.some(entry => entry.isIntersecting)) return;
+    observer.disconnect();
+    renderCarousel();
+  }, { rootMargin: '220px 0px' });
+
+  observer.observe(carouselEl);
+}
+
 function goToSlide(index, userAction = false) {
   if (!carouselEl || !services.length) return;
 
@@ -306,5 +323,5 @@ function escapeAttr(str){
 }
 
 renderFilters('Todos');
-renderCarousel();
+initCarouselWhenVisible();
 renderServices('Todos');
