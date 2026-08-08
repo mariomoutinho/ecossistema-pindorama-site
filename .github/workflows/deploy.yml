@@ -15,6 +15,40 @@ jobs:
       - name: Checkout do repositório
         uses: actions/checkout@v4
 
+      - name: Checkout do OrderFlow
+        uses: actions/checkout@v4
+        with:
+          repository: mariomoutinho/orderflow-dotnet-api
+          ref: main
+          path: .deploy/orderflow-source
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.19.0
+          cache: npm
+          cache-dependency-path: .deploy/orderflow-source/frontend/orderflow-web/package-lock.json
+
+      - name: Construir interface do OrderFlow
+        working-directory: .deploy/orderflow-source/frontend/orderflow-web
+        run: |
+          npm ci
+          npm run build:hostinger
+
+      - name: Montar publicação do OrderFlow
+        run: |
+          set -euo pipefail
+          rsync -a --delete \
+            --exclude='.htaccess' \
+            --exclude='api.php' \
+            --exclude='data/' \
+            .deploy/orderflow-source/frontend/orderflow-web/dist/orderflow-web/browser/ \
+            orderflow/
+
+          test -f orderflow/index.html
+          test -f orderflow/api.php
+          grep -F '<base href="/orderflow/">' orderflow/index.html
+
       - name: Publicar via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
@@ -34,6 +68,7 @@ jobs:
             **/.vscode/**
             .claude/**
             **/.claude/**
+            .deploy/**
             README.md
             CLAUDE.md
             docs/**
@@ -47,6 +82,9 @@ jobs:
             terapeutas/config-mail.php
             terapeutas/config-provision.php
             pindoramarpg/config.php
+            orderflow/data/orders.json
+            orderflow/data/orders.lock
+            orderflow/data/orders-*.tmp
             # --- artefatos que não pertencem ao deploy ---
             dbtest.php
             _backup_*/**
@@ -117,6 +155,8 @@ jobs:
             cls -la index.php coletivopindorama.php .htaccess
             echo "--- pindoramarpg/ ---"
             cls -la pindoramarpg/index.php pindoramarpg/.htaccess
+            echo "--- orderflow/ ---"
+            cls -la orderflow/index.html orderflow/api.php orderflow/.htaccess
             echo "--- pasta lixo public_html/ dentro da raiz? ---"
             cls -la public_html
             bye

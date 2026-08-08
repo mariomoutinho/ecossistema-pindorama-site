@@ -26,6 +26,13 @@ dbtest.php
 data/
 *.log
 
+# --- OrderFlow (estado runtime nunca é versionado) ---
+!orderflow/data/
+!orderflow/data/.htaccess
+orderflow/data/orders.json
+orderflow/data/orders.lock
+orderflow/data/orders-*.tmp
+
 # --- Ferramentas de IDE / sistema operacional ---
 .claude/settings.local.json
 .vscode/

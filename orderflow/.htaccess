@@ -1,0 +1,18 @@
+DirectoryIndex index.html
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /orderflow/
+
+  RewriteRule ^orders/?$ api.php?route=orders [QSA,L]
+  RewriteRule ^orders/([0-9a-fA-F-]{36})/status/?$ api.php?route=status&id=$1 [QSA,L]
+  RewriteRule ^orders/([0-9a-fA-F-]{36})/?$ api.php?route=order&id=$1 [QSA,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "^(?:api\.php)$">
+    Header set Cache-Control "no-store"
+    Header set X-Content-Type-Options "nosniff"
+  </FilesMatch>
+</IfModule>
